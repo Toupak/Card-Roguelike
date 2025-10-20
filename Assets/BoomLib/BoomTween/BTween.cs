@@ -8,7 +8,12 @@ namespace BoomLib.BoomTween
 {
     public static class BTween
     {
-        public static IEnumerator Squeeze(Transform target, Vector3 originalSize, Vector2 squeeze, float duration, bool deactivateOnEnd = false, bool unscaledTime = false)
+        public static IEnumerator Squeeze(Transform target, float duration = 0.1f, bool deactivateOnEnd = false, bool unscaledTime = false)
+        {
+            yield return Squeeze(target, Vector3.one, new Vector2(1.3f, 0.7f), duration, deactivateOnEnd, unscaledTime);
+        }
+
+        public static IEnumerator Squeeze(Transform target, Vector3 originalSize, Vector2 squeeze, float duration = 0.1f, bool deactivateOnEnd = false, bool unscaledTime = false)
         {
             Vector3 newSize = new Vector3(squeeze.x * originalSize.x, squeeze.y * originalSize.y, originalSize.z);
 
