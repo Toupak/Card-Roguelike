@@ -12,6 +12,7 @@ namespace CombatLoop
         public enum TurnType
         {
             Preparation,
+            SetupOver,
             Player,
             Enemy
         }
@@ -24,7 +25,7 @@ namespace CombatLoop
             currentTurn = TurnType.Preparation;
             yield return FightIntro();
             yield return PlaceEnemyCards(); // Enemy cards appear
-            yield return DrawCards(); // draw 10 cards
+            yield return DrawCards();
             yield return PlayHand(); // place a maximum of 5 cards in available slots
 
             currentTurn = TurnType.Player;
@@ -59,7 +60,12 @@ namespace CombatLoop
         
         private IEnumerator PlayHand()
         {
-            yield break;
+            yield return new WaitWhile(() => currentTurn == TurnType.Preparation);
+        }
+
+        public void OnEndSetupPhase()
+        {
+            currentTurn = TurnType.SetupOver;
         }
 
         private IEnumerator PlayChangeTurnAnimation()

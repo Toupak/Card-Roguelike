@@ -57,7 +57,7 @@ namespace BoomLib.BoomTween
             target.position -= previousShake.ToVector3();
         }
 
-        public static IEnumerator TweenPosition(RectTransform target, Vector3 targetPosition, float duration, bool deactivateOnEnd = false, bool unscaledTime = false)
+        public static IEnumerator TweenPosition(Transform target, Vector3 targetPosition, float duration, bool deactivateOnEnd = false, bool unscaledTime = false)
         {
             target.gameObject.SetActive(true);
         

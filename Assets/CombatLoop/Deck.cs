@@ -18,9 +18,11 @@ public class Deck : MonoBehaviour
     {
         List<CardController> cards = new List<CardController>();
 
+        Vector3 position = transform.position;
+        
         foreach(CardData cardData in cardsData)
         {
-            CardController cardTemp = Instantiate(cardPrefab);
+            CardController cardTemp = Instantiate(cardPrefab, position, Quaternion.identity);
             cardTemp.Setup(cardData);
 
             cards.Add(cardTemp);
