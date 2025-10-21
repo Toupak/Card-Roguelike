@@ -5,9 +5,10 @@ namespace CombatLoop
 {
     public class CombatLoop : MonoBehaviour
     {
-        [SerializeField] private PlayerHandController playerHandController;
+        [SerializeField] private PlayerTurnController playerTurnController;
         [SerializeField] private EnemyHandController enemyHandController;
-        
+        [SerializeField] private PlayerHandController playerHandController;
+
         public enum TurnType
         {
             Preparation,
@@ -53,7 +54,7 @@ namespace CombatLoop
         
         private IEnumerator DrawCards()
         {
-            yield break;
+            yield return playerHandController.DrawHand();
         }
         
         private IEnumerator PlayHand()
@@ -79,8 +80,8 @@ namespace CombatLoop
 
         private IEnumerator DoPlayerTurn()
         {
-            playerHandController.StartPlayTurn();
-            yield return new WaitUntil(() => playerHandController.IsOver);
+            playerTurnController.StartPlayTurn();
+            yield return new WaitUntil(() => playerTurnController.IsOver);
         }
         
         private bool IsMatchOver()

@@ -1,24 +1,25 @@
+using NUnit.Framework;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHandController : MonoBehaviour
 {
-    public bool IsOver { get; internal set; }
+    private List<CardController> cards;
 
-    internal void StartPlayTurn()
+    public IEnumerator DrawHand()
     {
-        throw new NotImplementedException();
+        cards = Deck.instance.DrawCards();
+
+        for (int i = 0; i < cards.Count; i++)
+        {
+            yield return PlaceCardInHand(cards[i], i);
+        }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private IEnumerator PlaceCardInHand(CardController card, int i)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        yield return null;
     }
 }

@@ -1,14 +1,19 @@
+using System;
 using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    internal void Setup(CardData cardData)
+    {
+        throw new NotImplementedException();
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
