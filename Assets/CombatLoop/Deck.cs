@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class Deck : MonoBehaviour
 
     [SerializeField] CardController cardPrefab;
 
-    private List<CardData> cardsData;
+    [SerializeField] private List<CardData> cardsData;
 
     private void Awake()
     {

@@ -1,21 +1,15 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    internal void Setup(CardData cardData)
-    {
-        throw new NotImplementedException();
-    }
+    [SerializeField] private TextMeshPro cardName;
+    [SerializeField] private TextMeshPro cardNumber;
 
-    void Start()
+    public void Setup(CardData cardData)
     {
-        
-    }
-
-
-    void Update()
-    {
-        
+        cardName.text = cardData.cardName;
+        cardNumber.text = cardData.cardNumber.ToString();
     }
 }
