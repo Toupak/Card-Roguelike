@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +12,7 @@ public class Board : MonoBehaviour
     private CardController currentSelectedCard;
     private int currentSelectedSlot;
 
-    [SerializeField] private List<Transform> slots;
+    private List<Transform> slots;
 
     private void OnEnable()
     {
@@ -25,9 +26,16 @@ public class Board : MonoBehaviour
         OnStopDragging.RemoveAllListeners();
     }
 
-    void Start()
+    private void Start()
     {
+        SetupSlotList();
+    }
 
+    private void SetupSlotList()
+    {
+        slots = new List<Transform>();
+        for (int i = 0; i < transform.childCount; i++)
+            slots.Add(transform.GetChild(i));
     }
 
     void Update()
@@ -59,7 +67,7 @@ public class Board : MonoBehaviour
 
         SetNewSlot(GetCardFromSlotIndex(currentSelectedSlot), newSlotIndex);
         SetNewSlot(GetCardFromSlotIndex(newSlotIndex), temp);
-        SetNewPosition(GetCardFromSlotIndex(newSlotIndex));
+        SetNewPosition(GetCardFromSlotIndex(currentSelectedSlot));
 
         currentSelectedSlot = newSlotIndex;
     }
