@@ -6,6 +6,7 @@ using BoomLib.SFX_Player.Scripts;
 using BoomLib.Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
 public class HandCursor : MonoBehaviour
@@ -17,10 +18,20 @@ public class HandCursor : MonoBehaviour
     [SerializeField] private Sprite openHand;
     [SerializeField] private Sprite pointingFinger;
 
+    [SerializeField] private Transform pointerPosition;
+
     private Camera mainCamera;
     private Collider2D hitbox;
 
     private bool isHovering;
+
+    public interface IInteractable
+    {
+        public void Interact();
+        public void EndInteract();
+        public void Hover();
+        public void EndHover();
+    }
 
     private void Awake()
     {
