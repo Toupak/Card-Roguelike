@@ -63,6 +63,9 @@ namespace Board.Script
                 return;
 
             CheckRelativePositionToOtherBoard();
+            
+            if (currentSelectedCard == null)
+                return;
 
             for (int i = 0; i < slots.Count; i++)
             {
@@ -92,8 +95,9 @@ namespace Board.Script
 
         private void SendToOtherBoard()
         {
+            int currentIndex = currentSelectedCard.SlotIndex;
             otherContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
-            DeleteCurrentSlot();
+            DeleteCurrentSlot(currentIndex);
             currentSelectedCard = null;
         }
 
@@ -103,20 +107,26 @@ namespace Board.Script
             CreateNewSlot();
         }
 
-        private void DeleteCurrentSlot()
+        private void DeleteCurrentSlot(int index)
         {
-            Destroy(slots[currentSelectedCard.SlotIndex].gameObject);
-            slots.RemoveAt(currentSelectedCard.SlotIndex);
+            Destroy(slots[index].gameObject);
+            slots.RemoveAt(index);
+            UpdateSlotIndexList();
         }
 
         private void CreateNewSlot()
         {
-            Slot newSlot = Instantiate(slotPrefab);
-            newSlot.transform.SetParent(transform);
+            Slot newSlot = Instantiate(slotPrefab, transform);
             newSlot.Setup(slots.Count, this);
             slots.Add(newSlot);
 
             currentSelectedCard.SetNewSlot(newSlot);
+        }
+
+        private void UpdateSlotIndexList()
+        {
+            for (int i = 0; i < slots.Count; i++)
+                slots[i].SetIndex(i);
         }
 
         private void SwapSlots(int slotToMoveIndex)

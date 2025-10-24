@@ -16,5 +16,10 @@ namespace CardSlot
             index = slotIndex;
             board = parentBoard;
         }
+
+        public void SetIndex(int slotIndex)
+        {
+            index = slotIndex;
+        }
     }
 }
