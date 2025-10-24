@@ -1,12 +1,15 @@
 using System;
 using UnityEngine;
 
-public class PlayerTurnController : MonoBehaviour
+namespace CombatLoop
 {
-    public bool IsOver { get; internal set; }
-
-    internal void StartPlayTurn()
+    public class PlayerTurnController : MonoBehaviour
     {
-        throw new NotImplementedException();
+        public bool IsOver { get; internal set; }
+
+        internal void StartPlayTurn()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

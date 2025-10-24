@@ -1,24 +1,27 @@
 using System;
 using UnityEngine;
 
-public class EnemyHandController : MonoBehaviour
+namespace CombatLoop
 {
-    public bool IsOver { get; internal set; }
-
-    internal void StartPlayTurn()
+    public class EnemyHandController : MonoBehaviour
     {
-        throw new NotImplementedException();
-    }
+        public bool IsOver { get; internal set; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+        internal void StartPlayTurn()
+        {
+            throw new NotImplementedException();
+        }
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

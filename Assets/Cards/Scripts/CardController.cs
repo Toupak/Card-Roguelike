@@ -1,70 +1,50 @@
 using System;
-using TMPro;
+using Slot;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
-public class CardController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+namespace Cards.Scripts
 {
-    [SerializeField] private TextMeshPro cardName;
-    [SerializeField] private TextMeshPro cardNumber;
-
-    private bool isDragging;
-    public bool IsDragging => isDragging;
-
-    private Board board;
-
-    private void Start()
+    public class CardController : MonoBehaviour
     {
-        board = transform.parent.parent.GetComponent<Board>();
-    }
+        [SerializeField] private CardMovement cardMovement;
+        [SerializeField] private Transform cardGraphics;
+        
+        private SlotContainer slot;
+        public SlotContainer Slot => slot;
+        public int SlotIndex => slot.Index;
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        isDragging = true;
+        public Vector2 position => cardMovement.transform.position;
 
-        if (board != null)
-            board.OnStartDragging.Invoke(this);
-    }
+        private void Start()
+        {
+            slot = transform.parent.GetComponent<SlotContainer>();
+        }
+        
+        public void SetNewSlot(SlotContainer newSlot, bool resetPosition = false)
+        {
+            Vector3 currentPosition = position;
+            
+            slot = newSlot;
+            transform.SetParent(slot.transform);
+            transform.position = slot.transform.position;
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = eventData.position;
-    }
+            if (resetPosition)
+                cardMovement.ResetPosition();
+            else
+                cardMovement.transform.position = currentPosition;
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        transform.localPosition = Vector3.zero;
+        }
 
-        isDragging = false;
+        public void OnBeginDragging()
+        {
+            if (slot.board != null)
+                slot.board.OnStartDragging.Invoke(this);
+        }
 
-        if (board != null)
-            board.OnStopDragging.Invoke();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-
-    }
-
-    public void Setup(CardData cardData)
-    {
-        cardName.text = cardData.cardName;
-        cardNumber.text = cardData.cardNumber.ToString();
+        public void OnEndDrag()
+        {
+            if (slot.board != null)
+                slot.board.OnStopDragging.Invoke();
+        }
     }
 }

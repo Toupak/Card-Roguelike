@@ -1,44 +1,48 @@
 using System.Collections.Generic;
+using Cards;
+using Cards.Scripts;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+namespace CombatLoop
 {
-    public static Deck instance;
-
-    [SerializeField] CardController cardPrefab;
-
-    [SerializeField] private List<CardData> cardsData;
-
-    private void Awake()
+    public class Deck : MonoBehaviour
     {
-        instance = this;
-    }
+        public static Deck instance;
 
-    public List<CardController> DrawCards()
-    {
-        List<CardController> cards = new List<CardController>();
+        [SerializeField] CardMovement cardPrefab;
 
-        Vector3 position = transform.position;
-        
-        foreach(CardData cardData in cardsData)
+        [SerializeField] private List<CardData> cardsData;
+
+        private void Awake()
         {
-            CardController cardTemp = Instantiate(cardPrefab, position, Quaternion.identity);
-            cardTemp.Setup(cardData);
-
-            cards.Add(cardTemp);
+            instance = this;
         }
 
-        return cards;
-    }
+        public List<CardMovement> DrawCards()
+        {
+            List<CardMovement> cards = new List<CardMovement>();
 
-    public void AddCard(CardData card)
-    {
-        cardsData.Add(card);
-    }
+            Vector3 position = transform.position;
+        
+            foreach(CardData cardData in cardsData)
+            {
+                CardMovement cardTemp = Instantiate(cardPrefab, position, Quaternion.identity);
 
-    public void RemoveCard(CardData card)
-    {
-        if (cardsData.Contains(card))
-            cardsData.Remove(card);
+                cards.Add(cardTemp);
+            }
+
+            return cards;
+        }
+
+        public void AddCard(CardData card)
+        {
+            cardsData.Add(card);
+        }
+
+        public void RemoveCard(CardData card)
+        {
+            if (cardsData.Contains(card))
+                cardsData.Remove(card);
+        }
     }
 }

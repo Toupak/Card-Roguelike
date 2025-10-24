@@ -1,23 +1,24 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
-public class DestroyAfterDuration : MonoBehaviour
+namespace BoomLib.Tools
 {
-    [SerializeField] private float duration;
+    public class DestroyAfterDuration : MonoBehaviour
+    {
+        [SerializeField] private float duration;
     
-    private void Start()
-    {
-        Destroy(gameObject, duration);
-    }
+        private void Start()
+        {
+            Destroy(gameObject, duration);
+        }
 
-    public void SetDuration(float newDuration)
-    {
-        duration = newDuration;
-    }
+        public void SetDuration(float newDuration)
+        {
+            duration = newDuration;
+        }
 
-    private void OnDisable()
-    {
-        Destroy(gameObject);
+        private void OnDisable()
+        {
+            Destroy(gameObject);
+        }
     }
 }

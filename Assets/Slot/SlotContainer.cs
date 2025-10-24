@@ -1,41 +1,20 @@
 using UnityEngine;
 
-public class SlotContainer : MonoBehaviour
+namespace Slot
 {
-    private CardController cardController;
-    public bool IsEmpty => cardController == null;
-
-
-    private void OnEnable()
+    public class SlotContainer : MonoBehaviour
     {
-        //OnCardClicked.AddListener(Highlight);
+        [HideInInspector] public Board.Script.Board board; 
+        
+        private int index;
+        public int Index => index;
+
+        public bool IsEmpty => transform.childCount < 1;
+        
+        public void Setup(int slotIndex, Board.Script.Board parentBoard)
+        {
+            index = slotIndex;
+            board = parentBoard;
+        }
     }
-
-    private void OnDisable()
-    {
-        //OnCardClicked.RemoveListener(Highlight);
-    }
-
-    private void OnTryPut()
-    {
-
-    }
-
-    public void AddCard(CardController card)
-    {
-        cardController = card;
-        card.transform.position = transform.position;
-    }
-
-    public void RemoveCard()
-    {
-        cardController = null;
-    }
-
-    private void Highlight()
-    {
-        //Hover lumineux
-    }
-
-    //Slot ID pour que l'adversaire vise la carte située dans le slot 
 }

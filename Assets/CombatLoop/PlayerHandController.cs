@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using BoomLib.BoomTween;
+using Cards.Scripts;
 using UnityEngine;
 
 namespace CombatLoop
@@ -13,7 +14,7 @@ namespace CombatLoop
         [SerializeField] private float distanceBetweenCards;
         [SerializeField] private float drawDuration;
         
-        private List<CardController> cards;
+        private List<CardMovement> cards;
 
         public IEnumerator DrawHand()
         {
@@ -25,7 +26,7 @@ namespace CombatLoop
             }
         }
 
-        private IEnumerator PlaceCardInHand(CardController card, int cardOffset)
+        private IEnumerator PlaceCardInHand(CardMovement card, int cardOffset)
         {
             Vector3 targetPosition = pivot.position + (Vector3.right * (distanceBetweenCards * cardOffset));
 
