@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cards.Scripts;
 using CardSlot;
@@ -11,11 +12,18 @@ namespace Board.Script
         [HideInInspector] public UnityEvent<CardController> OnStartDragging = new UnityEvent<CardController>();
         [HideInInspector] public UnityEvent OnStopDragging = new UnityEvent();
 
+        [SerializeField] private Transform separationLine;
+        [SerializeField] private Container otherContainer;
+
+        [SerializeField] private Slot slotPrefab;
+
         private CardController currentSelectedCard;
 
         private List<Slot> slots;
 
-        public enum BoardType
+        public ContainerType type;
+
+        public enum ContainerType
         {
             Hand,
             Board
@@ -54,6 +62,8 @@ namespace Board.Script
             if (currentSelectedCard == null)
                 return;
 
+            CheckRelativePositionToOtherBoard();
+
             for (int i = 0; i < slots.Count; i++)
             {
                 if (currentSelectedCard.position.x > slots[i].transform.position.x)
@@ -70,6 +80,43 @@ namespace Board.Script
                         return;
                     }
             }
+        }
+
+        private void CheckRelativePositionToOtherBoard()
+        {
+            if (type == ContainerType.Hand && currentSelectedCard.position.y > separationLine.position.y)
+                SendToOtherBoard();
+            else if (type == ContainerType.Board && currentSelectedCard.position.y < separationLine.position.y)
+                SendToOtherBoard();
+        }
+
+        private void SendToOtherBoard()
+        {
+            otherContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
+            DeleteCurrentSlot();
+            currentSelectedCard = null;
+        }
+
+        public void ReceiveCardFromOtherBoard(CardController card)
+        {
+            currentSelectedCard = card;
+            CreateNewSlot();
+        }
+
+        private void DeleteCurrentSlot()
+        {
+            Destroy(slots[currentSelectedCard.SlotIndex].gameObject);
+            slots.RemoveAt(currentSelectedCard.SlotIndex);
+        }
+
+        private void CreateNewSlot()
+        {
+            Slot newSlot = Instantiate(slotPrefab);
+            newSlot.transform.SetParent(transform);
+            newSlot.Setup(slots.Count, this);
+            slots.Add(newSlot);
+
+            currentSelectedCard.SetNewSlot(newSlot);
         }
 
         private void SwapSlots(int slotToMoveIndex)

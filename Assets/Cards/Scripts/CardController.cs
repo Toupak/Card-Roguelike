@@ -14,6 +14,7 @@ namespace Cards.Scripts
         public Slot Slot => slot;
         public int SlotIndex => slot.Index;
 
+        //EN CAS DE BUG MYSTIQUE
         public Vector2 position => cardMovement.transform.position;
 
         private void Start()
