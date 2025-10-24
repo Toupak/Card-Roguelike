@@ -22,7 +22,8 @@ namespace Cards.Scripts
         
         public void SetNewSlot(SlotContainer newSlot, bool resetPosition = false)
         {
-            Vector3 currentPosition = position;
+            Vector3 currentMovementPosition = position;
+            Vector3 currentGraphicsPosition = cardGraphics.transform.position;
             
             slot = newSlot;
             transform.SetParent(slot.transform);
@@ -31,8 +32,9 @@ namespace Cards.Scripts
             if (resetPosition)
                 cardMovement.ResetPosition();
             else
-                cardMovement.transform.position = currentPosition;
+                cardMovement.transform.position = currentMovementPosition;
 
+            cardGraphics.transform.position = currentGraphicsPosition;
         }
 
         public void OnBeginDragging()
