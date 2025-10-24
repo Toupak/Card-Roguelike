@@ -1,4 +1,4 @@
-using TMPro;
+using CardSlot;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,17 +9,26 @@ namespace Cards.Scripts
         private bool isDragging;
         public bool IsDragging => isDragging;
 
-        private CardController cardController;
+        private Slot slot;
+        public int SlotIndex => slot.Index;
 
-        private void Start()
+        public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
-            cardController = transform.parent.GetComponent<CardController>();
+            slot = newSlot;
+            
+            Debug.Log($"1 : {transform.parent != null}");
+            transform.SetParent(slot.transform);
+            Debug.Log($"2 : {transform.parent != null}");
+            
+            
+            if (resetPosition)
+                ResetPosition();
         }
-
+        
         public void OnBeginDrag(PointerEventData eventData)
         {
             isDragging = true;
-            cardController.OnBeginDragging();
+            slot.board.OnStartDragging?.Invoke(this);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -32,7 +41,7 @@ namespace Cards.Scripts
             ResetPosition();
 
             isDragging = false;
-            cardController.OnEndDrag();
+            slot.board.OnStopDragging?.Invoke();
         }
 
         public void OnPointerDown(PointerEventData eventData)

@@ -4,19 +4,24 @@ namespace Cards.Scripts
 {
     public class FollowTarget : MonoBehaviour
     {
-        [SerializeField] private CardMovement target;
         [SerializeField] private float speed;
         [SerializeField] private float rotationAmount;
         [SerializeField] private float rotationSpeed;
 
+        private CardMovement target;
+        
         private Vector3 rotationDelta;
         private Vector3 movementDelta;
         private Vector3 velocity;
+
+        public void SetTarget(CardMovement newTarget)
+        {
+            target = newTarget;
+        }
         
         private void LateUpdate()
         {
             transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * speed);
-
             FollowRotation();
         }
         

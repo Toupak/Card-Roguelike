@@ -1,25 +1,26 @@
-using System;
 using System.Collections.Generic;
 using Cards.Scripts;
 using CardSlot;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace Board.Script
 {
     public class Container : MonoBehaviour
     {
-        [HideInInspector] public UnityEvent<CardController> OnStartDragging = new UnityEvent<CardController>();
+        [HideInInspector] public UnityEvent<CardMovement> OnStartDragging = new UnityEvent<CardMovement>();
         [HideInInspector] public UnityEvent OnStopDragging = new UnityEvent();
 
         [SerializeField] private Transform separationLine;
         [SerializeField] private Container otherContainer;
 
         [SerializeField] private Slot slotPrefab;
+        [SerializeField] private CardMovement cardMovementPrefab;
 
-        private CardController currentSelectedCard;
+        private CardMovement currentSelectedCard;
 
-        private List<Slot> slots;
+        private List<Slot> slots = new List<Slot>();
 
         public ContainerType type;
 
@@ -41,24 +42,11 @@ namespace Board.Script
             OnStopDragging.RemoveAllListeners();
         }
 
-        private void Start()
-        {
-            SetupSlotList();
-        }
-
-        private void SetupSlotList()
-        {
-            slots = new List<Slot>();
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Slot slotContainer = transform.GetChild(i).GetComponent<Slot>();
-                slotContainer.Setup(i, this);
-                slots.Add(slotContainer);
-            }
-        }
-
         private void Update()
         {
+            if (type == ContainerType.Hand) //TODO move it to PlayerHandController
+                CheckDrawCard();
+            
             if (currentSelectedCard == null)
                 return;
 
@@ -69,14 +57,14 @@ namespace Board.Script
 
             for (int i = 0; i < slots.Count; i++)
             {
-                if (currentSelectedCard.position.x > slots[i].transform.position.x)
+                if (currentSelectedCard.transform.position.x > slots[i].transform.position.x)
                     if (currentSelectedCard.SlotIndex < i)
                     {
                         SwapSlots(i);
                         return;
                     }
 
-                if (currentSelectedCard.position.x < slots[i].transform.position.x)
+                if (currentSelectedCard.transform.position.x < slots[i].transform.position.x)
                     if (currentSelectedCard.SlotIndex > i)
                     {
                         SwapSlots(i);
@@ -85,11 +73,24 @@ namespace Board.Script
             }
         }
 
+        private void CheckDrawCard()//TODO move it to PlayerHandController
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                DrawCard();
+        }
+
+        private void DrawCard()//TODO move it to PlayerHandController
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            ReceiveCard(newCard);
+            CardsVisualManager.instance.SpawnNewCardVisuals(newCard, null);
+        }
+
         private void CheckRelativePositionToOtherBoard()
         {
-            if (type == ContainerType.Hand && currentSelectedCard.position.y > separationLine.position.y)
+            if (type == ContainerType.Hand && currentSelectedCard.transform.position.y > separationLine.position.y)
                 SendToOtherBoard();
-            else if (type == ContainerType.Board && currentSelectedCard.position.y < separationLine.position.y)
+            else if (type == ContainerType.Board && currentSelectedCard.transform.position.y < separationLine.position.y)
                 SendToOtherBoard();
         }
 
@@ -100,13 +101,7 @@ namespace Board.Script
             DeleteCurrentSlot(currentIndex);
             currentSelectedCard = null;
         }
-
-        public void ReceiveCardFromOtherBoard(CardController card)
-        {
-            currentSelectedCard = card;
-            CreateNewSlot();
-        }
-
+        
         private void DeleteCurrentSlot(int index)
         {
             Destroy(slots[index].gameObject);
@@ -114,13 +109,24 @@ namespace Board.Script
             UpdateSlotIndexList();
         }
 
-        private void CreateNewSlot()
+        public void ReceiveCard(CardMovement card)
+        {
+            card.SetNewSlot(CreateNewSlot(), true);
+        }
+
+        public void ReceiveCardFromOtherBoard(CardMovement card)
+        {
+            currentSelectedCard = card;
+            currentSelectedCard.SetNewSlot(CreateNewSlot(), false);
+        }
+        
+        private Slot CreateNewSlot()
         {
             Slot newSlot = Instantiate(slotPrefab, transform);
             newSlot.Setup(slots.Count, this);
             slots.Add(newSlot);
 
-            currentSelectedCard.SetNewSlot(newSlot);
+            return newSlot;
         }
 
         private void UpdateSlotIndexList()
@@ -132,18 +138,18 @@ namespace Board.Script
         private void SwapSlots(int slotToMoveIndex)
         {
             int temp = currentSelectedCard.SlotIndex;
-            CardController cardToMove = GetCardFromSlotIndex(slotToMoveIndex);
+            CardMovement cardToMove = GetCardFromSlotIndex(slotToMoveIndex);
             
-            currentSelectedCard.SetNewSlot(slots[slotToMoveIndex]);
+            currentSelectedCard.SetNewSlot(slots[slotToMoveIndex], false);
             cardToMove.SetNewSlot(slots[temp], true);
         }
 
-        private CardController GetCardFromSlotIndex(int slotIndex)
+        private CardMovement GetCardFromSlotIndex(int slotIndex)
         {
-            return slots[slotIndex].transform.GetChild(0).GetComponent<CardController>();
+            return slots[slotIndex].transform.GetChild(0).GetComponent<CardMovement>();
         }
 
-        private void StartDraggingNewCard(CardController newCard)
+        private void StartDraggingNewCard(CardMovement newCard)
         {
             currentSelectedCard = newCard;
         }

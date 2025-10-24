@@ -9,8 +9,6 @@ namespace CombatLoop
     {
         public static Deck instance;
 
-        [SerializeField] CardMovement cardPrefab;
-
         [SerializeField] private List<CardData> cardsData;
 
         private void Awake()
@@ -18,20 +16,9 @@ namespace CombatLoop
             instance = this;
         }
 
-        public List<CardMovement> DrawCards()
+        public List<CardData> DrawCards()
         {
-            List<CardMovement> cards = new List<CardMovement>();
-
-            Vector3 position = transform.position;
-        
-            foreach(CardData cardData in cardsData)
-            {
-                CardMovement cardTemp = Instantiate(cardPrefab, position, Quaternion.identity);
-
-                cards.Add(cardTemp);
-            }
-
-            return cards;
+            return cardsData;
         }
 
         public void AddCard(CardData card)
