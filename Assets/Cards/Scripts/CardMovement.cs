@@ -1,4 +1,3 @@
-using Slot;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

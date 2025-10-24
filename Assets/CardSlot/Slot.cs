@@ -1,17 +1,17 @@
 using UnityEngine;
 
-namespace Slot
+namespace CardSlot
 {
-    public class SlotContainer : MonoBehaviour
+    public class Slot : MonoBehaviour
     {
-        [HideInInspector] public Board.Script.Board board; 
+        [HideInInspector] public Board.Script.Container board; 
         
         private int index;
         public int Index => index;
 
         public bool IsEmpty => transform.childCount < 1;
         
-        public void Setup(int slotIndex, Board.Script.Board parentBoard)
+        public void Setup(int slotIndex, Board.Script.Container parentBoard)
         {
             index = slotIndex;
             board = parentBoard;

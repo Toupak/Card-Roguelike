@@ -1,5 +1,6 @@
 using System;
-using Slot;
+using CardSlot;
+
 using UnityEngine;
 
 namespace Cards.Scripts
@@ -9,18 +10,18 @@ namespace Cards.Scripts
         [SerializeField] private CardMovement cardMovement;
         [SerializeField] private Transform cardGraphics;
         
-        private SlotContainer slot;
-        public SlotContainer Slot => slot;
+        private Slot slot;
+        public Slot Slot => slot;
         public int SlotIndex => slot.Index;
 
         public Vector2 position => cardMovement.transform.position;
 
         private void Start()
         {
-            slot = transform.parent.GetComponent<SlotContainer>();
+            slot = transform.parent.GetComponent<Slot>();
         }
         
-        public void SetNewSlot(SlotContainer newSlot, bool resetPosition = false)
+        public void SetNewSlot(Slot newSlot, bool resetPosition = false)
         {
             Vector3 currentMovementPosition = position;
             Vector3 currentGraphicsPosition = cardGraphics.transform.position;

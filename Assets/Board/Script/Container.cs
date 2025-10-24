@@ -1,19 +1,25 @@
 using System.Collections.Generic;
 using Cards.Scripts;
-using Slot;
+using CardSlot;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Board.Script
 {
-    public class Board : MonoBehaviour
+    public class Container : MonoBehaviour
     {
         [HideInInspector] public UnityEvent<CardController> OnStartDragging = new UnityEvent<CardController>();
         [HideInInspector] public UnityEvent OnStopDragging = new UnityEvent();
 
         private CardController currentSelectedCard;
 
-        private List<SlotContainer> slots;
+        private List<Slot> slots;
+
+        public enum BoardType
+        {
+            Hand,
+            Board
+        }
 
         private void OnEnable()
         {
@@ -34,10 +40,10 @@ namespace Board.Script
 
         private void SetupSlotList()
         {
-            slots = new List<SlotContainer>();
+            slots = new List<Slot>();
             for (int i = 0; i < transform.childCount; i++)
             {
-                SlotContainer slotContainer = transform.GetChild(i).GetComponent<SlotContainer>();
+                Slot slotContainer = transform.GetChild(i).GetComponent<Slot>();
                 slotContainer.Setup(i, this);
                 slots.Add(slotContainer);
             }
