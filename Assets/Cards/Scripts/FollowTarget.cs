@@ -51,20 +51,6 @@ namespace Cards.Scripts
             UpdateSortingOrder();
         }
 
-        private void Squeeze()
-        {
-            StopAllCoroutines();
-            StartCoroutine(BTween.Squeeze(tiltParent, Vector3.one, new Vector2(1.1f, 1.1f), 0.1f));
-        }
-
-        private void UpdateSortingOrder()
-        {
-            if (target.IsDragging)
-                canvas.sortingOrder = 1000;
-            else
-                canvas.sortingOrder = target.SlotIndex + 1;
-        }
-        
         private void LateUpdate()
         {
             if (target.ContainerType == Container.ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.IsDragging)
@@ -127,6 +113,21 @@ namespace Cards.Scripts
             Vector3 movementRotation = (target.IsDragging ? movementDelta : movement) * rotationAmount;
             rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -maxAngle, maxAngle));
+        }
+        
+        private void Squeeze()
+        {
+            StopAllCoroutines();
+            StartCoroutine(BTween.Squeeze(tiltParent, Vector3.one, new Vector2(0.95f, 1.05f), 0.1f));
+            StartCoroutine(BTween.Shake(tiltParent, 0.1f, 0.1f, true));
+        }
+        
+        private void UpdateSortingOrder()
+        {
+            if (target.IsDragging)
+                canvas.sortingOrder = 1000;
+            else
+                canvas.sortingOrder = target.SlotIndex + 1;
         }
     }
 }
