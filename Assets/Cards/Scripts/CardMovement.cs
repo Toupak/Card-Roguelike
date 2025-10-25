@@ -15,11 +15,7 @@ namespace Cards.Scripts
         public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
             slot = newSlot;
-            
-            Debug.Log($"1 : {transform.parent != null}");
             transform.SetParent(slot.transform);
-            Debug.Log($"2 : {transform.parent != null}");
-            
             
             if (resetPosition)
                 ResetPosition();

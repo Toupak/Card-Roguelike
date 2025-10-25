@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cards.Scripts;
 using CardSlot;
+using Cursor.Script;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,9 +12,6 @@ namespace Board.Script
     {
         [HideInInspector] public UnityEvent<CardMovement> OnStartDragging = new UnityEvent<CardMovement>();
         [HideInInspector] public UnityEvent OnStopDragging = new UnityEvent();
-
-        [SerializeField] private Transform separationLine;
-        [SerializeField] private Container otherContainer;
 
         [SerializeField] private Slot slotPrefab;
         [SerializeField] private CardMovement cardMovementPrefab;
@@ -50,11 +48,9 @@ namespace Board.Script
             if (currentSelectedCard == null)
                 return;
 
-            CheckRelativePositionToOtherBoard();
-            
-            if (currentSelectedCard == null)
+            if (CheckForSendingCardToOtherContainer())
                 return;
-
+                
             for (int i = 0; i < slots.Count; i++)
             {
                 if (currentSelectedCard.transform.position.x > slots[i].transform.position.x)
@@ -86,18 +82,28 @@ namespace Board.Script
             CardsVisualManager.instance.SpawnNewCardVisuals(newCard, null);
         }
 
-        private void CheckRelativePositionToOtherBoard()
+        private bool CheckForSendingCardToOtherContainer()
         {
-            if (type == ContainerType.Hand && currentSelectedCard.transform.position.y > separationLine.position.y)
-                SendToOtherBoard();
-            else if (type == ContainerType.Board && currentSelectedCard.transform.position.y < separationLine.position.y)
-                SendToOtherBoard();
+            Container currentCursorContainer = CursorInfo.instance.lastContainer;
+
+            if (currentCursorContainer != this && !currentCursorContainer.IsFull())
+            {
+                SendToOtherBoard(currentCursorContainer);
+                return true;
+            }
+
+            return false;
         }
 
-        private void SendToOtherBoard()
+        public bool IsFull()
+        {
+            return false;
+        }
+
+        private void SendToOtherBoard(Container currentCursorContainer)
         {
             int currentIndex = currentSelectedCard.SlotIndex;
-            otherContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
+            currentCursorContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
             DeleteCurrentSlot(currentIndex);
             currentSelectedCard = null;
         }
