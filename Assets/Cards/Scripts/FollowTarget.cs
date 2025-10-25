@@ -1,5 +1,6 @@
 using System;
 using Board.Script;
+using BoomLib.BoomTween;
 using Cards.HandCurves;
 using UnityEngine;
 using Tools = BoomLib.Tools.Tools;
@@ -17,9 +18,6 @@ namespace Cards.Scripts
         [SerializeField] private float stickyMoveDistance;
         [SerializeField] private float stickyMaxDistance;
 
-        [Space]
-        [SerializeField] private float tiltSpeed;
-        
         [Space] 
         [SerializeField] private HandCurveData curve;
         [SerializeField] private Transform tiltParent;
@@ -41,8 +39,15 @@ namespace Cards.Scripts
             target.OnSetNewSlot.AddListener(UpdateSortingOrder);
             target.OnStartDrag.AddListener(UpdateSortingOrder);
             target.OnDrop.AddListener(UpdateSortingOrder);
+            target.OnOver.AddListener(Squeeze);
             Container.OnAnyContainerUpdated.AddListener(UpdateSortingOrder);
             UpdateSortingOrder();
+        }
+
+        private void Squeeze()
+        {
+            StopAllCoroutines();
+            StartCoroutine(BTween.Squeeze(tiltParent, Vector3.one, new Vector2(1.1f, 1.1f), 0.1f));
         }
 
         private void UpdateSortingOrder()
@@ -61,7 +66,6 @@ namespace Cards.Scripts
                 FollowPosition();
 
             FollowRotation();
-
             UpdateHandPositionAndRotationOffsets();
         }
 
@@ -76,7 +80,7 @@ namespace Cards.Scripts
             curveRotationOffset = curve.rotation.Evaluate(normalizedPosition);
             
             float tiltZ = canTilt ? (curveRotationOffset * (curve.rotationInfluence * siblingCount)) : 0.0f;
-            float lerpZ = Mathf.LerpAngle(tiltParent.eulerAngles.z, tiltZ, tiltSpeed / 2 * Time.deltaTime);
+            float lerpZ = Mathf.LerpAngle(tiltParent.eulerAngles.z, tiltZ, rotationSpeed / 2 * Time.deltaTime);
 
             tiltParent.eulerAngles = new Vector3(0.0f, 0.0f, lerpZ);
         }
