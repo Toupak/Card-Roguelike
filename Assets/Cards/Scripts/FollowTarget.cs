@@ -23,6 +23,11 @@ namespace Cards.Scripts
         [SerializeField] private float stickyMaxDistance;
 
         [Space] 
+        [SerializeField] private float manualTiltAmount;
+        [SerializeField] private float autoTiltAmount;
+        [SerializeField] private float tiltSpeed;
+        
+        [Space] 
         [SerializeField] private HandCurveData curve;
         [SerializeField] private Transform tiltParent;
 
@@ -46,7 +51,7 @@ namespace Cards.Scripts
             target.OnSetNewSlot.AddListener(UpdateSortingOrder);
             target.OnStartDrag.AddListener(UpdateSortingOrder);
             target.OnDrop.AddListener(UpdateSortingOrder);
-            target.OnOver.AddListener(Squeeze);
+            target.OnHover.AddListener(Squeeze);
             Container.OnAnyContainerUpdated.AddListener(UpdateSortingOrder);
             UpdateSortingOrder();
         }
@@ -59,7 +64,11 @@ namespace Cards.Scripts
                 FollowPosition();
 
             FollowRotation();
-            UpdateHandPositionAndRotationOffsets();
+            
+            bool canTilt = !target.IsDragging && target.ContainerType == Container.ContainerType.Hand && target.SlotSiblingCount >= 3;
+            
+            UpdateHandPositionAndRotationOffsets(canTilt);
+            CardTilt(canTilt);
             UpdateScale();
         }
 
@@ -76,20 +85,34 @@ namespace Cards.Scripts
             transform.localScale = Vector3.one * newScale;
         }
 
-        private void UpdateHandPositionAndRotationOffsets()
+        private void UpdateHandPositionAndRotationOffsets(bool canTilt)
         {
-            bool canTilt = !target.IsDragging && target.ContainerType == Container.ContainerType.Hand && target.SlotSiblingCount >= 3;
-            
-            int siblingCount = Math.Max(target.SlotSiblingCount, 0);
-            float normalizedPosition = Tools.NormalizeValue(target.SlotIndex, 0, siblingCount);
+            int siblingCount = target.SlotSiblingCount;
+            float normalizedPosition = Tools.NormalizeValue(target.SlotIndex, 0.0f, siblingCount);
             curveYOffset = (curve.positioning.Evaluate(normalizedPosition) * curve.positioningInfluence) * siblingCount;
             curveYOffset = canTilt ? curveYOffset : 0.0f;
             curveRotationOffset = curve.rotation.Evaluate(normalizedPosition);
-            
-            float tiltZ = canTilt ? (curveRotationOffset * (curve.rotationInfluence * siblingCount)) : 0.0f;
-            float lerpZ = Mathf.LerpAngle(tiltParent.eulerAngles.z, tiltZ, rotationSpeed / 2 * Time.deltaTime);
+        }
+        
+        private void CardTilt(bool canTilt)
+        {
+            int siblingCount = Math.Max(target.SlotSiblingCount, 0);
+         
+            float sine = Mathf.Sin(Time.time + target.SlotIndex) * (target.IsHovering ? 0.2f : 1);
+            float cosine = Mathf.Cos(Time.time + target.SlotIndex) * (target.IsHovering ? 0.2f : 1);
 
-            tiltParent.eulerAngles = new Vector3(0.0f, 0.0f, lerpZ);
+            Vector3 offset = transform.position - Input.mousePosition;
+            
+            float tiltX = target.IsHovering ? ((offset.y * -1) * manualTiltAmount) : 0;
+            float tiltY = target.IsHovering ? ((offset.x) * manualTiltAmount) : 0;
+            float tiltZ = canTilt ? (curveRotationOffset * (curve.rotationInfluence * siblingCount)) : 0.0f;
+
+            Vector3 currentAngles = tiltParent.eulerAngles;
+            float lerpX = Mathf.LerpAngle(currentAngles.x, tiltX + (sine * autoTiltAmount), tiltSpeed * Time.deltaTime);
+            float lerpY = Mathf.LerpAngle(currentAngles.y, tiltY + (cosine * autoTiltAmount), tiltSpeed * Time.deltaTime);
+            float lerpZ = Mathf.LerpAngle(currentAngles.z, tiltZ, tiltSpeed / 2 * Time.deltaTime);
+
+            tiltParent.eulerAngles = new Vector3(lerpX, lerpY, lerpZ);
         }
 
         private void FollowPositionSticky()

@@ -3,18 +3,22 @@ using CardSlot;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace Cards.Scripts
 {
     public class CardMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
     {
-        public UnityEvent OnOver = new UnityEvent();
-        public UnityEvent OnStartDrag = new UnityEvent();
-        public UnityEvent OnDrop = new UnityEvent();
-        public UnityEvent OnSetNewSlot = new UnityEvent();
+        [HideInInspector] public UnityEvent OnHover = new UnityEvent();
+        [HideInInspector] public UnityEvent OnStartDrag = new UnityEvent();
+        [HideInInspector] public UnityEvent OnDrop = new UnityEvent();
+        [HideInInspector] public UnityEvent OnSetNewSlot = new UnityEvent();
         
         private bool isDragging;
         public bool IsDragging => isDragging;
+        
+        private bool isHovering;
+        public bool IsHovering => isHovering;
 
         private Slot slot;
         public int SlotIndex => transform.parent.CompareTag("Slot") ? transform.parent.GetSiblingIndex() : 0;
@@ -65,12 +69,13 @@ namespace Cards.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            OnOver?.Invoke();
+            isHovering = true;
+            OnHover?.Invoke();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-
+            isHovering = false;
         }
 
         public void ResetPosition()
