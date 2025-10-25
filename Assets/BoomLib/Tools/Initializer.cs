@@ -9,6 +9,7 @@ namespace BoomLib.Tools
 
         public static void Execute()
         {
+            return;
             Object persistObject = Resources.Load("PERSISTOBJECTS");
             Assert.IsNotNull(persistObject, $"[{nameof(Initializer)}] : error : could not find PERSISTOBJECTS in Resource folder.");
 
