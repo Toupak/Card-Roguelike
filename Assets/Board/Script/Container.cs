@@ -13,6 +13,9 @@ namespace Board.Script
         [HideInInspector] public UnityEvent<CardMovement> OnStartDragging = new UnityEvent<CardMovement>();
         [HideInInspector] public UnityEvent OnStopDragging = new UnityEvent();
 
+        [SerializeField] private int maxCardCount;
+        
+        [Space]
         [SerializeField] private Slot slotPrefab;
         [SerializeField] private CardMovement cardMovementPrefab;
 
@@ -27,6 +30,8 @@ namespace Board.Script
             Hand,
             Board
         }
+
+        public bool IsFull => slots.Count >= maxCardCount; 
 
         private void OnEnable()
         {
@@ -71,7 +76,7 @@ namespace Board.Script
 
         private void CheckDrawCard()//TODO move it to PlayerHandController
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && !IsFull)
                 DrawCard();
         }
 
@@ -86,17 +91,12 @@ namespace Board.Script
         {
             Container currentCursorContainer = CursorInfo.instance.lastContainer;
 
-            if (currentCursorContainer != this && !currentCursorContainer.IsFull())
+            if (currentCursorContainer != this && !currentCursorContainer.IsFull)
             {
                 SendToOtherBoard(currentCursorContainer);
                 return true;
             }
 
-            return false;
-        }
-
-        public bool IsFull()
-        {
             return false;
         }
 

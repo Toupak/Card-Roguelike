@@ -251,8 +251,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 217.06909, y: 174.74}
-  m_SizeDelta: {x: 398.9706, y: 190.5277}
+  m_AnchoredPosition: {x: 206.91406, y: 174.74}
+  m_SizeDelta: {x: 448.5271, y: 190.5277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236631251
 MonoBehaviour:
@@ -272,6 +272,7 @@ MonoBehaviour:
   OnStopDragging:
     m_PersistentCalls:
       m_Calls: []
+  maxCardCount: 3
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   type: 1
@@ -293,10 +294,10 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 150
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -396,6 +397,7 @@ MonoBehaviour:
   OnStopDragging:
     m_PersistentCalls:
       m_Calls: []
+  maxCardCount: 1
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   type: 1
@@ -417,10 +419,10 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 150
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -950,10 +952,10 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 150
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -976,6 +978,7 @@ MonoBehaviour:
   OnStopDragging:
     m_PersistentCalls:
       m_Calls: []
+  maxCardCount: 4
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   type: 0
