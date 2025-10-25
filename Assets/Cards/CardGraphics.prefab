@@ -77,8 +77,8 @@ MonoBehaviour:
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60
-  stickyMoveDistance: 30
-  stickyMaxDistance: 150
+  stickyMoveDistance: 100
+  stickyMaxDistance: 100
 --- !u!1 &5419006402858570808
 GameObject:
   m_ObjectHideFlags: 0

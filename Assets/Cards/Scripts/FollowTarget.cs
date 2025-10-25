@@ -1,5 +1,7 @@
 using Board.Script;
+using UnityEditor;
 using UnityEngine;
+using Tools = BoomLib.Tools.Tools;
 
 namespace Cards.Scripts
 {
@@ -41,7 +43,7 @@ namespace Cards.Scripts
         
         private void LateUpdate()
         {
-            if (target.ContainerType == Container.ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance)
+            if (target.ContainerType == Container.ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.IsDragging)
                 FollowPositionSticky();
             else
                 FollowPosition();
@@ -53,7 +55,11 @@ namespace Cards.Scripts
         {
             Vector3 stickyTarget = target.SlotPosition;
             stickyTarget += (target.transform.position - target.SlotPosition).normalized * stickyMoveDistance;
-            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * speed);
+
+            float distance = (target.SlotPosition - target.transform.position).magnitude;
+            float stickySpeed = (speed * 0.01f) * (1.0f - Tools.NormalizeValue(distance, 0.0f, stickyMoveDistance));
+            
+            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * stickySpeed);
         }
         
         private void FollowPosition()
