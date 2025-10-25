@@ -1,16 +1,25 @@
+using Board.Script;
 using CardSlot;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace Cards.Scripts
 {
     public class CardMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
     {
+        public UnityEvent OnOver = new UnityEvent();
+        public UnityEvent OnStartDrag = new UnityEvent();
+        public UnityEvent OnDrop = new UnityEvent();
+        public UnityEvent OnSetNewSlot = new UnityEvent();
+        
         private bool isDragging;
         public bool IsDragging => isDragging;
 
         private Slot slot;
-        public int SlotIndex => slot.Index;
+        public int SlotIndex => slot == null ? 0 : slot.Index;
+        public Vector3 SlotPosition => slot.transform.position;
+        public Container.ContainerType ContainerType => slot.board.type;
 
         public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
@@ -19,12 +28,15 @@ namespace Cards.Scripts
             
             if (resetPosition)
                 ResetPosition();
+            
+            OnSetNewSlot?.Invoke();
         }
         
         public void OnBeginDrag(PointerEventData eventData)
         {
             isDragging = true;
             slot.board.OnStartDragging?.Invoke(this);
+            OnStartDrag?.Invoke();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -38,6 +50,7 @@ namespace Cards.Scripts
 
             isDragging = false;
             slot.board.OnStopDragging?.Invoke();
+            OnDrop?.Invoke();
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -51,7 +64,7 @@ namespace Cards.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-
+            OnOver?.Invoke();
         }
 
         public void OnPointerExit(PointerEventData eventData)

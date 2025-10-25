@@ -1,3 +1,4 @@
+using Board.Script;
 using UnityEngine;
 
 namespace Cards.Scripts
@@ -7,7 +8,13 @@ namespace Cards.Scripts
         [SerializeField] private float speed;
         [SerializeField] private float rotationAmount;
         [SerializeField] private float rotationSpeed;
+        [SerializeField] private float maxAngle;
 
+        [Space]
+        [SerializeField] private float stickyMoveDistance;
+        [SerializeField] private float stickyMaxDistance;
+
+        private Canvas canvas;
         private CardMovement target;
         
         private Vector3 rotationDelta;
@@ -16,13 +23,42 @@ namespace Cards.Scripts
 
         public void SetTarget(CardMovement newTarget)
         {
+            canvas = GetComponent<Canvas>();
             target = newTarget;
+            target.OnSetNewSlot.AddListener(UpdateSortingOrder);
+            target.OnStartDrag.AddListener(UpdateSortingOrder);
+            target.OnDrop.AddListener(UpdateSortingOrder);
+            UpdateSortingOrder();
+        }
+
+        private void UpdateSortingOrder()
+        {
+            if (target.IsDragging)
+                canvas.sortingOrder = 1000;
+            else
+                canvas.sortingOrder = target.SlotIndex + 1;
         }
         
         private void LateUpdate()
         {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * speed);
+            if (target.ContainerType == Container.ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance)
+                FollowPositionSticky();
+            else
+                FollowPosition();
+
             FollowRotation();
+        }
+        
+        private void FollowPositionSticky()
+        {
+            Vector3 stickyTarget = target.SlotPosition;
+            stickyTarget += (target.transform.position - target.SlotPosition).normalized * stickyMoveDistance;
+            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * speed);
+        }
+        
+        private void FollowPosition()
+        {
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * speed);
         }
         
         private void FollowRotation()
@@ -31,7 +67,7 @@ namespace Cards.Scripts
             movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
             Vector3 movementRotation = (target.IsDragging ? movementDelta : movement) * rotationAmount;
             rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -60, 60));
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -maxAngle, maxAngle));
         }
     }
 }

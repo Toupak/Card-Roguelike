@@ -28,7 +28,8 @@ namespace Board.Script
         public enum ContainerType
         {
             Hand,
-            Board
+            Board,
+            Sticky
         }
 
         public bool IsFull => slots.Count >= maxCardCount; 
