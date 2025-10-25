@@ -109,14 +109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4f56e90421dba49ac4da96baa50e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowCoefficient: 0.2
   speed: 30
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60
+  scaleMultiplierOnDrag: 1.15
+  scaleSpeed: 0.15
   stickyMoveDistance: 180
   stickyMaxDistance: 190
-  tiltSpeed: 20
   curve: {fileID: 11400000, guid: 115254c45569cca488b5b6c803b05001, type: 2}
   tiltParent: {fileID: 3125272246496311840}
 --- !u!1 &5419006402858570808

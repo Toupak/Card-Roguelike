@@ -14,6 +14,10 @@ namespace Cards.Scripts
         [SerializeField] private float rotationSpeed;
         [SerializeField] private float maxAngle;
 
+        [Space] 
+        [SerializeField] private float scaleMultiplierOnDrag;
+        [SerializeField] private float scaleSpeed;
+        
         [Space]
         [SerializeField] private float stickyMoveDistance;
         [SerializeField] private float stickyMaxDistance;
@@ -31,6 +35,9 @@ namespace Cards.Scripts
         
         private float curveYOffset;
         private float curveRotationOffset;
+
+        private float targetScale = 1.0f;
+        private float scaleVelocity;
         
         public void SetTarget(CardMovement newTarget)
         {
@@ -67,6 +74,20 @@ namespace Cards.Scripts
 
             FollowRotation();
             UpdateHandPositionAndRotationOffsets();
+            UpdateScale();
+        }
+
+        private void UpdateScale()
+        {
+            if (target.IsDragging)
+                targetScale = scaleMultiplierOnDrag;
+            else
+                targetScale = 1.0f;
+
+            float current = transform.localScale.x;
+            float newScale = Mathf.SmoothDamp(current, targetScale, ref scaleVelocity, scaleSpeed);
+
+            transform.localScale = Vector3.one * newScale;
         }
 
         private void UpdateHandPositionAndRotationOffsets()
