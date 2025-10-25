@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cursor
   - Container
+  - Slot
   layers:
   - Default
   - TransparentFX

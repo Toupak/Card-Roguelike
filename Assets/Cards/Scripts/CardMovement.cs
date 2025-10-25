@@ -17,7 +17,8 @@ namespace Cards.Scripts
         public bool IsDragging => isDragging;
 
         private Slot slot;
-        public int SlotIndex => slot == null ? 0 : slot.Index;
+        public int SlotIndex => transform.parent.CompareTag("Slot") ? transform.parent.GetSiblingIndex() : 0;
+        public int SlotSiblingCount => transform.parent.CompareTag("Slot") ? transform.parent.parent.childCount - 1 : 0;
         public Vector3 SlotPosition => slot.transform.position;
         public Container.ContainerType ContainerType => slot.board.type;
 

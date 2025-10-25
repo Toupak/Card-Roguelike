@@ -113,7 +113,6 @@ namespace Board.Script
         {
             Destroy(slots[index].gameObject);
             slots.RemoveAt(index);
-            UpdateSlotIndexList();
         }
 
         public void ReceiveCard(CardMovement card)
@@ -134,12 +133,6 @@ namespace Board.Script
             slots.Add(newSlot);
 
             return newSlot;
-        }
-
-        private void UpdateSlotIndexList()
-        {
-            for (int i = 0; i < slots.Count; i++)
-                slots[i].SetIndex(i);
         }
 
         private void SwapSlots(int slotToMoveIndex)
