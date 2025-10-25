@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Linq;
 using Board.Script;
+using UnityEngine.InputSystem;
 
 namespace Cursor.Script
 {
@@ -15,6 +17,12 @@ namespace Cursor.Script
         private void Awake()
         {
             instance = this;
+        }
+
+        private void Update()
+        {
+            if (Mouse.current.rightButton.isPressed)
+                EventSystem.current.SetSelectedGameObject(null);
         }
 
         private void FixedUpdate()

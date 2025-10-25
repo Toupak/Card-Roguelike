@@ -114,6 +114,9 @@ MonoBehaviour:
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60
+  selectedHeightOffsetHand: 85
+  selectedHeightOffsetBoard: -50
+  scaleMultiplierOnSelect: 2
   scaleMultiplierOnDrag: 1.15
   scaleSpeed: 0.15
   stickyMoveDistance: 180

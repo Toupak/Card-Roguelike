@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Cards.Scripts
 {
-    public class CardMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+    public class CardMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler, ISelectHandler, IDeselectHandler
     {
         [HideInInspector] public UnityEvent OnHover = new UnityEvent();
+        [HideInInspector] public UnityEvent OnSelected = new UnityEvent();
+        [HideInInspector] public UnityEvent OnDeselected = new UnityEvent();
         [HideInInspector] public UnityEvent OnStartDrag = new UnityEvent();
         [HideInInspector] public UnityEvent OnDrop = new UnityEvent();
         [HideInInspector] public UnityEvent OnSetNewSlot = new UnityEvent();
@@ -20,11 +23,22 @@ namespace Cards.Scripts
         private bool isHovering;
         public bool IsHovering => isHovering;
 
+        private bool isSelected;
+        public bool IsSelected => isSelected;
+
+        
         private Slot slot;
         public int SlotIndex => transform.parent.CompareTag("Slot") ? transform.parent.GetSiblingIndex() : 0;
         public int SlotSiblingCount => transform.parent.CompareTag("Slot") ? transform.parent.parent.childCount - 1 : 0;
         public Vector3 SlotPosition => slot.transform.position;
         public Container.ContainerType ContainerType => slot.board.type;
+
+        private Selectable selectable;
+
+        private void Start()
+        {
+            selectable = GetComponent<Selectable>();
+        }
 
         public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
@@ -41,6 +55,7 @@ namespace Cards.Scripts
         {
             isDragging = true;
             slot.board.OnStartDragging?.Invoke(this);
+            Deselect();
             OnStartDrag?.Invoke();
         }
 
@@ -81,6 +96,28 @@ namespace Cards.Scripts
         public void ResetPosition()
         {
             transform.localPosition = Vector3.zero;
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            isSelected = true;
+            OnSelected?.Invoke();
+        }
+
+        public void OnDeselect(BaseEventData eventData)
+        {
+           Deselect(false);
+        }
+
+        private void Deselect(bool forceDeselect = true)
+        {
+            if (!isSelected)
+                return;
+            
+            isSelected = false;
+            if (forceDeselect)
+                EventSystem.current.SetSelectedGameObject(null);
+            OnDeselected?.Invoke();
         }
     }
 }

@@ -15,6 +15,11 @@ namespace Cards.Scripts
         [SerializeField] private float maxAngle;
 
         [Space] 
+        [SerializeField] private float selectedHeightOffsetHand;
+        [SerializeField] private float selectedHeightOffsetBoard;
+        
+        [Space] 
+        [SerializeField] private float scaleMultiplierOnSelect;
         [SerializeField] private float scaleMultiplierOnDrag;
         [SerializeField] private float scaleSpeed;
         
@@ -30,7 +35,7 @@ namespace Cards.Scripts
         [Space] 
         [SerializeField] private HandCurveData curve;
         [SerializeField] private Transform tiltParent;
-
+        
         private Canvas canvas;
         private CardMovement target;
         public CardMovement Target => target;
@@ -52,6 +57,8 @@ namespace Cards.Scripts
             target.OnSetNewSlot.AddListener(UpdateSortingOrder);
             target.OnStartDrag.AddListener(UpdateSortingOrder);
             target.OnDrop.AddListener(UpdateSortingOrder);
+            target.OnSelected.AddListener(UpdateSortingOrder);
+            target.OnDeselected.AddListener(UpdateSortingOrder);
             target.OnHover.AddListener(Squeeze);
             Container.OnAnyContainerUpdated.AddListener(UpdateSortingOrder);
             UpdateSortingOrder();
@@ -75,6 +82,8 @@ namespace Cards.Scripts
         {
             if (target.IsDragging)
                 targetScale = scaleMultiplierOnDrag;
+            else if (target.IsSelected)
+                targetScale = scaleMultiplierOnSelect;
             else
                 targetScale = 1.0f;
 
@@ -104,9 +113,9 @@ namespace Cards.Scripts
 
             Vector3 offset = transform.position - Input.mousePosition;
             
-            float tiltX = target.IsHovering ? ((offset.y * -1) * manualTiltAmount) : 0;
-            float tiltY = target.IsHovering ? ((offset.x) * manualTiltAmount) : 0;
-            float tiltZ = target.IsDragging ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
+            float tiltX = target.IsHovering && !target.IsSelected ? ((offset.y * -1) * manualTiltAmount) : 0;
+            float tiltY = target.IsHovering && !target.IsSelected ? ((offset.x) * manualTiltAmount) : 0;
+            float tiltZ = target.IsDragging || target.ContainerType != Container.ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
 
             Vector3 currentAngles = tiltParent.eulerAngles;
             float lerpX = Mathf.LerpAngle(currentAngles.x, tiltX + (sine * autoTiltAmount), tiltSpeed * Time.deltaTime);
@@ -126,7 +135,9 @@ namespace Cards.Scripts
         
         private void FollowPosition()
         {
-            Vector3 verticalOffset = (Vector3.up * (target.IsDragging ? 0 : curveYOffset));
+            Vector3 verticalOffset = (Vector3.up * (target.IsDragging ? 0.0f : curveYOffset));
+            if (target.IsSelected)
+                verticalOffset += (Vector3.up * (target.ContainerType == Container.ContainerType.Hand ? selectedHeightOffsetHand : selectedHeightOffsetBoard));
             transform.position = Vector3.Lerp(transform.position, target.transform.position + verticalOffset, Time.deltaTime * speed);
         }
         
@@ -141,13 +152,16 @@ namespace Cards.Scripts
         
         private void Squeeze()
         {
+            if (target.IsSelected)
+                return;
+            
             StopAllCoroutines();
             StartCoroutine(BTween.Squeeze(tiltParent, Vector3.one, new Vector2(0.95f, 1.05f), 0.1f));
         }
         
         private void UpdateSortingOrder()
         {
-            if (target.IsDragging)
+            if (target.IsDragging || target.IsSelected)
                 canvas.sortingOrder = 1000;
             else
                 canvas.sortingOrder = target.SlotIndex + 1;
