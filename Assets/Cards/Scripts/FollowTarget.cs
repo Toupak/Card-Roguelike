@@ -142,7 +142,6 @@ namespace Cards.Scripts
         {
             StopAllCoroutines();
             StartCoroutine(BTween.Squeeze(tiltParent, Vector3.one, new Vector2(0.95f, 1.05f), 0.1f));
-            StartCoroutine(BTween.Shake(tiltParent, 0.1f, 0.1f, true));
         }
         
         private void UpdateSortingOrder()
