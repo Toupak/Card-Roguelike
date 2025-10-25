@@ -1,3 +1,4 @@
+using BoomLib.Tools;
 using UnityEngine;
 
 namespace Cards.Scripts
@@ -12,8 +13,12 @@ namespace Cards.Scripts
         
         private void Update()
         {
-            Vector3 targetPosition = followTarget.Target.IsDragging ? offset : Vector3.zero;
-            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, targetPosition, ref velocity, speed);
+            Vector3 targetPosition = transform.parent.position;
+
+            if (followTarget.Target.IsDragging)
+                targetPosition += offset.ToVector3();
+
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, speed);
         }
     }
 }
