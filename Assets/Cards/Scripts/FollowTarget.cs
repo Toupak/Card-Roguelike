@@ -7,6 +7,8 @@ namespace Cards.Scripts
 {
     public class FollowTarget : MonoBehaviour
     {
+        [SerializeField] private float slowCoefficient;
+
         [SerializeField] private float speed;
         [SerializeField] private float rotationAmount;
         [SerializeField] private float rotationSpeed;
@@ -57,9 +59,11 @@ namespace Cards.Scripts
             stickyTarget += (target.transform.position - target.SlotPosition).normalized * stickyMoveDistance;
 
             float distance = (target.SlotPosition - target.transform.position).magnitude;
-            float stickySpeed = (speed * 0.01f) * (1.0f - Tools.NormalizeValue(distance, 0.0f, stickyMoveDistance));
+            float stickySpeed = (speed * slowCoefficient) * (1.0f - Tools.NormalizeValue(distance, 0.0f, stickyMoveDistance));
             
-            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * stickySpeed);
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * stickySpeed);
+
+            //stickyMoveDistance - max Distance
         }
         
         private void FollowPosition()
