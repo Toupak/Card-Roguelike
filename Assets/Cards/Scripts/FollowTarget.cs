@@ -1,5 +1,6 @@
+using System;
 using Board.Script;
-using UnityEditor;
+using Cards.HandCurves;
 using UnityEngine;
 using Tools = BoomLib.Tools.Tools;
 
@@ -18,13 +19,23 @@ namespace Cards.Scripts
         [SerializeField] private float stickyMoveDistance;
         [SerializeField] private float stickyMaxDistance;
 
+        [Space]
+        [SerializeField] private float tiltSpeed;
+        
+        [Space] 
+        [SerializeField] private HandCurveData curve;
+        [SerializeField] private Transform tiltParent;
+
         private Canvas canvas;
         private CardMovement target;
         
         private Vector3 rotationDelta;
         private Vector3 movementDelta;
         private Vector3 velocity;
-
+        
+        private float curveYOffset;
+        private float curveRotationOffset;
+        
         public void SetTarget(CardMovement newTarget)
         {
             canvas = GetComponent<Canvas>();
@@ -51,24 +62,38 @@ namespace Cards.Scripts
                 FollowPosition();
 
             FollowRotation();
+
+            UpdateHandPositionAndRotationOffsets();
         }
-        
+
+        private void UpdateHandPositionAndRotationOffsets()
+        {
+            bool canTilt = !target.IsDragging && target.ContainerType == Container.ContainerType.Hand && target.SlotSiblingCount >= 3;
+            
+            int siblingCount = Math.Max(target.SlotSiblingCount, 0);
+            float normalizedPosition = Tools.NormalizeValue(target.SlotIndex, 0, siblingCount);
+            curveYOffset = (curve.positioning.Evaluate(normalizedPosition) * curve.positioningInfluence) * siblingCount;
+            curveYOffset = canTilt ? curveYOffset : 0.0f;
+            curveRotationOffset = curve.rotation.Evaluate(normalizedPosition);
+            
+            float tiltZ = canTilt ? (curveRotationOffset * (curve.rotationInfluence * siblingCount)) : 0.0f;
+            float lerpZ = Mathf.LerpAngle(tiltParent.eulerAngles.z, tiltZ, tiltSpeed / 2 * Time.deltaTime);
+
+            tiltParent.eulerAngles = new Vector3(0.0f, 0.0f, lerpZ);
+        }
+
         private void FollowPositionSticky()
         {
             Vector3 stickyTarget = target.SlotPosition;
             stickyTarget += (target.transform.position - target.SlotPosition).normalized * stickyMoveDistance;
 
-            float distance = (target.SlotPosition - target.transform.position).magnitude;
-            float stickySpeed = (speed * slowCoefficient) * (1.0f - Tools.NormalizeValue(distance, 0.0f, stickyMoveDistance));
-            
-            transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * stickySpeed);
-
-            //stickyMoveDistance - max Distance
+            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * speed);
         }
         
         private void FollowPosition()
         {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * speed);
+            Vector3 verticalOffset = (Vector3.up * (target.IsDragging ? 0 : curveYOffset));
+            transform.position = Vector3.Lerp(transform.position, target.transform.position + verticalOffset, Time.deltaTime * speed);
         }
         
         private void FollowRotation()
