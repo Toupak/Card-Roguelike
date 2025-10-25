@@ -33,6 +33,7 @@ namespace Cards.Scripts
 
         private Canvas canvas;
         private CardMovement target;
+        public CardMovement Target => target;
         
         private Vector3 rotationDelta;
         private Vector3 movementDelta;
@@ -65,10 +66,8 @@ namespace Cards.Scripts
 
             FollowRotation();
             
-            bool canTilt = !target.IsDragging && target.ContainerType == Container.ContainerType.Hand && target.SlotSiblingCount >= 3;
-            
-            UpdateHandPositionAndRotationOffsets(canTilt);
-            CardTilt(canTilt);
+            UpdateHandPositionAndRotationOffsets();
+            CardTilt();
             UpdateScale();
         }
 
@@ -85,16 +84,18 @@ namespace Cards.Scripts
             transform.localScale = Vector3.one * newScale;
         }
 
-        private void UpdateHandPositionAndRotationOffsets(bool canTilt)
+        private void UpdateHandPositionAndRotationOffsets()
         {
-            int siblingCount = target.SlotSiblingCount;
+            bool canMove = !target.IsDragging && target.ContainerType == Container.ContainerType.Hand && target.SlotSiblingCount >= 3;
+            
+            int siblingCount = Mathf.Max(target.SlotSiblingCount, 1);
             float normalizedPosition = Tools.NormalizeValue(target.SlotIndex, 0.0f, siblingCount);
             curveYOffset = (curve.positioning.Evaluate(normalizedPosition) * curve.positioningInfluence) * siblingCount;
-            curveYOffset = canTilt ? curveYOffset : 0.0f;
+            curveYOffset = canMove ? curveYOffset : 0.0f;
             curveRotationOffset = curve.rotation.Evaluate(normalizedPosition);
         }
         
-        private void CardTilt(bool canTilt)
+        private void CardTilt()
         {
             int siblingCount = Math.Max(target.SlotSiblingCount, 0);
          
@@ -105,7 +106,7 @@ namespace Cards.Scripts
             
             float tiltX = target.IsHovering ? ((offset.y * -1) * manualTiltAmount) : 0;
             float tiltY = target.IsHovering ? ((offset.x) * manualTiltAmount) : 0;
-            float tiltZ = canTilt ? (curveRotationOffset * (curve.rotationInfluence * siblingCount)) : 0.0f;
+            float tiltZ = target.IsDragging ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
 
             Vector3 currentAngles = tiltParent.eulerAngles;
             float lerpX = Mathf.LerpAngle(currentAngles.x, tiltX + (sine * autoTiltAmount), tiltSpeed * Time.deltaTime);
