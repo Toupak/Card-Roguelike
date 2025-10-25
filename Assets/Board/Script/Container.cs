@@ -10,6 +10,8 @@ namespace Board.Script
 {
     public class Container : MonoBehaviour
     {
+        public static UnityEvent OnAnyContainerUpdated = new UnityEvent();
+        
         [HideInInspector] public UnityEvent<CardMovement> OnStartDragging = new UnityEvent<CardMovement>();
         [HideInInspector] public UnityEvent OnStopDragging = new UnityEvent();
 
@@ -113,17 +115,23 @@ namespace Board.Script
         {
             Destroy(slots[index].gameObject);
             slots.RemoveAt(index);
+            
+            OnAnyContainerUpdated?.Invoke();
         }
 
         public void ReceiveCard(CardMovement card)
         {
             card.SetNewSlot(CreateNewSlot(), true);
+            
+            OnAnyContainerUpdated?.Invoke();
         }
 
         public void ReceiveCardFromOtherBoard(CardMovement card)
         {
             currentSelectedCard = card;
             currentSelectedCard.SetNewSlot(CreateNewSlot(), false);
+            
+            OnAnyContainerUpdated?.Invoke();
         }
         
         private Slot CreateNewSlot()

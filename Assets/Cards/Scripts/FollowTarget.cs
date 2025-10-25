@@ -8,8 +8,6 @@ namespace Cards.Scripts
 {
     public class FollowTarget : MonoBehaviour
     {
-        [SerializeField] private float slowCoefficient;
-
         [SerializeField] private float speed;
         [SerializeField] private float rotationAmount;
         [SerializeField] private float rotationSpeed;
@@ -43,6 +41,7 @@ namespace Cards.Scripts
             target.OnSetNewSlot.AddListener(UpdateSortingOrder);
             target.OnStartDrag.AddListener(UpdateSortingOrder);
             target.OnDrop.AddListener(UpdateSortingOrder);
+            Container.OnAnyContainerUpdated.AddListener(UpdateSortingOrder);
             UpdateSortingOrder();
         }
 
