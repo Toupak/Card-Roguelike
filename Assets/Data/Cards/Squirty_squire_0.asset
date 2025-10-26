@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Card 2
+  m_Name: Squirty_squire_0
   m_EditorClassIdentifier: 
-  cardName: Golmondorf
-  cardNumber: 2
+  cardName: Squirty_squire_0
+  cardNumber: 0
+  artwork: {fileID: 314153588172875450, guid: 385d36dd462c8254989b1524db951cd8, type: 3}

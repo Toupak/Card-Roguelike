@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cards;
 using Cards.Scripts;
+using Data;
 using UnityEngine;
 
 namespace CombatLoop
