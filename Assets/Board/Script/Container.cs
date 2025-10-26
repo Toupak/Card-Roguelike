@@ -97,7 +97,7 @@ namespace Board.Script
         {
             Container currentCursorContainer = CursorInfo.instance.lastContainer;
 
-            if (currentCursorContainer != this && !currentCursorContainer.IsFull)
+            if (currentCursorContainer != this && !currentCursorContainer.IsFull && currentCursorContainer.type != ContainerType.Enemy)
             {
                 SendToOtherBoard(currentCursorContainer);
                 return true;

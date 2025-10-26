@@ -31,6 +31,7 @@ namespace Cards.Scripts
         public int SlotSiblingCount => transform.parent.CompareTag("Slot") ? transform.parent.parent.childCount - 1 : 0;
         public Vector3 SlotPosition => slot.transform.position;
         public Container.ContainerType ContainerType => slot.board.type;
+        public bool IsEnemyCard => ContainerType == Container.ContainerType.Enemy;
 
         private Selectable selectable;
 
@@ -52,6 +53,12 @@ namespace Cards.Scripts
         
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (IsEnemyCard)
+            {
+                Deselect();
+                return;
+            }
+            
             isDragging = true;
             slot.board.OnStartDragging?.Invoke(this);
             Deselect();
@@ -60,6 +67,12 @@ namespace Cards.Scripts
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (IsEnemyCard)
+            {
+                Deselect();
+                return;
+            }
+            
             transform.position = eventData.position;
         }
 
@@ -77,6 +90,7 @@ namespace Cards.Scripts
         {
 
         }
+
         public void OnPointerUp(PointerEventData eventData)
         {
             if (EventSystem.current.currentSelectedGameObject == gameObject)
@@ -104,7 +118,11 @@ namespace Cards.Scripts
 
         public void OnSelect(BaseEventData eventData)
         {
-            
+            if (IsEnemyCard)
+            {
+                Deselect();
+                return;
+            }
         }
 
         public void OnDeselect(BaseEventData eventData)
