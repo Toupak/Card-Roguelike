@@ -24,7 +24,7 @@ namespace Cards.Scripts
         [SerializeField] private float scaleSpeed;
         
         [Space]
-        [SerializeField] private float stickyMoveDistance;
+        [SerializeField] private float stickyMoveFactorNormalized;
         [SerializeField] private float stickyMaxDistance;
 
         [Space] 
@@ -127,8 +127,10 @@ namespace Cards.Scripts
 
         private void FollowPositionSticky()
         {
-            Vector3 stickyTarget = target.SlotPosition;
-            stickyTarget += (target.transform.position - target.SlotPosition).normalized * stickyMoveDistance;
+            Vector3 direction = target.transform.position - target.SlotPosition;
+            float distance = direction.magnitude;
+            
+            Vector3 stickyTarget = target.SlotPosition + direction.normalized * (distance * stickyMoveFactorNormalized);
 
             transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * speed);
         }

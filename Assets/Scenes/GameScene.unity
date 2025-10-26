@@ -387,8 +387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000037136, y: -22.704}
-  m_SizeDelta: {x: 960, y: 176.7}
+  m_AnchoredPosition: {x: -131.9, y: -22.704}
+  m_SizeDelta: {x: 696.2, y: 176.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236631251
 MonoBehaviour:
@@ -1298,6 +1298,131 @@ MonoBehaviour:
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   type: 0
+--- !u!1 &1800996140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800996141}
+  - component: {fileID: 1800996145}
+  - component: {fileID: 1800996144}
+  - component: {fileID: 1800996143}
+  - component: {fileID: 1800996142}
+  m_Layer: 5
+  m_Name: Sticky Board - Max 1 Card
+  m_TagString: Container
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1800996141
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800996140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1866607033}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 357, y: -22.707}
+  m_SizeDelta: {x: 166.2, y: 176.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1800996142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800996140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610ee9be2cdd25a4a8172d7259050d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStartDragging:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStopDragging:
+    m_PersistentCalls:
+      m_Calls: []
+  maxCardCount: 1
+  slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
+  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
+  type: 3
+--- !u!114 &1800996143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800996140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 150
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &1800996144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800996140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3064682, g: 0.6039216, b: 0.09411765, a: 0.30588236}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1800996145
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800996140}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1817384097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1412,11 +1537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 380
+      value: 357
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 174.74
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1537,6 +1662,7 @@ RectTransform:
   - {fileID: 1817384098}
   - {fileID: 278176960}
   - {fileID: 236631249}
+  - {fileID: 1800996141}
   - {fileID: 1683356758}
   - {fileID: 228504064}
   - {fileID: 2123602823}

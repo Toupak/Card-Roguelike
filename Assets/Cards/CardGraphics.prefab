@@ -252,8 +252,8 @@ MonoBehaviour:
   scaleMultiplierOnSelect: 2
   scaleMultiplierOnDrag: 1.15
   scaleSpeed: 0.15
-  stickyMoveDistance: 180
-  stickyMaxDistance: 190
+  stickyMoveFactorNormalized: 0.2
+  stickyMaxDistance: 200
   manualTiltAmount: 0.3
   autoTiltAmount: 10
   tiltSpeed: 10
