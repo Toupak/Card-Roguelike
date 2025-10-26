@@ -69,6 +69,7 @@ namespace Cards.Scripts
             ResetPosition();
 
             isDragging = false;
+            Deselect();
             slot.board.OnStopDragging?.Invoke();
             OnDrop?.Invoke();
         }
@@ -79,7 +80,11 @@ namespace Cards.Scripts
         }
         public void OnPointerUp(PointerEventData eventData)
         {
-
+            if (EventSystem.current.currentSelectedGameObject == gameObject)
+            {
+                isSelected = true;
+                OnSelected?.Invoke();
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -100,8 +105,7 @@ namespace Cards.Scripts
 
         public void OnSelect(BaseEventData eventData)
         {
-            isSelected = true;
-            OnSelected?.Invoke();
+            
         }
 
         public void OnDeselect(BaseEventData eventData)
