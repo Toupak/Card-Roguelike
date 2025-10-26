@@ -31,6 +31,7 @@ namespace Board.Script
         {
             Hand,
             Board,
+            Enemy,
             Sticky
         }
 
@@ -50,8 +51,7 @@ namespace Board.Script
 
         private void Update()
         {
-            if (type == ContainerType.Hand) //TODO move it to PlayerHandController
-                CheckDrawCard();
+            CheckDrawCard(); //TODO move it to PlayerHandController
             
             if (currentSelectedCard == null)
                 return;
@@ -79,7 +79,10 @@ namespace Board.Script
 
         private void CheckDrawCard()//TODO move it to PlayerHandController
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame && !IsFull)
+            if (type == ContainerType.Hand && Keyboard.current.spaceKey.wasPressedThisFrame && !IsFull)
+                DrawCard();
+            
+            if (type == ContainerType.Enemy && Keyboard.current.eKey.wasPressedThisFrame && !IsFull)
                 DrawCard();
         }
 
