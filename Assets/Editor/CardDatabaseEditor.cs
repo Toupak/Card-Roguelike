@@ -108,7 +108,7 @@ namespace Editor
                     if (card != null)
                     {
                         SerializedObject cardSO = new SerializedObject(card);
-                        SerializedProperty propNumber = cardSO.FindProperty("_number");
+                        SerializedProperty propNumber = cardSO.FindProperty("cardNumber");
                         cardSO.Update();
                         propNumber.intValue = 0;
                         cardSO.ApplyModifiedProperties();
