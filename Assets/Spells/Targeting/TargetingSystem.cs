@@ -22,8 +22,8 @@ namespace Spells.Targeting
         private TargetingCursor currentTargetingCursor;
         private List<TargetingCursor> previousCursors;
 
-        private List<Transform> currentTargets = new List<Transform>();
-        public List<Transform> Targets => currentTargets;
+        private List<CardMovement> currentTargets = new List<CardMovement>();
+        public List<CardMovement> Targets => currentTargets;
 
         private bool isCanceled;
         public bool IsCanceled => isCanceled;
@@ -38,30 +38,30 @@ namespace Spells.Targeting
             SpellController.OnCancelSpell.AddListener(StopTargeting);
         }
 
-        public IEnumerator SelectTargets(Transform startPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1)
+        public IEnumerator SelectTargets(CardMovement castingCard, Transform startingPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1)
         {
             Debug.Log("Start Targeting");
 
             isCanceled = false;
-            currentTargets = new List<Transform>();
+            currentTargets = new List<CardMovement>();
             previousCursors = new List<TargetingCursor>();
             
             if (targetingMode == TargetingMode.All)
             {
-                currentTargets = ComputeTargetAllList(startPosition, targetType);
+                currentTargets = ComputeTargetAllList(castingCard, targetType);
                 yield break;
             }
             
             StartTargeting();
 
-            int maxTargetCount = ComputeMaxAmountOfTargets(targetType, targetingMode, targetCount);
+            int maxTargetCount = ComputeMaxAmountOfTargets(castingCard, targetType, targetingMode, targetCount);
             Debug.Log($"Target Count : {maxTargetCount}");
 
             yield return null;//skip a frame to prevent targeting the card that just started the spell
             while (!isCanceled && currentTargets.Count < maxTargetCount)
             {
                 if (currentTargetingCursor == null)
-                    SpawnTargetingCursor(startPosition);
+                    SpawnTargetingCursor(startingPosition);
                 
                 UpdateTargetingCursorPosition();
                 if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -72,16 +72,16 @@ namespace Spells.Targeting
             }
 
             if (isCanceled)
-                currentTargets = new List<Transform>();
+                currentTargets = new List<CardMovement>();
             else
                 yield return new WaitForSeconds(0.3f);
             
             StopTargeting();
         }
 
-        private List<Transform> ComputeTargetAllList(Transform current, TargetType targetType)
+        private List<CardMovement> ComputeTargetAllList(CardMovement current, TargetType targetType)
         {
-            List<Transform> list = new List<Transform>();
+            List<CardMovement> list = new List<CardMovement>();
             switch (targetType)
             {
                 case TargetType.Ally:
@@ -104,26 +104,26 @@ namespace Spells.Targeting
             return list;
         }
 
-        private List<Transform> RetrieveBoard(CardContainer container)
+        private List<CardMovement> RetrieveBoard(CardContainer container)
         {
-            List<Transform> list = new List<Transform>();
+            List<CardMovement> list = new List<CardMovement>();
             foreach (Slot slot in container.Slots)
             {
                 if (!slot.IsEmpty)
-                    list.Add(slot.transform.GetChild(0));
+                    list.Add(slot.transform.GetChild(0).GetComponent<CardMovement>());
             }
 
             return list;
         }
 
-        private int ComputeMaxAmountOfTargets(TargetType targetType, TargetingMode targetingMode, int targetCount)
+        private int ComputeMaxAmountOfTargets(CardMovement current, TargetType targetType, TargetingMode targetingMode, int targetCount)
         {
             switch (targetingMode)
             {
                 case TargetingMode.Single:
                     return 1;
                 case TargetingMode.Multi:
-                    return Math.Min(targetCount, ComputeTargetAllList(transform, targetType).Count);
+                    return Math.Min(targetCount, ComputeTargetAllList(current, targetType).Count);
                 case TargetingMode.All:
                     Debug.LogError("error : TargetingMode.All should have been handled by ComputeTargetAllList()");
                     return 0;
@@ -140,7 +140,7 @@ namespace Spells.Targeting
             
             if (card != null && IsSelectedTargetValid(card, targetType))
             {
-                currentTargets.Add(card.transform);
+                currentTargets.Add(card);
                 previousCursors.Add(currentTargetingCursor);
                 currentTargetingCursor = null;
             }

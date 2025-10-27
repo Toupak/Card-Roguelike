@@ -11,7 +11,7 @@ namespace Spells
 {
     public class SpellController : MonoBehaviour
     {
-        [SerializeField] private Transform thisCard;
+        [SerializeField] private CardController cardController;
 
         public static UnityEvent OnStartCastingSpell = new UnityEvent();
         public static UnityEvent OnCastSpell = new UnityEvent();
@@ -41,7 +41,7 @@ namespace Spells
                     yield return SelectTargetAndCast(startPosition, spellData);
                     break;
                 case TargetType.Self:
-                    CastSpellOnTarget(spellData, thisCard);
+                    CastSpellOnTarget(spellData, cardController.cardMovement);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -52,7 +52,7 @@ namespace Spells
 
         private IEnumerator SelectTargetAndCast(Transform startPosition, SpellData spellData)
         {
-            yield return TargetingSystem.instance.SelectTargets(startPosition, spellData.targetType, spellData.targetingMode, spellData.targetCount);
+            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, spellData.targetingMode, spellData.targetCount);
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else
@@ -67,15 +67,15 @@ namespace Spells
             Debug.Log("Cancel Targeting");
         }
 
-        private void CastSpellOnTarget(SpellData spellData, Transform target)
+        private void CastSpellOnTarget(SpellData spellData, CardMovement target)
         {
-            CastSpellOnTarget(spellData, new List<Transform>(){ target });
+            CastSpellOnTarget(spellData, new List<CardMovement>(){ target });
         }
 
-        private void CastSpellOnTarget(SpellData spellData, List<Transform> targets)
+        private void CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
-            foreach (Transform target in targets)
+            foreach (CardMovement target in targets)
             {
                 Debug.Log($"Target : {target.gameObject.name}");
                 if (spellData.targetType == TargetType.Ally)
@@ -86,12 +86,12 @@ namespace Spells
             OnCastSpell?.Invoke();
         }
 
-        private void DebugDealDamage(Transform target)
+        private void DebugDealDamage(CardMovement target)
         {
-            target.GetComponent<CardMovement>().cardController.cardHealth.TakeDamage(5);
+            target.cardController.cardHealth.TakeDamage(5);
         }
         
-        private void DebugHealDamage(Transform target)
+        private void DebugHealDamage(CardMovement target)
         {
             //target.GetComponent<CardMovement>().cardController.cardHealth.HealDamage(5);
         }
