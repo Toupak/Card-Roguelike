@@ -30,7 +30,7 @@ namespace CombatLoop
                 DrawCard();
         }
         
-        private void DrawCard()
+        public void DrawCard()
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             enemyBoardContainer.ReceiveCard(newCard);

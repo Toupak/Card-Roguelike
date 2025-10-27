@@ -11,11 +11,19 @@ namespace Cards.Scripts
         [SerializeField] private Image artwork;
         [SerializeField] private SpellButton leftButton;
         [SerializeField] private SpellButton rightButton;
+
+        private RectTransform rectTransform;
+        public Vector2 screenPosition => rectTransform.position;
         
         public CardMovement cardMovement { get;  private set; }
         public CardData cardData { get;  private set; }
 
         public CardHealth cardHealth { get; private set; }
+
+        private void Start()
+        {
+            rectTransform = GetComponent<RectTransform>();
+        }
 
         public void Setup(CardMovement movement, CardData data)
         {

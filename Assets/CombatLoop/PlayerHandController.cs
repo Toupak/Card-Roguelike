@@ -16,7 +16,23 @@ namespace CombatLoop
         
         public IEnumerator DrawHand()
         {
-            yield break;
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
+            DrawCard();
+            yield return new WaitForSeconds(0.1f);
         }
 
         private void Update()
