@@ -52,7 +52,7 @@ namespace Board.Script
 
         private void Update()
         {
-            CheckDrawCard(); //TODO move it to PlayerHandController
+            CheckDrawCard(); //TODO move it to EnemyHandController
             
             if (currentSelectedCard == null)
                 return;
@@ -78,20 +78,18 @@ namespace Board.Script
             }
         }
 
-        private void CheckDrawCard()//TODO move it to PlayerHandController
+        private void CheckDrawCard()//TODO move it to EnemyHandController
         {
-            if (type == ContainerType.Hand && Keyboard.current.spaceKey.wasPressedThisFrame && !IsFull)
-                DrawCard();
-            
             if (type == ContainerType.Enemy && Keyboard.current.eKey.wasPressedThisFrame && !IsFull)
                 DrawCard();
         }
 
-        private void DrawCard()//TODO move it to PlayerHandController
+        private void DrawCard()//TODO move it to EnemyHandController
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             ReceiveCard(newCard);
-            CardsVisualManager.instance.SpawnNewCardVisuals(newCard, null);
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, null);
+            newCard.SetCardController(controller);
         }
 
         private bool CheckForSendingCardToOtherContainer()

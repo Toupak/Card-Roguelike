@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
-  m_Name: TestSpell
+  m_Name: Left_Test
   m_EditorClassIdentifier: 
   spellName: Test Spell
   description: This is a test
   icon: {fileID: -3340349168363038409, guid: 007d7c57576e8b94cb35af0f1a04b1cf, type: 3}
-  targetType: 3
-  targetingMode: 2
+  targetType: 1
+  targetingMode: 1
   targetCount: 2

@@ -15,3 +15,5 @@ MonoBehaviour:
   cardName: Squirty_squire_0
   cardNumber: 0
   artwork: {fileID: 314153588172875450, guid: 385d36dd462c8254989b1524db951cd8, type: 3}
+  leftSpell: {fileID: 11400000, guid: 4318f6ef0b1ba0b40923b2b228c56acb, type: 2}
+  rightSpell: {fileID: 11400000, guid: fe4fb0dcedde54645a38aa3b6bc25ee5, type: 2}

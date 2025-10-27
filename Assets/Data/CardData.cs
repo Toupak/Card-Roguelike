@@ -1,3 +1,4 @@
+using Spells.Data;
 using UnityEngine;
 
 namespace Data
@@ -8,5 +9,7 @@ namespace Data
         public string cardName;
         public int cardNumber;
         public Sprite artwork;
+        public SpellData leftSpell;
+        public SpellData rightSpell;
     }
 }

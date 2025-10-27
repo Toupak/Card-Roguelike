@@ -5,7 +5,7 @@ namespace Cards.Scripts
 {
     public class CardsVisualManager : MonoBehaviour
     {
-        [SerializeField] private GameObject cardGraphicsPrefab;
+        [SerializeField] private CardController cardGraphicsPrefab;
         
         public static CardsVisualManager instance;
 
@@ -14,10 +14,12 @@ namespace Cards.Scripts
             instance = this;
         }
 
-        public void SpawnNewCardVisuals(CardMovement movement, CardData data)
+        public CardController SpawnNewCardVisuals(CardMovement movement, CardData data)
         {
-            GameObject newCard = Instantiate(cardGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
-            newCard.GetComponent<FollowTarget>().SetTarget(movement);
+            CardController newCard = Instantiate(cardGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
+            newCard.Setup(movement, data);
+
+            return newCard;
         }
     }
 }

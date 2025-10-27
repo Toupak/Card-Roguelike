@@ -11,7 +11,6 @@ namespace Spells
     public class SpellController : MonoBehaviour
     {
         [SerializeField] private Transform thisCard;
-        [SerializeField] private SpellData spellData_test;
 
         public static UnityEvent OnStartCastingSpell = new UnityEvent();
         public static UnityEvent OnCastSpell = new UnityEvent();
@@ -20,12 +19,12 @@ namespace Spells
         private Coroutine castSpellRoutine = null;
         public bool IsCasting => castSpellRoutine != null;
         
-        public void CastSpell(Transform startPosition)
+        public void CastSpell(Transform startPosition, SpellData spellData)
         {
             if (castSpellRoutine != null)
                 CancelTargeting();
             else
-                castSpellRoutine = StartCoroutine(CastSpellCoroutine(startPosition, spellData_test));
+                castSpellRoutine = StartCoroutine(CastSpellCoroutine(startPosition, spellData));
             OnStartCastingSpell?.Invoke();
         }
 

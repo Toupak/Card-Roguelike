@@ -27,6 +27,7 @@ namespace Cards.Scripts
         public bool IsSelected => isSelected;
 
         
+        public CardController cardController { get;  private set; }
         private Slot slot;
         public int SlotIndex => transform.parent.CompareTag("Slot") ? transform.parent.GetSiblingIndex() : 0;
         public int SlotSiblingCount => transform.parent.CompareTag("Slot") ? transform.parent.parent.childCount - 1 : 0;
@@ -143,6 +144,11 @@ namespace Cards.Scripts
             if (forceDeselect)
                 EventSystem.current.SetSelectedGameObject(null);
             OnDeselected?.Invoke();
+        }
+
+        public void SetCardController(CardController newController)
+        {
+            cardController = newController;
         }
     }
 }
