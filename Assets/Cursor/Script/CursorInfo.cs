@@ -12,7 +12,7 @@ namespace Cursor.Script
     {
         public static CursorInfo instance;
 
-        public Container lastContainer { get; private set; } = null;
+        public CardContainer LastCardContainer { get; private set; } = null;
         
         private void Awake()
         {
@@ -41,12 +41,12 @@ namespace Cursor.Script
             if (container.Count < 1)
                 return;
             
-            SetLastContainer(container[0].gameObject.GetComponent<Container>());
+            SetLastContainer(container[0].gameObject.GetComponent<CardContainer>());
         }
 
-        public void SetLastContainer(Container newContainer)
+        public void SetLastContainer(CardContainer newCardContainer)
         {
-            lastContainer = newContainer;
+            LastCardContainer = newCardContainer;
         }
     }
 }

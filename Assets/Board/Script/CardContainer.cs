@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 namespace Board.Script
 {
-    public class Container : MonoBehaviour
+    public class CardContainer : MonoBehaviour
     {
         public static UnityEvent OnAnyContainerUpdated = new UnityEvent();
         
@@ -95,21 +95,21 @@ namespace Board.Script
 
         private bool CheckForSendingCardToOtherContainer()
         {
-            Container currentCursorContainer = CursorInfo.instance.lastContainer;
+            CardContainer currentCursorCardContainer = CursorInfo.instance.LastCardContainer;
 
-            if (currentCursorContainer != this && !currentCursorContainer.IsFull && currentCursorContainer.type != ContainerType.Enemy)
+            if (currentCursorCardContainer != this && !currentCursorCardContainer.IsFull && currentCursorCardContainer.type != ContainerType.Enemy)
             {
-                SendToOtherBoard(currentCursorContainer);
+                SendToOtherBoard(currentCursorCardContainer);
                 return true;
             }
 
             return false;
         }
 
-        private void SendToOtherBoard(Container currentCursorContainer)
+        private void SendToOtherBoard(CardContainer currentCursorCardContainer)
         {
             int currentIndex = currentSelectedCard.SlotIndex;
-            currentCursorContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
+            currentCursorCardContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
             DeleteCurrentSlot(currentIndex);
             currentSelectedCard = null;
         }
