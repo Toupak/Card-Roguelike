@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc1da2be76ebd94aa53e716385b7af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardGraphicsPrefab: {fileID: 3317175333349962056, guid: 7a32b4a7f636be74eba064bedaed1ece, type: 3}
+  cardGraphicsPrefab: {fileID: -4129232798781121940, guid: 7a32b4a7f636be74eba064bedaed1ece, type: 3}
 --- !u!1 &236631248
 GameObject:
   m_ObjectHideFlags: 0

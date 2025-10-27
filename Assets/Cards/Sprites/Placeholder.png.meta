@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
@@ -116,9 +116,9 @@ TextureImporter:
       name: Placeholder_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 48
+        x: 0
+        y: 65
+        width: 46
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,6 +130,72 @@ TextureImporter:
       bones: []
       spriteID: f73c823eb93636350800000000000000
       internalID: 6008755849024553855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placeholder_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9cba6c99486a54e94abc87d2e514b4
+      internalID: -1195807172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placeholder_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909df98c9949a7d4e898a1813f8e21a2
+      internalID: -334025799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Placeholder_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f836b10d88d0d2740b7f8c197711aeca
+      internalID: -1595858940
       vertices: []
       indices: 
       edges: []
@@ -149,6 +215,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Placeholder_0: 6008755849024553855
+      Placeholder_1: -1195807172
+      Placeholder_2: -334025799
+      Placeholder_3: -1595858940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

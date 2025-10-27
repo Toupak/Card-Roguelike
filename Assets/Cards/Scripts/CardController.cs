@@ -1,12 +1,14 @@
 using Data;
 using Spells;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Cards.Scripts
 {
     public class CardController : MonoBehaviour
     {
         [SerializeField] private FollowTarget followTarget;
+        [SerializeField] private Image artwork;
         [SerializeField] private SpellButton leftButton;
         [SerializeField] private SpellButton rightButton;
         
@@ -17,6 +19,9 @@ namespace Cards.Scripts
         {
             cardMovement = movement;
             cardData = data;
+
+            if (data != null)
+                artwork.sprite = data.artwork;
             
             followTarget.SetTarget(movement);
             
