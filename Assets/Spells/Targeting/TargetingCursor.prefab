@@ -77,5 +77,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowHeadPrefab: {fileID: 5926290469874271476, guid: 75f20c0d62880c74faf54545fd8fccf8, type: 3}
   arrowNodePrefab: {fileID: 6206051341877196281, guid: a91a9614e8d684e48b47249bb484e11b, type: 3}
-  arrowNodeQuantity: 10
-  arrowScaleFactor: 1
+  arrowNodeQuantity: 25
+  arrowScaleFactor: 0.4

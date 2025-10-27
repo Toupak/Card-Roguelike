@@ -70,7 +70,7 @@ namespace Spells.Targeting
                 //Calculates rotation for ArrowNodes
                 if (i > 0)
                 {
-                    Vector3 euler = new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, arrowNodes[i].position - arrowNodes[i - 1].position));
+                    Vector3 euler = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, arrowNodes[i].position - arrowNodes[i - 1].position));
                     arrowNodes[i].rotation = Quaternion.Euler(euler);
                 }
 
