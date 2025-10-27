@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -12,10 +11,18 @@ namespace Cursor.Script
 {
     public class CursorInfo : MonoBehaviour
     {
+        public enum CursorMode
+        {
+            Free,
+            Targeting
+        }
+        
         public static CursorInfo instance;
 
         [CanBeNull] public CardContainer LastCardContainer { get; private set; } = null;
         [CanBeNull] public CardMovement currentCardMovement { get; private set; } = null;
+
+        public CursorMode currentMode { get; private set; } = CursorMode.Free;
         
         private void Awake()
         {
@@ -57,6 +64,12 @@ namespace Cursor.Script
                 return;
             
             LastCardContainer = containers[0].gameObject.GetComponent<CardContainer>();
+        }
+
+        public void SetCursorMode(CursorMode newMode)
+        {
+            Debug.Log($"Setting Cursor Mode to : {newMode}");
+            currentMode = newMode;
         }
     }
 }

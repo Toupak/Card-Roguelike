@@ -1,3 +1,4 @@
+using Cursor.Script;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +10,8 @@ namespace Spells
         
         public void OnPointerDown(PointerEventData eventData)
         {
-            spellController.CastSpell(transform);
+            if (CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free)
+                spellController.CastSpell(transform);
         }
     }
 }

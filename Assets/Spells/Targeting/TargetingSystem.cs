@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
+using Cards.Scripts;
 using CardSlot;
 using Cursor.Script;
 using Spells.Data;
@@ -34,13 +35,15 @@ namespace Spells.Targeting
 
         private void Start()
         {
-            SpellController.OnCancelSpell.AddListener(DestroyAllTargetingCursor);
+            SpellController.OnCancelSpell.AddListener(StopTargeting);
         }
 
         public IEnumerator SelectTargets(Transform startPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1)
         {
             Debug.Log("Start Targeting");
 
+            StartTargeting();
+            
             isCanceled = false;
             currentTargets = new List<Transform>();
             previousCursors = new List<TargetingCursor>();
@@ -62,16 +65,18 @@ namespace Spells.Targeting
                 
                 UpdateTargetingCursorPosition();
                 if (Mouse.current.leftButton.wasPressedThisFrame)
-                    CheckForTarget();
+                    CheckForTarget(targetType);
                 if (Mouse.current.rightButton.wasPressedThisFrame)
                     isCanceled = true;
                 yield return null;
             }
 
-            DestroyAllTargetingCursor();
-
             if (isCanceled)
                 currentTargets = new List<Transform>();
+            else
+                yield return new WaitForSeconds(0.3f);
+            
+            StopTargeting();
         }
 
         private List<Transform> ComputeTargetAllList(Transform current, TargetType targetType)
@@ -127,15 +132,34 @@ namespace Spells.Targeting
             }
         }
 
-        private void CheckForTarget()
+        private void CheckForTarget(TargetType targetType)
         {
             Debug.Log($"Targeting : Check for targets : {CursorInfo.instance.currentCardMovement}");
 
-            if (CursorInfo.instance.currentCardMovement != null) //TODO Check for target
+            CardMovement card = CursorInfo.instance.currentCardMovement;
+            
+            if (card != null && IsSelectedTargetValid(card, targetType))
             {
-                currentTargets.Add(CursorInfo.instance.currentCardMovement.transform);
+                currentTargets.Add(card.transform);
                 previousCursors.Add(currentTargetingCursor);
                 currentTargetingCursor = null;
+            }
+        }
+
+        private bool IsSelectedTargetValid(CardMovement card, TargetType targetType)
+        {
+            switch (targetType)
+            {
+                case TargetType.Ally:
+                    return card.IsEnemyCard == false;
+                case TargetType.Enemy:
+                    return card.IsEnemyCard;
+                case TargetType.Self:
+                    return false;
+                case TargetType.None:
+                    return true;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
             }
         }
 
@@ -148,6 +172,17 @@ namespace Spells.Targeting
         private void UpdateTargetingCursorPosition()
         {
             currentTargetingCursor.UpdatePosition();
+        }
+
+        private void StartTargeting()
+        {
+            CursorInfo.instance.SetCursorMode(CursorInfo.CursorMode.Targeting);
+        }
+        
+        private void StopTargeting()
+        {
+            DestroyAllTargetingCursor();
+            CursorInfo.instance.SetCursorMode(CursorInfo.CursorMode.Free);
         }
 
         private void DestroyAllTargetingCursor()

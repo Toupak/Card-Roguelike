@@ -1,5 +1,6 @@
 using Board.Script;
 using CardSlot;
+using Cursor.Script;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -33,6 +34,9 @@ namespace Cards.Scripts
         public CardContainer.ContainerType ContainerType => slot.board.type;
         public bool IsEnemyCard => ContainerType == CardContainer.ContainerType.Enemy;
 
+        private bool isCursorFree => CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
+        private bool canBeDragged => !IsEnemyCard && isCursorFree;
+
         private Selectable selectable;
 
         private void Start()
@@ -53,7 +57,7 @@ namespace Cards.Scripts
         
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (IsEnemyCard)
+            if (!canBeDragged)
             {
                 Deselect();
                 return;
@@ -67,7 +71,7 @@ namespace Cards.Scripts
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (IsEnemyCard)
+            if (!canBeDragged)
             {
                 Deselect();
                 return;
@@ -93,7 +97,7 @@ namespace Cards.Scripts
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (EventSystem.current.currentSelectedGameObject == gameObject)
+            if (EventSystem.current.currentSelectedGameObject == gameObject && isCursorFree)
             {
                 isSelected = true;
                 OnSelected?.Invoke();
@@ -127,7 +131,7 @@ namespace Cards.Scripts
 
         public void OnDeselect(BaseEventData eventData)
         {
-           Deselect(false);
+            Deselect(false);
         }
 
         private void Deselect(bool forceDeselect = true)
