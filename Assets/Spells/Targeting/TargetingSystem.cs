@@ -42,8 +42,6 @@ namespace Spells.Targeting
         {
             Debug.Log("Start Targeting");
 
-            StartTargeting();
-            
             isCanceled = false;
             currentTargets = new List<Transform>();
             previousCursors = new List<TargetingCursor>();
@@ -53,6 +51,8 @@ namespace Spells.Targeting
                 currentTargets = ComputeTargetAllList(startPosition, targetType);
                 yield break;
             }
+            
+            StartTargeting();
 
             int maxTargetCount = ComputeMaxAmountOfTargets(targetType, targetingMode, targetCount);
             Debug.Log($"Target Count : {maxTargetCount}");
