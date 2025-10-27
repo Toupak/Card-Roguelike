@@ -52,8 +52,6 @@ namespace Board.Script
 
         private void Update()
         {
-            CheckDrawCard(); //TODO move it to EnemyHandController
-            
             if (currentSelectedCard == null)
                 return;
 
@@ -76,20 +74,6 @@ namespace Board.Script
                         return;
                     }
             }
-        }
-
-        private void CheckDrawCard()//TODO move it to EnemyHandController
-        {
-            if (type == ContainerType.Enemy && Keyboard.current.eKey.wasPressedThisFrame && !IsFull)
-                DrawCard();
-        }
-
-        private void DrawCard()//TODO move it to EnemyHandController
-        {
-            CardMovement newCard = Instantiate(cardMovementPrefab);
-            ReceiveCard(newCard);
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, null);
-            newCard.SetCardController(controller);
         }
 
         private bool CheckForSendingCardToOtherContainer()
