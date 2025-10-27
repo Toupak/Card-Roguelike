@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Spells.Data;
 using Spells.Targeting;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Spells
 {
@@ -12,6 +13,10 @@ namespace Spells
         [SerializeField] private Transform thisCard;
         [SerializeField] private SpellData spellData_test;
 
+        public static UnityEvent OnStartCastingSpell = new UnityEvent();
+        public static UnityEvent OnCastSpell = new UnityEvent();
+        public static UnityEvent OnCancelSpell = new UnityEvent();
+        
         private Coroutine castSpellRoutine = null;
         public bool IsCasting => castSpellRoutine != null;
         
@@ -21,6 +26,7 @@ namespace Spells
                 CancelTargeting();
             else
                 castSpellRoutine = StartCoroutine(CastSpellCoroutine(startPosition, spellData_test));
+            OnStartCastingSpell?.Invoke();
         }
 
         private IEnumerator CastSpellCoroutine(Transform startPosition, SpellData spellData)
@@ -29,15 +35,13 @@ namespace Spells
             
             switch (spellData.targetType)
             {
+                case TargetType.None:
                 case TargetType.Ally:
                 case TargetType.Enemy:
                     yield return SelectTargetAndCast(startPosition, spellData);
                     break;
                 case TargetType.Self:
                     CastSpellOnTarget(spellData, thisCard);
-                    break;
-                case TargetType.None:
-                    CastSpellOnTarget(spellData, targets:null);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -59,6 +63,7 @@ namespace Spells
         {
             StopAllCoroutines();
             castSpellRoutine = null;
+            OnCancelSpell?.Invoke();
             Debug.Log("Cancel Targeting");
         }
 
@@ -74,6 +79,7 @@ namespace Spells
             {
                 Debug.Log($"Target : {target.gameObject.name}");
             }
+            OnCastSpell?.Invoke();
         }
     }
 }

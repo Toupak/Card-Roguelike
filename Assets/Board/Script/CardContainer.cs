@@ -24,6 +24,7 @@ namespace Board.Script
         private CardMovement currentSelectedCard;
 
         private List<Slot> slots = new List<Slot>();
+        public List<Slot> Slots => slots;
 
         public ContainerType type;
 

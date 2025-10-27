@@ -7,6 +7,7 @@ TagManager:
   - Cursor
   - Container
   - Slot
+  - CardMovement
   layers:
   - Default
   - TransparentFX

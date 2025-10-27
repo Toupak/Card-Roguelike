@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5100195991538742215}
   m_Layer: 5
   m_Name: CardMovement
-  m_TagString: Untagged
+  m_TagString: CardMovement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselected:
     m_PersistentCalls:
       m_Calls: []
   OnStartDrag:

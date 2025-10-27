@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817a3190b8616ad479870ffb23a1e098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBoard: {fileID: 236631251}
+  enemyBoard: {fileID: 278176961}
   targetingCursorPrefab: {fileID: 4389724506607846297, guid: 4d40be962015e17409b7a8064fab0783, type: 3}
 --- !u!223 &28891571
 Canvas:

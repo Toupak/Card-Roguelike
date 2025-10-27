@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Linq;
 using Board.Script;
+using Cards.Scripts;
+using JetBrains.Annotations;
 using UnityEngine.InputSystem;
 
 namespace Cursor.Script
@@ -12,7 +14,8 @@ namespace Cursor.Script
     {
         public static CursorInfo instance;
 
-        public CardContainer LastCardContainer { get; private set; } = null;
+        [CanBeNull] public CardContainer LastCardContainer { get; private set; } = null;
+        [CanBeNull] public CardMovement currentCardMovement { get; private set; } = null;
         
         private void Awake()
         {
@@ -36,17 +39,24 @@ namespace Cursor.Script
             if (results.Count < 1)
                 return;
 
-            List<RaycastResult> container = results.Where((c) => c.gameObject.CompareTag("Container")).ToList();
+            List<RaycastResult> containers = results.Where((c) => c.gameObject.CompareTag("Container")).ToList();
+            SetLastContainer(containers);
             
-            if (container.Count < 1)
-                return;
-            
-            SetLastContainer(container[0].gameObject.GetComponent<CardContainer>());
+            List<RaycastResult> cards = results.Where((c) => c.gameObject.CompareTag("CardMovement")).ToList();
+            SetCurrentCard(cards);
         }
 
-        public void SetLastContainer(CardContainer newCardContainer)
+        private void SetCurrentCard(List<RaycastResult> cards)
         {
-            LastCardContainer = newCardContainer;
+            currentCardMovement = cards.Count > 0 ? cards[0].gameObject.GetComponent<CardMovement>() : null;
+        }
+
+        private void SetLastContainer(List<RaycastResult> containers)
+        {
+            if (containers.Count < 1)
+                return;
+            
+            LastCardContainer = containers[0].gameObject.GetComponent<CardContainer>();
         }
     }
 }
