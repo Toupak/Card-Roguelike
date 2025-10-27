@@ -15,10 +15,13 @@ namespace Cards.Scripts
         public CardMovement cardMovement { get;  private set; }
         public CardData cardData { get;  private set; }
 
+        public CardHealth cardHealth { get; private set; }
+
         public void Setup(CardMovement movement, CardData data)
         {
             cardMovement = movement;
             cardData = data;
+            cardHealth = GetComponent<CardHealth>();
 
             if (data != null)
                 artwork.sprite = data.artwork;
@@ -34,6 +37,9 @@ namespace Cards.Scripts
                 rightButton.Setup(data.rightSpell, !movement.IsEnemyCard);
             else
                 rightButton.Setup(null, !movement.IsEnemyCard);
+
+            if (cardHealth != null)
+                cardHealth.Setup(data);
         }
     }
 }

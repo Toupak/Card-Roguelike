@@ -88,7 +88,7 @@ namespace Spells
 
         private void DebugDealDamage(Transform target)
         {
-            //target.GetComponent<CardMovement>().cardController.cardHealth.TakeDamage(5);
+            target.GetComponent<CardMovement>().cardController.cardHealth.TakeDamage(5);
         }
         
         private void DebugHealDamage(Transform target)
