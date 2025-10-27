@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cards.Scripts;
 using Spells.Data;
 using Spells.Targeting;
 using UnityEngine;
@@ -77,8 +78,22 @@ namespace Spells
             foreach (Transform target in targets)
             {
                 Debug.Log($"Target : {target.gameObject.name}");
+                if (spellData.targetType == TargetType.Ally)
+                    DebugHealDamage(target);
+                else
+                    DebugDealDamage(target);
             }
             OnCastSpell?.Invoke();
+        }
+
+        private void DebugDealDamage(Transform target)
+        {
+            //target.GetComponent<CardMovement>().cardController.cardHealth.TakeDamage(5);
+        }
+        
+        private void DebugHealDamage(Transform target)
+        {
+            //target.GetComponent<CardMovement>().cardController.cardHealth.HealDamage(5);
         }
     }
 }
