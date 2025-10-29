@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
 using Cards.Scripts;
@@ -14,9 +15,16 @@ namespace CombatLoop
         [SerializeField] private List<CardData> cardData;
         
         public bool IsOver { get; internal set; }
+        public CardContainer container => enemyBoardContainer;
 
-        internal void StartPlayTurn()
+        internal IEnumerator PlayTurn()
         {
+            IsOver = false;
+            
+            //Do turn here
+            yield return new WaitForSeconds(1.0f);
+            
+            IsOver = true;
         }
         
         private void Update()

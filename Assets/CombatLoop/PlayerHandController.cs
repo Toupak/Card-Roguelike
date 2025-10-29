@@ -14,6 +14,8 @@ namespace CombatLoop
         [SerializeField] private CardMovement cardMovementPrefab;
         [SerializeField] private List<CardData> cardData;
         
+        public CardContainer container => handContainer;
+        
         public IEnumerator DrawHand()
         {
             yield return new WaitForSeconds(0.1f);

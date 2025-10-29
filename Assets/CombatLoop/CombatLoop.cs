@@ -1,4 +1,5 @@
 using System.Collections;
+using Board.Script;
 using UnityEngine;
 
 namespace CombatLoop
@@ -7,7 +8,12 @@ namespace CombatLoop
     {
         [SerializeField] private EnemyHandController enemyHandController;
         [SerializeField] private PlayerHandController playerHandController;
+        [SerializeField] private CardContainer playerBoard;
         [SerializeField] private Animator canvasAnimator;
+        
+        
+        [SerializeField] private GameObject endPreparationButton;
+        [SerializeField] private GameObject endPlayerTurnButton;
         
         public enum TurnType
         {
@@ -29,33 +35,36 @@ namespace CombatLoop
 
         private IEnumerator Start()
         {
+            endPreparationButton.SetActive(false);
+            endPlayerTurnButton.SetActive(false);
+            
             currentTurn = TurnType.Preparation;
             yield return FightIntro();
-            yield return PlaceEnemyCards(); // Enemy cards appear
+            yield return PlaceEnemyCards();
             yield return DrawCards();
-            yield return PlayHand(); // place a maximum of 5 cards in available slots
-
+            yield return WaitForAtLeastOneCardOnPlayerBoard();
+            yield return ActivateEndPreparationButton();
+            yield return PlayHand();
+            yield return DeactivateEndPreparationButton();
             yield return TransformBattleground();
+            yield return ActivatePlayerEnergyDisplay();
             
             currentTurn = TurnType.Player;
             while (IsMatchOver() == false)
             {
+                yield return ActivatePlayerEndTurnButton();
                 yield return DoPlayerTurn();
+                yield return DeactivatePlayerEndTurnButton();
                 yield return PlayChangeTurnAnimation();
                 yield return DoEnemyTurn();
                 yield return PlayChangeTurnAnimation();
+                yield return RefreshPlayerEnergyCount();
             }
 
             if (HasPlayerWon())
                 yield return ShowVictoryScreen();
             else
                 yield return ShowDefeatScreen();
-        }
-
-        private IEnumerator TransformBattleground()
-        {
-            canvasAnimator.Play("GoToBattle");
-            yield return new WaitForSeconds(0.5f);
         }
 
         private IEnumerator FightIntro()
@@ -78,6 +87,35 @@ namespace CombatLoop
             yield return playerHandController.DrawHand();
         }
         
+        private IEnumerator WaitForAtLeastOneCardOnPlayerBoard()
+        {
+            yield return new WaitUntil(() => playerBoard.Slots.Count > 0);
+        }
+        
+        private IEnumerator ActivateEndPreparationButton()
+        {
+            endPreparationButton.SetActive(true);
+            yield break;
+        }
+        
+        private IEnumerator DeactivateEndPreparationButton()
+        {
+            endPreparationButton.SetActive(false);
+            yield break;
+        }
+        
+        private IEnumerator ActivatePlayerEndTurnButton()
+        {
+            endPlayerTurnButton.SetActive(true);
+            yield break;
+        }
+        
+        private IEnumerator DeactivatePlayerEndTurnButton()
+        {
+            endPlayerTurnButton.SetActive(false);
+            yield break;
+        }
+        
         private IEnumerator PlayHand()
         {
             yield return new WaitWhile(() => currentTurn == TurnType.Preparation);
@@ -86,6 +124,22 @@ namespace CombatLoop
         public void OnEndSetupPhase()
         {
             currentTurn = TurnType.SetupOver;
+        }
+        
+        private IEnumerator TransformBattleground()
+        {
+            canvasAnimator.Play("GoToBattle");
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+        private IEnumerator ActivatePlayerEnergyDisplay()
+        {
+            yield break;
+        }
+
+        private IEnumerator RefreshPlayerEnergyCount()
+        {
+            yield break;
         }
 
         private IEnumerator PlayChangeTurnAnimation()
@@ -100,8 +154,7 @@ namespace CombatLoop
 
         private IEnumerator DoEnemyTurn()
         {
-            enemyHandController.StartPlayTurn();
-            yield return new WaitUntil(() => enemyHandController.IsOver);
+            yield return enemyHandController.PlayTurn();
         }
 
         private bool isPlayerPlaying;
@@ -118,12 +171,12 @@ namespace CombatLoop
         
         private bool IsMatchOver()
         {
-            return false;
+            return playerBoard.Slots.Count == 0 || enemyHandController.container.Slots.Count == 0;
         }
 
         private bool HasPlayerWon()
         {
-            return true;
+            return playerBoard.Slots.Count > enemyHandController.container.Slots.Count;
         }
         
         private IEnumerator ShowVictoryScreen()
