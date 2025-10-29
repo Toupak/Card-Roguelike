@@ -26,5 +26,6 @@ namespace Spells.Data
         public TargetType targetType;
         public TargetingMode targetingMode;
         [Tooltip("Optional : only needed when TargetingMode is set to Multi")] public int targetCount = 1;
+        public SpellController spellController;
     }
 }

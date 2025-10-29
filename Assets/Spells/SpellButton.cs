@@ -1,3 +1,4 @@
+using Cards.Scripts;
 using Cursor.Script;
 using Spells.Data;
 using UnityEngine;
@@ -7,15 +8,21 @@ namespace Spells
 {
     public class SpellButton : MonoBehaviour, IPointerDownHandler
     {
-        [SerializeField] private SpellController spellController;
+        private SpellController spellController;
 
         private SpellData spellData;
         private bool isPlayerCard;
         
-        public void Setup(SpellData data, bool isPlayer)
+        public void Setup(CardController cardController, SpellData data, bool isPlayer)
         {
             spellData = data;
             isPlayerCard = isPlayer;
+
+            if (data.spellController != null)
+            {
+                spellController = Instantiate(data.spellController, transform);
+                spellController.Setup(cardController);
+            }
         }
         
         public void OnPointerDown(PointerEventData eventData)
@@ -23,7 +30,7 @@ namespace Spells
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance.CurrentTurn == CombatLoop.CombatLoop.TurnType.Player;
             
-            if (isPlayerCard && spellData != null && isCursorFree && isPlayerTurn)
+            if (spellController != null && isPlayerCard && spellData != null && isCursorFree && isPlayerTurn)
                 spellController.CastSpell(transform, spellData);
         }
     }

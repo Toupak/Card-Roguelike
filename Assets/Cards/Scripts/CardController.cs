@@ -40,9 +40,10 @@ namespace Cards.Scripts
 
             cardName.text = data.cardName;
             artwork.sprite = data.artwork;
+            gameObject.name = data.cardName;
             
-            leftButton.Setup(data.leftSpell, !movement.IsEnemyCard);
-            rightButton.Setup(data.rightSpell, !movement.IsEnemyCard);
+            leftButton.Setup(this, data.leftSpell, !movement.IsEnemyCard);
+            rightButton.Setup(this, data.rightSpell, !movement.IsEnemyCard);
         }
 
         private void KillCard()
