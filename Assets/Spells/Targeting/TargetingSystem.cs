@@ -5,7 +5,6 @@ using Board.Script;
 using Cards.Scripts;
 using CardSlot;
 using Cursor.Script;
-using Spells.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

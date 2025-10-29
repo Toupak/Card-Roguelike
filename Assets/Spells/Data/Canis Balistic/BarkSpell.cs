@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
@@ -5,14 +6,23 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells
+namespace Spells.Data.Canis_Balistic
 {
-    public class BasicDamageSpellController : SpellController
+    public class BarkSpell : SpellController
     {
         [SerializeField] protected int damage;
-        
+
+        private int currentBullets = 0;
+
+        public override bool CanCastSpell()
+        {
+            return currentBullets > 0;
+        }
+
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
+            currentBullets -= 1;
+            
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             Debug.Log($"Cast Basic Damage Spell {spellData.spellName} on targets : ");
             OnCastSpell?.Invoke();
@@ -25,6 +35,22 @@ namespace Spells
                 DealDamageGA damageGa = new DealDamageGA(damage, target.cardController);
                 ActionSystem.instance.Perform(damageGa);
             }
+        }
+
+        private void OnEnable()
+        {
+            ActionSystem.SubscribeReaction<LoadBarkBulletGA>(LoadBulletReaction, ReactionTiming.POST);
+        }
+        
+        private void OnDisable()
+        {
+            ActionSystem.UnsubscribeReaction<LoadBarkBulletGA>(LoadBulletReaction, ReactionTiming.POST);
+        }
+
+        public void LoadBulletReaction(LoadBarkBulletGA loadBarkBulletGa)
+        {
+            if (loadBarkBulletGa.target == cardController)
+                currentBullets += 1;
         }
     }
 }

@@ -1,6 +1,5 @@
 using Cards.Scripts;
 using Cursor.Script;
-using Spells.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,8 +9,8 @@ namespace Spells
     {
         private SpellController spellController;
 
-        private SpellData spellData;
-        private bool isPlayerCard;
+        public SpellData spellData { get; private set; }
+        public bool isPlayerCard { get; private set; }
         
         public void Setup(CardController cardController, SpellData data, bool isPlayer)
         {
@@ -30,7 +29,7 @@ namespace Spells
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance.CurrentTurn == CombatLoop.CombatLoop.TurnType.Player;
             
-            if (spellController != null && isPlayerCard && spellData != null && isCursorFree && isPlayerTurn)
+            if (spellController != null && spellController.CanCastSpell() && isPlayerCard && spellData != null && isCursorFree && isPlayerTurn)
                 spellController.CastSpell(transform, spellData);
         }
     }

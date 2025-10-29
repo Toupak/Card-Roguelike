@@ -1,7 +1,7 @@
-using Spells.Data;
+using Spells;
 using UnityEngine;
 
-namespace Data
+namespace Cards.Scripts
 {
     [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObject/Card")]
     public class CardData : ScriptableObject

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Spells.Data
+namespace Spells
 {
     public enum TargetType
     {

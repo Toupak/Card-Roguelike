@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
-using Spells.Data;
 using Spells.Targeting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,7 +24,12 @@ namespace Spells
         {
             cardController = controller;
         }
-        
+
+        public virtual bool CanCastSpell()
+        {
+            return true;
+        }
+
         public virtual void CastSpell(Transform startPosition, SpellData spellData)
         {
             if (castSpellRoutine != null)
@@ -47,7 +51,7 @@ namespace Spells
                     yield return SelectTargetAndCast(startPosition, spellData);
                     break;
                 case TargetType.Self:
-                    yield return CastSpellOnTarget(spellData, cardController.cardMovement);
+                    yield return CastSpellOnSelf(spellData, cardController.cardMovement);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -73,7 +77,7 @@ namespace Spells
             Debug.Log("Cancel Targeting");
         }
 
-        protected virtual IEnumerator CastSpellOnTarget(SpellData spellData, CardMovement target)
+        protected virtual IEnumerator CastSpellOnSelf(SpellData spellData, CardMovement target)
         {
             yield return CastSpellOnTarget(spellData, new List<CardMovement>(){ target });
         }

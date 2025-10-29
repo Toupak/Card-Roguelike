@@ -10,8 +10,8 @@ namespace Cards.Scripts
     {
         [SerializeField] private TextMeshProUGUI cardName;
         [SerializeField] private Image artwork;
-        [SerializeField] private SpellButton leftButton;
-        [SerializeField] private SpellButton rightButton;
+        [SerializeField] public SpellButton leftButton;
+        [SerializeField] public SpellButton rightButton;
 
         private RectTransform rectTransform;
         public Vector2 screenPosition => rectTransform.position;
