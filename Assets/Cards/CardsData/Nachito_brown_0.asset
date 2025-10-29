@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nachito_brown_0
   m_EditorClassIdentifier: 
   cardNumber: 2
-  cardName: Nachito_brown_0
+  cardName: Nachito
   tribe: 0
   hpMax: 20
   rightSpell: {fileID: 11400000, guid: fe4fb0dcedde54645a38aa3b6bc25ee5, type: 2}

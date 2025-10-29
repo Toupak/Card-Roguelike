@@ -1,5 +1,6 @@
 using Data;
 using Spells;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ namespace Cards.Scripts
 {
     public class CardController : MonoBehaviour
     {
-        [SerializeField] private FollowTarget followTarget;
+        [SerializeField] private TextMeshProUGUI cardName;
         [SerializeField] private Image artwork;
         [SerializeField] private SpellButton leftButton;
         [SerializeField] private SpellButton rightButton;
@@ -15,6 +16,7 @@ namespace Cards.Scripts
         private RectTransform rectTransform;
         public Vector2 screenPosition => rectTransform.position;
         
+        private FollowTarget followTarget;
         public CardMovement cardMovement { get;  private set; }
         public CardData cardData { get;  private set; }
 
@@ -24,29 +26,23 @@ namespace Cards.Scripts
         public void Setup(CardMovement movement, CardData data)
         {
             rectTransform = GetComponent<RectTransform>();
+            followTarget = GetComponent<FollowTarget>();
+            followTarget.SetTarget(movement);
+            
             cardHealth = GetComponent<CardHealth>();
+            cardHealth.Setup(data);
             cardHealth.OnDeath.AddListener(KillCard);
+            
             displayCardEffect = GetComponent<DisplayCardEffects>();
+            
             cardMovement = movement;
             cardData = data;
 
-            if (data != null)
-                artwork.sprite = data.artwork;
+            cardName.text = data.cardName;
+            artwork.sprite = data.artwork;
             
-            followTarget.SetTarget(movement);
-            
-            if (data != null && data.leftSpell != null)
-                leftButton.Setup(data.leftSpell, !movement.IsEnemyCard);
-            else
-                leftButton.Setup(null, !movement.IsEnemyCard);
-            
-            if (data != null && data.rightSpell != null)
-                rightButton.Setup(data.rightSpell, !movement.IsEnemyCard);
-            else
-                rightButton.Setup(null, !movement.IsEnemyCard);
-
-            if (cardHealth != null)
-                cardHealth.Setup(data);
+            leftButton.Setup(data.leftSpell, !movement.IsEnemyCard);
+            rightButton.Setup(data.rightSpell, !movement.IsEnemyCard);
         }
 
         private void KillCard()

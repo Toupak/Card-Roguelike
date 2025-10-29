@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Canis_Balistics_0
   m_EditorClassIdentifier: 
   cardNumber: 1
-  cardName: Canis_Balistics_0
+  cardName: Canis Balistics
   tribe: 1
   hpMax: 15
   rightSpell: {fileID: 11400000, guid: fe4fb0dcedde54645a38aa3b6bc25ee5, type: 2}

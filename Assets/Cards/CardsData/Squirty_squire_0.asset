@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Squirty_squire_0
   m_EditorClassIdentifier: 
   cardNumber: 3
-  cardName: Squirty_squire_0
+  cardName: Squirty Squire
   tribe: 0
   hpMax: 25
   rightSpell: {fileID: 11400000, guid: fe4fb0dcedde54645a38aa3b6bc25ee5, type: 2}
