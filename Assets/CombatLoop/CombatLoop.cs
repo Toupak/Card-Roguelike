@@ -11,7 +11,6 @@ namespace CombatLoop
         [SerializeField] private CardContainer playerBoard;
         [SerializeField] private Animator canvasAnimator;
         
-        
         [SerializeField] private GameObject endPreparationButton;
         [SerializeField] private GameObject endPlayerTurnButton;
         

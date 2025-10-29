@@ -144,11 +144,15 @@ namespace Spells.Targeting
             CardMovement card = CursorInfo.instance.currentCardMovement;
             
             if (card != null && IsSelectedTargetValid(card, targetType))
-            {
-                currentTargets.Add(card);
-                previousCursors.Add(currentTargetingCursor);
-                currentTargetingCursor = null;
-            }
+                ValidateTarget(card);
+        }
+
+        private void ValidateTarget(CardMovement card)
+        {
+            card.cardController.displayCardEffect.SetTargetState(true);
+            currentTargets.Add(card);
+            previousCursors.Add(currentTargetingCursor);
+            currentTargetingCursor = null;
         }
 
         private bool IsSelectedTargetValid(CardMovement card, TargetType targetType)
@@ -206,19 +210,18 @@ namespace Spells.Targeting
         
         private void HighlightTargets(List<CardMovement> targets)
         {
-            SetHighlightState(targets, true);
+            foreach (CardMovement cardMovement in targets)
+            {
+                cardMovement.cardController.displayCardEffect.SetPotentialTargetState(true);
+            }
         }
 
         private void StopHighlightTargets(List<CardMovement> targets)
         {
-            SetHighlightState(targets, false);
-        }
-
-        private void SetHighlightState(List<CardMovement> targets, bool state)
-        {
             foreach (CardMovement cardMovement in targets)
             {
-                cardMovement.cardController.displayCardEffect.SetTargetState(state);
+                cardMovement.cardController.displayCardEffect.SetPotentialTargetState(false);
+                cardMovement.cardController.displayCardEffect.SetTargetState(false);
             }
         }
     }
