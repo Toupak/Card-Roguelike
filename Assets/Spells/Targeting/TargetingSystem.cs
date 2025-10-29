@@ -22,6 +22,7 @@ namespace Spells.Targeting
         private TargetingCursor currentTargetingCursor;
         private List<TargetingCursor> previousCursors;
 
+        private List<CardMovement> potentialTargets = new List<CardMovement>();
         private List<CardMovement> currentTargets = new List<CardMovement>();
         public List<CardMovement> Targets => currentTargets;
 
@@ -45,17 +46,21 @@ namespace Spells.Targeting
             isCanceled = false;
             currentTargets = new List<CardMovement>();
             previousCursors = new List<TargetingCursor>();
-            
+
+            potentialTargets = ComputeTargetAllList(castingCard, targetType);
+
             if (targetingMode == TargetingMode.All)
             {
-                currentTargets = ComputeTargetAllList(castingCard, targetType);
+                currentTargets = potentialTargets;
                 yield break;
             }
             
             StartTargeting();
 
-            int maxTargetCount = ComputeMaxAmountOfTargets(castingCard, targetType, targetingMode, targetCount);
+            int maxTargetCount = ComputeMaxAmountOfTargets(potentialTargets.Count, targetingMode, targetCount);
             Debug.Log($"Target Count : {maxTargetCount}");
+
+            HighlightTargets(potentialTargets);
 
             yield return null;//skip a frame to prevent targeting the card that just started the spell
             while (!isCanceled && currentTargets.Count < maxTargetCount)
@@ -116,14 +121,14 @@ namespace Spells.Targeting
             return list;
         }
 
-        private int ComputeMaxAmountOfTargets(CardMovement current, TargetType targetType, TargetingMode targetingMode, int targetCount)
+        private int ComputeMaxAmountOfTargets(int potentialTargetsCount, TargetingMode targetingMode, int targetCount)
         {
             switch (targetingMode)
             {
                 case TargetingMode.Single:
                     return 1;
                 case TargetingMode.Multi:
-                    return Math.Min(targetCount, ComputeTargetAllList(current, targetType).Count);
+                    return Math.Min(targetCount, potentialTargetsCount);
                 case TargetingMode.All:
                     Debug.LogError("error : TargetingMode.All should have been handled by ComputeTargetAllList()");
                     return 0;
@@ -182,6 +187,7 @@ namespace Spells.Targeting
         private void StopTargeting()
         {
             DestroyAllTargetingCursor();
+            StopHighlightTargets(potentialTargets);
             CursorInfo.instance.SetCursorMode(CursorInfo.CursorMode.Free);
         }
 
@@ -195,6 +201,24 @@ namespace Spells.Targeting
             {
                 currentTargetingCursor.DestroyCursor();
                 currentTargetingCursor = null;
+            }
+        }
+        
+        private void HighlightTargets(List<CardMovement> targets)
+        {
+            SetHighlightState(targets, true);
+        }
+
+        private void StopHighlightTargets(List<CardMovement> targets)
+        {
+            SetHighlightState(targets, false);
+        }
+
+        private void SetHighlightState(List<CardMovement> targets, bool state)
+        {
+            foreach (CardMovement cardMovement in targets)
+            {
+                cardMovement.cardController.displayCardEffect.SetTargetState(state);
             }
         }
     }

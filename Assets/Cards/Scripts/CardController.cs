@@ -19,17 +19,15 @@ namespace Cards.Scripts
         public CardData cardData { get;  private set; }
 
         public CardHealth cardHealth { get; private set; }
-
-        private void Start()
-        {
-            rectTransform = GetComponent<RectTransform>();
-        }
+        public DisplayCardEffects displayCardEffect { get; private set; }
 
         public void Setup(CardMovement movement, CardData data)
         {
+            rectTransform = GetComponent<RectTransform>();
+            cardHealth = GetComponent<CardHealth>();
+            displayCardEffect = GetComponent<DisplayCardEffects>();
             cardMovement = movement;
             cardData = data;
-            cardHealth = GetComponent<CardHealth>();
 
             if (data != null)
                 artwork.sprite = data.artwork;

@@ -20,7 +20,10 @@ namespace Spells
         
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (isPlayerCard && spellData != null && CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free)
+            bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
+            bool isPlayerTurn = CombatLoop.CombatLoop.instance.CurrentTurn == CombatLoop.CombatLoop.TurnType.Player;
+            
+            if (isPlayerCard && spellData != null && isCursorFree && isPlayerTurn)
                 spellController.CastSpell(transform, spellData);
         }
     }
