@@ -27,6 +27,5 @@ public class CardHealth : MonoBehaviour
     private void Dies()
     {
         OnDeath.Invoke();
-        Destroy(gameObject);
     }
 }

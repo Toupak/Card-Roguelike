@@ -4,7 +4,6 @@ using CardSlot;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace Board.Script
 {
@@ -97,7 +96,7 @@ namespace Board.Script
             currentSelectedCard = null;
         }
         
-        private void DeleteCurrentSlot(int index)
+        public void DeleteCurrentSlot(int index)
         {
             Destroy(slots[index].gameObject);
             slots.RemoveAt(index);

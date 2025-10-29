@@ -29,6 +29,7 @@ namespace Cards.Scripts
         
         public CardController cardController { get;  private set; }
         private Slot slot;
+        public Slot CurrentSlot => slot;
         public int SlotIndex => transform.parent.CompareTag("Slot") ? transform.parent.GetSiblingIndex() : 0;
         public int SlotSiblingCount => transform.parent.CompareTag("Slot") ? transform.parent.parent.childCount - 1 : 0;
         public Vector3 SlotPosition => slot.transform.position;

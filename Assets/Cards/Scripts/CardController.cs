@@ -25,6 +25,7 @@ namespace Cards.Scripts
         {
             rectTransform = GetComponent<RectTransform>();
             cardHealth = GetComponent<CardHealth>();
+            cardHealth.OnDeath.AddListener(KillCard);
             displayCardEffect = GetComponent<DisplayCardEffects>();
             cardMovement = movement;
             cardData = data;
@@ -46,6 +47,12 @@ namespace Cards.Scripts
 
             if (cardHealth != null)
                 cardHealth.Setup(data);
+        }
+
+        private void KillCard()
+        {
+            cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
+            Destroy(gameObject);
         }
     }
 }
