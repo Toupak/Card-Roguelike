@@ -133,12 +133,14 @@ namespace CombatLoop
         
         private IEnumerator ActivatePlayerEnergyDisplay()
         {
-            yield break;
+            EnergyController.instance.Initialize();
+            yield return null;
         }
 
         private IEnumerator RefreshPlayerEnergyCount()
         {
-            yield break;
+            EnergyController.instance.RefreshOnTurnStart();
+            yield return null;
         }
 
         private IEnumerator PlayChangeTurnAnimation()
