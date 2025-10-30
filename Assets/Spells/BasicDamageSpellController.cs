@@ -13,9 +13,7 @@ namespace Spells
         
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            Debug.Log($"Cast Basic Damage Spell {spellData.spellName} on targets : ");
-            OnCastSpell?.Invoke();
+            yield return base.CastSpellOnTarget(spellData, targets);
             
             foreach (CardMovement target in targets)
             {

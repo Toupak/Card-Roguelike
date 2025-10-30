@@ -20,16 +20,17 @@ namespace Spells
             if (data.spellController != null)
             {
                 spellController = Instantiate(data.spellController, transform);
-                spellController.Setup(cardController);
+                spellController.Setup(cardController, data);
             }
         }
         
         public void OnPointerDown(PointerEventData eventData)
         {
+            bool isSpellValid = spellController != null && spellController.CanCastSpell(spellData) && spellData != null;
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance.CurrentTurn == CombatLoop.CombatLoop.TurnType.Player;
             
-            if (spellController != null && spellController.CanCastSpell() && isPlayerCard && spellData != null && isCursorFree && isPlayerTurn)
+            if (isPlayerCard && isSpellValid && isCursorFree && isPlayerTurn)
                 spellController.CastSpell(transform, spellData);
         }
     }

@@ -20,14 +20,14 @@ namespace Spells
         protected Coroutine castSpellRoutine = null;
         public bool IsCasting => castSpellRoutine != null;
 
-        public virtual void Setup(CardController controller)
+        public virtual void Setup(CardController controller, SpellData spellData)
         {
             cardController = controller;
         }
 
-        public virtual bool CanCastSpell()
+        public virtual bool CanCastSpell(SpellData spellData)
         {
-            return true;
+            return EnergyController.instance.CheckForEnergy(spellData.energyCost);
         }
 
         public virtual void CastSpell(Transform startPosition, SpellData spellData)
@@ -87,11 +87,7 @@ namespace Spells
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
             OnCastSpell?.Invoke();
-            
-            foreach (CardMovement target in targets)
-            {
-                Debug.Log($"Target : {target.cardController.cardData.cardName} / {spellData.targetType}");
-            }
+            EnergyController.instance.RemoveEnergy(spellData.energyCost);
         }
     }
 }

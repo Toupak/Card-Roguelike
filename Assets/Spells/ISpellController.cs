@@ -7,8 +7,8 @@ namespace Spells
 {
     public interface ISpellController
     {
-        public void Setup(CardController controller) {}
-        public bool CanCastSpell();
+        public void Setup(CardController controller, SpellData spellData) {}
+        public bool CanCastSpell(SpellData spellData);
         public void CastSpell(Transform startPosition, SpellData spellData) {}
         private IEnumerator CastSpellCoroutine(Transform startPosition, SpellData spellData) { yield break; }
         private IEnumerator SelectTargetAndCast(Transform startPosition, SpellData spellData) { yield break; }

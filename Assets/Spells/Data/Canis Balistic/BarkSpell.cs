@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
@@ -14,19 +13,16 @@ namespace Spells.Data.Canis_Balistic
 
         private int currentBullets = 0;
 
-        public override bool CanCastSpell()
+        public override bool CanCastSpell(SpellData spellData)
         {
-            return currentBullets > 0;
+            return base.CanCastSpell(spellData) && currentBullets > 0;
         }
 
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
+            yield return base.CastSpellOnTarget(spellData, targets);
             currentBullets -= 1;
-            
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            Debug.Log($"Cast Basic Damage Spell {spellData.spellName} on targets : ");
-            OnCastSpell?.Invoke();
-            
+
             foreach (CardMovement target in targets)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

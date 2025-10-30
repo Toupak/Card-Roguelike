@@ -23,6 +23,7 @@ namespace Spells
         public string spellName;
         public string description;
         public Sprite icon;
+        public int energyCost;
         public TargetType targetType;
         public TargetingMode targetingMode;
         [Tooltip("Optional : only needed when TargetingMode is set to Multi")] public int targetCount = 1;

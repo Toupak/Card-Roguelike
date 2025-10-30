@@ -15,6 +15,7 @@ MonoBehaviour:
   spellName: Doggo Loader
   description: Loads One Ammo into Bark Blast
   icon: {fileID: 0}
+  energyCost: 1
   targetType: 2
   targetingMode: 0
   targetCount: 1

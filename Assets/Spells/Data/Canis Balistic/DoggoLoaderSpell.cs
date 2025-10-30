@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
 using UnityEngine;
@@ -21,14 +22,12 @@ namespace Spells.Data.Canis_Balistic
         {
             yield break;
         }
-        
-        protected override IEnumerator CastSpellOnSelf(SpellData spellData, CardMovement thisCard)
+
+        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            Debug.Log($"Cast Basic Damage Spell {spellData.spellName} on targets : ");
-            OnCastSpell?.Invoke();
+            yield return base.CastSpellOnTarget(spellData, targets);
             
-            LoadBarkBulletGA loadBarkBulletGa = new LoadBarkBulletGA(thisCard.cardController);
+            LoadBarkBulletGA loadBarkBulletGa = new LoadBarkBulletGA(targets[0].cardController);
             ActionSystem.instance.Perform(loadBarkBulletGa);
         }
     }
