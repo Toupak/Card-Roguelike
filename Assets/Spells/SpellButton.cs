@@ -9,6 +9,7 @@ namespace Spells
     public class SpellButton : MonoBehaviour, IPointerDownHandler
     {
         [SerializeField] private Image buttonIcon;
+        [SerializeField] private GameObject otherButton;
          
         private SpellController spellController;
 
@@ -26,7 +27,7 @@ namespace Spells
             if (data.spellController != null)
             {
                 spellController = Instantiate(data.spellController, transform);
-                spellController.Setup(cardController, data);
+                spellController.Setup(cardController, data, otherButton);
             }
         }
         

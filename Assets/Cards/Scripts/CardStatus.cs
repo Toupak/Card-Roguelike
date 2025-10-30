@@ -9,14 +9,11 @@ namespace Cards.Scripts
     {
         [SerializeField] private Image stunEffect;
 
-        private CardController cardController;
-
         private int stunStacks;
         public bool IsStun => stunStacks > 0;
         
         private void Start()
         {
-            cardController = GetComponent<CardController>();
             stunEffect.gameObject.SetActive(false);
         }
         

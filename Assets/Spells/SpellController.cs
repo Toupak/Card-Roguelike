@@ -16,13 +16,15 @@ namespace Spells
         public static UnityEvent OnCancelSpell = new UnityEvent();
         
         protected CardController cardController;
+        protected GameObject otherSpellButton;
         
         protected Coroutine castSpellRoutine = null;
         public bool IsCasting => castSpellRoutine != null;
 
-        public virtual void Setup(CardController controller, SpellData spellData)
+        public virtual void Setup(CardController controller, SpellData spellData, GameObject otherSpell)
         {
             cardController = controller;
+            otherSpellButton = otherSpell;
         }
 
         public virtual bool CanCastSpell(SpellData spellData)
