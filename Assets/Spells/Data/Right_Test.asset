@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Test Spell
   description: This is a test
-  icon: {fileID: -3340349168363038409, guid: 007d7c57576e8b94cb35af0f1a04b1cf, type: 3}
+  icon: {fileID: 8995154407686431259, guid: 330ed310b77d59643a029fcf0b94ed2c, type: 3}
+  energyCost: 0
   targetType: 0
   targetingMode: 0
   targetCount: 1
+  spellController: {fileID: 0}

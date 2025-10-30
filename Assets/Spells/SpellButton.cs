@@ -2,11 +2,14 @@ using Cards.Scripts;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Spells
 {
     public class SpellButton : MonoBehaviour, IPointerDownHandler
     {
+        [SerializeField] private Image buttonIcon;
+         
         private SpellController spellController;
 
         public SpellData spellData { get; private set; }
@@ -16,6 +19,9 @@ namespace Spells
         {
             spellData = data;
             isPlayerCard = isPlayer;
+
+            if (data.icon != null)
+                buttonIcon.sprite = data.icon;
 
             if (data.spellController != null)
             {
