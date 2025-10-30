@@ -21,12 +21,14 @@ namespace Cards.Scripts
         public CardData cardData { get;  private set; }
 
         public CardHealth cardHealth { get; private set; }
+        public CardStatus cardStatus { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
 
         public void Setup(CardMovement movement, CardData data)
         {
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
+            cardStatus = GetComponent<CardStatus>();
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
