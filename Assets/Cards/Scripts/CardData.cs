@@ -19,8 +19,8 @@ namespace Cards.Scripts
         public string cardName;
         public Tribe tribe;
         public int hpMax;
-        public SpellData rightSpell;
         public SpellData leftSpell;
+        public SpellData rightSpell;
         public Sprite artwork;
         public string description;
     }
