@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Board.Script;
 using Cards.Scripts;
 using CardSlot;
+using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.InputSystem;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cards.Scripts;
 using CardSlot;
+using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.Events;

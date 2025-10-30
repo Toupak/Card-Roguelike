@@ -1,5 +1,6 @@
 using Board.Script;
 using CardSlot;
+using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.Events;
