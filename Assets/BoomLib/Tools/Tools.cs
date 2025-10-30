@@ -173,12 +173,23 @@ namespace BoomLib.Tools
             return Vector2.right.AddAngleToDirection(45 * direction);
         }
 
-        public static void DeleteAllChildren(Transform parent)
+        public static void DeleteAllChildren(this Transform parent)
         {
             for (int i = parent.childCount - 1; i >= 0; i--)
             {
                 GameObject.Destroy(parent.GetChild(i).gameObject);
             }
+        }
+        
+        public static CombatLoop.CombatLoop.TurnType Opposite(this CombatLoop.CombatLoop.TurnType type)
+        {
+            if (type == CombatLoop.CombatLoop.TurnType.Player)
+                return CombatLoop.CombatLoop.TurnType.Enemy;
+
+            if (type == CombatLoop.CombatLoop.TurnType.Enemy)
+                return CombatLoop.CombatLoop.TurnType.Player;
+
+            return type;
         }
     }
 }

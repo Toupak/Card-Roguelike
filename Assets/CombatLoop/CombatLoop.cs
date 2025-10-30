@@ -1,5 +1,8 @@
 using System.Collections;
+using ActionReaction;
+using ActionReaction.Game_Actions;
 using Board.Script;
+using BoomLib.Tools;
 using UnityEngine;
 
 namespace CombatLoop
@@ -54,9 +57,9 @@ namespace CombatLoop
                 yield return ActivatePlayerEndTurnButton();
                 yield return DoPlayerTurn();
                 yield return DeactivatePlayerEndTurnButton();
-                yield return PlayChangeTurnAnimation();
+                yield return SwapTurns();
                 yield return DoEnemyTurn();
-                yield return PlayChangeTurnAnimation();
+                yield return SwapTurns();
                 yield return RefreshPlayerEnergyCount();
             }
 
@@ -64,6 +67,16 @@ namespace CombatLoop
                 yield return ShowVictoryScreen();
             else
                 yield return ShowDefeatScreen();
+        }
+        
+        private void OnEnable()
+        {
+            ActionSystem.AttachPerformer<EndTurnGA>(EndTurnPerformer);
+        }
+
+        private void OnDisable()
+        {
+            ActionSystem.DetachPerformer<EndTurnGA>();
         }
 
         private IEnumerator FightIntro()
@@ -143,13 +156,20 @@ namespace CombatLoop
             yield return null;
         }
 
-        private IEnumerator PlayChangeTurnAnimation()
+        private IEnumerator SwapTurns()
         {
-            if (currentTurn == TurnType.Player)
-                currentTurn = TurnType.Enemy;
-            else if (currentTurn == TurnType.Enemy)
-                currentTurn = TurnType.Player;
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                
+            Debug.Log($"Swap Turns : current : {currentTurn} / target : {currentTurn.Opposite()}");
+            EndTurnGA endTurnGa = new EndTurnGA(currentTurn);
+            ActionSystem.instance.Perform(endTurnGa);
             
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        }
+        
+        private IEnumerator EndTurnPerformer(EndTurnGA endTurnGA)
+        {
+            currentTurn = endTurnGA.starting;
             yield break;
         }
 
