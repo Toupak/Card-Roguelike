@@ -2,6 +2,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using UnityEngine;
 using UnityEngine.UI;
+using static CombatLoop.CombatLoop;
 
 namespace Cards.Scripts
 {
@@ -9,27 +10,44 @@ namespace Cards.Scripts
     {
         [SerializeField] private Image stunEffect;
 
+        private CardController cardController;
+        
         private int stunStacks;
         public bool IsStun => stunStacks > 0;
         
         private void Start()
         {
+            cardController = GetComponent<CardController>();
             stunEffect.gameObject.SetActive(false);
         }
         
         private void OnEnable()
         {
-            ActionSystem.SubscribeReaction<StartTurnGa>(StartTurnReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
         }
         
         private void OnDisable()
         {
-            ActionSystem.UnsubscribeReaction<StartTurnGa>(StartTurnReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
         }
 
-        public void StartTurnReaction(StartTurnGa loadBarkBulletGa)
+        public void EndTurnReaction(EndTurnGA endTurnGa)
         {
-            RemoveOneStackOfEachStatus();
+            if (IsCorrectTurn(endTurnGa.ending))
+                RemoveOneStackOfEachStatus();
+        }
+
+        private bool IsCorrectTurn(TurnType startingTurn)
+        {
+            bool isPlayer = !cardController.cardMovement.IsEnemyCard;
+
+            if (startingTurn == TurnType.Player && isPlayer)
+                return true;
+
+            if (startingTurn == TurnType.Enemy && !isPlayer)
+                return true;
+
+            return false;
         }
 
         private void RemoveOneStackOfEachStatus()
