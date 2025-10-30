@@ -33,21 +33,9 @@ namespace Spells.Data.Canis_Balistic
             }
         }
 
-        private void OnEnable()
+        public void LoadBullet()
         {
-            ActionSystem.AttachPerformer<LoadBarkBulletGA>(LoadBarkBulletPerformer);
-        }
-        
-        private void OnDisable()
-        {
-            ActionSystem.DetachPerformer<LoadBarkBulletGA>();
-        }
-        
-        private IEnumerator LoadBarkBulletPerformer(LoadBarkBulletGA loadBarkBulletGa)
-        {
-            if (loadBarkBulletGa.target == cardController)
-                currentBullets += 1;
-            yield break;
+            currentBullets += 1;
         }
     }
 }

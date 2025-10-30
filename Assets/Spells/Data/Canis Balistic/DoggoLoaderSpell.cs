@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using ActionReaction;
-using ActionReaction.Game_Actions;
 using Cards.Scripts;
 
 namespace Spells.Data.Canis_Balistic
 {
     public class DoggoLoaderSpell : SpellController
     {
+        private BarkSpell barkSpell = null;
+        
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(spellData, targets);
+
+            if (barkSpell == null)
+                barkSpell = otherSpellButton.GetComponentInChildren<BarkSpell>();
             
-            LoadBarkBulletGA loadBarkBulletGa = new LoadBarkBulletGA(targets[0].cardController);
-            ActionSystem.instance.Perform(loadBarkBulletGa);
+            if (barkSpell != null)
+                barkSpell.LoadBullet();
         }
     }
 }
