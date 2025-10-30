@@ -11,7 +11,7 @@ public class EnergyDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject energyTokenPrefab;
 
-    private List<Image> tokens = new List<Image>();
+    private List<Animator> tokens = new List<Animator>();
     private int count;
 
     public float fadeDuration;
@@ -54,17 +54,15 @@ public class EnergyDisplay : MonoBehaviour
         for (int i = 0; i < startingEnergy; i++)
         {
             GameObject energyToken = Instantiate(energyTokenPrefab, transform);
-            Image tokenImage = energyToken.GetComponent<Image>();
+            Animator tokenAnimator = energyToken.GetComponent<Animator>();
 
-            tokens.Add(tokenImage);
+            tokens.Add(tokenAnimator);
             count += 1;
 
-            if (tokenImage != null)
+            if (tokenAnimator != null)
             {
-                Debug.Log("Toup: ca fade 1");
-                yield return Fader.Fade(tokenImage, fadeDuration, true);
-                Debug.Log("Toup: ca fade 2");
-
+                tokenAnimator.Play("Spawning");
+                yield return new WaitUntil(() => tokenAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
             }
         }
 
@@ -82,7 +80,7 @@ public class EnergyDisplay : MonoBehaviour
         {
             if (count <= energy)
             {
-                yield return Fader.Fade(tokens[count], fadeDuration, true);
+                tokens[count].Play("Spawning");
                 count += 1;
             }
         }
@@ -101,7 +99,8 @@ public class EnergyDisplay : MonoBehaviour
         {
             if (count >= 0)
             {
-                yield return Fader.Fade(tokens[count - 1], fadeDuration, false);
+                tokens[count - 1].Play("Using");
+                yield return new WaitUntil(() => tokens[count - 1].GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
                 count -= 1;
             }
         }
