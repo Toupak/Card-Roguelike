@@ -20,4 +20,4 @@ MonoBehaviour:
   targetType: 1
   targetingMode: 0
   targetCount: 1
-  spellController: {fileID: 0}
+  spellController: {fileID: 5222822020478903248, guid: dc7351c8736d9c64187c99ef1671ed0b, type: 3}
