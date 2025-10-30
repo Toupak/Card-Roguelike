@@ -1,7 +1,6 @@
-using ActionReaction;
 using Cards.Scripts;
 
-namespace Spells.Data.Canis_Balistic
+namespace ActionReaction.Game_Actions
 {
     public class LoadBarkBulletGA : GameAction
     {
