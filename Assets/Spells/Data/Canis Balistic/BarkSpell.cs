@@ -35,18 +35,19 @@ namespace Spells.Data.Canis_Balistic
 
         private void OnEnable()
         {
-            ActionSystem.SubscribeReaction<LoadBarkBulletGA>(LoadBulletReaction, ReactionTiming.POST);
+            ActionSystem.AttachPerformer<LoadBarkBulletGA>(LoadBarkBulletPerformer);
         }
         
         private void OnDisable()
         {
-            ActionSystem.UnsubscribeReaction<LoadBarkBulletGA>(LoadBulletReaction, ReactionTiming.POST);
+            ActionSystem.DetachPerformer<LoadBarkBulletGA>();
         }
-
-        public void LoadBulletReaction(LoadBarkBulletGA loadBarkBulletGa)
+        
+        private IEnumerator LoadBarkBulletPerformer(LoadBarkBulletGA loadBarkBulletGa)
         {
             if (loadBarkBulletGa.target == cardController)
                 currentBullets += 1;
+            yield break;
         }
     }
 }
