@@ -57,9 +57,13 @@ namespace CombatLoop
                 yield return ActivatePlayerEndTurnButton();
                 yield return DoPlayerTurn();
                 yield return DeactivatePlayerEndTurnButton();
-                yield return SwapTurns();
+                yield return EndTurn(TurnType.Player);
+                
+                yield return StartTurn(TurnType.Enemy);
                 yield return DoEnemyTurn();
-                yield return SwapTurns();
+                yield return EndTurn(TurnType.Enemy);
+                
+                yield return StartTurn(TurnType.Player);
                 yield return RefreshPlayerEnergyCount();
             }
 
@@ -71,11 +75,13 @@ namespace CombatLoop
         
         private void OnEnable()
         {
+            ActionSystem.AttachPerformer<StartTurnGa>(StartTurnPerformer);
             ActionSystem.AttachPerformer<EndTurnGA>(EndTurnPerformer);
         }
 
         private void OnDisable()
         {
+            ActionSystem.DetachPerformer<StartTurnGa>();
             ActionSystem.DetachPerformer<EndTurnGA>();
         }
 
@@ -156,12 +162,12 @@ namespace CombatLoop
             yield return null;
         }
 
-        private IEnumerator SwapTurns()
+        private IEnumerator EndTurn(TurnType turnType)
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
-            Debug.Log($"Swap Turns : current : {currentTurn} / target : {currentTurn.Opposite()}");
-            EndTurnGA endTurnGa = new EndTurnGA(currentTurn);
+            Debug.Log($"End Turn : current : {turnType} / target : {turnType.Opposite()}");
+            EndTurnGA endTurnGa = new EndTurnGA(turnType);
             ActionSystem.instance.Perform(endTurnGa);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
@@ -169,7 +175,24 @@ namespace CombatLoop
         
         private IEnumerator EndTurnPerformer(EndTurnGA endTurnGA)
         {
-            currentTurn = endTurnGA.starting;
+            currentTurn = endTurnGA.ending.Opposite();
+            yield break;
+        }
+        
+        private IEnumerator StartTurn(TurnType turnType)
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                
+            Debug.Log($"Start Turn : current : {turnType}");
+            StartTurnGa startTurnGa = new StartTurnGa(turnType);
+            ActionSystem.instance.Perform(startTurnGa);
+            
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        }
+        
+        private IEnumerator StartTurnPerformer(StartTurnGa startTurnGa)
+        {
+            currentTurn = startTurnGa.starting;
             yield break;
         }
 
