@@ -793,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyTokenPrefab: {fileID: 5964507515297043995, guid: 82dd323e17bdc7e46a5e813d061dc238, type: 3}
+  fadeDuration: 0.4
 --- !u!1 &1113632110
 GameObject:
   m_ObjectHideFlags: 0

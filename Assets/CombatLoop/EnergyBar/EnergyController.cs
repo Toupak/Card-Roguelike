@@ -18,16 +18,6 @@ public class EnergyController : MonoBehaviour
         instance = this;
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.hKey.wasPressedThisFrame)
-            Initialize();
-        if (Keyboard.current.jKey.wasPressedThisFrame)
-            RefreshOnTurnStart();
-        if (Keyboard.current.kKey.wasPressedThisFrame)
-            RemoveEnergy(2);
-    }
-
     public bool CheckForEnergy(int energyRequiredForAction)
     {
         return energyRequiredForAction <= currentEnergyCount;
@@ -49,7 +39,7 @@ public class EnergyController : MonoBehaviour
     {
         currentEnergyCount -= energyRequiredForAction;
 
-        OnUpdateEnergy.Invoke(currentEnergyCount);
+        OnUpdateEnergy.Invoke(energyRequiredForAction);
 
         if (currentEnergyCount <= 0)
             OnOutOfEnergy.Invoke();
