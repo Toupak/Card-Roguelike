@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc755d3fcc0a7ed4a939d1dcaeac416e
+guid: 656e9def085212d489e54ed91ea7595f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -770609818667629619
-    second: Canis_Balistics_0
+      213: 7215446072429191201
+    second: HogNade_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Canis_Balistics_0
+      name: HogNade_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc343e9e37e3e45f0800000000000000
-      internalID: -770609818667629619
+      spriteID: 120212b49f9622460800000000000000
+      internalID: 7215446072429191201
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Canis_Balistics_0: -770609818667629619
+      HogNade_0: 7215446072429191201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

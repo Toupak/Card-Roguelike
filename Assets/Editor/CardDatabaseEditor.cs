@@ -182,7 +182,7 @@ namespace Editor
             EditorGUILayout.LabelField("Filter:", GUILayout.Width(40));
             if (GUILayout.Toggle(_globalfilter == "All", $"All ({db.AllCards.Count})", EditorStyles.miniButtonLeft)) _globalfilter = "All";
             if (GUILayout.Toggle(_globalfilter == "Incomplete", $"Incomplete ({db.AllCards.Count(x => IsIncomplete(x))})", EditorStyles.miniButtonMid)) _globalfilter = "Incomplete";
-            //if (GUILayout.Toggle(_globalfilter == "WrongNumber", $"Wrong Number ({db.AllCards.Count(x => wrongCardNumbers.Contains(x.Number))})", EditorStyles.miniButtonRight)) _globalfilter = "WrongNumber";
+            if (GUILayout.Toggle(_globalfilter == "WrongNumber", $"Wrong Number ({db.AllCards.Count(x => wrongCardNumbers.Contains(x.cardNumber))})", EditorStyles.miniButtonRight)) _globalfilter = "WrongNumber";
             EditorGUILayout.EndHorizontal();
 
 
@@ -234,7 +234,7 @@ namespace Editor
 
                 SerializedObject cardSO = new SerializedObject(card);
                 SerializedProperty propCardName = cardSO.FindProperty("cardName");
-                //SerializedProperty propDescription = cardSO.FindProperty("_description");
+                SerializedProperty propDescription = cardSO.FindProperty("description");
                 //SerializedProperty propRarity = cardSO.FindProperty("_rarity");
                 SerializedProperty propNumber = cardSO.FindProperty("cardNumber");
                 SerializedProperty propArtwork = cardSO.FindProperty("artwork");
@@ -268,12 +268,10 @@ namespace Editor
                 EditorGUILayout.BeginVertical();
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.PropertyField(propCardName, GUIContent.none);
-                /*
                 if (string.IsNullOrEmpty(propCardName.stringValue) || string.IsNullOrEmpty(propDescription.stringValue))
                 {
                     GUILayout.Label("⚠️ Incomplete", GUILayout.Width(100));
                 }
-                */
                 EditorGUILayout.EndHorizontal();
 
                 //EditorGUILayout.PropertyField(propRarity, GUIContent.none, GUILayout.Width(80));
@@ -304,7 +302,7 @@ namespace Editor
                 {
                     EditorGUI.indentLevel++;
                     EditorGUILayout.LabelField("Description:");
-                    //propDescription.stringValue = EditorGUILayout.TextArea(propDescription.stringValue, GUILayout.Height(60));
+                    propDescription.stringValue = EditorGUILayout.TextArea(propDescription.stringValue, GUILayout.Height(60));
 
                     //EditorGUILayout.PropertyField(propAlternatePrefab);
 
@@ -337,7 +335,7 @@ namespace Editor
         private bool IsIncomplete(CardData card)
         {
             return string.IsNullOrEmpty(card.cardName) ||
-                   //string.IsNullOrEmpty(card.Description) ||
+                   string.IsNullOrEmpty(card.description) ||
                    card.cardNumber == 0;
             
         }
