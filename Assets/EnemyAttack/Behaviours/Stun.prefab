@@ -51,5 +51,5 @@ MonoBehaviour:
   behaviourName: Stun
   description: Stun yo ass
   weight: 1
-  intentionIcon: {fileID: 0}
+  intentionIcon: {fileID: 2708546368158489528, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   stunStacks: 1

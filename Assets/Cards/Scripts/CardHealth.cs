@@ -1,32 +1,38 @@
-using Cards.Scripts;
-using Data;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CardHealth : MonoBehaviour
+namespace Cards.Scripts
 {
-    [HideInInspector] public UnityEvent<int> OnUpdateHP = new UnityEvent<int>();
-    [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
-
-    private int currentHealth;
-
-    public void Setup(CardData data)
+    public class CardHealth : MonoBehaviour
     {
-        currentHealth = data.hpMax;
-        OnUpdateHP.Invoke(currentHealth);
-    }
+        [HideInInspector] public UnityEvent<int> OnUpdateHP = new UnityEvent<int>();
+        [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        OnUpdateHP.Invoke(currentHealth);
+        private int currentHealth;
 
-        if (currentHealth <= 0)
-            Dies();
-    }
+        public bool IsDead => currentHealth <= 0;
 
-    private void Dies()
-    {
-        OnDeath.Invoke();
+        public void Setup(CardData data)
+        {
+            currentHealth = data.hpMax;
+            OnUpdateHP.Invoke(currentHealth);
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (IsDead)
+                return;
+        
+            currentHealth -= damage;
+            OnUpdateHP.Invoke(currentHealth);
+
+            if (IsDead)
+                Dies();
+        }
+
+        private void Dies()
+        {
+            OnDeath.Invoke();
+        }
     }
 }

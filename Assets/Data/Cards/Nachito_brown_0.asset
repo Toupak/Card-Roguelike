@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 2
   cardName: Nachito
   tribe: 0
-  hpMax: 20
+  hpMax: 7
   leftSpell: {fileID: 11400000, guid: 4d5cb7abef5507f409a5834e0e50c6ba, type: 2}
   rightSpell: {fileID: 11400000, guid: 75505918eae27534ebaa31fdbd370ce4, type: 2}
   artwork: {fileID: 3805251014732396877, guid: e7dc4d4f68d81444887bf125fe036d04, type: 3}

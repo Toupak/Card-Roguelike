@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SourCreamBomb
   m_EditorClassIdentifier: 
   spellName: Salsapocalypse
-  description: Consumes all stacks of Dorito on targets and deal 3 damage to each
+  description: Consumes all stacks of Dorito on targets and deal 1 damage to each
   icon: {fileID: 0}
   energyCost: 1
   targetType: 2

@@ -23,6 +23,9 @@ namespace EnemyAttack
             cardData = data;
 
             SetupBehaviours();
+            SetupDisplay();
+            ComputeNextIntention();
+            DisplayNextIntention();
         }
 
         private void SetupBehaviours()
@@ -36,6 +39,14 @@ namespace EnemyAttack
 
                 totalWeight += instantiatedBehaviour.weight;
             }
+        }
+        
+        private void SetupDisplay()
+        {
+            cardController.rightButton.gameObject.SetActive(false);   
+            cardController.leftButton.gameObject.SetActive(false);   
+            cardController.EnemyIntentionBackground.gameObject.SetActive(true);   
+            cardController.EnemyIntentionIcon.gameObject.SetActive(true);   
         }
 
         public IEnumerator ExecuteIntention()
@@ -66,7 +77,7 @@ namespace EnemyAttack
 
         public void DisplayNextIntention()
         {
-            
+            cardController.EnemyIntentionIcon.sprite = behaviourQueue.Peek().intentionIcon;
         }
     }
 }

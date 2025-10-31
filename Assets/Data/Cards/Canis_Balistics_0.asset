@@ -15,8 +15,9 @@ MonoBehaviour:
   cardNumber: 1
   cardName: Canis Balistics
   tribe: 1
-  hpMax: 15
+  hpMax: 6
   leftSpell: {fileID: 11400000, guid: ff2f36a1698b46847a262c6a36f52864, type: 2}
   rightSpell: {fileID: 11400000, guid: 889be38557415ba44af1163b90e9ac2a, type: 2}
   artwork: {fileID: -770609818667629619, guid: bc755d3fcc0a7ed4a939d1dcaeac416e, type: 3}
   description: 
+  enemyBehaviours: []

@@ -15,8 +15,11 @@ MonoBehaviour:
   cardNumber: 4
   cardName: HogNade
   tribe: 1
-  hpMax: 15
+  hpMax: 8
   leftSpell: {fileID: 11400000, guid: 4318f6ef0b1ba0b40923b2b228c56acb, type: 2}
   rightSpell: {fileID: 11400000, guid: fe4fb0dcedde54645a38aa3b6bc25ee5, type: 2}
   artwork: {fileID: 7215446072429191201, guid: 656e9def085212d489e54ed91ea7595f, type: 3}
   description: 
+  enemyBehaviours:
+  - {fileID: 7463816269853331996, guid: 28b740949feddfc4c8be99ddcb4cfe87, type: 3}
+  - {fileID: 9116537234681809305, guid: edc1e40bb3ad6b84996343d176be041a, type: 3}

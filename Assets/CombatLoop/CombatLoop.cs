@@ -94,9 +94,9 @@ namespace CombatLoop
         {
             enemyHandController.DrawCard();
             yield return new WaitForSeconds(0.1f);
-            //enemyHandController.DrawCard();
+            enemyHandController.DrawCard();
             yield return new WaitForSeconds(0.1f);
-            //enemyHandController.DrawCard();
+            enemyHandController.DrawCard();
             yield return new WaitForSeconds(0.1f);
         }
         
