@@ -112,9 +112,10 @@ namespace Cards.Scripts
             float cosine = Mathf.Cos(Time.time + target.SlotIndex) * (target.IsHovering ? 0.2f : 1);
 
             Vector3 offset = transform.position - Input.mousePosition;
-            
-            float tiltX = target.IsHovering && !target.IsSelected ? ((offset.y * -1) * manualTiltAmount) : 0;
-            float tiltY = target.IsHovering && !target.IsSelected ? ((offset.x) * manualTiltAmount) : 0;
+
+            float screenSizedManualTiltAmount = manualTiltAmount / (Screen.width / 960.0f);
+            float tiltX = target.IsHovering && !target.IsSelected ? ((offset.y * -1) * screenSizedManualTiltAmount) : 0;
+            float tiltY = target.IsHovering && !target.IsSelected ? ((offset.x) * screenSizedManualTiltAmount) : 0;
             float tiltZ = target.IsDragging || target.ContainerType != ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
 
             Vector3 currentAngles = tiltParent.eulerAngles;

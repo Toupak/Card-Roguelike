@@ -27,7 +27,6 @@ namespace Cards.Scripts
         private bool isSelected;
         public bool IsSelected => isSelected;
 
-        
         public CardController cardController { get;  private set; }
         private Slot slot;
         public Slot CurrentSlot => slot;
@@ -50,7 +49,8 @@ namespace Cards.Scripts
         public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
             slot = newSlot;
-            transform.SetParent(slot.transform);
+            transform.SetParent(slot.transform, true);
+            transform.localScale = Vector3.one;
             
             if (resetPosition)
                 ResetPosition();

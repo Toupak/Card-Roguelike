@@ -1,7 +1,9 @@
 using System;
+using BoomLib.Tools;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Tooltip
 {
@@ -18,11 +20,17 @@ namespace Tooltip
         [SerializeField] private TextMeshProUGUI regularTextMeshPro;
         [SerializeField] private float smoothTime;
 
-        private Vector2 offset;
+        private CanvasScaler canvasScaler;
+        
         private Vector3 velocity;
         
         private bool isSetup;
 
+        public void SetCanvasScaler(CanvasScaler scaler)
+        {
+            canvasScaler = scaler;
+        }
+        
         public void Setup(string mainText, TooltipType type)
         {
             SetupText(type, "", mainText);
@@ -32,7 +40,6 @@ namespace Tooltip
         public void Setup(string title, string mainText, TooltipType type)
         {
             SetupText(type, title, mainText);
-            offset = new Vector2(Screen.width / 2.0f, Screen.height / 2.0f);
             transform.localPosition = ComputeCursorPosition();
             isSetup = true;
         }
@@ -61,9 +68,9 @@ namespace Tooltip
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, ComputeCursorPosition(), ref velocity, smoothTime);
         }
 
-        private Vector3 ComputeCursorPosition()
+        private Vector2 ComputeCursorPosition()
         {
-            return Mouse.current.position.value - offset;
+            return new Vector2(Input.mousePosition.x * canvasScaler.referenceResolution.x / Screen.width, Input.mousePosition.y * canvasScaler.referenceResolution.y / Screen.height);
         }
 
         public void Hide()
