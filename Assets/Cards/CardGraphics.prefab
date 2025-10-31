@@ -399,7 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleToDisplay: Title
   textToDisplay: 'This is the left Spell '
+  tooltipType: 0
 --- !u!1 &3317175333349962056
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleToDisplay: Title
   textToDisplay: 'This is the right Spell '
+  tooltipType: 0
 --- !u!1 &3933860843223180544
 GameObject:
   m_ObjectHideFlags: 0

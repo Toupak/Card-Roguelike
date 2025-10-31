@@ -25,7 +25,7 @@ namespace Spells
             if (data.icon != null)
                 buttonIcon.sprite = data.icon;
             
-            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(data.description);
+            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(data.spellName, data.description, TooltipDisplay.TooltipType.Spell);
 
             if (data.spellController != null)
             {

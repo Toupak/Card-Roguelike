@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
   m_Name: SourCreamBomb
   m_EditorClassIdentifier: 
-  spellName: Sour Cream Bomb
+  spellName: Salsapocalypse
   description: Consumes all stacks of Dorito on targets and deal 3 damage to each
   icon: {fileID: 0}
   energyCost: 1
