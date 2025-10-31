@@ -1,8 +1,8 @@
 using System;
-using Board.Script;
 using BoomLib.BoomTween;
 using Cards.HandCurves;
 using UnityEngine;
+using static Board.Script.CardContainer;
 using Tools = BoomLib.Tools.Tools;
 
 namespace Cards.Scripts
@@ -15,8 +15,8 @@ namespace Cards.Scripts
         [SerializeField] private float maxAngle;
 
         [Space] 
-        [SerializeField] private float selectedHeightOffsetHand;
-        [SerializeField] private float selectedHeightOffsetBoard;
+        [SerializeField] private float selectedHeightOffsetPlayer;
+        [SerializeField] private float selectedHeightOffsetEnemy;
         
         [Space] 
         [SerializeField] private float scaleMultiplierOnSelect;
@@ -60,13 +60,13 @@ namespace Cards.Scripts
             target.OnSelected.AddListener(UpdateSortingOrder);
             target.OnDeselected.AddListener(UpdateSortingOrder);
             target.OnHover.AddListener(Squeeze);
-            CardContainer.OnAnyContainerUpdated.AddListener(UpdateSortingOrder);
+            OnAnyContainerUpdated.AddListener(UpdateSortingOrder);
             UpdateSortingOrder();
         }
 
         private void LateUpdate()
         {
-            if (target.ContainerType == CardContainer.ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.IsDragging)
+            if (target.ContainerType == ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.IsDragging)
                 FollowPositionSticky();
             else
                 FollowPosition();
@@ -95,7 +95,7 @@ namespace Cards.Scripts
 
         private void UpdateHandPositionAndRotationOffsets()
         {
-            bool canMove = !target.IsDragging && target.ContainerType == CardContainer.ContainerType.Hand && target.SlotSiblingCount >= 3;
+            bool canMove = !target.IsDragging && target.ContainerType == ContainerType.Hand && target.SlotSiblingCount >= 3;
             
             int siblingCount = Mathf.Max(target.SlotSiblingCount, 1);
             float normalizedPosition = Tools.NormalizeValue(target.SlotIndex, 0.0f, siblingCount);
@@ -115,7 +115,7 @@ namespace Cards.Scripts
             
             float tiltX = target.IsHovering && !target.IsSelected ? ((offset.y * -1) * manualTiltAmount) : 0;
             float tiltY = target.IsHovering && !target.IsSelected ? ((offset.x) * manualTiltAmount) : 0;
-            float tiltZ = target.IsDragging || target.ContainerType != CardContainer.ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
+            float tiltZ = target.IsDragging || target.ContainerType != ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
 
             Vector3 currentAngles = tiltParent.eulerAngles;
             float lerpX = Mathf.LerpAngle(currentAngles.x, tiltX + (sine * autoTiltAmount), tiltSpeed * Time.deltaTime);
@@ -139,7 +139,11 @@ namespace Cards.Scripts
         {
             Vector3 verticalOffset = (Vector3.up * (target.IsDragging ? 0.0f : curveYOffset));
             if (target.IsSelected)
-                verticalOffset += (Vector3.up * (target.ContainerType == CardContainer.ContainerType.Hand ? selectedHeightOffsetHand : selectedHeightOffsetBoard));
+            {
+                bool isPlayer = target.ContainerType != ContainerType.Enemy;
+                float offset = isPlayer ? selectedHeightOffsetPlayer : selectedHeightOffsetEnemy;
+                verticalOffset += Vector3.up * offset;
+            }
             transform.position = Vector3.Lerp(transform.position, target.transform.position + verticalOffset, Time.deltaTime * speed);
         }
         
