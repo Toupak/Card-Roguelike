@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using EnemyAttack;
+using JetBrains.Annotations;
 using Spells;
 using UnityEngine;
 
@@ -19,9 +22,10 @@ namespace Cards.Scripts
         public string cardName;
         public Tribe tribe;
         public int hpMax;
-        public SpellData leftSpell;
-        public SpellData rightSpell;
+        [CanBeNull] public SpellData leftSpell;
+        [CanBeNull] public SpellData rightSpell;
         public Sprite artwork;
         public string description;
+        [CanBeNull] public List<BaseEnemyBehaviour> enemyBehaviours;
     }
 }

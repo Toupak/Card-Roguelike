@@ -14,7 +14,7 @@ namespace Cards.Scripts
         
         private int stunStacks;
         public bool IsStun => stunStacks > 0;
-        
+
         private void Start()
         {
             cardController = GetComponent<CardController>();
@@ -31,7 +31,7 @@ namespace Cards.Scripts
             ActionSystem.UnsubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
         }
 
-        public void EndTurnReaction(EndTurnGA endTurnGa)
+        private void EndTurnReaction(EndTurnGA endTurnGa)
         {
             if (IsCorrectTurn(endTurnGa.ending))
                 RemoveOneStackOfEachStatus();

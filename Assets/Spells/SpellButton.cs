@@ -19,6 +19,9 @@ namespace Spells
         
         public void Setup(CardController cardController, SpellData data, bool isPlayer)
         {
+            if (data == null)
+                return;
+            
             spellData = data;
             isPlayerCard = isPlayer;
 

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
 using Cards.Scripts;
-using CardSlot;
 using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
@@ -107,6 +106,22 @@ namespace Spells.Targeting
             }
 
             return list;
+        }
+
+        public List<CardMovement> RetrieveBoard(TargetType targetType)
+        {
+            switch (targetType)
+            {
+                case TargetType.Ally:
+                    return RetrieveBoard(playerBoard);
+                case TargetType.Enemy:
+                    return RetrieveBoard(enemyBoard);
+                case TargetType.Self:
+                case TargetType.None:
+                    return null;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
+            }
         }
 
         private List<CardMovement> RetrieveBoard(CardContainer container)

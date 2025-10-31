@@ -20,3 +20,4 @@ MonoBehaviour:
   rightSpell: {fileID: 11400000, guid: 75505918eae27534ebaa31fdbd370ce4, type: 2}
   artwork: {fileID: 3805251014732396877, guid: e7dc4d4f68d81444887bf125fe036d04, type: 3}
   description: 
+  enemyBehaviours: []

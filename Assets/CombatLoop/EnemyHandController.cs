@@ -5,6 +5,7 @@ using ActionReaction.Game_Actions;
 using Board.Script;
 using Cards.Scripts;
 using CardSlot.Script;
+using EnemyAttack;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -19,7 +20,13 @@ namespace CombatLoop
         
         public CardContainer container => enemyBoardContainer;
 
-        internal IEnumerator PlayTurn()
+        public IEnumerator PlayTurn()
+        {
+            yield return ExecuteEachCardBehaviour();
+            ComputeAndDisplayEachCardsNextIntention();
+        }
+
+        private IEnumerator ExecuteEachCardBehaviour()
         {
             foreach (Slot slot in enemyBoardContainer.Slots)
             {
@@ -36,20 +43,21 @@ namespace CombatLoop
 
                 EnemyPerformsActionGa enemyPerformsActionGa = new EnemyPerformsActionGa(card);
                 ActionSystem.instance.Perform(enemyPerformsActionGa);
+                
+                yield return card.enemyCardController!.ExecuteIntention();
             }
         }
-        
-        private void Update()
+
+        private void ComputeAndDisplayEachCardsNextIntention()
         {
-            CheckDrawCard();
+            foreach (Slot slot in enemyBoardContainer.Slots)
+            {
+                EnemyCardController card = slot.CurrentCard.cardController.enemyCardController;
+                card!.ComputeNextIntention();
+                card.DisplayNextIntention();
+            }
         }
-        
-        private void CheckDrawCard()
-        {
-            if (Keyboard.current.eKey.wasPressedThisFrame && !enemyBoardContainer.IsFull)
-                DrawCard();
-        }
-        
+
         public void DrawCard()
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);

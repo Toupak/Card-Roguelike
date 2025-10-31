@@ -111,30 +111,39 @@ namespace ActionReaction
                 performers.Remove(type);
         }
 
+        private static Dictionary<Delegate, Action<GameAction>> wrappedDelegates = new();
+        
         public static void SubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
         {
-            Type type = typeof(T);
-            Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
-            void wrappedReaction(GameAction action) => reaction((T)action);
-            
-            if (subs.ContainsKey(type))
-                subs[type].Add(wrappedReaction);
-            else
-            {
-                subs.Add(type, new List<Action<GameAction>>());
-                subs[type].Add(wrappedReaction);
-            }
-        }
-        
-        public static void UnsubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
-        {
-            Type type = typeof(T);
             Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
 
-            if (subs.ContainsKey(type))
+            if (wrappedDelegates.ContainsKey(reaction)) 
+                return;
+
+            Action<GameAction> wrappedReaction = action => reaction((T)action);
+            wrappedDelegates[reaction] = wrappedReaction;
+
+            if (!subs.TryGetValue(typeof(T), out var list))
             {
-                void wrappedReaction(GameAction action) => reaction((T)action);
-                subs[type].Remove(wrappedReaction);
+                list = new List<Action<GameAction>>();
+                subs[typeof(T)] = list;
+            }
+
+            list.Add(wrappedReaction);
+        }
+
+        public static void UnsubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
+        {
+            Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
+
+            if (wrappedDelegates.TryGetValue(reaction, out var wrappedReaction))
+            {
+                if (subs.TryGetValue(typeof(T), out var list))
+                {
+                    list.Remove(wrappedReaction);
+                }
+
+                wrappedDelegates.Remove(reaction);
             }
         }
     }
