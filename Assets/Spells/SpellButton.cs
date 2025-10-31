@@ -1,5 +1,6 @@
 using Cards.Scripts;
 using Cursor.Script;
+using Tooltip;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ namespace Spells
 
             if (data.icon != null)
                 buttonIcon.sprite = data.icon;
+            
+            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(data.description);
 
             if (data.spellController != null)
             {
