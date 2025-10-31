@@ -7,7 +7,6 @@ using Cards.Scripts;
 using CardSlot.Script;
 using EnemyAttack;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 namespace CombatLoop
@@ -28,11 +27,13 @@ namespace CombatLoop
 
         private IEnumerator ExecuteEachCardBehaviour()
         {
-            foreach (Slot slot in enemyBoardContainer.Slots)
+            List<Slot> slots = enemyBoardContainer.Slots;
+
+            for (int i = slots.Count - 1; i >= 0; i--)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                
-                CardController card = slot.CurrentCard.cardController;
+
+                CardController card = slots[i].CurrentCard.cardController;
 
                 if (card.cardStatus.IsStun)
                 {
@@ -44,7 +45,10 @@ namespace CombatLoop
                 EnemyPerformsActionGa enemyPerformsActionGa = new EnemyPerformsActionGa(card);
                 ActionSystem.instance.Perform(enemyPerformsActionGa);
                 
-                yield return card.enemyCardController!.ExecuteIntention();
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                
+                if (card != null && !card.cardHealth.IsDead)
+                    yield return card.enemyCardController!.ExecuteIntention();
             }
         }
 
