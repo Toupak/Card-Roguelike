@@ -7,9 +7,9 @@ namespace ActionReaction.Game_Actions
         public readonly int amount;
         public readonly CardController target;
 
-        public StunGa(int damageAmount, CardController targetController)
+        public StunGa(int stunAmount, CardController targetController)
         {
-            amount = damageAmount;
+            amount = stunAmount;
             target = targetController;
         }
     }

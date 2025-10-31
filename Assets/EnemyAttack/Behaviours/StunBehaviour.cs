@@ -9,20 +9,20 @@ using UnityEngine;
 
 namespace EnemyAttack.Behaviours
 {
-    public class DealDamageBehaviour : BaseEnemyBehaviour
+    public class StunBehaviour : BaseEnemyBehaviour
     {
-        public int damage;
+        public int stunStacks;
         
         public override IEnumerator Execute()
         {
-            Debug.Log("Deal Damage Behaviour");
+            Debug.Log("Stun Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
             int randomTarget = Random.Range(0, targets.Count);
-            
-            DealDamageGA damageGa = new DealDamageGA(damage, targets[randomTarget].cardController);
-            ActionSystem.instance.Perform(damageGa);
+
+            StunGa stunGa = new StunGa(stunStacks, targets[randomTarget].cardController);
+            ActionSystem.instance.Perform(stunGa);
         }
     }
 }
