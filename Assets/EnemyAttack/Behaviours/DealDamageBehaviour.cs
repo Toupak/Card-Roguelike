@@ -21,7 +21,7 @@ namespace EnemyAttack.Behaviours
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
             int randomTarget = Random.Range(0, targets.Count);
             
-            DealDamageGA damageGa = new DealDamageGA(damage, targets[randomTarget].cardController);
+            DealDamageGA damageGa = new DealDamageGA(damage, enemyCardController.cardController, targets[randomTarget].cardController);
             ActionSystem.instance.Perform(damageGa);
         }
     }

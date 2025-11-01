@@ -28,7 +28,7 @@ namespace Spells.Data.Canis_Balistic
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
                 Debug.Log($"Target : {target.cardController.cardData.cardName} / {spellData.targetType}");
-                DealDamageGA damageGa = new DealDamageGA(damage, target.cardController);
+                DealDamageGA damageGa = new DealDamageGA(damage, cardController, target.cardController);
                 ActionSystem.instance.Perform(damageGa);
             }
         }

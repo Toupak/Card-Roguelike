@@ -1,6 +1,7 @@
 using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Tween_Animations;
 using UnityEngine;
 
 namespace CombatLoop
@@ -19,8 +20,8 @@ namespace CombatLoop
 
         private IEnumerator DealDamagePerformer(DealDamageGA dealDamageGa)
         {
+            yield return CardTween.PlayCardAttack(dealDamageGa.attacker, dealDamageGa.target);
             dealDamageGa.target.cardHealth.TakeDamage(dealDamageGa.amount);
-            yield break;
         }
     }
 }

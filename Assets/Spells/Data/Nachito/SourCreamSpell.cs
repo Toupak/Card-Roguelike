@@ -35,7 +35,7 @@ namespace Spells.Data.Nachito
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
-                DealDamageGA damageGa = new DealDamageGA(damage, keyValuePair.Key);
+                DealDamageGA damageGa = new DealDamageGA(damage, cardController, keyValuePair.Key);
                 ActionSystem.instance.Perform(damageGa);
             }
             
