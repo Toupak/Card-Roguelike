@@ -2,6 +2,7 @@ using Cards.Scripts;
 using Cursor.Script;
 using Tooltip;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,11 +12,13 @@ namespace Spells
     {
         [SerializeField] private Image buttonIcon;
         [SerializeField] private GameObject otherButton;
-         
-        private SpellController spellController;
+        
+        [HideInInspector] public UnityEvent OnClickSpellButton = new UnityEvent();
 
+        public SpellController spellController { get; private set; }
         public SpellData spellData { get; private set; }
         public bool isPlayerCard { get; private set; }
+        public Image ButtonIcon => buttonIcon;
         
         public void Setup(CardController cardController, SpellData data, bool isPlayer)
         {
@@ -45,6 +48,8 @@ namespace Spells
             
             if (isPlayerCard && isSpellValid && isCursorFree && isPlayerTurn)
                 spellController.CastSpell(transform, spellData);
+            
+            OnClickSpellButton?.Invoke();
         }
     }
 }

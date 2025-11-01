@@ -18,7 +18,6 @@ namespace Cards.Tween_Animations
             Sequence.Create()
                 .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, target.rectTransform.anchoredPosition, 0.1f, Ease.OutBounce))
-                .Chain(Tween.ShakeLocalPosition(attacker.rectTransform, Vector3.one * 10.0f, 0.2f))
                 .Group(Tween.Scale(target.transform, Vector3.one * 0.8f, 0.1f, Ease.InOutBounce, 2, CycleMode.Yoyo))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
                 .ChainCallback(() => isComplete = true);

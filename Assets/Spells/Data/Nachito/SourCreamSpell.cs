@@ -34,9 +34,12 @@ namespace Spells.Data.Nachito
             foreach (KeyValuePair<CardController,int> keyValuePair in doritoSpell.stacksDictionary)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                
-                DealDamageGA damageGa = new DealDamageGA(damage, cardController, keyValuePair.Key);
-                ActionSystem.instance.Perform(damageGa);
+
+                if (keyValuePair.Key != null && !keyValuePair.Key.cardHealth.IsDead)
+                {
+                    DealDamageGA damageGa = new DealDamageGA(damage, cardController, keyValuePair.Key);
+                    ActionSystem.instance.Perform(damageGa);
+                }
             }
             
             doritoSpell.ClearAllStacks();

@@ -29,7 +29,7 @@ namespace Spells
 
         public virtual bool CanCastSpell(SpellData spellData)
         {
-            return EnergyController.instance.CheckForEnergy(spellData.energyCost);
+            return EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStun;
         }
 
         public virtual void CastSpell(Transform startPosition, SpellData spellData)
