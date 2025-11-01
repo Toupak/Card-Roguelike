@@ -4,6 +4,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Board.Script;
 using Cards.Scripts;
+using Cards.Tween_Animations;
 using CardSlot.Script;
 using EnemyAttack;
 using UnityEngine;
@@ -38,7 +39,7 @@ namespace CombatLoop
                 if (card.cardStatus.IsStun)
                 {
                     Debug.Log("Enemy is Stun, skip its turn");
-                    yield return new WaitForSeconds(0.5f);
+                    yield return CardTween.PlayCardIsStun(card);
                     continue;
                 }
 
@@ -49,6 +50,8 @@ namespace CombatLoop
                 
                 if (card != null && !card.cardHealth.IsDead)
                     yield return card.enemyCardController!.ExecuteIntention();
+                
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             }
         }
 

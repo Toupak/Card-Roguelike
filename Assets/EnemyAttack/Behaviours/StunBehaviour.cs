@@ -21,7 +21,7 @@ namespace EnemyAttack.Behaviours
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
             int randomTarget = Random.Range(0, targets.Count);
 
-            StunGa stunGa = new StunGa(stunStacks, targets[randomTarget].cardController);
+            StunGa stunGa = new StunGa(stunStacks, enemyCardController.cardController, targets[randomTarget].cardController);
             ActionSystem.instance.Perform(stunGa);
         }
     }

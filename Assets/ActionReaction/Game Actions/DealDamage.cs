@@ -11,8 +11,8 @@ namespace ActionReaction.Game_Actions
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
             amount = damageAmount;
-            target = targetController;
             attacker = attackerController;
+            target = targetController;
         }
     }
 }
