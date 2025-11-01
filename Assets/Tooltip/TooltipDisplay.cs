@@ -1,8 +1,5 @@
-using System;
-using BoomLib.Tools;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Tooltip

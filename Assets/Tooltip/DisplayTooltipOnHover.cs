@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static Tooltip.TooltipDisplay;
@@ -7,9 +6,9 @@ namespace Tooltip
 {
     public class DisplayTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] [TextArea] [Tooltip("Can also be set through code")] private string titleToDisplay;
+        [SerializeField] [Tooltip("Can also be set through code")] private string titleToDisplay;
         [SerializeField] [TextArea] [Tooltip("Can also be set through code")] private string textToDisplay;
-        [SerializeField] [TextArea] [Tooltip("title is optional when type == Regular")] private TooltipType tooltipType;
+        [SerializeField] [Tooltip("title is optional when type == Regular")] private TooltipType tooltipType;
         
         private TooltipDisplay tooltipDisplay;
 

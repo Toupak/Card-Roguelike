@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cards.Scripts;
+using Tooltip;
 using UnityEngine;
 
 namespace EnemyAttack
@@ -16,6 +17,8 @@ namespace EnemyAttack
         public bool hasIntention => behaviourQueue.Count > 0;
 
         private int totalWeight;
+
+        private DisplayTooltipOnHover displayTooltipOnHover;
 
         public void Setup(CardController controller, CardData data)
         {
@@ -45,8 +48,9 @@ namespace EnemyAttack
         {
             cardController.rightButton.gameObject.SetActive(false);   
             cardController.leftButton.gameObject.SetActive(false);   
-            cardController.EnemyIntentionBackground.gameObject.SetActive(true);   
             cardController.EnemyIntentionIcon.gameObject.SetActive(true);   
+            cardController.EnemyIntentionBackground.gameObject.SetActive(true);
+            displayTooltipOnHover = cardController.EnemyIntentionBackground.GetComponent<DisplayTooltipOnHover>();
         }
 
         public IEnumerator ExecuteIntention()
@@ -77,7 +81,9 @@ namespace EnemyAttack
 
         public void DisplayNextIntention()
         {
-            cardController.EnemyIntentionIcon.sprite = behaviourQueue.Peek().intentionIcon;
+            BaseEnemyBehaviour behaviour = behaviourQueue.Peek();
+            cardController.EnemyIntentionIcon.sprite = behaviour.intentionIcon;
+            displayTooltipOnHover.SetTextToDisplay(behaviour.behaviourName, behaviour.description, TooltipDisplay.TooltipType.Spell);
         }
     }
 }
