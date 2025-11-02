@@ -18,11 +18,18 @@ namespace Cards.Scripts
         CanisBalisticBullet,
     }
     
+    public enum StatusTabModification
+    {
+        Create,
+        Edit,
+        Remove
+    }
+    
     public class CardStatus : MonoBehaviour
     {
         [SerializeField] private Image stunEffect;
 
-        [HideInInspector] public UnityEvent<StatusType> OnUpdateStatus = new UnityEvent<StatusType>();
+        [HideInInspector] public UnityEvent<StatusType, StatusTabModification> OnUpdateStatus = new UnityEvent<StatusType, StatusTabModification>();
         
         private CardController cardController;
 
@@ -69,7 +76,7 @@ namespace Cards.Scripts
                 if (!IsStatusPersistent(keyValuePair.Key))
                 {
                     currentStacks[keyValuePair.Key] = Mathf.Max(keyValuePair.Value - 1, 0);
-                    OnUpdateStatus?.Invoke(keyValuePair.Key);
+                    OnUpdateStatus?.Invoke(keyValuePair.Key, currentStacks[keyValuePair.Key] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
                 }
             }
         }
@@ -92,17 +99,24 @@ namespace Cards.Scripts
         public void ApplyStatusStacks(StatusType statusType, int stacksCount)
         {
             if (currentStacks.ContainsKey(statusType))
+            {
                 currentStacks[statusType] += stacksCount;
+                OnUpdateStatus?.Invoke(statusType, currentStacks[statusType] == stacksCount ? StatusTabModification.Create : StatusTabModification.Edit);
+            }
             else
+            {
                 currentStacks.Add(statusType, stacksCount);
+                OnUpdateStatus?.Invoke(statusType, StatusTabModification.Create);
+            }
 
-            OnUpdateStatus?.Invoke(statusType);
         }
 
         public void ConsumeStacks(StatusType type, int amount)
         {
             if (currentStacks.ContainsKey(type))
                 currentStacks[type] = Mathf.Max(currentStacks[type] - amount, 0);
+            
+            OnUpdateStatus?.Invoke(type, currentStacks[type] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
         }
         
         private bool IsCorrectTurn(TurnType startingTurn)
@@ -118,7 +132,7 @@ namespace Cards.Scripts
             return false;
         }
         
-        private void UpdateStunEffect(StatusType type) // Move this to DisplayCardStatusVFX
+        private void UpdateStunEffect(StatusType type, StatusTabModification statusTabModification) // Move this to DisplayCardStatusVFX
         {
             stunEffect.gameObject.SetActive(IsStun);
         }

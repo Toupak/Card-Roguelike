@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
@@ -19,17 +20,24 @@ namespace Status
             cardStatus.OnUpdateStatus.AddListener(UpdateStatusTabs);
         }
 
-        private void UpdateStatusTabs(StatusType statusType)
+        private void UpdateStatusTabs(StatusType statusType, StatusTabModification statusTabModification)
         {
             int stackCount = cardStatus.currentStacks.TryGetValue(statusType, out int stack) ? stack : 0;
-            bool isInCurrentTabs = currentTabs.ContainsKey(statusType) && currentTabs[statusType] != null;
-            
-            if (isInCurrentTabs && stackCount < 1)
-                RemoveTab(statusType);
-            else if (isInCurrentTabs && stackCount > 0)
-                UpdateTab(statusType, stackCount);
-            else if (!isInCurrentTabs && stackCount > 0)
-                CreateTab(statusType, stackCount);
+
+            switch (statusTabModification)
+            {
+                case StatusTabModification.Create:
+                    CreateTab(statusType, stackCount);
+                    break;
+                case StatusTabModification.Edit:
+                    UpdateTab(statusType, stackCount);
+                    break;
+                case StatusTabModification.Remove:
+                    RemoveTab(statusType);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(statusTabModification), statusTabModification, null);
+            }
         }
 
         private void CreateTab(StatusType statusType, int stackCount)
@@ -42,13 +50,18 @@ namespace Status
 
         private void RemoveTab(StatusType statusType)
         {
-            currentTabs[statusType].Remove();
-            currentTabs[statusType] = null;
+            if (currentTabs.ContainsKey(statusType))
+            {
+                if (currentTabs[statusType] != null)
+                    currentTabs[statusType].Remove();
+                currentTabs[statusType] = null;
+            }
         }
 
         private void UpdateTab(StatusType statusType, int stackCount)
         {
-            currentTabs[statusType].UpdateStackCount(stackCount);
+            if (currentTabs.ContainsKey(statusType) && currentTabs[statusType] != null)
+                currentTabs[statusType].UpdateStackCount(stackCount);
         }
     }
 }
