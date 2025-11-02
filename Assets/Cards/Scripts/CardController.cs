@@ -18,7 +18,7 @@ namespace Cards.Scripts
         [SerializeField] public Image EnemyIntentionIcon;
 
         public RectTransform rectTransform { get; private set; }
-        public Vector2 screenPosition => rectTransform.position;
+        public Vector2 screenPosition => rectTransform.anchoredPosition;
         
         private FollowTarget followTarget;
         public CardMovement cardMovement { get;  private set; }

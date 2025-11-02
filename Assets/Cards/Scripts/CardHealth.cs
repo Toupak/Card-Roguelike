@@ -1,3 +1,5 @@
+using System;
+using UI.Damage_Numbers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,10 +9,16 @@ namespace Cards.Scripts
     {
         [HideInInspector] public UnityEvent<int> OnUpdateHP = new UnityEvent<int>();
         [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
-
+        
+        private CardController cardController;
         private int currentHealth;
 
         public bool IsDead => currentHealth <= 0;
+
+        private void Start()
+        {
+            cardController = GetComponent<CardController>();
+        }
 
         public void Setup(CardData data)
         {
@@ -24,6 +32,7 @@ namespace Cards.Scripts
                 return;
         
             currentHealth -= damage;
+            DamageNumberFactory.instance.DisplayDamageNumber(cardController.screenPosition, damage);
             OnUpdateHP.Invoke(currentHealth);
 
             if (IsDead)
