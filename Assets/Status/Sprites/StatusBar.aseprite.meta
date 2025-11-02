@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: StatusBar
     originalName: 
-    pivot: {x: 0.5, y: -0.5}
+    pivot: {x: 0.50769234, y: -0.44117647}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,8 +133,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 64
-      height: 32
+      width: 65
+      height: 34
     spriteID: 004fafcd1a08cbe4e9f38351f907c4a6
     spriteBone: []
     spriteOutline: []
@@ -162,10 +162,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 16
-        width: 64
-        height: 32
+        x: -1
+        y: 15
+        width: 65
+        height: 34
       spriteId: 004fafcd1a08cbe4e9f38351f907c4a6
     linkedCells: []
     parentIndex: -1
