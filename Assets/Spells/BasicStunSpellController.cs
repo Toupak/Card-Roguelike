@@ -20,8 +20,8 @@ namespace Spells
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
                 Debug.Log($"Target : {target.cardController.cardData.cardName} / {spellData.targetType}");
-                StunGa stunGa = new StunGa(stackCount, cardController, target.cardController);
-                ActionSystem.instance.Perform(stunGa);
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Stun, stackCount, cardController, target.cardController);
+                ActionSystem.instance.Perform(applyStatusGa);
             }
         }
     }

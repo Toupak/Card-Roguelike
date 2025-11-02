@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Consumes all stacks of Dorito on targets and deal 1 damage to each
   icon: {fileID: 0}
   energyCost: 1
-  targetType: 2
-  targetingMode: 0
+  targetType: 1
+  targetingMode: 2
   targetCount: 1
   spellController: {fileID: 2432244018433832531, guid: 81fb1f1af2b6891409f004f175fff66c, type: 3}

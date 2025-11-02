@@ -9,40 +9,37 @@ namespace Spells.Data.Nachito
 {
     public class SourCreamSpell : SpellController
     {
-        [SerializeField] private int damage;
-        
-        private DoritoCaltrops doritoSpell = null;
-        
         public override bool CanCastSpell(SpellData spellData)
         {
-            if (doritoSpell == null)
-                doritoSpell = otherSpellButton.GetComponentInChildren<DoritoCaltrops>();
-            
-            return base.CanCastSpell(spellData) && doritoSpell != null && doritoSpell.HasTargets;
+            return base.CanCastSpell(spellData);
         }
         
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(spellData, targets);
 
-            if (doritoSpell == null)
-                doritoSpell = otherSpellButton.GetComponentInChildren<DoritoCaltrops>();
-            
-            if (doritoSpell == null || !doritoSpell.HasTargets)
-                yield break;
-
-            foreach (KeyValuePair<CardController,int> keyValuePair in doritoSpell.stacksDictionary)
+            foreach (CardMovement target in targets)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                
+                Debug.Log($"Target : {target.cardController.cardData.cardName} / {spellData.targetType}");
+                
+                if (!target.cardController.cardStatus.currentStacks.ContainsKey(StatusType.DoritoCaltrop))
+                    continue;
 
-                if (keyValuePair.Key != null && !keyValuePair.Key.cardHealth.IsDead)
-                {
-                    DealDamageGA damageGa = new DealDamageGA(damage, cardController, keyValuePair.Key);
-                    ActionSystem.instance.Perform(damageGa);
-                }
+                int stackCount = target.cardController.cardStatus.currentStacks[StatusType.DoritoCaltrop];
+                
+                if (stackCount < 1)
+                    continue;
+                
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.DoritoCaltrop, stackCount, cardController, target.cardController);
+                ActionSystem.instance.Perform(consumeStacksGa);
+                
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                DealDamageGA dealDamageGa = new DealDamageGA(stackCount, cardController, target.cardController);
+                ActionSystem.instance.Perform(dealDamageGa);
             }
-            
-            doritoSpell.ClearAllStacks();
         }
     }
 }

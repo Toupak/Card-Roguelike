@@ -10,18 +10,26 @@ namespace CombatLoop
     {
         private void OnEnable()
         {
-            ActionSystem.AttachPerformer<StunGa>(ApplyStunPerformer);
+            ActionSystem.AttachPerformer<ApplyStatusGa>(ApplyStunPerformer);
+            ActionSystem.AttachPerformer<ConsumeStacksGa>(ConsumeStacksPerformer);
         }
 
         private void OnDisable()
         {
-            ActionSystem.DetachPerformer<StunGa>();
+            ActionSystem.DetachPerformer<ApplyStatusGa>();
+            ActionSystem.DetachPerformer<ConsumeStacksGa>();
         }
 
-        private IEnumerator ApplyStunPerformer(StunGa stunGa)
+        private IEnumerator ApplyStunPerformer(ApplyStatusGa applyStatusGa)
         {
-            yield return CardTween.PlayCardAttack(stunGa.attacker, stunGa.target);
-            stunGa.target.cardStatus.ApplyStunStacks(stunGa.amount);
+            yield return CardTween.PlayCardAttack(applyStatusGa.attacker, applyStatusGa.target);
+            applyStatusGa.target.cardStatus.ApplyStatusStacks(applyStatusGa.type, applyStatusGa.amount);
+        }
+        
+        private IEnumerator ConsumeStacksPerformer(ConsumeStacksGa consumeStacksGa)
+        {
+            consumeStacksGa.target.cardStatus.ConsumeStacks(consumeStacksGa.type, consumeStacksGa.amount);
+            yield break;
         }
     }
 }

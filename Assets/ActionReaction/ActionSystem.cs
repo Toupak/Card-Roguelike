@@ -69,8 +69,9 @@ namespace ActionReaction
             Type type = action.GetType();
             if (subs.ContainsKey(type))
             {
-                foreach (Action<GameAction> sub in subs[type])
+                for (int i = subs[type].Count - 1; i >= 0; i--)
                 {
+                    Action<GameAction> sub = subs[type][i];
                     sub(action);
                 }
             }
