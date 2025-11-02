@@ -22,7 +22,7 @@ namespace Cards.Scripts
     {
         [SerializeField] private Image stunEffect;
 
-        [HideInInspector] public UnityEvent OnUpdateStatus = new UnityEvent();
+        [HideInInspector] public UnityEvent<StatusType> OnUpdateStatus = new UnityEvent<StatusType>();
         
         private CardController cardController;
 
@@ -67,10 +67,11 @@ namespace Cards.Scripts
             foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
             {
                 if (!IsStatusPersistent(keyValuePair.Key))
+                {
                     currentStacks[keyValuePair.Key] = Mathf.Max(keyValuePair.Value - 1, 0);
+                    OnUpdateStatus?.Invoke(keyValuePair.Key);
+                }
             }
-            
-            OnUpdateStatus?.Invoke();
         }
 
         private bool IsStatusPersistent(StatusType type)
@@ -95,7 +96,7 @@ namespace Cards.Scripts
             else
                 currentStacks.Add(statusType, stacksCount);
 
-            OnUpdateStatus?.Invoke();
+            OnUpdateStatus?.Invoke(statusType);
         }
 
         public void ConsumeStacks(StatusType type, int amount)
@@ -117,7 +118,7 @@ namespace Cards.Scripts
             return false;
         }
         
-        private void UpdateStunEffect()
+        private void UpdateStunEffect(StatusType type) // Move this to DisplayCardStatusVFX
         {
             stunEffect.gameObject.SetActive(IsStun);
         }

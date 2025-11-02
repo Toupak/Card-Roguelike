@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7be8a560dcc55348bab860d84ef0039, type: 3}
+  m_Name: DoritoCaltrop
+  m_EditorClassIdentifier: 
+  type: 2
+  statusName: Dorito Caltrop
+  statusDescription: Takes damage equals to the amount of stacks when performing
+    any action.
+  isPersistent: 1
+  maxStackCount: -1
+  barColor:
+    serializedVersion: 2
+    rgba: 4280060304
+  circleColor:
+    serializedVersion: 2
+    rgba: 4280532945
+  icon: {fileID: 0}

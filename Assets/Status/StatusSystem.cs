@@ -7,12 +7,15 @@ using Cards.Scripts;
 using Cards.Tween_Animations;
 using Spells;
 using Spells.Targeting;
+using Status.Data;
 using UnityEngine;
 
-namespace CombatLoop
+namespace Status
 {
     public class StatusSystem : MonoBehaviour
     {
+        [SerializeField] private List<StatusData> statusData;
+
         public static StatusSystem instance;
 
         private void Awake()
@@ -53,6 +56,14 @@ namespace CombatLoop
         {
             return cardController.cardStatus.currentStacks.ContainsKey(statusType) &&
                    cardController.cardStatus.currentStacks[statusType] > 0;
+        }
+
+        public StatusData GetStatusData(StatusType type)
+        {
+            if (type == StatusType.None)
+                return null;
+            
+            return statusData.Where((s) => s.type == type).ToList().First();
         }
     }
 }
