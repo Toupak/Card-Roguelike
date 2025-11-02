@@ -9,7 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927554878145913577}
+  - component: {fileID: 96484268912698718}
+  - component: {fileID: 2445149541372546664}
   - component: {fileID: 1682361987783622097}
+  - component: {fileID: 4280251116533701905}
   m_Layer: 5
   m_Name: Status Tab
   m_TagString: Untagged
@@ -35,9 +38,47 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60.6, y: 30.3527}
+  m_AnchoredPosition: {x: -30.7682, y: 0.88238525}
+  m_SizeDelta: {x: 61.5361, y: 32.1175}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &96484268912698718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670676032166273362}
+  m_CullTransparentMesh: 1
+--- !u!114 &2445149541372546664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670676032166273362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &1682361987783622097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +95,21 @@ MonoBehaviour:
   stackCountText: {fileID: 2643170865068278087}
   lineImage: {fileID: 3077566509795498544}
   circleImage: {fileID: 6024186948996115315}
+--- !u!114 &4280251116533701905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670676032166273362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleToDisplay: Status Name
+  textToDisplay: This is a status
+  tooltipType: 0
 --- !u!1 &6155583530507468270
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,8 +145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 61.6, y: 176.17}
+  m_AnchoredPosition: {x: -0.031951, y: -0.00024988}
+  m_SizeDelta: {x: 61.6, y: 32.117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6831458940846194468
 GameObject:
@@ -337,7 +393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 26, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8316427398381551437

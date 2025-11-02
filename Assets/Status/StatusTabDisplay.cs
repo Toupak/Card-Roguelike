@@ -1,6 +1,7 @@
 using PrimeTween;
 using Status.Data;
 using TMPro;
+using Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,17 +14,27 @@ namespace Status
         [SerializeField] private Image lineImage;
         [SerializeField] private Image circleImage;
 
+        private DisplayTooltipOnHover displayTooltipOnHover;
+
         public void Setup(StatusData data, int stackCount)
         {
             stackCountText.text = stackCount.ToString();
             lineImage.color = data.barColor;
             circleImage.color = data.circleColor;
 
+            SetupTooltip(data);
+            
             Vector2 position = tabRectTransform.anchoredPosition;
             tabRectTransform.anchoredPosition = new Vector2(position.x - 50.0f, position.y);
             Sequence.Create()
                 .Chain(Tween.UIAnchoredPositionX(tabRectTransform, position.x, 0.1f))
                 .Chain(Tween.PunchScale(tabRectTransform, Vector3.one * 0.5f, 0.1f));
+        }
+
+        private void SetupTooltip(StatusData data)
+        {
+            displayTooltipOnHover = GetComponent<DisplayTooltipOnHover>();
+            displayTooltipOnHover.SetTextToDisplay(data.statusName, data.statusDescription, TooltipDisplay.TooltipType.Spell);
         }
 
         public void UpdateStackCount(int stackCount)
