@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
+using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Spells.Targeting;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Spells
         
         protected Coroutine castSpellRoutine = null;
         public bool IsCasting => castSpellRoutine != null;
+        
+        public bool HasCastedThisTurn { get; protected set; }
 
         public virtual void Setup(CardController controller, SpellData spellData, GameObject otherSpell)
         {
@@ -29,7 +32,7 @@ namespace Spells
 
         public virtual bool CanCastSpell(SpellData spellData)
         {
-            return EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStun;
+            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStun;
         }
 
         public virtual void CastSpell(Transform startPosition, SpellData spellData)
@@ -87,9 +90,36 @@ namespace Spells
         protected virtual IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+            HasCastedThisTurn = true;
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
             OnCastSpell?.Invoke();
             EnergyController.instance.RemoveEnergy(spellData.energyCost);
+        }
+
+        private void OnEnable()
+        {
+            SubscribeReactions();
+        }
+
+        private void OnDisable()
+        {
+            UnsubscribeReactions();
+        }
+
+        protected virtual void SubscribeReactions()
+        {
+            ActionSystem.SubscribeReaction<StartTurnGa>(EndTurnRefreshCooldownReaction, ReactionTiming.PRE);
+        }
+        
+        protected virtual void UnsubscribeReactions()
+        {
+            ActionSystem.UnsubscribeReaction<StartTurnGa>(EndTurnRefreshCooldownReaction, ReactionTiming.PRE);
+        }
+
+        private void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
+        {
+            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+                HasCastedThisTurn = false;
         }
     }
 }

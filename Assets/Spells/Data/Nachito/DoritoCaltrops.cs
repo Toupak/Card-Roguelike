@@ -39,14 +39,16 @@ namespace Spells.Data.Nachito
             stacksDictionary = new Dictionary<CardController, int>();
         }
 
-        private void OnEnable()
+        protected override void SubscribeReactions()
         {
+            base.SubscribeReactions();
             ActionSystem.SubscribeReaction<EnemyPerformsActionGa>(EnemyPerformsActionReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
         }
 
-        private void OnDisable()
+        protected override void UnsubscribeReactions()
         {
+            base.UnsubscribeReactions();
             ActionSystem.UnsubscribeReaction<EnemyPerformsActionGa>(EnemyPerformsActionReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
         }
