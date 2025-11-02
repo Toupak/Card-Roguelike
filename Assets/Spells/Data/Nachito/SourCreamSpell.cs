@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using CombatLoop;
 using UnityEngine;
 
 namespace Spells.Data.Nachito
@@ -11,7 +12,9 @@ namespace Spells.Data.Nachito
     {
         public override bool CanCastSpell(SpellData spellData)
         {
-            return base.CanCastSpell(spellData);
+            List<CardMovement> targets = StatusSystem.instance.GetListOfCardsAfflictedByStatus(TargetType.Enemy, StatusType.DoritoCaltrop);
+
+            return base.CanCastSpell(spellData) && targets != null && targets.Count > 0;
         }
         
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
