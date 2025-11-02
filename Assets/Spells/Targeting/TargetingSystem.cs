@@ -235,8 +235,11 @@ namespace Spells.Targeting
         {
             foreach (CardMovement cardMovement in targets)
             {
-                cardMovement.cardController.displayCardEffect.SetPotentialTargetState(false);
-                cardMovement.cardController.displayCardEffect.SetTargetState(false);
+                if (cardMovement != null)
+                {
+                    cardMovement.cardController.displayCardEffect.SetPotentialTargetState(false);
+                    cardMovement.cardController.displayCardEffect.SetTargetState(false);
+                }
             }
         }
     }
