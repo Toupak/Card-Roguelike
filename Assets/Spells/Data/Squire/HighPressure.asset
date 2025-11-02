@@ -15,8 +15,11 @@ MonoBehaviour:
   spellName: High Pressure
   description: Applies 1 Stun stack to an Enemy target
   icon: {fileID: 0}
-  energyCost: 1
   targetType: 1
   targetingMode: 0
   targetCount: 1
-  spellController: {fileID: 2385144902097577527, guid: e707ad5316659344788da295f407b364, type: 3}
+  energyCost: 1
+  damage: 0
+  inflictStatus: 1
+  statusStacksApplied: 1
+  spellController: {fileID: 0}

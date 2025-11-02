@@ -15,8 +15,11 @@ MonoBehaviour:
   spellName: Sudden Squirt
   description: Deal 2 Damages to a single target
   icon: {fileID: 0}
-  energyCost: 1
   targetType: 1
   targetingMode: 0
   targetCount: 1
-  spellController: {fileID: 4858178483731845087, guid: 90a7d3e6043f51949b1b86dce40a9b6d, type: 3}
+  energyCost: 1
+  damage: 2
+  inflictStatus: 0
+  statusStacksApplied: 0
+  spellController: {fileID: 0}

@@ -12,6 +12,9 @@ namespace Spells
     {
         [SerializeField] private Image buttonIcon;
         [SerializeField] private GameObject otherButton;
+
+        [Space] 
+        [SerializeField] private SpellController defaultSpellControllerPrefab;
         
         [HideInInspector] public UnityEvent OnClickSpellButton = new UnityEvent();
 
@@ -27,17 +30,27 @@ namespace Spells
             
             spellData = data;
             isPlayerCard = isPlayer;
+            
+            SetupTooltip(data);
+            SetupButtonIcon(data);
+            SetupSpellController(cardController, data);
+        }
 
+        private void SetupTooltip(SpellData data)
+        {
+            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(data.spellName, data.description, TooltipDisplay.TooltipType.Spell);
+        }
+
+        private void SetupButtonIcon(SpellData data)
+        {
             if (data.icon != null)
                 buttonIcon.sprite = data.icon;
-            
-            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(data.spellName, data.description, TooltipDisplay.TooltipType.Spell);
-
-            if (data.spellController != null)
-            {
-                spellController = Instantiate(data.spellController, transform);
-                spellController.Setup(cardController, data, otherButton);
-            }
+        }
+        
+        private void SetupSpellController(CardController cardController, SpellData data)
+        {
+            spellController = Instantiate(data.spellController != null ? data.spellController : defaultSpellControllerPrefab, transform);
+            spellController.Setup(cardController, data, otherButton);
         }
         
         public void OnPointerDown(PointerEventData eventData)

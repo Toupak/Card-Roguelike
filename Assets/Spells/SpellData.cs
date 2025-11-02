@@ -1,3 +1,4 @@
+using Cards.Scripts;
 using UnityEngine;
 
 namespace Spells
@@ -23,10 +24,13 @@ namespace Spells
         public string spellName;
         public string description;
         public Sprite icon;
-        public int energyCost;
         public TargetType targetType;
         public TargetingMode targetingMode;
         [Tooltip("Optional : only needed when TargetingMode is set to Multi")] public int targetCount = 1;
+        public int energyCost;
+        public int damage;
+        public StatusType inflictStatus;
+        public int statusStacksApplied;
         public SpellController spellController;
     }
 }

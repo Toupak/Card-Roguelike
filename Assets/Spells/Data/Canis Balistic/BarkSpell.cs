@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using CombatLoop;
 using UnityEngine;
 
 namespace Spells.Data.Canis_Balistic
@@ -11,17 +12,20 @@ namespace Spells.Data.Canis_Balistic
     {
         [SerializeField] protected int damage;
 
-        private int currentBullets = 0;
-
         public override bool CanCastSpell(SpellData spellData)
         {
-            return base.CanCastSpell(spellData) && currentBullets > 0;
+            return base.CanCastSpell(spellData) && StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);
         }
 
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(spellData, targets);
-            currentBullets -= 1;
+            HasCastedThisTurn = false;
+            
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.CanisBalisticBullet, 1, cardController, cardController);
+            ActionSystem.instance.Perform(consumeStacksGa);
+            
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             foreach (CardMovement target in targets)
             {
@@ -31,11 +35,6 @@ namespace Spells.Data.Canis_Balistic
                 DealDamageGA damageGa = new DealDamageGA(damage, cardController, target.cardController);
                 ActionSystem.instance.Perform(damageGa);
             }
-        }
-
-        public void LoadBullet()
-        {
-            currentBullets += 1;
         }
     }
 }

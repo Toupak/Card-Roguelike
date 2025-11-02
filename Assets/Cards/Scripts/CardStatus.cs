@@ -12,9 +12,10 @@ namespace Cards.Scripts
 {
     public enum StatusType
     {
+        None,
         Stun,
         DoritoCaltrop,
-        CanisBalisticBullet
+        CanisBalisticBullet,
     }
     
     public class CardStatus : MonoBehaviour

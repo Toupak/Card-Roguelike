@@ -15,8 +15,11 @@ MonoBehaviour:
   spellName: Bark Blast
   description: Deal 1 damages to 3 enemies\nNeed one ammo to shoot
   icon: {fileID: 3888108767392555520, guid: b2c2025dc64f20642b3e5b0948060a9d, type: 3}
-  energyCost: 1
   targetType: 1
-  targetingMode: 1
-  targetCount: 3
+  targetingMode: 2
+  targetCount: 0
+  energyCost: 0
+  damage: 1
+  inflictStatus: 0
+  statusStacksApplied: 0
   spellController: {fileID: 8995259216496489303, guid: eb5ed1462da124c4fa676d299a1d62c7, type: 3}

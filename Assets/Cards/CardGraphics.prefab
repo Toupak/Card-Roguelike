@@ -464,6 +464,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 5846551718353681148}
   otherButton: {fileID: 3531206112174478996}
+  defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
+  OnClickSpellButton:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1780229874216609130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +673,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunEffect: {fileID: 2242131546575754411}
+  OnUpdateStatus:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3531206112174478996
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +811,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 158346592597015666}
   otherButton: {fileID: 3258126219840937024}
+  defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
+  OnClickSpellButton:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2526328401116805773
 MonoBehaviour:
   m_ObjectHideFlags: 0

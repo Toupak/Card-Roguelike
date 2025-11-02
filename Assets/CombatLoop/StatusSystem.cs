@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,6 @@ using Cards.Tween_Animations;
 using Spells;
 using Spells.Targeting;
 using UnityEngine;
-using static CombatLoop.CombatLoop;
 
 namespace CombatLoop
 {
