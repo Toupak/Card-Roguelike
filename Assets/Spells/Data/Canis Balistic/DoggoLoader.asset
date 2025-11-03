@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: DoggoLoader
   m_EditorClassIdentifier: 
   spellName: Doggo Loader
-  description: Loads One Ammo into Bark Blast
+  description: 'Loads One Ammo into Bark Blast
+
+    Using Doggo Loader puts Bark
+    Blast on cooldown'
   icon: {fileID: -2953434614167466379, guid: b2c2025dc64f20642b3e5b0948060a9d, type: 3}
   targetType: 2
   targetingMode: 0

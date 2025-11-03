@@ -13,6 +13,12 @@ namespace Spells.Data.Canis_Balistic
     {
         [SerializeField] protected int damage;
 
+        public override void Setup(CardController controller, SpellData spellData, SpellButton otherSpell)
+        {
+            base.Setup(controller, spellData, otherSpell);
+            otherSpell.OnCastSpell.AddListener(() => HasCastedThisTurn = true);
+        }
+        
         public override bool CanCastSpell(SpellData spellData)
         {
             return base.CanCastSpell(spellData) && StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);

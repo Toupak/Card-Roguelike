@@ -22,7 +22,7 @@ namespace Spells
     public class SpellData : ScriptableObject
     {
         public string spellName;
-        public string description;
+        [TextArea] public string description;
         public Sprite icon;
         public TargetType targetType;
         public TargetingMode targetingMode;

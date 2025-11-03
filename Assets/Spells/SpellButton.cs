@@ -11,12 +11,13 @@ namespace Spells
     public class SpellButton : MonoBehaviour, IPointerDownHandler
     {
         [SerializeField] private Image buttonIcon;
-        [SerializeField] private GameObject otherButton;
+        [SerializeField] private SpellButton otherButton;
 
         [Space] 
         [SerializeField] private SpellController defaultSpellControllerPrefab;
         
         [HideInInspector] public UnityEvent OnClickSpellButton = new UnityEvent();
+        [HideInInspector] public UnityEvent OnCastSpell = new UnityEvent();
 
         public SpellController spellController { get; private set; }
         public SpellData spellData { get; private set; }
@@ -58,9 +59,12 @@ namespace Spells
             bool isSpellValid = spellController != null && spellController.CanCastSpell(spellData) && spellData != null;
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance.CurrentTurn == CombatLoop.CombatLoop.TurnType.Player;
-            
+
             if (isPlayerCard && isSpellValid && isCursorFree && isPlayerTurn)
+            {
                 spellController.CastSpell(transform, spellData);
+                OnCastSpell?.Invoke();
+            }
             
             OnClickSpellButton?.Invoke();
         }

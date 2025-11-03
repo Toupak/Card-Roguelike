@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: BarkBlast
   m_EditorClassIdentifier: 
   spellName: Bark Blast
-  description: Deal 1 damages to 3 enemies\nNeed one ammo to shoot
+  description: 'Deal 1 damages to all enemies
+
+    Need one ammo to shoot
+
+    Does
+    not cost energy - can be cast multiple times per turn'
   icon: {fileID: 3888108767392555520, guid: b2c2025dc64f20642b3e5b0948060a9d, type: 3}
   targetType: 1
   targetingMode: 2
