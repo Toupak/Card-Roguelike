@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static Tooltip.TooltipDisplay;
@@ -28,13 +29,28 @@ namespace Tooltip
             tooltipDisplay.Setup(titleToDisplay, textToDisplay, tooltipType);
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        private void HideTooltip()
         {
             if (tooltipDisplay != null)
             {
                 tooltipDisplay.Hide();
                 tooltipDisplay = null;
             }
+        }
+        
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            HideTooltip();
+        }
+
+        private void OnDisable()
+        {
+            HideTooltip();
+        }
+
+        private void OnDestroy()
+        {
+            HideTooltip();
         }
     }
 }
