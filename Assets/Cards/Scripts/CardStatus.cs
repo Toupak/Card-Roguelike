@@ -61,7 +61,7 @@ namespace Cards.Scripts
         private void EndTurnReaction(EndTurnGA endTurnGa)
         {
             if (IsCorrectTurn(endTurnGa.ending))
-                RemoveOneStackOfEachStatus();
+                UpdateStacksAtEndOfTurn();
         }
         
         private void EnemyPerformsActionReaction(EnemyPerformsActionGa enemyPerformsActionGa)
@@ -70,33 +70,37 @@ namespace Cards.Scripts
                 cardController.cardHealth.TakeDamage(currentStacks[StatusType.DoritoCaltrop]);
         }
 
-        private void RemoveOneStackOfEachStatus()
+        private void UpdateStacksAtEndOfTurn()
         {
             foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
             {
-                if (!IsStatusPersistent(keyValuePair.Key))
+                switch (keyValuePair.Key)
                 {
-                    currentStacks[keyValuePair.Key] = Mathf.Max(keyValuePair.Value - 1, 0);
-                    OnUpdateStatus?.Invoke(keyValuePair.Key, currentStacks[keyValuePair.Key] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
+                    case StatusType.Stun:
+                        RemoveOneStack(keyValuePair);
+                        break;
+                    case StatusType.DoritoCaltrop:
+                    case StatusType.CanisBalisticBullet:
+                        continue;
+                    case StatusType.BonusDamage:
+                        RemoveAllStacks(keyValuePair);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(keyValuePair.Key), keyValuePair.Key, null);
                 }
             }
         }
-
-        private bool IsStatusPersistent(StatusType type)
+        
+        private void RemoveOneStack(KeyValuePair<StatusType,int> keyValuePair)
         {
-            switch (type)
-            {
-                case StatusType.Stun:
-                    return false;
-                case StatusType.DoritoCaltrop:
-                    return true;
-                case StatusType.CanisBalisticBullet:
-                    return true;
-                case StatusType.BonusDamage:
-                    return false;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
+            currentStacks[keyValuePair.Key] = Mathf.Max(keyValuePair.Value - 1, 0);
+            OnUpdateStatus?.Invoke(keyValuePair.Key, currentStacks[keyValuePair.Key] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
+        }
+
+        private void RemoveAllStacks(KeyValuePair<StatusType,int> keyValuePair)
+        {
+            currentStacks[keyValuePair.Key] = 0;
+            OnUpdateStatus?.Invoke(keyValuePair.Key, StatusTabModification.Remove);
         }
 
         public void ApplyStatusStacks(StatusType statusType, int stacksCount)
