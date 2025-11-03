@@ -1,6 +1,7 @@
+using BoomLib.Tools;
+using Cursor.Script;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Tooltip
 {
@@ -16,28 +17,25 @@ namespace Tooltip
         [SerializeField] private TextMeshProUGUI mainTextMeshPro;
         [SerializeField] private TextMeshProUGUI regularTextMeshPro;
         [SerializeField] private float smoothTime;
+        
+        [SerializeField] private Vector2 offset;
 
-        private CanvasScaler canvasScaler;
+        private RectTransform rectTransform;
         
         private Vector3 velocity;
         
         private bool isSetup;
 
-        public void SetCanvasScaler(CanvasScaler scaler)
-        {
-            canvasScaler = scaler;
-        }
-        
         public void Setup(string mainText, TooltipType type)
         {
-            SetupText(type, "", mainText);
-            isSetup = true;
+            Setup("", mainText, type);
         }
         
         public void Setup(string title, string mainText, TooltipType type)
         {
             SetupText(type, title, mainText);
-            transform.localPosition = ComputeCursorPosition();
+            transform.localPosition = CursorInfo.instance.currentPosition + offset;
+            rectTransform = GetComponent<RectTransform>();
             isSetup = true;
         }
 
@@ -62,14 +60,13 @@ namespace Tooltip
 
         private void FollowCursor()
         {
-            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, ComputeCursorPosition(), ref velocity, smoothTime);
+            Vector2 cursorPosition = CursorInfo.instance.currentPosition + offset;
+            Vector3 clampedPosition = Tools.ClampPositionInScreen(cursorPosition, rectTransform.rect.size);
+            
+            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, clampedPosition, ref velocity, smoothTime);
         }
 
-        private Vector2 ComputeCursorPosition()
-        {
-            return new Vector2(Input.mousePosition.x * canvasScaler.referenceResolution.x / Screen.width, Input.mousePosition.y * canvasScaler.referenceResolution.y / Screen.height);
-        }
-
+       
         public void Hide()
         {
             Destroy(gameObject);

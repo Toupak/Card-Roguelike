@@ -1,5 +1,4 @@
 using Board.Script;
-using CardSlot;
 using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
@@ -18,6 +17,7 @@ namespace Cards.Scripts
         [HideInInspector] public UnityEvent OnDrop = new UnityEvent();
         [HideInInspector] public UnityEvent OnSetNewSlot = new UnityEvent();
         
+        //TODO Cleanup this
         private bool isDragging;
         public bool IsDragging => isDragging;
         
@@ -27,6 +27,7 @@ namespace Cards.Scripts
         private bool isSelected;
         public bool IsSelected => isSelected;
 
+        public RectTransform rectTransform { get;  private set; }
         public CardController cardController { get;  private set; }
         private Slot slot;
         public Slot CurrentSlot => slot;
@@ -48,6 +49,8 @@ namespace Cards.Scripts
 
         public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
+            rectTransform = GetComponent<RectTransform>();
+            
             slot = newSlot;
             transform.SetParent(slot.transform, true);
             transform.localScale = Vector3.one;

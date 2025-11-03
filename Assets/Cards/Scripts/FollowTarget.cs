@@ -1,5 +1,6 @@
 using System;
 using BoomLib.BoomTween;
+using BoomLib.Tools;
 using Cards.HandCurves;
 using UnityEngine;
 using static Board.Script.CardContainer;
@@ -39,6 +40,8 @@ namespace Cards.Scripts
         private Canvas canvas;
         private CardMovement target;
         public CardMovement Target => target;
+
+        private RectTransform rectTransform;
         
         private Vector3 rotationDelta;
         private Vector3 movementDelta;
@@ -49,9 +52,10 @@ namespace Cards.Scripts
 
         private float targetScale = 1.0f;
         private float scaleVelocity;
-        
+
         public void SetTarget(CardMovement newTarget)
         {
+            rectTransform = GetComponent<RectTransform>();
             canvas = GetComponent<Canvas>();
             target = newTarget;
             target.OnSetNewSlot.AddListener(UpdateSortingOrder);
@@ -145,7 +149,11 @@ namespace Cards.Scripts
                 float offset = isPlayer ? selectedHeightOffsetPlayer : selectedHeightOffsetEnemy;
                 verticalOffset += Vector3.up * offset;
             }
-            transform.position = Vector3.Lerp(transform.position, target.transform.position + verticalOffset, Time.deltaTime * speed);
+
+            Vector2 targetPosition = target.rectTransform.position.ToVector2() + Vector2.up * verticalOffset;
+            Vector3 clampedPosition = target.IsDragging ? Tools.ClampPositionInScreen(targetPosition, rectTransform.rect.size) : targetPosition;
+            
+            rectTransform.position = Vector3.Lerp(rectTransform.position, clampedPosition, Time.deltaTime * speed);
         }
         
         private void FollowRotation()

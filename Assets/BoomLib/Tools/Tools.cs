@@ -181,6 +181,16 @@ namespace BoomLib.Tools
             }
         }
         
+        public static Vector3 ClampPositionInScreen(Vector3 position, Vector2 size)
+        {
+            Vector2 screenBounds = new Vector2(Screen.width , Screen.height );
+            Vector2 halfSize = size * 0.5f;
+            
+            position.x = Mathf.Clamp(position.x, halfSize.x, screenBounds.x - halfSize.x);
+            position.y = Mathf.Clamp(position.y, halfSize.y, screenBounds.y - halfSize.y);
+            return new Vector3(position.x, position.y, 0);
+        }
+        
         public static CombatLoop.CombatLoop.TurnType Opposite(this CombatLoop.CombatLoop.TurnType type)
         {
             if (type == CombatLoop.CombatLoop.TurnType.Player)
