@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Status;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -17,6 +18,13 @@ namespace Cards.Scripts
         DoritoCaltrop,
         CanisBalisticBullet,
         BonusDamage,
+    }
+
+    public enum StatusEndTurnBehaviour
+    {
+        RemoveOne,
+        RemoveAll,
+        RemoveNone
     }
     
     public enum StatusTabModification
@@ -74,19 +82,18 @@ namespace Cards.Scripts
         {
             foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
             {
-                switch (keyValuePair.Key)
+                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).endTurnBehaviour)
                 {
-                    case StatusType.Stun:
-                        RemoveOneStack(keyValuePair);
+                    case StatusEndTurnBehaviour.RemoveOne:
+                        RemoveOneStack(keyValuePair); 
                         break;
-                    case StatusType.DoritoCaltrop:
-                    case StatusType.CanisBalisticBullet:
-                        continue;
-                    case StatusType.BonusDamage:
+                    case StatusEndTurnBehaviour.RemoveAll:
                         RemoveAllStacks(keyValuePair);
                         break;
+                    case StatusEndTurnBehaviour.RemoveNone:
+                        break;
                     default:
-                        throw new ArgumentOutOfRangeException(nameof(keyValuePair.Key), keyValuePair.Key, null);
+                        throw new ArgumentOutOfRangeException();
                 }
             }
         }
@@ -115,7 +122,6 @@ namespace Cards.Scripts
                 currentStacks.Add(statusType, stacksCount);
                 OnUpdateStatus?.Invoke(statusType, StatusTabModification.Create);
             }
-
         }
 
         public void ConsumeStacks(StatusType type, int amount)

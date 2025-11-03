@@ -9,7 +9,7 @@ namespace Status.Data
         public StatusType type;
         public string statusName;
         [TextArea] public string statusDescription;
-        public bool isPersistent;
+        public StatusEndTurnBehaviour endTurnBehaviour;
         public int maxStackCount = -1;
         
         [Space]

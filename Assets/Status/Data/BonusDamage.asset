@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 4
   statusName: Bonus Damage
   statusDescription: Attacks deal extra damage
-  isPersistent: 0
+  endTurnBehaviour: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

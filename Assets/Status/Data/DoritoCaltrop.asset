@@ -16,7 +16,7 @@ MonoBehaviour:
   statusName: Dorito Caltrop
   statusDescription: Takes damage equals to the amount of stacks when performing
     any action.
-  isPersistent: 1
+  endTurnBehaviour: 2
   maxStackCount: -1
   barColor:
     serializedVersion: 2
