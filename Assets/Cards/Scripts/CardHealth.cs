@@ -11,7 +11,7 @@ namespace Cards.Scripts
         [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
         
         private CardController cardController;
-        private int currentHealth;
+        public int currentHealth { get; private set; }
 
         public bool IsDead => currentHealth <= 0;
 

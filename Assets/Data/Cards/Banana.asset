@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Banana
   m_EditorClassIdentifier: 
-  cardNumber: 0
+  cardNumber: 6
   cardName: Banana
   tribe: 5
   hpMax: 6

@@ -16,7 +16,8 @@ namespace Cards.Scripts
             Fungi,
             SentientGeometricalFigures,
             MedievalFantasyRobot,
-            Food
+            Food,
+            Alien
         }
 
         public int cardNumber;
