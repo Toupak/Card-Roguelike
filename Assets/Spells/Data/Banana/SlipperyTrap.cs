@@ -8,13 +8,15 @@ using UnityEngine;
 
 public class SlipperyTrap : SpellController
 {
-    private void OnEnable()
+    protected override void SubscribeReactions()
     {
+        base.SubscribeReactions();
         ActionSystem.SubscribeReaction<DealDamageGA>(SlipperyTrapReaction, ReactionTiming.POST);
     }
 
-    private void OnDisable()
+    protected override void UnsubscribeReactions()
     {
+        base.UnsubscribeReactions();
         ActionSystem.UnsubscribeReaction<DealDamageGA>(SlipperyTrapReaction, ReactionTiming.POST);
     }
 
@@ -31,5 +33,4 @@ public class SlipperyTrap : SpellController
             }
         }
     }
-
 }
