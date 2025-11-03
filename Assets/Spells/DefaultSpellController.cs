@@ -28,7 +28,7 @@ namespace Spells
 
                 if (spellData.damage > 0)
                 {
-                    DealDamageGA damageGa = new DealDamageGA(spellData.damage, cardController, target.cardController);
+                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, target.cardController);
                     ActionSystem.instance.Perform(damageGa);
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 }

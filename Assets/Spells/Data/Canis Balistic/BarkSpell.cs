@@ -11,8 +11,6 @@ namespace Spells.Data.Canis_Balistic
 {
     public class BarkSpell : SpellController
     {
-        [SerializeField] protected int damage;
-
         public override void Setup(CardController controller, SpellData spellData, SpellButton otherSpell)
         {
             base.Setup(controller, spellData, otherSpell);
@@ -39,7 +37,7 @@ namespace Spells.Data.Canis_Balistic
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
                 Debug.Log($"Target : {target.cardController.cardData.cardName} / {spellData.targetType}");
-                DealDamageGA damageGa = new DealDamageGA(damage, cardController, target.cardController);
+                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, target.cardController);
                 ActionSystem.instance.Perform(damageGa);
             }
         }

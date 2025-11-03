@@ -16,6 +16,7 @@ namespace Cards.Scripts
         Stun,
         DoritoCaltrop,
         CanisBalisticBullet,
+        BonusDamage,
     }
     
     public enum StatusTabModification
@@ -91,6 +92,8 @@ namespace Cards.Scripts
                     return true;
                 case StatusType.CanisBalisticBullet:
                     return true;
+                case StatusType.BonusDamage:
+                    return false;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

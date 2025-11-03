@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardNumber: 0
   cardName: Banana
-  tribe: 0
-  hpMax: 0
-  leftSpell: {fileID: 0}
+  tribe: 5
+  hpMax: 12
+  leftSpell: {fileID: 11400000, guid: 234f1fdf4f1b2674ba415d34cec9e604, type: 2}
   rightSpell: {fileID: 0}
   artwork: {fileID: 7381965769198725172, guid: 2df081ac6ce010347b4ec94a4241e2e3, type: 3}
   description: 

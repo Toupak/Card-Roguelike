@@ -1,3 +1,5 @@
+using Cards.Scripts;
+using Status;
 using System.Collections;
 using UnityEngine;
 
@@ -15,6 +17,16 @@ namespace EnemyAttack
         public virtual void Setup(EnemyCardController controller)
         {
             enemyCardController = controller;
+        }
+
+        protected virtual int ComputeCurrentDamage(int spellDamage)
+        {
+            int bonus = 0;
+
+            if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.BonusDamage))
+                bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.BonusDamage];
+
+            return spellDamage + bonus;
         }
 
         public virtual bool CanBeSelected()

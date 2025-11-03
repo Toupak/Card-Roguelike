@@ -5,6 +5,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Spells.Targeting;
+using Status;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -120,6 +121,16 @@ namespace Spells
         {
             if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
                 HasCastedThisTurn = false;
+        }
+
+        protected virtual int ComputeCurrentDamage(int spellDamage)
+        {
+            int bonus = 0;
+
+            if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.BonusDamage))
+                bonus += cardController.cardStatus.currentStacks[StatusType.BonusDamage];
+
+            return spellDamage + bonus;
         }
     }
 }
