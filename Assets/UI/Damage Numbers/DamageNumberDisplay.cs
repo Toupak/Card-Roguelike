@@ -14,6 +14,7 @@ namespace UI.Damage_Numbers
             damageText.fontSize = 35.0f + 10.0f * damage;
             
             RectTransform rectTransform = GetComponent<RectTransform>();
+            position += Random.insideUnitCircle * 30.0f;
             rectTransform.anchoredPosition = position;
             transform.localScale = new Vector3(0.0f, 0.0f, 1.0f);
 
