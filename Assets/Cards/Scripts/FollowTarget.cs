@@ -16,6 +16,7 @@ namespace Cards.Scripts
         [SerializeField] private float maxAngle;
 
         [Space] 
+        [SerializeField] private float selectedHeightOffsetHand;
         [SerializeField] private float selectedHeightOffsetPlayer;
         [SerializeField] private float selectedHeightOffsetEnemy;
         
@@ -142,18 +143,37 @@ namespace Cards.Scripts
         
         private void FollowPosition()
         {
-            Vector3 verticalOffset = (Vector3.up * (target.IsDragging ? 0.0f : curveYOffset));
-            if (target.IsSelected)
-            {
-                bool isPlayer = target.ContainerType != ContainerType.Enemy;
-                float offset = isPlayer ? selectedHeightOffsetPlayer : selectedHeightOffsetEnemy;
-                verticalOffset += Vector3.up * offset;
-            }
-
+            float verticalOffset = ComputeVerticalOffset();
             Vector2 targetPosition = target.rectTransform.position.ToVector2() + Vector2.up * verticalOffset;
             Vector3 clampedPosition = target.IsDragging ? Tools.ClampPositionInScreen(targetPosition, rectTransform.rect.size) : targetPosition;
             
             rectTransform.position = Vector3.Lerp(rectTransform.position, clampedPosition, Time.deltaTime * speed);
+        }
+
+        private float ComputeVerticalOffset()
+        {
+            float verticalOffset = target.IsDragging ? 0.0f : curveYOffset;
+                
+            if (target.IsSelected)
+            {
+                switch (target.ContainerType)
+                {
+                    case ContainerType.Hand:
+                        verticalOffset += selectedHeightOffsetHand;
+                        break;
+                    case ContainerType.Enemy:
+                        verticalOffset += selectedHeightOffsetEnemy;
+                        break;
+                    case ContainerType.Board:
+                    case ContainerType.Sticky:
+                        verticalOffset += selectedHeightOffsetPlayer;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+
+            return verticalOffset;
         }
         
         private void FollowRotation()

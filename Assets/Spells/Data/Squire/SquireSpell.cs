@@ -12,7 +12,6 @@ namespace Spells.Data.Squire
         protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(spellData, targets);
-            
 
             if (otherSpellButton.spellController.HasCastedThisTurn)
             {
