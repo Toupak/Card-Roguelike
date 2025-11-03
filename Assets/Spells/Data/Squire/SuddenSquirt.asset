@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: SuddenSquirt
   m_EditorClassIdentifier: 
   spellName: Sudden Squirt
-  description: Deal 2 Damages to a single target
+  description: 'Deal 2 Damages to a single target
+
+    Using both of Squirty Squire''s
+    spells in the same turn stuns him.'
   icon: {fileID: 0}
+  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1
@@ -22,4 +26,4 @@ MonoBehaviour:
   damage: 2
   inflictStatus: 0
   statusStacksApplied: 0
-  spellController: {fileID: 0}
+  spellController: {fileID: 4415393781491905654, guid: 0df3f368d0b6cd2408da7cb22028d793, type: 3}

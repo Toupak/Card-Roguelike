@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: HighPressure
   m_EditorClassIdentifier: 
   spellName: High Pressure
-  description: Applies 1 Stun stack to an Enemy target
+  description: 'Applies 1 Stun stack to an Enemy target
+
+    Using both of Squirty
+    Squire''s spells in the same turn stuns him.'
   icon: {fileID: 0}
+  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1
@@ -22,4 +26,4 @@ MonoBehaviour:
   damage: 0
   inflictStatus: 1
   statusStacksApplied: 1
-  spellController: {fileID: 0}
+  spellController: {fileID: 4415393781491905654, guid: 0df3f368d0b6cd2408da7cb22028d793, type: 3}
