@@ -84,7 +84,10 @@ namespace Cards.Scripts
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
             if (dealDamageGa.target == cardController && currentStacks.ContainsKey(StatusType.Taunt))
-                ConsumeStacks(StatusType.Taunt, 1);
+            {
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Taunt, 1, cardController, cardController);
+                ActionSystem.instance.AddReaction(consumeStacksGa);
+            }
         }
 
         private void UpdateStacksAtEndOfTurn()
