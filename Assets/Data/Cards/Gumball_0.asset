@@ -16,8 +16,8 @@ MonoBehaviour:
   cardName: Gumball
   tribe: 3
   hpMax: 12
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  leftSpell: {fileID: 11400000, guid: e8c0a4dcb7928fb43a2d038fc5f6bf98, type: 2}
+  rightSpell: {fileID: 11400000, guid: 22181878d47bddd4b8c0b4bea6aef08f, type: 2}
   artwork: {fileID: -4482293696786701008, guid: a135d64bb42959c48890e97c2061d9ca, type: 3}
   description: 
   enemyBehaviours: []

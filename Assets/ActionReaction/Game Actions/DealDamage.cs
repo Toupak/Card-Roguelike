@@ -4,7 +4,7 @@ namespace ActionReaction.Game_Actions
 {
     public class DealDamageGA : GameAction
     {
-        public readonly int amount;
+        public int amount;
         public readonly CardController attacker;
         public readonly CardController target;
 
@@ -13,6 +13,11 @@ namespace ActionReaction.Game_Actions
             amount = damageAmount;
             attacker = attackerController;
             target = targetController;
+        }
+
+        public void NegateDamage()
+        {
+            amount = 0;
         }
     }
 }
