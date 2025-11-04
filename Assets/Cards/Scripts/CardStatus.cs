@@ -19,7 +19,8 @@ namespace Cards.Scripts
         CanisBalisticBullet,
         BonusDamage,
         Taunt,
-        PermanentBonusDamage
+        PermanentBonusDamage,
+        HogGroink
     }
 
     public enum StatusEndTurnBehaviour
