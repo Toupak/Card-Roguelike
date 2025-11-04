@@ -53,7 +53,7 @@ namespace Cards.Scripts
             if (currentHealth > cardController.cardData.hpMax)
                 currentHealth = cardController.cardData.hpMax;
 
-            DamageNumberFactory.instance.DisplayDamageNumber(cardController.screenPosition, heal);
+            DamageNumberFactory.instance.DisplayHealNumber(cardController.screenPosition, heal);
             OnUpdateHP.Invoke(currentHealth);
         }
 

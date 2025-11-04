@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d216c33758f950047959efe5f3db7f28
+guid: 8f073b0453321b24eab62509cb215428
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6048862160296339182
-    second: Pizza_0
-  - first:
-      213: -6217493301258497457
-    second: Pizza_1
+      213: 8744307821027899365
+    second: Crustibleurp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pizza_0
+      name: Crustibleurp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee6e3c72610e1f350800000000000000
-      internalID: 6048862160296339182
+      spriteID: 5e7b90742a50a5970800000000000000
+      internalID: 8744307821027899365
       vertices: []
       indices: 
       edges: []
@@ -141,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 96374eb6ca3b97542be42b0d827a8f43
+    spriteID: 03717d7784921cd48beffa09aeda646c
     internalID: 0
     vertices: []
     indices: 
@@ -151,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pizza_0: 6048862160296339182
-      Pizza_1: -6217493301258497457
+      Crustibleurp_0: 8744307821027899365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

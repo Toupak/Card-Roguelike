@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CrimsonMonk_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: CrimsonMonk
+  cardName: Crimson Monk
   tribe: 6
   hpMax: 18
   leftSpell: {fileID: 0}

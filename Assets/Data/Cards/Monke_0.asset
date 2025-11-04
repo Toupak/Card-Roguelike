@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Monke_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Buff Monkey
+  cardName: Biggest of Monkey
   tribe: 1
   hpMax: 8
   leftSpell: {fileID: 11400000, guid: 1dedf5acda6d62e4695a832e143898df, type: 2}
