@@ -1,6 +1,9 @@
 using Cards.Scripts;
 using Status;
 using System.Collections;
+using System.Collections.Generic;
+using Spells;
+using Spells.Targeting;
 using UnityEngine;
 
 namespace EnemyAttack
@@ -27,6 +30,24 @@ namespace EnemyAttack
                 bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.BonusDamage];
 
             return spellDamage + bonus;
+        }
+
+        protected virtual CardController ComputeTarget(bool canBeTaunted = false)
+        {
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
+
+            if (canBeTaunted)
+            {
+                foreach (CardMovement cardMovement in targets)
+                {
+                    if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
+                        return cardMovement.cardController;
+                }
+            }
+            
+            int randomTarget = Random.Range(0, targets.Count);
+
+            return targets[randomTarget].cardController;
         }
 
         public virtual bool CanBeSelected()

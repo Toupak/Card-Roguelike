@@ -38,6 +38,9 @@ namespace Spells
 
         private void UpdateButtonVisuals()
         {
+            if (spellButton.spellController == null)
+                return;
+            
             canBeClicked = spellButton.spellController.CanCastSpell(spellButton.spellData);
 
             if (!isPlayingAnimation)

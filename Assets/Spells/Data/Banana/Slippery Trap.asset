@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
   m_Name: Slippery Trap
   m_EditorClassIdentifier: 
-  spellName: Banana Peel
-  description: 'Passive : when attacked, 50/50 stun the enemy'
+  spellName: Banan' Appeal
+  description: 'Passive : when attacked, 50% chance to stun the enemy'
   icon: {fileID: 0}
   isPassive: 1
   targetType: 3

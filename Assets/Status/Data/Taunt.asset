@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7be8a560dcc55348bab860d84ef0039, type: 3}
+  m_Name: Taunt
+  m_EditorClassIdentifier: 
+  type: 5
+  statusName: Taunt
+  statusDescription: 'Cards that are taunting will attract enemies'' attacks.
+
+    Each
+    stack of Taunt will attract one enemy.'
+  endTurnBehaviour: 2
+  maxStackCount: -1
+  barColor:
+    serializedVersion: 2
+    rgba: 4285995387
+  circleColor:
+    serializedVersion: 2
+    rgba: 4290183360
+  icon: {fileID: 0}

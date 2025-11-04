@@ -15,6 +15,11 @@ namespace Spells.Data.Gumball
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
+            ApplyStatusGa taunt = new ApplyStatusGa(StatusType.Taunt, 1, cardController, cardController);
+            ActionSystem.instance.Perform(taunt);
+            
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
             ApplyStatusGa selfStun = new ApplyStatusGa(StatusType.Stun, 2, cardController, cardController);
             ActionSystem.instance.Perform(selfStun);
         }

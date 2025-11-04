@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells;
-using Spells.Targeting;
 using UnityEngine;
 
 namespace EnemyAttack.Behaviours
@@ -18,10 +15,7 @@ namespace EnemyAttack.Behaviours
             Debug.Log("Stun Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-            int randomTarget = Random.Range(0, targets.Count);
-
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Stun, stunStacks, enemyCardController.cardController, targets[randomTarget].cardController);
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Stun, stunStacks, enemyCardController.cardController, ComputeTarget());
             ActionSystem.instance.Perform(applyStatusGa);
         }
     }

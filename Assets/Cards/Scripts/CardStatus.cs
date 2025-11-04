@@ -18,6 +18,7 @@ namespace Cards.Scripts
         DoritoCaltrop,
         CanisBalisticBullet,
         BonusDamage,
+        Taunt
     }
 
     public enum StatusEndTurnBehaviour
@@ -58,12 +59,14 @@ namespace Cards.Scripts
         {
             ActionSystem.SubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
             ActionSystem.SubscribeReaction<EnemyPerformsActionGa>(EnemyPerformsActionReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
         }
-        
+
         private void OnDisable()
         {
             ActionSystem.UnsubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
             ActionSystem.UnsubscribeReaction<EnemyPerformsActionGa>(EnemyPerformsActionReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
         }
 
         private void EndTurnReaction(EndTurnGA endTurnGa)
@@ -76,6 +79,12 @@ namespace Cards.Scripts
         {
             if (enemyPerformsActionGa.cardController == cardController && currentStacks.ContainsKey(StatusType.DoritoCaltrop) && currentStacks[StatusType.DoritoCaltrop] > 0)
                 cardController.cardHealth.TakeDamage(currentStacks[StatusType.DoritoCaltrop]);
+        }
+        
+        private void DealDamageReaction(DealDamageGA dealDamageGa)
+        {
+            if (dealDamageGa.target == cardController && currentStacks.ContainsKey(StatusType.Taunt))
+                ConsumeStacks(StatusType.Taunt, 1);
         }
 
         private void UpdateStacksAtEndOfTurn()
