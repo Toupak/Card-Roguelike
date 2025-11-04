@@ -16,8 +16,6 @@ namespace EnemyAttack
 
         public bool hasIntention => behaviourQueue.Count > 0;
 
-        private int totalWeight;
-
         private DisplayTooltipOnHover displayTooltipOnHover;
 
         public void Setup(CardController controller, CardData data)
@@ -39,8 +37,6 @@ namespace EnemyAttack
                 BaseEnemyBehaviour instantiatedBehaviour = Instantiate(enemyBehaviour, transform);
                 instantiatedBehaviour.Setup(this);
                 behaviours.Add(instantiatedBehaviour);
-
-                totalWeight += instantiatedBehaviour.weight;
             }
         }
         
@@ -66,16 +62,24 @@ namespace EnemyAttack
             if (hasIntention)
                 return;
 
-            int random = Random.Range(0, totalWeight);
-            foreach (BaseEnemyBehaviour enemyBehaviour in behaviours)
+            int total = 0;
+            int[] weightArray = new int[behaviours.Count];
+            for (int i = 0; i < behaviours.Count; i++)
             {
-                if (random < enemyBehaviour.weight)
+                weightArray[i] = behaviours[i].ComputeWeight();
+                total += weightArray[i];
+            }
+
+            int random = Random.Range(0, total);
+            for (int i = 0; i < behaviours.Count; i++)
+            {
+                if (random < weightArray[i])
                 {
-                    behaviourQueue.Enqueue(enemyBehaviour);
+                    behaviourQueue.Enqueue(behaviours[i]);
                     break;
                 }
 
-                random -= enemyBehaviour.weight;
+                random -= weightArray[i];
             }
         }
 

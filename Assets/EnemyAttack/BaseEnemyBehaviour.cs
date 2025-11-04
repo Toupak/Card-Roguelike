@@ -12,7 +12,7 @@ namespace EnemyAttack
     {
         public string behaviourName;
         [TextArea] public string description;
-        public int weight;
+        [SerializeField] private int weight;
         public Sprite intentionIcon;
 
         protected EnemyCardController enemyCardController;
@@ -51,6 +51,11 @@ namespace EnemyAttack
             int randomTarget = Random.Range(0, targets.Count);
 
             return targets[randomTarget].cardController;
+        }
+
+        public virtual int ComputeWeight()
+        {
+            return weight;
         }
 
         public virtual bool CanBeSelected()
