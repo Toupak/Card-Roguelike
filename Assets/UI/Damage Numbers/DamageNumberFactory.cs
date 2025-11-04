@@ -5,6 +5,7 @@ namespace UI.Damage_Numbers
     public class DamageNumberFactory : MonoBehaviour
     {
         [SerializeField] private DamageNumberDisplay damageNumberDisplayPrefab;
+        [SerializeField] private DamageNumberDisplay healNumberDisplayPrefab;
         
         public static DamageNumberFactory instance;
 
@@ -15,7 +16,12 @@ namespace UI.Damage_Numbers
 
         public void DisplayDamageNumber(Vector2 position, int damage)
         {
-            Instantiate(damageNumberDisplayPrefab, transform).Setup(position, damage);
+            Instantiate(damageNumberDisplayPrefab, transform).Setup(position, damage, false);
+        }
+        
+        public void DisplayHealNumber(Vector2 position, int damage)
+        {
+            Instantiate(healNumberDisplayPrefab, transform).Setup(position, damage, true);
         }
     }
 }

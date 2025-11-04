@@ -8,9 +8,10 @@ namespace UI.Damage_Numbers
     {
         [SerializeField] private TextMeshProUGUI damageText;
         
-        public void Setup(Vector2 position, int damage)
+        public void Setup(Vector2 position, int damage, bool isPositive)
         {
-            damageText.text = $"-{damage}";
+            string sign = isPositive ? "+" : "-";
+            damageText.text = $"{sign}{damage}";
             damageText.fontSize = 35.0f + 10.0f * damage;
             
             RectTransform rectTransform = GetComponent<RectTransform>();

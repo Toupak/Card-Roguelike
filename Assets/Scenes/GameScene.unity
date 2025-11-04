@@ -937,6 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageNumberDisplayPrefab: {fileID: 5167545365892782146, guid: 5b627b1bc71c05a449dfeb11b2f3becb, type: 3}
+  healNumberDisplayPrefab: {fileID: 5167545365892782146, guid: f08733be3db8e384894075d7b81f4ff9, type: 3}
 --- !u!1 &1265329516
 GameObject:
   m_ObjectHideFlags: 0
