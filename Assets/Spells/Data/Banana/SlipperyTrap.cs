@@ -20,15 +20,16 @@ public class SlipperyTrap : SpellController
         ActionSystem.UnsubscribeReaction<DealDamageGA>(SlipperyTrapReaction, ReactionTiming.POST);
     }
 
-    private void SlipperyTrapReaction(DealDamageGA gA)
+    private void SlipperyTrapReaction(DealDamageGA dealDamageGa)
     {
-        if (gA.target == cardController)
+        if (dealDamageGa.target == cardController)
         {
             bool random = Tools.RandomBool();
 
             if (random)
             {
-                ApplyStatusGa stun = new ApplyStatusGa(StatusType.Stun, 2, cardController, gA.attacker);
+                dealDamageGa.NegateDamage();
+                ApplyStatusGa stun = new ApplyStatusGa(StatusType.Stun, 2, cardController, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(stun);
             }
         }
