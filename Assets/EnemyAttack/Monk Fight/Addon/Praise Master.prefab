@@ -52,4 +52,5 @@ MonoBehaviour:
   description: Glory to the glorious Master
   weight: 1
   intentionIcon: {fileID: 0}
+  bossData: {fileID: 11400000, guid: eb177ce5fbea06e409ffaaa61a83d992, type: 2}
   healAmount: 3

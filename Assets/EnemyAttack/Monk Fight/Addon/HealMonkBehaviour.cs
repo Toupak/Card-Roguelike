@@ -1,16 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
-using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using EnemyAttack;
 using Spells;
 using Spells.Targeting;
-using Status;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealMonkBehaviour : BaseEnemyBehaviour
 {
+    [Tooltip("Used to target the correct enemy during the fight")] [SerializeField] private CardData bossData;
     [SerializeField] private int healAmount;
 
     protected override CardController ComputeTarget(bool canBeTaunted = false)
@@ -19,7 +18,7 @@ public class HealMonkBehaviour : BaseEnemyBehaviour
 
         foreach (CardMovement cardMovement in targets)
         {
-            if (cardMovement.cardController.cardData.cardName == "CrimsonMonk")
+            if (cardMovement.cardController.cardData.cardName == bossData.cardName)
                 return cardMovement.cardController;
         }
 
@@ -35,3 +34,4 @@ public class HealMonkBehaviour : BaseEnemyBehaviour
         ActionSystem.instance.Perform(healGa);
     }
 }
+
