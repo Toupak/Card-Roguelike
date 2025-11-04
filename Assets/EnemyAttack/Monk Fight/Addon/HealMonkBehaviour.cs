@@ -2,36 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
-using EnemyAttack;
 using Spells;
 using Spells.Targeting;
 using UnityEngine;
 
-public class HealMonkBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Monk_Fight.Addon
 {
-    [Tooltip("Used to target the correct enemy during the fight")] [SerializeField] private CardData bossData;
-    [SerializeField] private int healAmount;
-
-    protected override CardController ComputeTarget(bool canBeTaunted = false)
+    public class HealMonkBehaviour : BaseEnemyBehaviour
     {
-        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+        [Tooltip("Used to target the correct enemy during the fight")] [SerializeField] private CardData bossData;
+        [SerializeField] private int healAmount;
 
-        foreach (CardMovement cardMovement in targets)
+        protected override CardController ComputeTarget(bool canBeTaunted = false)
         {
-            if (cardMovement.cardController.cardData.cardName == bossData.cardName)
-                return cardMovement.cardController;
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+            foreach (CardMovement cardMovement in targets)
+            {
+                if (cardMovement.cardController.cardData.cardName == bossData.cardName)
+                    return cardMovement.cardController;
+            }
+
+            return null;
         }
 
-        return null;
-    }
+        public override IEnumerator ExecuteBehavior()
+        {
+            Debug.Log("Heal");
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-    public override IEnumerator ExecuteBehavior()
-    {
-        Debug.Log("Heal");
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-
-        HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, ComputeTarget());
-        ActionSystem.instance.Perform(healGa);
+            HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, ComputeTarget());
+            ActionSystem.instance.Perform(healGa);
+        }
     }
 }
 
