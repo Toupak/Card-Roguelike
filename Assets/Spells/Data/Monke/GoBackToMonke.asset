@@ -19,7 +19,7 @@ MonoBehaviour:
   targetType: 1
   targetingMode: 0
   targetCount: 1
-  energyCost: 0
+  energyCost: 1
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
