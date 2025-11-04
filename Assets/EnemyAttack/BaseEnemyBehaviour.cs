@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace EnemyAttack
 {
-    public class BaseEnemyBehaviour : MonoBehaviour, IEnemyBehaviour
+    public abstract class BaseEnemyBehaviour : MonoBehaviour, IEnemyBehaviour
     {
         public string behaviourName;
         [TextArea] public string description;
@@ -28,6 +28,9 @@ namespace EnemyAttack
 
             if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.BonusDamage))
                 bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.BonusDamage];
+
+            if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.PermanentBonusDamage))
+                bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.PermanentBonusDamage];
 
             return spellDamage + bonus;
         }
@@ -55,9 +58,6 @@ namespace EnemyAttack
             return true;
         }
 
-        public virtual IEnumerator Execute()
-        {
-            yield break;
-        }
+        public abstract IEnumerator ExecuteBehavior();
     }
 }

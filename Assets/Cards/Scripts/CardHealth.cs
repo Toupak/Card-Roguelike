@@ -1,3 +1,4 @@
+using ActionReaction;
 using System;
 using UI.Damage_Numbers;
 using UnityEngine;
@@ -36,10 +37,27 @@ namespace Cards.Scripts
             OnUpdateHP.Invoke(currentHealth);
 
             if (IsDead)
-                Dies();
+            {
+                DeathGA death = new DeathGA(cardController);
+                ActionSystem.instance.AddReaction(death);
+            }
         }
 
-        private void Dies()
+        public void Heal(int heal)
+        {
+            if (IsDead)
+                return;
+
+            currentHealth += heal;
+
+            if (currentHealth > cardController.cardData.hpMax)
+                currentHealth = cardController.cardData.hpMax;
+
+            DamageNumberFactory.instance.DisplayDamageNumber(cardController.screenPosition, heal);
+            OnUpdateHP.Invoke(currentHealth);
+        }
+
+        public void Dies()
         {
             OnDeath.Invoke();
         }

@@ -130,6 +130,9 @@ namespace Spells
             if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.BonusDamage))
                 bonus += cardController.cardStatus.currentStacks[StatusType.BonusDamage];
 
+            if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.PermanentBonusDamage))
+                bonus += cardController.cardStatus.currentStacks[StatusType.PermanentBonusDamage];
+
             return spellDamage + bonus;
         }
     }

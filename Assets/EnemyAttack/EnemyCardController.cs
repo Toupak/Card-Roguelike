@@ -58,7 +58,7 @@ namespace EnemyAttack
             if (!hasIntention)
                 ComputeNextIntention();
             
-            yield return behaviourQueue.Dequeue().Execute();
+            yield return behaviourQueue.Dequeue().ExecuteBehavior();
         }
 
         public void ComputeNextIntention()

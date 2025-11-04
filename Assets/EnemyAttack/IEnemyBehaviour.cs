@@ -6,6 +6,6 @@ namespace EnemyAttack
     {
         public void Setup(EnemyCardController enemyCardController);
         public bool CanBeSelected();
-        public IEnumerator Execute();
+        public IEnumerator ExecuteBehavior();
     }
 }

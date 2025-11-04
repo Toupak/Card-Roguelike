@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: CrimsonMonk_0
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: CrimsonMonk
+  tribe: 6
+  hpMax: 18
+  leftSpell: {fileID: 0}
+  rightSpell: {fileID: 0}
+  artwork: {fileID: -1486607967399575653, guid: 2599bd1ca1e15db46b56aaee401f61f4, type: 3}
+  description: 
+  enemyBehaviours:
+  - {fileID: 6876124584404709937, guid: 34e22e2e59d5d4e4491f29f802118d33, type: 3}
+  - {fileID: -6334283752157854164, guid: 59bd3fbce4faa4e40b4351081bf2ea4d, type: 3}
+  - {fileID: 6575535867783227217, guid: 0f4b7c3b82925fc40935ca7d36649ec9, type: 3}

@@ -18,7 +18,8 @@ namespace Cards.Scripts
         DoritoCaltrop,
         CanisBalisticBullet,
         BonusDamage,
-        Taunt
+        Taunt,
+        PermanentBonusDamage
     }
 
     public enum StatusEndTurnBehaviour

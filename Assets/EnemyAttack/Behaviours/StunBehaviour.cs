@@ -10,7 +10,7 @@ namespace EnemyAttack.Behaviours
     {
         public int stunStacks;
         
-        public override IEnumerator Execute()
+        public override IEnumerator ExecuteBehavior()
         {
             Debug.Log("Stun Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

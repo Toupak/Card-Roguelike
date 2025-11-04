@@ -1,19 +1,21 @@
-using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using EnemyAttack;
+using System.Collections;
 using UnityEngine;
 
-namespace EnemyAttack.Behaviours
+public class MartialSlapBehaviour : BaseEnemyBehaviour
 {
-    public class DealDamageBehaviour : BaseEnemyBehaviour
+    [SerializeField] private int damage;
+    [SerializeField] private uint hitCount;
+
+    public override IEnumerator ExecuteBehavior()
     {
-        public int damage;
-        
-        public override IEnumerator ExecuteBehavior()
+        Debug.Log("Deal Damage Behaviour");
+
+        for (int i = 0;  i < hitCount; i++)
         {
-            Debug.Log("Deal Damage Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            
             DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
             ActionSystem.instance.Perform(damageGa);
         }
