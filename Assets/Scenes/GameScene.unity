@@ -1201,6 +1201,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8da127c9e387b54ebd9bf8a979e477f, type: 2}
   - {fileID: 11400000, guid: 083f8c7653fe950469248ee7ae65faa6, type: 2}
   - {fileID: 11400000, guid: 4a776c7118e538c48a60bc6a92fd32ae, type: 2}
+  - {fileID: 11400000, guid: 06bcb59d05c5a4b439faeccc9e620074, type: 2}
 --- !u!4 &1520429612
 Transform:
   m_ObjectHideFlags: 0
@@ -1375,6 +1376,7 @@ MonoBehaviour:
   cardData:
   - {fileID: 11400000, guid: eb177ce5fbea06e409ffaaa61a83d992, type: 2}
   - {fileID: 11400000, guid: 0dc515e03bf81ee419681932d87dd669, type: 2}
+  - {fileID: 11400000, guid: 7b70b8851fb94d94489419cf7763d03f, type: 2}
 --- !u!4 &1715712364
 Transform:
   m_ObjectHideFlags: 0
