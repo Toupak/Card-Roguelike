@@ -39,13 +39,28 @@ namespace CombatLoop
 
         private void Update()
         {
-            CheckDrawCard();
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation)
+            {
+                StopAllCoroutines();
+                StartCoroutine(DrawNewHand());
+            }
         }
         
-        private void CheckDrawCard()
+        private IEnumerator DrawNewHand()
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame && !handContainer.IsFull)
+            int currentCardCount = handContainer.Slots.Count;
+
+            for (int i = 0; i < currentCardCount; i++)
+            {
+                handContainer.Slots[0].CurrentCard.cardController.KillCard();
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
                 DrawCard();
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         private void DrawCard()

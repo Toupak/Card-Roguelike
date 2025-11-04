@@ -25,8 +25,7 @@ namespace CombatLoop
             Enemy
         }
 
-        private TurnType currentTurn;
-        public TurnType CurrentTurn => currentTurn;
+        public TurnType currentTurn { get; private set; }
 
         public static CombatLoop instance;
 

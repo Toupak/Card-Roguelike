@@ -59,7 +59,7 @@ namespace Cards.Scripts
             }
         }
 
-        private void KillCard()
+        public void KillCard()
         {
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
             Destroy(gameObject);
