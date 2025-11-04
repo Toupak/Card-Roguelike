@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardNumber: 0
   cardName: Buff Monkey
-  tribe: 0
-  hpMax: 0
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  tribe: 1
+  hpMax: 8
+  leftSpell: {fileID: 11400000, guid: 1dedf5acda6d62e4695a832e143898df, type: 2}
+  rightSpell: {fileID: 11400000, guid: ef98c7ba2d5c8e44681b6ae550695283, type: 2}
   artwork: {fileID: -8140683129667006736, guid: ba0a378e55913174ba87540c849fef96, type: 3}
   description: 
   enemyBehaviours: []
