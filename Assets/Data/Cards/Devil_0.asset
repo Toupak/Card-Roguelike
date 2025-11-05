@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Devil PlaceHolder_0
+  m_Name: Devil_0
   m_EditorClassIdentifier: 
   cardNumber: 10
   cardName: Smoking Devil
@@ -18,7 +18,7 @@ MonoBehaviour:
   hpMax: 7
   leftSpell: {fileID: 11400000, guid: 5fd5676af4c76054fa8f1802bcfaff5a, type: 2}
   rightSpell: {fileID: 11400000, guid: fd18a7be3fa6b3048b2a24509b1b6a7f, type: 2}
-  artwork: {fileID: 6459073272476842089, guid: 5f0f27c00051ef84996eb6a8e0b26bad, type: 3}
+  artwork: {fileID: 7277215093650894194, guid: de7a1c6e901c5954aaefa078d91ba73a, type: 3}
   description: 
   alternativeCardPrefab: {fileID: 0}
   enemyBehaviours: []

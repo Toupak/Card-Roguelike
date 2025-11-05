@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5f0f27c00051ef84996eb6a8e0b26bad
+guid: de7a1c6e901c5954aaefa078d91ba73a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6459073272476842089
-    second: Devil PlaceHolder_0
+      213: 7277215093650894194
+    second: Devil_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,27 +96,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Devil PlaceHolder_0
+      name: Devil_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 5
-        width: 58
-        height: 46
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 968b3307bec33a950800000000000000
-      internalID: 6459073272476842089
+      spriteID: 27d2c23429cddf460800000000000000
+      internalID: 7277215093650894194
       vertices: []
       indices: 
       edges: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a8a9094862139fb4f9d6d474a0d9178f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Devil PlaceHolder_0: 6459073272476842089
+      Devil_0: 7277215093650894194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
