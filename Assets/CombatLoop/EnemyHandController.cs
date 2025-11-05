@@ -37,7 +37,7 @@ namespace CombatLoop
 
                 CardController card = slots[i].CurrentCard.cardController;
 
-                if (card.cardStatus.IsStun)
+                if (card.cardStatus.IsStatusApplied(StatusType.Stun))
                 {
                     Debug.Log("Enemy is Stun, skip its turn");
                     yield return CardTween.PlayCardIsStun(card);

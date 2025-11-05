@@ -36,7 +36,7 @@ namespace Spells
 
         public virtual bool CanCastSpell()
         {
-            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStun && !spellData.isPassive;
+            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.Stun) && !spellData.isPassive;
         }
 
         public virtual void CastSpell(Transform startPosition)

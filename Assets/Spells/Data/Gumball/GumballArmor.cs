@@ -1,5 +1,6 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
 
 namespace Spells.Data.Gumball
 {
@@ -19,7 +20,7 @@ namespace Spells.Data.Gumball
         
         private void ArmorReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController && cardController.cardStatus.IsStun)
+            if (dealDamageGa.target == cardController && cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 dealDamageGa.NegateDamage();
         }
     }

@@ -49,8 +49,6 @@ namespace Cards.Scripts
         private CardController cardController;
 
         public Dictionary<StatusType, int> currentStacks = new Dictionary<StatusType, int>();
-        
-        public bool IsStun => currentStacks.ContainsKey(StatusType.Stun) && currentStacks[StatusType.Stun] > 0;
 
         private void Start()
         {
@@ -206,7 +204,7 @@ namespace Cards.Scripts
         
         private void UpdateStunEffect(StatusType type, StatusTabModification statusTabModification) // Move this to DisplayCardStatusVFX
         {
-            stunEffect.gameObject.SetActive(IsStun);
+            stunEffect.gameObject.SetActive(IsStatusApplied(StatusType.Stun));
         }
 
         public bool IsStatusApplied(StatusType type)
