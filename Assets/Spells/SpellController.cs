@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using CombatLoop.EnergyBar;
 using Spells.Targeting;
 using Status;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Spells
         public static UnityEvent OnCancelSpell = new UnityEvent();
         
         protected CardController cardController;
+        public SpellData spellData { get; protected set; }
         protected SpellButton otherSpellButton;
         
         protected Coroutine castSpellRoutine = null;
@@ -25,27 +27,28 @@ namespace Spells
         
         public bool HasCastedThisTurn { get; protected set; }
 
-        public virtual void Setup(CardController controller, SpellData spellData, SpellButton otherSpell)
+        public virtual void Setup(CardController controller, SpellData data, SpellButton otherSpell)
         {
             cardController = controller;
+            spellData = data;
             otherSpellButton = otherSpell;
         }
 
-        public virtual bool CanCastSpell(SpellData spellData)
+        public virtual bool CanCastSpell()
         {
             return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStun && !spellData.isPassive;
         }
 
-        public virtual void CastSpell(Transform startPosition, SpellData spellData)
+        public virtual void CastSpell(Transform startPosition)
         {
             if (castSpellRoutine != null)
                 CancelTargeting();
             else
-                castSpellRoutine = StartCoroutine(CastSpellCoroutine(startPosition, spellData));
+                castSpellRoutine = StartCoroutine(CastSpellCoroutine(startPosition));
             OnStartCastingSpell?.Invoke();
         }
 
-        protected virtual IEnumerator CastSpellCoroutine(Transform startPosition, SpellData spellData)
+        protected virtual IEnumerator CastSpellCoroutine(Transform startPosition)
         {
             Debug.Log("Start Casting Spell");
             
@@ -54,10 +57,10 @@ namespace Spells
                 case TargetType.None:
                 case TargetType.Ally:
                 case TargetType.Enemy:
-                    yield return SelectTargetAndCast(startPosition, spellData);
+                    yield return SelectTargetAndCast(startPosition);
                     break;
                 case TargetType.Self:
-                    yield return CastSpellOnSelf(spellData, cardController.cardMovement);
+                    yield return CastSpellOnSelf(cardController.cardMovement);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -66,13 +69,13 @@ namespace Spells
             castSpellRoutine = null;
         }
 
-        protected virtual IEnumerator SelectTargetAndCast(Transform startPosition, SpellData spellData)
+        protected virtual IEnumerator SelectTargetAndCast(Transform startPosition)
         {
             yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, spellData.targetingMode, spellData.targetCount);
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else
-                yield return CastSpellOnTarget(spellData, TargetingSystem.instance.Targets); 
+                yield return CastSpellOnTarget(TargetingSystem.instance.Targets); 
         }
 
         protected virtual void CancelTargeting()
@@ -83,17 +86,22 @@ namespace Spells
             Debug.Log("Cancel Targeting");
         }
 
-        protected virtual IEnumerator CastSpellOnSelf(SpellData spellData, CardMovement target)
+        protected virtual IEnumerator CastSpellOnSelf(CardMovement target)
         {
-            yield return CastSpellOnTarget(spellData, new List<CardMovement>(){ target });
+            yield return CastSpellOnTarget(new List<CardMovement>(){ target });
         }
 
-        protected virtual IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected virtual IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             HasCastedThisTurn = true;
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
             OnCastSpell?.Invoke();
+            ConsumeEnergy();
+        }
+
+        protected virtual void ConsumeEnergy()
+        {
             EnergyController.instance.RemoveEnergy(spellData.energyCost);
         }
 

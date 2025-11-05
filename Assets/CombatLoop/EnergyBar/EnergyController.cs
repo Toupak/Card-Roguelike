@@ -1,47 +1,51 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
-public class EnergyController : MonoBehaviour
+namespace CombatLoop.EnergyBar
 {
-    public static EnergyController instance;
-
-    [HideInInspector] public static UnityEvent OnOutOfEnergy = new UnityEvent();
-    [HideInInspector] public static UnityEvent<int> OnUpdateEnergy = new UnityEvent<int>();
-
-    [SerializeField] private int startingEnergyCount;
-    public int StartingEnergyCount => startingEnergyCount;
-    public int currentEnergyCount { get; private set; }
-
-    void Awake()
+    public class EnergyController : MonoBehaviour
     {
-        instance = this;
-    }
+        public static EnergyController instance;
 
-    public bool CheckForEnergy(int energyRequiredForAction)
-    {
-        return energyRequiredForAction <= currentEnergyCount;
-    }
+        [HideInInspector] public static UnityEvent OnOutOfEnergy = new UnityEvent();
+        [HideInInspector] public static UnityEvent<int> OnInitializeEnergy = new UnityEvent<int>();
+        [HideInInspector] public static UnityEvent<int> OnRefreshEnergy = new UnityEvent<int>();
+        [HideInInspector] public static UnityEvent<int> OnRemoveEnergy = new UnityEvent<int>();
 
-    public void Initialize()
-    {
-        currentEnergyCount = startingEnergyCount;
-        OnUpdateEnergy.Invoke(currentEnergyCount);
-    }
+        [SerializeField] private int startingEnergyCount;
+        public int StartingEnergyCount => startingEnergyCount;
+        public int currentEnergyCount { get; private set; }
 
-    public void RefreshOnTurnStart()
-    {
-        currentEnergyCount = startingEnergyCount;
-        OnUpdateEnergy.Invoke(currentEnergyCount);
-    }
+        void Awake()
+        {
+            instance = this;
+        }
 
-    public void RemoveEnergy(int energyRequiredForAction)
-    {
-        currentEnergyCount -= energyRequiredForAction;
+        public bool CheckForEnergy(int energyRequiredForAction)
+        {
+            return energyRequiredForAction <= currentEnergyCount;
+        }
 
-        OnUpdateEnergy.Invoke(energyRequiredForAction);
+        public void Initialize()
+        {
+            currentEnergyCount = startingEnergyCount;
+            OnInitializeEnergy.Invoke(currentEnergyCount);
+        }
 
-        if (currentEnergyCount <= 0)
-            OnOutOfEnergy.Invoke();
+        public void RefreshOnTurnStart()
+        {
+            currentEnergyCount = startingEnergyCount;
+            OnRefreshEnergy.Invoke(currentEnergyCount);
+        }
+
+        public void RemoveEnergy(int energyRequiredForAction)
+        {
+            currentEnergyCount -= energyRequiredForAction;
+
+            OnRemoveEnergy.Invoke(energyRequiredForAction);
+
+            if (currentEnergyCount <= 0)
+                OnOutOfEnergy.Invoke();
+        }
     }
 }

@@ -56,13 +56,13 @@ namespace Spells
         
         public void OnPointerDown(PointerEventData eventData)
         {
-            bool isSpellValid = spellController != null && spellController.CanCastSpell(spellData) && spellData != null;
+            bool isSpellValid = spellController != null && spellController.CanCastSpell() && spellData != null;
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
 
             if (isPlayerCard && isSpellValid && isCursorFree && isPlayerTurn)
             {
-                spellController.CastSpell(transform, spellData);
+                spellController.CastSpell(transform);
                 OnCastSpell?.Invoke();
             }
             

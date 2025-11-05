@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Name: FhooveFlick
+  m_EditorClassIdentifier: 
+  spellName: Fhoof Flick
+  description: Use all available energy, deal as much damage to one enemy
+  icon: {fileID: 0}
+  isPassive: 0
+  targetType: 1
+  targetingMode: 0
+  targetCount: 1
+  energyCost: 0
+  damage: 1
+  inflictStatus: 0
+  statusStacksApplied: 0
+  spellController: {fileID: 1577878716918018986, guid: a7b7b1e29dc0a6440b6e409723e00ed2, type: 3}

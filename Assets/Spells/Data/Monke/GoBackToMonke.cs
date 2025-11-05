@@ -12,7 +12,7 @@ namespace Spells.Data.Monke
     {
         private bool isAloneOnBoard => cardController.cardMovement.CurrentSlot.board.Slots.Count == 1;
         
-        protected override IEnumerator SelectTargetAndCast(Transform startPosition, SpellData spellData)
+        protected override IEnumerator SelectTargetAndCast(Transform startPosition)
         {
             bool isAlone = isAloneOnBoard;
 
@@ -22,12 +22,12 @@ namespace Spells.Data.Monke
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else
-                yield return CastSpellOnTarget(spellData, TargetingSystem.instance.Targets);
+                yield return CastSpellOnTarget(TargetingSystem.instance.Targets);
         }
         
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
 
             int damage = spellData.damage;
 

@@ -5,7 +5,7 @@ namespace ActionReaction.Game_Actions
     public class ApplyStatusGa : GameAction
     {
         public readonly StatusType type;
-        public readonly int amount;
+        public int amount;
         public readonly CardController attacker;
         public readonly CardController target;
 
@@ -15,6 +15,11 @@ namespace ActionReaction.Game_Actions
             amount = stacksAmount;
             attacker = attackerController;
             target = targetController;
+        }
+
+        public void NegateEffect()
+        {
+            amount = 0;
         }
     }
 }

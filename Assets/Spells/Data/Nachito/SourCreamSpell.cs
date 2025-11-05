@@ -11,16 +11,16 @@ namespace Spells.Data.Nachito
 {
     public class SourCreamSpell : SpellController
     {
-        public override bool CanCastSpell(SpellData spellData)
+        public override bool CanCastSpell()
         {
             List<CardMovement> targets = StatusSystem.instance.GetListOfCardsAfflictedByStatus(TargetType.Enemy, StatusType.DoritoCaltrop);
 
-            return base.CanCastSpell(spellData) && targets != null && targets.Count > 0;
+            return base.CanCastSpell() && targets != null && targets.Count > 0;
         }
         
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget( List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
 
             foreach (CardMovement target in targets)
             {

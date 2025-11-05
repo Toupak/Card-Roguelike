@@ -30,9 +30,9 @@ namespace Spells.Data.Hog
             }
         }
         
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
             
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.HogGroink, 3, cardController, cardController);
             ActionSystem.instance.Perform(applyStatusGa);
@@ -48,7 +48,7 @@ namespace Spells.Data.Hog
 
                 foreach (CardMovement enemy in enemies)
                 {
-                    DealDamageGA dealDamage = new DealDamageGA(damage, cardController, enemy.cardController);
+                    DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), cardController, enemy.cardController);
                     ActionSystem.instance.AddReaction(dealDamage);
                 }
             }

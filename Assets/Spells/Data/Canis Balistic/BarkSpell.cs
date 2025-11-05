@@ -11,20 +11,20 @@ namespace Spells.Data.Canis_Balistic
 {
     public class BarkSpell : SpellController
     {
-        public override void Setup(CardController controller, SpellData spellData, SpellButton otherSpell)
+        public override void Setup(CardController controller, SpellData data, SpellButton otherSpell)
         {
-            base.Setup(controller, spellData, otherSpell);
+            base.Setup(controller, data, otherSpell);
             otherSpell.OnCastSpell.AddListener(() => HasCastedThisTurn = true);
         }
         
-        public override bool CanCastSpell(SpellData spellData)
+        public override bool CanCastSpell()
         {
-            return base.CanCastSpell(spellData) && StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);
+            return base.CanCastSpell() && StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);
         }
 
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
             HasCastedThisTurn = false;
             
             ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.CanisBalisticBullet, 1, cardController, cardController);

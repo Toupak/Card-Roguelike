@@ -1,15 +1,18 @@
-using ActionReaction;
 using Cards.Scripts;
-using UnityEngine;
 
-public class DeathGA : GameAction
+namespace ActionReaction.Game_Actions
 {
-    public CardController target;
-    public bool isEnemy;
-
-    public DeathGA(CardController deathTarget)
+    public class DeathGA : GameAction
     {
-        target = deathTarget;
-        isEnemy = target.cardMovement.IsEnemyCard;
+        public CardController killer;
+        public CardController target;
+        public bool isEnemy;
+
+        public DeathGA(CardController killerController, CardController targetController)
+        {
+            killer = killerController;
+            target = targetController;
+            isEnemy = target.cardMovement.IsEnemyCard;
+        }
     }
 }

@@ -80,7 +80,10 @@ namespace Cards.Scripts
         private void EnemyPerformsActionReaction(EnemyPerformsActionGa enemyPerformsActionGa)
         {
             if (enemyPerformsActionGa.cardController == cardController && currentStacks.ContainsKey(StatusType.DoritoCaltrop) && currentStacks[StatusType.DoritoCaltrop] > 0)
-                cardController.cardHealth.TakeDamage(currentStacks[StatusType.DoritoCaltrop]);
+            {
+                DealDamageGA doritoCaltrop = new DealDamageGA(currentStacks[StatusType.DoritoCaltrop], cardController, cardController);
+                ActionSystem.instance.AddReaction(doritoCaltrop);
+            }
         }
         
         private void DealDamageReaction(DealDamageGA dealDamageGa)

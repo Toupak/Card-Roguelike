@@ -41,7 +41,7 @@ namespace Spells
             if (spellButton.spellController == null)
                 return;
             
-            canBeClicked = spellButton.spellController.CanCastSpell(spellButton.spellData);
+            canBeClicked = spellButton.spellController.CanCastSpell();
 
             if (!isPlayingAnimation)
                 UpdateButtonSprite();

@@ -1,5 +1,6 @@
 using ActionReaction;
 using System;
+using ActionReaction.Game_Actions;
 using UI.Damage_Numbers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,7 +28,7 @@ namespace Cards.Scripts
             OnUpdateHP.Invoke(currentHealth);
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, CardController attacker)
         {
             if (IsDead)
                 return;
@@ -38,7 +39,7 @@ namespace Cards.Scripts
 
             if (IsDead)
             {
-                DeathGA death = new DeathGA(cardController);
+                DeathGA death = new DeathGA(attacker, cardController);
                 ActionSystem.instance.AddReaction(death);
             }
         }

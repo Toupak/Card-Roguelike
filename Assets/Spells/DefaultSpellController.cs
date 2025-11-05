@@ -9,9 +9,9 @@ namespace Spells
 {
     public class DefaultSpellController : SpellController
     {
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
             
             foreach (CardMovement target in targets)
             {

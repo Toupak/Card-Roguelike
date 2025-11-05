@@ -9,9 +9,9 @@ namespace Spells.Data.Gumball
 {
     public class GumballTaunt : SpellController
     {
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 

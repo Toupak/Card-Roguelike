@@ -3,6 +3,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Board.Script;
 using BoomLib.Tools;
+using CombatLoop.EnergyBar;
 using UnityEngine;
 
 namespace CombatLoop

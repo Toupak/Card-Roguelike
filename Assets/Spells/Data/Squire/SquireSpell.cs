@@ -9,9 +9,9 @@ namespace Spells.Data.Squire
 {
     public class SquireSpell : DefaultSpellController
     {
-        protected override IEnumerator CastSpellOnTarget(SpellData spellData, List<CardMovement> targets)
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
-            yield return base.CastSpellOnTarget(spellData, targets);
+            yield return base.CastSpellOnTarget(targets);
 
             if (otherSpellButton.spellController.HasCastedThisTurn)
             {
