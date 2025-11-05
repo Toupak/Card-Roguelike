@@ -9,6 +9,8 @@ namespace ActionReaction.Game_Actions
         public readonly CardController attacker;
         public readonly CardController target;
 
+        public bool wasConsumed;
+
         public ConsumeStacksGa(StatusType statusType, int stacksToConsumeAmount, CardController attacker, CardController target)
         {
             type = statusType;

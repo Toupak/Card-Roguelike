@@ -138,12 +138,19 @@ namespace Cards.Scripts
             }
         }
 
-        public void ConsumeStacks(StatusType type, int amount)
+        public bool ConsumeStacks(StatusType type, int amount)
         {
+            bool wasConsumed = false;
+
             if (currentStacks.ContainsKey(type))
+            {
+                wasConsumed = currentStacks[type] > 0;
                 currentStacks[type] = Mathf.Max(currentStacks[type] - amount, 0);
+            }
             
             OnUpdateStatus?.Invoke(type, currentStacks[type] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
+
+            return wasConsumed;
         }
         
         private bool IsCorrectTurn(TurnType startingTurn)

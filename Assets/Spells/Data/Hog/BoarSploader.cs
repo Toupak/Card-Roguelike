@@ -23,7 +23,7 @@ namespace Spells.Data.Hog
         
         private void ConsumeStacksReaction(ConsumeStacksGa consumeStacksGa)
         {
-            if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.Taunt)
+            if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.Taunt && consumeStacksGa.wasConsumed)
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.HogGroink, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

@@ -43,7 +43,7 @@ namespace Status
         
         private IEnumerator ConsumeStacksPerformer(ConsumeStacksGa consumeStacksGa)
         {
-            consumeStacksGa.target.cardStatus.ConsumeStacks(consumeStacksGa.type, consumeStacksGa.amount);
+            consumeStacksGa.wasConsumed = consumeStacksGa.target.cardStatus.ConsumeStacks(consumeStacksGa.type, consumeStacksGa.amount);
             yield break;
         }
 
