@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: Devil PlaceHolder_0
+  m_EditorClassIdentifier: 
+  cardNumber: 10
+  cardName: Smoking Devil
+  tribe: 6
+  hpMax: 7
+  leftSpell: {fileID: 11400000, guid: 5fd5676af4c76054fa8f1802bcfaff5a, type: 2}
+  rightSpell: {fileID: 11400000, guid: fd18a7be3fa6b3048b2a24509b1b6a7f, type: 2}
+  artwork: {fileID: 6459073272476842089, guid: 5f0f27c00051ef84996eb6a8e0b26bad, type: 3}
+  description: 
+  alternativeCardPrefab: {fileID: 0}
+  enemyBehaviours: []
