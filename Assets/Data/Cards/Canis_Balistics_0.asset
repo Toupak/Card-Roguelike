@@ -20,4 +20,5 @@ MonoBehaviour:
   rightSpell: {fileID: 11400000, guid: 889be38557415ba44af1163b90e9ac2a, type: 2}
   artwork: {fileID: -770609818667629619, guid: bc755d3fcc0a7ed4a939d1dcaeac416e, type: 3}
   description: Test
+  alternativeCardPrefab: {fileID: 9088219196102771630, guid: 3b0c51bffe659fe408980bb5c957bf42, type: 3}
   enemyBehaviours: []

@@ -46,7 +46,9 @@ namespace Cards.Scripts
             cardData = data;
 
             cardName.text = data.cardName;
-            artwork.sprite = data.artwork;
+            
+            if (artwork != null)
+                artwork.sprite = data.artwork;
             gameObject.name = data.cardName;
             
             leftButton.Setup(this, data.leftSpell, !movement.IsEnemyCard);

@@ -15,9 +15,10 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Biggest of Monkey
   tribe: 1
-  hpMax: 8
+  hpMax: 10
   leftSpell: {fileID: 11400000, guid: 1dedf5acda6d62e4695a832e143898df, type: 2}
   rightSpell: {fileID: 11400000, guid: ef98c7ba2d5c8e44681b6ae550695283, type: 2}
   artwork: {fileID: -8140683129667006736, guid: ba0a378e55913174ba87540c849fef96, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 7053965526187389570, guid: 82d5c66f6cdf9fe459984ab63d2cff36, type: 3}
   enemyBehaviours: []

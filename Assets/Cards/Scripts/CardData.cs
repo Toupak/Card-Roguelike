@@ -28,6 +28,7 @@ namespace Cards.Scripts
         [CanBeNull] public SpellData rightSpell;
         public Sprite artwork;
         public string description;
+        public CardController alternativeCardPrefab;
         [CanBeNull] public List<BaseEnemyBehaviour> enemyBehaviours;
     }
 }
