@@ -1376,9 +1376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBoardContainer: {fileID: 278176961}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
-  cardData:
-  - {fileID: 11400000, guid: eb177ce5fbea06e409ffaaa61a83d992, type: 2}
-  - {fileID: 11400000, guid: 0dc515e03bf81ee419681932d87dd669, type: 2}
+  battles:
+  - {fileID: 11400000, guid: bca1062eabb7b0b4fb372395d555b3d8, type: 2}
 --- !u!4 &1715712364
 Transform:
   m_ObjectHideFlags: 0

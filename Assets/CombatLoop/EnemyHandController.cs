@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Battles.Data;
 using Board.Script;
 using Cards.Scripts;
 using Cards.Tween_Animations;
@@ -16,7 +17,7 @@ namespace CombatLoop
     {
         [SerializeField] private CardContainer enemyBoardContainer;
         [SerializeField] private CardMovement cardMovementPrefab;
-        [SerializeField] private List<CardData> cardData;
+        [SerializeField] private List<BattleData> battles;
         
         public CardContainer container => enemyBoardContainer;
 
@@ -65,16 +66,26 @@ namespace CombatLoop
             }
         }
 
-        public void DrawCard()
+        public IEnumerator SetupBattle()
+        {
+            int randomIndex = Random.Range(0, battles.Count);
+
+            foreach (CardData data in battles[randomIndex].enemyList)
+            {
+                SpawnEnemy(data);
+                yield return new WaitForSeconds(0.15f);
+            }
+        }
+
+        public void SpawnEnemy(CardData enemyData)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             enemyBoardContainer.ReceiveCard(newCard);
 
-            int randomIndex = Random.Range(0, cardData.Count);
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, cardData[randomIndex]);
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, enemyData);
             newCard.SetCardController(controller);
         }
-
+        
         public void OnEnable()
         {
             ActionSystem.AttachPerformer<EnemyPerformsActionGa>(EnemyPerformsActionPerformer);
