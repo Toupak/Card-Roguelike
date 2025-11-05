@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardNumber: 0
   cardName: Trongle
-  tribe: 0
-  hpMax: 0
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  tribe: 3
+  hpMax: 8
+  leftSpell: {fileID: 11400000, guid: a6108b87a9f0e014f9e3e5ab7961e1ce, type: 2}
+  rightSpell: {fileID: 11400000, guid: 7854d2fa546de0744b109816647e638a, type: 2}
   artwork: {fileID: -6552571428095168834, guid: 26f01c63e4d30fb49bbd6dea8df373f5, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 0}
   enemyBehaviours: []
