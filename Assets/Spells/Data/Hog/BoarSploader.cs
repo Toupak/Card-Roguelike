@@ -11,12 +11,14 @@ namespace Spells.Data.Hog
     {
         protected override void SubscribeReactions()
         {
+            base.SubscribeReactions();
             ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStacksReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<DeathGA>(ExplodeOnDeathReaction, ReactionTiming.PRE);
         }
 
         protected override  void UnsubscribeReactions()
         {
+            base.UnsubscribeReactions();
             ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStacksReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<DeathGA>(ExplodeOnDeathReaction, ReactionTiming.PRE);
         }
