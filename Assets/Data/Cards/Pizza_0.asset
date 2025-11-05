@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Pizza_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Zazz
-  tribe: 0
-  hpMax: 0
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  cardName: '''Zza'
+  tribe: 5
+  hpMax: 6
+  leftSpell: {fileID: 11400000, guid: 5eb50244584169e4da11adbfad0f11e4, type: 2}
+  rightSpell: {fileID: 11400000, guid: 4cd2e6dd1f72c3045b81c6a383391bf5, type: 2}
   artwork: {fileID: 6048862160296339182, guid: d216c33758f950047959efe5f3db7f28, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 2716580378618364730, guid: a7a6cc00c8cf6e449bc49c4ae9c0d8d2, type: 3}
   enemyBehaviours: []

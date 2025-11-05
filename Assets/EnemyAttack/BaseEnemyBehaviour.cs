@@ -32,6 +32,9 @@ namespace EnemyAttack
             if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.PermanentBonusDamage))
                 bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.PermanentBonusDamage];
 
+            if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.Weak))
+                bonus -= enemyCardController.cardController.cardStatus.currentStacks[StatusType.Weak];
+            
             return spellDamage + bonus;
         }
 

@@ -118,16 +118,24 @@ namespace Spells
         protected virtual void SubscribeReactions()
         {
             ActionSystem.SubscribeReaction<StartTurnGa>(EndTurnRefreshCooldownReaction, ReactionTiming.PRE);
+            ActionSystem.SubscribeReaction<RefreshCooldownGA>(RefreshCooldownReaction, ReactionTiming.POST);
         }
-        
+
         protected virtual void UnsubscribeReactions()
         {
             ActionSystem.UnsubscribeReaction<StartTurnGa>(EndTurnRefreshCooldownReaction, ReactionTiming.PRE);
+            ActionSystem.UnsubscribeReaction<RefreshCooldownGA>(RefreshCooldownReaction, ReactionTiming.POST);
         }
 
         protected virtual void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
             if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+                HasCastedThisTurn = false;
+        }
+        
+        protected virtual void RefreshCooldownReaction(RefreshCooldownGA refreshCooldownGa)
+        {
+            if (refreshCooldownGa.target == cardController)
                 HasCastedThisTurn = false;
         }
 
@@ -140,6 +148,9 @@ namespace Spells
 
             if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.PermanentBonusDamage))
                 bonus += cardController.cardStatus.currentStacks[StatusType.PermanentBonusDamage];
+            
+            if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.Weak))
+                bonus -= cardController.cardStatus.currentStacks[StatusType.Weak];
 
             return spellDamage + bonus;
         }

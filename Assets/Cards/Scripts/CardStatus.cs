@@ -22,7 +22,8 @@ namespace Cards.Scripts
         PermanentBonusDamage,
         HogGroink,
         CrustixShell,
-        GumBoom
+        GumBoom,
+        Weak
     }
 
     public enum StatusEndTurnBehaviour
