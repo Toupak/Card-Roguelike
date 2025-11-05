@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7be8a560dcc55348bab860d84ef0039, type: 3}
-  m_Name: Stun
+  m_Name: CrustixShell
   m_EditorClassIdentifier: 
-  type: 1
-  statusName: Stun
-  statusDescription: 'Stun cards cannot perform any actions.
+  type: 8
+  statusName: Hidden InShell
+  statusDescription: 'Crustix is hiding in his shell
 
-    Looses a stack
-    at the end of its turn.'
+    If attacked, enemies take
+    1 damage back'
   endTurnBehaviour: 3
   maxStackCount: -1
   barColor:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4289997584
   circleColor:
     serializedVersion: 2
-    rgba: 4283716692
+    rgba: 4294459670
   icon: {fileID: 0}

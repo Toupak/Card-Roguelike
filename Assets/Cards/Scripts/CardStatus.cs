@@ -20,14 +20,17 @@ namespace Cards.Scripts
         BonusDamage,
         Taunt,
         PermanentBonusDamage,
-        HogGroink
+        HogGroink,
+        CrustixShell
     }
 
     public enum StatusEndTurnBehaviour
     {
         RemoveOne,
         RemoveAll,
-        RemoveNone
+        RemoveNone,
+        RemoveOneAtStartOfTurn,
+        RemoveAllAtStartOfTurn
     }
     
     public enum StatusTabModification
@@ -60,6 +63,7 @@ namespace Cards.Scripts
         private void OnEnable()
         {
             ActionSystem.SubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
+            ActionSystem.SubscribeReaction<StartTurnGa>(StartTurnReaction, ReactionTiming.PRE);
             ActionSystem.SubscribeReaction<EnemyPerformsActionGa>(EnemyPerformsActionReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
         }
@@ -67,8 +71,15 @@ namespace Cards.Scripts
         private void OnDisable()
         {
             ActionSystem.UnsubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.PRE);
+            ActionSystem.UnsubscribeReaction<StartTurnGa>(StartTurnReaction, ReactionTiming.PRE);
             ActionSystem.UnsubscribeReaction<EnemyPerformsActionGa>(EnemyPerformsActionReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
+        }
+
+        private void StartTurnReaction(StartTurnGa startTurnGa)
+        {
+            if (IsCorrectTurn(startTurnGa.starting))
+                UpdateStacksAtStartOfTurn();
         }
 
         private void EndTurnReaction(EndTurnGA endTurnGa)
@@ -94,6 +105,28 @@ namespace Cards.Scripts
                 ActionSystem.instance.AddReaction(consumeStacksGa);
             }
         }
+        
+        private void UpdateStacksAtStartOfTurn()
+        {
+            foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
+            {
+                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).endTurnBehaviour)
+                {
+                    case StatusEndTurnBehaviour.RemoveOneAtStartOfTurn:
+                        RemoveOneStack(keyValuePair); 
+                        break;
+                    case StatusEndTurnBehaviour.RemoveAllAtStartOfTurn:
+                        RemoveAllStacks(keyValuePair);
+                        break;
+                    case StatusEndTurnBehaviour.RemoveOne:
+                    case StatusEndTurnBehaviour.RemoveAll:
+                    case StatusEndTurnBehaviour.RemoveNone:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
 
         private void UpdateStacksAtEndOfTurn()
         {
@@ -108,6 +141,8 @@ namespace Cards.Scripts
                         RemoveAllStacks(keyValuePair);
                         break;
                     case StatusEndTurnBehaviour.RemoveNone:
+                    case StatusEndTurnBehaviour.RemoveOneAtStartOfTurn:
+                    case StatusEndTurnBehaviour.RemoveAllAtStartOfTurn:
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -172,6 +207,11 @@ namespace Cards.Scripts
         private void UpdateStunEffect(StatusType type, StatusTabModification statusTabModification) // Move this to DisplayCardStatusVFX
         {
             stunEffect.gameObject.SetActive(IsStun);
+        }
+
+        public bool IsStatusApplied(StatusType type)
+        {
+            return currentStacks.ContainsKey(type) && currentStacks[type] > 0;
         }
     }
 }

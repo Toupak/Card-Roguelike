@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Name: FeetJuice
+  m_EditorClassIdentifier: 
+  spellName: Stomach-Feet Juice
+  description: 'Deal 1 damage to a single target
+
+    If Crustix is hiding in his
+    shell, he cannot attack and taunt instead'
+  icon: {fileID: 0}
+  isPassive: 0
+  targetType: 1
+  targetingMode: 0
+  targetCount: 1
+  energyCost: 1
+  damage: 1
+  inflictStatus: 5
+  statusStacksApplied: 1
+  spellController: {fileID: 6487840701091472918, guid: f4b24f78c73c08943be10ad504b75e6f, type: 3}
