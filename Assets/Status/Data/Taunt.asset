@@ -22,8 +22,8 @@ MonoBehaviour:
   maxStackCount: -1
   barColor:
     serializedVersion: 2
-    rgba: 4285995387
+    rgba: 4280534496
   circleColor:
     serializedVersion: 2
-    rgba: 4290183360
+    rgba: 4278248447
   icon: {fileID: 0}

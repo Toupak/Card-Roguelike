@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: GumballArmor
   m_EditorClassIdentifier: 
   spellName: Armor of Clumsiness
-  description: 'Passive : Gumball does not take any damage when stunned'
+  description: 'Gumball does not take any damage when stunned
+
+    Instead Gains
+    a stack of Gumboom
+
+    At 10 sacks, Gumball explodes'
   icon: {fileID: 0}
   isPassive: 1
   targetType: 2
@@ -21,6 +26,6 @@ MonoBehaviour:
   targetCount: 0
   energyCost: 0
   damage: 0
-  inflictStatus: 0
-  statusStacksApplied: 0
+  inflictStatus: 9
+  statusStacksApplied: 1
   spellController: {fileID: -2777009046371515699, guid: 08de0ad23787b6b49ba059a603d6bd62, type: 3}

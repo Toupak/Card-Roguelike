@@ -25,8 +25,11 @@ namespace CombatLoop
 
         private IEnumerator DealDamagePerformer(DealDamageGA dealDamageGa)
         {
-            yield return CardTween.PlayCardAttack(dealDamageGa.attacker, dealDamageGa.target);
-            dealDamageGa.target.cardHealth.TakeDamage(dealDamageGa.amount, dealDamageGa.attacker);
+            if (dealDamageGa.target != null)
+            {
+                yield return CardTween.PlayCardAttack(dealDamageGa.attacker, dealDamageGa.target);
+                dealDamageGa.target.cardHealth.TakeDamage(dealDamageGa.amount, dealDamageGa.attacker);
+            }
         }
 
         private IEnumerator HealPerformer(HealGa HealGa)

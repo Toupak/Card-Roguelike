@@ -21,7 +21,8 @@ namespace Cards.Scripts
         Taunt,
         PermanentBonusDamage,
         HogGroink,
-        CrustixShell
+        CrustixShell,
+        GumBoom
     }
 
     public enum StatusEndTurnBehaviour
@@ -193,6 +194,8 @@ namespace Cards.Scripts
         {
             bool isPlayer = !cardController.cardMovement.IsEnemyCard;
 
+            Debug.Log($"Zuzu {cardController.cardData.cardName} : {startingTurn} / isPlayer : {isPlayer}");
+            
             if (startingTurn == TurnType.Player && isPlayer)
                 return true;
 

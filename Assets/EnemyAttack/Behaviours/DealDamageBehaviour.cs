@@ -1,6 +1,7 @@
 using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
 using UnityEngine;
 
 namespace EnemyAttack.Behaviours
@@ -13,8 +14,13 @@ namespace EnemyAttack.Behaviours
         {
             Debug.Log("Deal Damage Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            CardController target = ComputeTarget(true);
+
+            if (target == null)
+                yield break;
             
-            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
+            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
             ActionSystem.instance.Perform(damageGa);
         }
     }
