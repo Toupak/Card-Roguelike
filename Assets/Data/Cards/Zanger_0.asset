@@ -15,9 +15,10 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Zanger
   tribe: 0
-  hpMax: 0
+  hpMax: 6
   leftSpell: {fileID: 0}
   rightSpell: {fileID: 0}
   artwork: {fileID: 187713305258024343, guid: a94c566474157464ca911720c358fd7e, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 0}
   enemyBehaviours: []
