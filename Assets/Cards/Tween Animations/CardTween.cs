@@ -11,6 +11,9 @@ namespace Cards.Tween_Animations
     {
         public static IEnumerator PlayCardAttack(CardController attacker, CardController target)
         {
+            if (attacker == null || target == null)
+                yield break;
+            
             bool isComplete = false;
 
             Vector2 startingPosition = attacker.rectTransform.anchoredPosition;

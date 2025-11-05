@@ -125,7 +125,7 @@ namespace Spells
             ActionSystem.UnsubscribeReaction<StartTurnGa>(EndTurnRefreshCooldownReaction, ReactionTiming.PRE);
         }
 
-        private void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
+        protected virtual void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
             if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
                 HasCastedThisTurn = false;

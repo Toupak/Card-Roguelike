@@ -1,0 +1,82 @@
+using System.Collections;
+using System.Collections.Generic;
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using BoomLib.Tools;
+using Cards.Scripts;
+using CombatLoop.EnergyBar;
+using UnityEngine;
+
+namespace Spells.Data.BatMerchant
+{
+    public class BatMerchantDamage : SpellController
+    {
+        private bool isSpellRefreshed = false;
+        
+        public override bool CanCastSpell()
+        {
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
+                return false;
+
+            if (isSpellRefreshed)
+                return true;
+                
+            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost);
+        }
+        
+        protected override void SubscribeReactions()
+        {
+            base.SubscribeReactions();
+            ActionSystem.SubscribeReaction<DeathGA>(CheckForKillRefresh, ReactionTiming.POST);
+        }
+
+        protected override void UnsubscribeReactions()
+        {
+            base.UnsubscribeReactions();
+            ActionSystem.UnsubscribeReaction<DeathGA>(CheckForKillRefresh, ReactionTiming.POST);
+        }
+        
+        private void CheckForKillRefresh(DeathGA deathGa)
+        {
+            if (deathGa.killer == cardController)
+                isSpellRefreshed = true;
+        }
+        
+        protected override void ConsumeEnergy()
+        {
+            if (!isSpellRefreshed)
+                EnergyController.instance.RemoveEnergy(spellData.energyCost);
+        }
+        
+        protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
+        {
+            base.EndTurnRefreshCooldownReaction(startTurnGa);
+            isSpellRefreshed = false;
+        }
+        
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
+        {
+            yield return base.CastSpellOnTarget(targets);
+
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            isSpellRefreshed = false;
+            
+            bool isSplitAttack = targets.Count > 1 && Tools.RandomBool();
+            int targetCount = isSplitAttack ? 2 : 1;
+            int damage = isSplitAttack ? spellData.damage : spellData.damage * 2;
+
+            for (int i = 0; i < targetCount; i++)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                int RandomEnemy = Random.Range(0, targets.Count);
+
+                DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(damage), cardController, targets[RandomEnemy].cardController);
+                ActionSystem.instance.Perform(dealDamageGa);
+                
+                targets.RemoveAt(RandomEnemy);
+            }
+        }
+    }
+}
