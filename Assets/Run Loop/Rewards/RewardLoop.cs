@@ -36,12 +36,16 @@ namespace Run_Loop.Rewards
         {
             runParameterData = ComputeRunParameterData();
 
-            yield return LoadCurrentDeckInHand();
+            bool isFirstRun = IsFirstRun();
+            
+            if (!isFirstRun)
+                yield return LoadCurrentDeckInHand();
 
-            for (int i = 0; i < runParameterData.boosterCount; i++)
+            int boosterCount = isFirstRun ? runParameterData.startBoosterCount : runParameterData.boosterCount;
+            for (int i = 0; i < boosterCount; i++)
             {
                 yield return WaitUntilOpenButtonIsClicked();
-                yield return OpenBoosterAndDisplayCards();
+                yield return OpenBoosterAndDisplayCards(isFirstRun);
                 yield return WaitUntilCardHasBeenSelected();
                 yield return StoreSelectedCard();
                 yield return RemoveRemainingCards();
@@ -56,7 +60,12 @@ namespace Run_Loop.Rewards
             if (RunLoop.instance != null && RunLoop.instance.currentRunParameterData != null)
                 return RunLoop.instance.currentRunParameterData;
             else
-                return new RunParameterData(3, 3, 3);
+                return new RunParameterData(4, 3, 2, 3, 3);
+        }
+        
+        private bool IsFirstRun()
+        {
+            return PlayerDeck.instance.deck.Count < 1;
         }
         
         private IEnumerator LoadCurrentDeckInHand()
@@ -84,9 +93,10 @@ namespace Run_Loop.Rewards
             hasClickedOnOpenBooster = true;
         }
         
-        private IEnumerator OpenBoosterAndDisplayCards()
+        private IEnumerator OpenBoosterAndDisplayCards(bool isFirstRun)
         {
-            for (int i = 0; i < runParameterData.cardCount; i++)
+            int cardCount = isFirstRun ? runParameterData.startCardCount : runParameterData.cardCount;
+            for (int i = 0; i < cardCount; i++)
             {
                 DrawCard();
                 yield return new WaitForSeconds(0.3f);

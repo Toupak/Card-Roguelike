@@ -34,8 +34,11 @@ namespace CombatLoop
 
         private IEnumerator HealPerformer(HealGa HealGa)
         {
-            yield return CardTween.PlayCardAttack(HealGa.attacker, HealGa.target);
-            HealGa.target.cardHealth.Heal(HealGa.amount);
+            if (HealGa.target != null)
+            {
+                yield return CardTween.PlayCardAttack(HealGa.attacker, HealGa.target);
+                HealGa.target.cardHealth.Heal(HealGa.amount);
+            }
         }
 
         private IEnumerator DeathPerformer(DeathGA deathGa)

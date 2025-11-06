@@ -76,7 +76,10 @@ namespace Run_Loop
             }
 
             if (!isPlayerAlive)
+            {
+                PlayerDeck.instance.ClearDeck();
                 yield return StartNewRun(false);
+            }
         }
 
         private RunParameterData RetrieveRunParameters()

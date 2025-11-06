@@ -43,5 +43,10 @@ namespace Run_Loop
             if (deck.Contains(deckCard))
                 deck.Remove(deckCard);
         }
+
+        public void ClearDeck()
+        {
+            deck = new List<DeckCard>();
+        }
     }
 }
