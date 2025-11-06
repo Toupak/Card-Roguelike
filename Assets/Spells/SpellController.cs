@@ -9,6 +9,7 @@ using Spells.Targeting;
 using Status;
 using UnityEngine;
 using UnityEngine.Events;
+using CombatLoop;
 
 namespace Spells
 {
@@ -36,7 +37,23 @@ namespace Spells
 
         public virtual bool CanCastSpell()
         {
-            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.Stun) && !spellData.isPassive;
+            if (HasCastedThisTurn)
+                return false;
+
+            if (spellData.isPassive)
+                return false;
+
+            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
+                CombatLoop.CombatLoop.TurnType.Preparation)
+                return false;
+            
+            if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))
+                return false;
+
+            if (!cardController.cardStatus.IsStatusApplied(StatusType.Stun))
+                return false;
+            
+            return true;
         }
 
         public virtual void CastSpell(Transform startPosition)

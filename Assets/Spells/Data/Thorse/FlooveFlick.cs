@@ -12,6 +12,10 @@ namespace Spells.Data.Thorse
     {
         public override bool CanCastSpell()
         {
+            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
+                CombatLoop.CombatLoop.TurnType.Preparation)
+                return false;
+            
             return !HasCastedThisTurn && EnergyController.instance.currentEnergyCount > 0;
         }
         

@@ -1,21 +1,31 @@
-using System;
 using System.Collections;
+using BoomLib.Tools;
+using Data;
+using Run_Loop.Rewards;
 using Run_Loop.Run_Parameters;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Run_Loop
 {
     public class RunLoop : MonoBehaviour
     {
+        [SerializeField] private Image blackScreen;
+        
+        [Space]
         [SerializeField] private SceneField parameterScene;
         [SerializeField] private SceneField rewardScene;
         [SerializeField] private SceneField combatScene;
 
+        [Space] 
+        [SerializeField] private CardDatabase cardDatabase;
+        
         public static RunLoop instance;
         
         public RunParameterData currentRunParameterData { get; private set; }
-
+        public CardDatabase dataBase => cardDatabase;
+        
         private void Awake()
         {
             instance = this;
@@ -23,8 +33,15 @@ namespace Run_Loop
 
         private IEnumerator Start()
         {
-            if (SceneManager.GetActiveScene().name == parameterScene.SceneName)
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            
+            if (currentSceneName == parameterScene.SceneName)
                 yield return StartNewRun(true);
+            else if (currentSceneName == rewardScene)
+            {
+                Debug.Log($"Game was not started in scene : {parameterScene.SceneName} => RunLoop will stop itself.");
+                yield break;
+            }
             else
             {
                 Debug.Log($"Game was not started in scene : {parameterScene.SceneName} => RunLoop will self destroy.");
@@ -61,17 +78,17 @@ namespace Run_Loop
 
         private RunParameterData RetrieveRunParameters()
         {
-            throw new System.NotImplementedException();
+            return RunParameterGatherer.instance.selectedRunParameter;
         }
 
         private bool AreParametersSet()
         {
-            return false;
+            return RunParameterGatherer.instance.isParameterSelected;
         }
 
         private bool IsRewardSelected()
         {
-            return false;
+            return RewardLoop.instance != null && RewardLoop.instance.hasClickedOnValidate;
         }
 
         private void StoreRewards()
@@ -96,7 +113,13 @@ namespace Run_Loop
 
         private IEnumerator LoadScene(SceneField sceneField)
         {
-            yield break;
+            Debug.Log($"Load Scene : {sceneField.SceneName}");
+            yield return Fader.Fade(blackScreen, 0.3f, true);
+
+            var operation = SceneManager.LoadSceneAsync(sceneField.SceneName);
+            yield return new WaitUntil(() => operation.isDone);
+            
+            yield return Fader.Fade(blackScreen, 0.3f, false);
         }
     }
 }

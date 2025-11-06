@@ -19,7 +19,10 @@ namespace Spells.Data.Canis_Balistic
         
         public override bool CanCastSpell()
         {
-            return base.CanCastSpell() && StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);
+            if (!base.CanCastSpell())
+                return false;
+            
+            return StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);
         }
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)

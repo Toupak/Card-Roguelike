@@ -15,6 +15,10 @@ namespace Spells.Data.BatMerchant
         
         public override bool CanCastSpell()
         {
+            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
+                CombatLoop.CombatLoop.TurnType.Preparation)
+                return false;
+            
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 return false;
 

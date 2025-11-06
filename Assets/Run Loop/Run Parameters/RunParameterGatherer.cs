@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Run_Loop.Run_Parameters
@@ -21,10 +22,23 @@ namespace Run_Loop.Run_Parameters
         [SerializeField] private OptionDisplay boosterCount;
         [SerializeField] private OptionDisplay cardCount;
         [SerializeField] private OptionDisplay fightCount;
+
+        public static RunParameterGatherer instance;
+
+        public RunParameterData selectedRunParameter = null;
+        public bool isParameterSelected => selectedRunParameter != null;
         
+        private void Awake()
+        {
+            instance = this;
+        }
+
         public void ValidateParameters()
         {
-            RunParameterData runParameterData = new RunParameterData(boosterCount.currentValue, cardCount.currentValue, fightCount.currentValue);
+            if (isParameterSelected)
+                return;
+            
+            selectedRunParameter = new RunParameterData(boosterCount.currentValue, cardCount.currentValue, fightCount.currentValue);
         }
     }
 }

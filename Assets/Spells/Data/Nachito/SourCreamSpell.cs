@@ -13,9 +13,12 @@ namespace Spells.Data.Nachito
     {
         public override bool CanCastSpell()
         {
+            if (!base.CanCastSpell())
+                return false;
+            
             List<CardMovement> targets = StatusSystem.instance.GetListOfCardsAfflictedByStatus(TargetType.Enemy, StatusType.DoritoCaltrop);
 
-            return base.CanCastSpell() && targets != null && targets.Count > 0;
+            return targets != null && targets.Count > 0;
         }
         
         protected override IEnumerator CastSpellOnTarget( List<CardMovement> targets)
