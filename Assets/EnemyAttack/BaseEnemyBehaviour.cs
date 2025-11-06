@@ -2,6 +2,7 @@ using Cards.Scripts;
 using Status;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Spells;
 using Spells.Targeting;
 using UnityEngine;
@@ -41,7 +42,10 @@ namespace EnemyAttack
         protected virtual CardController ComputeTarget(bool canBeTaunted = false)
         {
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-
+            
+            if (targets.Count < 1)
+                return null;
+            
             if (canBeTaunted)
             {
                 foreach (CardMovement cardMovement in targets)
@@ -50,7 +54,7 @@ namespace EnemyAttack
                         return cardMovement.cardController;
                 }
             }
-            
+
             int randomTarget = Random.Range(0, targets.Count);
 
             return targets[randomTarget].cardController;

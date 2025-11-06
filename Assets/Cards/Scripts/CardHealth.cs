@@ -1,6 +1,7 @@
 using ActionReaction;
 using System;
 using ActionReaction.Game_Actions;
+using Run_Loop;
 using UI.Damage_Numbers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,9 +23,9 @@ namespace Cards.Scripts
             cardController = GetComponent<CardController>();
         }
 
-        public void Setup(CardData data)
+        public void Setup(DeckCard deckCard)
         {
-            currentHealth = data.hpMax;
+            currentHealth = deckCard.currentHealth;
             OnUpdateHP.Invoke(currentHealth);
         }
 

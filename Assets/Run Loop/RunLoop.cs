@@ -69,8 +69,9 @@ namespace Run_Loop
                 yield return LoadScene(combatScene);
                 yield return new WaitUntil(IsCombatOver);
                 isPlayerAlive = CheckCombatResult();
+                StoreCardsHealth();
                 
-                if (IsRunOver())
+                if (IsRunOver() || !isPlayerAlive)
                     break;
             }
 
@@ -105,12 +106,17 @@ namespace Run_Loop
 
         private bool IsCombatOver()
         {
-            return false;
+            return CombatLoop.CombatLoop.instance.IsMatchOver();
         }
 
         private bool CheckCombatResult()
         {
-            return true;
+            return CombatLoop.CombatLoop.instance.HasPlayerWon();
+        }
+        
+        private void StoreCardsHealth()
+        {
+            CombatLoop.CombatLoop.instance.StoreCardsHealth();
         }
         
         private bool IsRunOver()

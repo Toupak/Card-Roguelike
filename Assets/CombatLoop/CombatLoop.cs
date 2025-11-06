@@ -3,7 +3,10 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Board.Script;
 using BoomLib.Tools;
+using Cards.Scripts;
+using CardSlot.Script;
 using CombatLoop.EnergyBar;
+using Run_Loop;
 using UnityEngine;
 
 namespace CombatLoop
@@ -66,11 +69,6 @@ namespace CombatLoop
                 yield return StartTurn(TurnType.Player);
                 yield return RefreshPlayerEnergyCount();
             }
-
-            if (HasPlayerWon())
-                yield return ShowVictoryScreen();
-            else
-                yield return ShowDefeatScreen();
         }
         
         private void OnEnable()
@@ -208,26 +206,25 @@ namespace CombatLoop
             isPlayerPlaying = false;
         }
         
-        private bool IsMatchOver()
+        public bool IsMatchOver()
         {
-            return playerBoard.Slots.Count == 0 || enemyHandController.container.Slots.Count == 0;
+            return currentTurn != TurnType.SetupOver && currentTurn != TurnType.Preparation && (playerBoard.Slots.Count == 0 || enemyHandController.container.Slots.Count == 0);
         }
 
-        private bool HasPlayerWon()
+        public bool HasPlayerWon()
         {
             return playerBoard.Slots.Count > enemyHandController.container.Slots.Count;
         }
-        
-        private IEnumerator ShowVictoryScreen()
-        {
-            Debug.Log("You Win !");
-            yield break;
-        }
 
-        private IEnumerator ShowDefeatScreen()
+        public void StoreCardsHealth()
         {
-            Debug.Log("You Lose !");
-            yield break;
+            foreach (Slot slot in playerBoard.Slots)
+            {
+                CardController card = slot.CurrentCard.cardController;
+                
+                if (!card.cardHealth.IsDead)
+                    PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
+            }
         }
     }
 }

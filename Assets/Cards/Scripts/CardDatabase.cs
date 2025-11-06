@@ -36,8 +36,6 @@ namespace Data
                 ? _allCards.FindAll(c => c != null)
                 : _allCards.FindAll(c => c != null && predicate(c));
 
-            Debug.Log($"pool count : {pool.Count}");
-            
             if (pool.Count == 0) 
                 return null;
             return pool[UnityEngine.Random.Range(0, pool.Count)];

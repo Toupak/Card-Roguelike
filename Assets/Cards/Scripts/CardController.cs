@@ -1,6 +1,7 @@
 using Data;
 using EnemyAttack;
 using JetBrains.Annotations;
+using Run_Loop;
 using Spells;
 using TMPro;
 using UnityEngine;
@@ -23,13 +24,14 @@ namespace Cards.Scripts
         private FollowTarget followTarget;
         public CardMovement cardMovement { get;  private set; }
         public CardData cardData { get;  private set; }
+        public DeckCard deckCard { get;  private set; }
 
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
 
-        public void Setup(CardMovement movement, CardData data)
+        public void Setup(CardMovement movement, DeckCard cardFromDeck)
         {
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
@@ -37,32 +39,36 @@ namespace Cards.Scripts
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
-            cardHealth.Setup(data);
+            cardHealth.Setup(cardFromDeck);
             cardHealth.OnDeath.AddListener(KillCard);
             
             displayCardEffect = GetComponent<DisplayCardEffects>();
             
             cardMovement = movement;
-            cardData = data;
+            cardData = cardFromDeck.cardData;
+            deckCard = cardFromDeck;
 
-            cardName.text = data.cardName;
+            cardName.text = cardData.cardName;
             
             if (artwork != null)
-                artwork.sprite = data.artwork;
-            gameObject.name = data.cardName;
+                artwork.sprite = cardData.artwork;
+            gameObject.name = cardData.cardName;
             
-            leftButton.Setup(this, data.leftSpell, !movement.IsEnemyCard);
-            rightButton.Setup(this, data.rightSpell, !movement.IsEnemyCard);
+            leftButton.Setup(this, cardData.leftSpell, !movement.IsEnemyCard);
+            rightButton.Setup(this, cardData.rightSpell, !movement.IsEnemyCard);
 
             if (cardMovement.IsEnemyCard)
             {
                 enemyCardController = gameObject.AddComponent<EnemyCardController>();
-                enemyCardController!.Setup(this, data);
+                enemyCardController!.Setup(this, cardData);
             }
         }
 
         public void KillCard()
         {
+            if (!cardMovement.IsEnemyCard && !cardData.isEnemy)
+                PlayerDeck.instance.RemoveCardFromDeck(deckCard);
+            
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
             Destroy(gameObject);
         }

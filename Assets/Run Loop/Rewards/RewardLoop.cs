@@ -97,8 +97,9 @@ namespace Run_Loop.Rewards
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             mainContainer.ReceiveCard(newCard);
-            
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, RunLoop.instance.dataBase.GetRandomCard((c) => !c.isEnemy));
+
+            CardData cardData = RunLoop.instance.dataBase.GetRandomCard((c) => !c.isEnemy);
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(cardData));
             newCard.SetCardController(controller);
         }
 

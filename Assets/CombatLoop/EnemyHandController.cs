@@ -8,6 +8,7 @@ using Cards.Scripts;
 using Cards.Tween_Animations;
 using CardSlot.Script;
 using EnemyAttack;
+using Run_Loop;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -82,7 +83,7 @@ namespace CombatLoop
             CardMovement newCard = Instantiate(cardMovementPrefab);
             enemyBoardContainer.ReceiveCard(newCard);
 
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, enemyData);
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(enemyData));
             newCard.SetCardController(controller);
         }
         

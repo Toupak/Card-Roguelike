@@ -9,10 +9,10 @@ namespace Run_Loop
         public CardData cardData;
         public int currentHealth;
 
-        public DeckCard(CardData data, int maxHealth)
+        public DeckCard(CardData data)
         {
             cardData = data;
-            currentHealth = maxHealth;
+            currentHealth = data.hpMax;
         }
     }
     
@@ -20,7 +20,7 @@ namespace Run_Loop
     {
         public static PlayerDeck instance;
 
-        private List<DeckCard> deck = new List<DeckCard>();
+        public List<DeckCard> deck { get; private set; } = new List<DeckCard>();
         
         private void Awake()
         {
@@ -29,7 +29,19 @@ namespace Run_Loop
 
         public void AddCardToDeck(CardData cardData)
         {
-            deck.Add(new DeckCard(cardData, cardData.hpMax));
+            deck.Add(new DeckCard(cardData));
+        }
+
+        public void UpdateCardHealthPoints(DeckCard deckCard, int currentHealth)
+        {
+            if (deck.Contains(deckCard))
+                deck.Find((d) => d == deckCard).currentHealth = currentHealth;
+        }
+
+        public void RemoveCardFromDeck(DeckCard deckCard)
+        {
+            if (deck.Contains(deckCard))
+                deck.Remove(deckCard);
         }
     }
 }

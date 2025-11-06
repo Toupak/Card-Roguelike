@@ -50,7 +50,7 @@ namespace Spells
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))
                 return false;
 
-            if (!cardController.cardStatus.IsStatusApplied(StatusType.Stun))
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 return false;
             
             return true;

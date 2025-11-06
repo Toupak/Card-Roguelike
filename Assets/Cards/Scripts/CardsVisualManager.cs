@@ -1,4 +1,5 @@
 using Data;
+using Run_Loop;
 using UnityEngine;
 
 namespace Cards.Scripts
@@ -14,10 +15,10 @@ namespace Cards.Scripts
             instance = this;
         }
 
-        public CardController SpawnNewCardVisuals(CardMovement movement, CardData data)
+        public CardController SpawnNewCardVisuals(CardMovement movement, DeckCard deckCard)
         {
-            CardController newCard = Instantiate(data.alternativeCardPrefab != null ? data.alternativeCardPrefab : cardGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
-            newCard.Setup(movement, data);
+            CardController newCard = Instantiate(deckCard.cardData.alternativeCardPrefab != null ? deckCard.cardData.alternativeCardPrefab : cardGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
+            newCard.Setup(movement, deckCard);
 
             return newCard;
         }
