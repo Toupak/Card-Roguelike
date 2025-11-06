@@ -13,7 +13,7 @@ namespace EnemyAttack
     {
         public string behaviourName;
         [TextArea] public string description;
-        [SerializeField] private int weight;
+        [SerializeField] protected int weight;
         public Sprite intentionIcon;
 
         protected EnemyCardController enemyCardController;
@@ -68,6 +68,19 @@ namespace EnemyAttack
         public virtual bool CanBeSelected()
         {
             return true;
+        }
+
+        public virtual CardController GetSpecificCard(CardData cardData)
+        {
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+            foreach (CardMovement cardMovement in targets)
+            {
+                if (cardMovement.cardController != null && cardMovement.cardController.cardData.cardName == cardData.cardName)
+                    return cardMovement.cardController;
+            }
+
+            return null;
         }
 
         public abstract IEnumerator ExecuteBehavior();

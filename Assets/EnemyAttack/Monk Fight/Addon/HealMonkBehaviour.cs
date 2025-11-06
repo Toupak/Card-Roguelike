@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
 using Spells;
+using Spells.Data.Thorse;
 using Spells.Targeting;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyAttack.Monk_Fight.Addon
@@ -12,6 +13,7 @@ namespace EnemyAttack.Monk_Fight.Addon
     {
         [Tooltip("Used to target the correct enemy during the fight")] [SerializeField] private CardData bossData;
         [SerializeField] private int healAmount;
+        [SerializeField] private float prioritizeHealThreshold;
 
         protected override CardController ComputeTarget(bool canBeTaunted = false)
         {
@@ -33,6 +35,19 @@ namespace EnemyAttack.Monk_Fight.Addon
 
             HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, ComputeTarget());
             ActionSystem.instance.Perform(healGa);
+        }
+
+        public override int ComputeWeight()
+        {
+            CardController boss = GetSpecificCard(bossData);
+
+            if (boss != null && boss.cardHealth.currentHealth == bossData.hpMax)
+                return 0;
+
+            if (boss != null && boss.cardHealth.currentHealth < bossData.hpMax * prioritizeHealThreshold)
+                return weight * 3;
+
+            return weight;
         }
     }
 }
