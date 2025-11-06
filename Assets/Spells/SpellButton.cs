@@ -58,7 +58,7 @@ namespace Spells
         {
             bool isSpellValid = spellController != null && spellController.CanCastSpell() && spellData != null;
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
-            bool isPlayerTurn = CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
+            bool isPlayerTurn = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
 
             if (isPlayerCard && isSpellValid && isCursorFree && isPlayerTurn)
             {

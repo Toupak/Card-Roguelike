@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Cards.Scripts;
-using CardSlot;
 using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
@@ -19,7 +18,8 @@ namespace Board.Script
         
         [Space]
         [SerializeField] private Slot slotPrefab;
-        [SerializeField] private CardMovement cardMovementPrefab;
+
+        public bool isLocked;
 
         private CardMovement currentSelectedCard;
 
@@ -76,10 +76,20 @@ namespace Board.Script
             }
         }
 
+        public void SendCardToOtherBoard(int slot, CardContainer otherContainer)
+        {
+            otherContainer.ReceiveCardFromOtherBoard(slots[slot].CurrentCard, true);
+            DeleteCurrentSlot(slot);
+            currentSelectedCard = null;
+        }
+
         private bool CheckForSendingCardToOtherContainer()
         {
+            if (isLocked)
+                return false;
+            
             CardContainer currentCursorCardContainer = CursorInfo.instance.LastCardContainer;
-
+            
             if (currentCursorCardContainer != this && !currentCursorCardContainer.IsFull && currentCursorCardContainer.type != ContainerType.Enemy)
             {
                 SendToOtherBoard(currentCursorCardContainer);
@@ -92,7 +102,7 @@ namespace Board.Script
         private void SendToOtherBoard(CardContainer currentCursorCardContainer)
         {
             int currentIndex = currentSelectedCard.SlotIndex;
-            currentCursorCardContainer.ReceiveCardFromOtherBoard(currentSelectedCard);
+            currentCursorCardContainer.ReceiveCardFromOtherBoard(currentSelectedCard, false);
             DeleteCurrentSlot(currentIndex);
             currentSelectedCard = null;
         }
@@ -112,10 +122,11 @@ namespace Board.Script
             OnAnyContainerUpdated?.Invoke();
         }
 
-        public void ReceiveCardFromOtherBoard(CardMovement card)
+        public void ReceiveCardFromOtherBoard(CardMovement card, bool resetPosition)
         {
-            currentSelectedCard = card;
-            currentSelectedCard.SetNewSlot(CreateNewSlot(), false);
+            card.SetNewSlot(CreateNewSlot(), resetPosition);
+
+            currentSelectedCard = resetPosition ? null : card;
             
             OnAnyContainerUpdated?.Invoke();
         }

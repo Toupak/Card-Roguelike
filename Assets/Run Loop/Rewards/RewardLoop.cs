@@ -12,6 +12,7 @@ namespace Run_Loop.Rewards
         [SerializeField] private CardContainer mainContainer;
         [SerializeField] private CardContainer handContainer;
         [SerializeField] private CardContainer selectionContainer;
+        [SerializeField] private GameObject selectionSquare;
         
         [Space]
         [SerializeField] private GameObject openBoosterButton;
@@ -24,8 +25,6 @@ namespace Run_Loop.Rewards
         public static RewardLoop instance;
 
         private RunParameterData runParameterData;
-        
-        private List<CardData> selectedCards = new List<CardData>();
         
         private void Awake()
         {
@@ -105,6 +104,7 @@ namespace Run_Loop.Rewards
         private IEnumerator WaitUntilCardHasBeenSelected()
         {
             hasClickedOnSelect = false;
+            yield return new WaitUntil(() => selectionContainer.Slots.Count > 0);
             yield return SetSelectCardButtonState(true);
             yield return new WaitUntil(() => hasClickedOnSelect);
             yield return SetSelectCardButtonState(false);
@@ -127,17 +127,28 @@ namespace Run_Loop.Rewards
         
         private IEnumerator StoreSelectedCard()
         {
-            yield break;
+            selectionContainer.SendCardToOtherBoard(0, handContainer);
+            yield return new WaitForSeconds(0.3f);
         }
 
         private IEnumerator RemoveRemainingCards()
         {
-            yield break;
+            while (mainContainer.Slots.Count > 0)
+            {
+                mainContainer.Slots[0].CurrentCard.cardController.KillCard();
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         private IEnumerator DisplayFinalSelection()
         {
-            yield break;
+            while (handContainer.Slots.Count > 0)
+            {
+                handContainer.SendCardToOtherBoard(0, mainContainer);
+                yield return new WaitForSeconds(0.25f);
+            }
+            
+            selectionSquare.SetActive(false);
         }
 
         private IEnumerator WaitUntilFinalValidation()
