@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
 using Cards.Scripts;
+using CardSlot.Script;
 using Run_Loop.Run_Parameters;
 using UnityEngine;
 
@@ -97,7 +98,7 @@ namespace Run_Loop.Rewards
             CardMovement newCard = Instantiate(cardMovementPrefab);
             mainContainer.ReceiveCard(newCard);
             
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, RunLoop.instance.dataBase.GetRandomCard());
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, RunLoop.instance.dataBase.GetRandomCard((c) => !c.isEnemy));
             newCard.SetCardController(controller);
         }
 
@@ -169,6 +170,18 @@ namespace Run_Loop.Rewards
         public void OnClickValidate()
         {
             hasClickedOnValidate = true;
+        }
+
+        public List<CardData> RetrieveSelectedCards()
+        {
+            List<CardData> selectedCards = new List<CardData>();
+
+            foreach (Slot slot in mainContainer.Slots)
+            {
+                selectedCards.Add(slot.CurrentCard.cardController.cardData);
+            }
+
+            return selectedCards;
         }
     }
 }

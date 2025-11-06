@@ -30,5 +30,6 @@ namespace Cards.Scripts
         public string description;
         public CardController alternativeCardPrefab;
         [CanBeNull] public List<BaseEnemyBehaviour> enemyBehaviours;
+        public bool isEnemy => enemyBehaviours != null && enemyBehaviours.Count > 0;
     }
 }

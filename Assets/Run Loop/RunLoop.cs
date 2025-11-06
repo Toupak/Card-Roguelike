@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using BoomLib.Tools;
+using Cards.Scripts;
 using Data;
 using Run_Loop.Rewards;
 using Run_Loop.Run_Parameters;
@@ -93,7 +95,12 @@ namespace Run_Loop
 
         private void StoreRewards()
         {
-            
+            List<CardData> selectedCards = RewardLoop.instance.RetrieveSelectedCards();
+
+            foreach (CardData data in selectedCards)
+            {
+                PlayerDeck.instance.AddCardToDeck(data);
+            }
         }
 
         private bool IsCombatOver()
