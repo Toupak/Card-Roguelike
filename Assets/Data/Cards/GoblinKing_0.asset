@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: GoblinKing_0
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: GoblinKing_0
+  tribe: 6
+  hpMax: 20
+  leftSpell: {fileID: 0}
+  rightSpell: {fileID: 0}
+  artwork: {fileID: 1351902681591436168, guid: 1b4d7734420514c4faaea86756b22aa8, type: 3}
+  description: 
+  alternativeCardPrefab: {fileID: 8532891456618958194, guid: 6c23a5a9b575fe647aa3c6ccb9a25f23, type: 3}
+  enemyBehaviours:
+  - {fileID: 7463816269853331996, guid: 28b740949feddfc4c8be99ddcb4cfe87, type: 3}
+  - {fileID: 9116537234681809305, guid: edc1e40bb3ad6b84996343d176be041a, type: 3}

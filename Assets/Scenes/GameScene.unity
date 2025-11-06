@@ -357,7 +357,7 @@ MonoBehaviour:
       m_Calls: []
   maxCardCount: 4
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
-  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
+  isLocked: 0
   type: 1
 --- !u!114 &236631252
 MonoBehaviour:
@@ -482,7 +482,7 @@ MonoBehaviour:
       m_Calls: []
   maxCardCount: 8
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
-  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
+  isLocked: 0
   type: 2
 --- !u!114 &278176962
 MonoBehaviour:
@@ -1216,6 +1216,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83a2b7d914747664dac64361ed46ad86, type: 2}
   - {fileID: 11400000, guid: a92b2cbf536668d41a938fffe1bdc2fd, type: 2}
   - {fileID: 11400000, guid: 0f816c7abeb9bbd489581e3b111e714b, type: 2}
+  - {fileID: 11400000, guid: ccb5ff5dcd7543545864218535efcca8, type: 2}
 --- !u!4 &1520429612
 Transform:
   m_ObjectHideFlags: 0
@@ -1354,7 +1355,7 @@ MonoBehaviour:
       m_Calls: []
   maxCardCount: 12
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
-  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
+  isLocked: 0
   type: 0
 --- !u!1 &1715712362
 GameObject:
@@ -1388,7 +1389,7 @@ MonoBehaviour:
   enemyBoardContainer: {fileID: 278176961}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   battles:
-  - {fileID: 11400000, guid: bca1062eabb7b0b4fb372395d555b3d8, type: 2}
+  - {fileID: 11400000, guid: 51cfb4e3f13051147b614dab76b140e2, type: 2}
 --- !u!4 &1715712364
 Transform:
   m_ObjectHideFlags: 0
@@ -1609,7 +1610,7 @@ MonoBehaviour:
       m_Calls: []
   maxCardCount: 1
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
-  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
+  isLocked: 0
   type: 3
 --- !u!114 &1800996143
 MonoBehaviour:
