@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: Hydra_MainHead_PlaceHolder_0
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: Hydra_MainHead_PlaceHolder_0
+  tribe: 0
+  hpMax: 14
+  leftSpell: {fileID: 0}
+  rightSpell: {fileID: 0}
+  artwork: {fileID: 6979088305850355676, guid: 63c4d0b56e6cbd44ab10f8dece7d5d48, type: 3}
+  description: 
+  alternativeCardPrefab: {fileID: 0}
+  enemyBehaviours:
+  - {fileID: -704331536706516228, guid: df29e4a153154544f8d46b054aa7ae3f, type: 3}
+  - {fileID: -1611147303337367803, guid: 81945ca4d7264da4da9690eb34bb2e7c, type: 3}
+  - {fileID: 6792631994552266466, guid: c516303a46d0bca4a99ebe78d04e2063, type: 3}
+  - {fileID: -1158222493450863108, guid: 57f0f495ff27c244d8ea87baf99d8367, type: 3}
