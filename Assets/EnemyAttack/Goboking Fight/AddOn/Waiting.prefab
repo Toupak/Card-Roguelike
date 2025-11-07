@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8104387316704703432}
   - component: {fileID: -6438953199472880839}
   m_Layer: 5
-  m_Name: Explosive Cap
+  m_Name: Waiting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f051e55aa0482f943a0888fc6486a4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Explosive Cap
-  description: -3HP, 3DMG
-  weight: 1
+  behaviourName: Charging up
+  description: Prepares for a powerful attack
+  weight: 0
   intentionIcon: {fileID: 8862108498670833452, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
-  damage: 3
-  selfDamage: 3
+  damage: 0
+  selfDamage: 0

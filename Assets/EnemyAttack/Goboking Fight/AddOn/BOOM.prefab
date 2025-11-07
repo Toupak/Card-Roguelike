@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8104387316704703432}
   - component: {fileID: -6438953199472880839}
   m_Layer: 5
-  m_Name: Shroom Fever
+  m_Name: BOOM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,9 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f051e55aa0482f943a0888fc6486a4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Shroom Fever
-  description: Deals 10DMG, Dies
-  weight: 0
+  behaviourName: BOOM
+  description: 'Takes 3 DMG
+
+    Deals 2 DMG'
+  weight: 1
   intentionIcon: {fileID: 8862108498670833452, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
-  damage: 10
-  selfDamage: 9000
+  damage: 2
+  selfDamage: 3
