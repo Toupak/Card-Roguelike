@@ -83,6 +83,16 @@ namespace EnemyAttack
             return null;
         }
 
+        protected virtual List<CardMovement> ComputeTargetList(bool isTargetEnemy, bool canSelfTarget)
+        {
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(isTargetEnemy ? TargetType.Enemy : TargetType.Ally);
+
+            if (!canSelfTarget)
+                return targets.Where((c) => c.cardController != enemyCardController.cardController).ToList();
+
+            return targets;
+        }
+
         public abstract IEnumerator ExecuteBehavior();
     }
 }

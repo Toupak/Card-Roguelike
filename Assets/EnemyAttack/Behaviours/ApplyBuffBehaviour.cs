@@ -47,59 +47,22 @@ namespace EnemyAttack.Behaviours
 
         protected override CardController ComputeTarget(bool canBeTaunted = false)
         {
-            if (!isTargetEnemy)
+            List<CardMovement> targets = ComputeTargetList(isTargetEnemy, !cantTargetHimself);
+
+            if (targets.Count < 1)
+                return null;
+            
+            if (!isTargetEnemy && canBeTaunted)
             {
-                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-
-                if (targets.Count < 1)
-                    return null;
-
-                if (canBeTaunted)
+                foreach (CardMovement cardMovement in targets)
                 {
-                    foreach (CardMovement cardMovement in targets)
-                    {
-                        if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
-                            return cardMovement.cardController;
-                    }
-                }
-
-                int randomTarget = Random.Range(0, targets.Count);
-
-                return targets[randomTarget].cardController;
-            }
-            else
-            {
-                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-
-                if (targets.Count < 1)
-                    return null;
-
-                if (cantTargetHimself)
-                {
-                    List<CardController> otherCards = new ();
-
-                    foreach (CardMovement cardMovement in targets)
-                    {
-                        if (cardMovement.cardController != null && cardMovement.cardController.cardData.cardName != enemyCardController.cardData.cardName)
-                            otherCards.Add(cardMovement.cardController);
-                    }
-
-                    if (otherCards.Count > 0)
-                    {
-                        int randomTarget = Random.Range(0, otherCards.Count);
-
-                        return otherCards[randomTarget];
-                    }
-                    else
-                        return null;
-                }
-                else
-                {
-                    int randomTarget = Random.Range(0, targets.Count);
-
-                    return targets[randomTarget].cardController;
+                    if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
+                        return cardMovement.cardController;
                 }
             }
+            
+            int randomTarget = Random.Range(0, targets.Count);
+            return targets[randomTarget].cardController;
         }
     }
 }
