@@ -16,9 +16,11 @@ MonoBehaviour:
   cardName: Smoking Devil
   tribe: 6
   hpMax: 7
-  leftSpell: {fileID: 11400000, guid: 5fd5676af4c76054fa8f1802bcfaff5a, type: 2}
-  rightSpell: {fileID: 11400000, guid: fd18a7be3fa6b3048b2a24509b1b6a7f, type: 2}
   artwork: {fileID: 7277215093650894194, guid: de7a1c6e901c5954aaefa078d91ba73a, type: 3}
   description: 
   alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: 5fd5676af4c76054fa8f1802bcfaff5a, type: 2}
+  - {fileID: 11400000, guid: fd18a7be3fa6b3048b2a24509b1b6a7f, type: 2}
+  passiveList: []
   enemyBehaviours: []

@@ -24,14 +24,19 @@ namespace Spells
         public string spellName;
         [TextArea] public string description;
         public Sprite icon;
-        public bool isPassive;
+        
+        [Space]
         public TargetType targetType;
         public TargetingMode targetingMode;
-        [Tooltip("Optional : only needed when TargetingMode is set to Multi")] public int targetCount = 1;
+        public int targetCount = 1;
+        
+        [Space]
         public int energyCost;
         public int damage;
         public StatusType inflictStatus;
         public int statusStacksApplied;
+        
+        [Space]
         public SpellController spellController;
     }
 }

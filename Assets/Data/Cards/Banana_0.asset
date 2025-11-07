@@ -16,8 +16,10 @@ MonoBehaviour:
   cardName: Banana
   tribe: 5
   hpMax: 6
-  leftSpell: {fileID: 11400000, guid: 234f1fdf4f1b2674ba415d34cec9e604, type: 2}
-  rightSpell: {fileID: 11400000, guid: 5c7d9a827c6089d43b6d58f929a4c48f, type: 2}
   artwork: {fileID: 7381965769198725172, guid: 2df081ac6ce010347b4ec94a4241e2e3, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: 234f1fdf4f1b2674ba415d34cec9e604, type: 2}
+  passiveList: []
   enemyBehaviours: []

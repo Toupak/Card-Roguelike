@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,24 +7,37 @@ namespace Spells
 {
     public class AnimateSpellButton : MonoBehaviour
     {
-        [SerializeField] private Sprite enabledSprite;
-        [SerializeField] private Sprite disabledSprite;
+        public enum ButtonState
+        {
+            Enabled,
+            Disabled,
+            Shiny
+        }
         
+        [SerializeField] private Image buttonImage;
+        
+        [Space]
+        [SerializeField] private Sprite enabledSprite;
         [SerializeField] private Sprite enabledSpriteClicked;
+     
+        [Space]
+        [SerializeField] private Sprite disabledSprite;
         [SerializeField] private Sprite disabledSpriteClicked;
         
+        [Space]
+        [SerializeField] private Sprite shinySprite;
+        [SerializeField] private Sprite shinySpriteClicked;
+
         private SpellButton spellButton;
-        
-        private Image buttonImage;
         private RectTransform iconImage;
 
         private bool isPlayingAnimation;
-        private bool canBeClicked;
+
+        private ButtonState currentState;
 
         private void Start()
         {
             spellButton = GetComponent<SpellButton>();
-            buttonImage = GetComponent<Image>();
             iconImage = spellButton.ButtonIcon.GetComponent<RectTransform>();
             
             spellButton.OnClickSpellButton?.AddListener(OnClickButton);
@@ -41,30 +53,55 @@ namespace Spells
             if (spellButton.spellController == null)
                 return;
             
-            canBeClicked = spellButton.spellController.CanCastSpell();
+            
+            currentState = ComputeButtonState();
 
             if (!isPlayingAnimation)
-                UpdateButtonSprite();
+                UpdateButtonSprite(false);
+        }
+        
+        private ButtonState ComputeButtonState()
+        {
+            if (spellButton.spellController.IsShiny)
+                return ButtonState.Shiny;
+
+            if (spellButton.spellController.CanCastSpell())
+                return ButtonState.Enabled;
+
+            return ButtonState.Disabled;
         }
 
-        private void UpdateButtonSprite()
+        private void UpdateButtonSprite(bool displayAsClicked)
         {
-            buttonImage.sprite = canBeClicked ? enabledSprite : disabledSprite;
+            Debug.Log($"Zuzu : Current State : {currentState}");
+            switch (currentState)
+            {
+                case ButtonState.Enabled:
+                    buttonImage.sprite = displayAsClicked ? enabledSpriteClicked : enabledSprite;
+                    break;
+                case ButtonState.Disabled:
+                    buttonImage.sprite = displayAsClicked ? disabledSpriteClicked : disabledSprite;
+                    break;
+                case ButtonState.Shiny:
+                    buttonImage.sprite = displayAsClicked ? shinySpriteClicked : shinySprite;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void OnClickButton()
         {
-            buttonImage.sprite = canBeClicked ? enabledSpriteClicked : disabledSpriteClicked;
-            iconImage.anchoredPosition = new Vector2(0.0f, -2.0f);
+            UpdateButtonSprite(true);
+            iconImage.anchoredPosition = new Vector2(0.0f, -1.1f);
             isPlayingAnimation = true;
 
             Sequence.Create()
                 .Group(Tween.Scale(transform, new Vector3(1.1f, 0.9f, 1.0f), 0.1f, Ease.InOutBounce, 2, CycleMode.Yoyo))
                 .ChainCallback(() =>
                 {
-                    buttonImage.sprite = canBeClicked ? enabledSprite : disabledSprite;
-                    iconImage.anchoredPosition = new Vector2(0.0f, 6.0f);
                     isPlayingAnimation = false;
+                    iconImage.anchoredPosition = new Vector2(0.0f, 4.1f);
                     UpdateButtonVisuals();
                 });
         }

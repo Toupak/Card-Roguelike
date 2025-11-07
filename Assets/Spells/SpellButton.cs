@@ -21,16 +21,14 @@ namespace Spells
 
         public SpellController spellController { get; private set; }
         public SpellData spellData { get; private set; }
-        public bool isPlayerCard { get; private set; }
         public Image ButtonIcon => buttonIcon;
         
-        public void Setup(CardController cardController, SpellData data, bool isPlayer)
+        public void Setup(CardController cardController, SpellData data)
         {
             if (data == null)
                 return;
             
             spellData = data;
-            isPlayerCard = isPlayer;
             
             SetupTooltip(data);
             SetupButtonIcon(data);
@@ -60,7 +58,7 @@ namespace Spells
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
 
-            if (isPlayerCard && isSpellValid && isCursorFree && isPlayerTurn)
+            if (isSpellValid && isCursorFree && isPlayerTurn)
             {
                 spellController.CastSpell(transform);
                 OnCastSpell?.Invoke();

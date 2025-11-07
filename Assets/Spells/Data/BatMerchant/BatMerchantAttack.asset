@@ -16,12 +16,11 @@ MonoBehaviour:
   description: 'Active : Random : Deal 2 damage to a Random Target  OR deal 1 damage
     to 2 Random targes'
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 1
   targetingMode: 2
   targetCount: 0
   energyCost: 1
-  damage: 1
+  damage: 100
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -5788213581851168242, guid: 7b342e9c69e8311448123f5406882354, type: 3}

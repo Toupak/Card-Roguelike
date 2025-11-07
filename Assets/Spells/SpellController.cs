@@ -9,7 +9,6 @@ using Spells.Targeting;
 using Status;
 using UnityEngine;
 using UnityEngine.Events;
-using CombatLoop;
 
 namespace Spells
 {
@@ -26,6 +25,7 @@ namespace Spells
         protected Coroutine castSpellRoutine = null;
         public bool IsCasting => castSpellRoutine != null;
         
+        public bool IsShiny { get; protected set; }
         public bool HasCastedThisTurn { get; protected set; }
 
         public virtual void Setup(CardController controller, SpellData data, SpellButton otherSpell)
@@ -38,9 +38,6 @@ namespace Spells
         public virtual bool CanCastSpell()
         {
             if (HasCastedThisTurn)
-                return false;
-
-            if (spellData.isPassive)
                 return false;
 
             if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==

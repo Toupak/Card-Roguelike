@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
 using Cards.Scripts;
-using CardSlot.Script;
-using Data;
 using Run_Loop;
 using UnityEngine;
 using UnityEngine.InputSystem;

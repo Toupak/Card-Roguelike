@@ -13,6 +13,7 @@ namespace Cards.Scripts
     {
         [SerializeField] private TextMeshProUGUI cardName;
         [SerializeField] private Image artwork;
+        [SerializeField] public SpellButton singleButton;
         [SerializeField] public SpellButton leftButton;
         [SerializeField] public SpellButton rightButton;
         [SerializeField] public Image EnemyIntentionBackground;
@@ -54,14 +55,33 @@ namespace Cards.Scripts
                 SetArtwork(cardData.artwork);
             gameObject.name = cardData.cardName;
             
-            leftButton.Setup(this, cardData.leftSpell, !movement.IsEnemyCard);
-            rightButton.Setup(this, cardData.rightSpell, !movement.IsEnemyCard);
-
             if (cardMovement.IsEnemyCard)
             {
                 enemyCardController = gameObject.AddComponent<EnemyCardController>();
                 enemyCardController!.Setup(this, cardData);
             }
+            else
+            {
+                SetupSpells();
+            }
+        }
+
+        private void SetupSpells()
+        {
+            bool isSingleSpell = cardData.spellList.Count == 1;
+            bool isDualSpell = cardData.spellList.Count == 2;
+
+            if (isSingleSpell)
+                singleButton.Setup(this, cardData.spellList[0]);
+            else if (isDualSpell)
+            {
+                leftButton.Setup(this, cardData.spellList[0]);
+                rightButton.Setup(this, cardData.spellList[1]);
+            }
+            
+            singleButton.gameObject.SetActive(isSingleSpell);
+            leftButton.gameObject.SetActive(isDualSpell);
+            rightButton.gameObject.SetActive(isDualSpell);
         }
 
         public void SetArtwork(Sprite newSprite)
