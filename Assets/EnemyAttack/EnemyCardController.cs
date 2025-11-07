@@ -85,10 +85,15 @@ namespace EnemyAttack
 
         public void SetNewIntention(BaseEnemyBehaviour newBehaviour, bool resetQueue = false)
         {
+            BaseEnemyBehaviour targetBehaviour = behaviours.Find((b) => b.behaviourName == newBehaviour.behaviourName);
+            
+            if (targetBehaviour == null)
+                return;
+            
             if (resetQueue)
                 behaviourQueue.Clear();
             
-            behaviourQueue.Enqueue(newBehaviour);
+            behaviourQueue.Enqueue(targetBehaviour);
         }
 
         public void DisplayNextIntention()
