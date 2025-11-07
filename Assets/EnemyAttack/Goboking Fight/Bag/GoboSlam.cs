@@ -5,19 +5,17 @@ using Spells.Targeting;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PepTalk : ApplyBuffBehaviour
+public class GoboSlam : StunBehaviour
 {
+    [SerializeField] private int newWeightWhenAlone;
+
     public override int ComputeWeight()
     {
         List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 
-        if (targets.Count >= 4)
-            return weight;
-        else if (targets.Count == 3)
-            return weight * 2;
-        else if (targets.Count == 2)
-            return weight * 10;
-        else
-            return 0;
+        if (targets.Count == 2)
+            return newWeightWhenAlone;
+
+        return base.ComputeWeight();
     }
 }

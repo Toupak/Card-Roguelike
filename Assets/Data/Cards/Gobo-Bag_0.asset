@@ -23,4 +23,4 @@ MonoBehaviour:
   alternativeCardPrefab: {fileID: 0}
   enemyBehaviours:
   - {fileID: 5099609503079003754, guid: 5908cb90f311dcb47b752a52d2d76a63, type: 3}
-  - {fileID: 474810086492157631, guid: 518cc6acce65aef45a9df5e738af51b6, type: 3}
+  - {fileID: 795174733729310214, guid: 518cc6acce65aef45a9df5e738af51b6, type: 3}
