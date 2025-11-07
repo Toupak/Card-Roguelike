@@ -154,14 +154,22 @@ namespace Cards.Scripts
         
         private void RemoveOneStack(KeyValuePair<StatusType,int> keyValuePair)
         {
-            currentStacks[keyValuePair.Key] = Mathf.Max(keyValuePair.Value - 1, 0);
-            OnUpdateStatus?.Invoke(keyValuePair.Key, currentStacks[keyValuePair.Key] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(keyValuePair.Key, 1, cardController, cardController);
+            
+            if (ActionSystem.instance.IsPerforming)
+                ActionSystem.instance.AddReaction(consumeStacksGa);
+            else
+                ActionSystem.instance.Perform(consumeStacksGa);
         }
 
         private void RemoveAllStacks(KeyValuePair<StatusType,int> keyValuePair)
         {
-            currentStacks[keyValuePair.Key] = 0;
-            OnUpdateStatus?.Invoke(keyValuePair.Key, StatusTabModification.Remove);
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(keyValuePair.Key, currentStacks[keyValuePair.Key], cardController, cardController);
+            
+            if (ActionSystem.instance.IsPerforming)
+                ActionSystem.instance.AddReaction(consumeStacksGa);
+            else
+                ActionSystem.instance.Perform(consumeStacksGa);
         }
 
         public void ApplyStatusStacks(StatusType statusType, int stacksCount)

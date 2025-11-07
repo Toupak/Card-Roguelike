@@ -51,7 +51,7 @@ namespace Cards.Scripts
             cardName.text = cardData.cardName;
             
             if (artwork != null)
-                artwork.sprite = cardData.artwork;
+                SetArtwork(cardData.artwork);
             gameObject.name = cardData.cardName;
             
             leftButton.Setup(this, cardData.leftSpell, !movement.IsEnemyCard);
@@ -62,6 +62,11 @@ namespace Cards.Scripts
                 enemyCardController = gameObject.AddComponent<EnemyCardController>();
                 enemyCardController!.Setup(this, cardData);
             }
+        }
+
+        public void SetArtwork(Sprite newSprite)
+        {
+            artwork.sprite = newSprite;
         }
 
         public void KillCard()

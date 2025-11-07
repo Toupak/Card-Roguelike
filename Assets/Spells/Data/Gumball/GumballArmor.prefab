@@ -48,3 +48,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2024f2c95ac014daed561f0cfabd12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gumballStrong: {fileID: 3619846235778968933, guid: 3849756d198ebab448dd3e7fd5c8ae1c, type: 3}
+  gumballWeak: {fileID: -4482293696786701008, guid: a135d64bb42959c48890e97c2061d9ca, type: 3}
