@@ -83,6 +83,14 @@ namespace EnemyAttack
             }
         }
 
+        public void SetNewIntention(BaseEnemyBehaviour newBehaviour, bool resetQueue = false)
+        {
+            if (resetQueue)
+                behaviourQueue.Clear();
+            
+            behaviourQueue.Enqueue(newBehaviour);
+        }
+
         public void DisplayNextIntention()
         {
             BaseEnemyBehaviour behaviour = behaviourQueue.Peek();
