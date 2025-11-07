@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Gumball_0
+  m_Name: Pillar man_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Gumball
-  tribe: 3
-  hpMax: 12
-  leftSpell: {fileID: 11400000, guid: e8c0a4dcb7928fb43a2d038fc5f6bf98, type: 2}
-  rightSpell: {fileID: 11400000, guid: 22181878d47bddd4b8c0b4bea6aef08f, type: 2}
-  artwork: {fileID: 3619846235778968933, guid: 3849756d198ebab448dd3e7fd5c8ae1c, type: 3}
+  cardName: Pillar man_0
+  tribe: 0
+  hpMax: 0
+  leftSpell: {fileID: 0}
+  rightSpell: {fileID: 0}
+  artwork: {fileID: -4373126044167616179, guid: 5178bc6b2bffe7d408f534b4a6e425bf, type: 3}
   description: 
   alternativeCardPrefab: {fileID: 0}
   enemyBehaviours: []

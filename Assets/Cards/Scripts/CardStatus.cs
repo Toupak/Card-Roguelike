@@ -24,7 +24,8 @@ namespace Cards.Scripts
         CrustixShell,
         GumBoom,
         Weak,
-        Obedience
+        Obedience,
+        GobombCharging
     }
 
     public enum StatusEndTurnBehaviour

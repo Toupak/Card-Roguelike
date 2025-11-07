@@ -51,5 +51,5 @@ MonoBehaviour:
   behaviourName: Disturbing Prayer
   description: You'll never be the same after hearing this
   weight: 1
-  intentionIcon: {fileID: 2708546368158489528, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
-  stunStacks: 2
+  intentionIcon: {fileID: 987724994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  stunStacks: 1

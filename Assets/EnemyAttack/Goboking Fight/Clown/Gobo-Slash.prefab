@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -411716228964393019}
+  - component: {fileID: -5627468902333047060}
   m_Layer: 5
-  m_Name: Destroy Order
+  m_Name: Gobo-Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-411716228964393019
+--- !u!114 &-5627468902333047060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,13 +45,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 565321c7caaf9a540b8b70f275777910, type: 3}
+  m_Script: {fileID: 11500000, guid: 44eb802436c50394999e6f1d17e9ce6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Leadership
-  description: Order a goblin to go all out
-  weight: 0
-  intentionIcon: {fileID: 0}
-  cardToOrder: {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
-  waitingBehaviour: {fileID: -3592982368036127035, guid: 4b05b340bb1238240bd55b2067447722, type: 3}
-  suicideBehaviour: {fileID: -6438953199472880839, guid: f9bf3eda5a562c848bba0f51aa3a7735, type: 3}
+  behaviourName: Dagger Throw
+  description: Deal 1 damage to 3 targets
+  weight: 15
+  intentionIcon: {fileID: -2115086594399489464, guid: 6f221081b954fcc4394844bc42343e8a, type: 3}
+  damage: 1
+  hitCount: 3
+  hitSameTarget: 0

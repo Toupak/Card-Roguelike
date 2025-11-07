@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -3592982368036127035}
+  - component: {fileID: -6952304001346426934}
   m_Layer: 5
-  m_Name: Goblin_Waiting
+  m_Name: GoboExplode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-3592982368036127035
+--- !u!114 &-6952304001346426934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,10 +45,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb315249fe1cf945b5274ea84504f6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b2a87fc80c503245a71f33df56a4e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Charging up
-  description: Does nothing
-  weight: 0
-  intentionIcon: {fileID: 0}
+  behaviourName: KABOOM
+  description: Detonates in a glorious blaze, killing himself and dealing 10 damages
+    to a single target
+  weight: 1000
+  intentionIcon: {fileID: -476896502196687217, guid: 6f221081b954fcc4394844bc42343e8a, type: 3}
+  damage: 10
+  selfDamage: 9000

@@ -1,37 +1,39 @@
+using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using EnemyAttack;
-using System.Collections;
 using UnityEngine;
 
-public class MultiHitBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Behaviours
 {
-    [SerializeField] private int damage;
-    [SerializeField] private int hitCount;
-    [SerializeField] private bool hitSameTarget;
-
-    public override IEnumerator ExecuteBehavior()
+    public class MultiHitBehaviour : BaseEnemyBehaviour
     {
-        Debug.Log("Deal Damage Behaviour");
+        [SerializeField] private int damage;
+        [SerializeField] private int hitCount;
+        [SerializeField] private bool hitSameTarget;
 
-        if (hitSameTarget)
+        public override IEnumerator ExecuteBehavior()
         {
-            CardController target = ComputeTarget(true);
-            for (int i = 0; i < hitCount; i++)
+            Debug.Log("Deal Damage Behaviour");
+
+            if (hitSameTarget)
             {
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
-                ActionSystem.instance.Perform(damageGa);
+                CardController target = ComputeTarget(true);
+                for (int i = 0; i < hitCount; i++)
+                {
+                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
+                    ActionSystem.instance.Perform(damageGa);
+                }
             }
-        }
-        else
-        {
-            for (int i = 0; i < hitCount; i++)
+            else
             {
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
-                ActionSystem.instance.Perform(damageGa);
+                for (int i = 0; i < hitCount; i++)
+                {
+                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
+                    ActionSystem.instance.Perform(damageGa);
+                }
             }
         }
     }

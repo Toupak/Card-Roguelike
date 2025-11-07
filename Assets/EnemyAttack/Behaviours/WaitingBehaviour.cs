@@ -1,12 +1,14 @@
-using ActionReaction;
-using EnemyAttack;
 using System.Collections;
+using ActionReaction;
 using UnityEngine;
 
-public class WaitingBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Behaviours
 {
-    public override IEnumerator ExecuteBehavior()
+    public class WaitingBehaviour : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        public override IEnumerator ExecuteBehavior()
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        }
     }
 }

@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: Goblin Battle
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
-  - {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
   - {fileID: 11400000, guid: 43177b1b67c55594fa3030e9050aeadc, type: 2}
-  - {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
-  - {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}

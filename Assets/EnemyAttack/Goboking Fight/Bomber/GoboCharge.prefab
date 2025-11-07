@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -9199692986067781659}
+  - component: {fileID: -6592784767832968671}
   m_Layer: 5
-  m_Name: Call For BackUp
+  m_Name: GoboCharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-9199692986067781659
+--- !u!114 &-6592784767832968671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,16 +45,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877231f3c38d8da4082e44b2830221fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 42ac55263fe3ddd49a7807728aaf5474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Call the horde
-  description: Calls for backup
-  weight: 100
-  intentionIcon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
-  cardsToSpawn:
-  - {fileID: 11400000, guid: 23e2bfa5eb368e3478e143de991fa526, type: 2}
-  - {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
-  - {fileID: 11400000, guid: 9c3dd90957e1ebe459d0598578753767, type: 2}
-  goblinsToSpawn: 4
-  waitingBehaviourAfterSpawn: {fileID: -1584129967791918608, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}
+  behaviourName: Charging Up
+  description: This Gobo is Charging Up, danger is near
+  weight: 1
+  intentionIcon: {fileID: -1656412994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  turnsToChargeUp: 2

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b4d7734420514c4faaea86756b22aa8
+guid: a135d64bb42959c48890e97c2061d9ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1351902681591436168
-    second: GoblinKing_0
+      213: -4482293696786701008
+    second: Gumball_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinKing_0
+      name: Gumball_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 883d723835ce2c210800000000000000
-      internalID: 1351902681591436168
+      spriteID: 0356e0881a1bbc1c0800000000000000
+      internalID: -4482293696786701008
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3030eee309176c24086d148f3026a30a
+    spriteID: 5ffc50329b7360445b527b6d0d01c35a
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GoblinKing_0: 1351902681591436168
+      Gumball_0: -4482293696786701008
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

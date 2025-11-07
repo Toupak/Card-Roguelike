@@ -1,41 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
 using CombatLoop;
-using EnemyAttack;
+using EnemyAttack.Behaviours;
 using Spells;
-using Spells.Data.Thorse;
 using Spells.Targeting;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CallForBackup : SpawnEnemyBehaviour
+namespace EnemyAttack.Goboking_Fight.Goboking
 {
-    [SerializeField] private int goblinsToSpawn;
-    [SerializeField] BaseEnemyBehaviour waitingBehaviourAfterSpawn;
-
-    public override IEnumerator ExecuteBehavior()
+    public class CallForBackup : SpawnEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [SerializeField] private int goblinsToSpawn;
+        [SerializeField] BaseEnemyBehaviour waitingBehaviourAfterSpawn;
 
-        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-
-        for (int i = 0;  i < goblinsToSpawn; i++)
+        private int currentEnemyCount => TargetingSystem.instance.RetrieveBoard(TargetType.Enemy).Count;
+        
+        public override IEnumerator ExecuteBehavior()
         {
-            EnemyHandController.instance.SpawnEnemy(cardToSpawn);
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            int spawnCount = goblinsToSpawn - (currentEnemyCount - 1);
+            
+            for (int i = 0;  i < spawnCount; i++)
+            {
+                yield return SpawnRandomEnemy();
+                yield return new WaitForSeconds(0.15f);
+            }
+
+            enemyCardController.SetNewIntention(waitingBehaviourAfterSpawn, true);
         }
 
-        enemyCardController.SetNewIntention(waitingBehaviourAfterSpawn, true);
-    }
+        public override int ComputeWeight()
+        {
+            if (currentEnemyCount <= 2)
+            {
+                if (CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Preparation)
+                    enemyCardController.SetNewIntention(waitingBehaviourAfterSpawn, true);
+                return weight;
+            }
 
-    public override int ComputeWeight()
-    {
-        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-
-        if (targets.Count == 1)
-            return 1;
-
-        return weight;
+            return 0;
+        }
     }
 }

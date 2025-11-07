@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: GoblinKing_0
+  m_Name: Gobo-King_0
   m_EditorClassIdentifier: 
   cardNumber: 0
   cardName: Gobo King
   tribe: 6
-  hpMax: 27
+  hpMax: 30
   leftSpell: {fileID: 0}
   rightSpell: {fileID: 0}
   artwork: {fileID: 1351902681591436168, guid: 1b4d7734420514c4faaea86756b22aa8, type: 3}
@@ -23,5 +23,4 @@ MonoBehaviour:
   alternativeCardPrefab: {fileID: 8532891456618958194, guid: 6c23a5a9b575fe647aa3c6ccb9a25f23, type: 3}
   enemyBehaviours:
   - {fileID: -1584129967791918608, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}
-  - {fileID: -411716228964393019, guid: 69cca777d682b09468d226ded9b3f8c6, type: 3}
   - {fileID: -9199692986067781659, guid: 410e5510543e23844a65a911330fd1f1, type: 3}

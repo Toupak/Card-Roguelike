@@ -2,11 +2,15 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Status;
+using UnityEngine;
 
 namespace Spells.Data.Gumball
 {
     public class GumballArmor : SpellController
     {
+        [SerializeField] private Sprite gumballStrong;
+        [SerializeField] private Sprite gumballWeak;
+        
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();

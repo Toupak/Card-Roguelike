@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a135d64bb42959c48890e97c2061d9ca
+guid: 3849756d198ebab448dd3e7fd5c8ae1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4482293696786701008
-    second: Gumball_0
+      213: 3619846235778968933
+    second: Gumball Idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0356e0881a1bbc1c0800000000000000
-      internalID: -4482293696786701008
+      spriteID: 56de32109f64c3230800000000000000
+      internalID: 3619846235778968933
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5ffc50329b7360445b527b6d0d01c35a
+    spriteID: b0a45bb11a1846248b98947ae6025c2c
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gumball_0: -4482293696786701008
+      Gumball_0: 3619846235778968933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

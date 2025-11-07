@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5150060763edaf04f8994de9abd95afc
+guid: 29eb32ed09f848648ac6d8528957d3af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 354279647000644078
-    second: Panties ectoplasm_0
+      213: 8749302817991680212
+    second: Goblin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Panties ectoplasm_0
+      name: Gobo-Bomb_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 73
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee9cf9e3677aae400800000000000000
-      internalID: 354279647000644078
+      spriteID: 4d0e7b2ae84cb6970800000000000000
+      internalID: 8749302817991680212
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f725b18ea8488554e8f0285f25bf5b05
+    spriteID: 827ab0c1afd0eed45aaf8fa8d0e1ad1b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Panties ectoplasm_0: 354279647000644078
+      Gobo-Bomb_0: 8749302817991680212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

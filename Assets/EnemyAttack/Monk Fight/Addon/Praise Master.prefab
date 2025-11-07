@@ -51,7 +51,7 @@ MonoBehaviour:
   behaviourName: Praise Master
   description: Glory to the glorious Master
   weight: 1
-  intentionIcon: {fileID: -625399265, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  intentionIcon: {fileID: 1674811566, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   bossData: {fileID: 11400000, guid: eb177ce5fbea06e409ffaaa61a83d992, type: 2}
   healAmount: 3
   prioritizeHealThreshold: 0.25

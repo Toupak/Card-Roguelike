@@ -57,6 +57,9 @@ namespace CombatLoop.EnergyBar
         {
             if (isResetting)
                 yield break;
+            
+            if (energy == count)
+                yield break;
 
             isResetting = true;
 

@@ -1,21 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
 using CombatLoop;
-using EnemyAttack;
-using Spells;
-using Spells.Targeting;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemyBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Behaviours
 {
-    [SerializeField] protected CardData cardToSpawn;
-
-    public override IEnumerator ExecuteBehavior()
+    public class SpawnEnemyBehaviour : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [SerializeField] protected List<CardData> cardsToSpawn;
 
-        EnemyHandController.instance.SpawnEnemy(cardToSpawn);
+        public override IEnumerator ExecuteBehavior()
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            yield return SpawnRandomEnemy();
+        }
+
+        protected virtual IEnumerator SpawnRandomEnemy()
+        {
+            EnemyHandController.instance.SpawnEnemy(cardsToSpawn[Random.Range(0, cardsToSpawn.Count)]);
+
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        }
     }
 }
