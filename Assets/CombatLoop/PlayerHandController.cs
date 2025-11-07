@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
 using Cards.Scripts;
+using CardSlot.Script;
 using Data;
 using Run_Loop;
 using UnityEngine;
@@ -76,6 +77,11 @@ namespace CombatLoop
 
         public void DeactivateHand()
         {
+            for (int i = handContainer.Slots.Count - 1; i >= 0; i--)
+            {
+                handContainer.Slots[i].CurrentCard.cardController.KillCard();
+            }
+            
             handContainer.gameObject.SetActive(false);
         }
     }
