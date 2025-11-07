@@ -1,6 +1,11 @@
-using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using Spells;
+using Spells.Targeting;
+using Status;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyAttack.Behaviours
@@ -9,7 +14,7 @@ namespace EnemyAttack.Behaviours
     {
         [SerializeField] private int damage;
         [SerializeField] public int selfDamage;
-    
+
         public override IEnumerator ExecuteBehavior()
         {
             Debug.Log("Deal Damage Behaviour");
