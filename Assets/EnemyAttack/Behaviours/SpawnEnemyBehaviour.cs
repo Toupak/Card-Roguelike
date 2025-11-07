@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
+using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using CombatLoop;
 using UnityEngine;
@@ -20,8 +21,9 @@ namespace EnemyAttack.Behaviours
 
         protected virtual IEnumerator SpawnRandomEnemy()
         {
-            EnemyHandController.instance.SpawnEnemy(cardsToSpawn[Random.Range(0, cardsToSpawn.Count)]);
-
+            SpawnCardGA spawnCardGa = new SpawnCardGA(cardsToSpawn[Random.Range(0, cardsToSpawn.Count)], enemyCardController.cardController);
+            ActionSystem.instance.Perform(spawnCardGa);
+            
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
         }
     }

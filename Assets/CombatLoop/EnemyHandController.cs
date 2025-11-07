@@ -100,16 +100,27 @@ namespace CombatLoop
         public void OnEnable()
         {
             ActionSystem.AttachPerformer<EnemyPerformsActionGa>(EnemyPerformsActionPerformer);
+            ActionSystem.AttachPerformer<SpawnCardGA>(SpawnEnemyPerformer);
         }
 
         private void OnDisable()
         {
             ActionSystem.DetachPerformer<EnemyPerformsActionGa>();
+            ActionSystem.DetachPerformer<SpawnCardGA>();
         }
         
         private IEnumerator EnemyPerformsActionPerformer(EnemyPerformsActionGa stunGa)
         {
             yield break;
+        }
+        
+        private IEnumerator SpawnEnemyPerformer(SpawnCardGA spawnCardGa)
+        {
+            if (spawnCardGa.cardData.isEnemy)
+            {
+                SpawnEnemy(spawnCardGa.cardData);
+                yield return new WaitForSeconds(0.2f);
+            }
         }
     }
 }
