@@ -16,11 +16,21 @@ namespace CombatLoop
 {
     public class EnemyHandController : MonoBehaviour
     {
+        public static EnemyHandController instance;
+
         [SerializeField] private CardContainer enemyBoardContainer;
         [SerializeField] private CardMovement cardMovementPrefab;
         [SerializeField] private List<BattleData> battles;
         
         public CardContainer container => enemyBoardContainer;
+
+        private void Awake()
+        {
+            if (instance != null && instance != this)
+                Destroy(this);
+            else
+                instance = this;
+        }
 
         public IEnumerator PlayTurn()
         {

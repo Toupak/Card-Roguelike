@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
+  - component: {fileID: -411716228964393019}
   m_Layer: 5
-  m_Name: Call For BackUp
+  m_Name: Destroy Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,3 +36,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-411716228964393019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996121797547756110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565321c7caaf9a540b8b70f275777910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourName: Leadership
+  description: Order a goblin to go all out
+  weight: 0
+  intentionIcon: {fileID: 0}
+  cardToOrder: {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
+  waitingBehaviour: {fileID: -3592982368036127035, guid: 4b05b340bb1238240bd55b2067447722, type: 3}
+  suicideBehaviour: {fileID: -6438953199472880839, guid: f9bf3eda5a562c848bba0f51aa3a7735, type: 3}

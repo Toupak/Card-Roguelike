@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Goblin_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Goblin
+  cardName: Gobo
   tribe: 0
   hpMax: 5
   leftSpell: {fileID: 0}
@@ -21,4 +21,8 @@ MonoBehaviour:
   artwork: {fileID: 8749302817991680212, guid: 29eb32ed09f848648ac6d8528957d3af, type: 3}
   description: 
   alternativeCardPrefab: {fileID: 0}
-  enemyBehaviours: []
+  enemyBehaviours:
+  - {fileID: -3592982368036127035, guid: 4b05b340bb1238240bd55b2067447722, type: 3}
+  - {fileID: -6438953199472880839, guid: f9bf3eda5a562c848bba0f51aa3a7735, type: 3}
+  - {fileID: 7463816269853331996, guid: 5b7e881696951df428f4ad21b834eeb0, type: 3}
+  - {fileID: -6438953199472880839, guid: a28f5828d85f7b244a7cb55fd0f478d1, type: 3}

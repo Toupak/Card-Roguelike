@@ -1,15 +1,18 @@
 using ActionReaction;
 using Cards.Scripts;
+using CombatLoop;
 using EnemyAttack;
 using Spells;
+using Spells.Data.Thorse;
 using Spells.Targeting;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOrder : BaseEnemyBehaviour
+public class CallForBackup : SpawnEnemyBehaviour
 {
-    [SerializeField] CardData cardToOrder;
+    [SerializeField] private int goblinsToSpawn;
+    [SerializeField] BaseEnemyBehaviour waitingBehaviourAfterSpawn;
 
     public override IEnumerator ExecuteBehavior()
     {
@@ -17,23 +20,20 @@ public class DestroyOrder : BaseEnemyBehaviour
 
         List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 
-        foreach (CardMovement cardMovement in targets)
+        for (int i = 0;  i < goblinsToSpawn; i++)
         {
-            //if (cardMovement.cardController != null && cardMovement.cardController.cardData.cardName == cardToOrder.cardName)
-                //return cardMovement.cardController;
+            EnemyHandController.instance.SpawnEnemy(cardToSpawn);
+            yield return new WaitForSeconds(0.15f);
         }
 
-        yield break;
-        //public T Dequeue();
-        //public void Enqueue(T item);
-        //yield return behaviourQueue.Dequeue().ExecuteBehavior();
+        enemyCardController.SetNewIntention(waitingBehaviourAfterSpawn, true);
     }
 
     public override int ComputeWeight()
     {
         List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 
-        if (targets.Count > 1)
+        if (targets.Count == 1)
             return 1;
 
         return weight;
