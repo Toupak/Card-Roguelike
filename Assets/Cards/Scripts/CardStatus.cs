@@ -205,8 +205,6 @@ namespace Cards.Scripts
         {
             bool isPlayer = !cardController.cardMovement.IsEnemyCard;
 
-            Debug.Log($"Zuzu {cardController.cardData.cardName} : {startingTurn} / isPlayer : {isPlayer}");
-            
             if (startingTurn == TurnType.Player && isPlayer)
                 return true;
 

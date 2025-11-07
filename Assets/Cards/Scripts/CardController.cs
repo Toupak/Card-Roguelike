@@ -77,5 +77,20 @@ namespace Cards.Scripts
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
             Destroy(gameObject);
         }
+
+        public void SetFollowState(bool state)
+        {
+            followTarget.SetFollowState(state);
+        }
+
+        public void SetSpriteAsAbove()
+        {
+            followTarget.SetSortingOrderAsAbove();
+        }
+
+        public void ResetSpriteOrder()
+        {
+            followTarget.ResetSortingOrder();
+        }
     }
 }

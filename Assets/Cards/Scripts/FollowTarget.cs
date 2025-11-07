@@ -54,6 +54,8 @@ namespace Cards.Scripts
         private float targetScale = 1.0f;
         private float scaleVelocity;
 
+        private bool isLocked;
+
         public void SetTarget(CardMovement newTarget)
         {
             rectTransform = GetComponent<RectTransform>();
@@ -71,6 +73,9 @@ namespace Cards.Scripts
 
         private void LateUpdate()
         {
+            if (isLocked)
+                return;
+            
             if (target.ContainerType == ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.IsDragging)
                 FollowPositionSticky();
             else
@@ -200,6 +205,21 @@ namespace Cards.Scripts
                 canvas.sortingOrder = 1000;
             else
                 canvas.sortingOrder = target.SlotIndex + 1;
+        }
+
+        public void SetSortingOrderAsAbove()
+        {
+            canvas.sortingOrder = 999;
+        }
+
+        public void ResetSortingOrder()
+        {
+            UpdateSortingOrder();
+        }
+
+        public void SetFollowState(bool state)
+        {
+            isLocked = !state;
         }
     }
 }
