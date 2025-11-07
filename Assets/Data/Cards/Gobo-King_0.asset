@@ -22,5 +22,5 @@ MonoBehaviour:
   description: 
   alternativeCardPrefab: {fileID: 8532891456618958194, guid: 6c23a5a9b575fe647aa3c6ccb9a25f23, type: 3}
   enemyBehaviours:
-  - {fileID: -1584129967791918608, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}
   - {fileID: -9199692986067781659, guid: 410e5510543e23844a65a911330fd1f1, type: 3}
+  - {fileID: -4504918647482389842, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}

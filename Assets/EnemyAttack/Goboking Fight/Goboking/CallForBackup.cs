@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using ActionReaction;
-using Cards.Scripts;
-using CombatLoop;
 using EnemyAttack.Behaviours;
 using Spells;
 using Spells.Targeting;
@@ -34,7 +31,7 @@ namespace EnemyAttack.Goboking_Fight.Goboking
 
         public override int ComputeWeight()
         {
-            if (currentEnemyCount <= 2)
+            if (currentEnemyCount <= 1)
             {
                 if (CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Preparation)
                     enemyCardController.SetNewIntention(waitingBehaviourAfterSpawn, true);
