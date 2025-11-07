@@ -52,6 +52,7 @@ namespace CombatLoop
             yield return PlayHand();
             yield return DeactivateEndPreparationButton();
             yield return TransformBattleground();
+            yield return DeactivatePlayerHand();
             yield return ActivatePlayerEnergyDisplay();
             
             currentTurn = TurnType.Player;
@@ -70,7 +71,7 @@ namespace CombatLoop
                 yield return RefreshPlayerEnergyCount();
             }
         }
-        
+
         private void OnEnable()
         {
             ActionSystem.AttachPerformer<StartTurnGa>(StartTurnPerformer);
@@ -141,6 +142,12 @@ namespace CombatLoop
         {
             canvasAnimator.Play("GoToBattle");
             yield return new WaitForSeconds(0.5f);
+        }
+        
+        private IEnumerator DeactivatePlayerHand()
+        {
+            playerHandController.DeactivateHand();
+            yield return null;
         }
         
         private IEnumerator ActivatePlayerEnergyDisplay()
