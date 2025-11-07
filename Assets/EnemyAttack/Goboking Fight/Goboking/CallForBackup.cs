@@ -11,6 +11,7 @@ namespace EnemyAttack.Goboking_Fight.Goboking
     {
         [SerializeField] private int goblinsToSpawn;
         [SerializeField] BaseEnemyBehaviour waitingBehaviourAfterSpawn;
+        [SerializeField] BaseEnemyBehaviour kingStompBehaviour;
 
         private int currentEnemyCount => TargetingSystem.instance.RetrieveBoard(TargetType.Enemy).Count;
         
