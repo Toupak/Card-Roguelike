@@ -6,24 +6,25 @@ using UnityEngine;
 
 namespace EnemyAttack.Behaviours
 {
-    public class MultiHitBehaviour : BaseEnemyBehaviour
+    public class ApplyBuffBehaviour : BaseEnemyBehaviour
     {
-        [SerializeField] private int damage;
+        [SerializeField] private StatusType statusType;
+        [SerializeField] private int stacks;
         [SerializeField] private int hitCount;
         [SerializeField] private bool hitSameTarget;
 
         public override IEnumerator ExecuteBehavior()
         {
-            Debug.Log("Multi Hit Behaviour");
+            Debug.Log("Apply Buff Behaviour");
 
             if (hitSameTarget)
             {
-                CardController target = ComputeTarget(true);
+                CardController target = ComputeTarget();
                 for (int i = 0; i < hitCount; i++)
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
-                    ActionSystem.instance.Perform(damageGa);
+                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, target);
+                    ActionSystem.instance.Perform(applyStatusGa);
                 }
             }
             else
@@ -31,8 +32,8 @@ namespace EnemyAttack.Behaviours
                 for (int i = 0; i < hitCount; i++)
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
-                    ActionSystem.instance.Perform(damageGa);
+                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, ComputeTarget());
+                    ActionSystem.instance.Perform(applyStatusGa);
                 }
             }
         }

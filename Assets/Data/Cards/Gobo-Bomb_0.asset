@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Gobo-Bomb
   tribe: 0
-  hpMax: 5
+  hpMax: 4
   leftSpell: {fileID: 0}
   rightSpell: {fileID: 0}
   artwork: {fileID: 8749302817991680212, guid: 29eb32ed09f848648ac6d8528957d3af, type: 3}

@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourName: Dagger Throw
   description: Deal 1 damage to 3 targets
-  weight: 15
-  intentionIcon: {fileID: -2115086594399489464, guid: 6f221081b954fcc4394844bc42343e8a, type: 3}
+  weight: 10
+  intentionIcon: {fileID: -625399265, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   damage: 1
   hitCount: 3
   hitSameTarget: 0

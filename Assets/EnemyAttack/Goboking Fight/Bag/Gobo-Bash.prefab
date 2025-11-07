@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourName: Bash
-  description: Deal 2 damages
+  description: Deals 1 damages
   weight: 5
-  intentionIcon: {fileID: 8010362320935823109, guid: 6f221081b954fcc4394844bc42343e8a, type: 3}
-  damage: 2
+  intentionIcon: {fileID: 8862108498670833452, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  damage: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Gobo-Bag
   tribe: 0
-  hpMax: 0
+  hpMax: 6
   leftSpell: {fileID: 0}
   rightSpell: {fileID: 0}
   artwork: {fileID: 864432499736724763, guid: 677c2da3c1d3c9a42aae201e54981724, type: 3}
