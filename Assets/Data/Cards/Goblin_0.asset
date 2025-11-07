@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: Goblin_0
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: Goblin
+  tribe: 0
+  hpMax: 5
+  leftSpell: {fileID: 0}
+  rightSpell: {fileID: 0}
+  artwork: {fileID: 8749302817991680212, guid: 29eb32ed09f848648ac6d8528957d3af, type: 3}
+  description: 
+  alternativeCardPrefab: {fileID: 0}
+  enemyBehaviours: []
