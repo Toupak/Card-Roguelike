@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: ImmuneToStun
+  m_Name: FriendWeakBuff
   m_EditorClassIdentifier: 
-  passiveName: Immune to Stun
-  description: This card is immune to Stun
+  passiveName: From Weakness Comes Strength
+  description: Frien gains 2 damages per Weak stack
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4283332634
-  passiveController: {fileID: -6251271598717184638, guid: daddb27f89885b54ea0e31897066e868, type: 3}
+    rgba: 4278190080
+  passiveController: {fileID: -5436477957054188647, guid: d136323efdbdfb74caa563d41e7224a1, type: 3}

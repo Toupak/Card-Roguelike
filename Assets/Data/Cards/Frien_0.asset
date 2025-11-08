@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Frien_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Frien_0
+  cardName: Frien
   tribe: 0
-  hpMax: 0
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  hpMax: 8
   artwork: {fileID: 3115230273421146967, guid: 3231320109c47f24285435c4a48c7c0b, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: 066efec250bfd764baf4057f7a859ab6, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: a430e2a8b2ea5db43a04a322127bddcb, type: 2}
   enemyBehaviours: []

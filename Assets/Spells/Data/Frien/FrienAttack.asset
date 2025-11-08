@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
-  m_Name: ZangerGrimace
+  m_Name: FrienAttack
   m_EditorClassIdentifier: 
-  spellName: Triangular Grimace
-  description: Applies 2 Weak to an enemy. Beware Zanger is not obedient, 50% chances
-    to target a random ally instead
+  spellName: Frienly Smil
+  description: Deal 1 damage and apply 1 Weak to enemy
   icon: {fileID: 0}
   targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 1
-  damage: 0
+  damage: 1
   inflictStatus: 10
-  statusStacksApplied: 2
-  spellController: {fileID: -272781016029133746, guid: 0fb0855ccdadbc44fa5fa2b26db71d02, type: 3}
+  statusStacksApplied: 1
+  spellController: {fileID: 0}
