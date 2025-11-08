@@ -18,7 +18,7 @@ namespace Spells.Data.Monke
 
             TargetingMode targetingMode = isAlone ? TargetingMode.All : spellData.targetingMode;
             
-            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, targetingMode, spellData.targetCount);
+            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, targetingMode, ComputeCurrentTargetCount(spellData.targetCount));
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else

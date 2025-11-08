@@ -46,6 +46,9 @@ namespace Spells.Targeting
             currentTargets = new List<CardMovement>();
             previousCursors = new List<TargetingCursor>();
 
+            if (targetCount > 1 && targetType != TargetType.Self && targetingMode == TargetingMode.Single)
+                targetingMode = TargetingMode.Multi;
+            
             potentialTargets = ComputeTargetAllList(castingCard, targetType);
 
             if (targetingMode == TargetingMode.All)

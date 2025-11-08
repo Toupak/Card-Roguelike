@@ -85,7 +85,7 @@ namespace Spells
 
         protected virtual IEnumerator SelectTargetAndCast(Transform startPosition)
         {
-            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, spellData.targetingMode, spellData.targetCount);
+            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, spellData.targetingMode, ComputeCurrentTargetCount(spellData.targetCount));
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else
@@ -107,6 +107,7 @@ namespace Spells
 
         protected virtual IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
+            //yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             HasCastedThisTurn = true;
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
@@ -167,6 +168,14 @@ namespace Spells
                 bonus -= cardController.cardStatus.currentStacks[StatusType.Weak];
 
             return spellDamage + bonus;
+        }
+
+        public virtual int ComputeCurrentTargetCount(int count)
+        {
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Fury))
+                return count + cardController.cardStatus.currentStacks[StatusType.Fury];
+
+            return count;
         }
     }
 }

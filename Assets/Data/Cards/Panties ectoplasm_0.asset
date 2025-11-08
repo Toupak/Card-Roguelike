@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Panties ectoplasm_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Panties ectoplasm_0
-  tribe: 0
-  hpMax: 0
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  cardName: Grand Pants Thief
+  tribe: 6
+  hpMax: 6
   artwork: {fileID: 354279647000644078, guid: 5150060763edaf04f8994de9abd95afc, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: 03a3f334c92687442aebb3d1842a762f, type: 2}
+  - {fileID: 11400000, guid: f0bb9ddee5d5fe447b38b07826679b9d, type: 2}
+  passiveList: []
   enemyBehaviours: []

@@ -72,7 +72,7 @@ namespace Spells.Data.BatMerchant
             IsShiny = false;
             
             bool isSplitAttack = targets.Count > 1 && Tools.RandomBool();
-            int targetCount = isSplitAttack ? 2 : 1;
+            int targetCount = Mathf.Min(targets.Count, ComputeCurrentTargetCount(isSplitAttack ? 2 : 1));
             int damage = isSplitAttack ? spellData.damage : spellData.damage * 2;
 
             for (int i = 0; i < targetCount; i++)
