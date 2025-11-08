@@ -25,7 +25,8 @@ namespace Cards.Scripts
         GumBoom,
         Weak,
         Obedience,
-        GobombCharging
+        GobombCharging,
+        Protected
     }
 
     public enum StatusEndTurnBehaviour

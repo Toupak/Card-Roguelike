@@ -6,7 +6,7 @@ namespace ActionReaction.Game_Actions
     {
         public int amount;
         public readonly CardController attacker;
-        public readonly CardController target;
+        public CardController target;
 
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
