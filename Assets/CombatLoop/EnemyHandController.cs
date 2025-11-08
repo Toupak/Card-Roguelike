@@ -55,8 +55,11 @@ namespace CombatLoop
                     continue;
                 }
 
-                EnemyPerformsActionGa enemyPerformsActionGa = new EnemyPerformsActionGa(card);
-                ActionSystem.instance.Perform(enemyPerformsActionGa);
+                if (card != null && card.enemyCardController != null && !card.enemyCardController.isWaiting)
+                {
+                    EnemyPerformsActionGa enemyPerformsActionGa = new EnemyPerformsActionGa(card);
+                    ActionSystem.instance.Perform(enemyPerformsActionGa);
+                }
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 

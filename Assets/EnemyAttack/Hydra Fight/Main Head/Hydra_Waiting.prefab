@@ -52,3 +52,4 @@ MonoBehaviour:
   description: Needs to recharge after going all out
   weight: 0
   intentionIcon: {fileID: -1903224643, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 1

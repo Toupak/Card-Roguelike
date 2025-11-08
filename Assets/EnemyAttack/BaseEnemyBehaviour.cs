@@ -15,6 +15,7 @@ namespace EnemyAttack
         [TextArea] public string description;
         [SerializeField] protected int weight;
         public Sprite intentionIcon;
+        public bool isWaiting;
 
         protected EnemyCardController enemyCardController;
 

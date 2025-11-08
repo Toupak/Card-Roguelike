@@ -52,4 +52,5 @@ MonoBehaviour:
   description: This Gobo is Charging Up, danger is near
   weight: 1
   intentionIcon: {fileID: -1656412994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 1
   turnsToChargeUp: 2

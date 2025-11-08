@@ -17,6 +17,7 @@ namespace EnemyAttack
         public bool hasIntention => behaviourQueue.Count > 0;
 
         private DisplayTooltipOnHover displayTooltipOnHover;
+        public bool isWaiting => hasIntention && behaviourQueue.Peek().isWaiting;
 
         public void Setup(CardController controller, CardData data)
         {
