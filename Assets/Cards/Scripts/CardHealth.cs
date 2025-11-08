@@ -33,7 +33,9 @@ namespace Cards.Scripts
         {
             if (IsDead)
                 return;
-        
+
+            damage = Mathf.Max(0, damage);
+            
             currentHealth -= damage;
             DamageNumberFactory.instance.DisplayDamageNumber(cardController.screenPosition, damage);
             OnUpdateHP.Invoke(currentHealth);
