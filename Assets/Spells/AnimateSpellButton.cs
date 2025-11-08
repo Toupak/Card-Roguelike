@@ -97,7 +97,7 @@ namespace Spells
             isPlayingAnimation = true;
 
             Sequence.Create()
-                .Group(Tween.Scale(transform, new Vector3(1.1f, 0.9f, 1.0f), 0.1f, Ease.InOutBounce, 2, CycleMode.Yoyo))
+                .Group(Tween.Scale(transform, new Vector3(1.1f, 0.9f, 1.0f), 0.05f, Ease.InOutBounce, 2, CycleMode.Yoyo))
                 .ChainCallback(() =>
                 {
                     isPlayingAnimation = false;

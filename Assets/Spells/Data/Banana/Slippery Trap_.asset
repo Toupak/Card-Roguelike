@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passiveName: Banan' Appeal
   description: 'Passive : when attacked, 50% chance to stun the enemy'
-  icon: {fileID: 987724994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
     rgba: 4283943659
