@@ -15,7 +15,7 @@ namespace EnemyAttack.Behaviours
             Debug.Log("Deal Damage Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            CardController target = ComputeTarget(true);
+            CardController target = ComputeTarget();
 
             if (target == null)
                 yield break;

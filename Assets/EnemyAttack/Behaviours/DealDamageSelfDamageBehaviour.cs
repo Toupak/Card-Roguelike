@@ -21,7 +21,7 @@ namespace EnemyAttack.Behaviours
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
+            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget());
             ActionSystem.instance.Perform(damageGa);
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

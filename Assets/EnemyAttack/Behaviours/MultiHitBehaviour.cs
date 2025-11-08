@@ -18,7 +18,7 @@ namespace EnemyAttack.Behaviours
 
             if (hitSameTarget)
             {
-                CardController target = ComputeTarget(true);
+                CardController target = ComputeTarget();
                 for (int i = 0; i < hitCount; i++)
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
@@ -31,7 +31,7 @@ namespace EnemyAttack.Behaviours
                 for (int i = 0; i < hitCount; i++)
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget(true));
+                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget());
                     ActionSystem.instance.Perform(damageGa);
                 }
             }

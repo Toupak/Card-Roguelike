@@ -39,20 +39,17 @@ namespace EnemyAttack
             return spellDamage + bonus;
         }
 
-        protected virtual CardController ComputeTarget(bool canBeTaunted = false)
+        protected virtual CardController ComputeTarget()
         {
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
             
             if (targets.Count < 1)
                 return null;
-            
-            if (canBeTaunted)
+
+            foreach (CardMovement cardMovement in targets)
             {
-                foreach (CardMovement cardMovement in targets)
-                {
-                    if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
-                        return cardMovement.cardController;
-                }
+                if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
+                    return cardMovement.cardController;
             }
 
             int randomTarget = Random.Range(0, targets.Count);

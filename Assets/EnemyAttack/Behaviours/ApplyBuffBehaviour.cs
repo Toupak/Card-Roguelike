@@ -45,14 +45,14 @@ namespace EnemyAttack.Behaviours
             }
         }
 
-        protected override CardController ComputeTarget(bool canBeTaunted = false)
+        protected override CardController ComputeTarget()
         {
             List<CardMovement> targets = ComputeTargetList(isTargetEnemy, !cantTargetHimself);
 
             if (targets.Count < 1)
                 return null;
             
-            if (!isTargetEnemy && canBeTaunted)
+            if (!isTargetEnemy)
             {
                 foreach (CardMovement cardMovement in targets)
                 {

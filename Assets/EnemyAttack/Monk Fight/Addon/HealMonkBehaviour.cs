@@ -15,7 +15,7 @@ namespace EnemyAttack.Monk_Fight.Addon
         [SerializeField] private int healAmount;
         [SerializeField] private float prioritizeHealThreshold;
 
-        protected override CardController ComputeTarget(bool canBeTaunted = false)
+        protected override CardController ComputeTarget()
         {
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 
