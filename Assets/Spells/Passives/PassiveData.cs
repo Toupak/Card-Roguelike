@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Spells
+namespace Spells.Passives
 {
     [CreateAssetMenu(fileName = "PassiveData", menuName = "Scriptable Objects/PassiveData")]
     public class PassiveData : ScriptableObject
@@ -8,6 +8,7 @@ namespace Spells
         public string passiveName;
         [TextArea] public string description;
         public Sprite icon;
+        public Color32 backgroundColor;
     
         [Space]
         public PassiveController passiveController;

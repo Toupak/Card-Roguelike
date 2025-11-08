@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: Slippery Trap_
+  m_EditorClassIdentifier: 
+  passiveName: Banan' Appeal
+  description: 'Passive : when attacked, 50% chance to stun the enemy'
+  icon: {fileID: 987724994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4283943659
+  passiveController: {fileID: 9187642045172891001, guid: 926f80db5f784e942a7a739c025d3301, type: 3}

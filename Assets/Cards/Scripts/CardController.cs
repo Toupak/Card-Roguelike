@@ -1,8 +1,8 @@
-using Data;
 using EnemyAttack;
 using JetBrains.Annotations;
 using Run_Loop;
 using Spells;
+using Spells.Passives;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +16,7 @@ namespace Cards.Scripts
         [SerializeField] public SpellButton singleButton;
         [SerializeField] public SpellButton leftButton;
         [SerializeField] public SpellButton rightButton;
+        [SerializeField] public PassiveHolder passiveHolder;
         [SerializeField] public Image EnemyIntentionBackground;
         [SerializeField] public Image EnemyIntentionIcon;
 
@@ -55,21 +56,24 @@ namespace Cards.Scripts
                 SetArtwork(cardData.artwork);
             gameObject.name = cardData.cardName;
             
-            if (cardMovement.IsEnemyCard)
+            SetupEnemyIntention(cardMovement.IsEnemyCard);
+            SetupSpells(cardMovement.IsEnemyCard);
+            SetupPassives();
+        }
+
+        private void SetupEnemyIntention(bool isEnemyCard)
+        {
+            if (isEnemyCard)
             {
                 enemyCardController = gameObject.AddComponent<EnemyCardController>();
                 enemyCardController!.Setup(this, cardData);
             }
-            else
-            {
-                SetupSpells();
-            }
         }
 
-        private void SetupSpells()
+        private void SetupSpells(bool isEnemyCard)
         {
-            bool isSingleSpell = cardData.spellList.Count == 1;
-            bool isDualSpell = cardData.spellList.Count == 2;
+            bool isSingleSpell = !isEnemyCard && cardData.spellList.Count == 1;
+            bool isDualSpell = !isEnemyCard && cardData.spellList.Count == 2;
 
             if (isSingleSpell)
                 singleButton.Setup(this, cardData.spellList[0]);
@@ -82,6 +86,12 @@ namespace Cards.Scripts
             singleButton.gameObject.SetActive(isSingleSpell);
             leftButton.gameObject.SetActive(isDualSpell);
             rightButton.gameObject.SetActive(isDualSpell);
+        }
+        
+        private void SetupPassives()
+        {
+            if (cardData.passiveList.Count > 0)
+                passiveHolder.Setup(this, cardData);
         }
 
         public void SetArtwork(Sprite newSprite)

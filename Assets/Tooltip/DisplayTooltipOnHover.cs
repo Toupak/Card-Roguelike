@@ -1,4 +1,4 @@
-using System;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static Tooltip.TooltipDisplay;
@@ -10,6 +10,10 @@ namespace Tooltip
         [SerializeField] [Tooltip("Can also be set through code")] private string titleToDisplay;
         [SerializeField] [TextArea] [Tooltip("Can also be set through code")] private string textToDisplay;
         [SerializeField] [Tooltip("title is optional when type == Regular")] private TooltipType tooltipType;
+
+        [Space]
+        [SerializeField] private RectTransform targetToSqueezeOnHover;
+        [SerializeField] private float squeezePowerOnHover;
         
         private TooltipDisplay tooltipDisplay;
 
@@ -27,6 +31,9 @@ namespace Tooltip
 
             tooltipDisplay = TooltipFactory.instance.CreateTooltip();
             tooltipDisplay.Setup(titleToDisplay, textToDisplay, tooltipType);
+
+            if (targetToSqueezeOnHover != null && squeezePowerOnHover > 0.0f)
+                Tween.PunchScale(targetToSqueezeOnHover, Vector3.down * squeezePowerOnHover, 0.1f);
         }
 
         private void HideTooltip()
