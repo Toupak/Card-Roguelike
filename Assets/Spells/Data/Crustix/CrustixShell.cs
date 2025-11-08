@@ -27,6 +27,9 @@ namespace Spells.Data.Crustix
             {
                 DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(damageGa);
+                
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(spellData.inflictStatus, spellData.statusStacksApplied, cardController, cardController);
+                ActionSystem.instance.AddReaction(applyStatusGa);
             }   
         }
         

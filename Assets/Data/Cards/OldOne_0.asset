@@ -16,9 +16,11 @@ MonoBehaviour:
   cardName: Mean Dog
   tribe: 1
   hpMax: 10
-  leftSpell: {fileID: 11400000, guid: 6e19eec2d19182a4f90a44627ee42cdf, type: 2}
-  rightSpell: {fileID: 11400000, guid: 52a999efc4528c045b63e1db1252717a, type: 2}
   artwork: {fileID: 7323773907787596163, guid: b059b2d79239de5498ca543eb095002d, type: 3}
   description: 
   alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: 6e19eec2d19182a4f90a44627ee42cdf, type: 2}
+  - {fileID: 11400000, guid: 52a999efc4528c045b63e1db1252717a, type: 2}
+  passiveList: []
   enemyBehaviours: []

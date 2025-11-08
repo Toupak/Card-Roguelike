@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
   m_Name: Hell Strike
   m_EditorClassIdentifier: 
-  spellName: Sudden Squirt
-  description: "Deal 1 Damages to a single target\n\nUnique Passive \nHell fuel :
-    Gains 1 Damage for every Death (ally or enemy)"
+  spellName: Hell Strike
+  description: Deal 1 Damages to a single target
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1
@@ -24,4 +22,4 @@ MonoBehaviour:
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
-  spellController: {fileID: 4792839060751240705, guid: 1e287cf2480365748a499e21d18ce407, type: 3}
+  spellController: {fileID: 0}

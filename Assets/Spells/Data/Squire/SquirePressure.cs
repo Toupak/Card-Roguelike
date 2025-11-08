@@ -22,13 +22,6 @@ namespace Spells.Data.Squire
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(spellData.inflictStatus, spellData.statusStacksApplied, cardController, target.cardController);
                 ActionSystem.instance.Perform(applyStatusGa);
             }
-
-            if (otherSpellButton.spellController.HasCastedThisTurn)
-            {
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                ApplyStatusGa selfStun = new ApplyStatusGa(StatusType.Stun, 2, cardController, cardController);
-                ActionSystem.instance.Perform(selfStun);
-            }
         }
     }
 }

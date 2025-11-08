@@ -16,9 +16,8 @@ MonoBehaviour:
   description: 'Crustix hides in his shell until next turn
 
     If attacked, enemies
-    take 1 damage back'
+    take 1 damage back and Crustix stays hidden 1 more turn'
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 2
   targetingMode: 0
   targetCount: 0

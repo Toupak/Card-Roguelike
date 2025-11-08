@@ -8,7 +8,7 @@ namespace Spells.Passives
         protected CardController cardController;
         protected PassiveData passiveData;
         
-        public void Setup(CardController controller, PassiveData data)
+        public virtual void Setup(CardController controller, PassiveData data)
         {
             cardController = controller;
             passiveData = data;

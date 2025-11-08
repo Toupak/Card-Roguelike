@@ -16,9 +16,13 @@ MonoBehaviour:
   cardName: Squirty Squire
   tribe: 0
   hpMax: 8
-  leftSpell: {fileID: 11400000, guid: 6ee60165c440c644394182de41d3b196, type: 2}
-  rightSpell: {fileID: 11400000, guid: ef039d16e8db1824592526ce4acfb455, type: 2}
   artwork: {fileID: 314153588172875450, guid: 385d36dd462c8254989b1524db951cd8, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: 6ee60165c440c644394182de41d3b196, type: 2}
+  - {fileID: 11400000, guid: ef039d16e8db1824592526ce4acfb455, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 185667f0a4972fa4eb154465adcd4bc4, type: 2}
   enemyBehaviours:
   - {fileID: 7463816269853331996, guid: 28b740949feddfc4c8be99ddcb4cfe87, type: 3}

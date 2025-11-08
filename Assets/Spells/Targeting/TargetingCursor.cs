@@ -85,7 +85,8 @@ namespace Spells.Targeting
         
         public void DestroyCursor()
         {
-            Destroy(gameObject);
+            if (gameObject != null)
+                Destroy(gameObject);
         }
     }
 }

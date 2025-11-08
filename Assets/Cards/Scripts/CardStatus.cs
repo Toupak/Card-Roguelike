@@ -94,7 +94,7 @@ namespace Cards.Scripts
         {
             if (enemyPerformsActionGa.cardController == cardController && currentStacks.ContainsKey(StatusType.DoritoCaltrop) && currentStacks[StatusType.DoritoCaltrop] > 0)
             {
-                DealDamageGA doritoCaltrop = new DealDamageGA(currentStacks[StatusType.DoritoCaltrop], cardController, cardController);
+                DealDamageGA doritoCaltrop = new DealDamageGA(1, cardController, cardController);
                 ActionSystem.instance.AddReaction(doritoCaltrop);
             }
         }

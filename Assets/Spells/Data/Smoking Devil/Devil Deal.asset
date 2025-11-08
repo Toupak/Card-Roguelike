@@ -13,16 +13,15 @@ MonoBehaviour:
   m_Name: Devil Deal
   m_EditorClassIdentifier: 
   spellName: Devil Deal
-  description: 'Deal 4 Damages to an ally
+  description: 'Deal 3 Damages to an ally
 
     Gives 3 damage for the next attack'
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 0
   targetingMode: 0
   targetCount: 1
   energyCost: 1
   damage: 3
   inflictStatus: 4
-  statusStacksApplied: 0
+  statusStacksApplied: 3
   spellController: {fileID: -740544001407661782, guid: d7564e083f483034089cb1c1f36c6b25, type: 3}

@@ -16,8 +16,12 @@ MonoBehaviour:
   cardName: Thorse
   tribe: 6
   hpMax: 10
-  leftSpell: {fileID: 11400000, guid: a0795b14ad0ebfb4d98de012aeb2de58, type: 2}
-  rightSpell: {fileID: 11400000, guid: 4554d70b052044748b9f79cef86749bc, type: 2}
   artwork: {fileID: 2942673451012882491, guid: b7e3478983bb51c42b238b105d83f567, type: 3}
   description: 
+  alternativeCardPrefab: {fileID: 0}
+  spellList:
+  - {fileID: 11400000, guid: a0795b14ad0ebfb4d98de012aeb2de58, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 39dc44d71dcd43041a4fd3e58fce6fba, type: 2}
+  - {fileID: 11400000, guid: 4b136965cc5cf3644ab9d3446a3f8fe3, type: 2}
   enemyBehaviours: []

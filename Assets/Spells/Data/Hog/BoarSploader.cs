@@ -1,24 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using Spells.Passives;
 using Spells.Targeting;
 
 namespace Spells.Data.Hog
 {
-    public class BoarSploader : SpellController
+    public class BoarSploader : PassiveController
     {
-        protected override void SubscribeReactions()
+        private void OnEnable()
         {
-            base.SubscribeReactions();
             ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStacksReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<DeathGA>(ExplodeOnDeathReaction, ReactionTiming.PRE);
         }
 
-        protected override  void UnsubscribeReactions()
+        private void OnDisable()
         {
-            base.UnsubscribeReactions();
             ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStacksReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<DeathGA>(ExplodeOnDeathReaction, ReactionTiming.PRE);
         }
@@ -31,15 +29,7 @@ namespace Spells.Data.Hog
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }
         }
-        
-        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
-        {
-            yield return base.CastSpellOnTarget(targets);
-            
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.HogGroink, 3, cardController, cardController);
-            ActionSystem.instance.Perform(applyStatusGa);
-        }
-        
+
         private void ExplodeOnDeathReaction(DeathGA deathGa)
         {
             if (deathGa.target == cardController)
@@ -50,7 +40,7 @@ namespace Spells.Data.Hog
 
                 foreach (CardMovement enemy in enemies)
                 {
-                    DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), cardController, enemy.cardController);
+                    DealDamageGA dealDamage = new DealDamageGA(damage, cardController, enemy.cardController);
                     ActionSystem.instance.AddReaction(dealDamage);
                 }
             }

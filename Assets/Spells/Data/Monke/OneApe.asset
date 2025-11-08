@@ -9,19 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
   m_Name: OneApe
   m_EditorClassIdentifier: 
-  spellName: One Ape Wolfpack
-  description: 'Passive : If alone on your board, gains +1 damage and attacks target
-    all enemies.'
+  passiveName: One Ape Wolfpack
+  description: If alone on your board, gains +1 damage and attacks target all enemies
   icon: {fileID: 0}
-  isPassive: 1
-  targetType: 2
-  targetingMode: 0
-  targetCount: 0
-  energyCost: 0
-  damage: 0
-  inflictStatus: 0
-  statusStacksApplied: 0
-  spellController: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4280098245
+  passiveController: {fileID: 0}

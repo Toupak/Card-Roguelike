@@ -14,8 +14,8 @@ namespace Spells
 {
     public class SpellController : MonoBehaviour, ISpellController
     {
-        public static UnityEvent OnStartCastingSpell = new UnityEvent();
-        public static UnityEvent OnCastSpell = new UnityEvent();
+        [HideInInspector] public UnityEvent OnStartCastingSpell = new UnityEvent();
+        [HideInInspector] public UnityEvent OnCastSpell = new UnityEvent();
         public static UnityEvent OnCancelSpell = new UnityEvent();
         
         protected CardController cardController;
@@ -110,8 +110,8 @@ namespace Spells
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             HasCastedThisTurn = true;
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
-            OnCastSpell?.Invoke();
             ConsumeEnergy();
+            OnCastSpell?.Invoke();
         }
 
         protected virtual void ConsumeEnergy()
@@ -153,7 +153,7 @@ namespace Spells
                 HasCastedThisTurn = false;
         }
 
-        protected virtual int ComputeCurrentDamage(int spellDamage)
+        public virtual int ComputeCurrentDamage(int spellDamage)
         {
             int bonus = 0;
 

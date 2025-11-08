@@ -18,9 +18,8 @@ MonoBehaviour:
     Double Damage if target is
     Stun
 
-    Using both spells will Stun the Squire'
+'
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1

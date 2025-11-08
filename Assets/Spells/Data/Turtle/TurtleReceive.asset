@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TurtleReceive
   m_EditorClassIdentifier: 
   spellName: ...And To Receive
-  description: Transfer all stun stacks from a target to himself
+  description: Remove all stun stacks affecting self, then deal as much damage to
+    target enemy
   icon: {fileID: 0}
-  isPassive: 0
-  targetType: 3
+  targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 1

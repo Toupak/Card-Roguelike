@@ -23,13 +23,6 @@ namespace Spells.Data.Squire
                 DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage) * damageMultiplier, cardController, target.cardController);
                 ActionSystem.instance.Perform(damageGa);
             }
-
-            if (otherSpellButton.spellController.HasCastedThisTurn)
-            {
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                ApplyStatusGa selfStun = new ApplyStatusGa(StatusType.Stun, 2, cardController, cardController);
-                ActionSystem.instance.Perform(selfStun);
-            }
         }
     }
 }

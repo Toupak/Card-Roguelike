@@ -1,29 +1,27 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Status;
+using Spells.Passives;
 using UnityEngine;
 
 namespace Spells.Data.Gumball
 {
-    public class GumballArmor : SpellController
+    public class GumballArmor : PassiveController
     {
         [SerializeField] private Sprite gumballStrong;
         [SerializeField] private Sprite gumballWeak;
 
         private bool isStrong = true;
         
-        protected override void SubscribeReactions()
+        private void OnEnable()
         {
-            base.SubscribeReactions();
             ActionSystem.SubscribeReaction<DealDamageGA>(ArmorReaction, ReactionTiming.PRE);
             ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStackReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
         }
 
-        protected override void UnsubscribeReactions()
+        private void OnDisable()
         {
-            base.UnsubscribeReactions();
             ActionSystem.UnsubscribeReaction<DealDamageGA>(ArmorReaction, ReactionTiming.PRE);
             ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStackReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
@@ -35,25 +33,13 @@ namespace Spells.Data.Gumball
             {
                 dealDamageGa.NegateDamage();
                 
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(spellData.inflictStatus, spellData.statusStacksApplied, dealDamageGa.attacker, cardController);
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.GumBoom, 1, dealDamageGa.attacker, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }
         }
         
         private void ApplyStackReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.target == cardController && applyStatusGa.type == StatusType.GumBoom && cardController.cardStatus.IsStatusApplied(StatusType.GumBoom))
-            {
-                int currentStacks = cardController.cardStatus.currentStacks[spellData.inflictStatus];
-                int maxStacks = StatusSystem.instance.GetStatusData(spellData.inflictStatus).maxStackCount;
-
-                if (currentStacks >= maxStacks)
-                {
-                    DeathGA deathGa = new DeathGA(applyStatusGa.attacker, cardController);
-                    ActionSystem.instance.AddReaction(deathGa);
-                }
-            }
-
             if (applyStatusGa.target == cardController && applyStatusGa.type == StatusType.Stun && isStrong)
             {
                 isStrong = false;

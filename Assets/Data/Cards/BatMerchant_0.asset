@@ -21,5 +21,6 @@ MonoBehaviour:
   alternativeCardPrefab: {fileID: 7743824647932158952, guid: b732c1a01b65a1543b92792dadfc3b61, type: 3}
   spellList:
   - {fileID: 11400000, guid: ebc13943cfb82144fa0fedbcc424f326, type: 2}
-  passiveList: []
+  passiveList:
+  - {fileID: 11400000, guid: d84b6462de72515469cba8fb40b273c1, type: 2}
   enemyBehaviours: []
