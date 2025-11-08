@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Spells.Passives
+namespace Passives
 {
     [CreateAssetMenu(fileName = "PassiveData", menuName = "Scriptable Objects/PassiveData")]
     public class PassiveData : ScriptableObject

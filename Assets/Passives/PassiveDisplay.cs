@@ -3,7 +3,7 @@ using Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Spells.Passives
+namespace Passives
 {
     public class PassiveDisplay : MonoBehaviour
     {

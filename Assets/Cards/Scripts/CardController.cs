@@ -1,8 +1,8 @@
 using EnemyAttack;
 using JetBrains.Annotations;
+using Passives;
 using Run_Loop;
 using Spells;
-using Spells.Passives;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

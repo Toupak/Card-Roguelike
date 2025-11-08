@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Passives;
+using Passives;
 using Spells.Targeting;
 
 namespace Spells.Data.Hog

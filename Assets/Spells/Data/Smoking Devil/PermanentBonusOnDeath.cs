@@ -1,7 +1,7 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Passives;
+using Passives;
 using UnityEngine;
 
 namespace Spells.Data.Smoking_Devil

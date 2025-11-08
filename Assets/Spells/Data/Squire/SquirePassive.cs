@@ -1,7 +1,7 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Passives;
+using Passives;
 
 namespace Spells.Data.Squire
 {

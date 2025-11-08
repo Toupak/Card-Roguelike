@@ -2,7 +2,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Cards.Scripts;
-using Spells.Passives;
+using Passives;
 
 namespace Spells.Data.Banana
 {

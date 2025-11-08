@@ -1,7 +1,7 @@
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Passives
+namespace Passives
 {
     public class PassiveController : MonoBehaviour
     {
