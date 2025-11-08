@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Pillar man_0
+  m_Name: SpiderBall_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Pillar man
+  cardName: SpiderBall_0
   tribe: 0
-  hpMax: 8
-  artwork: {fileID: -4373126044167616179, guid: 5178bc6b2bffe7d408f534b4a6e425bf, type: 3}
+  hpMax: 0
+  artwork: {fileID: -1841804726479415937, guid: ff79872db82fe80458c86ac5851cf680, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   spellList: []
-  passiveList:
-  - {fileID: 11400000, guid: eac752ee9261f5041b7364889f075c63, type: 2}
-  - {fileID: 11400000, guid: 53f33a6477043bd4fbef1d1a9f3c07c5, type: 2}
+  passiveList: []
   enemyBehaviours: []

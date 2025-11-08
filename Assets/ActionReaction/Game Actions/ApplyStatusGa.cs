@@ -7,7 +7,7 @@ namespace ActionReaction.Game_Actions
         public readonly StatusType type;
         public int amount;
         public readonly CardController attacker;
-        public readonly CardController target;
+        public CardController target;
 
         public ApplyStatusGa(StatusType statusType, int stacksAmount, CardController attackerController, CardController targetController)
         {
