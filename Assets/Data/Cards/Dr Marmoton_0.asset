@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Dr Marmoton_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Dr Marmoton_0
-  tribe: 0
-  hpMax: 0
+  cardName: Dr Marmoton
+  tribe: 1
+  hpMax: 10
   artwork: {fileID: -1932002448818386534, guid: eced0ad742530c2428c4238598869f1a, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
+  spellList:
+  - {fileID: 11400000, guid: 5add67fe6a16cff40acab2f26dd7a559, type: 2}
+  - {fileID: 11400000, guid: ec7f8cb87a5508e4dade9bd2b294722c, type: 2}
   passiveList: []
   enemyBehaviours: []
