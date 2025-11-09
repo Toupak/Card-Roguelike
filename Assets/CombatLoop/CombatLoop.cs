@@ -76,12 +76,23 @@ namespace CombatLoop
         {
             ActionSystem.AttachPerformer<StartTurnGa>(StartTurnPerformer);
             ActionSystem.AttachPerformer<EndTurnGA>(EndTurnPerformer);
+            ActionSystem.AttachPerformer<SpawnCardGA>(SpawnCardPerformer);
         }
 
         private void OnDisable()
         {
             ActionSystem.DetachPerformer<StartTurnGa>();
             ActionSystem.DetachPerformer<EndTurnGA>();
+            ActionSystem.DetachPerformer<SpawnCardGA>();
+        }
+        
+        private IEnumerator SpawnCardPerformer(SpawnCardGA spawnCardGa)
+        {
+            if (spawnCardGa.cardData.isEnemy)
+                enemyHandController.SpawnEnemy(spawnCardGa.cardData);
+            else 
+                playerHandController.DrawCard(new DeckCard(spawnCardGa.cardData), playerBoard);
+            yield return new WaitForSeconds(0.2f);
         }
 
         private IEnumerator FightIntro()

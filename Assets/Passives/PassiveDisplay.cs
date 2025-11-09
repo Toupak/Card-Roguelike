@@ -13,7 +13,7 @@ namespace Passives
         private PassiveController passiveController;
         private PassiveData data;
 
-        public void Setup(CardController cardController, PassiveData passiveData)
+        public PassiveController Setup(CardController cardController, PassiveData passiveData)
         {
             data = passiveData;
             background.color = passiveData.backgroundColor;
@@ -22,16 +22,19 @@ namespace Passives
                 icon.sprite = passiveData.icon;
             
             SetupTooltip(passiveData);
-            SetupSpellController(cardController, passiveData);
+            return SetupPassiveController(cardController, passiveData);
         }
         
-        private void SetupSpellController(CardController cardController, PassiveData passiveData)
+        private PassiveController SetupPassiveController(CardController cardController, PassiveData passiveData)
         {
             if (data.passiveController != null)
             {
                 passiveController = Instantiate(data.passiveController, transform);
                 passiveController.Setup(cardController, passiveData);
+                return passiveController;
             }
+
+            return null;
         }
         
         private void SetupTooltip(PassiveData passiveData)

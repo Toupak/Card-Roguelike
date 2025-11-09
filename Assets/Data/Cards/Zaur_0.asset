@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: DinoAndZaur_0
+  m_Name: Zaur_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Dino And Zaur
+  cardName: Zaur
   tribe: 0
-  hpMax: 12
-  artwork: {fileID: 7537354129705965272, guid: 6c1264b6b224d5f48a05e92c6a96b4a3, type: 3}
+  hpMax: 3
+  artwork: {fileID: -7475536190082204350, guid: 2216063929b9d964386ac8fef05157e8, type: 3}
   description: 
-  isSpecialSummon: 0
+  isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   spellList:
-  - {fileID: 11400000, guid: 9da995ba5354a66409f1c0ebb3a1a2c8, type: 2}
-  passiveList:
-  - {fileID: 11400000, guid: 70dfe9d2adea70e419bbc2b7a080f87d, type: 2}
+  - {fileID: 11400000, guid: b6dab8d82cf0f4545b5f3e31adec0d79, type: 2}
+  passiveList: []
   enemyBehaviours: []

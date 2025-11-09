@@ -653,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handContainer: {fileID: 1683356762}
+  playerBoard: {fileID: 236631251}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   cardData:
   - {fileID: 11400000, guid: 77493d91f08d2c34f8af5681cf0b8c99, type: 2}
@@ -676,6 +677,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d6947a48ee58f744ac683e61a3545eb, type: 2}
   - {fileID: 11400000, guid: a20f6055cb08fa546ba1cd417392e1e2, type: 2}
   - {fileID: 11400000, guid: b8b676602c1abf84eafd10ecb365fa02, type: 2}
+  - {fileID: 11400000, guid: 7c4b87b244623eb44b275f69f25f284a, type: 2}
 --- !u!4 &628700216
 Transform:
   m_ObjectHideFlags: 0

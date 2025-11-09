@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using ActionReaction;
+using ActionReaction.Game_Actions;
 using Board.Script;
 using Cards.Scripts;
 using Run_Loop;
@@ -11,6 +13,7 @@ namespace CombatLoop
     public class PlayerHandController : MonoBehaviour
     {
         [SerializeField] private CardContainer handContainer;
+        [SerializeField] private CardContainer playerBoard;
         [SerializeField] private CardMovement cardMovementPrefab;
         [SerializeField] private List<CardData> cardData;
         
@@ -24,7 +27,7 @@ namespace CombatLoop
 
                 foreach (DeckCard deckCard in cards)
                 {
-                    DrawCard(deckCard);
+                    DrawCard(deckCard, handContainer);
                     yield return new WaitForSeconds(0.1f);
                 }    
             }
@@ -32,16 +35,16 @@ namespace CombatLoop
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    DrawCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]));
+                    DrawCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
                     yield return new WaitForSeconds(0.1f);
                 }   
             }
         }
 
-        private void DrawCard(DeckCard deckCard)
+        public void DrawCard(DeckCard deckCard, CardContainer targetContainer)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
-            handContainer.ReceiveCard(newCard);
+            targetContainer.ReceiveCard(newCard);
 
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, deckCard);
             newCard.SetCardController(controller);
@@ -68,7 +71,7 @@ namespace CombatLoop
 
             for (int i = 0; i < 8; i++)
             {
-                DrawCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]));
+                DrawCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
                 yield return new WaitForSeconds(0.1f);
             }
         }

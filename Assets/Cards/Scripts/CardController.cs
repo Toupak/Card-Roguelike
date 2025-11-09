@@ -50,7 +50,7 @@ namespace Cards.Scripts
             cardData = cardFromDeck.cardData;
             deckCard = cardFromDeck;
 
-            cardName.text = cardData.cardName;
+            SetCardName(cardData.cardName);
             
             if (artwork != null)
                 SetArtwork(cardData.artwork);
@@ -59,6 +59,11 @@ namespace Cards.Scripts
             SetupEnemyIntention(cardMovement.IsEnemyCard);
             SetupSpells(cardMovement.IsEnemyCard);
             SetupPassives();
+        }
+
+        public void SetCardName(string newName)
+        {
+            cardName.text = newName;
         }
 
         private void SetupEnemyIntention(bool isEnemyCard)
@@ -76,16 +81,30 @@ namespace Cards.Scripts
             bool isDualSpell = !isEnemyCard && cardData.spellList.Count == 2;
 
             if (isSingleSpell)
-                singleButton.Setup(this, cardData.spellList[0]);
+                SetupSingleButton(cardData.spellList[0]);
             else if (isDualSpell)
             {
-                leftButton.Setup(this, cardData.spellList[0]);
-                rightButton.Setup(this, cardData.spellList[1]);
+                SetupDualButtons(cardData.spellList[0], cardData.spellList[1]);
             }
+        }
+
+        public void SetupSingleButton(SpellData data)
+        {
+            singleButton.Setup(this, data);
             
-            singleButton.gameObject.SetActive(isSingleSpell);
-            leftButton.gameObject.SetActive(isDualSpell);
-            rightButton.gameObject.SetActive(isDualSpell);
+            singleButton.gameObject.SetActive(true);
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(false);
+        }
+        
+        public void SetupDualButtons(SpellData left, SpellData right)
+        {
+            leftButton.Setup(this, left);
+            rightButton.Setup(this, right);
+            
+            singleButton.gameObject.SetActive(false);
+            leftButton.gameObject.SetActive(true);
+            rightButton.gameObject.SetActive(true);
         }
         
         private void SetupPassives()

@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
-  m_Name: EctoplasmTrade
+  m_Name: DinoAndZaurAttack
   m_EditorClassIdentifier: 
-  spellName: Oher-Worldly Trade
-  description: "Consume 1/3/5 Pants to cast on a target : \n1 : Apply 1 Weak\n2 :
-    Apply 2 Bonus Damage\n3 : Apply Fury"
+  spellName: Anachronistic Charge
+  description: 'Deal 2 damage to the first target
+
+    Deal 1 damage to the second
+    target'
   icon: {fileID: 0}
-  targetType: 3
-  targetingMode: 0
-  targetCount: 1
-  energyCost: 0
-  damage: 0
+  targetType: 1
+  targetingMode: 1
+  targetCount: 2
+  energyCost: 1
+  damage: 2
   inflictStatus: 0
   statusStacksApplied: 0
-  spellController: {fileID: -5337857875645318189, guid: 8d3e6184a52210345b6ddd90fdaf25a4, type: 3}
+  spellController: {fileID: 4831699998637386750, guid: a31ba8dc579344a408c79814c989f31b, type: 3}

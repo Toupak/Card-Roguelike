@@ -6,7 +6,7 @@ namespace Passives
     public class PassiveController : MonoBehaviour
     {
         protected CardController cardController;
-        protected PassiveData passiveData;
+        public PassiveData passiveData { get; private set; }
         
         public virtual void Setup(CardController controller, PassiveData data)
         {
