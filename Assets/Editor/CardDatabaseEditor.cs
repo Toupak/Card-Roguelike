@@ -181,7 +181,7 @@ namespace Editor
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Filter:", GUILayout.Width(40));
             if (GUILayout.Toggle(_globalfilter == "All", $"All ({db.AllCards.Count})", EditorStyles.miniButtonLeft)) _globalfilter = "All";
-            if (GUILayout.Toggle(_globalfilter == "Incomplete", $"Incomplete ({db.AllCards.Count(x => IsIncomplete(x))})", EditorStyles.miniButtonMid)) _globalfilter = "Incomplete";
+            if (GUILayout.Toggle(_globalfilter == "Incomplete", $"Incomplete ({db.AllCards.Count(x => IsIncomplete(x, db.AllCards.ToList().IndexOf(x)))})", EditorStyles.miniButtonMid)) _globalfilter = "Incomplete";
             if (GUILayout.Toggle(_globalfilter == "WrongNumber", $"Wrong Number ({db.AllCards.Count(x => wrongCardNumbers.Contains(x.cardNumber))})", EditorStyles.miniButtonRight)) _globalfilter = "WrongNumber";
             EditorGUILayout.EndHorizontal();
 
@@ -332,8 +332,11 @@ namespace Editor
             }
         }
 
-        private bool IsIncomplete(CardData card)
+        private bool IsIncomplete(CardData card, int indexOf = -42)
         {
+            if (indexOf != -42)
+                Debug.Log($"Wtf : {indexOf}");
+            
             return string.IsNullOrEmpty(card.cardName) ||
                    string.IsNullOrEmpty(card.description) ||
                    card.cardNumber == 0;

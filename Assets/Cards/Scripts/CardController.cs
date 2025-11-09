@@ -86,6 +86,12 @@ namespace Cards.Scripts
             {
                 SetupDualButtons(cardData.spellList[0], cardData.spellList[1]);
             }
+            else
+            {
+                singleButton.gameObject.SetActive(false);
+                leftButton.gameObject.SetActive(false);
+                rightButton.gameObject.SetActive(false);
+            }
         }
 
         public void SetupSingleButton(SpellData data)
