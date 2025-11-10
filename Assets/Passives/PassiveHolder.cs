@@ -23,6 +23,30 @@ namespace Passives
             }
         }
 
+        public void AddPassive(PassiveData data)
+        {
+            SpawnPassiveObject(data);
+        }
+
+        public void RemovePassive(PassiveData data)
+        {
+            int passiveIndex = -1;
+            for (int i = 0; i < passives.Count; i++)
+            {
+                if (passives[i].passiveData.passiveName == data.passiveName)
+                {
+                    passiveIndex = i;
+                    break;
+                }
+            }
+
+            if (passiveIndex >= 0)
+            {
+                Destroy(passives[passiveIndex].transform.parent.gameObject);
+                passives.RemoveAt(passiveIndex);
+            }
+        }
+        
         private void SpawnPassiveObject(PassiveData data)
         {
             PassiveDisplay passive = Instantiate(passivePrefab, transform);

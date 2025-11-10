@@ -27,12 +27,16 @@ namespace Status
         {
             ActionSystem.AttachPerformer<ApplyStatusGa>(ApplyStunPerformer);
             ActionSystem.AttachPerformer<ConsumeStacksGa>(ConsumeStacksPerformer);
+            ActionSystem.AttachPerformer<ApplyPassiveGa>(ApplyPassivePerformer);
+            ActionSystem.AttachPerformer<RemovePassiveGa>(RemovePassivePerformer);
         }
 
         private void OnDisable()
         {
             ActionSystem.DetachPerformer<ApplyStatusGa>();
             ActionSystem.DetachPerformer<ConsumeStacksGa>();
+            ActionSystem.DetachPerformer<ApplyPassiveGa>();
+            ActionSystem.DetachPerformer<RemovePassiveGa>();
         }
 
         private IEnumerator ApplyStunPerformer(ApplyStatusGa applyStatusGa)
@@ -68,6 +72,22 @@ namespace Status
                 return null;
             
             return statusData.Where((s) => s.type == type).ToList().First();
+        }
+        
+        private IEnumerator ApplyPassivePerformer(ApplyPassiveGa applyPassiveGa)
+        {
+            if (applyPassiveGa.target != null)
+                applyPassiveGa.target.passiveHolder.AddPassive(applyPassiveGa.passive);
+            
+            yield break;
+        }
+        
+        private IEnumerator RemovePassivePerformer(RemovePassiveGa removePassiveGa)
+        {
+            if (removePassiveGa.target != null)
+                removePassiveGa.target.passiveHolder.RemovePassive(removePassiveGa.passive);
+            
+            yield break;
         }
     }
 }
