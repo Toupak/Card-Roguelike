@@ -20,6 +20,7 @@ namespace Spells.Targeting
         private readonly List<Vector2> controlPointsFactors = new List<Vector2> { new Vector2(-0.3f, 0.8f), new Vector2(0.1f, 1.4f) };
 
         private bool isSetup;
+        private bool isDestroyed;
 
         public void Setup(Transform startingPosition)
         {
@@ -85,8 +86,9 @@ namespace Spells.Targeting
         
         public void DestroyCursor()
         {
-            if (gameObject != null)
+            if (!isDestroyed)
                 Destroy(gameObject);
+            isDestroyed = true;
         }
     }
 }

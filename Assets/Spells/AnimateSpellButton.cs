@@ -73,7 +73,6 @@ namespace Spells
 
         private void UpdateButtonSprite(bool displayAsClicked)
         {
-            Debug.Log($"Zuzu : Current State : {currentState}");
             switch (currentState)
             {
                 case ButtonState.Enabled:

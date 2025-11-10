@@ -21,20 +21,21 @@ namespace Tooltip
         [SerializeField] private Vector2 offset;
 
         private RectTransform rectTransform;
-        
         private Vector3 velocity;
+        private bool isDisplayedOnTheLeft;
         
         private bool isSetup;
 
         public void Setup(string mainText, TooltipType type)
         {
-            Setup("", mainText, type);
+            Setup("", mainText, type, false);
         }
         
-        public void Setup(string title, string mainText, TooltipType type)
+        public void Setup(string title, string mainText, TooltipType type, bool displayOnTheLeft)
         {
             SetupText(type, title, mainText);
-            transform.localPosition = CursorInfo.instance.currentPosition + offset;
+            isDisplayedOnTheLeft = displayOnTheLeft;
+            transform.localPosition = CursorInfo.instance.currentPosition + (ComputeOffset() * 0.7f);
             rectTransform = GetComponent<RectTransform>();
             isSetup = true;
         }
@@ -60,13 +61,21 @@ namespace Tooltip
 
         private void FollowCursor()
         {
-            Vector2 cursorPosition = CursorInfo.instance.currentPosition + offset;
+            Vector2 cursorPosition = CursorInfo.instance.currentPosition + ComputeOffset();
             Vector3 clampedPosition = Tools.ClampPositionInScreen(cursorPosition, rectTransform.rect.size);
             
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, clampedPosition, ref velocity, smoothTime);
         }
 
-       
+        private Vector2 ComputeOffset()
+        {
+            Vector2 currentOffset = offset;
+            if (isDisplayedOnTheLeft)
+                currentOffset.x *= -1.0f;
+
+            return currentOffset;
+        }
+
         public void Hide()
         {
             Destroy(gameObject);

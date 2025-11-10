@@ -43,7 +43,7 @@ namespace Spells.Data.Cube
         
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.target.cardStatus.IsStatusApplied(StatusType.Protected))
+            if (applyStatusGa.target != null && applyStatusGa.target.cardStatus.IsStatusApplied(StatusType.Protected))
                 applyStatusGa.target = cardController;
         }
     }

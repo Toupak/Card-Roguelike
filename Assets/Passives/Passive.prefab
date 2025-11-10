@@ -260,3 +260,4 @@ MonoBehaviour:
   tooltipType: 0
   targetToSqueezeOnHover: {fileID: 970352287843830097}
   squeezePowerOnHover: 0.6
+  displayOnTheLeft: 1

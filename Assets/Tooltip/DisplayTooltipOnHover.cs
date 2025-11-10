@@ -14,6 +14,9 @@ namespace Tooltip
         [Space]
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;
+
+        [Space] 
+        [SerializeField] private bool displayOnTheLeft;
         
         private TooltipDisplay tooltipDisplay;
 
@@ -30,7 +33,7 @@ namespace Tooltip
                 return;
 
             tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.Setup(titleToDisplay, textToDisplay, tooltipType);
+            tooltipDisplay.Setup(titleToDisplay, textToDisplay, tooltipType, displayOnTheLeft);
 
             if (targetToSqueezeOnHover != null && squeezePowerOnHover > 0.0f)
                 Tween.PunchScale(targetToSqueezeOnHover, Vector3.down * squeezePowerOnHover, 0.1f);
