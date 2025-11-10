@@ -44,10 +44,15 @@ namespace Spells.Data.BatMerchant
                 UpdateShinyState(true);
         }
         
-        protected override void ConsumeEnergy()
+        protected override IEnumerator ConsumeEnergy(int cost)
         {
-            if (!IsShiny)
-                EnergyController.instance.RemoveEnergy(spellData.energyCost);
+            if (!IsShiny && cost > 0)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                ConsumeEnergyGa consumeEnergyGa = new ConsumeEnergyGa(cost, this);
+                ActionSystem.instance.Perform(consumeEnergyGa);
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+            }
         }
         
         protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)

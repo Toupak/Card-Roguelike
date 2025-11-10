@@ -112,14 +112,20 @@ namespace Spells
             //yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             HasCastedThisTurn = true;
-            Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
-            ConsumeEnergy();
+            yield return ConsumeEnergy(spellData.energyCost);
             OnCastSpell?.Invoke();
+            Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
         }
 
-        protected virtual void ConsumeEnergy()
+        protected virtual IEnumerator ConsumeEnergy(int cost)
         {
-            EnergyController.instance.RemoveEnergy(spellData.energyCost);
+            if (cost > 0)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                ConsumeEnergyGa consumeEnergyGa = new ConsumeEnergyGa(cost, this);
+                ActionSystem.instance.Perform(consumeEnergyGa);
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+            }
         }
 
         private void OnEnable()

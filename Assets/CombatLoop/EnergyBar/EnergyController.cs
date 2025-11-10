@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using ActionReaction;
+using ActionReaction.Game_Actions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,6 +25,22 @@ namespace CombatLoop.EnergyBar
             instance = this;
         }
 
+        private void OnEnable()
+        {
+            ActionSystem.AttachPerformer<ConsumeEnergyGa>(ConsumeEnergyPerformer);
+        }
+
+        private void OnDisable()
+        {
+            ActionSystem.DetachPerformer<ConsumeEnergyGa>();
+        }
+        
+        private IEnumerator ConsumeEnergyPerformer(ConsumeEnergyGa consumeEnergyGa)
+        {
+            RemoveEnergy(consumeEnergyGa.cost);
+            yield break;
+        }
+
         public bool CheckForEnergy(int energyRequiredForAction)
         {
             return energyRequiredForAction <= currentEnergyCount;
@@ -38,9 +58,9 @@ namespace CombatLoop.EnergyBar
             OnRefreshEnergy.Invoke(currentEnergyCount);
         }
 
-        public void RemoveEnergy(int energyRequiredForAction)
+        private void RemoveEnergy(int energyRequiredForAction)
         {
-            currentEnergyCount -= energyRequiredForAction;
+            currentEnergyCount = Mathf.Max(0, currentEnergyCount - energyRequiredForAction);
 
             OnRemoveEnergy.Invoke(energyRequiredForAction);
 
