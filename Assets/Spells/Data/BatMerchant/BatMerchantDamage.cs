@@ -11,8 +11,6 @@ namespace Spells.Data.BatMerchant
 {
     public class BatMerchantDamage : SpellController
     {
-        private bool isSpellRefreshed = false;
-        
         public override bool CanCastSpell()
         {
             if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
@@ -22,7 +20,7 @@ namespace Spells.Data.BatMerchant
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 return false;
 
-            if (isSpellRefreshed)
+            if (IsShiny)
                 return true;
                 
             return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost);
@@ -43,23 +41,19 @@ namespace Spells.Data.BatMerchant
         private void CheckForKillRefresh(DeathGA deathGa)
         {
             if (deathGa.killer == cardController)
-            {
-                isSpellRefreshed = true;
-                IsShiny = true;
-            }
+                UpdateShinyState(true);
         }
         
         protected override void ConsumeEnergy()
         {
-            if (!isSpellRefreshed)
+            if (!IsShiny)
                 EnergyController.instance.RemoveEnergy(spellData.energyCost);
         }
         
         protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
             base.EndTurnRefreshCooldownReaction(startTurnGa);
-            isSpellRefreshed = false;
-            IsShiny = false;
+            UpdateShinyState(false);
         }
         
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
@@ -68,8 +62,7 @@ namespace Spells.Data.BatMerchant
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            isSpellRefreshed = false;
-            IsShiny = false;
+            UpdateShinyState(false);
             
             bool isSplitAttack = targets.Count > 1 && Tools.RandomBool();
             int targetCount = Mathf.Min(targets.Count, ComputeCurrentTargetCount(isSplitAttack ? 2 : 1));

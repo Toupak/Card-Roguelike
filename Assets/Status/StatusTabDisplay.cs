@@ -34,7 +34,7 @@ namespace Status
         private void SetupTooltip(StatusData data)
         {
             displayTooltipOnHover = GetComponent<DisplayTooltipOnHover>();
-            displayTooltipOnHover.SetTextToDisplay(data.statusName, data.statusDescription, TooltipDisplay.TooltipType.Spell);
+            displayTooltipOnHover.SetupPassiveTooltip(data.statusName, data.statusDescription, data.icon);
         }
 
         public void UpdateStackCount(int stackCount)

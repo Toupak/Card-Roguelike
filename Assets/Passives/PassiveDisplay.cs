@@ -39,7 +39,7 @@ namespace Passives
         
         private void SetupTooltip(PassiveData passiveData)
         {
-            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(passiveData.passiveName, passiveData.description, TooltipDisplay.TooltipType.Spell);
+            GetComponent<DisplayTooltipOnHover>().SetupPassiveTooltip(passiveData.passiveName, passiveData.description, passiveData.icon);
         }
     }
 }

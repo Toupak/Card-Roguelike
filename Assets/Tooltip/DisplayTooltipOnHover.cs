@@ -1,3 +1,4 @@
+using System;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,10 +8,12 @@ namespace Tooltip
 {
     public class DisplayTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] [Tooltip("Can also be set through code")] private string titleToDisplay;
-        [SerializeField] [TextArea] [Tooltip("Can also be set through code")] private string textToDisplay;
-        [SerializeField] [Tooltip("title is optional when type == Regular")] private TooltipType tooltipType;
-
+        [SerializeField] private string titleToDisplay;
+        [SerializeField] [TextArea] private string textToDisplay;
+        [SerializeField] private TooltipType tooltipType;
+        [SerializeField] private int energyCostToDisplay;
+        [SerializeField] private Sprite iconToDisplay;
+        
         [Space]
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;
@@ -20,11 +23,29 @@ namespace Tooltip
         
         private TooltipDisplay tooltipDisplay;
 
-        public void SetTextToDisplay(string title, string main, TooltipType type)
+        public void SetupSpellTooltip(string title, string main, int energyCost, Sprite icon)
         {
             titleToDisplay = title;
             textToDisplay = main;
-            tooltipType = type;
+            energyCostToDisplay = energyCost;
+            iconToDisplay = icon;
+            tooltipType = TooltipType.Spell;
+        }
+        
+        public void SetupPassiveTooltip(string title, string main, Sprite icon)
+        {
+            titleToDisplay = title;
+            textToDisplay = main;
+            iconToDisplay = icon;
+            tooltipType = TooltipType.Passive;
+        }
+        
+        public void SetupEnemyIntentionTooltip(string title, string main, Sprite icon)
+        {
+            titleToDisplay = title;
+            textToDisplay = main;
+            iconToDisplay = icon;
+            tooltipType = TooltipType.Passive;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -32,11 +53,35 @@ namespace Tooltip
             if (tooltipDisplay != null)
                 return;
 
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.Setup(titleToDisplay, textToDisplay, tooltipType, displayOnTheLeft);
-
+            DisplayTooltip();
+            
             if (targetToSqueezeOnHover != null && squeezePowerOnHover > 0.0f)
                 Tween.PunchScale(targetToSqueezeOnHover, Vector3.down * squeezePowerOnHover, 0.1f);
+        }
+
+        private void DisplayTooltip()
+        {
+            switch (tooltipType)
+            {
+                case TooltipType.Spell:
+                    tooltipDisplay = TooltipFactory.instance.CreateTooltip()
+                        .AddTitle(titleToDisplay)
+                        .AddMainText(textToDisplay)
+                        .SetDisplaySide(displayOnTheLeft)
+                        .AddEnergyCost(energyCostToDisplay)
+                        .AddIcon(iconToDisplay);
+                    break;
+                case TooltipType.EnemyIntentions:
+                case TooltipType.Passive:
+                    tooltipDisplay = TooltipFactory.instance.CreateTooltip()
+                        .AddTitle(titleToDisplay)
+                        .AddMainText(textToDisplay)
+                        .SetDisplaySide(displayOnTheLeft)
+                        .AddIcon(iconToDisplay);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void HideTooltip()

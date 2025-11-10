@@ -19,6 +19,8 @@ namespace Spells
         [HideInInspector] public UnityEvent OnClickSpellButton = new UnityEvent();
         [HideInInspector] public UnityEvent OnCastSpell = new UnityEvent();
 
+        private DisplayTooltipOnHover displayTooltipOnHover;
+        
         public SpellController spellController { get; private set; }
         public SpellData spellData { get; private set; }
         public Image ButtonIcon => buttonIcon;
@@ -37,7 +39,13 @@ namespace Spells
 
         private void SetupTooltip(SpellData data)
         {
-            GetComponent<DisplayTooltipOnHover>().SetTextToDisplay(data.spellName, data.description, TooltipDisplay.TooltipType.Spell);
+            displayTooltipOnHover = GetComponent<DisplayTooltipOnHover>();
+            displayTooltipOnHover.SetupSpellTooltip(data.spellName, data.description, data.energyCost, data.icon);
+        }
+
+        public void UpdateTooltipEnergyCost(int newCost)
+        {
+            GetComponent<DisplayTooltipOnHover>().SetupSpellTooltip(spellData.spellName, spellData.description, newCost, spellData.icon);
         }
 
         private void SetupButtonIcon(SpellData data)
@@ -49,7 +57,7 @@ namespace Spells
         private void SetupSpellController(CardController cardController, SpellData data)
         {
             spellController = Instantiate(data.spellController != null ? data.spellController : defaultSpellControllerPrefab, transform);
-            spellController.Setup(cardController, data, otherButton);
+            spellController.Setup(cardController, data, this, otherButton);
         }
         
         public void OnPointerDown(PointerEventData eventData)

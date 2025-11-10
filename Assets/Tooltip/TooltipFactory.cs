@@ -15,7 +15,8 @@ namespace Tooltip
         
         public TooltipDisplay CreateTooltip()
         {
-            TooltipDisplay tooltipDisplay = Instantiate(tooltipDisplayPrefab, transform); 
+            TooltipDisplay tooltipDisplay = Instantiate(tooltipDisplayPrefab, transform);
+            tooltipDisplay.Setup();
             return tooltipDisplay;
         }
     }

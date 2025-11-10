@@ -11,9 +11,9 @@ namespace Spells.Data.Canis_Balistic
 {
     public class BarkSpell : SpellController
     {
-        public override void Setup(CardController controller, SpellData data, SpellButton otherSpell)
+        public override void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
-            base.Setup(controller, data, otherSpell);
+            base.Setup(controller, data, attacheSpellButton, otherSpell);
             otherSpell.OnCastSpell.AddListener(() => HasCastedThisTurn = true);
         }
         

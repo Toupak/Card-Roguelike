@@ -20,6 +20,7 @@ namespace Spells
         
         protected CardController cardController;
         public SpellData spellData { get; protected set; }
+        protected SpellButton thisSpellButton;
         protected SpellButton otherSpellButton;
         
         protected Coroutine castSpellRoutine = null;
@@ -28,10 +29,11 @@ namespace Spells
         public bool IsShiny { get; protected set; }
         public bool HasCastedThisTurn { get; protected set; }
 
-        public virtual void Setup(CardController controller, SpellData data, SpellButton otherSpell)
+        public virtual void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
             cardController = controller;
             spellData = data;
+            thisSpellButton = attacheSpellButton;
             otherSpellButton = otherSpell;
         }
 
@@ -176,6 +178,15 @@ namespace Spells
                 return count + cardController.cardStatus.currentStacks[StatusType.Fury];
 
             return count;
+        }
+
+        public void UpdateShinyState(bool newState)
+        {
+            if (IsShiny == newState)
+                return;
+
+            IsShiny = newState;
+            thisSpellButton.UpdateTooltipEnergyCost(IsShiny ? 0 : spellData.energyCost);
         }
     }
 }

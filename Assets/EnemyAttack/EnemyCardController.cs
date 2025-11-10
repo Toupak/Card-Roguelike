@@ -101,7 +101,7 @@ namespace EnemyAttack
         {
             BaseEnemyBehaviour behaviour = behaviourQueue.Peek();
             cardController.EnemyIntentionIcon.sprite = behaviour.intentionIcon;
-            displayTooltipOnHover.SetTextToDisplay(behaviour.behaviourName, behaviour.description, TooltipDisplay.TooltipType.Spell);
+            displayTooltipOnHover.SetupEnemyIntentionTooltip(behaviour.behaviourName, behaviour.description, behaviour.intentionIcon);
         }
     }
 }

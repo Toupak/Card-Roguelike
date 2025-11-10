@@ -1,7 +1,9 @@
 using BoomLib.Tools;
+using CombatLoop.EnergyBar;
 using Cursor.Script;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tooltip
 {
@@ -10,45 +12,48 @@ namespace Tooltip
         public enum TooltipType
         {
             Spell,
-            Regular
+            Passive,
+            EnemyIntentions
         }
-        
+
+        [SerializeField] private GameObject titleGameObject;
         [SerializeField] private TextMeshProUGUI titleTextMeshPro;
-        [SerializeField] private TextMeshProUGUI mainTextMeshPro;
-        [SerializeField] private TextMeshProUGUI regularTextMeshPro;
-        [SerializeField] private float smoothTime;
         
+        [Space]
+        [SerializeField] private TextMeshProUGUI mainTextMeshPro;
+
+        [Space] 
+        [SerializeField] private GameObject iconGameObject;
+        [SerializeField] private Image iconImage;
+        
+        [Space] 
+        [SerializeField] private GameObject energyGameObject;
+        [SerializeField] private RectTransform energyHolder;
+        [SerializeField] private RectTransform energyBackground;
+        [SerializeField] private GameObject emptyEnergyPrefab;
+        [SerializeField] private GameObject filledEnergyPrefab;
+        
+        [Space]
         [SerializeField] private Vector2 offset;
 
         private RectTransform rectTransform;
         private Vector3 velocity;
+        private float smoothTime = 0.1f;
+        
         private bool isDisplayedOnTheLeft;
         
         private bool isSetup;
 
-        public void Setup(string mainText, TooltipType type)
+        public void Setup()
         {
-            Setup("", mainText, type, false);
-        }
-        
-        public void Setup(string title, string mainText, TooltipType type, bool displayOnTheLeft)
-        {
-            SetupText(type, title, mainText);
-            isDisplayedOnTheLeft = displayOnTheLeft;
-            transform.localPosition = CursorInfo.instance.currentPosition + (ComputeOffset() * 0.7f);
             rectTransform = GetComponent<RectTransform>();
+            transform.localPosition = CursorInfo.instance.currentPosition + (ComputeOffset() * 0.7f);
+            
+            titleGameObject.SetActive(false);
+            iconGameObject.SetActive(false);
+            energyGameObject.SetActive(false);
+            
             isSetup = true;
-        }
-
-        private void SetupText(TooltipType type, string title, string main)
-        {
-            titleTextMeshPro.gameObject.SetActive(type == TooltipType.Spell);
-            mainTextMeshPro.gameObject.SetActive(type == TooltipType.Spell);
-            regularTextMeshPro.gameObject.SetActive(type == TooltipType.Regular);
-
-            titleTextMeshPro.text = title;
-            mainTextMeshPro.text = main;
-            regularTextMeshPro.text = main;
         }
 
         private void Update()
@@ -79,6 +84,54 @@ namespace Tooltip
         public void Hide()
         {
             Destroy(gameObject);
+        }
+
+        public TooltipDisplay AddTitle(string titleToDisplay)
+        {
+            titleGameObject.SetActive(true);
+            titleTextMeshPro.text = titleToDisplay;
+            
+            return this;
+        }
+
+        public TooltipDisplay AddMainText(string textToDisplay)
+        {
+            mainTextMeshPro.text = textToDisplay;
+            
+            return this;
+        }
+
+        public TooltipDisplay SetDisplaySide(bool displayOnTheLeft)
+        {
+            isDisplayedOnTheLeft = displayOnTheLeft;
+            transform.localPosition = CursorInfo.instance.currentPosition + (ComputeOffset() * 0.7f);
+            return this;
+        }
+
+        public TooltipDisplay AddEnergyCost(int energyCostToDisplay)
+        {
+            int maxEnergy = EnergyController.instance != null ? EnergyController.instance.StartingEnergyCount : 3;
+            
+            energyGameObject.SetActive(true);
+            energyBackground.sizeDelta = new Vector2(45.0f, 118.0f + (35.0f * (maxEnergy - 3)));
+
+            for (int i = 0; i < maxEnergy; i++)
+            {
+                Instantiate(i < energyCostToDisplay ? filledEnergyPrefab : emptyEnergyPrefab, energyHolder);
+            }
+            
+            return this;
+        }
+
+        public TooltipDisplay AddIcon(Sprite iconToDisplay)
+        {
+            if (iconToDisplay == null)
+                return this;
+            
+            iconGameObject.SetActive(true);
+            iconImage.sprite = iconToDisplay;
+            
+            return this;
         }
     }
 }
