@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EctoplasmTrade
   m_EditorClassIdentifier: 
   spellName: Oher-Worldly Trade
-  description: "Consume 1/3/5 Pants to cast on a target : \n1 : Apply 1 Weak\n2 :
-    Apply 2 Bonus Damage\n3 : Apply Fury"
+  description: "Consume 1/3/5 Pants to cast on a target : \n1 : Apply 1 Weak\n3 :
+    Apply 2 Bonus Damage\n5 : Apply Fury"
   icon: {fileID: 0}
   targetType: 3
   targetingMode: 0

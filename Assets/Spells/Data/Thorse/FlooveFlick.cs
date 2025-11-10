@@ -13,7 +13,7 @@ namespace Spells.Data.Thorse
         public override void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
             base.Setup(controller, data, attacheSpellButton, otherSpell);
-            thisSpellButton.UpdateTooltipEnergyCost(EnergyController.instance.StartingEnergyCount);
+            thisSpellButton.UpdateTooltipEnergyCost(EnergyController.instance != null ? EnergyController.instance.StartingEnergyCount : 3);
         }
         
         protected override void SubscribeReactions()

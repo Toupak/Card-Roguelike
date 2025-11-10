@@ -34,7 +34,8 @@ namespace Tooltip
         [SerializeField] private GameObject filledEnergyPrefab;
         
         [Space]
-        [SerializeField] private Vector2 offset;
+        [SerializeField] private Vector2 leftOffset;
+        [SerializeField] private Vector2 rightOffset;
 
         private RectTransform rectTransform;
         private Vector3 velocity;
@@ -74,11 +75,7 @@ namespace Tooltip
 
         private Vector2 ComputeOffset()
         {
-            Vector2 currentOffset = offset;
-            if (isDisplayedOnTheLeft)
-                currentOffset.x *= -1.0f;
-
-            return currentOffset;
+            return isDisplayedOnTheLeft ? leftOffset : rightOffset;
         }
 
         public void Hide()
