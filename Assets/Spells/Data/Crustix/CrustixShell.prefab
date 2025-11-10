@@ -48,3 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c3449d2db8da4ab576c69e4cccc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnStartCastingSpell:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCastSpell:
+    m_PersistentCalls:
+      m_Calls: []
+  regularSprite: {fileID: 8744307821027899365, guid: 8f073b0453321b24eab62509cb215428, type: 3}
+  armoredSprite: {fileID: -3126211664629110859, guid: 51e572f07512f7d4e8fbc92c71a89502, type: 3}

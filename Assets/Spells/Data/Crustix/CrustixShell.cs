@@ -9,18 +9,53 @@ namespace Spells.Data.Crustix
 {
     public class CrustixShell : SpellController
     {
+        [SerializeField] private Sprite regularSprite;
+        [SerializeField] private Sprite armoredSprite;
+
+        private bool isArmored;
+        
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();
             ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
         }
 
         protected override void UnsubscribeReactions()
         {
             base.UnsubscribeReactions();
             ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
+        }
+
+        private void ConsumeStackReaction(ConsumeStacksGa consumeStacksGa)
+        {
+            if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.CrustixShell)
+                UpdateArmorStatus();
+        }
+
+        private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
+        {
+            if (applyStatusGa.target == cardController && applyStatusGa.type == StatusType.CrustixShell)
+                UpdateArmorStatus();
         }
         
+        private void UpdateArmorStatus()
+        {
+            if (isArmored && !cardController.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            {
+                isArmored = false;
+                cardController.SetArtwork(regularSprite);
+            }
+            else if (!isArmored && cardController.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            {
+                isArmored = true;
+                cardController.SetArtwork(armoredSprite);
+            }
+        }
+
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
             if (dealDamageGa.target == cardController && cardController.cardStatus.IsStatusApplied(spellData.inflictStatus))
