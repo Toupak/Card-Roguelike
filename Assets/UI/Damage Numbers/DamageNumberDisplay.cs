@@ -17,8 +17,9 @@ namespace UI.Damage_Numbers
             AnimateDisplay(position);
         }
 
-        public void Setup(Vector2 position)
+        public void Setup(Vector2 position, string text)
         {
+            damageText.text = text;
             AnimateDisplay(position);
         }
 

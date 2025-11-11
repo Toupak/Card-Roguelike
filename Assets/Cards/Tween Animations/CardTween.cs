@@ -72,7 +72,7 @@ namespace Cards.Tween_Animations
             Sequence.Create()
                 .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
-                .ChainCallback(() => DamageNumberFactory.instance.DisplayMissAttackMessage(targetStartingPosition))
+                .ChainCallback(() => DamageNumberFactory.instance.DisplayQuickMessage(targetStartingPosition, "Miss"))
                 .Chain(Tween.UIAnchoredPositionY(target.rectTransform, targetStartingPosition.y - distance * 2.0f, 0.1f, Ease.OutBounce))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(target.rectTransform, targetStartingPosition, 0.1f, Ease.OutElastic))

@@ -25,7 +25,7 @@ namespace Status
 
         private void OnEnable()
         {
-            ActionSystem.AttachPerformer<ApplyStatusGa>(ApplyStunPerformer);
+            ActionSystem.AttachPerformer<ApplyStatusGa>(ApplyStatusPerformer);
             ActionSystem.AttachPerformer<ConsumeStacksGa>(ConsumeStacksPerformer);
             ActionSystem.AttachPerformer<ApplyPassiveGa>(ApplyPassivePerformer);
             ActionSystem.AttachPerformer<RemovePassiveGa>(RemovePassivePerformer);
@@ -39,7 +39,7 @@ namespace Status
             ActionSystem.DetachPerformer<RemovePassiveGa>();
         }
 
-        private IEnumerator ApplyStunPerformer(ApplyStatusGa applyStatusGa)
+        private IEnumerator ApplyStatusPerformer(ApplyStatusGa applyStatusGa)
         {
             if (applyStatusGa.target != null)
             {

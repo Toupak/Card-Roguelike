@@ -178,6 +178,9 @@ namespace Cards.Scripts
 
         public void ApplyStatusStacks(StatusType statusType, int stacksCount)
         {
+            if (stacksCount == 0)
+                return;
+            
             if (currentStacks.ContainsKey(statusType))
             {
                 currentStacks[statusType] += stacksCount;

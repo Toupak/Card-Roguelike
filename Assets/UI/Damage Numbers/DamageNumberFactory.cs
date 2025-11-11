@@ -25,9 +25,9 @@ namespace UI.Damage_Numbers
             Instantiate(healNumberDisplayPrefab, transform).Setup(position, damage, true);
         }
 
-        public void DisplayMissAttackMessage(Vector2 position)
+        public void DisplayQuickMessage(Vector2 position, string text)
         {
-            Instantiate(MissDisplayPrefab, transform).Setup(position);
+            Instantiate(MissDisplayPrefab, transform).Setup(position, text);
         }
     }
 }
