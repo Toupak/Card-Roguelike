@@ -9,6 +9,8 @@ namespace ActionReaction.Game_Actions
         public readonly CardController attacker;
         public CardController target;
 
+        public bool isBongoStatus;
+
         public ApplyStatusGa(StatusType statusType, int stacksAmount, CardController attackerController, CardController targetController)
         {
             type = statusType;

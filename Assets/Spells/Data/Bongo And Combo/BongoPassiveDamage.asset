@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: BongoPassiveDamage
+  m_EditorClassIdentifier: 
+  passiveName: Dynamic Duo
+  description: When Bongo or Combo deals Damage to a Target, the other one will also
+    deal damage to the target
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4278190335
+  passiveController: {fileID: -4412711684182052862, guid: 861d8e089423af14f89c1e5c3f22e7e6, type: 3}

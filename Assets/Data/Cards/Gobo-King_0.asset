@@ -16,11 +16,14 @@ MonoBehaviour:
   cardName: Gobo King
   tribe: 6
   hpMax: 30
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
   artwork: {fileID: 1351902681591436168, guid: 1b4d7734420514c4faaea86756b22aa8, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 8532891456618958194, guid: 6c23a5a9b575fe647aa3c6ccb9a25f23, type: 3}
+  holographicType: 0
+  spellList: []
+  passiveList:
+  - {fileID: 11400000, guid: 39dc44d71dcd43041a4fd3e58fce6fba, type: 2}
   enemyBehaviours:
   - {fileID: -9199692986067781659, guid: 410e5510543e23844a65a911330fd1f1, type: 3}
   - {fileID: -4504918647482389842, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}

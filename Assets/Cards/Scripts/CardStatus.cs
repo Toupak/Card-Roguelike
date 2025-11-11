@@ -29,7 +29,7 @@ namespace Cards.Scripts
         Protected,
         Pants,
         Fury,
-        Dodge
+        Dodge,
     }
 
     public enum StatusEndTurnBehaviour

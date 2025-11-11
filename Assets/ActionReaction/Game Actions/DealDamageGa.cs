@@ -10,6 +10,8 @@ namespace ActionReaction.Game_Actions
 
         public bool isDamageNegated;
 
+        public bool isBongoAttack;
+
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
             amount = damageAmount;

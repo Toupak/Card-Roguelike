@@ -24,5 +24,7 @@ MonoBehaviour:
   spellList:
   - {fileID: 11400000, guid: 51d19d0e044fd4940b2d9f3e7864abdd, type: 2}
   - {fileID: 11400000, guid: f7e85c5c947f2404e9bc67e59e510126, type: 2}
-  passiveList: []
+  passiveList:
+  - {fileID: 11400000, guid: 4c0a6b8b77fd4b440a1817b37a39a899, type: 2}
+  - {fileID: 11400000, guid: 43f4ec668859e5c4196c3a37d5d9aa57, type: 2}
   enemyBehaviours: []
