@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CardHoloMat
+  m_Name: HoloMat 1
   m_Shader: {fileID: -6465566751694194690, guid: 28b2e376268d9ca4689f70bca53b49f2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _HoloTex:
-        m_Texture: {fileID: 2800000, guid: 0743c90b28f91454ab512b0b23a0febe, type: 3}
+        m_Texture: {fileID: 2800000, guid: 536080fc6460715448963799e90875df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -55,7 +55,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0.5
     - _ColorMask: 15
-    - _DistortionAmount: 23.7
+    - _DistortionAmount: 20
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0

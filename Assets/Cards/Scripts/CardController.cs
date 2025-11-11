@@ -31,6 +31,7 @@ namespace Cards.Scripts
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
+        public CardHolographicDisplay cardHolographicDisplay { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
 
         public void Setup(CardMovement movement, DeckCard cardFromDeck)
@@ -38,6 +39,7 @@ namespace Cards.Scripts
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
             cardStatus = GetComponent<CardStatus>();
+            cardHolographicDisplay = GetComponent<CardHolographicDisplay>();
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
@@ -49,16 +51,15 @@ namespace Cards.Scripts
             cardMovement = movement;
             cardData = cardFromDeck.cardData;
             deckCard = cardFromDeck;
-
-            SetCardName(cardData.cardName);
             
-            if (artwork != null)
-                SetArtwork(cardData.artwork);
             gameObject.name = cardData.cardName;
-            
+
+            SetArtwork(cardData.artwork);
+            SetCardName(cardData.cardName);
             SetupEnemyIntention(cardMovement.IsEnemyCard);
             SetupSpells(cardMovement.IsEnemyCard);
             SetupPassives();
+            SetupHolographicDisplay();
         }
 
         public void SetCardName(string newName)
@@ -118,10 +119,16 @@ namespace Cards.Scripts
             if (cardData.passiveList.Count > 0)
                 passiveHolder.Setup(this, cardData);
         }
+        
+        private void SetupHolographicDisplay()
+        {
+            cardHolographicDisplay.SetHolographicMaterial(cardData.holographicType);
+        }
 
         public void SetArtwork(Sprite newSprite)
         {
-            artwork.sprite = newSprite;
+            if (newSprite != null && artwork != null && artwork.sprite != null)
+                artwork.sprite = newSprite;
         }
 
         public void KillCard()

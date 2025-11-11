@@ -29,6 +29,7 @@ namespace Cards.Scripts
         public string description;
         public bool isSpecialSummon;
         public CardController alternativeCardPrefab;
+        public CardHolographicDisplay.HolographicType holographicType;
         
         [Space]
         public List<SpellData> spellList;
