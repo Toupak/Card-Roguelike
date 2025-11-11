@@ -583,6 +583,8 @@ MonoBehaviour:
   titleToDisplay: Title
   textToDisplay: 'This is the left Spell '
   tooltipType: 0
+  energyCostToDisplay: 0
+  iconToDisplay: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 0}
   squeezePowerOnHover: 0
   displayOnTheLeft: 0
@@ -959,6 +961,8 @@ MonoBehaviour:
   titleToDisplay: Title
   textToDisplay: 'This is the right Spell '
   tooltipType: 0
+  energyCostToDisplay: 0
+  iconToDisplay: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 0}
   squeezePowerOnHover: 0
   displayOnTheLeft: 0
@@ -1530,15 +1534,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: ec21f37be1dd9e64f811b7bc26bd339f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6008755849024553855, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2130,6 +2134,8 @@ MonoBehaviour:
   titleToDisplay: Intention
   textToDisplay: This is an enemy intention
   tooltipType: 0
+  energyCostToDisplay: 0
+  iconToDisplay: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 1697762264458700465}
   squeezePowerOnHover: 0.3
   displayOnTheLeft: 0
@@ -2386,6 +2392,8 @@ MonoBehaviour:
   titleToDisplay: Title
   textToDisplay: 'This is the left Spell '
   tooltipType: 0
+  energyCostToDisplay: 0
+  iconToDisplay: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 8170742621991121404}
   squeezePowerOnHover: 0.3
   displayOnTheLeft: 0
