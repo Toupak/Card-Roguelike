@@ -2,6 +2,7 @@ using System.Collections;
 using BoomLib.Tools;
 using Cards.Scripts;
 using PrimeTween;
+using UI.Damage_Numbers;
 using UnityEngine;
 
 //Go Watch : https://www.youtube.com/watch?v=DEkgi2ufrUA&t=4s
@@ -51,6 +52,37 @@ namespace Cards.Tween_Animations
             yield return new WaitUntil(() => isComplete);
             
             card.SetFollowState(true);
+        }
+
+        public static IEnumerator PlayCardMissAttack(CardController attacker, CardController target)
+        {
+            if (attacker == null || target == null)
+                yield break;
+            
+            attacker.SetFollowState(false);
+            attacker.SetSpriteAsAbove();
+            target.SetFollowState(false);
+            
+            bool isComplete = false;
+
+            Vector2 startingPosition = attacker.rectTransform.anchoredPosition;
+            float distance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            Vector2 targetStartingPosition = target.rectTransform.anchoredPosition;
+            Vector2 targetPosition = targetStartingPosition + Vector2.up * distance;
+            Sequence.Create()
+                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
+                .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
+                .ChainCallback(() => DamageNumberFactory.instance.DisplayMissAttackMessage(targetStartingPosition))
+                .Chain(Tween.UIAnchoredPositionY(target.rectTransform, targetStartingPosition.y - distance * 2.0f, 0.1f, Ease.OutBounce))
+                .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
+                .Chain(Tween.UIAnchoredPosition(target.rectTransform, targetStartingPosition, 0.1f, Ease.OutElastic))
+                .ChainCallback(() => isComplete = true);
+
+            yield return new WaitUntil(() => isComplete);
+            
+            attacker.SetFollowState(true);
+            attacker.ResetSpriteOrder();
+            target.SetFollowState(true);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace UI.Damage_Numbers
     {
         [SerializeField] private DamageNumberDisplay damageNumberDisplayPrefab;
         [SerializeField] private DamageNumberDisplay healNumberDisplayPrefab;
+        [SerializeField] private DamageNumberDisplay MissDisplayPrefab;
         
         public static DamageNumberFactory instance;
 
@@ -22,6 +23,11 @@ namespace UI.Damage_Numbers
         public void DisplayHealNumber(Vector2 position, int damage)
         {
             Instantiate(healNumberDisplayPrefab, transform).Setup(position, damage, true);
+        }
+
+        public void DisplayMissAttackMessage(Vector2 position)
+        {
+            Instantiate(MissDisplayPrefab, transform).Setup(position);
         }
     }
 }

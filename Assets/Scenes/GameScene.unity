@@ -678,6 +678,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a20f6055cb08fa546ba1cd417392e1e2, type: 2}
   - {fileID: 11400000, guid: b8b676602c1abf84eafd10ecb365fa02, type: 2}
   - {fileID: 11400000, guid: 7c4b87b244623eb44b275f69f25f284a, type: 2}
+  - {fileID: 11400000, guid: f3c02a856d0140047b6a679bf1e05b79, type: 2}
+  - {fileID: 11400000, guid: cfa78f796508a5e4e99e21a15b1bb884, type: 2}
 --- !u!4 &628700216
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,6 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageNumberDisplayPrefab: {fileID: 5167545365892782146, guid: 5b627b1bc71c05a449dfeb11b2f3becb, type: 3}
   healNumberDisplayPrefab: {fileID: 5167545365892782146, guid: f08733be3db8e384894075d7b81f4ff9, type: 3}
+  MissDisplayPrefab: {fileID: 5167545365892782146, guid: c9dfcc890b88dce4ea3f05cf603e2d48, type: 3}
 --- !u!1 &1265329516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1280,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9620178bbff1ef54eaebcce938d3c36b, type: 2}
   - {fileID: 11400000, guid: b6af0a8d5c2a93d4d9f6bf38af3fb7d5, type: 2}
   - {fileID: 11400000, guid: f72e1ad8ab9eee54d87f8a6cda3e17b3, type: 2}
+  - {fileID: 11400000, guid: 1dc1f8becbec69b49ba2ea60a787d69b, type: 2}
 --- !u!4 &1520429612
 Transform:
   m_ObjectHideFlags: 0

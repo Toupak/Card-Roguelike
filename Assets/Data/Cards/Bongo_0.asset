@@ -15,11 +15,14 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Bongo
   tribe: 0
-  hpMax: 0
+  hpMax: 12
   artwork: {fileID: -1763173808295342206, guid: 0340adbd21b6288449623ec1022b744e, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
+  holographicType: 0
+  spellList:
+  - {fileID: 11400000, guid: 51d19d0e044fd4940b2d9f3e7864abdd, type: 2}
+  - {fileID: 11400000, guid: f7e85c5c947f2404e9bc67e59e510126, type: 2}
   passiveList: []
   enemyBehaviours: []

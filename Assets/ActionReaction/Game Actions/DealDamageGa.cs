@@ -8,6 +8,8 @@ namespace ActionReaction.Game_Actions
         public readonly CardController attacker;
         public CardController target;
 
+        public bool isDamageNegated;
+
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
             amount = damageAmount;
@@ -18,6 +20,7 @@ namespace ActionReaction.Game_Actions
         public void NegateDamage()
         {
             amount = 0;
+            isDamageNegated = true;
         }
     }
 }

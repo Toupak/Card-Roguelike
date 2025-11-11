@@ -14,6 +14,16 @@ namespace UI.Damage_Numbers
             damageText.text = $"{sign}{damage}";
             damageText.fontSize = 35.0f + 10.0f * damage;
             
+            AnimateDisplay(position);
+        }
+
+        public void Setup(Vector2 position)
+        {
+            AnimateDisplay(position);
+        }
+
+        private void AnimateDisplay(Vector2 position)
+        {
             RectTransform rectTransform = GetComponent<RectTransform>();
             position += Random.insideUnitCircle * 30.0f;
             rectTransform.anchoredPosition = position;

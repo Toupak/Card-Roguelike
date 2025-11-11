@@ -28,7 +28,8 @@ namespace Cards.Scripts
         GobombCharging,
         Protected,
         Pants,
-        Fury
+        Fury,
+        Dodge
     }
 
     public enum StatusEndTurnBehaviour

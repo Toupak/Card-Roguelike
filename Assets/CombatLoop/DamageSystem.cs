@@ -1,6 +1,7 @@
 using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
 using Cards.Tween_Animations;
 using UnityEngine;
 
@@ -27,9 +28,31 @@ namespace CombatLoop
         {
             if (dealDamageGa.target != null)
             {
-                yield return CardTween.PlayCardAttack(dealDamageGa.attacker, dealDamageGa.target);
+                if (IsTargetDodging(dealDamageGa))
+                {
+                    dealDamageGa.NegateDamage();
+                    yield return CardTween.PlayCardMissAttack(dealDamageGa.attacker, dealDamageGa.target);
+                }
+                else
+                {
+                    yield return CardTween.PlayCardAttack(dealDamageGa.attacker, dealDamageGa.target);
+                }
+                
                 dealDamageGa.target.cardHealth.TakeDamage(dealDamageGa.amount, dealDamageGa.attacker);
             }
+        }
+
+        private bool IsTargetDodging(DealDamageGA dealDamageGa)
+        {
+            if (dealDamageGa.isDamageNegated)
+                return true;
+            
+            if (!dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Dodge))
+                return false;
+
+            int dodgeStacks = dealDamageGa.target.cardStatus.currentStacks[StatusType.Dodge];
+
+            return Random.Range(0.0f, 100.0f) < dodgeStacks * 30.0f;
         }
 
         private IEnumerator HealPerformer(HealGa HealGa)

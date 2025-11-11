@@ -46,6 +46,7 @@ namespace Cards.Scripts
         private void SetMaterial(Material material)
         {
             background.material = material;
+            background.sprite = null;
         }
     }
 }
