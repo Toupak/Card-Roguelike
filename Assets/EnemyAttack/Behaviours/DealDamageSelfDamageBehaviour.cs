@@ -29,5 +29,10 @@ namespace EnemyAttack.Behaviours
             DealDamageGA selfDamageGa = new DealDamageGA(selfDamage, enemyCardController.cardController, enemyCardController.cardController);
             ActionSystem.instance.Perform(selfDamageGa);
         }
+        
+        public override string GetDamageText()
+        {
+            return $"{damage}";
+        }
     }
 }

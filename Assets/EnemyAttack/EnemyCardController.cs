@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cards.Scripts;
 using Tooltip;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace EnemyAttack
 {
@@ -45,9 +47,10 @@ namespace EnemyAttack
         {
             cardController.rightButton.gameObject.SetActive(false);   
             cardController.leftButton.gameObject.SetActive(false);   
-            cardController.EnemyIntentionIcon.gameObject.SetActive(true);   
-            cardController.EnemyIntentionBackground.gameObject.SetActive(true);
-            displayTooltipOnHover = cardController.EnemyIntentionBackground.GetComponent<DisplayTooltipOnHover>();
+            cardController.enemyIntentionIcon.gameObject.SetActive(true);   
+            cardController.enemyIntentionBackground.gameObject.SetActive(true);   
+            cardController.enemyIntentionText.gameObject.SetActive(true);
+            displayTooltipOnHover = cardController.enemyIntentionBackground.GetComponent<DisplayTooltipOnHover>();
         }
 
         public IEnumerator ExecuteIntention()
@@ -100,7 +103,13 @@ namespace EnemyAttack
         public void DisplayNextIntention()
         {
             BaseEnemyBehaviour behaviour = behaviourQueue.Peek();
-            cardController.EnemyIntentionIcon.sprite = behaviour.intentionIcon;
+            cardController.enemyIntentionIcon.sprite = behaviour.intentionIcon;
+            
+            string behaviourDamage = behaviour.GetDamageText();
+            bool isDamageDisplayed = !String.IsNullOrEmpty(behaviourDamage);
+            cardController.enemyIntentionText.text = isDamageDisplayed ? behaviourDamage : "";
+            cardController.enemyIntentionText.gameObject.SetActive(isDamageDisplayed);
+            
             displayTooltipOnHover.SetupEnemyIntentionTooltip(behaviour.behaviourName, behaviour.description, behaviour.intentionIcon);
         }
     }

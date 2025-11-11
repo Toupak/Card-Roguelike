@@ -1,21 +1,24 @@
+using System.Collections.Generic;
 using Cards.Scripts;
 using EnemyAttack.Behaviours;
 using Spells;
 using Spells.Targeting;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GoboSlam : StunBehaviour
+namespace EnemyAttack.Goboking_Fight.Bag
 {
-    [SerializeField] private int newWeightWhenAlone;
-
-    public override int ComputeWeight()
+    public class GoboSlam : StunBehaviour
     {
-        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+        [SerializeField] private int newWeightWhenAlone;
 
-        if (targets.Count == 2)
-            return newWeightWhenAlone;
+        public override int ComputeWeight()
+        {
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 
-        return base.ComputeWeight();
+            if (targets.Count == 2)
+                return newWeightWhenAlone;
+
+            return base.ComputeWeight();
+        }
     }
 }

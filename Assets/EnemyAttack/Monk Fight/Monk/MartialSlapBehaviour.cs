@@ -1,6 +1,7 @@
 using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using CombatLoop;
 using UnityEngine;
 
 namespace EnemyAttack.Monk_Fight.Monk
@@ -20,6 +21,11 @@ namespace EnemyAttack.Monk_Fight.Monk
                 DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget());
                 ActionSystem.instance.Perform(damageGa);
             }
+        }
+        
+        public override string GetDamageText()
+        {
+            return $"{damage}X{hitCount}";
         }
     }
 }

@@ -30,6 +30,7 @@ namespace CombatLoop
         }
 
         public TurnType currentTurn { get; private set; }
+        public int turnCount { get; private set; }
 
         public static CombatLoop instance;
 
@@ -40,6 +41,7 @@ namespace CombatLoop
 
         private IEnumerator Start()
         {
+            turnCount = 0;
             endPreparationButton.SetActive(false);
             endPlayerTurnButton.SetActive(false);
             
@@ -56,6 +58,7 @@ namespace CombatLoop
             yield return ActivatePlayerEnergyDisplay();
             
             currentTurn = TurnType.Player;
+            turnCount = 1;
             while (IsMatchOver() == false)
             {
                 yield return ActivatePlayerEndTurnButton();
@@ -69,6 +72,7 @@ namespace CombatLoop
                 
                 yield return StartTurn(TurnType.Player);
                 yield return RefreshPlayerEnergyCount();
+                turnCount += 1;
             }
         }
 

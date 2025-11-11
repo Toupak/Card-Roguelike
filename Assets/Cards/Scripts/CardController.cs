@@ -17,8 +17,9 @@ namespace Cards.Scripts
         [SerializeField] public SpellButton leftButton;
         [SerializeField] public SpellButton rightButton;
         [SerializeField] public PassiveHolder passiveHolder;
-        [SerializeField] public Image EnemyIntentionBackground;
-        [SerializeField] public Image EnemyIntentionIcon;
+        [SerializeField] public Image enemyIntentionIcon;
+        [SerializeField] public Image enemyIntentionBackground;
+        [SerializeField] public TextMeshProUGUI enemyIntentionText;
 
         public RectTransform rectTransform { get; private set; }
         public Vector2 screenPosition => rectTransform.anchoredPosition;

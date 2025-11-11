@@ -2,9 +2,10 @@ using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using CombatLoop;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.AddOn.Bomber
+namespace EnemyAttack.Goboking_Fight.Bomber
 {
     public class GoboExplode : BaseEnemyBehaviour
     {
@@ -38,6 +39,16 @@ namespace EnemyAttack.Goboking_Fight.AddOn.Bomber
                 return 0;
             
             return weight;
+        }
+        
+        public override string GetDamageText()
+        {
+            return $"{damage}";
+        }
+
+        public override DamageSystem.DamageType GetDamageType()
+        {
+            return DamageSystem.DamageType.Crit;
         }
     }
 }

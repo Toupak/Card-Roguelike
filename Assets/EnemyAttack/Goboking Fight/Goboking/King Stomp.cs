@@ -1,38 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using EnemyAttack;
-using EnemyAttack.Behaviours;
-using NUnit.Framework;
 using Spells;
 using Spells.Targeting;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class KingStomp : BaseEnemyBehaviour
+namespace EnemyAttack.Goboking_Fight.Goboking
 {
-    [SerializeField] private int damage;
-    [SerializeField] private int buffStacks;
-
-    public override IEnumerator ExecuteBehavior()
+    public class KingStomp : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [SerializeField] private int damage;
+        [SerializeField] private int buffStacks;
 
-        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-
-        foreach(CardMovement target in targets)
+        public override IEnumerator ExecuteBehavior()
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target.cardController);
-            ActionSystem.instance.Perform(dealDamage);
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
+
+            foreach(CardMovement target in targets)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target.cardController);
+                ActionSystem.instance.Perform(dealDamage);
+            }
+
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.PermanentBonusDamage, buffStacks, enemyCardController.cardController, enemyCardController.cardController);
+            ActionSystem.instance.Perform(applyStatusGa);
         }
-
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-
-        ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.PermanentBonusDamage, buffStacks, enemyCardController.cardController, enemyCardController.cardController);
-        ActionSystem.instance.Perform(applyStatusGa);
+    
+        public override string GetDamageText()
+        {
+            return $"{damage}";
+        }
     }
 }

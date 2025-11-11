@@ -5,6 +5,7 @@ using Spells.Data.Thorse;
 using Spells.Targeting;
 using System.Collections;
 using System.Collections.Generic;
+using CombatLoop;
 using UnityEngine;
 
 namespace EnemyAttack.Monk_Fight.Addon
@@ -48,6 +49,16 @@ namespace EnemyAttack.Monk_Fight.Addon
                 return weight * 3;
 
             return weight;
+        }
+        
+        public override string GetDamageText()
+        {
+            return $"{healAmount}";
+        }
+
+        public override DamageSystem.DamageType GetDamageType()
+        {
+            return DamageSystem.DamageType.Heal;
         }
     }
 }

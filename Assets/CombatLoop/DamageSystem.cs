@@ -9,12 +9,18 @@ namespace CombatLoop
 {
     public class DamageSystem : MonoBehaviour
     {
+        public enum DamageType
+        {
+            Physical,
+            Heal,
+            Crit
+        }        
+        
         private void OnEnable()
         {
             ActionSystem.AttachPerformer<DealDamageGA>(DealDamagePerformer);
             ActionSystem.AttachPerformer<HealGa>(HealPerformer);
             ActionSystem.AttachPerformer<DeathGA>(DeathPerformer);
-
         }
 
         private void OnDisable()

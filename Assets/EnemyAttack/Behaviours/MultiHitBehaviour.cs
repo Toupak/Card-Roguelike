@@ -36,5 +36,10 @@ namespace EnemyAttack.Behaviours
                 }
             }
         }
+        
+        public override string GetDamageText()
+        {
+            return $"{damage}X{hitCount}";
+        }
     }
 }

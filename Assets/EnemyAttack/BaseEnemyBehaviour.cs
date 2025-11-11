@@ -3,6 +3,7 @@ using Status;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CombatLoop;
 using Spells;
 using Spells.Targeting;
 using UnityEngine;
@@ -89,6 +90,16 @@ namespace EnemyAttack
                 return targets.Where((c) => c.cardController != enemyCardController.cardController).ToList();
 
             return targets;
+        }
+
+        public virtual string GetDamageText()
+        {
+            return "";
+        }
+
+        public virtual DamageSystem.DamageType GetDamageType()
+        {
+            return DamageSystem.DamageType.Physical;
         }
 
         public abstract IEnumerator ExecuteBehavior();

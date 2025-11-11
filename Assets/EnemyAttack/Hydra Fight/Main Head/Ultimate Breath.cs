@@ -1,32 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using EnemyAttack;
+using CombatLoop;
 using Spells;
 using Spells.Targeting;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UltimateBreath : BaseEnemyBehaviour
+namespace EnemyAttack.Hydra_Fight.Main_Head
 {
-    [SerializeField] protected int damage;
-    [SerializeField] protected BaseEnemyBehaviour waiting;
-
-    public override IEnumerator ExecuteBehavior()
+    public class UltimateBreath : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [SerializeField] protected int damage;
+        [SerializeField] protected BaseEnemyBehaviour waiting;
 
-        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-
-        foreach (CardMovement target in targets)
+        public override IEnumerator ExecuteBehavior()
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target.cardController);
-            ActionSystem.instance.Perform(dealDamage);
+            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
+
+            foreach (CardMovement target in targets)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target.cardController);
+                ActionSystem.instance.Perform(dealDamage);
+            }
+
+            enemyCardController.SetNewIntention(waiting);
+        }
+    
+        public override string GetDamageText()
+        {
+            return $"{damage}";
         }
 
-        enemyCardController.SetNewIntention(waiting);
+        public override DamageSystem.DamageType GetDamageType()
+        {
+            return DamageSystem.DamageType.Crit;
+        }
     }
 }

@@ -4,7 +4,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.AddOn.Bomber
+namespace EnemyAttack.Goboking_Fight.Bomber
 {
     public class GoboChargeUp : BaseEnemyBehaviour
     {
