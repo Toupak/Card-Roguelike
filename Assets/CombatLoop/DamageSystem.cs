@@ -35,14 +35,9 @@ namespace CombatLoop
             if (dealDamageGa.target != null)
             {
                 if (IsTargetDodging(dealDamageGa))
-                {
                     dealDamageGa.NegateDamage();
-                    yield return CardTween.PlayCardMissAttack(dealDamageGa.attacker, dealDamageGa.target);
-                }
-                else
-                {
-                    yield return CardTween.PlayCardAttack(dealDamageGa.attacker, dealDamageGa.target);
-                }
+                
+                yield return CardTween.PlayCardAttack(dealDamageGa);
                 
                 dealDamageGa.target.cardHealth.TakeDamage(dealDamageGa.amount, dealDamageGa.attacker);
             }
@@ -65,7 +60,7 @@ namespace CombatLoop
         {
             if (HealGa.target != null)
             {
-                yield return CardTween.PlayCardAttack(HealGa.attacker, HealGa.target);
+                yield return CardTween.PlayPhysicalAttack(HealGa.attacker, HealGa.target);
                 HealGa.target.cardHealth.Heal(HealGa.amount);
             }
         }

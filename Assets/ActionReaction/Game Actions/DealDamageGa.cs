@@ -9,6 +9,9 @@ namespace ActionReaction.Game_Actions
         public CardController target;
 
         public bool isDamageNegated;
+        
+        public bool isTargetSwitched;
+        public CardController originalTarget;
 
         public bool isBongoAttack;
 
@@ -23,6 +26,13 @@ namespace ActionReaction.Game_Actions
         {
             amount = 0;
             isDamageNegated = true;
+        }
+
+        public void SwitchTarget(CardController newTarget)
+        {
+            originalTarget = target;
+            target = newTarget;
+            isTargetSwitched = true;
         }
     }
 }

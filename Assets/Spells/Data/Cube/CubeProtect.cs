@@ -9,15 +9,20 @@ namespace Spells.Data.Cube
 {
     public class CubeProtect : SpellController
     {
+        private List<CardController> protectionTargets = new List<CardController>();
+        
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
+
+            protectionTargets = new List<CardController>();
 
             foreach (CardMovement target in targets)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Protected, 1, cardController, target.cardController);
                 ActionSystem.instance.Perform(applyStatusGa);
+                protectionTargets.Add(target.cardController);
             }
         }
         
@@ -37,14 +42,19 @@ namespace Spells.Data.Cube
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Protected))
-                dealDamageGa.target = cardController;
+            if (dealDamageGa.target != null && IsCardProtected(dealDamageGa.target))
+                dealDamageGa.SwitchTarget(cardController);
         }
         
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.target != null && applyStatusGa.target.cardStatus.IsStatusApplied(StatusType.Protected))
-                applyStatusGa.target = cardController;
+            if (applyStatusGa.type == StatusType.Protected && applyStatusGa.target != null && IsCardProtected(applyStatusGa.target))
+                applyStatusGa.SwitchTarget(cardController);
+        }
+
+        private bool IsCardProtected(CardController card)
+        {
+            return protectionTargets != null && protectionTargets.Count > 0 && protectionTargets.Contains(card);
         }
     }
 }

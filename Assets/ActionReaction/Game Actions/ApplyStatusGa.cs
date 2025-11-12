@@ -8,6 +8,11 @@ namespace ActionReaction.Game_Actions
         public int amount;
         public readonly CardController attacker;
         public CardController target;
+        
+        public bool isEffectNegated;
+        
+        public bool isTargetSwitched;
+        public CardController originalTarget;
 
         public bool isBongoStatus;
 
@@ -22,6 +27,14 @@ namespace ActionReaction.Game_Actions
         public void NegateEffect()
         {
             amount = 0;
+            isEffectNegated = true;
+        }
+        
+        public void SwitchTarget(CardController newTarget)
+        {
+            originalTarget = target;
+            target = newTarget;
+            isTargetSwitched = true;
         }
     }
 }

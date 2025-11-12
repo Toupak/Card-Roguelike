@@ -21,7 +21,7 @@ namespace Spells.Data.Pillar_Man
         {
             if (dealDamageGa.target == cardController)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Weak, 1, cardController, dealDamageGa.attacker);
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Weak, 1, dealDamageGa.attacker, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }
         }
