@@ -20,7 +20,7 @@ namespace Cards.Tween_Animations
             else if (dealDamageGa.isTargetSwitched)
                 yield return PlayPhysicalAttackProtected(dealDamageGa.attacker, dealDamageGa.originalTarget, dealDamageGa.target);
             else
-                yield return PlayPhysicalAttack(dealDamageGa.attacker, dealDamageGa.originalTarget);
+                yield return PlayPhysicalAttack(dealDamageGa.attacker, dealDamageGa.target);
         }
 
         public static IEnumerator PlayPhysicalAttack(CardController attacker, CardController target)
