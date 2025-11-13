@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 536080fc6460715448963799e90875df
+guid: ee802cddf5defa34584d691f8447eeca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5337971640554020629
-    second: Texturelabs_InkPaint_395thumbnail_0
+      213: 8770054942878142139
+    second: Texturelabs_InkPaint_320thumbnail_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Texturelabs_InkPaint_395thumbnail_0
+      name: Texturelabs_InkPaint_320thumbnail_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 770
-        height: 517
+        height: 574
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be02baf1317bbe5b0800000000000000
-      internalID: -5337971640554020629
+      spriteID: bbe09ea318e75b970800000000000000
+      internalID: 8770054942878142139
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Texturelabs_InkPaint_395thumbnail_0: -5337971640554020629
+      Texturelabs_InkPaint_320thumbnail_0: 8770054942878142139
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

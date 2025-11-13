@@ -801,6 +801,7 @@ MonoBehaviour:
   grayHolographicMaterial: {fileID: 2100000, guid: 729c92b979671004988b37a1b060cb2a, type: 2}
   greenHolographicMaterial: {fileID: 2100000, guid: 0da223e27256e71469d5f045ba02eae6, type: 2}
   colorfulHolographicMaterial: {fileID: 2100000, guid: 058f21ca922b6744bba4813e5ac7572f, type: 2}
+  redHolographicMaterial: {fileID: 2100000, guid: 89e6b794cf57cb14bb0b0ce801afe9c6, type: 2}
 --- !u!1 &3531206112174478996
 GameObject:
   m_ObjectHideFlags: 0
