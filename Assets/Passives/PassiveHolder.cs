@@ -57,7 +57,7 @@ namespace Passives
         {
             foreach (PassiveController passiveController in passives)
             {
-                if (passiveController.passiveData.passiveName == data.passiveName)
+                if (passiveController != null && passiveController.passiveData.passiveName == data.passiveName)
                     return passiveController;
             }
 

@@ -2,6 +2,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Passives;
+using UnityEngine;
 
 namespace Spells.Data.Bongo_And_Combo
 {
@@ -20,7 +21,7 @@ namespace Spells.Data.Bongo_And_Combo
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
             bool attackerIsNotMe = dealDamageGa.attacker != cardController;
-            bool attackerIsBrother = dealDamageGa.attacker.passiveHolder.GetPassive(passiveData) != null;
+            bool attackerIsBrother = dealDamageGa.attacker.passiveHolder != null && dealDamageGa.attacker.passiveHolder.GetPassive(passiveData) != null;
             bool enemyIsStillAlive = dealDamageGa.target != null && !dealDamageGa.target.cardHealth.IsDead;
             
             if (attackerIsNotMe && attackerIsBrother && enemyIsStillAlive && !dealDamageGa.isBongoAttack)
