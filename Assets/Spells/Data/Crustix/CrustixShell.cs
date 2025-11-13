@@ -17,7 +17,6 @@ namespace Spells.Data.Crustix
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();
-            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
         }
@@ -25,7 +24,6 @@ namespace Spells.Data.Crustix
         protected override void UnsubscribeReactions()
         {
             base.UnsubscribeReactions();
-            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
         }
@@ -56,18 +54,6 @@ namespace Spells.Data.Crustix
             }
         }
 
-        private void DealDamageReaction(DealDamageGA dealDamageGa)
-        {
-            if (dealDamageGa.target == cardController && cardController.cardStatus.IsStatusApplied(spellData.inflictStatus))
-            {
-                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, dealDamageGa.attacker);
-                ActionSystem.instance.AddReaction(damageGa);
-                
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(spellData.inflictStatus, spellData.statusStacksApplied, cardController, cardController);
-                ActionSystem.instance.AddReaction(applyStatusGa);
-            }   
-        }
-        
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);

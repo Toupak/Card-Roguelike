@@ -21,6 +21,8 @@ namespace CombatLoop
             ActionSystem.AttachPerformer<DealDamageGA>(DealDamagePerformer);
             ActionSystem.AttachPerformer<HealGa>(HealPerformer);
             ActionSystem.AttachPerformer<DeathGA>(DeathPerformer);
+            
+            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReactionPost, ReactionTiming.POST);
         }
 
         private void OnDisable()
@@ -28,6 +30,8 @@ namespace CombatLoop
             ActionSystem.DetachPerformer<DealDamageGA>();
             ActionSystem.DetachPerformer<HealGa>();
             ActionSystem.DetachPerformer<DeathGA>();
+            
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReactionPost, ReactionTiming.POST);
         }
 
         private IEnumerator DealDamagePerformer(DealDamageGA dealDamageGa)
@@ -69,6 +73,18 @@ namespace CombatLoop
         {
             deathGa.target.cardHealth.Dies();
             yield break;
+        }
+        
+        private void DealDamageReactionPost(DealDamageGA dealDamageGa)
+        {
+            if (dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            {
+                DealDamageGA damageGa = new DealDamageGA(1, dealDamageGa.target, dealDamageGa.attacker);
+                ActionSystem.instance.AddReaction(damageGa);
+                
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.CrustixShell, 1, dealDamageGa.target, dealDamageGa.target);
+                ActionSystem.instance.AddReaction(applyStatusGa);
+            }   
         }
     }
 }
