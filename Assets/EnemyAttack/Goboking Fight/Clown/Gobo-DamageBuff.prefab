@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -5627468902333047060}
+  - component: {fileID: -5422823278944607737}
   m_Layer: 5
-  m_Name: Gobo-Slash
+  m_Name: Gobo-DamageBuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-5627468902333047060
+--- !u!114 &-5422823278944607737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44eb802436c50394999e6f1d17e9ce6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f60af784b33acf4dbeb3a9e1ad293b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Dagger Throw
-  description: Deal 1 damage to 2 targets
-  weight: 5
-  intentionIcon: {fileID: -625399265, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  behaviourName: Snarky Flattery
+  description: Gives +3 Damage to the king for the next attack
+  weight: 10
+  intentionIcon: {fileID: -517237887, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
-  damage: 1
-  hitCount: 2
-  hitSameTarget: 0
+  statusType: 4
+  stacks: 1
+  hitCount: 1
+  hitSameTarget: 1
+  isTargetEnemy: 0
+  cantTargetHimself: 0
+  targetSpecificCard: 1
+  specificCard: {fileID: 11400000, guid: 43177b1b67c55594fa3030e9050aeadc, type: 2}

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourName: Acrobatic Mockery
   description: Applies 1 Weak
-  weight: 5
+  weight: 10
   intentionIcon: {fileID: -1351667634, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
   statusType: 10
@@ -59,3 +59,5 @@ MonoBehaviour:
   hitSameTarget: 1
   isTargetEnemy: 0
   cantTargetHimself: 0
+  targetSpecificCard: 0
+  specificCard: {fileID: 0}

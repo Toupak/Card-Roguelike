@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -3519558939209167549}
+  - component: {fileID: -6752345198569876251}
   m_Layer: 5
-  m_Name: Pep talk
+  m_Name: SetFixedIntentions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-3519558939209167549
+--- !u!114 &-6752345198569876251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,16 +45,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e903dc59609414cab8e0387d6fde0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2109d7966e4550a41b490cdbdf130ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Pep Talk
-  description: 'Appeals to the inner gobo : "Kill, Loot, Kill, Loot"'
-  weight: 1
-  intentionIcon: {fileID: -517237887, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
-  statusType: 6
-  stacks: 1
-  hitCount: 1
-  hitSameTarget: 0
-  isTargetEnemy: 1
-  cantTargetHimself: 1
+  behaviourName: 
+  description: 
+  weight: 0
+  intentionIcon: {fileID: 0}
+  isWaiting: 0
+  intentions: []

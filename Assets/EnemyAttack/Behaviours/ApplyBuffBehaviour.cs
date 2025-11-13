@@ -19,6 +19,8 @@ namespace EnemyAttack.Behaviours
         [SerializeField] private bool hitSameTarget;
         [SerializeField] private bool isTargetEnemy;
         [SerializeField] private bool cantTargetHimself;
+        [SerializeField] private bool targetSpecificCard;
+        [SerializeField] private CardData specificCard;
 
         public override IEnumerator ExecuteBehavior()
         {
@@ -51,7 +53,12 @@ namespace EnemyAttack.Behaviours
 
             if (targets.Count < 1)
                 return null;
-            
+
+            if (targetSpecificCard)
+            {
+                ComputeSpecificTarget(targets, specificCard);
+            }
+
             if (!isTargetEnemy)
             {
                 foreach (CardMovement cardMovement in targets)
@@ -63,6 +70,17 @@ namespace EnemyAttack.Behaviours
             
             int randomTarget = Random.Range(0, targets.Count);
             return targets[randomTarget].cardController;
+        }
+
+        protected CardController ComputeSpecificTarget(List<CardMovement> targets, CardData specificTarget)
+        {
+            foreach (CardMovement cardMovement in targets)
+            {
+                if (cardMovement.cardController.cardData.cardName == specificTarget.cardName)
+                    return cardMovement.cardController;
+            }
+
+            return null;
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Gobo-Knight
   tribe: 0
-  hpMax: 6
+  hpMax: 9
   artwork: {fileID: 5388931267197553056, guid: 5fefb013588c47f41852cbe4efe174a0, type: 3}
   description: 
   isSpecialSummon: 0

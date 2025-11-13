@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999262f4ea00e3e4281ce6014123f77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Battle Dance
+  behaviourName: Warcry
   description: Increase permanent damage by 1
-  weight: 5
+  weight: 8
   intentionIcon: {fileID: -517237887, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 0
   damageStacks: 1

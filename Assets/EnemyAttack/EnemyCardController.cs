@@ -70,6 +70,14 @@ namespace EnemyAttack
             if (hasIntention)
                 return;
 
+            if (cardData.areEnemyBehavioursLooping)
+            {
+                for (int i = 0; i < behaviours.Count; i++)
+                    behaviourQueue.Enqueue(behaviours[i]);
+
+                return;
+            }
+
             int total = 0;
             int[] weightArray = new int[behaviours.Count];
             for (int i = 0; i < behaviours.Count; i++)
