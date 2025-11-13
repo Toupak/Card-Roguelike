@@ -25,7 +25,7 @@ namespace EnemyAttack.Monk_Fight.Monk
         
         public override string GetDamageText()
         {
-            return $"{damage}X{hitCount}";
+            return $"{ComputeCurrentDamage(damage)}X{hitCount}";
         }
     }
 }

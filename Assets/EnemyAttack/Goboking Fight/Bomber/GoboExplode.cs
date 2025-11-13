@@ -43,7 +43,7 @@ namespace EnemyAttack.Goboking_Fight.Bomber
         
         public override string GetDamageText()
         {
-            return $"{damage}";
+            return $"{ComputeCurrentDamage(damage)}";
         }
 
         public override DamageSystem.DamageType GetDamageType()

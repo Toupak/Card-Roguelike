@@ -39,7 +39,7 @@ namespace EnemyAttack.Behaviours
         
         public override string GetDamageText()
         {
-            return $"{damage}X{hitCount}";
+            return $"{ComputeCurrentDamage(damage)}X{hitCount}";
         }
     }
 }

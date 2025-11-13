@@ -36,7 +36,7 @@ namespace EnemyAttack.Goboking_Fight.Goboking
     
         public override string GetDamageText()
         {
-            return $"{damage}";
+            return $"{ComputeCurrentDamage(damage)}";
         }
     }
 }

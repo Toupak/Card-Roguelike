@@ -34,7 +34,7 @@ namespace EnemyAttack.Hydra_Fight.Main_Head
     
         public override string GetDamageText()
         {
-            return $"{damage}";
+            return $"{ComputeCurrentDamage(damage)}";
         }
 
         public override DamageSystem.DamageType GetDamageType()
