@@ -39,6 +39,13 @@ namespace Spells.Data.Cube
             ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE);
             ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.PRE);
         }
+        
+        protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
+        {
+            base.EndTurnRefreshCooldownReaction(startTurnGa);
+            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+                protectionTargets = new List<CardController>();
+        }
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
@@ -48,7 +55,7 @@ namespace Spells.Data.Cube
         
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.type == StatusType.Protected && applyStatusGa.target != null && IsCardProtected(applyStatusGa.target))
+            if (applyStatusGa.type != StatusType.Protected && applyStatusGa.target != null && IsCardProtected(applyStatusGa.target))
                 applyStatusGa.SwitchTarget(cardController);
         }
 
