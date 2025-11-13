@@ -20,6 +20,7 @@ namespace Cards.Scripts
         [SerializeField] public Image enemyIntentionIcon;
         [SerializeField] public Image enemyIntentionBackground;
         [SerializeField] public TextMeshProUGUI enemyIntentionText;
+        [SerializeField] public BaseEnemyBehaviour waitingBehaviourPrefab;
 
         public RectTransform rectTransform { get; private set; }
         public Vector2 screenPosition => rectTransform.anchoredPosition;

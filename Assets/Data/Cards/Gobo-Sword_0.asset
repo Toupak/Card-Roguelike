@@ -10,17 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Gobo-Bag_0
+  m_Name: Gobo-Sword_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Gobo-Bag
+  cardName: Gobo-Knight
   tribe: 0
   hpMax: 6
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
-  artwork: {fileID: 864432499736724763, guid: 677c2da3c1d3c9a42aae201e54981724, type: 3}
+  artwork: {fileID: 5388931267197553056, guid: 5fefb013588c47f41852cbe4efe174a0, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
   enemyBehaviours:
   - {fileID: 5099609503079003754, guid: 5908cb90f311dcb47b752a52d2d76a63, type: 3}
-  - {fileID: 795174733729310214, guid: 518cc6acce65aef45a9df5e738af51b6, type: 3}
+  - {fileID: 859958427134737054, guid: 2a03f1246ff74184c9de657327e79374, type: 3}
+  - {fileID: -5627468902333047060, guid: c91c4072285ddc54c83c4e405292bd83, type: 3}

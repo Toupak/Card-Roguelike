@@ -694,6 +694,7 @@ MonoBehaviour:
   enemyIntentionIcon: {fileID: 2053106647318339214}
   enemyIntentionBackground: {fileID: 3926171671042198451}
   enemyIntentionText: {fileID: 1706371153923554771}
+  waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
 --- !u!114 &8295655282853786504
 MonoBehaviour:
   m_ObjectHideFlags: 0

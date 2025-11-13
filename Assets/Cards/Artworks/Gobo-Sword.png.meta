@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoboSword_0
+      name: Gobo-Sword_0
       rect:
         serializedVersion: 2
         x: 0
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GoboSword_0: 5388931267197553056
+      Gobo-Sword_0: 5388931267197553056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cards.Scripts;
+using EnemyAttack.Behaviours;
 using Tooltip;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -41,6 +42,9 @@ namespace EnemyAttack
                 instantiatedBehaviour.Setup(this);
                 behaviours.Add(instantiatedBehaviour);
             }
+
+            if (CombatLoop.CombatLoop.instance.turnCount > 0)
+                behaviourQueue.Enqueue(cardController.waitingBehaviourPrefab);
         }
         
         private void SetupDisplay()
