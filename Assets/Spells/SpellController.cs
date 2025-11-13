@@ -82,7 +82,7 @@ namespace Spells
                     throw new ArgumentOutOfRangeException();
             }
 
-            castSpellRoutine = null;
+            castSpellRoutine = null;//BEWARE ! do not forget to reset the coroutine when overriding this method
         }
 
         protected virtual IEnumerator SelectTargetAndCast(Transform startPosition)

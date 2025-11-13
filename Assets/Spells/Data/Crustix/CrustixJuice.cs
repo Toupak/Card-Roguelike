@@ -17,6 +17,8 @@ namespace Spells.Data.Crustix
                 yield return CastSpellOnSelf(cardController.cardMovement);
             else
                 yield return SelectTargetAndCast(startPosition);
+            
+            castSpellRoutine = null;
         }
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
