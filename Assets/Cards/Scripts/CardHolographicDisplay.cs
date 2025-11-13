@@ -13,6 +13,7 @@ namespace Cards.Scripts
         [SerializeField] private Material greenHolographicMaterial;
         [SerializeField] private Material colorfulHolographicMaterial;
         [SerializeField] private Material redHolographicMaterial;
+        [SerializeField] private Material blackHolographicMaterial;
         
         public enum HolographicType
         {
@@ -20,7 +21,8 @@ namespace Cards.Scripts
             Gray,
             Green,
             Colorful,
-            Red
+            Red,
+            Black
         }
 
         public void SetHolographicMaterial(HolographicType holographicType)
@@ -41,6 +43,9 @@ namespace Cards.Scripts
                     break;
                 case HolographicType.Red:
                     SetMaterial(redHolographicMaterial);
+                    break;
+                case HolographicType.Black:
+                    SetMaterial(blackHolographicMaterial);
                     break;
                 case HolographicType.Regular:
                 default:
