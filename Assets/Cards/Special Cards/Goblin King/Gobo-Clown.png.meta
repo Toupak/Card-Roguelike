@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 720d7ca1699da174ba0f305de2bbce93
+guid: f375062bc350f3f42bafb0018d3985e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5285785097126754818
-    second: Faces_0
+      213: 638986857451793272
+    second: Gobo-Clown_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Faces_0
+      name: Gobo-Clown_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 64
+        width: 58
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef5c4be957e15a6b0800000000000000
-      internalID: -5285785097126754818
+      spriteID: 87bae8e49232ed800800000000000000
+      internalID: 638986857451793272
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a93415b7ca490e440bcf4dfb3bd87356
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Faces_0: -5285785097126754818
+      Gobo-Clown_0: 638986857451793272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
