@@ -43,7 +43,8 @@ namespace Spells.Data.Monke
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                ActionSystem.instance.Perform(dealDamage);
+                DealDamageGA dealSecondDamage = new DealDamageGA(ComputeCurrentDamage(damage), cardController, target.cardController);
+                ActionSystem.instance.Perform(dealSecondDamage);
             }
         }
     }
