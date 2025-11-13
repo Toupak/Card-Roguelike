@@ -126,14 +126,15 @@ namespace Cards.Tween_Animations
             bool isComplete = false;
 
             Vector2 startingPosition = attacker.rectTransform.anchoredPosition;
-            float distance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            float attackerDistance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            float targetDistance = 50.0f * (target.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
             Vector2 targetStartingPosition = target.rectTransform.anchoredPosition;
-            Vector2 targetPosition = targetStartingPosition + Vector2.up * distance;
+            Vector2 targetPosition = targetStartingPosition + Vector2.up * targetDistance;
             Sequence.Create()
-                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
+                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + attackerDistance, 0.4f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
                 .ChainCallback(() => DamageNumberFactory.instance.DisplayQuickMessage(targetStartingPosition, "Miss"))
-                .Chain(Tween.UIAnchoredPositionY(target.rectTransform, targetStartingPosition.y - distance * 2.0f, 0.1f, Ease.OutBounce))
+                .Chain(Tween.UIAnchoredPositionY(target.rectTransform, targetStartingPosition.y + targetDistance * 2.0f, 0.1f, Ease.OutBounce))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(target.rectTransform, targetStartingPosition, 0.1f, Ease.OutElastic))
                 .ChainCallback(() => isComplete = true);
@@ -160,15 +161,16 @@ namespace Cards.Tween_Animations
 
             Vector2 startingPosition = attacker.rectTransform.anchoredPosition;
             Vector2 protectorStartingPosition = protector.rectTransform.anchoredPosition;
-            float distance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            float attackerDistance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            float targetDistance = 50.0f * (target.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
             Vector2 targetStartingPosition = target.rectTransform.anchoredPosition;
-            Vector2 targetPosition = targetStartingPosition + Vector2.up * distance;
+            Vector2 targetPosition = targetStartingPosition + Vector2.up * targetDistance;
             Sequence.Create()
-                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
+                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + attackerDistance, 0.4f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(protector.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
                 .ChainCallback(() => DamageNumberFactory.instance.DisplayQuickMessage(targetStartingPosition, "Miss"))
-                .Chain(Tween.UIAnchoredPositionY(protector.rectTransform, targetStartingPosition.y - distance * 2.0f, 0.1f, Ease.OutBounce))
+                .Chain(Tween.UIAnchoredPositionY(protector.rectTransform, targetStartingPosition.y + targetDistance * 2.0f, 0.1f, Ease.OutBounce))
                 .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
                 .Chain(Tween.UIAnchoredPosition(protector.rectTransform, protectorStartingPosition, 0.1f, Ease.OutElastic))
                 .ChainCallback(() => isComplete = true);
