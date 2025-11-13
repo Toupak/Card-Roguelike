@@ -52,7 +52,10 @@ MonoBehaviour:
   description: Applies 1 Weak
   weight: 5
   intentionIcon: {fileID: -1351667634, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 0
   statusType: 10
   stacks: 1
   hitCount: 1
   hitSameTarget: 1
+  isTargetEnemy: 0
+  cantTargetHimself: 0

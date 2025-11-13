@@ -35,7 +35,8 @@ namespace EnemyAttack.Goboking_Fight.Goboking
             if (startTurnGa.starting != CombatLoop.CombatLoop.TurnType.Enemy)
                 return;
 
-            bool isSpawnTurn = CombatLoop.CombatLoop.instance.turnCount % turnsBetweenSpawns == 0;
+            int currentTurn = CombatLoop.CombatLoop.instance.turnCount;
+            bool isSpawnTurn = currentTurn == 1 || currentTurn % turnsBetweenSpawns == 0;
             if (isSpawnTurn && currentEnemyCount < maxGoblinCount)
             {
                 int newGoblinCount = Mathf.Min(goblinsToSpawnCount, maxGoblinCount - currentEnemyCount);

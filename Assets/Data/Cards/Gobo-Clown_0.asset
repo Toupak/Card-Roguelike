@@ -16,12 +16,12 @@ MonoBehaviour:
   cardName: Gobo-Clown
   tribe: 0
   hpMax: 5
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
   artwork: {fileID: 4520657779659885822, guid: 6a77fbbb13fd11c4a84716d8b9151d15, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
   enemyBehaviours:
   - {fileID: 859958427134737054, guid: 2a03f1246ff74184c9de657327e79374, type: 3}
-  - {fileID: -5627468902333047060, guid: c91c4072285ddc54c83c4e405292bd83, type: 3}
-  - {fileID: -5422823278944607737, guid: b5581b86d78e9684587cc9794b8ed37f, type: 3}

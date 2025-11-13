@@ -77,7 +77,7 @@ namespace CombatLoop
         
         private void DealDamageReactionPost(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            if (dealDamageGa.target != null && dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.CrustixShell))
             {
                 DealDamageGA damageGa = new DealDamageGA(1, dealDamageGa.target, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(damageGa);

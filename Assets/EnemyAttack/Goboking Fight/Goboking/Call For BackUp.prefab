@@ -52,6 +52,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 23e2bfa5eb368e3478e143de991fa526, type: 2}
   - {fileID: 11400000, guid: 352f9e62e9d0bb442bd82bc5e41c5227, type: 2}
   - {fileID: 11400000, guid: 9c3dd90957e1ebe459d0598578753767, type: 2}
-  goblinsToSpawnCount: 1
-  turnsBetweenSpawns: 1
+  goblinsToSpawnCount: 2
+  turnsBetweenSpawns: 3
   maxGoblinCount: 5
