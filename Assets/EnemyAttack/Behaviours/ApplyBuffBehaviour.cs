@@ -56,7 +56,7 @@ namespace EnemyAttack.Behaviours
 
             if (targetSpecificCard)
             {
-                ComputeSpecificTarget(targets, specificCard);
+                return ComputeSpecificTarget(targets, specificCard);
             }
 
             if (!isTargetEnemy)

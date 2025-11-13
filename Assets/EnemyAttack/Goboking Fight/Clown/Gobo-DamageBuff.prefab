@@ -54,10 +54,10 @@ MonoBehaviour:
   intentionIcon: {fileID: -517237887, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
   statusType: 4
-  stacks: 1
+  stacks: 3
   hitCount: 1
   hitSameTarget: 1
-  isTargetEnemy: 0
+  isTargetEnemy: 1
   cantTargetHimself: 0
   targetSpecificCard: 1
   specificCard: {fileID: 11400000, guid: 43177b1b67c55594fa3030e9050aeadc, type: 2}
