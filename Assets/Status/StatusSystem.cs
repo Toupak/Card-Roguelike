@@ -43,7 +43,7 @@ namespace Status
         {
             if (applyStatusGa.target != null)
             {
-                yield return CardTween.PlayPhysicalAttack(applyStatusGa.attacker, applyStatusGa.target);
+                yield return CardTween.PlayCardStatusApply(applyStatusGa);
                 applyStatusGa.target.cardStatus.ApplyStatusStacks(applyStatusGa.type, applyStatusGa.amount);
             }
         }

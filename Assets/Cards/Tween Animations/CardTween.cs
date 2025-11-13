@@ -22,6 +22,18 @@ namespace Cards.Tween_Animations
             else
                 yield return PlayPhysicalAttack(dealDamageGa.attacker, dealDamageGa.target);
         }
+        
+        public static IEnumerator PlayCardStatusApply(ApplyStatusGa applyStatusGa)
+        {
+            if (applyStatusGa.isTargetSwitched && applyStatusGa.isEffectNegated)
+                yield return PlayCardMissAttackProtected(applyStatusGa.attacker, applyStatusGa.originalTarget, applyStatusGa.target);
+            else if (applyStatusGa.isEffectNegated)
+                yield return PlayCardMissAttack(applyStatusGa.attacker, applyStatusGa.target);
+            else if (applyStatusGa.isTargetSwitched)
+                yield return PlayPhysicalAttackProtected(applyStatusGa.attacker, applyStatusGa.originalTarget, applyStatusGa.target);
+            else
+                yield return PlayPhysicalAttack(applyStatusGa.attacker, applyStatusGa.target);
+        }
 
         public static IEnumerator PlayPhysicalAttack(CardController attacker, CardController target)
         {
