@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 // ReSharper disable CanSimplifyDictionaryLookupWithTryGetValue
 
@@ -19,8 +20,8 @@ namespace ActionReaction
 
         private List<GameAction> reactions = null;
         public bool IsPerforming { get; private set; } = false;
-        private static Dictionary<Type, List<Action<GameAction>>> preSubs = new();
-        private static Dictionary<Type, List<Action<GameAction>>> postSubs = new();
+        private static Dictionary<Type, List<(Action<GameAction>, int)>> preSubs = new();
+        private static Dictionary<Type, List<(Action<GameAction>, int)>> postSubs = new();
         private static Dictionary<Type, Func<GameAction, IEnumerator>> performers = new();
 
         private void Awake()
@@ -64,15 +65,16 @@ namespace ActionReaction
             OnFlowFinished?.Invoke();
         }
 
-        private void PerformSubscribers(GameAction action, Dictionary<Type,List<Action<GameAction>>> subs)
+        private void PerformSubscribers(GameAction action, Dictionary<Type, List<(Action<GameAction>, int)>> subs)
         {
             Type type = action.GetType();
             if (subs.ContainsKey(type))
             {
-                for (int i = subs[type].Count - 1; i >= 0; i--)
+                List<(Action<GameAction>, int)> orderedList = subs[type].OrderBy((r) => r.Item2).ToList();
+                for (int i = orderedList.Count - 1; i >= 0; i--)
                 {
-                    Action<GameAction> sub = subs[type][i];
-                    sub(action);
+                    (Action<GameAction>, int) sub = orderedList[i];
+                    sub.Item1(action);
                 }
             }
         }
@@ -112,21 +114,21 @@ namespace ActionReaction
                 performers.Remove(type);
         }
 
-        private static Dictionary<Delegate, Action<GameAction>> wrappedDelegates = new();
+        private static Dictionary<Delegate, (Action<GameAction>, int)> wrappedDelegates = new();
         
-        public static void SubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
+        public static void SubscribeReaction<T>(Action<T> reaction, ReactionTiming timing, int priority = 1) where T : GameAction
         {
-            Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
+            Dictionary<Type, List<(Action<GameAction>, int)>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
 
             if (wrappedDelegates.ContainsKey(reaction)) 
                 return;
 
-            Action<GameAction> wrappedReaction = action => reaction((T)action);
+            (Action<GameAction>, int) wrappedReaction = (action => reaction((T)action), priority);
             wrappedDelegates[reaction] = wrappedReaction;
 
             if (!subs.TryGetValue(typeof(T), out var list))
             {
-                list = new List<Action<GameAction>>();
+                list = new List<(Action<GameAction>, int)>();
                 subs[typeof(T)] = list;
             }
 
@@ -135,7 +137,7 @@ namespace ActionReaction
 
         public static void UnsubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
         {
-            Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
+            Dictionary<Type, List<(Action<GameAction>, int)>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
 
             if (wrappedDelegates.TryGetValue(reaction, out var wrappedReaction))
             {

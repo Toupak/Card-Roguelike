@@ -29,8 +29,8 @@ namespace Spells.Data.Cube
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();
-            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE);
-            ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.PRE);
+            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE, 100);
+            ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.PRE, 100);
         }
 
         protected override void UnsubscribeReactions()
