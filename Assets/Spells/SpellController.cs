@@ -9,6 +9,7 @@ using Spells.Targeting;
 using Status;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace Spells
 {
@@ -193,6 +194,11 @@ namespace Spells
 
             IsShiny = newState;
             thisSpellButton.UpdateTooltipEnergyCost(IsShiny ? 0 : spellData.energyCost);
+        }
+
+        protected CardController PickRandomTarget(List<CardMovement> targets)
+        {
+            return targets[Random.Range(0, targets.Count)].cardController;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Cards.Scripts
         None,
         Stun,
         DoritoCaltrop,
-        CanisBalisticBullet,
+        BulletAmmo,
         BonusDamage,
         Taunt,
         PermanentBonusDamage,

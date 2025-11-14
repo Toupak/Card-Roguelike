@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using UnityEngine;
+
+namespace Spells.Data.MachineGun
+{
+    public class MGShoot : SpellController
+    {
+        public override bool CanCastSpell()
+        {
+            return base.CanCastSpell() && cardController.cardStatus.IsStatusApplied(StatusType.BulletAmmo);
+        }
+        
+        protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
+        {
+            yield return base.CastSpellOnTarget(targets);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            int damage = spellData.damage;
+            int bullets = cardController.cardStatus.currentStacks[StatusType.BulletAmmo];
+            
+            for (int i = 0; i < bullets; i++)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(damage), cardController, PickRandomTarget(targets));
+                ActionSystem.instance.Perform(dealDamageGa);
+                
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.BulletAmmo, 1, cardController, cardController);
+                ActionSystem.instance.Perform(consumeStacksGa);
+                
+                damage = Mathf.Min(3, damage + 1);
+            }
+        }
+    }
+}

@@ -22,7 +22,7 @@ namespace Spells.Data.Canis_Balistic
             if (!base.CanCastSpell())
                 return false;
             
-            return StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.CanisBalisticBullet);
+            return StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.BulletAmmo);
         }
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
@@ -30,7 +30,7 @@ namespace Spells.Data.Canis_Balistic
             yield return base.CastSpellOnTarget(targets);
             HasCastedThisTurn = false;
             
-            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.CanisBalisticBullet, 1, cardController, cardController);
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.BulletAmmo, 1, cardController, cardController);
             ActionSystem.instance.Perform(consumeStacksGa);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
