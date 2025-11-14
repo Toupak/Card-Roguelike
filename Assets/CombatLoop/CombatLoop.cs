@@ -16,7 +16,6 @@ namespace CombatLoop
         [SerializeField] private EnemyHandController enemyHandController;
         [SerializeField] private PlayerHandController playerHandController;
         [SerializeField] private CardContainer playerBoard;
-        [SerializeField] private Animator canvasAnimator;
         
         [SerializeField] private GameObject endPreparationButton;
         [SerializeField] private GameObject endPlayerTurnButton;
@@ -94,8 +93,10 @@ namespace CombatLoop
         {
             if (spawnCardGa.cardData.isEnemy)
                 enemyHandController.SpawnEnemy(spawnCardGa.cardData);
-            else 
-                playerHandController.DrawCard(new DeckCard(spawnCardGa.cardData), playerBoard);
+            else if (spawnCardGa.isToken)
+                playerHandController.SpawnToken(spawnCardGa);
+            else    
+                playerHandController.SpawnCard(new DeckCard(spawnCardGa.cardData), playerBoard);
             yield return new WaitForSeconds(0.2f);
         }
 
@@ -155,7 +156,6 @@ namespace CombatLoop
         
         private IEnumerator TransformBattleground()
         {
-            canvasAnimator.Play("GoToBattle");
             yield return new WaitForSeconds(0.5f);
         }
         

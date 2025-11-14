@@ -27,7 +27,7 @@ namespace CombatLoop
 
                 foreach (DeckCard deckCard in cards)
                 {
-                    DrawCard(deckCard, handContainer);
+                    SpawnCard(deckCard, handContainer);
                     yield return new WaitForSeconds(0.1f);
                 }    
             }
@@ -35,18 +35,27 @@ namespace CombatLoop
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    DrawCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
+                    SpawnCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
                     yield return new WaitForSeconds(0.1f);
                 }   
             }
         }
 
-        public void DrawCard(DeckCard deckCard, CardContainer targetContainer)
+        public void SpawnCard(DeckCard deckCard, CardContainer targetContainer)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             targetContainer.ReceiveCard(newCard);
 
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, deckCard);
+            newCard.SetCardController(controller);
+        }
+        
+        public void SpawnToken(SpawnCardGA spawnCardGa)
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            spawnCardGa.spawner.cardMovement.tokenContainer.ReceiveCard(newCard);
+
+            CardController controller = CardsVisualManager.instance.SpawnNewTokenVisuals(newCard, spawnCardGa.cardData);
             newCard.SetCardController(controller);
         }
         
@@ -71,7 +80,7 @@ namespace CombatLoop
 
             for (int i = 0; i < 8; i++)
             {
-                DrawCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
+                SpawnCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
                 yield return new WaitForSeconds(0.1f);
             }
         }

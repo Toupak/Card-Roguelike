@@ -15,10 +15,10 @@ MonoBehaviour:
   cardNumber: 0
   cardName: The last Gnomefighter
   tribe: 0
-  hpMax: 0
+  hpMax: 1
   artwork: {fileID: 5992079806344813792, guid: c1da2ad570fc3d1438bdb7ac42dd7ed9, type: 3}
   description: 
-  isSpecialSummon: 0
+  isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
   spellList: []

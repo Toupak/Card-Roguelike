@@ -15,7 +15,7 @@ namespace Cards.Scripts
         {
             Vector3 targetPosition = transform.parent.position;
 
-            if (followTarget.Target.IsDragging)
+            if (followTarget.Target.isDragging)
                 targetPosition += offset.ToVector3();
 
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, speed);

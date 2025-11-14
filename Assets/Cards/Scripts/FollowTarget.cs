@@ -76,7 +76,7 @@ namespace Cards.Scripts
             if (isLocked)
                 return;
             
-            if (target.ContainerType == ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.IsDragging)
+            if (target.ContainerType == ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.isDragging)
                 FollowPositionSticky();
             else
                 FollowPosition();
@@ -90,9 +90,9 @@ namespace Cards.Scripts
 
         private void UpdateScale()
         {
-            if (target.IsDragging)
+            if (target.isDragging)
                 targetScale = scaleMultiplierOnDrag;
-            else if (target.IsSelected)
+            else if (target.isSelected)
                 targetScale = scaleMultiplierOnSelect;
             else
                 targetScale = 1.0f;
@@ -105,7 +105,7 @@ namespace Cards.Scripts
 
         private void UpdateHandPositionAndRotationOffsets()
         {
-            bool canMove = !target.IsDragging && target.ContainerType == ContainerType.Hand && target.SlotSiblingCount >= 3;
+            bool canMove = !target.isDragging && target.ContainerType == ContainerType.Hand && target.SlotSiblingCount >= 3;
             
             int siblingCount = Mathf.Max(target.SlotSiblingCount, 1);
             float normalizedPosition = Tools.NormalizeValue(target.SlotIndex, 0.0f, siblingCount);
@@ -118,15 +118,15 @@ namespace Cards.Scripts
         {
             int siblingCount = Math.Max(target.SlotSiblingCount, 0);
          
-            float sine = Mathf.Sin(Time.time + target.SlotIndex) * (target.IsHovering ? 0.2f : 1);
-            float cosine = Mathf.Cos(Time.time + target.SlotIndex) * (target.IsHovering ? 0.2f : 1);
+            float sine = Mathf.Sin(Time.time + target.SlotIndex) * (target.isHovering ? 0.2f : 1);
+            float cosine = Mathf.Cos(Time.time + target.SlotIndex) * (target.isHovering ? 0.2f : 1);
 
             Vector3 offset = transform.position - Input.mousePosition;
 
             float screenSizedManualTiltAmount = manualTiltAmount / (Screen.width / 960.0f);
-            float tiltX = target.IsHovering && !target.IsSelected ? ((offset.y * -1) * screenSizedManualTiltAmount) : 0;
-            float tiltY = target.IsHovering && !target.IsSelected ? ((offset.x) * screenSizedManualTiltAmount) : 0;
-            float tiltZ = target.IsDragging || target.ContainerType != ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
+            float tiltX = target.isHovering && !target.isSelected ? ((offset.y * -1) * screenSizedManualTiltAmount) : 0;
+            float tiltY = target.isHovering && !target.isSelected ? ((offset.x) * screenSizedManualTiltAmount) : 0;
+            float tiltZ = target.isDragging || target.ContainerType != ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
 
             Vector3 currentAngles = tiltParent.eulerAngles;
             float lerpX = Mathf.LerpAngle(currentAngles.x, tiltX + (sine * autoTiltAmount), tiltSpeed * Time.deltaTime);
@@ -150,16 +150,16 @@ namespace Cards.Scripts
         {
             float verticalOffset = ComputeVerticalOffset();
             Vector2 targetPosition = target.rectTransform.position.ToVector2() + Vector2.up * verticalOffset;
-            Vector3 clampedPosition = target.IsDragging ? Tools.ClampPositionInScreen(targetPosition, rectTransform.rect.size) : targetPosition;
+            Vector3 clampedPosition = target.isDragging ? Tools.ClampPositionInScreen(targetPosition, rectTransform.rect.size) : targetPosition;
             
             rectTransform.position = Vector3.Lerp(rectTransform.position, clampedPosition, Time.deltaTime * speed);
         }
 
         private float ComputeVerticalOffset()
         {
-            float verticalOffset = target.IsDragging ? 0.0f : curveYOffset;
+            float verticalOffset = target.isDragging ? 0.0f : curveYOffset;
                 
-            if (target.IsSelected)
+            if (target.isSelected)
             {
                 switch (target.ContainerType)
                 {
@@ -185,14 +185,14 @@ namespace Cards.Scripts
         {
             Vector3 movement = (transform.position - target.transform.position);
             movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
-            Vector3 movementRotation = (target.IsDragging ? movementDelta : movement) * rotationAmount;
+            Vector3 movementRotation = (target.isDragging ? movementDelta : movement) * rotationAmount;
             rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -maxAngle, maxAngle));
         }
         
         private void Squeeze()
         {
-            if (target.IsSelected)
+            if (target.isSelected)
                 return;
             
             StopAllCoroutines();
@@ -201,7 +201,7 @@ namespace Cards.Scripts
         
         private void UpdateSortingOrder()
         {
-            if (target.IsDragging || target.IsSelected)
+            if (target.isDragging || target.isSelected)
                 canvas.sortingOrder = 1000;
             else
                 canvas.sortingOrder = target.SlotIndex + 1;

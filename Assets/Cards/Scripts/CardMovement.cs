@@ -1,3 +1,4 @@
+using System;
 using Board.Script;
 using CardSlot.Script;
 using Cursor.Script;
@@ -10,22 +11,18 @@ namespace Cards.Scripts
 {
     public class CardMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler, ISelectHandler, IDeselectHandler
     {
+        [SerializeField] public CardContainer tokenContainer;
+        
         [HideInInspector] public UnityEvent OnHover = new UnityEvent();
         [HideInInspector] public UnityEvent OnSelected = new UnityEvent();
         [HideInInspector] public UnityEvent OnDeselected = new UnityEvent();
         [HideInInspector] public UnityEvent OnStartDrag = new UnityEvent();
         [HideInInspector] public UnityEvent OnDrop = new UnityEvent();
         [HideInInspector] public UnityEvent OnSetNewSlot = new UnityEvent();
-        
-        //TODO Cleanup this
-        private bool isDragging;
-        public bool IsDragging => isDragging;
-        
-        private bool isHovering;
-        public bool IsHovering => isHovering;
 
-        private bool isSelected;
-        public bool IsSelected => isSelected;
+        public bool isDragging { get;  private set; }
+        public bool isHovering { get;  private set; }
+        public bool isSelected { get;  private set; }
 
         public RectTransform rectTransform { get;  private set; }
         public CardController cardController { get;  private set; }
@@ -45,6 +42,12 @@ namespace Cards.Scripts
         private void Start()
         {
             selectable = GetComponent<Selectable>();
+        }
+
+        private void LateUpdate()
+        {
+            if (isHovering && CursorInfo.instance.currentCardMovement != this)
+                isHovering = false;
         }
 
         public void SetNewSlot(Slot newSlot, bool resetPosition)
@@ -112,6 +115,9 @@ namespace Cards.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (CursorInfo.instance.currentCardMovement != this)
+                return;
+            
             isHovering = true;
             OnHover?.Invoke();
         }

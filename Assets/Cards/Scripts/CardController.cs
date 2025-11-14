@@ -36,7 +36,19 @@ namespace Cards.Scripts
         public CardHolographicDisplay cardHolographicDisplay { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
 
+        
+        public void Setup(CardMovement movement, CardData data)
+        {
+            SetupCard(movement, data, data.hpMax);
+        }
+        
         public void Setup(CardMovement movement, DeckCard cardFromDeck)
+        {
+            deckCard = cardFromDeck;
+            SetupCard(movement, cardFromDeck.cardData, cardFromDeck.currentHealth);
+        }
+        
+        private void SetupCard(CardMovement movement, CardData data, int health)
         {
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
@@ -45,14 +57,14 @@ namespace Cards.Scripts
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
-            cardHealth.Setup(cardFromDeck);
+            cardHealth.Setup(health);
             cardHealth.OnDeath.AddListener(KillCard);
             
             displayCardEffect = GetComponent<DisplayCardEffects>();
             
             cardMovement = movement;
-            cardData = cardFromDeck.cardData;
-            deckCard = cardFromDeck;
+            cardData = data;
+            
             
             gameObject.name = cardData.cardName;
 

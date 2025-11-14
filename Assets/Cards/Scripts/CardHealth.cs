@@ -23,9 +23,9 @@ namespace Cards.Scripts
             cardController = GetComponent<CardController>();
         }
 
-        public void Setup(DeckCard deckCard)
+        public void Setup(int health)
         {
-            currentHealth = deckCard.currentHealth;
+            currentHealth = health;
             OnUpdateHP.Invoke(currentHealth);
         }
 

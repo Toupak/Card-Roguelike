@@ -7,10 +7,13 @@ namespace ActionReaction.Game_Actions
         public CardData cardData;
         public CardController spawner;
 
-        public SpawnCardGA(CardData data, CardController spawnerController)
+        public bool isToken;
+
+        public SpawnCardGA(CardData data, CardController spawnerController, bool isCardAToken = false)
         {
             cardData = data;
             spawner = spawnerController;
+            isToken = isCardAToken;
         }
     }
 }

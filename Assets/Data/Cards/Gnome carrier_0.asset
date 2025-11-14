@@ -15,13 +15,14 @@ MonoBehaviour:
   cardNumber: 0
   cardName: HMS Gnome
   tribe: 0
-  hpMax: 0
+  hpMax: 15
   artwork: {fileID: 5113772399993538697, guid: 7e7061d9eefc8a54a83fdfcc3aeb9b49, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
-  spellList: []
+  spellList:
+  - {fileID: 11400000, guid: e45daee435a951e4aa25f15b48448820, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
