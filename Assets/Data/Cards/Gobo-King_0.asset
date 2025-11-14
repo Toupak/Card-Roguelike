@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39dc44d71dcd43041a4fd3e58fce6fba, type: 2}
   - {fileID: 11400000, guid: a6d58b7c02836444e8930aadc7487371, type: 2}
   enemyBehaviours:
+  - {fileID: -4504918647482389842, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}
   - {fileID: 7136925749269243135, guid: 9d0e7760ecd95ff4398b3fc96cb5a96a, type: 3}
   - {fileID: 7136925749269243135, guid: 9d0e7760ecd95ff4398b3fc96cb5a96a, type: 3}
   - {fileID: -4504918647482389842, guid: 99547d7efb34a2946bf4e21a0b5f6f9d, type: 3}

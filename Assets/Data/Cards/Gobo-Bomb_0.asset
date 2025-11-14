@@ -15,12 +15,15 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Gobo-Bomb
   tribe: 0
-  hpMax: 5
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
+  hpMax: 4
   artwork: {fileID: 8749302817991680212, guid: 29eb32ed09f848648ac6d8528957d3af, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
   enemyBehaviours:
   - {fileID: -6952304001346426934, guid: d95d6d8ad7c64a5458f9150b3d93d19b, type: 3}
   - {fileID: -6592784767832968671, guid: 75b2bcb670b45514eba02159d513dade, type: 3}
+  areEnemyBehavioursLooping: 0
