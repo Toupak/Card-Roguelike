@@ -46,6 +46,9 @@ namespace CombatLoop
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
+                if (slots[i] == null || slots[i].CurrentCard == null || slots[i].CurrentCard.cardController == null)
+                    continue;
+                
                 CardController card = slots[i].CurrentCard.cardController;
 
                 if (card.cardStatus.IsStatusApplied(StatusType.Stun))

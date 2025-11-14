@@ -230,5 +230,13 @@ namespace Cards.Scripts
         {
             return currentStacks.ContainsKey(type) && currentStacks[type] > 0;
         }
+
+        public int GetCurrentStackCount(StatusType type)
+        {
+            if (IsStatusApplied(type))
+                return currentStacks[type];
+
+            return 0;
+        }
     }
 }

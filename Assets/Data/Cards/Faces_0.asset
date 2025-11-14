@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: Faces_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Faces_0
+  cardName: Many Faces
   tribe: 0
-  hpMax: 0
+  hpMax: 12
   artwork: {fileID: -5285785097126754818, guid: 720d7ca1699da174ba0f305de2bbce93, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  holographicType: 0
-  spellList: []
+  holographicType: 5
+  spellList:
+  - {fileID: 11400000, guid: efc65264a5e9214439d7ab9d09dbb3ef, type: 2}
+  - {fileID: 11400000, guid: a44d06d1f909a86419b7312b3ada674d, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
