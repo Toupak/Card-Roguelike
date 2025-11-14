@@ -112,7 +112,7 @@ namespace Spells
         {
             //yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            HasCastedThisTurn = true;
+            HasCastedThisTurn = !spellData.hasNoCooldown;
             yield return ConsumeEnergy(spellData.energyCost);
             OnCastSpell?.Invoke();
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");

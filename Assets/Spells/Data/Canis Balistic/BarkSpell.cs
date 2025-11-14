@@ -28,7 +28,6 @@ namespace Spells.Data.Canis_Balistic
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
-            HasCastedThisTurn = false;
             
             ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.BulletAmmo, 1, cardController, cardController);
             ActionSystem.instance.Perform(consumeStacksGa);

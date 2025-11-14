@@ -32,6 +32,7 @@ namespace Spells
         
         [Space]
         public int energyCost;
+        public bool hasNoCooldown;
         public int damage;
         public StatusType inflictStatus;
         public int statusStacksApplied;

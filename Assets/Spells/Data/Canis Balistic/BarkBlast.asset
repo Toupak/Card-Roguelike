@@ -24,6 +24,7 @@ MonoBehaviour:
   targetingMode: 2
   targetCount: 0
   energyCost: 0
+  hasNoCooldown: 1
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
