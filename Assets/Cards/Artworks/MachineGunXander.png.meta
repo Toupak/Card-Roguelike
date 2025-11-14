@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 63c4d0b56e6cbd44ab10f8dece7d5d48
+guid: 19f868a1c1cc9ed4bb9d836a031be215
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6979088305850355676
-    second: Hydra_MainHead_PlaceHolder_0
+      213: 5210696965616361661
+    second: MachineGunXander_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hydra_MainHead_PlaceHolder_0
+      name: MachineGunXander_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
+        y: 0
         width: 64
-        height: 47
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdf0b4e56d3bad060800000000000000
-      internalID: 6979088305850355676
+      spriteID: db0e4c3684d105840800000000000000
+      internalID: 5210696965616361661
       vertices: []
       indices: 
       edges: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hydra_MainHead_PlaceHolder_0: 6979088305850355676
+      MachineGunXander_0: 5210696965616361661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

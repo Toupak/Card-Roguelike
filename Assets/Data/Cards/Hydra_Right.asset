@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Hydra_AngryHead__PlaceHolder_0
+  m_Name: Hydra_Right
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Hydra_AngryHead__PlaceHolder_0
+  cardName: Hydra Right
   tribe: 0
   hpMax: 10
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
-  artwork: {fileID: 2364284184740639857, guid: fc1014c6a1a07ac48b83217ae0ba35c4, type: 3}
+  artwork: {fileID: 21300000, guid: 0f2e99206f214964eb498bd651e0db0d, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
   enemyBehaviours:
   - {fileID: -129040703191400837, guid: d65ddcae0bd9d7f44bff6994054b227d, type: 3}
   - {fileID: -1449387821149511015, guid: 8c01dd4ca2bbf6f4999f4b51b2497750, type: 3}
   - {fileID: -3448450029094437866, guid: 97aef350fe1822d4ca5739f6a9ccce58, type: 3}
+  areEnemyBehavioursLooping: 0

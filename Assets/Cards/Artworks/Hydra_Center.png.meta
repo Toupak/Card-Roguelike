@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: fc1014c6a1a07ac48b83217ae0ba35c4
+guid: c16a7de27a8b3314bb87e876799ce2a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2364284184740639857
-    second: Hydra_AngryHead__PlaceHolder_0
-  - first:
-      213: 3544010222536655884
-    second: Hydra_AngryHead__PlaceHolder_1
+      213: -6731535996118380557
+    second: Hydra_Center_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -99,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hydra_AngryHead__PlaceHolder_0
+      name: Hydra_Center_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,15 +121,15 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1743a8380ff9fc020800000000000000
-      internalID: 2364284184740639857
+      spriteID: 3ffcb9e3da7c492a0800000000000000
+      internalID: -6731535996118380557
       vertices: []
       indices: 
       edges: []
@@ -128,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1e1eb88efa575ac4182b8698ec3d9384
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -138,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hydra_AngryHead__PlaceHolder_0: 2364284184740639857
-      Hydra_AngryHead__PlaceHolder_1: 3544010222536655884
+      Hydra_Center_0: -6731535996118380557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Hydra_SneakyHead_Placeholder_0
+  m_Name: Hydra_Left
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Hydra_SneakyHead_Placeholder_0
+  cardName: Hydra Left
   tribe: 0
   hpMax: 9
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
-  artwork: {fileID: -2356599089988780903, guid: 4cb5e2ac89ec70044bc11bb946108828, type: 3}
+  artwork: {fileID: 21300000, guid: 3e14325fd947f8640a5cd37d5739fd6c, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
   enemyBehaviours:
   - {fileID: -282907340387470242, guid: 7a539ee5257f80d4f9c4f62437e854f7, type: 3}
   - {fileID: -1449387821149511015, guid: 8039ced04195ec84b86362139b55d1b8, type: 3}
   - {fileID: 439517726263121823, guid: 5f4bf3ddd4da3894698a4bd722389015, type: 3}
+  areEnemyBehavioursLooping: 0
