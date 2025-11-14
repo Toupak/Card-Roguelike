@@ -55,7 +55,7 @@ namespace CombatLoop
             CardMovement newCard = Instantiate(cardMovementPrefab);
             spawnCardGa.spawner.cardMovement.tokenContainer.ReceiveCard(newCard);
 
-            CardController controller = CardsVisualManager.instance.SpawnNewTokenVisuals(newCard, spawnCardGa.cardData);
+            CardController controller = CardsVisualManager.instance.SpawnNewTokenVisuals(newCard, spawnCardGa.cardData, spawnCardGa.spawner.cardMovement.cardController);
             newCard.SetCardController(controller);
         }
         

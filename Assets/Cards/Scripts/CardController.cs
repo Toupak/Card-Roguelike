@@ -36,9 +36,11 @@ namespace Cards.Scripts
         public CardHolographicDisplay cardHolographicDisplay { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
 
+        public CardController tokenParentController { get; private set; } // is Null for regular cards, only  set for tokens
         
-        public void Setup(CardMovement movement, CardData data)
+        public void SetupToken(CardMovement movement, CardData data, CardController parentCardController)
         {
+            tokenParentController = parentCardController;
             SetupCard(movement, data, data.hpMax);
         }
         

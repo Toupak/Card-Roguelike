@@ -24,10 +24,10 @@ namespace Cards.Scripts
             return newCard;
         }
         
-        public CardController SpawnNewTokenVisuals(CardMovement movement, CardData tokenData)
+        public CardController SpawnNewTokenVisuals(CardMovement movement, CardData tokenData, CardController parentCardController)
         {
             CardController newCard = Instantiate(tokenData.alternativeCardPrefab != null ? tokenData.alternativeCardPrefab : tokenGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
-            newCard.Setup(movement, tokenData);
+            newCard.SetupToken(movement, tokenData, parentCardController);
 
             return newCard;
         }

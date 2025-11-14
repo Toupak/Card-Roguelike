@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
 
@@ -12,6 +13,11 @@ namespace Passives
         {
             cardController = controller;
             passiveData = data;
+        }
+        
+        protected CardController PickRandomTarget(List<CardMovement> targets)
+        {
+            return targets[Random.Range(0, targets.Count)].cardController;
         }
     }
 }

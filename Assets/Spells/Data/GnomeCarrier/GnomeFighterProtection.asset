@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: GnomeFighterProtection
+  m_EditorClassIdentifier: 
+  passiveName: Cover Mommy
+  description: GnomeFighter will Protect its Carrier
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4293794837
+  passiveController: {fileID: -1816086098619546304, guid: 5886c8819ff5d62499ff8c8d04284fef, type: 3}

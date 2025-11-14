@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: GnomeFighterAttack
+  m_EditorClassIdentifier: 
+  passiveName: For The Gnome King
+  description: GnomeFighter will launch a suicide attack on a random target at the
+    start of your next turn
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4279571950
+  passiveController: {fileID: 376541252034270576, guid: 607f958ffdb426946bf5d05768ec6b23, type: 3}
