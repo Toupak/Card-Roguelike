@@ -5,9 +5,9 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Faces
+namespace Spells.Data.Gimbo
 {
-    public class FacesAttack : SpellController
+    public class GimboAttack : SpellController
     {
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
