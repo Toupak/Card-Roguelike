@@ -1285,6 +1285,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6af0a8d5c2a93d4d9f6bf38af3fb7d5, type: 2}
   - {fileID: 11400000, guid: f72e1ad8ab9eee54d87f8a6cda3e17b3, type: 2}
   - {fileID: 11400000, guid: 1dc1f8becbec69b49ba2ea60a787d69b, type: 2}
+  - {fileID: 11400000, guid: c8e7bec47be57ea4c93edf1fb94ffe57, type: 2}
 --- !u!4 &1520429612
 Transform:
   m_ObjectHideFlags: 0
@@ -1294,7 +1295,7 @@ Transform:
   m_GameObject: {fileID: 1520429610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 481.80624, y: 247.81235, z: 741.5685}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1457,7 +1458,7 @@ MonoBehaviour:
   enemyBoardContainer: {fileID: 278176961}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   battles:
-  - {fileID: 11400000, guid: 51cfb4e3f13051147b614dab76b140e2, type: 2}
+  - {fileID: 11400000, guid: d9728bc42db2c874d8181262968b58e2, type: 2}
 --- !u!4 &1715712364
 Transform:
   m_ObjectHideFlags: 0

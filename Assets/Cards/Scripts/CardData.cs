@@ -40,6 +40,7 @@ namespace Cards.Scripts
         [Space]
         public List<BaseEnemyBehaviour> enemyBehaviours;
         public bool areEnemyBehavioursLooping;
+        public bool isWaitingOnSpawn;
 
         public bool isIncomplete => (passiveList == null || passiveList.Count < 1) && (spellList == null || spellList.Count < 1) && !isEnemy;
         public bool isEnemy => enemyBehaviours != null && enemyBehaviours.Count > 0;

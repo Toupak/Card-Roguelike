@@ -15,6 +15,7 @@ namespace EnemyAttack.Monk_Fight.Addon
         [Tooltip("Used to target the correct enemy during the fight")] [SerializeField] private CardData bossData;
         [SerializeField] private int healAmount;
         [SerializeField] private float prioritizeHealThreshold;
+        [SerializeField] private bool isWeightStatic;
 
         protected override CardController ComputeTarget()
         {
@@ -40,6 +41,9 @@ namespace EnemyAttack.Monk_Fight.Addon
 
         public override int ComputeWeight()
         {
+            if (isWeightStatic)
+                return weight;
+
             CardController boss = GetSpecificCard(bossData);
 
             if (boss != null && boss.cardHealth.currentHealth == bossData.hpMax)

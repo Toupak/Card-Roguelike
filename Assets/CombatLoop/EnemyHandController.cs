@@ -66,7 +66,7 @@ namespace CombatLoop
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
-                if (card != null && !card.cardHealth.IsDead)
+                if (card != null && card.enemyCardController != null && !card.cardHealth.IsDead)
                     yield return card.enemyCardController!.ExecuteIntention();
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
@@ -78,8 +78,12 @@ namespace CombatLoop
             foreach (Slot slot in enemyBoardContainer.Slots)
             {
                 EnemyCardController card = slot.CurrentCard.cardController.enemyCardController;
-                card!.ComputeNextIntention();
-                card.DisplayNextIntention();
+
+                if (card != null)
+                {
+                    card!.ComputeNextIntention();
+                    card.DisplayNextIntention();
+                }
             }
         }
 

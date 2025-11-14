@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: PowerSeed
   tribe: 0
-  hpMax: 0
+  hpMax: 1
   artwork: {fileID: 21300000, guid: 05d8544b20be2ab439399b8b1cb37df3, type: 3}
   description: 
   isSpecialSummon: 0
@@ -23,5 +23,7 @@ MonoBehaviour:
   holographicType: 0
   spellList: []
   passiveList: []
-  enemyBehaviours: []
+  enemyBehaviours:
+  - {fileID: 2534550213103992850, guid: 36483c8100a28de489f32cd5bf746cda, type: 3}
   areEnemyBehavioursLooping: 0
+  isWaitingOnSpawn: 0

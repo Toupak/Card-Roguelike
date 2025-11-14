@@ -30,6 +30,7 @@ namespace Cards.Scripts
         Pants,
         Fury,
         Dodge,
+        Captured,
     }
 
     public enum StatusEndTurnBehaviour
@@ -92,8 +93,10 @@ namespace Cards.Scripts
         {
             if (IsCorrectTurn(endTurnGa.ending))
                 UpdateStacksAtEndOfTurn();
+            else
+                CheckForCaptureStacksDealDamage();
         }
-        
+
         private void EnemyPerformsActionReaction(EnemyPerformsActionGa enemyPerformsActionGa)
         {
             if (enemyPerformsActionGa.cardController == cardController && currentStacks.ContainsKey(StatusType.DoritoCaltrop) && currentStacks[StatusType.DoritoCaltrop] > 0)
@@ -102,7 +105,16 @@ namespace Cards.Scripts
                 ActionSystem.instance.AddReaction(doritoCaltrop);
             }
         }
-        
+
+        private void CheckForCaptureStacksDealDamage()
+        {
+            if (GetCurrentStackCount(StatusType.Captured) > 0)
+            {
+                DealDamageGA doritoCaltrop = new DealDamageGA(2, cardController, cardController);
+                ActionSystem.instance.AddReaction(doritoCaltrop);
+            }
+        }
+
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
             if (dealDamageGa.target == cardController && currentStacks.ContainsKey(StatusType.Taunt))

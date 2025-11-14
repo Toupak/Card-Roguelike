@@ -52,7 +52,10 @@ namespace Spells
 
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 return false;
-            
+
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
+                return false;
+
             return true;
         }
 

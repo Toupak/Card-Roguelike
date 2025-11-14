@@ -43,7 +43,7 @@ namespace EnemyAttack
                 behaviours.Add(instantiatedBehaviour);
             }
 
-            if (CombatLoop.CombatLoop.instance.turnCount > 0)
+            if (CombatLoop.CombatLoop.instance.turnCount > 0 && cardData.isWaitingOnSpawn)
                 behaviourQueue.Enqueue(cardController.waitingBehaviourPrefab);
         }
         

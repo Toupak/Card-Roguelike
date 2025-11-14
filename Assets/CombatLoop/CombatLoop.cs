@@ -15,7 +15,7 @@ namespace CombatLoop
     {
         [SerializeField] private EnemyHandController enemyHandController;
         [SerializeField] private PlayerHandController playerHandController;
-        [SerializeField] private CardContainer playerBoard;
+        [SerializeField] public CardContainer playerBoard;
         
         [SerializeField] private GameObject endPreparationButton;
         [SerializeField] private GameObject endPlayerTurnButton;

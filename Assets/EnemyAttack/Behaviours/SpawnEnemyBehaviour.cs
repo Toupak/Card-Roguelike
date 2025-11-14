@@ -10,12 +10,14 @@ namespace EnemyAttack.Behaviours
     public class SpawnEnemyBehaviour : BaseEnemyBehaviour
     {
         [SerializeField] protected List<CardData> cardsToSpawn;
+        [SerializeField] private int spawnCount;
 
         public override IEnumerator ExecuteBehavior()
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            yield return SpawnRandomEnemy();
+            for (int i = 0; i < Mathf.Max(1, spawnCount); i++)
+                yield return SpawnRandomEnemy();
         }
 
         protected virtual IEnumerator SpawnRandomEnemy()
