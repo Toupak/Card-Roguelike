@@ -114,9 +114,8 @@ namespace Spells
         protected virtual IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             //yield return base.CastSpellOnTarget(targets);
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            HasCastedThisTurn = !spellData.hasNoCooldown;
             yield return ConsumeEnergy(spellData.energyCost);
+            HasCastedThisTurn = !spellData.hasNoCooldown;
             OnCastSpell?.Invoke();
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
         }
@@ -128,8 +127,8 @@ namespace Spells
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 ConsumeEnergyGa consumeEnergyGa = new ConsumeEnergyGa(cost, this);
                 ActionSystem.instance.Perform(consumeEnergyGa);
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             }
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
         }
 
         private void OnEnable()
