@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: BerserkRage
+  m_Name: BerserkBuff
   m_EditorClassIdentifier: 
-  passiveName: Go Berserk
-  description: 'Gain 1 stack of Rage for every damage dealt or received
-
-    At 10
-    Rage stacks, consume all stacks and deal 1 damage to all enemies'
+  passiveName: Strength From Rage
+  description: When going Berserk, removes all Stuns and Weak stacks and gain 1 Permanent
+    Damage
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2

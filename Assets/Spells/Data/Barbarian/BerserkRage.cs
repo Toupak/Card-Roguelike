@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
@@ -12,7 +11,6 @@ namespace Spells.Data.Barbarian
     public class BerserkRage : PassiveController
     {
         [SerializeField] private int stackCountRequiredToGoBerserk;
-        [SerializeField] private int turnCountAsBerserk;
         
         private void OnEnable()
         {
@@ -45,9 +43,6 @@ namespace Spells.Data.Barbarian
                 {
                     ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Rage, rageStackCount, cardController, cardController);
                     ActionSystem.instance.AddReaction(consumeStacksGa);
-
-                    ApplyStatusGa goBerserk = new ApplyStatusGa(StatusType.BerserkMode, turnCountAsBerserk, cardController, cardController);
-                    ActionSystem.instance.AddReaction(goBerserk);
 
                     List<CardMovement> enemies = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
                     foreach (CardMovement enemy in enemies)
