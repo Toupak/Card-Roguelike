@@ -21,7 +21,8 @@ namespace EnemyAttack.Behaviours
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, ComputeTarget());
+            CardController target = ComputeTarget();
+            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
             ActionSystem.instance.Perform(damageGa);
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
@@ -32,7 +33,7 @@ namespace EnemyAttack.Behaviours
         
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage)}";
+            return $"{ComputeCurrentDamage(damage, null)}";
         }
     }
 }

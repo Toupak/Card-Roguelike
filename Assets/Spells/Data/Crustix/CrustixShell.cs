@@ -30,24 +30,24 @@ namespace Spells.Data.Crustix
 
         private void ConsumeStackReaction(ConsumeStacksGa consumeStacksGa)
         {
-            if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.CrustixShell)
+            if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.ReturnDamage)
                 UpdateArmorStatus();
         }
 
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.target == cardController && applyStatusGa.type == StatusType.CrustixShell)
+            if (applyStatusGa.target == cardController && applyStatusGa.type == StatusType.ReturnDamage)
                 UpdateArmorStatus();
         }
         
         private void UpdateArmorStatus()
         {
-            if (isArmored && !cardController.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            if (isArmored && !cardController.cardStatus.IsStatusApplied(StatusType.ReturnDamage))
             {
                 isArmored = false;
                 cardController.SetArtwork(regularSprite);
             }
-            else if (!isArmored && cardController.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            else if (!isArmored && cardController.cardStatus.IsStatusApplied(StatusType.ReturnDamage))
             {
                 isArmored = true;
                 cardController.SetArtwork(armoredSprite);

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7be8a560dcc55348bab860d84ef0039, type: 3}
-  m_Name: CrustixShell
+  m_Name: Rage
   m_EditorClassIdentifier: 
-  type: 8
-  statusName: Hidden InShell
-  statusDescription: 'Crustix is hiding in his shell
+  type: 18
+  statusName: Rage
+  statusDescription: 'Gain 1 stack of Rage for every damage dealt or received
 
-    If attacked, enemies take
-    1 damage back'
-  endTurnBehaviour: 3
-  maxStackCount: -1
+    At
+    10 Rage stacks, consume stacks and go Berserk for 2 turns'
+  endTurnBehaviour: 2
+  maxStackCount: 10
   barColor:
     serializedVersion: 2
-    rgba: 4289997584
+    rgba: 4278198015
   circleColor:
     serializedVersion: 2
-    rgba: 4294459670
+    rgba: 4280273125
   icon: {fileID: 0}

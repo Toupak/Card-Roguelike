@@ -21,7 +21,7 @@ namespace Cards.Scripts
         Taunt,
         PermanentBonusDamage,
         HogGroink,
-        CrustixShell,
+        ReturnDamage,
         GumBoom,
         Weak,
         Obedience,
@@ -31,6 +31,8 @@ namespace Cards.Scripts
         Fury,
         Dodge,
         Captured,
+        Rage,
+        BerserkMode
     }
 
     public enum StatusEndTurnBehaviour

@@ -11,7 +11,7 @@ namespace Spells.Data.Crustix
     {
         protected override IEnumerator CastSpellCoroutine(Transform startPosition)
         {
-            bool isHiddenInShell = cardController.cardStatus.IsStatusApplied(StatusType.CrustixShell);
+            bool isHiddenInShell = cardController.cardStatus.IsStatusApplied(StatusType.ReturnDamage);
             
             if (isHiddenInShell)
                 yield return CastSpellOnSelf(cardController.cardMovement);
@@ -25,7 +25,7 @@ namespace Spells.Data.Crustix
         {
             yield return base.CastSpellOnTarget(targets);
 
-            bool isHiddenInShell = cardController.cardStatus.IsStatusApplied(StatusType.CrustixShell);
+            bool isHiddenInShell = cardController.cardStatus.IsStatusApplied(StatusType.ReturnDamage);
 
             if (isHiddenInShell)
                 yield return TauntEnemies();

@@ -683,6 +683,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fb293bee82c39894180c1bd7f38f63dc, type: 2}
   - {fileID: 11400000, guid: 3f42288157acc204eb8decfede9d7832, type: 2}
   - {fileID: 11400000, guid: 646bf9358bf1af24b924a7faa361f59b, type: 2}
+  - {fileID: 11400000, guid: b761af65222c49f4ebc0b1fb3f3d09f6, type: 2}
   - {fileID: 11400000, guid: 6ed2e3ba4b1b8b443b05cdbfde295862, type: 2}
 --- !u!4 &628700216
 Transform:
@@ -1286,6 +1287,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f72e1ad8ab9eee54d87f8a6cda3e17b3, type: 2}
   - {fileID: 11400000, guid: 1dc1f8becbec69b49ba2ea60a787d69b, type: 2}
   - {fileID: 11400000, guid: c8e7bec47be57ea4c93edf1fb94ffe57, type: 2}
+  - {fileID: 11400000, guid: 0a3ee645e2e1ea54a95d41e9a2fb1f7f, type: 2}
+  - {fileID: 11400000, guid: 67a15e68b3ea7a8468b78a1a847b1345, type: 2}
 --- !u!4 &1520429612
 Transform:
   m_ObjectHideFlags: 0
@@ -1458,7 +1461,7 @@ MonoBehaviour:
   enemyBoardContainer: {fileID: 278176961}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   battles:
-  - {fileID: 11400000, guid: d9728bc42db2c874d8181262968b58e2, type: 2}
+  - {fileID: 11400000, guid: 9fd3d827206d3ad4ba60ae53ff94f435, type: 2}
 --- !u!4 &1715712364
 Transform:
   m_ObjectHideFlags: 0

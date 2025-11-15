@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7be8a560dcc55348bab860d84ef0039, type: 3}
-  m_Name: CanisAmunition
+  m_Name: Return Damage
   m_EditorClassIdentifier: 
-  type: 3
-  statusName: Ammunitions
-  statusDescription: 'Ammunitions used to Launch a "Bark-Blast".
-
-    Can be gained
-    by using "Doggo-Reload".'
-  endTurnBehaviour: 2
+  type: 8
+  statusName: Return Damage
+  statusDescription: If attacked, enemies take 1 damage back
+  endTurnBehaviour: 3
   maxStackCount: -1
   barColor:
     serializedVersion: 2
-    rgba: 4285295658
+    rgba: 4289997584
   circleColor:
     serializedVersion: 2
-    rgba: 4286619191
+    rgba: 4294459670
   icon: {fileID: 0}

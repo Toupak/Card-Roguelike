@@ -77,12 +77,12 @@ namespace CombatLoop
         
         private void DealDamageReactionPost(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target != null && dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.CrustixShell))
+            if (dealDamageGa.target != null && dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.ReturnDamage))
             {
                 DealDamageGA damageGa = new DealDamageGA(1, dealDamageGa.target, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(damageGa);
                 
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.CrustixShell, 1, dealDamageGa.target, dealDamageGa.target);
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.ReturnDamage, 1, dealDamageGa.target, dealDamageGa.target);
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }   
         }

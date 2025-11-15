@@ -170,16 +170,16 @@ namespace Spells
         {
             int bonus = 0;
 
-            if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.BonusDamage))
-                bonus += cardController.cardStatus.currentStacks[StatusType.BonusDamage];
+            bonus += cardController.cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
+            bonus += cardController.cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
+            bonus -= cardController.cardStatus.GetCurrentStackCount(StatusType.Weak);
 
-            if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.PermanentBonusDamage))
-                bonus += cardController.cardStatus.currentStacks[StatusType.PermanentBonusDamage];
+            int total = spellDamage + bonus;
+
+            if (cardController.cardStatus.IsStatusApplied(StatusType.BerserkMode))
+                total *= 2;
             
-            if (StatusSystem.instance.IsCardAfflictedByStatus(cardController, StatusType.Weak))
-                bonus -= cardController.cardStatus.currentStacks[StatusType.Weak];
-
-            return spellDamage + bonus;
+            return total;
         }
 
         public virtual int ComputeCurrentTargetCount(int count)

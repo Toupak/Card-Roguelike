@@ -25,7 +25,7 @@ namespace EnemyAttack.Hydra_Fight.Main_Head
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target.cardController);
+                DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage, target.cardController), enemyCardController.cardController, target.cardController);
                 ActionSystem.instance.Perform(dealDamage);
             }
 
@@ -34,7 +34,7 @@ namespace EnemyAttack.Hydra_Fight.Main_Head
     
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage)}";
+            return $"{ComputeCurrentDamage(damage, null)}";
         }
 
         public override DamageSystem.DamageType GetDamageType()

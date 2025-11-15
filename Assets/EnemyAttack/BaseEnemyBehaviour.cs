@@ -25,20 +25,20 @@ namespace EnemyAttack
             enemyCardController = controller;
         }
 
-        protected virtual int ComputeCurrentDamage(int spellDamage)
+        protected virtual int ComputeCurrentDamage(int spellDamage, CardController target)
         {
             int bonus = 0;
-
-            if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.BonusDamage))
-                bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.BonusDamage];
-
-            if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.PermanentBonusDamage))
-                bonus += enemyCardController.cardController.cardStatus.currentStacks[StatusType.PermanentBonusDamage];
-
-            if (StatusSystem.instance.IsCardAfflictedByStatus(enemyCardController.cardController, StatusType.Weak))
-                bonus -= enemyCardController.cardController.cardStatus.currentStacks[StatusType.Weak];
             
-            return spellDamage + bonus;
+            bonus += enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
+            bonus += enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
+            bonus -= enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.Weak);
+
+            int total = spellDamage + bonus;
+
+            if (target != null && target.cardStatus.IsStatusApplied(StatusType.BerserkMode))
+                total *= 2;
+            
+            return total;
         }
 
         protected virtual CardController ComputeTarget()
