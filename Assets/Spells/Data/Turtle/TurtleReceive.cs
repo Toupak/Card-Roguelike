@@ -22,7 +22,7 @@ namespace Spells.Data.Turtle
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))
                 return false;
 
-            return cardController.cardStatus.IsStatusApplied(StatusType.Stun);
+            return cardController.cardStatus.IsStatusApplied(StatusType.Stun) && !cardController.cardStatus.IsStatusApplied(StatusType.Captured);
         }
         
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)

@@ -5,9 +5,9 @@ using Cards.Scripts;
 using CombatLoop.EnergyBar;
 using UnityEngine;
 
-namespace Spells.Data.Faces
+namespace Spells.Data.Gimbo
 {
-    public class FacesCleanse : SpellController
+    public class GimboCleanse : SpellController
     {
         public override bool CanCastSpell()
         {
@@ -21,6 +21,9 @@ namespace Spells.Data.Faces
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))
                 return false;
 
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
+                return false;
+
             return cardController.cardStatus.IsStatusApplied(StatusType.Stun);
         }
         
@@ -28,8 +31,6 @@ namespace Spells.Data.Faces
         {
             yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            
-            
         }
     }
 }

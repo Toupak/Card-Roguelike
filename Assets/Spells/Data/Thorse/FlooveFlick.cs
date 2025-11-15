@@ -44,6 +44,9 @@ namespace Spells.Data.Thorse
             if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
                 CombatLoop.CombatLoop.TurnType.Preparation)
                 return false;
+
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
+                return false;
             
             return !HasCastedThisTurn && EnergyController.instance.currentEnergyCount > 0;
         }

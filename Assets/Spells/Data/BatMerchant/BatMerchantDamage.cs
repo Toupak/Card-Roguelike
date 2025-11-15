@@ -17,7 +17,7 @@ namespace Spells.Data.BatMerchant
                 CombatLoop.CombatLoop.TurnType.Preparation)
                 return false;
             
-            if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Stun) || cardController.cardStatus.IsStatusApplied(StatusType.Captured))
                 return false;
 
             if (IsShiny)
