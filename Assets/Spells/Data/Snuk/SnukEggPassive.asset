@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: GnomeFighterProtection
+  m_Name: SnukEggPassive
   m_EditorClassIdentifier: 
-  passiveName: Cover Mommy
-  description: GnomeFighter will Protect its Carrier from damage
+  passiveName: More Of Me
+  description: 'Spawn an egg every turn
+
+    Egg hatches after 2 turns'
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4293794837
-  passiveController: {fileID: -1816086098619546304, guid: 5886c8819ff5d62499ff8c8d04284fef, type: 3}
+    rgba: 4289947850
+  passiveController: {fileID: 8751243864062354397, guid: ca055e4f8822f9148add0967d11d4add, type: 3}

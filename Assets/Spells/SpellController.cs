@@ -6,7 +6,6 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using CombatLoop.EnergyBar;
 using Spells.Targeting;
-using Status;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -114,6 +113,7 @@ namespace Spells
         protected virtual IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             //yield return base.CastSpellOnTarget(targets);
+            //yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             yield return ConsumeEnergy(spellData.energyCost);
             HasCastedThisTurn = !spellData.hasNoCooldown;
             OnCastSpell?.Invoke();

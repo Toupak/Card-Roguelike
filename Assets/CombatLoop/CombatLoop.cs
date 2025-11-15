@@ -58,6 +58,8 @@ namespace CombatLoop
             
             currentTurn = TurnType.Player;
             turnCount = 1;
+            yield return StartTurn(TurnType.Player);
+            
             while (IsMatchOver() == false)
             {
                 yield return ActivatePlayerEndTurnButton();
