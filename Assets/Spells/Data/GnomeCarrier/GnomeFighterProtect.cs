@@ -24,14 +24,14 @@ namespace Spells.Data.GnomeCarrier
         {
             ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE, 100);
             ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.PRE, 100);
-            ActionSystem.SubscribeReaction<DeathGA>(DeathReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<DeathGA>(DeathReaction, ReactionTiming.PRE);
         }
 
         private void OnDisable()
         {
             ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE);
             ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.PRE);
-            ActionSystem.UnsubscribeReaction<DeathGA>(DeathReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<DeathGA>(DeathReaction, ReactionTiming.PRE);
         }
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
