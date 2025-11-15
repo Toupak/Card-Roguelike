@@ -11,6 +11,11 @@ namespace Spells.Data.GnomeCarrier
     {
         [SerializeField] private CardData tokenData;
         
+        public override bool CanCastSpell()
+        {
+            return base.CanCastSpell() && ComputeCurrentDamage(spellData.statusStacksApplied) > 0;
+        }
+        
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
@@ -18,8 +23,10 @@ namespace Spells.Data.GnomeCarrier
 
             if (tokenData == null)
                 yield break;
+
+            int tokenSpawnCount = Mathf.Min(5, ComputeCurrentDamage(spellData.statusStacksApplied));
             
-            for (int i = 0; i < spellData.statusStacksApplied; i++)
+            for (int i = 0; i < tokenSpawnCount; i++)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 

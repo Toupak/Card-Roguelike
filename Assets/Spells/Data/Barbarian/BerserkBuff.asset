@@ -18,5 +18,5 @@ MonoBehaviour:
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4278221823
-  passiveController: {fileID: 3134162595908632366, guid: 83a6c3a02d8b8524d8a76aa6f2e50bd8, type: 3}
+    rgba: 4278200575
+  passiveController: {fileID: 4076491141116737238, guid: f5ef3bd43c94516439d77388ec6f3d3f, type: 3}
