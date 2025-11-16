@@ -41,6 +41,18 @@ namespace Data
             return pool[UnityEngine.Random.Range(0, pool.Count)];
         }
 
+        public List<CardData> GetAllCards(Predicate<CardData> predicate = null)
+        {
+            List<CardData> pool = (predicate == null)
+                ? _allCards.FindAll(c => c != null)
+                : _allCards.FindAll(c => c != null && predicate(c));
+
+            if (pool.Count == 0) 
+                return null;
+
+            return pool;
+        }
+
         public void Sort(Comparison<CardData> comparison)
         {
             _allCards.Sort(comparison);

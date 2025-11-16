@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Board.Script;
+using BoomLib.Tools;
 using Cards.Scripts;
 using CardSlot.Script;
 using Run_Loop.Run_Parameters;
@@ -13,7 +14,6 @@ namespace Run_Loop.Rewards
         [SerializeField] private CardContainer mainContainer;
         [SerializeField] private CardContainer handContainer;
         [SerializeField] private CardContainer selectionContainer;
-        [SerializeField] private GameObject selectionSquare;
         
         [Space]
         [SerializeField] private GameObject openBoosterButton;
@@ -22,7 +22,10 @@ namespace Run_Loop.Rewards
         
         [Space]
         [SerializeField] private CardMovement cardMovementPrefab;
-        
+
+        [Space] 
+        [SerializeField] private List<CardData> testData;
+
         public static RewardLoop instance;
 
         private RunParameterData runParameterData;
@@ -35,6 +38,7 @@ namespace Run_Loop.Rewards
         private IEnumerator Start()
         {
             runParameterData = ComputeRunParameterData();
+            FillDeckForTest();
 
             bool isFirstRun = IsFirstRun();
             
@@ -55,12 +59,20 @@ namespace Run_Loop.Rewards
             yield return WaitUntilFinalValidation();
         }
 
+        private void FillDeckForTest()
+        {
+            foreach (CardData data in testData)
+            {
+                PlayerDeck.instance.AddCardToDeck(data);
+            }
+        }
+
         private RunParameterData ComputeRunParameterData()
         {
             if (RunLoop.instance != null && RunLoop.instance.currentRunParameterData != null)
                 return RunLoop.instance.currentRunParameterData;
             else
-                return new RunParameterData(4, 3, 2, 3, 3);
+                return new RunParameterData(4, 5, 3, 5, 3);
         }
         
         private bool IsFirstRun()
@@ -95,20 +107,29 @@ namespace Run_Loop.Rewards
         
         private IEnumerator OpenBoosterAndDisplayCards(bool isFirstRun)
         {
-            int cardCount = isFirstRun ? runParameterData.startCardCount : runParameterData.cardCount;
-            for (int i = 0; i < cardCount; i++)
+            List<CardData> cards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn);
+            if (cards == null)
             {
-                DrawCard();
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no cards found in dataBase");
+                yield break;
+            }
+
+            List<CardData> shuffledList = new List<CardData>(cards);
+            shuffledList.Shuffle();
+
+            int cardCount = isFirstRun ? runParameterData.startCardCount : runParameterData.cardCount;
+            for (int i = 0; i < cardCount && i < shuffledList.Count; i++)
+            {
+                DrawCard(shuffledList[i]);
                 yield return new WaitForSeconds(0.3f);
             }
         }
         
-        private void DrawCard()
+        private void DrawCard(CardData cardData)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             mainContainer.ReceiveCard(newCard);
-
-            CardData cardData = RunLoop.instance.dataBase.GetRandomCard((c) => c.canBeDrawn);
+            
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(cardData));
             newCard.SetCardController(controller);
         }
@@ -159,8 +180,6 @@ namespace Run_Loop.Rewards
                 handContainer.SendCardToOtherBoard(0, mainContainer);
                 yield return new WaitForSeconds(0.25f);
             }
-            
-            selectionSquare.SetActive(false);
         }
 
         private IEnumerator WaitUntilFinalValidation()
