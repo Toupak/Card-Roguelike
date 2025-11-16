@@ -22,9 +22,12 @@ MonoBehaviour:
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
   spellList: []
-  passiveList: []
+  passiveList:
+  - {fileID: 11400000, guid: d1c8204f5f128d44989642f966388561, type: 2}
   enemyBehaviours:
   - {fileID: -282907340387470242, guid: 7a539ee5257f80d4f9c4f62437e854f7, type: 3}
   - {fileID: -1449387821149511015, guid: 8039ced04195ec84b86362139b55d1b8, type: 3}
   - {fileID: 439517726263121823, guid: 5f4bf3ddd4da3894698a4bd722389015, type: 3}
   areEnemyBehavioursLooping: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 1
