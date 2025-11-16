@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   statusName: Dorito Caltrop
-  statusDescription: Takes damage equals to the amount of stacks when performing
-    any action.
+  statusDescription: 'Receive 1 damage when performing an action.
+
+    (the amount
+    of damage does not increase with the amount of stacks)'
   endTurnBehaviour: 2
   maxStackCount: -1
   barColor:

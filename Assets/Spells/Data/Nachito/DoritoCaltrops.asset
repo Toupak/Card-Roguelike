@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
   m_Name: DoritoCaltrops
   m_EditorClassIdentifier: 
-  spellName: Delicious Caltrops
-  description: Attach on target for 3 turns. Deal 1 damage to target each time it
-    performs an action.
+  spellName: Delicious Dorito Caltrops
+  description: 'Attach Dorito Caltrops on target enemy.
+
+    It deals 1 damage to
+    target each time it performs an action.'
   icon: {fileID: 0}
   targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 2
   statusStacksApplied: 1
