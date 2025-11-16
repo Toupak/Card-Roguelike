@@ -81,9 +81,6 @@ namespace CombatLoop
             {
                 DealDamageGA damageGa = new DealDamageGA(1, dealDamageGa.target, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(damageGa);
-                
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.ReturnDamage, 1, dealDamageGa.target, dealDamageGa.target);
-                ActionSystem.instance.AddReaction(applyStatusGa);
             }   
         }
     }

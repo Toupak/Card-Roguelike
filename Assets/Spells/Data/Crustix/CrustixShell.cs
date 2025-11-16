@@ -19,6 +19,7 @@ namespace Spells.Data.Crustix
             base.SubscribeReactions();
             ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
             ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
         }
 
         protected override void UnsubscribeReactions()
@@ -26,6 +27,16 @@ namespace Spells.Data.Crustix
             base.UnsubscribeReactions();
             ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
             ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStackReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
+        }
+
+        private void DealDamageReaction(DealDamageGA dealDamageGa)
+        {
+            if (dealDamageGa.attacker == cardController && isArmored)
+            {
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.ReturnDamage, 1, cardController, cardController);
+                ActionSystem.instance.AddReaction(applyStatusGa);
+            }
         }
 
         private void ConsumeStackReaction(ConsumeStacksGa consumeStacksGa)
