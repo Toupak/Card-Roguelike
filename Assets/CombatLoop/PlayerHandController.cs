@@ -33,7 +33,7 @@ namespace CombatLoop
             }
             else
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 12; i++)
                 {
                     SpawnCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
                     yield return new WaitForSeconds(0.1f);
@@ -78,7 +78,7 @@ namespace CombatLoop
                 yield return new WaitForSeconds(0.05f);
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 12; i++)
             {
                 SpawnCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
                 yield return new WaitForSeconds(0.1f);

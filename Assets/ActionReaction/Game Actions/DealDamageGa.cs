@@ -1,4 +1,5 @@
 using Cards.Scripts;
+using UnityEngine;
 
 namespace ActionReaction.Game_Actions
 {
@@ -17,7 +18,7 @@ namespace ActionReaction.Game_Actions
 
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
-            amount = damageAmount;
+            amount = Mathf.Abs(damageAmount);
             attacker = attackerController;
             target = targetController;
         }

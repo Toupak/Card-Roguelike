@@ -14,15 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardNumber: 0
   cardName: Big Fish
-  tribe: 0
-  hpMax: 0
+  tribe: 1
+  hpMax: 12
   artwork: {fileID: 21300000, guid: 0cd136934d0b8fc4d8541a27ffc0a53f, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
-  spellList: []
+  spellList:
+  - {fileID: 11400000, guid: 7ce984cc150b8ee428e4629a8b4c8921, type: 2}
+  - {fileID: 11400000, guid: 19a637546f94c794bae74cc4ac233c35, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
+  isMainBoss: 0
   isWaitingOnSpawn: 0
+  preferredPosition: 0

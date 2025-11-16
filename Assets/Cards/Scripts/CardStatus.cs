@@ -33,7 +33,8 @@ namespace Cards.Scripts
         Captured,
         Rage,
         BerserkMode,
-        PermanentProtected
+        PermanentProtected,
+        Armor
     }
 
     public enum StatusEndTurnBehaviour

@@ -3,6 +3,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Cards.Tween_Animations;
+using UI.Damage_Numbers;
 using UnityEngine;
 
 namespace CombatLoop
@@ -38,13 +39,43 @@ namespace CombatLoop
         {
             if (dealDamageGa.target != null)
             {
+                bool isArmored = false;
+                
                 if (IsTargetDodging(dealDamageGa))
+                {
                     dealDamageGa.NegateDamage();
+                }
+                else if (dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Armor))
+                {
+                    isArmored = ComputeArmorReduction(dealDamageGa);
+                }
                 
                 yield return CardTween.PlayCardAttack(dealDamageGa);
                 
+                if (isArmored)
+                    DamageNumberFactory.instance.DisplayQuickMessage(dealDamageGa.target.screenPosition, "Armored");
+                
                 dealDamageGa.target.cardHealth.TakeDamage(dealDamageGa.amount, dealDamageGa.attacker);
             }
+        }
+
+        private bool ComputeArmorReduction(DealDamageGA dealDamageGa)
+        {
+            int armorStacks = dealDamageGa.target.cardStatus.GetCurrentStackCount(StatusType.Armor);
+            int damage = dealDamageGa.amount;
+
+            int finalArmorStacks = Mathf.Max(0, armorStacks - damage);
+            dealDamageGa.amount = Mathf.Max(0, damage - armorStacks);
+
+            if (finalArmorStacks != armorStacks)
+            {
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Armor, armorStacks - finalArmorStacks, dealDamageGa.attacker, dealDamageGa.target);
+                ActionSystem.instance.AddReaction(consumeStacksGa);
+
+                return true;
+            }
+            
+            return false;
         }
 
         private bool IsTargetDodging(DealDamageGA dealDamageGa)
