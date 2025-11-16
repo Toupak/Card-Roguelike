@@ -93,7 +93,7 @@ namespace Run_Loop.Rewards
             foreach (DeckCard card in PlayerDeck.instance.deck)
             {
                 DrawCardToContainer(card, handContainer);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.05f);
             }
         }
 
@@ -133,7 +133,7 @@ namespace Run_Loop.Rewards
             for (int i = 0; i < cardCount && i < shuffledList.Count; i++)
             {
                 DrawCardToContainer(new DeckCard(shuffledList[i]), mainContainer);
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
         
@@ -231,7 +231,7 @@ namespace Run_Loop.Rewards
             while (selectedCardsContainer.Slots.Count > 0)
             {
                 selectedCardsContainer.SendCardToOtherBoard(0, mainContainer);
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
 
