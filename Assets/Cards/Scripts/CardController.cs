@@ -149,7 +149,7 @@ namespace Cards.Scripts
 
         public void KillCard(bool removeFromDeck = true)
         {
-            if (removeFromDeck && !cardMovement.IsEnemyCard && !cardData.isEnemy)
+            if (removeFromDeck && !cardData.isEnemy)
                 PlayerDeck.instance.RemoveCardFromDeck(deckCard);
 
             cardMovement.KillAllTokens();
