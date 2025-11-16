@@ -1463,10 +1463,7 @@ MonoBehaviour:
   enemyBoardContainer: {fileID: 278176961}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   battles:
-  - {fileID: 11400000, guid: 9fd3d827206d3ad4ba60ae53ff94f435, type: 2}
   - {fileID: 11400000, guid: 51cfb4e3f13051147b614dab76b140e2, type: 2}
-  - {fileID: 11400000, guid: bca1062eabb7b0b4fb372395d555b3d8, type: 2}
-  - {fileID: 11400000, guid: d9728bc42db2c874d8181262968b58e2, type: 2}
 --- !u!4 &1715712364
 Transform:
   m_ObjectHideFlags: 0

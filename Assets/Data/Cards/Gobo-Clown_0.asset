@@ -29,3 +29,4 @@ MonoBehaviour:
   - {fileID: -5422823278944607737, guid: b5581b86d78e9684587cc9794b8ed37f, type: 3}
   areEnemyBehavioursLooping: 0
   isWaitingOnSpawn: 1
+  preferredPosition: 2

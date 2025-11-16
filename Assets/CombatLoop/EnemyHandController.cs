@@ -101,7 +101,7 @@ namespace CombatLoop
         public void SpawnEnemy(CardData enemyData)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
-            enemyBoardContainer.ReceiveCard(newCard);
+            enemyBoardContainer.ReceiveCard(newCard, enemyData.preferredPosition);
 
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(enemyData));
             newCard.SetCardController(controller);

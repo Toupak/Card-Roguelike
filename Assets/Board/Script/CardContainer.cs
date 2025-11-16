@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cards.Scripts;
 using CardSlot.Script;
 using Cursor.Script;
@@ -35,6 +36,14 @@ namespace Board.Script
             Enemy,
             Sticky
         }
+        
+        public enum PreferredPosition
+        {
+            None,
+            Left,
+            Right,
+            Center
+        }
 
         public bool IsFull => slots.Count >= maxCardCount; 
 
@@ -63,14 +72,14 @@ namespace Board.Script
                 if (currentSelectedCard.transform.position.x > slots[i].transform.position.x)
                     if (currentSelectedCard.SlotIndex < i)
                     {
-                        SwapSlots(i);
+                        SwapSlots(currentSelectedCard, i);
                         return;
                     }
 
                 if (currentSelectedCard.transform.position.x < slots[i].transform.position.x)
                     if (currentSelectedCard.SlotIndex > i)
                     {
-                        SwapSlots(i);
+                        SwapSlots(currentSelectedCard, i);
                         return;
                     }
             }
@@ -115,9 +124,12 @@ namespace Board.Script
             OnAnyContainerUpdated?.Invoke();
         }
 
-        public void ReceiveCard(CardMovement card)
+        public void ReceiveCard(CardMovement card, PreferredPosition preferredPosition = PreferredPosition.None)
         {
             card.SetNewSlot(CreateNewSlot(), true);
+
+            if (preferredPosition != PreferredPosition.None)
+                MoveCardToPreferredPosition(card, preferredPosition);
             
             OnAnyContainerUpdated?.Invoke();
         }
@@ -139,13 +151,59 @@ namespace Board.Script
 
             return newSlot;
         }
-
-        private void SwapSlots(int slotToMoveIndex)
+        
+        private void MoveCardToPreferredPosition(CardMovement card, PreferredPosition preferredPosition)
         {
-            int temp = currentSelectedCard.SlotIndex;
+            if (slots.Count < 3)
+                return;
+
+            if (preferredPosition == PreferredPosition.Left)
+            {
+                //find left-most card that does not prefer to be left, swap with it
+                for (int i = 0; i < slots.Count; i++)
+                {
+                    if (slots[i].CurrentCard.cardController != null && slots[i].CurrentCard.cardController.cardData.preferredPosition != PreferredPosition.Left)
+                    {
+                        SwapSlots(card, i, true);
+                        break;
+                    }
+                }
+            }
+
+            if (preferredPosition != PreferredPosition.Center)
+            {
+                //find card that prefers to be center, swap it to the center
+                for (int i = 0; i < slots.Count; i++)
+                {
+                    if (i != slots.Count / 2 && slots[i].CurrentCard.cardController != null && slots[i].CurrentCard.cardController.cardData.preferredPosition == PreferredPosition.Center)
+                    {
+                        SwapSlots(slots[i].CurrentCard, slots.Count / 2, true);
+                        break;
+                    }
+                }
+            }
+            
+            if (preferredPosition == PreferredPosition.Center)
+            {
+                //find center-most card that does not prefer to be center, swap with it
+                int startingIndex = Mathf.Clamp((slots.Count / 2) - 1, 0, slots.Count);
+                for (int i = startingIndex; i < slots.Count; i++)
+                {
+                    if (slots[i].CurrentCard.cardController != null && slots[i].CurrentCard.cardController.cardData.preferredPosition != PreferredPosition.Center)
+                    {
+                        SwapSlots(card, i, true);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void SwapSlots(CardMovement selectedCard, int slotToMoveIndex, bool resetPositionOfSelectedCard = false)
+        {
+            int temp = selectedCard.SlotIndex;
             CardMovement cardToMove = GetCardFromSlotIndex(slotToMoveIndex);
             
-            currentSelectedCard.SetNewSlot(slots[slotToMoveIndex], false);
+            selectedCard.SetNewSlot(slots[slotToMoveIndex], resetPositionOfSelectedCard);
             cardToMove.SetNewSlot(slots[temp], true);
         }
 

@@ -161,5 +161,13 @@ namespace Cards.Scripts
         {
             cardController = newController;
         }
+
+        public void KillAllTokens()
+        {
+            for (int i = tokenContainer.Slots.Count - 1; i >= 0; i--)
+            {
+                tokenContainer.Slots[i].CurrentCard.cardController.KillCard();
+            }
+        }
     }
 }

@@ -151,7 +151,8 @@ namespace Cards.Scripts
         {
             if (removeFromDeck && !cardMovement.IsEnemyCard && !cardData.isEnemy)
                 PlayerDeck.instance.RemoveCardFromDeck(deckCard);
-            
+
+            cardMovement.KillAllTokens();
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
             Destroy(gameObject);
         }
