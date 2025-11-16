@@ -265,6 +265,14 @@ namespace Run_Loop.Rewards
                 mainContainer.SendCardToOtherBoard(0, handContainer);
                 yield return new WaitForSeconds(0.25f);
             }
+            
+            while (selectionContainer.Slots.Count > 0)
+            {
+                PlayerDeck.instance.AddCardToDeck(selectionContainer.Slots[0].CurrentCard.cardController.cardData);
+                
+                selectionContainer.SendCardToOtherBoard(0, handContainer);
+                yield return new WaitForSeconds(0.25f);
+            }
 
             isRewardScreenOver = true;
         }
