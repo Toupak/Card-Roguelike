@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1374602077}
-  defaultValue: 3
+  defaultValue: 5
 --- !u!1001 &231783978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 747892553}
-  defaultValue: 3
+  defaultValue: 5
 --- !u!1 &371119312
 GameObject:
   m_ObjectHideFlags: 0

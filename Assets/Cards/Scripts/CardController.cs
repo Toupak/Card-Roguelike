@@ -60,7 +60,7 @@ namespace Cards.Scripts
             
             cardHealth = GetComponent<CardHealth>();
             cardHealth.Setup(health);
-            cardHealth.OnDeath.AddListener(KillCard);
+            cardHealth.OnDeath.AddListener(() => KillCard());
             
             displayCardEffect = GetComponent<DisplayCardEffects>();
             
@@ -147,9 +147,9 @@ namespace Cards.Scripts
                 artwork.sprite = newSprite;
         }
 
-        public void KillCard()
+        public void KillCard(bool removeFromDeck = true)
         {
-            if (!cardMovement.IsEnemyCard && !cardData.isEnemy)
+            if (removeFromDeck && !cardMovement.IsEnemyCard && !cardData.isEnemy)
                 PlayerDeck.instance.RemoveCardFromDeck(deckCard);
             
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);

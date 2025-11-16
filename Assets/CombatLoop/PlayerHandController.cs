@@ -89,7 +89,7 @@ namespace CombatLoop
         {
             for (int i = handContainer.Slots.Count - 1; i >= 0; i--)
             {
-                handContainer.Slots[i].CurrentCard.cardController.KillCard();
+                handContainer.Slots[i].CurrentCard.cardController.KillCard(false);
             }
             
             handContainer.gameObject.SetActive(false);

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cards.Scripts;
 using UnityEngine;
 
@@ -47,6 +48,11 @@ namespace Run_Loop
         public void ClearDeck()
         {
             deck = new List<DeckCard>();
+        }
+        
+        public bool ContainsCard(CardData cardData)
+        {
+            return deck.Count((dc) => dc.cardData.name == cardData.name) > 0;
         }
     }
 }

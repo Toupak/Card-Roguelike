@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Board.Script;
 using BoomLib.Tools;
 using Cards.Scripts;
+using Cards.Tween_Animations;
 using CardSlot.Script;
+using CombatLoop;
 using Run_Loop.Run_Parameters;
 using UnityEngine;
 
@@ -41,7 +43,7 @@ namespace Run_Loop.Rewards
         private IEnumerator Start()
         {
             runParameterData = ComputeRunParameterData();
-            FillDeckForTest();
+            //FillDeckForTest();
 
             bool isFirstRun = IsFirstRun();
             
@@ -54,7 +56,10 @@ namespace Run_Loop.Rewards
                 yield return WaitUntilOpenButtonIsClicked();
                 yield return OpenBoosterAndDisplayCards(isFirstRun);
                 yield return WaitUntilCardHasBeenSelected();
-                yield return StoreSelectedCard();
+                if (IsSelectedCardAlreadyInDeck())
+                    yield return HealDeckCard();
+                else
+                    yield return StoreSelectedCard();
                 yield return RemoveRemainingCards();
             }
 
@@ -165,6 +170,47 @@ namespace Run_Loop.Rewards
             hasClickedOnSelect = true;
         }
         
+        private bool IsSelectedCardAlreadyInDeck()
+        {
+            if (selectionContainer.Slots.Count < 1 || selectionContainer.Slots[0].CurrentCard == null)
+            {
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no card selected, how did you do that ?");
+                return false;
+            }
+            
+            CardData selectedData =  selectionContainer.Slots[0].CurrentCard.cardController.cardData;
+            return PlayerDeck.instance.ContainsCard(selectedData);
+        }
+
+        private IEnumerator HealDeckCard()
+        {
+            CardController healer = selectionContainer.Slots[0].CurrentCard.cardController;
+            CardController target = FindCardToHeal(healer.cardData);
+            
+            if (target == null)
+            {
+                Debug.LogError($"[{nameof(RewardLoop)}] error : selected card not found, could not heal, how did you do that ?");
+                yield break;
+            }
+
+            yield return CardTween.PlayPhysicalAttack(healer, target);
+            healer.KillCard();
+
+            target.cardHealth.Heal(target.cardData.hpMax);
+            PlayerDeck.instance.UpdateCardHealthPoints(target.deckCard, target.cardHealth.currentHealth);
+        }
+
+        private CardController FindCardToHeal(CardData data)
+        {
+            foreach (Slot slot in handContainer.Slots)
+            {
+                if (slot.CurrentCard.cardController.cardData.cardName == data.cardName)
+                    return slot.CurrentCard.cardController;
+            }
+
+            return null;
+        }
+        
         private IEnumerator StoreSelectedCard()
         {
             selectionContainer.SendCardToOtherBoard(0, selectedCardsContainer);
@@ -214,23 +260,13 @@ namespace Run_Loop.Rewards
         {
             while (mainContainer.Slots.Count > 0)
             {
+                PlayerDeck.instance.AddCardToDeck(mainContainer.Slots[0].CurrentCard.cardController.cardData);
+                
                 mainContainer.SendCardToOtherBoard(0, handContainer);
                 yield return new WaitForSeconds(0.25f);
             }
-            
+
             isRewardScreenOver = true;
-        }
-
-        public List<CardData> RetrieveSelectedCards()
-        {
-            List<CardData> selectedCards = new List<CardData>();
-
-            foreach (Slot slot in mainContainer.Slots)
-            {
-                selectedCards.Add(slot.CurrentCard.cardController.cardData);
-            }
-
-            return selectedCards;
         }
     }
 }

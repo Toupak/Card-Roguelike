@@ -64,7 +64,6 @@ namespace Run_Loop
             {
                 yield return LoadScene(rewardScene);
                 yield return new WaitUntil(IsRewardSelected);
-                StoreRewards();
                 
                 yield return LoadScene(combatScene);
                 yield return new WaitUntil(IsCombatOver);
@@ -95,16 +94,6 @@ namespace Run_Loop
         private bool IsRewardSelected()
         {
             return RewardLoop.instance != null && RewardLoop.instance.isRewardScreenOver;
-        }
-
-        private void StoreRewards()
-        {
-            List<CardData> selectedCards = RewardLoop.instance.RetrieveSelectedCards();
-
-            foreach (CardData data in selectedCards)
-            {
-                PlayerDeck.instance.AddCardToDeck(data);
-            }
         }
 
         private bool IsCombatOver()

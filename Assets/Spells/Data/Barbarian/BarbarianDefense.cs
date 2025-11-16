@@ -17,7 +17,7 @@ namespace Spells.Data.Barbarian
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Taunt, spellData.statusStacksApplied, cardController, cardController);
             ActionSystem.instance.Perform(applyStatusGa);
 
-            if (cardController.cardStatus.IsStatusApplied(StatusType.BerserkMode))
+            if (cardController.cardStatus.IsStatusApplied(StatusType.PermanentBonusDamage))
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 ApplyStatusGa returnDamage = new ApplyStatusGa(StatusType.ReturnDamage, spellData.statusStacksApplied, cardController, cardController);
