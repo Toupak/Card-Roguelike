@@ -23,11 +23,13 @@ MonoBehaviour:
   holographicType: 0
   spellList: []
   passiveList:
+  - {fileID: 11400000, guid: 6400e0a33030a634d890b47bc35cc83b, type: 2}
   - {fileID: 11400000, guid: d6da1cc5a1737ba4b9609fa83f5532dc, type: 2}
   enemyBehaviours:
   - {fileID: -129040703191400837, guid: d65ddcae0bd9d7f44bff6994054b227d, type: 3}
   - {fileID: -1449387821149511015, guid: 8c01dd4ca2bbf6f4999f4b51b2497750, type: 3}
   - {fileID: -3448450029094437866, guid: 97aef350fe1822d4ca5739f6a9ccce58, type: 3}
   areEnemyBehavioursLooping: 0
+  isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 2

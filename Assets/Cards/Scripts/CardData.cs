@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Board.Script;
 using EnemyAttack;
-using JetBrains.Annotations;
 using Passives;
 using Spells;
 using UnityEngine;
@@ -41,6 +40,7 @@ namespace Cards.Scripts
         [Space]
         public List<BaseEnemyBehaviour> enemyBehaviours;
         public bool areEnemyBehavioursLooping;
+        public bool isMainBoss;
         public bool isWaitingOnSpawn;
         public CardContainer.PreferredPosition preferredPosition;
 

@@ -232,12 +232,28 @@ namespace CombatLoop
         
         public bool IsMatchOver()
         {
-            return currentTurn != TurnType.SetupOver && currentTurn != TurnType.Preparation && (playerBoard.Slots.Count == 0 || enemyHandController.container.Slots.Count == 0);
+            bool isPlayerDead = playerBoard.Slots.Count == 0;
+            
+            return currentTurn != TurnType.SetupOver && currentTurn != TurnType.Preparation && (isPlayerDead || IsEnemyDead());
+        }
+
+        public bool IsEnemyDead()
+        {
+            if (enemyHandController.container.Slots.Count == 0)
+                return true;
+
+            foreach (Slot slot in enemyHandController.container.Slots)
+            {
+                if (slot.CurrentCard.cardController.cardData.isMainBoss)
+                    return false;
+            }
+
+            return true;
         }
 
         public bool HasPlayerWon()
         {
-            return playerBoard.Slots.Count > enemyHandController.container.Slots.Count;
+            return IsEnemyDead();
         }
 
         public void StoreCardsHealth()
