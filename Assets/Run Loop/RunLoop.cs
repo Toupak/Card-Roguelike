@@ -94,7 +94,7 @@ namespace Run_Loop
 
         private bool IsRewardSelected()
         {
-            return RewardLoop.instance != null && RewardLoop.instance.hasClickedOnValidate;
+            return RewardLoop.instance != null && RewardLoop.instance.isRewardScreenOver;
         }
 
         private void StoreRewards()

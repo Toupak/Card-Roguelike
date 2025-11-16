@@ -13,6 +13,7 @@ namespace Run_Loop.Rewards
     {
         [SerializeField] private CardContainer mainContainer;
         [SerializeField] private CardContainer handContainer;
+        [SerializeField] private CardContainer selectedCardsContainer;
         [SerializeField] private CardContainer selectionContainer;
         
         [Space]
@@ -29,6 +30,8 @@ namespace Run_Loop.Rewards
         public static RewardLoop instance;
 
         private RunParameterData runParameterData;
+        
+        public bool isRewardScreenOver { get; private set; }
         
         private void Awake()
         {
@@ -82,7 +85,11 @@ namespace Run_Loop.Rewards
         
         private IEnumerator LoadCurrentDeckInHand()
         {
-            yield break;
+            foreach (DeckCard card in PlayerDeck.instance.deck)
+            {
+                DrawCardToContainer(card, handContainer);
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         private IEnumerator WaitUntilOpenButtonIsClicked()
@@ -120,17 +127,17 @@ namespace Run_Loop.Rewards
             int cardCount = isFirstRun ? runParameterData.startCardCount : runParameterData.cardCount;
             for (int i = 0; i < cardCount && i < shuffledList.Count; i++)
             {
-                DrawCard(shuffledList[i]);
+                DrawCardToContainer(new DeckCard(shuffledList[i]), mainContainer);
                 yield return new WaitForSeconds(0.3f);
             }
         }
         
-        private void DrawCard(CardData cardData)
+        private void DrawCardToContainer(DeckCard card, CardContainer container)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
-            mainContainer.ReceiveCard(newCard);
+            container.ReceiveCard(newCard);
             
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(cardData));
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, card);
             newCard.SetCardController(controller);
         }
 
@@ -160,7 +167,7 @@ namespace Run_Loop.Rewards
         
         private IEnumerator StoreSelectedCard()
         {
-            selectionContainer.SendCardToOtherBoard(0, handContainer);
+            selectionContainer.SendCardToOtherBoard(0, selectedCardsContainer);
             yield return new WaitForSeconds(0.3f);
         }
 
@@ -175,9 +182,9 @@ namespace Run_Loop.Rewards
 
         private IEnumerator DisplayFinalSelection()
         {
-            while (handContainer.Slots.Count > 0)
+            while (selectedCardsContainer.Slots.Count > 0)
             {
-                handContainer.SendCardToOtherBoard(0, mainContainer);
+                selectedCardsContainer.SendCardToOtherBoard(0, mainContainer);
                 yield return new WaitForSeconds(0.25f);
             }
         }
@@ -187,19 +194,31 @@ namespace Run_Loop.Rewards
             hasClickedOnValidate = false;
             yield return SetValidateButtonState(true);
             yield return new WaitUntil(() => hasClickedOnValidate);
+            yield return SendSelectedCardsToHand();
             yield return SetValidateButtonState(false);
         }
-        
+
         private IEnumerator SetValidateButtonState(bool state)
         {
             validateButton.SetActive(state);
             yield break;
         }
 
-        public bool hasClickedOnValidate { get; private set; }
+        private bool hasClickedOnValidate;
         public void OnClickValidate()
         {
             hasClickedOnValidate = true;
+        }
+        
+        private IEnumerator SendSelectedCardsToHand()
+        {
+            while (mainContainer.Slots.Count > 0)
+            {
+                mainContainer.SendCardToOtherBoard(0, handContainer);
+                yield return new WaitForSeconds(0.25f);
+            }
+            
+            isRewardScreenOver = true;
         }
 
         public List<CardData> RetrieveSelectedCards()
