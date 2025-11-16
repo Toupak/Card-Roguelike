@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PillarTaunt
   m_EditorClassIdentifier: 
   passiveName: Stone Cold Stare
-  description: Any Taunt cast while Pillar Man is alive will be applied to him instead
+  description: Any Taunt cast while Pillar Man is alive will be doubled and applied
+    to Pillar Man instead
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2

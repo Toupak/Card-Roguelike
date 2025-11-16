@@ -20,7 +20,10 @@ namespace Spells.Data.Pillar_Man
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
             if (applyStatusGa.type == StatusType.Taunt)
+            {
+                applyStatusGa.amount *= 2;
                 applyStatusGa.target = cardController;
+            }
         }
     }
 }
