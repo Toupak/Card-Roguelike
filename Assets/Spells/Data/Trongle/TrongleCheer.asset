@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: TrongleCheer
   m_EditorClassIdentifier: 
   spellName: High On Potenuse
-  description: Make an ally taunt
+  description: Apply 2 Taunts to target
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 0
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 5
-  statusStacksApplied: 1
+  statusStacksApplied: 2
   spellController: {fileID: 0}

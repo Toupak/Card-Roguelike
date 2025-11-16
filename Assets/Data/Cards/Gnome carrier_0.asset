@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: HMS Gnome
   tribe: 0
-  hpMax: 15
+  hpMax: 6
   artwork: {fileID: 5113772399993538697, guid: 7e7061d9eefc8a54a83fdfcc3aeb9b49, type: 3}
   description: 
   isSpecialSummon: 0
@@ -26,3 +26,6 @@ MonoBehaviour:
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

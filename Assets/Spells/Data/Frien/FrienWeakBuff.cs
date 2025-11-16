@@ -21,7 +21,7 @@ namespace Spells.Data.Frien
         {
             if (dealDamageGa.attacker == cardController && cardController.cardStatus.IsStatusApplied(StatusType.Weak))
             {
-                int damageBonus = cardController.cardStatus.currentStacks[StatusType.Weak] * 2;
+                int damageBonus = cardController.cardStatus.currentStacks[StatusType.Weak] * 3;
                 dealDamageGa.amount += damageBonus;
             }
         }

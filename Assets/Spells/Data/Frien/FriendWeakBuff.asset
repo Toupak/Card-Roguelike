@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FriendWeakBuff
   m_EditorClassIdentifier: 
   passiveName: From Weakness Comes Strength
-  description: Frien gains 2 damages per Weak stack
+  description: Frien gains 3 damages per Weak stack
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2

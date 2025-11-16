@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: EctoplasmSteal
   m_EditorClassIdentifier: 
   spellName: Laughing and Stealing
-  description: Steal an enemy's pants, inflicting 1 Weak and Collecting one Pants
+  description: Steal a target's pants, inflicting 1 Weak and Collecting one Pants
     stack
   icon: {fileID: 0}
-  targetType: 1
+  targetType: 3
   targetingMode: 0
   targetCount: 1
   energyCost: 0
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 10
   statusStacksApplied: 1
