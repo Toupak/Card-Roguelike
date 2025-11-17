@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Faces_0
+  m_Name: Tinkerer_Trinket_2
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Many Faces
+  cardName: Actuator
   tribe: 0
-  hpMax: 12
-  artwork: {fileID: -5285785097126754818, guid: 720d7ca1699da174ba0f305de2bbce93, type: 3}
+  hpMax: 1
+  artwork: {fileID: 21300000, guid: 1c8cb772e76b6f64eb69b5f7a4cf4a35, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  holographicType: 5
+  holographicType: 0
   spellList: []
   passiveList: []
   enemyBehaviours: []

@@ -15,14 +15,20 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Tinkerer
   tribe: 0
-  hpMax: 0
+  hpMax: 12
   artwork: {fileID: 21300000, guid: 4e5b428bd4c1c0b4c8a8c4080e303cf5, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: 7b7f786b0ac50404492a2f1315f0dba9, type: 2}
+  - {fileID: 11400000, guid: 63c027b31a4b86e4e941df868b8f543c, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 597853773d441764694365f00e18655b, type: 2}
+  - {fileID: 11400000, guid: e725b0e2d90d3914aaeb5b0e43d437d1, type: 2}
+  - {fileID: 11400000, guid: 368f281a1ff573b47b0389a4538c7ee8, type: 2}
+  - {fileID: 11400000, guid: 875b69c825fa9f24f9f2250299474b6c, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

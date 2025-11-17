@@ -15,6 +15,7 @@ namespace CombatLoop.EnergyBar
         [HideInInspector] public static UnityEvent<int> OnInitializeEnergy = new UnityEvent<int>();
         [HideInInspector] public static UnityEvent<int> OnRefreshEnergy = new UnityEvent<int>();
         [HideInInspector] public static UnityEvent<int> OnRemoveEnergy = new UnityEvent<int>();
+        [HideInInspector] public static UnityEvent<int> OnGainEnergy = new UnityEvent<int>();
 
         [SerializeField] private int startingEnergyCount;
         public int StartingEnergyCount => startingEnergyCount;
@@ -28,16 +29,33 @@ namespace CombatLoop.EnergyBar
         private void OnEnable()
         {
             ActionSystem.AttachPerformer<ConsumeEnergyGa>(ConsumeEnergyPerformer);
+            ActionSystem.AttachPerformer<GainEnergyGa>(GainEnergyPerformer);
         }
 
         private void OnDisable()
         {
             ActionSystem.DetachPerformer<ConsumeEnergyGa>();
+            ActionSystem.DetachPerformer<GainEnergyGa>();
         }
         
         private IEnumerator ConsumeEnergyPerformer(ConsumeEnergyGa consumeEnergyGa)
         {
-            RemoveEnergy(consumeEnergyGa.cost);
+            currentEnergyCount = Mathf.Max(0, currentEnergyCount - consumeEnergyGa.cost);
+
+            OnRemoveEnergy.Invoke(consumeEnergyGa.cost);
+
+            if (currentEnergyCount <= 0)
+                OnOutOfEnergy.Invoke();
+            
+            yield break;
+        }
+        
+        private IEnumerator GainEnergyPerformer(GainEnergyGa gainEnergyGa)
+        {
+            currentEnergyCount += gainEnergyGa.amount;
+            
+            OnGainEnergy?.Invoke(currentEnergyCount);
+            
             yield break;
         }
 
@@ -56,16 +74,6 @@ namespace CombatLoop.EnergyBar
         {
             currentEnergyCount = startingEnergyCount;
             OnRefreshEnergy.Invoke(currentEnergyCount);
-        }
-
-        private void RemoveEnergy(int energyRequiredForAction)
-        {
-            currentEnergyCount = Mathf.Max(0, currentEnergyCount - energyRequiredForAction);
-
-            OnRemoveEnergy.Invoke(energyRequiredForAction);
-
-            if (currentEnergyCount <= 0)
-                OnOutOfEnergy.Invoke();
         }
     }
 }

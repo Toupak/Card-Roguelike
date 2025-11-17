@@ -16,7 +16,14 @@ namespace Spells.Data.TheCount
             if (!base.CanCastSpell())
                 return false;
 
-            return TargetingSystem.instance.RetrieveBoard(TargetType.None).Count((c) => c.cardController.cardStatus.IsStatusApplied(StatusType.Weak)) > 0;
+            bool hasBlood = cardController.cardStatus.GetCurrentStackCount(StatusType.Blood) >= 3;
+
+            if (!hasBlood)
+                return false;
+
+            bool hasTarget = TargetingSystem.instance.RetrieveBoard(TargetType.None).Count((c) => c.cardController.cardStatus.IsStatusApplied(StatusType.Weak)) > 0;
+            
+            return hasTarget;
         }
         
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
@@ -24,6 +31,9 @@ namespace Spells.Data.TheCount
             yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Blood, 3, cardController, cardController);
+            ActionSystem.instance.Perform(consumeStacksGa);
+            
             foreach (CardMovement target in targets)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

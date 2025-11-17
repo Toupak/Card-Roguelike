@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Spells.Data.GnomeCarrier;
 using UnityEngine;
 
 namespace CombatLoop.EnergyBar
@@ -10,9 +11,7 @@ namespace CombatLoop.EnergyBar
 
         private List<Animator> tokens = new List<Animator>();
         private int count;
-
-        public float fadeDuration;
-
+        
         private bool isInitializing;
         private bool isResetting;
         private bool isUsing;
@@ -22,12 +21,14 @@ namespace CombatLoop.EnergyBar
             EnergyController.OnInitializeEnergy.AddListener(StartInitializeCoroutine);
             EnergyController.OnRefreshEnergy.AddListener(StartResetEnergyCoroutine);
             EnergyController.OnRemoveEnergy.AddListener(StartUseEnergyCoroutine);
+            EnergyController.OnGainEnergy.AddListener(StartGainEnergyCoroutine);
         }
 
         private void StartInitializeCoroutine(int currentEnergy) => StartCoroutine(InitializeEnergy(currentEnergy));
-        private void StartUseEnergyCoroutine(int energy) => StartCoroutine(UseEnergy(energy));
         private void StartResetEnergyCoroutine(int energy) => StartCoroutine(ResetEnergy(energy));
-    
+        private void StartUseEnergyCoroutine(int energy) => StartCoroutine(UseEnergy(energy));
+        private void StartGainEnergyCoroutine(int energy) => StartCoroutine(Gain(energy));
+
         private IEnumerator InitializeEnergy(int startingEnergy)
         {
             if (isInitializing)
@@ -39,8 +40,8 @@ namespace CombatLoop.EnergyBar
             {
                 GameObject energyToken = Instantiate(energyTokenPrefab, transform);
                 Animator tokenAnimator = energyToken.GetComponent<Animator>();
-
                 tokens.Add(tokenAnimator);
+                
                 count += 1;
 
                 if (tokenAnimator != null)
@@ -60,6 +61,11 @@ namespace CombatLoop.EnergyBar
             
             if (energy == count)
                 yield break;
+
+            for (int i = tokens.Count - 1; i >= energy; i--)
+            {
+                Destroy(tokens[i].gameObject);
+            }
 
             isResetting = true;
 
@@ -93,6 +99,35 @@ namespace CombatLoop.EnergyBar
             }
 
             isUsing = false;
+        }
+        
+        private IEnumerator Gain(int energyGained)
+        {
+            if (isUsing)
+                yield break;
+            isUsing = true;
+
+            for (int i = count; i < energyGained; i++)
+            {
+                if (count <= energyGained)
+                {
+                    if (count < tokens.Count)
+                        tokens[count].Play("Spawning");
+                    else
+                        SpawnToken();
+                    count += 1;
+                }
+            }
+
+            isUsing = false;
+        }
+
+        private void SpawnToken()
+        {
+            GameObject energyToken = Instantiate(energyTokenPrefab, transform);
+            Animator tokenAnimator = energyToken.GetComponent<Animator>();
+            tokens.Add(tokenAnimator);
+            tokenAnimator.Play("Spawning");
         }
     }
 }

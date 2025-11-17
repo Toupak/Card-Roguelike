@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8996121797547756110
+--- !u!1 &84359681995233075
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8104387316704703432}
-  - component: {fileID: -157799791950869656}
+  - component: {fileID: 4304882197491791093}
+  - component: {fileID: 1249429135482300210}
   m_Layer: 5
-  m_Name: HydraNeckPassiveCenter
+  m_Name: TinkererPassive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8104387316704703432
+--- !u!224 &4304882197491791093
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996121797547756110}
+  m_GameObject: {fileID: 84359681995233075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,17 +36,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-157799791950869656
+--- !u!114 &1249429135482300210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996121797547756110}
+  m_GameObject: {fileID: 84359681995233075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0274c271ea947fa45be14dc15ad202a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a4301b465116624ea7607420dd3759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headData: {fileID: 11400000, guid: 3ca764b3e9f89dd4ea7ed2cf1fcc8811, type: 2}
-  turnsBeforeHeadRegrow: 2
+  powerCellData: {fileID: 11400000, guid: dd0b4575e7ae0064fb90f1b8d476eb25, type: 2}

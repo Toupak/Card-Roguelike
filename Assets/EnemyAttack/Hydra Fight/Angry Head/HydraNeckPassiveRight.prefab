@@ -49,4 +49,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headData: {fileID: 11400000, guid: 2bc10b6f9fe4e1944934a74230d49686, type: 2}
-  turnsBeforeHeadRegrow: 3
+  turnsBeforeHeadRegrow: 2

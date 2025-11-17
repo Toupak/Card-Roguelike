@@ -65,10 +65,13 @@ namespace Spells.Data.TheCount
             {
                 foreach (KeyValuePair<CardController,int> friend in friends)
                 {
-                    HealGa healGa = new HealGa(friend.Value, cardController, friend.Key);
+                    int stacks = cardController.cardStatus.GetCurrentStackCount(StatusType.Blood);
+                    int toBeHealed = Mathf.Min(friend.Value, stacks);
+                    
+                    HealGa healGa = new HealGa(toBeHealed, cardController, friend.Key);
                     ActionSystem.instance.AddReaction(healGa);
 
-                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Blood, friend.Value, cardController, cardController);
+                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Blood, toBeHealed, cardController, cardController);
                     ActionSystem.instance.AddReaction(consumeStacksGa);
                 }
 

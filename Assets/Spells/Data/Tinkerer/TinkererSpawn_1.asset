@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
-  m_Name: CountWeak
+  m_Name: TinkererSpawn_1
   m_EditorClassIdentifier: 
-  spellName: Sparkle In The Sun
-  description: Consume 3 Blood stacks to apply 1 Weak to any card with a Weak stack
+  spellName: Red Ball
+  description: Craft a red Power Cell Trinket
   icon: {fileID: 0}
-  targetType: 3
-  targetingMode: 2
+  targetType: 2
+  targetingMode: 0
   targetCount: 1
   energyCost: 0
   hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
-  statusStacksApplied: 1
-  spellController: {fileID: -7692956784115620685, guid: 60e26e72b7bacdd4fbf42d3fcef8fb6e, type: 3}
+  statusStacksApplied: 0
+  spellController: {fileID: 3944906258336311377, guid: 0ea654d3a294f534a9f33e217a34cd4d, type: 3}
