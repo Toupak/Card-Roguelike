@@ -98,13 +98,15 @@ namespace CombatLoop
             }
         }
 
-        public void SpawnEnemy(CardData enemyData)
+        public CardController SpawnEnemy(CardData enemyData)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             enemyBoardContainer.ReceiveCard(newCard, enemyData.preferredPosition);
 
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(enemyData));
             newCard.SetCardController(controller);
+
+            return controller;
         }
         
         public void OnEnable()

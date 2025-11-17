@@ -46,7 +46,7 @@ namespace Spells
                 CombatLoop.CombatLoop.TurnType.Preparation)
                 return false;
             
-            if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))
+            if (!EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))
                 return false;
 
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
@@ -122,7 +122,13 @@ namespace Spells
 
         protected virtual IEnumerator ConsumeEnergy(int cost)
         {
-            if (cost > 0)
+            if (cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.FreeSpell, 1, cardController, cardController);
+                ActionSystem.instance.Perform(consumeStacksGa);
+            }
+            else if (cost > 0)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 ConsumeEnergyGa consumeEnergyGa = new ConsumeEnergyGa(cost, this);

@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Cube_0
+  m_Name: Rooster
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Cube
+  cardName: Rooster
   tribe: 0
-  hpMax: 15
-  artwork: {fileID: 5752739366588724016, guid: 15f2abb38cef91249a3b056c559eb3a9, type: 3}
+  hpMax: 0
+  artwork: {fileID: 21300000, guid: 197c8f157e56ee5498acc69eaf746a4a, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
-  spellList:
-  - {fileID: 11400000, guid: 1e84870535341394d9f66e9c24ac3304, type: 2}
-  passiveList:
-  - {fileID: 11400000, guid: 3dd183421aff5904aa6b03bbe81cc0f3, type: 2}
-  - {fileID: 11400000, guid: 39dc44d71dcd43041a4fd3e58fce6fba, type: 2}
+  spellList: []
+  passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

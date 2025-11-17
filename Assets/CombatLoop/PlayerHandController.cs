@@ -41,22 +41,26 @@ namespace CombatLoop
             }
         }
 
-        public void SpawnCard(DeckCard deckCard, CardContainer targetContainer)
+        public CardController SpawnCard(DeckCard deckCard, CardContainer targetContainer)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             targetContainer.ReceiveCard(newCard);
 
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, deckCard);
             newCard.SetCardController(controller);
+
+            return controller;
         }
         
-        public void SpawnToken(SpawnCardGA spawnCardGa)
+        public CardController SpawnToken(SpawnCardGA spawnCardGa)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             spawnCardGa.spawner.cardMovement.tokenContainer.ReceiveCard(newCard);
 
             CardController controller = CardsVisualManager.instance.SpawnNewTokenVisuals(newCard, spawnCardGa.cardData, spawnCardGa.spawner.cardMovement.cardController);
             newCard.SetCardController(controller);
+
+            return controller;
         }
         
         private void Update()

@@ -94,11 +94,11 @@ namespace CombatLoop
         private IEnumerator SpawnCardPerformer(SpawnCardGA spawnCardGa)
         {
             if (spawnCardGa.cardData.isEnemy)
-                enemyHandController.SpawnEnemy(spawnCardGa.cardData);
+                spawnCardGa.spawnedCard = enemyHandController.SpawnEnemy(spawnCardGa.cardData);
             else if (spawnCardGa.isToken)
-                playerHandController.SpawnToken(spawnCardGa);
+                spawnCardGa.spawnedCard = playerHandController.SpawnToken(spawnCardGa);
             else    
-                playerHandController.SpawnCard(new DeckCard(spawnCardGa.cardData), playerBoard);
+                spawnCardGa.spawnedCard = playerHandController.SpawnCard(new DeckCard(spawnCardGa.cardData), playerBoard);
             yield return new WaitForSeconds(0.2f);
         }
 

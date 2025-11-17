@@ -61,7 +61,7 @@ namespace Spells.Data.Cube
 
         private bool IsCardProtected(CardController card)
         {
-            return protectionTargets != null && protectionTargets.Count > 0 && protectionTargets.Contains(card);
+            return CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Enemy && protectionTargets != null && protectionTargets.Count > 0 && protectionTargets.Contains(card);
         }
     }
 }

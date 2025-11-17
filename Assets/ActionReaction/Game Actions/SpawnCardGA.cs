@@ -6,6 +6,7 @@ namespace ActionReaction.Game_Actions
     {
         public CardData cardData;
         public CardController spawner;
+        public CardController spawnedCard;
 
         public bool isToken;
 
