@@ -15,14 +15,16 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Rooster
   tribe: 0
-  hpMax: 0
+  hpMax: 12
   artwork: {fileID: 21300000, guid: 197c8f157e56ee5498acc69eaf746a4a, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: fcbebd9718c45dc4d8165db5f44df8e6, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 532bde3687dce634a9dd970220c56c39, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

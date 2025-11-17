@@ -1,0 +1,29 @@
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using Passives;
+
+namespace Spells.Data.Rooster
+{
+    public class RoosterPassive : PassiveController
+    {
+        private void OnEnable()
+        {
+            ActionSystem.SubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
+        }
+
+        private void OnDisable()
+        {
+            ActionSystem.UnsubscribeReaction<ApplyStatusGa>(ApplyStatusReaction, ReactionTiming.POST);
+        }
+
+        private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
+        {
+            if (applyStatusGa.target.cardMovement.IsEnemyCard && applyStatusGa.type == StatusType.Vengeance)
+            {
+                DealDamageGA dealDamageGa = new DealDamageGA(1, cardController, applyStatusGa.target);
+                ActionSystem.instance.AddReaction(dealDamageGa);
+            }
+        }
+    }
+}

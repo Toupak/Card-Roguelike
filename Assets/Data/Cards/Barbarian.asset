@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Barbarian
   tribe: 6
-  hpMax: 17
+  hpMax: 18
   artwork: {fileID: 21300000, guid: e86736f85bc676840881a139f2502ffe, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +29,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6122007abf2518547a6acb79f7caf984, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
+  isMainBoss: 0
   isWaitingOnSpawn: 0
+  preferredPosition: 0

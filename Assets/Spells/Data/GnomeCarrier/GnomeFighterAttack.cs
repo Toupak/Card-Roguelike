@@ -1,5 +1,6 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
 using Passives;
 using Spells.Targeting;
 
@@ -21,9 +22,13 @@ namespace Spells.Data.GnomeCarrier
         {
             if (startTurnGa.starting != CombatLoop.CombatLoop.TurnType.Player)
                 return;
-            
-            DealDamageGA dealDamageGa = new DealDamageGA(1, cardController, PickRandomTarget(TargetingSystem.instance.RetrieveBoard(TargetType.Enemy)));
-            ActionSystem.instance.AddReaction(dealDamageGa);
+
+            CardController target = PickRandomTarget(TargetingSystem.instance.RetrieveBoard(TargetType.Enemy));
+            if (target != null)
+            {
+                DealDamageGA dealDamageGa = new DealDamageGA(1, cardController, target);
+                ActionSystem.instance.AddReaction(dealDamageGa);
+            }
 
             DeathGA deathGa = new DeathGA(cardController, cardController);
             ActionSystem.instance.AddReaction(deathGa);

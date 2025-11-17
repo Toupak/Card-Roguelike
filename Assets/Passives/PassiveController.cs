@@ -17,6 +17,9 @@ namespace Passives
         
         protected CardController PickRandomTarget(List<CardMovement> targets)
         {
+            if (targets.Count < 1)
+                return null;
+            
             return targets[Random.Range(0, targets.Count)].cardController;
         }
     }

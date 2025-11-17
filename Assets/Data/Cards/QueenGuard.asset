@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Guard
   tribe: 1
-  hpMax: 13
+  hpMax: 15
   artwork: {fileID: 21300000, guid: 132277abac8ba824995e0a3dfd11e6b8, type: 3}
   description: 
   isSpecialSummon: 0

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Name: RoosterAttack
+  m_EditorClassIdentifier: 
+  spellName: Strong Slap
+  description: 'Deal 2 damage to target enemy
+
+    If enemy is Marked by Vengeance,
+    consume stacks and deal double damage'
+  icon: {fileID: 0}
+  targetType: 1
+  targetingMode: 0
+  targetCount: 1
+  energyCost: 1
+  hasNoCooldown: 0
+  damage: 2
+  inflictStatus: 0
+  statusStacksApplied: 0
+  spellController: {fileID: -4345266010444862432, guid: 65fc8fffea206de44baffc6c0b1b26a5, type: 3}
