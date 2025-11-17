@@ -223,6 +223,8 @@ namespace CombatLoop
         {
             isPlayerPlaying = true;
             yield return new WaitWhile(() => isPlayerPlaying);
+            yield return new WaitWhile(() => ActionSystem.instance.isLocked);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
         }
         
         public void OnEndPlayerTurn()

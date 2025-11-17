@@ -94,7 +94,7 @@ namespace Spells
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else
-                yield return CastSpellOnTarget(TargetingSystem.instance.Targets); 
+                yield return LockActionAndCast(TargetingSystem.instance.Targets);
         }
 
         protected virtual void CancelTargeting()
@@ -107,7 +107,15 @@ namespace Spells
 
         protected virtual IEnumerator CastSpellOnSelf(CardMovement target)
         {
-            yield return CastSpellOnTarget(new List<CardMovement>(){ target });
+            yield return LockActionAndCast(new List<CardMovement>(){ target });
+        }
+
+        protected virtual IEnumerator LockActionAndCast(List<CardMovement> targets)
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.isLocked);
+            ActionSystem.instance.SetLock(true);
+            yield return CastSpellOnTarget(targets);
+            ActionSystem.instance.SetLock(false);
         }
 
         protected virtual IEnumerator CastSpellOnTarget(List<CardMovement> targets)

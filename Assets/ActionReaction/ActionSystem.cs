@@ -20,6 +20,7 @@ namespace ActionReaction
 
         private List<GameAction> reactions = null;
         public bool IsPerforming { get; private set; } = false;
+        public bool isLocked { get; private set; }
         private static Dictionary<Type, List<(Action<GameAction>, int)>> preSubs = new();
         private static Dictionary<Type, List<(Action<GameAction>, int)>> postSubs = new();
         private static Dictionary<Type, Func<GameAction, IEnumerator>> performers = new();
@@ -27,6 +28,11 @@ namespace ActionReaction
         private void Awake()
         {
             instance = this;
+        }
+
+        public void SetLock(bool lockState)
+        {
+            isLocked = lockState;
         }
         
         public void Perform(GameAction action, Action OnPerformFinished = null)

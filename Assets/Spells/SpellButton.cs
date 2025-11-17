@@ -67,7 +67,7 @@ namespace Spells
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
 
-            if (isSpellValid && isCursorFree && isPlayerTurn && !ActionSystem.instance.IsPerforming)
+            if (isSpellValid && isCursorFree && isPlayerTurn)
             {
                 spellController.CastSpell(transform);
                 OnCastSpell?.Invoke();
