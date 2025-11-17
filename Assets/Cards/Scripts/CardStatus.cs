@@ -35,7 +35,8 @@ namespace Cards.Scripts
         BerserkMode,
         PermanentProtected,
         Armor,
-        FreeSpell
+        FreeSpell,
+        Vengeance
     }
 
     public enum StatusEndTurnBehaviour
@@ -124,7 +125,7 @@ namespace Cards.Scripts
         {
             if (dealDamageGa.target == cardController && currentStacks.ContainsKey(StatusType.Taunt))
             {
-                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Taunt, 1, cardController, cardController);
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Taunt, 1, dealDamageGa.attacker, cardController);
                 ActionSystem.instance.AddReaction(consumeStacksGa);
             }
         }
