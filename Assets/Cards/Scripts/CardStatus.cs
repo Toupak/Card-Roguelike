@@ -36,7 +36,8 @@ namespace Cards.Scripts
         PermanentProtected,
         Armor,
         FreeSpell,
-        Vengeance
+        Vengeance,
+        Blood
     }
 
     public enum StatusEndTurnBehaviour

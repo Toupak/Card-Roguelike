@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: OlafAndPif_Pif
+  m_Name: TheCount
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Pif
+  cardName: The Count
   tribe: 0
-  hpMax: 0
-  artwork: {fileID: -804618109, guid: 234433e77a0cb3c41a8d654d209f5ddb, type: 3}
+  hpMax: 12
+  artwork: {fileID: 21300000, guid: fb0595608880fc04b95c0ec01a3e850e, type: 3}
   description: 
-  isSpecialSummon: 1
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
   spellList:
-  - {fileID: 11400000, guid: 5f2f4844178337e439ce2d9d0470030b, type: 2}
-  passiveList:
-  - {fileID: 11400000, guid: 462fe86a6330dc945af261f0fc07fb8e, type: 2}
+  - {fileID: 11400000, guid: 848b771de10d01e41a76cb7a03bca32b, type: 2}
+  - {fileID: 11400000, guid: c56f09298606881449eaa49063594218, type: 2}
+  passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Board.Script;
 using Cards.Scripts;
 using CardSlot.Script;
@@ -119,8 +120,9 @@ namespace Spells.Targeting
                     return RetrieveBoard(playerBoard);
                 case TargetType.Enemy:
                     return RetrieveBoard(enemyBoard);
-                case TargetType.Self:
                 case TargetType.None:
+                    return RetrieveBoard(playerBoard).Concat(RetrieveBoard(enemyBoard)).ToList();
+                case TargetType.Self:
                     return null;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
