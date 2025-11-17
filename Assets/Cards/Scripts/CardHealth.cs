@@ -65,5 +65,11 @@ namespace Cards.Scripts
         {
             OnDeath.Invoke();
         }
+
+        public void SetHealth(int health)
+        {
+            currentHealth = health;
+            OnUpdateHP.Invoke(currentHealth);
+        }
     }
 }

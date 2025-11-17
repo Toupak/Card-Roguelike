@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: OlafAndPif
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: Olaf & Pif
+  tribe: 0
+  hpMax: 17
+  artwork: {fileID: -8581886174996920847, guid: 234433e77a0cb3c41a8d654d209f5ddb, type: 3}
+  description: 
+  isSpecialSummon: 0
+  alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList:
+  - {fileID: 11400000, guid: ba31f9e969f40d548985d00e63ff998e, type: 2}
+  - {fileID: 11400000, guid: 8746e6975491c1444b8af066aa53c055, type: 2}
+  passiveList: []
+  enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
