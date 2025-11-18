@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Spells.Data.GnomeCarrier;
 using UnityEngine;
 
 namespace CombatLoop.EnergyBar
@@ -47,7 +46,7 @@ namespace CombatLoop.EnergyBar
                 if (tokenAnimator != null)
                 {
                     tokenAnimator.Play("Spawning");
-                    yield return new WaitUntil(() => tokenAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
+                    yield return new WaitUntil(() => tokenAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f);
                 }
             }
 
@@ -93,7 +92,7 @@ namespace CombatLoop.EnergyBar
                 if (count >= 0)
                 {
                     tokens[count - 1].Play("Using");
-                    yield return new WaitUntil(() => tokens[count - 1].GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f);
+                    yield return new WaitUntil(() => tokens[count - 1].GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f);
                     count -= 1;
                 }
             }

@@ -23,4 +23,4 @@ MonoBehaviour:
   circleColor:
     serializedVersion: 2
     rgba: 4278190215
-  icon: {fileID: 0}
+  icon: {fileID: -3604799569318052655, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}

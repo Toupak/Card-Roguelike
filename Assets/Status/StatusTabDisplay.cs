@@ -13,6 +13,7 @@ namespace Status
         [SerializeField] private TextMeshProUGUI stackCountText;
         [SerializeField] private Image lineImage;
         [SerializeField] private Image circleImage;
+        [SerializeField] private Image iconImage;
 
         private DisplayTooltipOnHover displayTooltipOnHover;
 
@@ -21,6 +22,7 @@ namespace Status
             stackCountText.text = stackCount.ToString();
             lineImage.color = data.barColor;
             circleImage.color = data.circleColor;
+            iconImage.sprite = data.icon;
 
             SetupTooltip(data);
             

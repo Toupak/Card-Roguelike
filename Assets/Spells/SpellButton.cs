@@ -28,7 +28,7 @@ namespace Spells
         
         public void Setup(CardController cardController, SpellData data)
         {
-            if (data == null)
+            if (data == null || CombatLoop.CombatLoop.instance == null)
                 return;
             
             spellData = data;
@@ -64,10 +64,14 @@ namespace Spells
         public void OnPointerDown(PointerEventData eventData)
         {
             bool isSpellValid = spellController != null && spellController.CanCastSpell() && spellData != null;
+            
+            if (!isSpellValid)
+                return;
+            
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
             bool isPlayerTurn = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
 
-            if (isSpellValid && isCursorFree && isPlayerTurn)
+            if (isCursorFree && isPlayerTurn)
             {
                 spellController.CastSpell(transform);
                 OnCastSpell?.Invoke();
