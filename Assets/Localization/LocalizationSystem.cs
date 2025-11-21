@@ -40,24 +40,54 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
 
-        [MenuItem("Tools/Fill Localization File")]
-        private static void Test()
+        [MenuItem("Tools/From Google Sheet to CardData")]
+        private static void UpdateCardDataWithLocalization()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(databasePath);
             StringTable table = AssetDatabase.LoadAssetAtPath<StringTable>(tablePath);
             
-            Debug.Log($"Table : {table.TableCollectionName}");
+            foreach (CardData cardData in db.AllCards)
+            {
+                if (IsCardValidForLocalization(cardData))
+                    UpdateCardDescription(table, cardData);
+            }
+        }
+
+        private static void UpdateCardDescription(StringTable table, CardData cardData)
+        {
+            string localizationKey = ComputeLocalizationKey(cardData.cardName);
+
+            for (int i = 0; i < cardData.spellList.Count; i++)
+            {
+                StringTableEntry entry = table.GetEntry($"{localizationKey}_spell_{i}");
+                cardData.spellList[i].description = entry != null ? entry.Value : "";
+            }
+            
+            for (int i = 0; i < cardData.passiveList.Count; i++)
+            {
+                StringTableEntry entry = table.GetEntry($"{localizationKey}_passive_{i}");
+                cardData.passiveList[i].description = entry != null ? entry.Value : "";
+            }
+            
+            cardData.localizationKey = localizationKey;
+        }
+
+        [MenuItem("Tools/From CardData to Google Sheet")]
+        private static void FillLocalizationFile()
+        {
+            CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(databasePath);
+            StringTable table = AssetDatabase.LoadAssetAtPath<StringTable>(tablePath);
             
             foreach (CardData cardData in db.AllCards)
             {
-                if (string.IsNullOrEmpty(cardData.localizationKey) && IsCardValidForLocalization(cardData))
+                if (IsCardValidForLocalization(cardData))
                     AddNewEntryInTable(table, cardData);
             }
         }
 
         private static bool IsCardValidForLocalization(CardData cardData)
         {
-            return !cardData.isEnemy && !cardData.isSpecialSummon;
+            return !cardData.isEnemy;
         }
 
         private static void AddNewEntryInTable(StringTable table, CardData cardData)
