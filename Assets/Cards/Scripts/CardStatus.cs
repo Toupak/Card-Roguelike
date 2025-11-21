@@ -37,7 +37,8 @@ namespace Cards.Scripts
         Armor,
         FreeSpell,
         Vengeance,
-        Blood
+        Blood,
+        RacoonLastTarget
     }
 
     public enum StatusEndTurnBehaviour

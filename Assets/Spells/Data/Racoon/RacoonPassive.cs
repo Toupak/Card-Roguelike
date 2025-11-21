@@ -1,0 +1,29 @@
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using Passives;
+
+namespace Spells.Data.Racoon
+{
+    public class RacoonPassive : PassiveController
+    {
+        private void OnEnable()
+        {
+            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
+        }
+
+        private void OnDisable()
+        {
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
+        }
+        
+        private void DealDamageReaction(DealDamageGA dealDamageGa)
+        {
+            if (dealDamageGa.target == cardController && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.RacoonLastTarget))
+            {
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Fury, 1, cardController, cardController);
+                ActionSystem.instance.AddReaction(applyStatusGa);
+            }
+        }
+    }
+}

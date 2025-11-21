@@ -40,7 +40,7 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
 
-        [MenuItem("Tools/From Google Sheet to CardData")]
+        //[MenuItem("Tools/From Google Sheet to CardData")]
         private static void UpdateCardDataWithLocalization()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(databasePath);
@@ -87,7 +87,7 @@ namespace Localization
 
         private static bool IsCardValidForLocalization(CardData cardData)
         {
-            return !cardData.isEnemy;
+            return !cardData.isEnemy && string.IsNullOrEmpty(cardData.localizationKey);
         }
 
         private static void AddNewEntryInTable(StringTable table, CardData cardData)

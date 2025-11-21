@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: RacoonStuntMan
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: Jaycoon
+  tribe: 1
+  hpMax: 12
+  artwork: {fileID: 21300000, guid: 3fe78f413abb4e64386359261d80ed55, type: 3}
+  description: 
+  isSpecialSummon: 0
+  alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList:
+  - {fileID: 11400000, guid: 27488d4ce67ad924f972d5bbb79db2e9, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 5e9ac9bfbcc513a49a46ddddde66dbe5, type: 2}
+  localizationKey: 
+  enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

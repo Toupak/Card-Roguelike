@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: RacoonPassive
+  m_EditorClassIdentifier: 
+  passiveName: Racoonamatata
+  description: If attacked by last target, gain 1 Fury
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4278233778
+  passiveController: {fileID: -1009946950252450076, guid: f07e3e0cf6bd43541a9dcd01d41f0394, type: 3}
