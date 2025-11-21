@@ -99,4 +99,4 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 # API Secret Leak-Prevention
-Assets/Localization/GoogleSheetsService.asset
+/[Aa]ssets/Localization/GoogleSheetsService.asset
