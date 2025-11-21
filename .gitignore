@@ -97,4 +97,6 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-Assets/Localization/Google Sheets Service.asset
+
+# API Secret Leak-Prevention
+Assets/Localization/GoogleSheetsService.asset
