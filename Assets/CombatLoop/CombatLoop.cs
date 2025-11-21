@@ -17,8 +17,12 @@ namespace CombatLoop
         [SerializeField] private PlayerHandController playerHandController;
         [SerializeField] public CardContainer playerBoard;
         
+        [Space]
         [SerializeField] private GameObject endPreparationButton;
         [SerializeField] private GameObject endPlayerTurnButton;
+
+        [Space] 
+        [SerializeField] private TurnEndAnimation turnEndAnimation;
         
         public enum TurnType
         {
@@ -193,7 +197,7 @@ namespace CombatLoop
         private IEnumerator EndTurnPerformer(EndTurnGA endTurnGA)
         {
             currentTurn = endTurnGA.ending.Opposite();
-            yield break;
+            yield return turnEndAnimation.PlayAnimation(currentTurn);
         }
         
         private IEnumerator StartTurn(TurnType turnType)

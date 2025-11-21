@@ -15,7 +15,7 @@ namespace CombatLoop.EnergyBar
         private bool isResetting;
         private bool isUsing;
     
-        void Start()
+        private void Start()
         {
             EnergyController.OnInitializeEnergy.AddListener(StartInitializeCoroutine);
             EnergyController.OnRefreshEnergy.AddListener(StartResetEnergyCoroutine);

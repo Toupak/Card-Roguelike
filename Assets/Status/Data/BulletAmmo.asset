@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   statusName: Ammunitions
-  statusDescription: 'Ammunitions used to Launch a "Bark-Blast".
-
-    Can be gained
-    by using "Doggo-Reload".'
+  statusDescription: Ammunitions used for some attacks
   endTurnBehaviour: 2
   maxStackCount: -1
   barColor:
