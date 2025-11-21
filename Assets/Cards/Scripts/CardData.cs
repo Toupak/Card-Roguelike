@@ -36,6 +36,9 @@ namespace Cards.Scripts
 
         [Space]
         public List<PassiveData> passiveList;
+
+        [Space] 
+        public string localizationKey;
         
         [Space]
         public List<BaseEnemyBehaviour> enemyBehaviours;

@@ -211,5 +211,12 @@ namespace BoomLib.Tools
                 (ts[i], ts[r]) = (ts[r], ts[i]);
             }
         }
+        
+        public static string RemoveWhitespace(this string input)
+        {
+            return new string(input
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
+        }
     }
 }
