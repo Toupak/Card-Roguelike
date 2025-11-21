@@ -25,5 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 717c4a3eca41b5e4eac352cb705bf5f2, type: 2}
   - {fileID: 11400000, guid: 0f9799a8cad76004cbfca197fa344ce1, type: 2}
   passiveList: []
+  localizationKey: machinegunxander
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

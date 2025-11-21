@@ -20,7 +20,13 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: b6dab8d82cf0f4545b5f3e31adec0d79, type: 2}
   passiveList: []
+  localizationKey: zaur
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

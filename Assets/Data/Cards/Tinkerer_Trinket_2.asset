@@ -23,6 +23,7 @@ MonoBehaviour:
   holographicType: 0
   spellList: []
   passiveList: []
+  localizationKey: actuator
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

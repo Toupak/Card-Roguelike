@@ -24,6 +24,7 @@ MonoBehaviour:
   spellList:
   - {fileID: 11400000, guid: e45daee435a951e4aa25f15b48448820, type: 2}
   passiveList: []
+  localizationKey: hmsgnome
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

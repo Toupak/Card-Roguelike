@@ -23,6 +23,7 @@ MonoBehaviour:
   holographicType: 5
   spellList: []
   passiveList: []
+  localizationKey: manyfaces
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

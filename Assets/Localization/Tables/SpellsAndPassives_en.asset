@@ -57,13 +57,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699703840768
-    m_Localized: 'Gives good nutrients to Ally, my dude
+    m_Localized: 'Gives good nutrients to Ally,
 
       +1 Damage this turn'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395200
-    m_Localized: 'Passive : when attacked, 50% chance to stun the enemy'
+    m_Localized: 'Passive : when attacked, 50% chance to Stun the enemy !'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395201

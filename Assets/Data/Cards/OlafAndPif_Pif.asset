@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f2f4844178337e439ce2d9d0470030b, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 462fe86a6330dc945af261f0fc07fb8e, type: 2}
+  localizationKey: pif
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

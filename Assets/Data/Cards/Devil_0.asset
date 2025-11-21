@@ -18,10 +18,17 @@ MonoBehaviour:
   hpMax: 7
   artwork: {fileID: 7277215093650894194, guid: de7a1c6e901c5954aaefa078d91ba73a, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: 5fd5676af4c76054fa8f1802bcfaff5a, type: 2}
   - {fileID: 11400000, guid: fd18a7be3fa6b3048b2a24509b1b6a7f, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 8591f92fb0a429c4487d4d1716a831c0, type: 2}
+  localizationKey: smokingdevil
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

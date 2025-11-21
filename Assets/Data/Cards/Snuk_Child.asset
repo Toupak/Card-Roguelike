@@ -25,6 +25,9 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: d1b9c960839b53b4da990db9b0cacb9d, type: 2}
   - {fileID: 11400000, guid: b26b9bbc3f422fa49b6742b134ad49c7, type: 2}
+  localizationKey: baby
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
+  isMainBoss: 0
   isWaitingOnSpawn: 0
+  preferredPosition: 0

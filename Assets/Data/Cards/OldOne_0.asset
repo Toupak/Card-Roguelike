@@ -18,9 +18,16 @@ MonoBehaviour:
   hpMax: 10
   artwork: {fileID: 7323773907787596163, guid: b059b2d79239de5498ca543eb095002d, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: 6e19eec2d19182a4f90a44627ee42cdf, type: 2}
   - {fileID: 11400000, guid: 52a999efc4528c045b63e1db1252717a, type: 2}
   passiveList: []
+  localizationKey: meandog
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

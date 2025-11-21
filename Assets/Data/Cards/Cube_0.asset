@@ -26,6 +26,7 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 3dd183421aff5904aa6b03bbe81cc0f3, type: 2}
   - {fileID: 11400000, guid: 39dc44d71dcd43041a4fd3e58fce6fba, type: 2}
+  localizationKey: cube
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

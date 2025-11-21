@@ -18,9 +18,16 @@ MonoBehaviour:
   hpMax: 8
   artwork: {fileID: 8744307821027899365, guid: 8f073b0453321b24eab62509cb215428, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: c7677c6a1da0f0e4c98664169a01c0ed, type: 2}
   - {fileID: 11400000, guid: b3146d5b92de3544fae1b28cc3b26756, type: 2}
   passiveList: []
+  localizationKey: crustix
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

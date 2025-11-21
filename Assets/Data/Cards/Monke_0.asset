@@ -18,9 +18,16 @@ MonoBehaviour:
   hpMax: 10
   artwork: {fileID: -8140683129667006736, guid: ba0a378e55913174ba87540c849fef96, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 7053965526187389570, guid: 82d5c66f6cdf9fe459984ab63d2cff36, type: 3}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: 1dedf5acda6d62e4695a832e143898df, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 81b24696381d57040b977d2b15101eb3, type: 2}
+  localizationKey: biggestofmonkey
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

@@ -20,8 +20,14 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: 03a3f334c92687442aebb3d1842a762f, type: 2}
   - {fileID: 11400000, guid: f0bb9ddee5d5fe447b38b07826679b9d, type: 2}
   passiveList: []
+  localizationKey: grandpantsthief
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

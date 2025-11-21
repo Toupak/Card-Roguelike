@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ce984cc150b8ee428e4629a8b4c8921, type: 2}
   - {fileID: 11400000, guid: 19a637546f94c794bae74cc4ac233c35, type: 2}
   passiveList: []
+  localizationKey: bigfish
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

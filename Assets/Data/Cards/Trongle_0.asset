@@ -18,9 +18,16 @@ MonoBehaviour:
   hpMax: 8
   artwork: {fileID: -6552571428095168834, guid: 26f01c63e4d30fb49bbd6dea8df373f5, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: a6108b87a9f0e014f9e3e5ab7961e1ce, type: 2}
   - {fileID: 11400000, guid: 7854d2fa546de0744b109816647e638a, type: 2}
   passiveList: []
+  localizationKey: trongle
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

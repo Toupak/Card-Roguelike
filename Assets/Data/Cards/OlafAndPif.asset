@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba31f9e969f40d548985d00e63ff998e, type: 2}
   - {fileID: 11400000, guid: 8746e6975491c1444b8af066aa53c055, type: 2}
   passiveList: []
+  localizationKey: olaf&pif
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

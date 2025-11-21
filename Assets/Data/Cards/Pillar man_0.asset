@@ -20,8 +20,14 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: eac752ee9261f5041b7364889f075c63, type: 2}
   - {fileID: 11400000, guid: 53f33a6477043bd4fbef1d1a9f3c07c5, type: 2}
+  localizationKey: pillarman
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

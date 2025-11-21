@@ -25,4 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d5cb7abef5507f409a5834e0e50c6ba, type: 2}
   - {fileID: 11400000, guid: 75505918eae27534ebaa31fdbd370ce4, type: 2}
   passiveList: []
+  localizationKey: nachito
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potassium Good
   m_EditorClassIdentifier: 
   spellName: Potassium Good
-  description: 'Gives good nutrients to Ally
+  description: 'Gives good nutrients to Ally,
 
     +1 Damage this turn'
   icon: {fileID: 0}
@@ -21,6 +21,7 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 4
   statusStacksApplied: 1

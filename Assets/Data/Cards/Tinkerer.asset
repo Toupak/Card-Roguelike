@@ -29,6 +29,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e725b0e2d90d3914aaeb5b0e43d437d1, type: 2}
   - {fileID: 11400000, guid: 368f281a1ff573b47b0389a4538c7ee8, type: 2}
   - {fileID: 11400000, guid: 875b69c825fa9f24f9f2250299474b6c, type: 2}
+  localizationKey: tinkerer
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

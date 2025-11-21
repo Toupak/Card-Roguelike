@@ -18,9 +18,16 @@ MonoBehaviour:
   hpMax: 8
   artwork: {fileID: -1838755935441141064, guid: 7e0802f6d4f58604c987a1d2354e3e38, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 7743824647932158952, guid: b732c1a01b65a1543b92792dadfc3b61, type: 3}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: ebc13943cfb82144fa0fedbcc424f326, type: 2}
   passiveList:
   - {fileID: 11400000, guid: d84b6462de72515469cba8fb40b273c1, type: 2}
+  localizationKey: batmerchant
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

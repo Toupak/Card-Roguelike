@@ -27,4 +27,9 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 4c0a6b8b77fd4b440a1817b37a39a899, type: 2}
   - {fileID: 11400000, guid: 43f4ec668859e5c4196c3a37d5d9aa57, type: 2}
+  localizationKey: bongo
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0

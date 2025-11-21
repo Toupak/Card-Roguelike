@@ -18,10 +18,17 @@ MonoBehaviour:
   hpMax: 12
   artwork: {fileID: 3619846235778968933, guid: 3849756d198ebab448dd3e7fd5c8ae1c, type: 3}
   description: 
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
   spellList:
   - {fileID: 11400000, guid: e8c0a4dcb7928fb43a2d038fc5f6bf98, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 9081437487496a44081bd2ea53e611b5, type: 2}
   - {fileID: 11400000, guid: 8c01ab296827a4948b138778cee8422e, type: 2}
+  localizationKey: gumball
   enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
