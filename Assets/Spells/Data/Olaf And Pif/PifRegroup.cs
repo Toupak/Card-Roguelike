@@ -14,6 +14,7 @@ namespace Spells.Data.Olaf_And_Pif
         [SerializeField] private CardData olafData;
 
         private int totalHealth;
+        private Dictionary<StatusType, int> totalStacks = new Dictionary<StatusType, int>();
         private CardController olaf;
         private CardController Olaf => olaf == null ? FindOlaf() : olaf;
         
@@ -25,10 +26,9 @@ namespace Spells.Data.Olaf_And_Pif
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
-
-            int pifHealth = cardController.cardHealth.currentHealth;
-            int olafHealth = Olaf.cardHealth.currentHealth;
-            totalHealth = pifHealth + olafHealth;
+            
+            totalHealth = ComputeTotalHealth();
+            totalStacks = ComputeTotalStacks();
 
             SpawnCardGA spawnOlafAndPif = new SpawnCardGA(olafAndPifData, cardController);
             ActionSystem.instance.Perform(spawnOlafAndPif, () =>
@@ -38,22 +38,6 @@ namespace Spells.Data.Olaf_And_Pif
             });
         }
 
-        private CardController FindOlaf()
-        {
-            List<CardMovement> cards = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-
-            foreach (CardMovement card in cards)
-            {
-                if (card.cardController != null && card.cardController.cardData.name == olafData.name)
-                {
-                    olaf = card.cardController;
-                    return olaf;
-                }
-            }
-
-            return null;
-        }
-        
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();
@@ -69,7 +53,57 @@ namespace Spells.Data.Olaf_And_Pif
         private void SpawnCardReaction(SpawnCardGA spawnCardGa)
         {
             if (spawnCardGa.cardData.name == olafAndPifData.name)
+            {
                 spawnCardGa.spawnedCard.cardHealth.SetHealth(totalHealth);
+                ApplyTotalStacks(spawnCardGa.spawnedCard.cardStatus);
+            }
+        }
+
+        private void ApplyTotalStacks(CardStatus spawnedCardStatus)
+        {
+            foreach (KeyValuePair<StatusType,int> pair in totalStacks)
+            {
+                spawnedCardStatus.ApplyStatusStacks(pair.Key, pair.Value);
+            }
+        }
+
+        private int ComputeTotalHealth()
+        {
+            int pifHealth = cardController.cardHealth.currentHealth;
+            int olafHealth = Olaf.cardHealth.currentHealth;
+
+            return pifHealth + olafHealth;
+        }
+
+        private Dictionary<StatusType,int> ComputeTotalStacks()
+        {
+            Dictionary<StatusType, int> stacks = new Dictionary<StatusType, int>(cardController.cardStatus.currentStacks);
+
+            foreach (KeyValuePair<StatusType,int> pair in Olaf.cardStatus.currentStacks)
+            {
+                if (stacks.ContainsKey(pair.Key))
+                    stacks[pair.Key] += pair.Value;
+                else
+                    stacks[pair.Key] = pair.Value;
+            }
+
+            return stacks;
+        }
+        
+        private CardController FindOlaf()
+        {
+            List<CardMovement> cards = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
+
+            foreach (CardMovement card in cards)
+            {
+                if (card.cardController != null && card.cardController.cardData.name == olafData.name)
+                {
+                    olaf = card.cardController;
+                    return olaf;
+                }
+            }
+
+            return null;
         }
     }
 }

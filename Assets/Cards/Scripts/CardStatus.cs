@@ -215,15 +215,15 @@ namespace Cards.Scripts
 
         public bool ConsumeStacks(StatusType type, int amount)
         {
+            bool isStackApplied = currentStacks.ContainsKey(type);
             bool wasConsumed = false;
 
-            if (currentStacks.ContainsKey(type))
+            if (isStackApplied)
             {
                 wasConsumed = currentStacks[type] > 0;
                 currentStacks[type] = Mathf.Max(currentStacks[type] - amount, 0);
+                OnUpdateStatus?.Invoke(type, currentStacks[type] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
             }
-            
-            OnUpdateStatus?.Invoke(type, currentStacks[type] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
 
             return wasConsumed;
         }
