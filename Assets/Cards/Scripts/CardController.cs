@@ -171,5 +171,29 @@ namespace Cards.Scripts
         {
             followTarget.ResetSortingOrder();
         }
+
+        public int ComputeCurrentDamage(int damage)
+        {
+            int bonus = 0;
+
+            bonus += cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
+            bonus += cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
+            bonus -= cardStatus.GetCurrentStackCount(StatusType.Weak);
+
+            int total = damage + bonus;
+
+            if (cardStatus.IsStatusApplied(StatusType.BerserkMode))
+                total *= 2;
+            
+            return total;
+        }
+        
+        public virtual int ComputeCurrentTargetCount(int count)
+        {
+            if (cardStatus.IsStatusApplied(StatusType.Fury))
+                return count + cardStatus.currentStacks[StatusType.Fury];
+
+            return count;
+        }
     }
 }

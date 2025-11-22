@@ -181,26 +181,12 @@ namespace Spells
 
         public virtual int ComputeCurrentDamage(int spellDamage)
         {
-            int bonus = 0;
-
-            bonus += cardController.cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
-            bonus += cardController.cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
-            bonus -= cardController.cardStatus.GetCurrentStackCount(StatusType.Weak);
-
-            int total = spellDamage + bonus;
-
-            if (cardController.cardStatus.IsStatusApplied(StatusType.BerserkMode))
-                total *= 2;
-            
-            return total;
+            return cardController.ComputeCurrentDamage(spellDamage);
         }
 
         public virtual int ComputeCurrentTargetCount(int count)
         {
-            if (cardController.cardStatus.IsStatusApplied(StatusType.Fury))
-                return count + cardController.cardStatus.currentStacks[StatusType.Fury];
-
-            return count;
+            return cardController.ComputeCurrentTargetCount(count);
         }
 
         public void UpdateShinyState(bool newState)

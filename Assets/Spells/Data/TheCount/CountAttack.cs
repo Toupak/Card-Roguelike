@@ -22,7 +22,7 @@ namespace Spells.Data.TheCount
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
                 friends.Add(target.cardController, 0);
-                DealDamageGA dealDamageGa = new DealDamageGA(spellData.damage, cardController, target.cardController);
+                DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, target.cardController);
                 ActionSystem.instance.Perform(dealDamageGa);
             }
         }
