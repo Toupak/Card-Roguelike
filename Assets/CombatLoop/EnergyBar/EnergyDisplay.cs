@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,125 +7,67 @@ namespace CombatLoop.EnergyBar
     {
         [SerializeField] private GameObject energyTokenPrefab;
 
-        private List<Animator> tokens = new List<Animator>();
-        private int count;
+        private Dictionary<Animator, bool> tokens = new Dictionary<Animator, bool>();
         
-        private bool isInitializing;
-        private bool isResetting;
-        private bool isUsing;
-    
+        private EnergyController energyController;
+        
         private void Start()
         {
-            EnergyController.OnInitializeEnergy.AddListener(StartInitializeCoroutine);
-            EnergyController.OnRefreshEnergy.AddListener(StartResetEnergyCoroutine);
-            EnergyController.OnRemoveEnergy.AddListener(StartUseEnergyCoroutine);
-            EnergyController.OnGainEnergy.AddListener(StartGainEnergyCoroutine);
+            energyController = EnergyController.instance;
+            energyController.OnUpdateEnergy.AddListener(UpdateEnergyDisplay);
         }
 
-        private void StartInitializeCoroutine(int currentEnergy) => StartCoroutine(InitializeEnergy(currentEnergy));
-        private void StartResetEnergyCoroutine(int energy) => StartCoroutine(ResetEnergy(energy));
-        private void StartUseEnergyCoroutine(int energy) => StartCoroutine(UseEnergy(energy));
-        private void StartGainEnergyCoroutine(int energy) => StartCoroutine(Gain(energy));
-
-        private IEnumerator InitializeEnergy(int startingEnergy)
+        private void UpdateEnergyDisplay()
         {
-            if (isInitializing)
-                yield break;
+            int currentEnergy = energyController.currentEnergy;
+            int maxEnergy = energyController.currentMaxEnergy;
 
-            isInitializing = true;
+            if (tokens.Count < maxEnergy)
+                SpawnTokens(maxEnergy - tokens.Count);
+            else if (tokens.Count > maxEnergy)
+                DestroyTokens(tokens.Count - maxEnergy);
 
-            for (int i = 0; i < startingEnergy; i++)
+            UpdateTokensDisplay(currentEnergy);
+        }
+
+        private void UpdateTokensDisplay(int currentEnergy)
+        {
+            List<Animator> keys = new List<Animator>(tokens.Keys);
+            for (int i = 0; i < keys.Count; i++)
+            {
+                PlayTokenAnimation(keys[i], i < currentEnergy);
+            }
+        }
+
+        private void PlayTokenAnimation(Animator animator, bool state)
+        {
+            if (tokens[animator] == state)
+                return;
+
+            tokens[animator] = state;
+            animator.Play(state ? "Spawning" : "Using");
+        }
+
+        private void SpawnTokens(int tokenCount)
+        {
+            for (int i = 0; i < tokenCount; i++)
             {
                 GameObject energyToken = Instantiate(energyTokenPrefab, transform);
                 Animator tokenAnimator = energyToken.GetComponent<Animator>();
-                tokens.Add(tokenAnimator);
-                
-                count += 1;
-
-                if (tokenAnimator != null)
-                {
-                    tokenAnimator.Play("Spawning");
-                    yield return new WaitUntil(() => tokenAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f);
-                }
+                tokens.Add(tokenAnimator, false);
             }
-
-            isInitializing = false;
-        }
-
-        private IEnumerator ResetEnergy(int energy)
-        {
-            if (isResetting)
-                yield break;
-            
-            if (energy == count)
-                yield break;
-
-            for (int i = tokens.Count - 1; i >= energy; i--)
-            {
-                Destroy(tokens[i].gameObject);
-            }
-
-            isResetting = true;
-
-            for (int i = count; i < energy; i++)
-            {
-                if (count <= energy)
-                {
-                    tokens[count].Play("Spawning");
-                    count += 1;
-                }
-            }
-
-            isResetting = false;
-        }
-
-        private IEnumerator UseEnergy(int energyUsed)
-        {
-            if (isUsing)
-                yield break;
-
-            isUsing = true;
-
-            for (int i = 0; i < energyUsed; i++)
-            {
-                if (count >= 0)
-                {
-                    tokens[count - 1].Play("Using");
-                    yield return new WaitUntil(() => tokens[count - 1].GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f);
-                    count -= 1;
-                }
-            }
-
-            isUsing = false;
         }
         
-        private IEnumerator Gain(int energyGained)
+        private void DestroyTokens(int tokensCount)
         {
-            if (isUsing)
-                yield break;
-            isUsing = true;
-
-            for (int i = count; i < energyGained; i++)
+            List<Animator> keys = new List<Animator>(tokens.Keys);
+            int lastIndex = keys.Count - 1;
+            for (int i = 0; i < tokensCount; i++)
             {
-                if (count <= energyGained)
-                {
-                    if (count < tokens.Count)
-                        tokens[count].Play("Spawning");
-                    else
-                        SpawnToken();
-                    count += 1;
-                }
+                int index = lastIndex - i;
+                Destroy(keys[index].gameObject);
+                tokens.Remove(keys[index]);
             }
-
-            isUsing = false;
-        }
-
-        private void SpawnToken()
-        {
-            GameObject energyToken = Instantiate(energyTokenPrefab, transform);
-            Animator tokenAnimator = energyToken.GetComponent<Animator>();
-            tokens.Add(tokenAnimator);
-            tokenAnimator.Play("Spawning");
         }
     }
 }
