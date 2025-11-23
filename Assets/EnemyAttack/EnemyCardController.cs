@@ -17,9 +17,10 @@ namespace EnemyAttack
         private List<BaseEnemyBehaviour> behaviours = new List<BaseEnemyBehaviour>();
         private Queue<BaseEnemyBehaviour> behaviourQueue = new Queue<BaseEnemyBehaviour>();
 
+        public BaseEnemyBehaviour nextbehaviour => hasIntention ? behaviourQueue.Peek() : null;
+        
         public bool hasIntention => behaviourQueue.Count > 0;
 
-        private DisplayTooltipOnHover displayTooltipOnHover;
         public bool isWaiting => hasIntention && behaviourQueue.Peek().isWaiting;
 
         public void Setup(CardController controller, CardData data)
@@ -54,7 +55,6 @@ namespace EnemyAttack
             cardController.enemyIntentionIcon.gameObject.SetActive(true);   
             cardController.enemyIntentionBackground.gameObject.SetActive(true);   
             cardController.enemyIntentionText.gameObject.SetActive(true);
-            displayTooltipOnHover = cardController.enemyIntentionBackground.GetComponent<DisplayTooltipOnHover>();
         }
 
         public IEnumerator ExecuteIntention()
@@ -74,7 +74,6 @@ namespace EnemyAttack
             {
                 for (int i = 0; i < behaviours.Count; i++)
                     behaviourQueue.Enqueue(behaviours[i]);
-
                 return;
             }
 

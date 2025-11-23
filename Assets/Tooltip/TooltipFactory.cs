@@ -1,3 +1,4 @@
+using Tooltip.Enemy_Intention;
 using Tooltip.Energy;
 using Tooltip.Health;
 using Tooltip.Passive;
@@ -14,6 +15,7 @@ namespace Tooltip
         [SerializeField] private SpellTooltip spellTooltipPrefab;
         [SerializeField] private PassiveTooltip passiveTooltipPrefab;
         [SerializeField] private StatusTooltip statusTooltipPrefab;
+        [SerializeField] private IntentionTooltip intentionTooltipPrefab;
         
         public static TooltipFactory instance;
 
@@ -55,6 +57,13 @@ namespace Tooltip
             StatusTooltip statusTooltip = Instantiate(statusTooltipPrefab, transform);
             statusTooltip.Setup();
             return statusTooltip;
+        }
+        
+        public IntentionTooltip CreateEnemyIntentionTooltip()
+        {
+            IntentionTooltip intentionTooltip = Instantiate(intentionTooltipPrefab, transform);
+            intentionTooltip.Setup();
+            return intentionTooltip;
         }
     }
 }
