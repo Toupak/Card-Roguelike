@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -116,13 +116,13 @@ TextureImporter:
       name: Tooltip_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 18
         y: 240
-        width: 80
-        height: 48
+        width: 46
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 2, z: 1, w: 2}
       customData: 
       outline: []
       physicsShape: []
@@ -138,13 +138,13 @@ TextureImporter:
       name: Tooltip_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 98
         y: 240
-        width: 80
-        height: 48
+        width: 46
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 1, z: 7, w: 3}
       customData: 
       outline: []
       physicsShape: []
@@ -160,13 +160,13 @@ TextureImporter:
       name: Tooltip_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 80
-        height: 48
+        x: 23
+        y: 217
+        width: 36
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 1}
       customData: 
       outline: []
       physicsShape: []
@@ -182,13 +182,13 @@ TextureImporter:
       name: Tooltip_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 80
-        height: 48
+        x: 24
+        y: 171
+        width: 34
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 2}
       customData: 
       outline: []
       physicsShape: []
@@ -226,13 +226,13 @@ TextureImporter:
       name: Tooltip_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 96
-        width: 80
-        height: 48
+        x: 91
+        y: 98
+        width: 10
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
       customData: 
       outline: []
       physicsShape: []

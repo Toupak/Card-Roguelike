@@ -35,7 +35,7 @@ namespace Tooltip.Spell
             int maxEnergy = EnergyController.instance != null ? EnergyController.instance.currentMaxEnergy : 3;
             
             energyGameObject.SetActive(true);
-            energyBackground.sizeDelta = new Vector2(45.0f, 118.0f + (35.0f * (maxEnergy - 3)));
+            energyBackground.sizeDelta = new Vector2(55.0f, 166.0f + (55.0f * (maxEnergy - 3)));
 
             for (int i = 0; i < maxEnergy; i++)
             {
