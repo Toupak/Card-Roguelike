@@ -5,7 +5,7 @@ namespace Tooltip.Energy
         protected override void DisplayTooltip()
         {
             tooltipDisplay = TooltipFactory.instance.CreateEnergyTooltip();
-            tooltipDisplay.SetPosition(transform.parent.position, false);
+            tooltipDisplay.SetPosition(transform.parent.position);
         }
     }
 }

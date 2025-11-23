@@ -21,6 +21,11 @@ namespace Spells.Data.Thorse
             
             return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(1);
         }
+        
+        public override int ComputeEnergyCost()
+        {
+            return EnergyController.instance.currentEnergy;
+        }
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {

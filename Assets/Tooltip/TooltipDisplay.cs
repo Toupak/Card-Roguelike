@@ -24,7 +24,7 @@ namespace Tooltip
             isSetup = true;
         }
 
-        public virtual void SetPosition(Vector2 position, bool isOnTheLeft = true)
+        public virtual void SetPosition(Vector2 position, bool isOnTheLeft = false)
         {
             isDisplayedOnTheLeft = isOnTheLeft;
             transform.localPosition = Tools.ClampPositionInScreen(position + ComputeOffset(), rectTransform.rect.size);

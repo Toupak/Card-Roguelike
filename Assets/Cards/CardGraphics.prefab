@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 4362405825261638472}
   - component: {fileID: 6570758498232642076}
   - component: {fileID: 1780229874216609130}
+  - component: {fileID: 2949618550067667130}
   m_Layer: 5
   m_Name: Spell_Left
   m_TagString: Untagged
@@ -602,6 +603,22 @@ MonoBehaviour:
   disabledSpriteClicked: {fileID: 636433534, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySprite: {fileID: 0}
   shinySpriteClicked: {fileID: 0}
+--- !u!114 &2949618550067667130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258126219840937024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a71ba032a95104bb4b8a9d3f66a956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToSqueezeOnHover: {fileID: 6251304531099071850}
+  squeezePowerOnHover: 0.5
+  tooltipPivot: {fileID: 4177954642535158387}
+  spellButton: {fileID: 6570758498232642076}
 --- !u!1 &3317175333349962056
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +850,7 @@ GameObject:
   - component: {fileID: 1351917086324922469}
   - component: {fileID: 6589867945874465917}
   - component: {fileID: 2526328401116805773}
+  - component: {fileID: 2509527285116039162}
   m_Layer: 5
   m_Name: Spell_Right
   m_TagString: Untagged
@@ -981,6 +999,22 @@ MonoBehaviour:
   disabledSpriteClicked: {fileID: 636433534, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySprite: {fileID: 0}
   shinySpriteClicked: {fileID: 0}
+--- !u!114 &2509527285116039162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531206112174478996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a71ba032a95104bb4b8a9d3f66a956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToSqueezeOnHover: {fileID: 4456902868140776374}
+  squeezePowerOnHover: 0.5
+  tooltipPivot: {fileID: 4177954642535158387}
+  spellButton: {fileID: 6589867945874465917}
 --- !u!1 &3933860843223180544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,6 +2410,7 @@ GameObject:
   - component: {fileID: 6789201694728105855}
   - component: {fileID: 2253255731906166765}
   - component: {fileID: 9110899485494732329}
+  - component: {fileID: 2783394798300861469}
   m_Layer: 5
   m_Name: Spell_Single
   m_TagString: Untagged
@@ -2524,6 +2559,22 @@ MonoBehaviour:
   disabledSpriteClicked: {fileID: 2086845666, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySprite: {fileID: 487406122, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySpriteClicked: {fileID: -2127122710, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+--- !u!114 &2783394798300861469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489665681486593339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a71ba032a95104bb4b8a9d3f66a956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToSqueezeOnHover: {fileID: 8170742621991121404}
+  squeezePowerOnHover: 0.5
+  tooltipPivot: {fileID: 4177954642535158387}
+  spellButton: {fileID: 2253255731906166765}
 --- !u!1 &7618242119281701267
 GameObject:
   m_ObjectHideFlags: 0

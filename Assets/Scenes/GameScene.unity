@@ -1435,6 +1435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyTooltipPrefab: {fileID: -3416017341191757609, guid: a1a88d53f8b22154dbe889a3c2d83166, type: 3}
   healthTooltipPrefab: {fileID: -4452555465567715153, guid: 08c23d2bb07ed7c4a8a56b22c0b52d6a, type: 3}
+  spellTooltipPrefab: {fileID: 2820592777922802618, guid: 54e35d79572961748a039a79eb9aebe1, type: 3}
 --- !u!1 &1453645376
 GameObject:
   m_ObjectHideFlags: 0

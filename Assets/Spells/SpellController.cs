@@ -188,6 +188,14 @@ namespace Spells
         {
             return cardController.ComputeCurrentTargetCount(count);
         }
+        
+        public virtual int ComputeEnergyCost()
+        {
+            if (IsShiny || cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))
+                return 0;
+
+            return spellData.energyCost;
+        }
 
         public void UpdateShinyState(bool newState)
         {
