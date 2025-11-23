@@ -1,3 +1,4 @@
+using Cards.Scripts;
 using PrimeTween;
 using Status.Data;
 using TMPro;
@@ -17,8 +18,13 @@ namespace Status
 
         private DisplayTooltipOnHover displayTooltipOnHover;
 
-        public void Setup(StatusData data, int stackCount)
+        public StatusData statusData { get; private set; }
+        public CardController cardController { get; private set; }
+        
+        public void Setup(StatusData data, int stackCount, CardController controller)
         {
+            cardController = controller;
+            statusData = data;
             stackCountText.text = stackCount.ToString();
             lineImage.color = data.barColor;
             circleImage.color = data.circleColor;

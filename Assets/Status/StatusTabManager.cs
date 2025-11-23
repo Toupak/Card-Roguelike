@@ -9,20 +9,20 @@ namespace Status
     {
         [SerializeField] private StatusTabDisplay statusTabDisplayPrefab;
         [SerializeField] private Transform statusTabHolder;
-        
-        private CardStatus cardStatus;
+
+        private CardController cardController;
 
         private Dictionary<StatusType, StatusTabDisplay> currentTabs = new Dictionary<StatusType, StatusTabDisplay>();
 
         private void Start()
         {
-            cardStatus = GetComponent<CardStatus>();
-            cardStatus.OnUpdateStatus.AddListener(UpdateStatusTabs);
+            cardController = GetComponent<CardController>();
+            cardController.cardStatus.OnUpdateStatus.AddListener(UpdateStatusTabs);
         }
 
         private void UpdateStatusTabs(StatusType statusType, StatusTabModification statusTabModification)
         {
-            int stackCount = cardStatus.currentStacks.TryGetValue(statusType, out int stack) ? stack : 0;
+            int stackCount = cardController.cardStatus.currentStacks.TryGetValue(statusType, out int stack) ? stack : 0;
 
             switch (statusTabModification)
             {
@@ -43,7 +43,7 @@ namespace Status
         private void CreateTab(StatusType statusType, int stackCount)
         {
             StatusTabDisplay statusTabDisplay = Instantiate(statusTabDisplayPrefab, statusTabHolder);
-            statusTabDisplay.Setup(StatusSystem.instance.GetStatusData(statusType), stackCount);
+            statusTabDisplay.Setup(StatusSystem.instance.GetStatusData(statusType), stackCount, cardController);
 
             currentTabs[statusType] = statusTabDisplay;
         }
