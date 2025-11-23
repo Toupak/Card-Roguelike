@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a68591d53cd0644ad80e1971977fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipDisplayPrefab: {fileID: 5995658076509696510, guid: a7aa4998c00ced34e9e7f4420a4cba67, type: 3}
+  energyTooltipPrefab: {fileID: -3416017341191757609, guid: a1a88d53f8b22154dbe889a3c2d83166, type: 3}
 --- !u!1 &1453645376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d601d0e3e142584d9065280707d61f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingEnergyCount: 3
+  OnUpdateEnergy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1453645378
 Transform:
   m_ObjectHideFlags: 0

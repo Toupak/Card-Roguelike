@@ -33,20 +33,8 @@ namespace Spells
             
             spellData = data;
             
-            SetupTooltip(data);
             SetupButtonIcon(data);
             SetupSpellController(cardController, data);
-        }
-
-        private void SetupTooltip(SpellData data)
-        {
-            displayTooltipOnHover = GetComponent<DisplayTooltipOnHover>();
-            displayTooltipOnHover.SetupSpellTooltip(data.spellName, data.description, data.energyCost, data.icon);
-        }
-
-        public void UpdateTooltipEnergyCost(int newCost)
-        {
-            GetComponent<DisplayTooltipOnHover>().SetupSpellTooltip(spellData.spellName, spellData.description, newCost, spellData.icon);
         }
 
         private void SetupButtonIcon(SpellData data)

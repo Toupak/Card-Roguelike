@@ -179,7 +179,7 @@ namespace CombatLoop
 
         private IEnumerator RefreshPlayerEnergyCount()
         {
-            EnergyController.instance.RefreshOnTurnStart();
+            EnergyController.instance.RefillEnergy();
             yield return null;
         }
 

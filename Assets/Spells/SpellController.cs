@@ -195,7 +195,6 @@ namespace Spells
                 return;
 
             IsShiny = newState;
-            thisSpellButton.UpdateTooltipEnergyCost(IsShiny ? 0 : spellData.energyCost);
         }
 
         protected CardController PickRandomTarget(List<CardMovement> targets)

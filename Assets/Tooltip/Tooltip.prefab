@@ -886,7 +886,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645734022770481017}
-  - component: {fileID: 5995658076509696510}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -914,30 +913,6 @@ RectTransform:
   m_AnchoredPosition: {x: 87.47365, y: -21.1123}
   m_SizeDelta: {x: 311.3806, y: 168.0563}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5995658076509696510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5861872823136775444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651f8926a2da3954192b44e80c2ba342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleGameObject: {fileID: 4797112343527117711}
-  titleTextMeshPro: {fileID: 7853257479944143055}
-  mainTextMeshPro: {fileID: 469934086676510528}
-  iconGameObject: {fileID: 7317279983201246372}
-  iconImage: {fileID: 7071016269494788139}
-  energyGameObject: {fileID: 7931764732625853575}
-  energyHolder: {fileID: 2117245276697219551}
-  energyBackground: {fileID: 2522474300999337356}
-  emptyEnergyPrefab: {fileID: 6889840205693089823, guid: 647cfbede9ce86e4281be61473e6ac32, type: 3}
-  filledEnergyPrefab: {fileID: 732096539399898386, guid: 8298440f9d50f9642bf748d74e77d648, type: 3}
-  leftOffset: {x: -120, y: 85}
-  rightOffset: {x: 150, y: 85}
 --- !u!1 &6494252397619647090
 GameObject:
   m_ObjectHideFlags: 0

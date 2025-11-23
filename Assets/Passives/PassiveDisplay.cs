@@ -21,7 +21,6 @@ namespace Passives
             if (passiveData.icon != null)
                 icon.sprite = passiveData.icon;
             
-            SetupTooltip(passiveData);
             return SetupPassiveController(cardController, passiveData);
         }
         
@@ -35,11 +34,6 @@ namespace Passives
             }
 
             return null;
-        }
-        
-        private void SetupTooltip(PassiveData passiveData)
-        {
-            GetComponent<DisplayTooltipOnHover>().SetupPassiveTooltip(passiveData.passiveName, passiveData.description, passiveData.icon);
         }
     }
 }

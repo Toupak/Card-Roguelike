@@ -121,8 +121,6 @@ namespace EnemyAttack
             bool isDamageDisplayed = !String.IsNullOrEmpty(behaviourDamage);
             cardController.enemyIntentionText.text = isDamageDisplayed ? behaviourDamage : "";
             cardController.enemyIntentionText.gameObject.SetActive(isDamageDisplayed);
-            
-            displayTooltipOnHover.SetupEnemyIntentionTooltip(behaviour.behaviourName, behaviour.description, behaviour.intentionIcon);
         }
     }
 }

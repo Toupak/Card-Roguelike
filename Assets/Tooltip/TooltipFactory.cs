@@ -1,10 +1,11 @@
+using Tooltip.Energy;
 using UnityEngine;
 
 namespace Tooltip
 {
     public class TooltipFactory : MonoBehaviour
     {
-        [SerializeField] private TooltipDisplay tooltipDisplayPrefab;
+        [SerializeField] private EnergyTooltip energyTooltipPrefab;
         
         public static TooltipFactory instance;
 
@@ -12,12 +13,12 @@ namespace Tooltip
         {
             instance = this;
         }
-        
-        public TooltipDisplay CreateTooltip()
+
+        public EnergyTooltip CreateEnergyTooltip()
         {
-            TooltipDisplay tooltipDisplay = Instantiate(tooltipDisplayPrefab, transform);
-            tooltipDisplay.Setup();
-            return tooltipDisplay;
+            EnergyTooltip energyTooltip = Instantiate(energyTooltipPrefab, transform);
+            energyTooltip.Setup();
+            return energyTooltip;
         }
     }
 }

@@ -10,35 +10,6 @@ namespace Spells.Data.Thorse
 {
     public class FlooveFlick : SpellController
     {
-        public override void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
-        {
-            base.Setup(controller, data, attacheSpellButton, otherSpell);
-            thisSpellButton.UpdateTooltipEnergyCost(EnergyController.instance != null ? EnergyController.instance.StartingEnergyCount : 3);
-        }
-        
-        protected override void SubscribeReactions()
-        {
-            base.SubscribeReactions();
-            ActionSystem.SubscribeReaction<ConsumeEnergyGa>(ConsumeEnergyReaction, ReactionTiming.POST);
-        }
-
-        protected override void UnsubscribeReactions()
-        {
-            base.UnsubscribeReactions();
-            ActionSystem.UnsubscribeReaction<ConsumeEnergyGa>(ConsumeEnergyReaction, ReactionTiming.POST);
-        }
-
-        private void ConsumeEnergyReaction(ConsumeEnergyGa consumeEnergyGa)
-        {
-            thisSpellButton.UpdateTooltipEnergyCost(EnergyController.instance.currentEnergyCount);
-        }
-
-        protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
-        {
-            base.EndTurnRefreshCooldownReaction(startTurnGa);
-            thisSpellButton.UpdateTooltipEnergyCost(EnergyController.instance.StartingEnergyCount);
-        }
-        
         public override bool CanCastSpell()
         {
             if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
@@ -48,14 +19,14 @@ namespace Spells.Data.Thorse
             if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
                 return false;
             
-            return !HasCastedThisTurn && EnergyController.instance.currentEnergyCount > 0;
+            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(1);
         }
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
             
-            int energy = EnergyController.instance.currentEnergyCount;
+            int energy = EnergyController.instance.currentEnergy;
             yield return ConsumeEnergy(energy);
 
             int damage = ComputeCurrentDamage(energy * spellData.damage);
