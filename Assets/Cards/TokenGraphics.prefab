@@ -75,6 +75,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &336941051573565543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9094074899509975384}
+  m_Layer: 5
+  m_Name: Tooltip Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9094074899509975384
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336941051573565543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6962972880766045709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 75, y: 20}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &400723120626203291
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +454,6 @@ GameObject:
   - component: {fileID: 4362405825261638472}
   - component: {fileID: 6570758498232642076}
   - component: {fileID: 1780229874216609130}
-  - component: {fileID: 4385857038810387245}
   m_Layer: 5
   m_Name: Spell_Left
   m_TagString: Untagged
@@ -568,26 +602,6 @@ MonoBehaviour:
   disabledSpriteClicked: {fileID: 636433534, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySprite: {fileID: 0}
   shinySpriteClicked: {fileID: 0}
---- !u!114 &4385857038810387245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258126219840937024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleToDisplay: Title
-  textToDisplay: 'This is the left Spell '
-  tooltipType: 0
-  energyCostToDisplay: 0
-  iconToDisplay: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 0}
-  squeezePowerOnHover: 0
-  displayOnTheLeft: 0
 --- !u!1 &3317175333349962056
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +640,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3125272246496311840}
+  - {fileID: 9094074899509975384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -818,7 +833,6 @@ GameObject:
   - component: {fileID: 1351917086324922469}
   - component: {fileID: 6589867945874465917}
   - component: {fileID: 2526328401116805773}
-  - component: {fileID: 887036588269721088}
   m_Layer: 5
   m_Name: Spell_Right
   m_TagString: Untagged
@@ -967,26 +981,6 @@ MonoBehaviour:
   disabledSpriteClicked: {fileID: 636433534, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySprite: {fileID: 0}
   shinySpriteClicked: {fileID: 0}
---- !u!114 &887036588269721088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3531206112174478996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleToDisplay: Title
-  textToDisplay: 'This is the right Spell '
-  tooltipType: 0
-  energyCostToDisplay: 0
-  iconToDisplay: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 0}
-  squeezePowerOnHover: 0
-  displayOnTheLeft: 0
 --- !u!1 &3933860843223180544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +1979,7 @@ GameObject:
   - component: {fileID: 6029488375289194748}
   - component: {fileID: 441146808088082607}
   - component: {fileID: 8041540687545209302}
+  - component: {fileID: 3270892771092706536}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -2034,7 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.9490196}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2064,6 +2059,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardHealth: {fileID: 6472005057933680085}
   healthText: {fileID: 133179016809287591}
+--- !u!114 &3270892771092706536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250718572266352850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289148ea9120c8846be345af0654d276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToSqueezeOnHover: {fileID: 4137363588590150322}
+  squeezePowerOnHover: 0.5
+  tooltipPivot: {fileID: 9094074899509975384}
+  cardHealth: {fileID: 6472005057933680085}
 --- !u!1 &6560936980927583882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,7 +2223,6 @@ GameObject:
   - component: {fileID: 897548102194802705}
   - component: {fileID: 7556699796949984719}
   - component: {fileID: 3926171671042198451}
-  - component: {fileID: 5796245633203114482}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -2277,26 +2287,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5796245633203114482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745735569928332106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleToDisplay: Intention
-  textToDisplay: This is an enemy intention
-  tooltipType: 0
-  energyCostToDisplay: 0
-  iconToDisplay: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 1697762264458700465}
-  squeezePowerOnHover: 0.3
-  displayOnTheLeft: 0
 --- !u!1 &6811975206779943955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,7 +2376,6 @@ GameObject:
   - component: {fileID: 6789201694728105855}
   - component: {fileID: 2253255731906166765}
   - component: {fileID: 9110899485494732329}
-  - component: {fileID: 5738097428600848763}
   m_Layer: 5
   m_Name: Spell_Single
   m_TagString: Untagged
@@ -2535,26 +2524,6 @@ MonoBehaviour:
   disabledSpriteClicked: {fileID: 2086845666, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySprite: {fileID: 487406122, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   shinySpriteClicked: {fileID: -2127122710, guid: 88e5338810df92c4689589d9ba328704, type: 3}
---- !u!114 &5738097428600848763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7489665681486593339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61239845bc339d9488ea3afc99701d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleToDisplay: Title
-  textToDisplay: 'This is the left Spell '
-  tooltipType: 0
-  energyCostToDisplay: 0
-  iconToDisplay: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 8170742621991121404}
-  squeezePowerOnHover: 0.3
-  displayOnTheLeft: 0
 --- !u!1 &7618242119281701267
 GameObject:
   m_ObjectHideFlags: 0

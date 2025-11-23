@@ -10,7 +10,7 @@ namespace Tooltip
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;
 
-        protected EnergyTooltip tooltipDisplay;
+        protected TooltipDisplay tooltipDisplay;
 
         public void OnPointerEnter(PointerEventData eventData)
         {

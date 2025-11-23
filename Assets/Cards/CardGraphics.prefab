@@ -269,6 +269,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1924731087211584052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4177954642535158387}
+  m_Layer: 5
+  m_Name: Tooltip Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4177954642535158387
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924731087211584052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6962972880766045709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 75, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2899466202179661850
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +640,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3125272246496311840}
+  - {fileID: 4177954642535158387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1943,6 +1979,7 @@ GameObject:
   - component: {fileID: 6029488375289194748}
   - component: {fileID: 441146808088082607}
   - component: {fileID: 8041540687545209302}
+  - component: {fileID: 2774196438824471727}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -1992,7 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.9490196}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2022,6 +2059,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardHealth: {fileID: 6472005057933680085}
   healthText: {fileID: 133179016809287591}
+--- !u!114 &2774196438824471727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250718572266352850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289148ea9120c8846be345af0654d276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetToSqueezeOnHover: {fileID: 4137363588590150322}
+  squeezePowerOnHover: 0.5
+  tooltipPivot: {fileID: 4177954642535158387}
+  cardHealth: {fileID: 6472005057933680085}
 --- !u!1 &6560936980927583882
 GameObject:
   m_ObjectHideFlags: 0
