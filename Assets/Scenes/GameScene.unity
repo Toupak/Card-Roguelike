@@ -1438,6 +1438,7 @@ MonoBehaviour:
   spellTooltipPrefab: {fileID: 2820592777922802618, guid: 54e35d79572961748a039a79eb9aebe1, type: 3}
   passiveTooltipPrefab: {fileID: 272023614312945635, guid: fd631aa9f9b4b014dbd3100a9750eb98, type: 3}
   statusTooltipPrefab: {fileID: -839151982646618433, guid: a4a6724fc5dd7ca449a96c2985fa1392, type: 3}
+  intentionTooltipPrefab: {fileID: 8691313695282290379, guid: aa6951b34a6d0694bad1b71152653d34, type: 3}
 --- !u!1 &1453645376
 GameObject:
   m_ObjectHideFlags: 0

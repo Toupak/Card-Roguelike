@@ -67,8 +67,7 @@ namespace Cards.Scripts
             
             cardMovement = movement;
             cardData = data;
-            
-            
+
             gameObject.name = cardData.cardName;
 
             SetArtwork(cardData.artwork);
@@ -186,7 +185,7 @@ namespace Cards.Scripts
             if (cardStatus.IsStatusApplied(StatusType.BerserkMode))
                 total *= 2;
             
-            return total;
+            return Mathf.Max(0, total);
         }
         
         public virtual int ComputeCurrentTargetCount(int count)

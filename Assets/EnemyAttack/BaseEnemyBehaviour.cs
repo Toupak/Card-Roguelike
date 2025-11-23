@@ -38,7 +38,7 @@ namespace EnemyAttack
             if (target != null && target.cardStatus.IsStatusApplied(StatusType.BerserkMode))
                 total *= 2;
             
-            return total;
+            return Mathf.Max(0, total);
         }
 
         protected virtual CardController ComputeTarget()

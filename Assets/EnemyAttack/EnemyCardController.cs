@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cards.Scripts;
-using EnemyAttack.Behaviours;
-using Tooltip;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,6 +25,8 @@ namespace EnemyAttack
         {
             cardController = controller;
             cardData = data;
+            
+            cardController.cardStatus.OnUpdateStatus.AddListener((_,_) => UpdateDamageText());
 
             SetupBehaviours();
             SetupDisplay();
@@ -115,8 +115,13 @@ namespace EnemyAttack
         {
             BaseEnemyBehaviour behaviour = behaviourQueue.Peek();
             cardController.enemyIntentionIcon.sprite = behaviour.intentionIcon;
-            
-            string behaviourDamage = behaviour.GetDamageText();
+
+            UpdateDamageText();
+        }
+
+        private void UpdateDamageText()
+        {
+            string behaviourDamage = hasIntention ? nextbehaviour.GetDamageText() : "";
             bool isDamageDisplayed = !String.IsNullOrEmpty(behaviourDamage);
             cardController.enemyIntentionText.text = isDamageDisplayed ? behaviourDamage : "";
             cardController.enemyIntentionText.gameObject.SetActive(isDamageDisplayed);

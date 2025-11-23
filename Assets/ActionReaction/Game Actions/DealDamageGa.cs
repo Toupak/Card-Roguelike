@@ -18,7 +18,7 @@ namespace ActionReaction.Game_Actions
 
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
-            amount = Mathf.Abs(damageAmount);
+            amount = Mathf.Max(0, damageAmount);
             attacker = attackerController;
             target = targetController;
         }
