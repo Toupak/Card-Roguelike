@@ -20,9 +20,14 @@ namespace Tooltip.Spell
         public void SetupSpellTooltip(SpellController spellController)
         {
             title.text = spellController.spellData.spellName;
-            mainText.text = spellController.spellData.description;
+            mainText.text = ComputeMainText(spellController.spellData.description, spellController.ComputeCurrentDamage(spellController.spellData.damage));
 
             AddEnergyCost(spellController.ComputeEnergyCost());
+        }
+        
+        private string ComputeMainText(string description, int damage)
+        {
+            return description.Replace("%d%", $"{damage}");
         }
         
         public void AddEnergyCost(int energyCostToDisplay)

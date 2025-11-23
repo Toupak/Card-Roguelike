@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: BongoAttack
   m_EditorClassIdentifier: 
   spellName: Sting Like A Bear
-  description: Deals 1 damage and Applies 1 Stun
+  description: Deals %d% damage and Applies 1 Stun
   icon: {fileID: 0}
   targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 1
   statusStacksApplied: 1
