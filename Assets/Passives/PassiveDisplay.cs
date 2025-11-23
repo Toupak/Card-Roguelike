@@ -1,5 +1,4 @@
 using Cards.Scripts;
-using Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,21 +9,23 @@ namespace Passives
         [SerializeField] private Image icon;
         [SerializeField] private Image background;
 
-        private PassiveController passiveController;
-        private PassiveData data;
+        public CardController cardController { get; private set; }
+        public PassiveController passiveController { get; private set; }
+        public PassiveData data { get; private set; }
 
-        public PassiveController Setup(CardController cardController, PassiveData passiveData)
+        public PassiveController Setup(CardController CardController, PassiveData passiveData)
         {
             data = passiveData;
             background.color = passiveData.backgroundColor;
+            cardController = CardController;
             
             if (passiveData.icon != null)
                 icon.sprite = passiveData.icon;
             
-            return SetupPassiveController(cardController, passiveData);
+            return SetupPassiveController(passiveData);
         }
         
-        private PassiveController SetupPassiveController(CardController cardController, PassiveData passiveData)
+        private PassiveController SetupPassiveController(PassiveData passiveData)
         {
             if (data.passiveController != null)
             {

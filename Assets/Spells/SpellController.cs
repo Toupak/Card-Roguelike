@@ -18,7 +18,7 @@ namespace Spells
         [HideInInspector] public UnityEvent OnCastSpell = new UnityEvent();
         public static UnityEvent OnCancelSpell = new UnityEvent();
         
-        protected CardController cardController;
+        public CardController cardController { get; private set; }
         public SpellData spellData { get; protected set; }
         protected SpellButton thisSpellButton;
         protected SpellButton otherSpellButton;

@@ -617,7 +617,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToSqueezeOnHover: {fileID: 6251304531099071850}
   squeezePowerOnHover: 0.5
-  tooltipPivot: {fileID: 4177954642535158387}
   spellButton: {fileID: 6570758498232642076}
 --- !u!1 &3317175333349962056
 GameObject:
@@ -727,6 +726,7 @@ MonoBehaviour:
   enemyIntentionBackground: {fileID: 3926171671042198451}
   enemyIntentionText: {fileID: 1706371153923554771}
   waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
+  tooltipPivot: {fileID: 4177954642535158387}
 --- !u!114 &8295655282853786504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToSqueezeOnHover: {fileID: 4456902868140776374}
   squeezePowerOnHover: 0.5
-  tooltipPivot: {fileID: 4177954642535158387}
   spellButton: {fileID: 6589867945874465917}
 --- !u!1 &3933860843223180544
 GameObject:
@@ -2573,7 +2572,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToSqueezeOnHover: {fileID: 8170742621991121404}
   squeezePowerOnHover: 0.5
-  tooltipPivot: {fileID: 4177954642535158387}
   spellButton: {fileID: 2253255731906166765}
 --- !u!1 &7618242119281701267
 GameObject:

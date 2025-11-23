@@ -1,5 +1,6 @@
 using Tooltip.Energy;
 using Tooltip.Health;
+using Tooltip.Passive;
 using Tooltip.Spell;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Tooltip
         [SerializeField] private EnergyTooltip energyTooltipPrefab;
         [SerializeField] private HealthTooltip healthTooltipPrefab;
         [SerializeField] private SpellTooltip spellTooltipPrefab;
+        [SerializeField] private PassiveTooltip passiveTooltipPrefab;
         
         public static TooltipFactory instance;
 
@@ -37,6 +39,13 @@ namespace Tooltip
             SpellTooltip spellTooltip = Instantiate(spellTooltipPrefab, transform);
             spellTooltip.Setup();
             return spellTooltip;
+        }
+        
+        public PassiveTooltip CreatePassiveTooltip()
+        {
+            PassiveTooltip passiveTooltip = Instantiate(passiveTooltipPrefab, transform);
+            passiveTooltip.Setup();
+            return passiveTooltip;
         }
     }
 }
