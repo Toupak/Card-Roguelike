@@ -480,6 +480,24 @@ MonoBehaviour:
       Triangular Grimace affect the correct target
     m_Metadata:
       m_Items: []
+  - m_Id: 1026412886327296
+    m_Localized: Deal $d$ damage to target enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1026414153007104
+    m_Localized: 'Gain 1 $Armor$ this turn
+
+      Gain 1 Damage next turn'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1026414153007105
+    m_Localized: Deal 1 damage, if target is same as last attack, deal +1 damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1026414153007106
+    m_Localized: If attacked by last target, gain 1 $Fury$
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

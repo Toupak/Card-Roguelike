@@ -577,6 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 5846551718353681148}
   otherButton: {fileID: 6589867945874465917}
+  spellIndex: 0
   defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
   OnClickSpellButton:
     m_PersistentCalls:
@@ -727,6 +728,9 @@ MonoBehaviour:
   enemyIntentionText: {fileID: 1706371153923554771}
   waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
   tooltipPivot: {fileID: 4177954642535158387}
+  OnKillCard:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8295655282853786504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 158346592597015666}
   otherButton: {fileID: 6570758498232642076}
+  spellIndex: 1
   defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
   OnClickSpellButton:
     m_PersistentCalls:
@@ -2548,6 +2553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 8102380984424947068}
   otherButton: {fileID: 6589867945874465917}
+  spellIndex: 0
   defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
   OnClickSpellButton:
     m_PersistentCalls:

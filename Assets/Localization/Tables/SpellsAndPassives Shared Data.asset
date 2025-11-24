@@ -379,6 +379,22 @@ MonoBehaviour:
     m_Key: zanger_spell_1
     m_Metadata:
       m_Items: []
+  - m_Id: 1026412886327296
+    m_Key: patientbear_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1026414153007104
+    m_Key: patientbear_spell_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1026414153007105
+    m_Key: jaycoon_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1026414153007106
+    m_Key: jaycoon_passive_0
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

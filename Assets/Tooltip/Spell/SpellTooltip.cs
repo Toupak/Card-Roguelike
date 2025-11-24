@@ -1,4 +1,5 @@
 using CombatLoop.EnergyBar;
+using Localization;
 using Spells;
 using TMPro;
 using UnityEngine;
@@ -20,14 +21,14 @@ namespace Tooltip.Spell
         public void SetupSpellTooltip(SpellController spellController)
         {
             title.text = spellController.spellData.spellName;
-            mainText.text = ComputeMainText(spellController.spellData.description, spellController.ComputeCurrentDamage(spellController.spellData.damage));
+            mainText.text = ComputeMainText(LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellIndex), spellController.ComputeCurrentDamage(spellController.spellData.damage));
 
             AddEnergyCost(spellController.ComputeEnergyCost());
         }
         
         private string ComputeMainText(string description, int damage)
         {
-            return description.Replace("%d%", $"{damage}");
+            return description.Replace("$d$", $"{damage}");
         }
         
         public void AddEnergyCost(int energyCostToDisplay)

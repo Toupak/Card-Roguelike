@@ -1,7 +1,7 @@
-using System;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Data;
+using Localization.Icons_In_Text;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
@@ -14,6 +14,7 @@ namespace Localization
         private const string tablePath = "Assets/Localization/Tables/SpellsAndPassives_en.asset";
 
         public static LocalizationSystem instance;
+        public TextToIcon textToIcon { get; private set; }
 
         private CardDatabase db;
         private StringTable table;
@@ -22,6 +23,7 @@ namespace Localization
         {
             instance = this;
             
+            textToIcon = GetComponent<TextToIcon>();
             db = AssetDatabase.LoadAssetAtPath<CardDatabase>(databasePath);
             table = AssetDatabase.LoadAssetAtPath<StringTable>(tablePath);
         }
@@ -30,14 +32,14 @@ namespace Localization
         {
             StringTableEntry entry = table.GetEntry($"{localizationKey}_spell_{spellIndex}");
             
-            return entry != null ? entry.Value : "";
+            return entry != null ? textToIcon.CheckForIcons(entry.Value) : "";
         }
         
         public string GetPassiveDescription(string localizationKey, int passiveIndex)
         {
             StringTableEntry entry = table.GetEntry($"{localizationKey}_passive_{passiveIndex}");
             
-            return entry != null ? entry.Value : "";
+            return entry != null ? textToIcon.CheckForIcons(entry.Value) : "";
         }
 
         //[MenuItem("Tools/From Google Sheet to CardData")]
@@ -52,6 +54,19 @@ namespace Localization
                     UpdateCardDescription(table, cardData);
             }
         }
+        
+        /*
+        private void UpdateGlyphs()
+        {
+            Debug.Log($"{spriteAsset.name}");
+            
+            foreach (TMP_SpriteGlyph glyph in spriteAsset.spriteGlyphTable)
+            {
+                glyph.scale = 2.0f;
+                glyph.metrics = new GlyphMetrics(32, 32, -5, 24, 24);
+            }
+        }
+        */
 
         private static void UpdateCardDescription(StringTable table, CardData cardData)
         {

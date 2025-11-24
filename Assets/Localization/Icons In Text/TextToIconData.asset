@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b6efc6ca273e4479b7c06798cc3d86, type: 3}
+  m_Name: TextToIconData
+  m_EditorClassIdentifier: 
+  rules:
+  - tag: Stun
+    icon: {fileID: 8305296478794949452, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Caltrops
+    icon: {fileID: 412806360417562724, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Ammo
+    icon: {fileID: 2526043692424303287, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: BonusDamage
+    icon: {fileID: -8211022945955410972, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Taunt
+    icon: {fileID: 4847072211282044801, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: PermanentDamage
+    icon: {fileID: 8118723070098738515, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Groink
+    icon: {fileID: 274942090106988843, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: ReturnDamage
+    icon: {fileID: 4390828945791132085, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: GumBoom
+    icon: {fileID: -6297762757991420105, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Weak
+    icon: {fileID: 8782080785102536417, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Obedience
+    icon: {fileID: -2897329577371709623, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Gobomb
+    icon: {fileID: -9163246451066828144, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Protection
+    icon: {fileID: -4787602733267796909, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Pants
+    icon: {fileID: 5501204929174281261, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Fury
+    icon: {fileID: -3955135080408240504, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Dodge
+    icon: {fileID: 3635584430658345770, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Capture
+    icon: {fileID: 893992711512153741, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Rage
+    icon: {fileID: 2410264602078539193, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: PermanentProtection
+    icon: {fileID: 7695822588126300556, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Armor
+    icon: {fileID: 6755805895504150624, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: FreeSpell
+    icon: {fileID: 5426420692538480079, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Vengeance
+    icon: {fileID: -3604799569318052655, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Blood
+    icon: {fileID: -9020335312539759598, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Energy
+    icon: {fileID: 1117064413, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Racoon
+    icon: {fileID: -1358915087, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}

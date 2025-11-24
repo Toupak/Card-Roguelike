@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211059311}
   - component: {fileID: 211059312}
+  - component: {fileID: 211059313}
   m_Layer: 0
   m_Name: __LocalizationSystem
   m_TagString: Untagged
@@ -293,6 +294,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09a1829c397e9f4fb285949aab736e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteAsset: {fileID: 11400000, guid: bb39c64ef25cccc4ab136936cf9c7de9, type: 2}
+--- !u!114 &211059313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211059310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5643621f4eeb0b14a88ff1b467b2729b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToIconData: {fileID: 11400000, guid: 9423a02e4a6292f46b276fda2d0bfe31, type: 2}
 --- !u!1 &228504063
 GameObject:
   m_ObjectHideFlags: 0

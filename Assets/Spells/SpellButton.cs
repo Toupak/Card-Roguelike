@@ -13,6 +13,7 @@ namespace Spells
     {
         [SerializeField] private Image buttonIcon;
         [SerializeField] private SpellButton otherButton;
+        [SerializeField] public int spellIndex;
 
         [Space] 
         [SerializeField] private SpellController defaultSpellControllerPrefab;

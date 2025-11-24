@@ -30,6 +30,7 @@ namespace Spells
         public bool HasCastedThisTurn { get; protected set; }
 
         private bool isLocking;
+        public int spellIndex => thisSpellButton.spellIndex;
 
         public virtual void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
