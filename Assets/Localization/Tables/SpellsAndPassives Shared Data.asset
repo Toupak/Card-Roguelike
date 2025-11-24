@@ -395,6 +395,46 @@ MonoBehaviour:
     m_Key: jaycoon_passive_0
     m_Metadata:
       m_Items: []
+  - m_Id: 1097093565087744
+    m_Key: childsoldier_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093602836480
+    m_Key: childsoldier_spell_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093602836481
+    m_Key: childsoldier_passive_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093602836482
+    m_Key: childsoldier_passive_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030784
+    m_Key: shieldking_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030785
+    m_Key: swordking_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030786
+    m_Key: teenshieldmaster_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030787
+    m_Key: teenshieldmaster_passive_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030788
+    m_Key: teenswordmaster_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030789
+    m_Key: teenswordmaster_passive_0
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

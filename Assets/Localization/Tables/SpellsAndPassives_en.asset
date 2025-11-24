@@ -28,11 +28,11 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 50992158310400
     m_Localized: Each time Olaf deals damage to an enemy, Pif applies a stack of
-      Vengeance to it
+      $Vengeance$ to it
     m_Metadata:
       m_Items: []
   - m_Id: 50992158310401
-    m_Localized: Babies will protect their mom from damage
+    m_Localized: Babies will $Protection$ their mom from damage
     m_Metadata:
       m_Items: []
   - m_Id: 50992158310402
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50992158310404
-    m_Localized: GnomeFighter will Protect its Carrier from damage
+    m_Localized: GnomeFighter will $Protection$ its Carrier from damage
     m_Metadata:
       m_Items: []
   - m_Id: 50992158310405
@@ -59,11 +59,11 @@ MonoBehaviour:
   - m_Id: 51699703840768
     m_Localized: 'Gives good nutrients to Ally,
 
-      +1 Damage this turn'
+      +1 $BonusDamage$ this turn'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395200
-    m_Localized: 'Passive : when attacked, 50% chance to Stun the enemy !'
+    m_Localized: 'Passive : when attacked, 50% chance to $Stun$ the enemy !'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395201
@@ -71,22 +71,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395202
-    m_Localized: 'The Barbarian Taunt Enemies
+    m_Localized: 'The Barbarian $Taunt$ Enemies
 
       If in Berserk Mode, Barbarian
-      will also Return Damage for 1 turn'
+      will also $ReturnDamage$ for 1 turn'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395203
-    m_Localized: 'Gain 1 stack of Rage for every damage dealt or received
+    m_Localized: 'Gain 1 stack of $Rage$ for every damage dealt or received
 
       At
-      10 Rage stacks, consume all stacks and deal 1 damage to all enemies'
+      10 $Rage$ stacks, consume all stacks and deal 1 damage to all enemies'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395204
-    m_Localized: When going Berserk, removes all Stuns and Weak stacks and gain 1
-      Permanent Damage
+    m_Localized: When going Berserk, removes all $Stun$ and $Weak$ stacks and gain
+      1 $PermanentDamage$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395205
@@ -100,23 +100,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395207
-    m_Localized: Deal 1 damage to target enemy, then gain as much armor as damage
+    m_Localized: Deal 1 damage to target enemy, then gain as much $Armor$ as damage
       dealt
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395208
-    m_Localized: 'Take all Taunt stacks from target and apply them to Big Fish
+    m_Localized: 'Take all $Taunt$ stacks from target and apply them to Big Fish
 
       Big
-      Fish gains as much damage this turn'
+      Fish gains as much $BonusDamage$ this turn'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395209
-    m_Localized: Deals 1 damage and Applies 1 Stun
+    m_Localized: Deals 1 damage and Applies 1 $Stun$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395210
-    m_Localized: Gain +1 damage
+    m_Localized: Gain +1 $BonusDamage$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395211
@@ -130,19 +130,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395213
-    m_Localized: 'Loads One Ammo into Bark Blast
+    m_Localized: 'Loads One $Ammo$ into Bark Blast
 
-      Using Doggo Loader puts Bark
-      Blast on cooldown'
+      Using Doggo Loader puts
+      Bark Blast on cooldown'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395214
     m_Localized: 'Deal 1 damages to all enemies
 
-      Need one ammo to shoot
+      Need one $Ammo$ to shoot
 
       Does
-      not cost energy - can be cast multiple times per turn'
+      not cost $Energy$ - can be cast multiple times per turn'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395215
@@ -150,7 +150,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395216
-    m_Localized: Apply 2 Dodge stacks to self
+    m_Localized: Apply 2 $Dodge$ stacks to self
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395217
@@ -167,19 +167,19 @@ MonoBehaviour:
     m_Localized: 'Deal 1 damage to a single target
 
       If Crustix is hiding in
-      his shell, he cannot attack and taunt instead'
+      his shell, he cannot attack and gain 1 $Taunt$ instead'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395220
-    m_Localized: 'Crustix hides in his shell until next turn
+    m_Localized: 'Crustix hides in his shell until next turn and gains 1 $ReturnDamage$
 
-      If attacked,
-      enemies take 1 damage back and Crustix stays hidden 1 more turn'
+      If
+      attacked, Crustix stays hidden 1 more turn'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395221
-    m_Localized: Select an ally to protect during enemy turn. Any Spell/Attack targeting
-      it will be redirected to the Cube
+    m_Localized: Select an ally to $Protection$ during enemy turn. Any Spell/Attack
+      targeting it will be redirected to the Cube
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395222
@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395223
-    m_Localized: This card is immune to Stun
+    m_Localized: This card is immune to $Stun$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395224
@@ -220,77 +220,81 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395229
-    m_Localized: Replace every Stun stacks on a target with Weak
+    m_Localized: Replace every $Stun$ stacks on a target with $Weak$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395230
-    m_Localized: Replace every Weak stacks on a target with Bonus Damage
+    m_Localized: Replace every $Weak$ stacks on a target with $BonusDamage$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395231
-    m_Localized: Deal 1 damage and apply 1 Weak to enemy
+    m_Localized: Deal 1 damage and apply 1 $Weak$ to enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395232
-    m_Localized: Frien gains 3 damages per Weak stack
+    m_Localized: Frien gains 3 $BonusDamage$ per $Weak$ stack
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395233
-    m_Localized: Deal 2 Damage to a random enemy. If the Enemy is stun, consume stacks
-      and add them to damages
+    m_Localized: Deal 2 Damage to a random enemy. If the Enemy is $Stun$, consume
+      stacks and add them to damages
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395234
-    m_Localized: 'Can only be cast when Stun - Remove Stun
+    m_Localized: 'Can only be cast when $Stun$ - Remove $Stun$
 
-      Apply 2 Furor stacks
-      to self'
+      Apply 2 $Furor$
+      stacks to self'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395235
     m_Localized: 'Spawn 2 GnomeFire Tokens
 
-      Weak stacks will reduce the amount
+      $Weak$ stacks will reduce the amount
       of Tokens spawned'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395236
-    m_Localized: Taunt enemies for 1 turn and stuns himself for 2 turns.
+    m_Localized: $Taunt$ enemies for 1 turn and $Stun$ himself for 2 turns.
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395237
-    m_Localized: 'Gumball does not take any damage when stunned
+    m_Localized: 'Gumball does not take any damage when $Stun$
 
       Instead Gains
-      a stack of Gumboom'
+      a stack of $GumBoom$'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395238
-    m_Localized: At 10 stacks of GumBoom, Gumball explodes dealing damage equal to
-      his current stun stacks to all enemies
+    m_Localized: At 10 stacks of $GumBoom$, Gumball explodes dealing damage equal
+      to his current $Stun$ stacks to all enemies
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395239
-    m_Localized: Taunt, if successful Gain 1 stacks of Groink
+    m_Localized: 'Gain 1 $Taunt$
+
+      If the $Taunt$ is triggered by an enemy,
+      gain 1 stack of $Groink$'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395240
-    m_Localized: 'Actif : Gain 3 stacks of Groink. '
+    m_Localized: 'Actif : Gain 3 stacks of $Groink$. '
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395241
-    m_Localized: On Death Consumes all stacks to deal as many damages to all enemies
+    m_Localized: On Death Consumes all stacks of $Groink$ to deal as many damages
+      to all enemies
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395242
-    m_Localized: 'Shoot all bullets at random enemies
+    m_Localized: 'Shoot all $Ammo$ at random enemies
 
-      Every bullet shot will
-      increase the damage of the next bullet'
+      Every $Ammo$ shot will
+      increase the damage of the next $Ammo$'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395243
-    m_Localized: Load 1 bullet
+    m_Localized: Load 1 $Ammo$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395244
@@ -298,27 +302,28 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395245
-    m_Localized: If alone on your board, gains +1 damage and attacks target all enemies
+    m_Localized: If alone on your board, gains +1 $PermanentDamage$ and attacks target
+      all enemies
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395246
-    m_Localized: 'Attach Dorito Caltrops on target enemy.
+    m_Localized: 'Attach $Caltrops$ on target enemy.
 
-      It deals 1 damage
-      to target each time it performs an action.'
+      It deals 1 damage to
+      target each time it performs an action.'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395247
-    m_Localized: 'Consumes all stacks of Dorito Caltrops on targets
+    m_Localized: 'Consumes all stacks of $Caltrops$ on targets
 
-      Deal 1
-      damage for each stack consumed'
+      Deal 1 damage
+      for each stack consumed'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395248
     m_Localized: 'Attack all enemies for 0 damage
 
-      If an enemy has Vengeance
+      If an enemy has $Vengeance$
       stack, consume all stacks and deal 2 damage to him instead'
     m_Metadata:
       m_Items: []
@@ -331,26 +336,27 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395251
-    m_Localized: Remove all stun stacks affecting self, then deal as much damage
+    m_Localized: Remove all $Stun$ stacks affecting self, then deal as much damage
       to target enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395252
-    m_Localized: Steal a target's pants, inflicting 1 Weak and Collecting one Pants
-      stack
+    m_Localized: Steal a target's $Pants$, inflicting 1 $Weak$ and Collecting one
+      $Pants$ stack
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395253
-    m_Localized: "Consume 1/3/5 Pants to cast on a target : \n1 : Apply 1 Weak\n3
-      : Apply 2 Bonus Damage\n5 : Apply Fury"
+    m_Localized: "Consume 1/3/5 $Pants$ to cast on a target : \n$Pants$ : Apply 1
+      $Weak$\n$Pants$ $Pants$ $Pants$ : Apply 2 $BonusDamage$\n$Pants$ $Pants$ $Pants$
+      $Pants$ $Pants$ : Apply 1 $Fury$"
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395254
-    m_Localized: When Pillar Man is attacked, applies 1 Weak to the enemy
+    m_Localized: When Pillar Man is attacked, applies 1 $Weak$ to the enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395255
-    m_Localized: Any Taunt cast while Pillar Man is alive will be doubled and applied
+    m_Localized: Any $Taunt$ cast while Pillar Man is alive will be doubled and applied
       to Pillar Man instead
     m_Metadata:
       m_Items: []
@@ -359,37 +365,37 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395257
-    m_Localized: Apply Weak to an enemy
+    m_Localized: Apply $Weak$ to an enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395258
     m_Localized: 'Deal 2 damage to a target enemy
 
       If the enemy is marked by
-      Vengeance, consume Vengeance stacks and gain as much Armor'
+      $Vengeance$, consume $Vengeance$ stacks and gain as much $Armor$'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395259
-    m_Localized: 'Gain 1 Taunt
+    m_Localized: 'Gain 1 $Taunt$
 
-      If the Taunt is triggered by an enemy marked
-      by vengeance, refresh the Taunt'
+      If the $Taunt$ is triggered by an enemy marked
+      by $Vengeance$, refresh the $Taunt$'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395260
-    m_Localized: When attacked, mark the attacker with a Vengeance stack
+    m_Localized: When attacked, mark the attacker with a $Vengeance$ stack
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395261
     m_Localized: 'Deal 2 damage to target enemy
 
-      If enemy is Marked by Vengeance,
+      If enemy is marked by $Vengeance$,
       consume stacks and deal double damage'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395262
-    m_Localized: When an enemy receives a Vengeance stack, Rooster attack them for
-      1 damage
+    m_Localized: When an enemy receives a $Vengeance$ stack, Rooster attack them
+      for 1 damage
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395263
@@ -399,7 +405,7 @@ MonoBehaviour:
   - m_Id: 51699737395264
     m_Localized: 'Eat all Eggs
 
-      Gain +1 damage this turn per Egg'
+      Gain +1 $BonusDamage$ this turn per Egg'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395265
@@ -409,7 +415,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395266
-    m_Localized: 'Steal 3 hp to target ally and store it as Blood
+    m_Localized: 'Steal 3 hp to target ally and store it as $Blood$
 
       Deal as
       much damage to random enemy
@@ -419,15 +425,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395267
-    m_Localized: Consume 3 Blood stacks to apply 1 Weak to any card with a Weak stack
+    m_Localized: Consume 3 $Blood$ stacks to apply 1 $Weak$ to any card with a $Weak$
+      stack
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395268
-    m_Localized: Use all available energy, deal as much damage to one enemy
+    m_Localized: Use all available $Energy$, deal as much damage to one enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395269
-    m_Localized: This card is immune to Stun
+    m_Localized: This card is immune to $Stun$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395270
@@ -444,35 +451,35 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 51699737395273
     m_Localized: When Tinkerer has crafted 3 Power Cells, Assemble them to gain 1
-      Energy
+      $Energy$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395274
     m_Localized: When Tinkerer has crafted 2 Power Cells and 1 Actuator, Assemble
-      them to make your team gain 1 Armor
+      them to make your team gain 1 $Armor$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395275
     m_Localized: When Tinkerer has crafted 1 Power Cell and 2 Actuators, Assemble
-      them to apply 1 Weak to enemy team
+      them to apply 1 $Weak$ to enemy team
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395276
     m_Localized: When Tinkerer has crafted 3 Actuators, Assemble them to make your
-      team gain 1 Bonus Damage this turn
+      team gain 1 $BonusDamage$ this turn
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395277
-    m_Localized: If the Ally target is stunned, remove 1 stuns. If not add 1 stun
+    m_Localized: If the Ally target is stunned, remove 1 $Stun$. If not add 1 $Stun$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395278
-    m_Localized: Apply 2 Taunts to target
+    m_Localized: Apply 2 $Taunt$ to target
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395279
-    m_Localized: Applies 2 Weak to an enemy. Beware Zanger is not obedient, 50% chances
-      to target a random ally instead
+    m_Localized: Applies 2 $Weak$ to an enemy. Beware Zanger is not obedient, 50%
+      chances to target a random ally instead
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395280
@@ -496,6 +503,58 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1026414153007106
     m_Localized: If attacked by last target, gain 1 $Fury$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093565087744
+    m_Localized: Deal 1 damage to target enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093602836480
+    m_Localized: Gain 1 $Taunt$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093602836481
+    m_Localized: 'Gain stacks of $Vengeance$ for every damage dealt to enemies
+
+      At
+      3 stacks, grows into a Teen SwordMaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093602836482
+    m_Localized: 'Gain stacks of $Blood$ for every damage received
+
+      At 3 stacks,
+      grows into a Teen ShieldMaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030784
+    m_Localized: Gain 2 $Taunt$, 1 $Armor$ and 1 $ReturnDamage$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030785
+    m_Localized: Deal 2 damages to all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030786
+    m_Localized: Gain 1 $Taunt$ and 1 $Armor$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030787
+    m_Localized: 'Gain stacks of $Blood$ for every damage received
+
+      At 10 stacks,
+      grows into a Shield King'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030788
+    m_Localized: Deal 2 damage to 2 targets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1097093607030789
+    m_Localized: 'Gain stacks of $Vengeance$ for every damage dealt to enemies
+
+      At
+      10 stacks, grows into a Sword King'
     m_Metadata:
       m_Items: []
   references:
