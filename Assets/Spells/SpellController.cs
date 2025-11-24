@@ -29,12 +29,20 @@ namespace Spells
         public bool IsShiny { get; protected set; }
         public bool HasCastedThisTurn { get; protected set; }
 
+        private bool isLocking;
+
         public virtual void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
             cardController = controller;
             spellData = data;
             thisSpellButton = attacheSpellButton;
             otherSpellButton = otherSpell;
+            
+            cardController.OnKillCard?.AddListener(() =>
+            {
+                if (isLocking)
+                    ActionSystem.instance.SetLock(false);
+            });
         }
 
         public virtual bool CanCastSpell()
@@ -113,9 +121,11 @@ namespace Spells
         protected virtual IEnumerator LockActionAndCast(List<CardMovement> targets)
         {
             yield return new WaitWhile(() => ActionSystem.instance.isLocked);
+            isLocking = true;
             ActionSystem.instance.SetLock(true);
             yield return CastSpellOnTarget(targets);
             ActionSystem.instance.SetLock(false);
+            isLocking = false;
         }
 
         protected virtual IEnumerator CastSpellOnTarget(List<CardMovement> targets)

@@ -13,7 +13,6 @@ namespace Spells.Data.Olaf_And_Pif
         [SerializeField] private CardData olafAndPifData;
         [SerializeField] private CardData olafData;
 
-        private int totalHealth;
         private Dictionary<StatusType, int> totalStacks = new Dictionary<StatusType, int>();
         private CardController olaf;
         private CardController Olaf => olaf == null ? FindOlaf() : olaf;
@@ -27,10 +26,11 @@ namespace Spells.Data.Olaf_And_Pif
         {
             yield return base.CastSpellOnTarget(targets);
             
-            totalHealth = ComputeTotalHealth();
+            int totalHealth = ComputeTotalHealth();
             totalStacks = ComputeTotalStacks();
 
             SpawnCardGA spawnOlafAndPif = new SpawnCardGA(olafAndPifData, cardController);
+            spawnOlafAndPif.startingHealth = totalHealth;
             ActionSystem.instance.Perform(spawnOlafAndPif, () =>
             {
                 cardController.KillCard(false);
@@ -54,7 +54,6 @@ namespace Spells.Data.Olaf_And_Pif
         {
             if (spawnCardGa.cardData.name == olafAndPifData.name)
             {
-                spawnCardGa.spawnedCard.cardHealth.SetHealth(totalHealth);
                 ApplyTotalStacks(spawnCardGa.spawnedCard.cardStatus);
             }
         }

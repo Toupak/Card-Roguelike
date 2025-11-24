@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: ChildSoldierTeenShield
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: ChildSoldierTeenShield
+  cardName: Teen ShieldMaster
   tribe: 0
-  hpMax: 0
+  hpMax: 25
   artwork: {fileID: 4860962704012461031, guid: eac556524774deb45a072799c4e594e3, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   holographicType: 0
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: cc1e13de0aef95a409b418a06948271b, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: c0402b0d7b22df347a21a0ae4bd83743, type: 2}
   localizationKey: 
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0

@@ -12,9 +12,6 @@ namespace Spells.Data.Olaf_And_Pif
         [SerializeField] private CardData olafData;
         [SerializeField] private CardData pifData;
 
-        private int olafHealth;
-        private int pifHealth;
-        
         public override void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
             base.Setup(controller, data, attacheSpellButton, otherSpell);
@@ -28,39 +25,21 @@ namespace Spells.Data.Olaf_And_Pif
             yield return base.CastSpellOnTarget(targets);
 
             int health = cardController.cardHealth.currentHealth;
-            olafHealth = Mathf.FloorToInt(health / 2.0f);
-            pifHealth = Mathf.FloorToInt(health / 2.0f);
+            int olafHealth = Mathf.FloorToInt(health / 2.0f);
+            int pifHealth = Mathf.FloorToInt(health / 2.0f);
 
             if (health % 2 == 1)
                 olafHealth += 1;
 
             SpawnCardGA spawnOlaf = new SpawnCardGA(olafData, cardController);
+            spawnOlaf.startingHealth = olafHealth;
             ActionSystem.instance.Perform(spawnOlaf);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             
             SpawnCardGA spawnPif = new SpawnCardGA(pifData, cardController);
+            spawnPif.startingHealth = pifHealth;
             ActionSystem.instance.Perform(spawnPif, () => cardController.KillCard(false));
-        }
-        
-        protected override void SubscribeReactions()
-        {
-            base.SubscribeReactions();
-            ActionSystem.SubscribeReaction<SpawnCardGA>(SpawnCardReaction, ReactionTiming.POST, 150);
-        }
-
-        protected override void UnsubscribeReactions()
-        {
-            base.UnsubscribeReactions();
-            ActionSystem.UnsubscribeReaction<SpawnCardGA>(SpawnCardReaction, ReactionTiming.POST);
-        }
-
-        private void SpawnCardReaction(SpawnCardGA spawnCardGa)
-        {
-            if (spawnCardGa.cardData == olafData)
-                spawnCardGa.spawnedCard.cardHealth.SetHealth(olafHealth);
-            else if (spawnCardGa.cardData == pifData)
-                spawnCardGa.spawnedCard.cardHealth.SetHealth(pifHealth);
         }
     }
 }

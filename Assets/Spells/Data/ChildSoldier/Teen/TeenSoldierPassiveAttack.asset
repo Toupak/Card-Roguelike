@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: TeenSoldierPassiveAttack
+  m_EditorClassIdentifier: 
+  passiveName: Learning With Every Strike
+  description: 'Gain stacks of Vengeance for every damage dealt to enemies
+
+    At
+    10 stacks, grows into a Sword King'
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4278387665
+  passiveController: {fileID: -533439180272332867, guid: ee5f98a215eee574ebcbe966ae69df03, type: 3}

@@ -9,6 +9,7 @@ namespace ActionReaction.Game_Actions
         public CardController spawnedCard;
 
         public bool isToken;
+        public int startingHealth = -1;
 
         public SpawnCardGA(CardData data, CardController spawnerController, bool isCardAToken = false)
         {

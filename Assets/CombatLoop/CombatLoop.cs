@@ -103,6 +103,10 @@ namespace CombatLoop
                 spawnCardGa.spawnedCard = playerHandController.SpawnToken(spawnCardGa);
             else    
                 spawnCardGa.spawnedCard = playerHandController.SpawnCard(new DeckCard(spawnCardGa.cardData), playerBoard);
+            
+            if (spawnCardGa.startingHealth > 0)
+                spawnCardGa.spawnedCard.cardHealth.SetHealth(spawnCardGa.startingHealth);
+            
             yield return new WaitForSeconds(0.2f);
         }
 

@@ -5,6 +5,7 @@ using Run_Loop;
 using Spells;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Cards.Scripts
@@ -23,6 +24,8 @@ namespace Cards.Scripts
         [SerializeField] public BaseEnemyBehaviour waitingBehaviourPrefab;
         [SerializeField] public Transform tooltipPivot;
 
+        [HideInInspector] public UnityEvent OnKillCard = new UnityEvent();
+        
         public RectTransform rectTransform { get; private set; }
         public Vector2 screenPosition => rectTransform.anchoredPosition;
         
@@ -151,9 +154,10 @@ namespace Cards.Scripts
         {
             if (removeFromDeck && !cardData.isEnemy)
                 PlayerDeck.instance.RemoveCardFromDeck(deckCard);
-
+            
             cardMovement.KillAllTokens();
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
+            OnKillCard?.Invoke();
             Destroy(gameObject);
         }
 
