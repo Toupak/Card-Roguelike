@@ -101,6 +101,8 @@ namespace Localization
                 AddKeyToTable(table, $"{localizationKey}_passive_{i}", cardData.passiveList[i].description);
 
             cardData.localizationKey = localizationKey;
+            
+            Debug.Log($"[{nameof(LocalizationSystem)}] : Added new Entry : {localizationKey}");
         }
 
         private static void AddKeyToTable(StringTable table, string key, string value)

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: ChildSoldierTeenSword
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: ChildSoldierTeenSword
+  tribe: 0
+  hpMax: 0
+  artwork: {fileID: 670000288, guid: eac556524774deb45a072799c4e594e3, type: 3}
+  description: 
+  isSpecialSummon: 1
+  alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
+  localizationKey: 
+  enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
