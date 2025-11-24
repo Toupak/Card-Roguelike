@@ -435,6 +435,14 @@ MonoBehaviour:
     m_Key: teenswordmaster_passive_0
     m_Metadata:
       m_Items: []
+  - m_Id: 1121381194104832
+    m_Key: gnorp'saccountant_spell_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1121381236047872
+    m_Key: gnorp'saccountant_spell_1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

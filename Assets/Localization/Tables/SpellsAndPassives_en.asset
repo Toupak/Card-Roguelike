@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 50992112173056
-    m_Localized: Deal 1 damage to 2 target enemies
+    m_Localized: Deal $d$ damage to 2 target enemies
     m_Metadata:
       m_Items: []
   - m_Id: 50992154116096
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395201
-    m_Localized: Deal 1 damages to enemy target
+    m_Localized: Deal $d$ damages to enemy target
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395202
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395207
-    m_Localized: Deal 1 damage to target enemy, then gain as much $Armor$ as damage
+    m_Localized: Deal $d$ damage to target enemy, then gain as much $Armor$ as damage
       dealt
     m_Metadata:
       m_Items: []
@@ -112,7 +112,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395209
-    m_Localized: Deals 1 damage and Applies 1 $Stun$
+    m_Localized: Deals $d$ damage and Applies 1 $Stun$
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395210
@@ -137,7 +137,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395214
-    m_Localized: 'Deal 1 damages to all enemies
+    m_Localized: 'Deal $d$ damages to all enemies
 
       Need one $Ammo$ to shoot
 
@@ -146,7 +146,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395215
-    m_Localized: Deal 2 damages
+    m_Localized: Deal $d$ damages
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395216
@@ -164,10 +164,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395219
-    m_Localized: 'Deal 1 damage to a single target
+    m_Localized: 'Deal $d$ damage to a single target
 
-      If Crustix is hiding in
-      his shell, he cannot attack and gain 1 $Taunt$ instead'
+      If Crustix is hiding
+      in his shell, he cannot attack and gain 1 $Taunt$ instead'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395220
@@ -192,13 +192,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395224
-    m_Localized: 'Deal 3 Damages to an ally
+    m_Localized: 'Deal $d$ Damages to an ally
 
-      Gives 3 damage for the next attack'
+      Gives 3 damage for the next
+      attack'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395225
-    m_Localized: Deal 1 Damages to a single target
+    m_Localized: Deal $d$ Damages to a single target
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395226
@@ -206,10 +207,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395227
-    m_Localized: 'Deal 2 damage to the first target
+    m_Localized: 'Deal $d$ damage to the first target
 
-      Deal 1 damage to the second
-      target'
+      Deal 1 damage to the
+      second target'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395228
@@ -228,7 +229,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395231
-    m_Localized: Deal 1 damage and apply 1 $Weak$ to enemy
+    m_Localized: Deal $d$ damage and apply 1 $Weak$ to enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395232
@@ -236,7 +237,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395233
-    m_Localized: Deal 2 Damage to a random enemy. If the Enemy is $Stun$, consume
+    m_Localized: Deal $d$ Damage to a random enemy. If the Enemy is $Stun$, consume
       stacks and add them to damages
     m_Metadata:
       m_Items: []
@@ -298,7 +299,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395244
-    m_Localized: Launches at an enemy and deal 1 damage two times.
+    m_Localized: Launches at an enemy and deal $d$ damage two times.
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395245
@@ -369,10 +370,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395258
-    m_Localized: 'Deal 2 damage to a target enemy
+    m_Localized: 'Deal $d$ damage to a target enemy
 
-      If the enemy is marked by
-      $Vengeance$, consume $Vengeance$ stacks and gain as much $Armor$'
+      If the enemy is marked
+      by $Vengeance$, consume $Vengeance$ stacks and gain as much $Armor$'
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395259
@@ -387,7 +388,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395261
-    m_Localized: 'Deal 2 damage to target enemy
+    m_Localized: 'Deal $d$ damage to target enemy
 
       If enemy is marked by $Vengeance$,
       consume stacks and deal double damage'
@@ -399,7 +400,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395263
-    m_Localized: Deals 1 damage to target enemy
+    m_Localized: Deals $d$ damage to target enemy
     m_Metadata:
       m_Items: []
   - m_Id: 51699737395264
@@ -498,7 +499,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1026414153007105
-    m_Localized: Deal 1 damage, if target is same as last attack, deal +1 damage
+    m_Localized: Deal $d$ damage, if target is same as last attack, deal +1 damage
     m_Metadata:
       m_Items: []
   - m_Id: 1026414153007106
@@ -506,7 +507,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1097093565087744
-    m_Localized: Deal 1 damage to target enemy
+    m_Localized: Deal $d$ damage to target enemy
     m_Metadata:
       m_Items: []
   - m_Id: 1097093602836480
@@ -532,7 +533,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1097093607030785
-    m_Localized: Deal 2 damages to all enemies
+    m_Localized: Deal $d$ damages to all enemies
     m_Metadata:
       m_Items: []
   - m_Id: 1097093607030786
@@ -547,7 +548,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1097093607030788
-    m_Localized: Deal 2 damage to 2 targets
+    m_Localized: Deal $d$ damage to 2 targets
     m_Metadata:
       m_Items: []
   - m_Id: 1097093607030789
@@ -555,6 +556,20 @@ MonoBehaviour:
 
       At
       10 stacks, grows into a Sword King'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1121381194104832
+    m_Localized: '-5HP
+
+      One pack a day, keeps the doctor away'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1121381236047872
+    m_Localized: 'Self Destruct, the lower the HP, the higher the damage
+
+
+      He''s
+      had enough, and so will his boss.'
     m_Metadata:
       m_Items: []
   references:
