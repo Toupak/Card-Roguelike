@@ -16,16 +16,16 @@ namespace Passives
         public void Setup(CardController controller, CardData cardData)
         {
             cardController = controller;
-            
-            foreach (PassiveData data in cardData.passiveList)
+
+            for (int i = 0; i < cardData.passiveList.Count; i++)
             {
-                SpawnPassiveObject(data);
+                SpawnPassiveObject(cardData.passiveList[i], i);
             }
         }
 
         public void AddPassive(PassiveData data)
         {
-            SpawnPassiveObject(data);
+            SpawnPassiveObject(data, passives.Count);
         }
 
         public void RemovePassive(PassiveData data)
@@ -47,10 +47,10 @@ namespace Passives
             }
         }
         
-        private void SpawnPassiveObject(PassiveData data)
+        private void SpawnPassiveObject(PassiveData data, int index)
         {
             PassiveDisplay passive = Instantiate(passivePrefab, transform);
-            passives.Add(passive.Setup(cardController, data));
+            passives.Add(passive.Setup(cardController, data, index));
         }
 
         public PassiveController GetPassive(PassiveData data)

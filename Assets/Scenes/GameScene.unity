@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteAsset: {fileID: 11400000, guid: bb39c64ef25cccc4ab136936cf9c7de9, type: 2}
+  textToIconData: {fileID: 11400000, guid: 9423a02e4a6292f46b276fda2d0bfe31, type: 2}
 --- !u!114 &211059313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5643621f4eeb0b14a88ff1b467b2729b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToIconData: {fileID: 11400000, guid: 9423a02e4a6292f46b276fda2d0bfe31, type: 2}
 --- !u!1 &228504063
 GameObject:
   m_ObjectHideFlags: 0

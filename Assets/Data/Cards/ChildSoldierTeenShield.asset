@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cc1e13de0aef95a409b418a06948271b, type: 2}
   passiveList:
   - {fileID: 11400000, guid: c0402b0d7b22df347a21a0ae4bd83743, type: 2}
-  localizationKey: 
+  localizationKey: teenshieldmaster
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

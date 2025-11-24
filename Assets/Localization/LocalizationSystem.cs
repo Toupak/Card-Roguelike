@@ -2,9 +2,11 @@ using BoomLib.Tools;
 using Cards.Scripts;
 using Data;
 using Localization.Icons_In_Text;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
+using UnityEngine.TextCore;
 
 namespace Localization
 {
@@ -12,6 +14,9 @@ namespace Localization
     {
         private const string databasePath = "Assets/Data/CardDatabase.asset";
         private const string tablePath = "Assets/Localization/Tables/SpellsAndPassives_en.asset";
+
+        public TMP_SpriteAsset spriteAsset;
+        public TextToIconData textToIconData;
 
         public static LocalizationSystem instance;
         public TextToIcon textToIcon { get; private set; }
@@ -26,20 +31,22 @@ namespace Localization
             textToIcon = GetComponent<TextToIcon>();
             db = AssetDatabase.LoadAssetAtPath<CardDatabase>(databasePath);
             table = AssetDatabase.LoadAssetAtPath<StringTable>(tablePath);
+            
+            //UpdateGlyphs();
         }
 
         public string GetSpellDescription(string localizationKey, int spellIndex)
         {
             StringTableEntry entry = table.GetEntry($"{localizationKey}_spell_{spellIndex}");
             
-            return entry != null ? textToIcon.CheckForIcons(entry.Value) : "";
+            return entry != null ? entry.Value : "";
         }
         
         public string GetPassiveDescription(string localizationKey, int passiveIndex)
         {
             StringTableEntry entry = table.GetEntry($"{localizationKey}_passive_{passiveIndex}");
             
-            return entry != null ? textToIcon.CheckForIcons(entry.Value) : "";
+            return entry != null ? entry.Value : "";
         }
 
         //[MenuItem("Tools/From Google Sheet to CardData")]
@@ -55,18 +62,17 @@ namespace Localization
             }
         }
         
-        /*
+        
         private void UpdateGlyphs()
         {
             Debug.Log($"{spriteAsset.name}");
             
             foreach (TMP_SpriteGlyph glyph in spriteAsset.spriteGlyphTable)
             {
-                glyph.scale = 2.0f;
+                glyph.scale = 1.75f;
                 glyph.metrics = new GlyphMetrics(32, 32, -5, 24, 24);
             }
         }
-        */
 
         private static void UpdateCardDescription(StringTable table, CardData cardData)
         {

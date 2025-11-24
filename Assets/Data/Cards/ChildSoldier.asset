@@ -27,7 +27,7 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 7cea536b7d25f434d9753712ee2ff572, type: 2}
   - {fileID: 11400000, guid: 65e0f18ac9a34034482d28f76732b13a, type: 2}
-  localizationKey: 
+  localizationKey: childsoldier
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

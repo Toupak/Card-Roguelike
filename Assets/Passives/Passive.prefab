@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 282721887303166422}
   background: {fileID: 2882930840939013101}
+  defaultPassiveController: {fileID: -7723303660537430520, guid: 92708a2cae08952419b30f4ea083eb49, type: 3}
 --- !u!114 &4826740265088023039
 MonoBehaviour:
   m_ObjectHideFlags: 0

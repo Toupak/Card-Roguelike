@@ -21,16 +21,15 @@ namespace Tooltip.Spell
         public void SetupSpellTooltip(SpellController spellController)
         {
             title.text = spellController.spellData.spellName;
-            mainText.text = ComputeMainText(LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellIndex), spellController.ComputeCurrentDamage(spellController.spellData.damage));
+            
+            int damage = spellController.ComputeCurrentDamage(spellController.spellData.damage);
+            string description = LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellIndex);
+            
+            mainText.text = CheckForDamage(CheckForIcons(description), damage);
 
             AddEnergyCost(spellController.ComputeEnergyCost());
         }
-        
-        private string ComputeMainText(string description, int damage)
-        {
-            return description.Replace("$d$", $"{damage}");
-        }
-        
+
         public void AddEnergyCost(int energyCostToDisplay)
         {
             int maxEnergy = EnergyController.instance != null ? EnergyController.instance.currentMaxEnergy : 3;

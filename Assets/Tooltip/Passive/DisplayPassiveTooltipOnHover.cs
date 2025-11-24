@@ -11,7 +11,7 @@ namespace Tooltip.Passive
         {
             tooltipDisplay = TooltipFactory.instance.CreatePassiveTooltip();
             tooltipDisplay.SetPosition(passiveDisplay.cardController.tooltipPivot.position);
-            ((PassiveTooltip)tooltipDisplay).SetupPassiveTooltip(passiveDisplay.data);
+            ((PassiveTooltip)tooltipDisplay).SetupPassiveTooltip(passiveDisplay.passiveController);
         }
     }
 }

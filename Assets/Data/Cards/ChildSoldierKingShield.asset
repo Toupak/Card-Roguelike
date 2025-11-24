@@ -24,7 +24,7 @@ MonoBehaviour:
   spellList:
   - {fileID: 11400000, guid: 59d708cf3e5b2474ca7f7b6ac84276a4, type: 2}
   passiveList: []
-  localizationKey: 
+  localizationKey: shieldking
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

@@ -1,3 +1,5 @@
+using Cards.Scripts;
+using Localization;
 using Passives;
 using TMPro;
 using UnityEngine;
@@ -9,10 +11,12 @@ namespace Tooltip.Passive
         [SerializeField] private TextMeshProUGUI title;
         [SerializeField] private TextMeshProUGUI mainText;
         
-        public void SetupPassiveTooltip(PassiveData data)
+        public void SetupPassiveTooltip(PassiveController passiveController)
         {
-            title.text = data.passiveName;
-            mainText.text = data.description;
+            title.text = passiveController.passiveData.passiveName;
+            string description = LocalizationSystem.instance.GetPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveIndex);
+            
+            mainText.text = CheckForIcons(description);
         }
     }
 }
