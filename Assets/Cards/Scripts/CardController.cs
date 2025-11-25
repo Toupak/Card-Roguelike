@@ -132,6 +132,22 @@ namespace Cards.Scripts
             leftButton.gameObject.SetActive(true);
             rightButton.gameObject.SetActive(true);
         }
+
+        public void SetupLeftSpell(SpellData left)
+        {
+            leftButton.Setup(this, left);
+            
+            singleButton.gameObject.SetActive(false);
+            leftButton.gameObject.SetActive(true);
+        }
+        
+        public void SetupRightSpell(SpellData right)
+        {
+            rightButton.Setup(this, right);
+            
+            singleButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(true);
+        }
         
         private void SetupPassives()
         {

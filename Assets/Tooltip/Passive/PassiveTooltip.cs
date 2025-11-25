@@ -12,10 +12,20 @@ namespace Tooltip.Passive
         
         public void SetupPassiveTooltip(PassiveController passiveController)
         {
-            title.text = LocalizationSystem.instance.GetPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
-            string description = LocalizationSystem.instance.GetPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
-            
-            mainText.text = CheckForIcons(description);
+            if (passiveController.cardController.cardData.isEnemy)
+            {
+                title.text = LocalizationSystem.instance.GetEnemyPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+                string description = LocalizationSystem.instance.GetEnemyPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+
+                mainText.text = CheckForIcons(description);
+            }
+            else
+            {
+                title.text = LocalizationSystem.instance.GetPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+                string description = LocalizationSystem.instance.GetPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+
+                mainText.text = CheckForIcons(description);
+            }
         }
     }
 }

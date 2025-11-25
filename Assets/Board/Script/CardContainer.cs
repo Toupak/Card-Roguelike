@@ -26,6 +26,7 @@ namespace Board.Script
 
         private List<Slot> slots = new List<Slot>();
         public List<Slot> Slots => slots;
+        public int slotCount => slots.Count;
 
         public ContainerType type;
 

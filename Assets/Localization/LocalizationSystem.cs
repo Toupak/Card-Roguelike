@@ -83,6 +83,34 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
         
+        public string GetEnemyPassiveTitle(string cardKey, string passiveKey)
+        {
+            StringTableEntry entry = enemiesTable.GetEntry($"{cardKey}_{passiveKey}_title");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
+        public string GetEnemyPassiveDescription(string cardKey, string passiveKey)
+        {
+            StringTableEntry entry = enemiesTable.GetEntry($"{cardKey}_{passiveKey}");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
+        public string GetEnemyBehaviourTitle(string cardKey, string behaviourKey)
+        {
+            StringTableEntry entry = enemiesTable.GetEntry($"{cardKey}_{behaviourKey}_title");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
+        public string GetEnemyBehaviourDescription(string cardKey, string behaviourKey)
+        {
+            StringTableEntry entry = enemiesTable.GetEntry($"{cardKey}_{behaviourKey}");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
         public string GetStatusTitle(string statusKey)
         {
             StringTableEntry entry = statusTable.GetEntry($"{statusKey}_title");

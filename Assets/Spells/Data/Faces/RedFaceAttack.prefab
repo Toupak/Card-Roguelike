@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4304882197491791093}
-  - component: {fileID: -5356884671911959103}
+  - component: {fileID: -5160743102781789477}
   m_Layer: 5
-  m_Name: FaceSwapMask
+  m_Name: RedFaceAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-5356884671911959103
+--- !u!114 &-5160743102781789477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 84359681995233075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29aecfbc793359041bb7287d39e3ffbb, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a489879eebc184b8bb7b662c1572ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnStartCastingSpell:
@@ -54,13 +54,3 @@ MonoBehaviour:
   OnCastSpell:
     m_PersistentCalls:
       m_Calls: []
-  whiteSpell: {fileID: 11400000, guid: a389843eb54c2eb4ca5f451e38cad02d, type: 2}
-  blueSpell: {fileID: 11400000, guid: a2fae6879d14a65428cf6c5fa18e53cc, type: 2}
-  redSpell: {fileID: 11400000, guid: 8ad7741f57ca71a43bcdced9cd8b9efc, type: 2}
-  whiteSprite: {fileID: -5285785097126754818, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
-  blueSprite: {fileID: 5219528537255451192, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
-  redSprite: {fileID: -2352396353401391747, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
-  tokenData:
-  - {fileID: 11400000, guid: c165428cca887384daaaaf9abbc61abd, type: 2}
-  - {fileID: 11400000, guid: b7b933365129f7f4682c8df9a626ad03, type: 2}
-  - {fileID: 11400000, guid: e9a0655b57c931a468e0f6a445aa6b60, type: 2}

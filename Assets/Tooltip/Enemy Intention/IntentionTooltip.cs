@@ -1,4 +1,5 @@
 using EnemyAttack;
+using Localization;
 using TMPro;
 using UnityEngine;
 
@@ -11,13 +12,10 @@ namespace Tooltip.Enemy_Intention
         
         public void SetupIntentionTooltip(EnemyCardController enemyCardController)
         {
-            title.text = $"{enemyCardController.nextbehaviour.behaviourName}";
-            mainText.text = ComputeMainText(enemyCardController.nextbehaviour.description, enemyCardController.nextbehaviour.GetDamageText());
-        }
+            title.text = LocalizationSystem.instance.GetEnemyBehaviourTitle(enemyCardController.cardController.cardData.localizationKey, enemyCardController.nextbehaviour.localizationKey);
+            string description = LocalizationSystem.instance.GetEnemyBehaviourDescription(enemyCardController.cardController.cardData.localizationKey, enemyCardController.nextbehaviour.localizationKey);
 
-        private string ComputeMainText(string description, string damage)
-        {
-            return description.Replace("%d%", $"{damage}");
+            mainText.text = CheckForDamage(CheckForIcons(description), enemyCardController.nextbehaviour.GetDamageText());
         }
     }
 }

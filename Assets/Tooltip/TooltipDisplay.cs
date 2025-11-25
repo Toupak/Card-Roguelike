@@ -73,7 +73,12 @@ namespace Tooltip
         
         protected string CheckForDamage(string description, int damage)
         {
-            return description.Replace("$d$", $"{damage}");
+            return CheckForDamage(description, $"{damage}");
+        }
+        
+        protected string CheckForDamage(string description, string damage)
+        {
+            return description.Replace("$d$", damage);
         }
     }
 }

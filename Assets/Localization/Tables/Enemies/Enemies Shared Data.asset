@@ -14,7 +14,407 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Enemies
   m_TableCollectionNameGuidString: 1a5f92dd5cd30cc44803bd227af873a4
-  m_Entries: []
+  m_Entries:
+  - m_Id: 2299744976896
+    m_Key: crimsonlantern_burntheheretics_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299786919936
+    m_Key: crimsonlantern_burntheheretics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114240
+    m_Key: crimsonlantern_praisemaster_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114241
+    m_Key: crimsonlantern_praisemaster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114242
+    m_Key: crimsonlantern_toxicfumes_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114243
+    m_Key: crimsonlantern_toxicfumes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114244
+    m_Key: crimsonmonk_martialslap_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114245
+    m_Key: crimsonmonk_martialslap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114246
+    m_Key: crimsonmonk_disturbingprayer_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114247
+    m_Key: crimsonmonk_disturbingprayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308544
+    m_Key: crimsonmonk_anger_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308545
+    m_Key: crimsonmonk_anger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308546
+    m_Key: crimsonmonk_mainbosspassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308547
+    m_Key: crimsonmonk_mainbosspassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308548
+    m_Key: crimsonmonk_stunimmune_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308549
+    m_Key: crimsonmonk_stunimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308550
+    m_Key: daisyduck_rootcard_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308551
+    m_Key: daisyduck_rootcard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308552
+    m_Key: daisyduck_summonspores_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308553
+    m_Key: daisyduck_summonspores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308554
+    m_Key: daisyduck_paraspore_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308555
+    m_Key: daisyduck_paraspore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308556
+    m_Key: daisyduck_burpcard_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308557
+    m_Key: daisyduck_burpcard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502848
+    m_Key: daisyduck_mainbosspassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502849
+    m_Key: daisyduck_mainbosspassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502850
+    m_Key: daisyduck_stunimmune_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502851
+    m_Key: daisyduck_stunimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502852
+    m_Key: gobo-bomb_goboexplode_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502853
+    m_Key: gobo-bomb_goboexplode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502854
+    m_Key: gobo-bomb_gobocharge_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502855
+    m_Key: gobo-bomb_gobocharge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502856
+    m_Key: gobo-clown_gobo-buff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502857
+    m_Key: gobo-clown_gobo-buff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502858
+    m_Key: gobo-clown_gobo-permanentdamagebuff1_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502859
+    m_Key: gobo-clown_gobo-permanentdamagebuff1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697152
+    m_Key: gobo-clown_gobo-damagebuff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697153
+    m_Key: gobo-clown_gobo-damagebuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697154
+    m_Key: goboking_goboking_waiting_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697155
+    m_Key: goboking_goboking_waiting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697156
+    m_Key: goboking_royalclaw_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697157
+    m_Key: goboking_royalclaw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697158
+    m_Key: goboking_kingstomp_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697159
+    m_Key: goboking_kingstomp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697160
+    m_Key: goboking_mainbosspassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697161
+    m_Key: goboking_mainbosspassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891456
+    m_Key: goboking_spawnpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891457
+    m_Key: goboking_spawnpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891458
+    m_Key: goboking_stunimmune_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891459
+    m_Key: goboking_stunimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891460
+    m_Key: gobo-knight_gobo-bash_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891461
+    m_Key: gobo-knight_gobo-bash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891462
+    m_Key: gobo-knight_gobo-buff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891463
+    m_Key: gobo-knight_gobo-buff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891464
+    m_Key: hydracenter_ultimateaoe_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891465
+    m_Key: hydracenter_ultimateaoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891466
+    m_Key: hydracenter_roar_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891467
+    m_Key: hydracenter_roar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891468
+    m_Key: hydracenter_normalattack_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891469
+    m_Key: hydracenter_normalattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891470
+    m_Key: hydracenter_hydra_waiting_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891471
+    m_Key: hydracenter_hydra_waiting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085760
+    m_Key: hydracenter_mainbosspassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085761
+    m_Key: hydracenter_mainbosspassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085762
+    m_Key: hydracenter_hydrapassivecenter_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085763
+    m_Key: hydracenter_hydrapassivecenter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085764
+    m_Key: hydraleft_atck_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085765
+    m_Key: hydraleft_atck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085766
+    m_Key: hydraleft_debuff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085767
+    m_Key: hydraleft_debuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085768
+    m_Key: hydraleft_heal_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085769
+    m_Key: hydraleft_heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085770
+    m_Key: hydraleft_mainbosspassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085771
+    m_Key: hydraleft_mainbosspassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085772
+    m_Key: hydraleft_hydrapassiveleft_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085773
+    m_Key: hydraleft_hydrapassiveleft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085774
+    m_Key: hydra_neck_center_neckwaiting_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280064
+    m_Key: hydra_neck_center_neckwaiting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280065
+    m_Key: hydra_neck_center_hydraneckpassivecenter_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280066
+    m_Key: hydra_neck_center_hydraneckpassivecenter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280067
+    m_Key: hydra_neck_left_neckwaiting_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280068
+    m_Key: hydra_neck_left_neckwaiting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280069
+    m_Key: hydra_neck_left_hydraneckpassiveleft_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280070
+    m_Key: hydra_neck_left_hydraneckpassiveleft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280071
+    m_Key: hydra_neck_right_neckwaiting_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280072
+    m_Key: hydra_neck_right_neckwaiting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280073
+    m_Key: hydra_neck_right_hydraneckpassiveright_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280074
+    m_Key: hydra_neck_right_hydraneckpassiveright
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280075
+    m_Key: hydraright_aoe_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280076
+    m_Key: hydraright_aoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474368
+    m_Key: hydraright_debuff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474369
+    m_Key: hydraright_debuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474370
+    m_Key: hydraright_singletarget_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474371
+    m_Key: hydraright_singletarget
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474372
+    m_Key: hydraright_mainbosspassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474373
+    m_Key: hydraright_mainbosspassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474374
+    m_Key: hydraright_hydrapassiveright_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474375
+    m_Key: hydraright_hydrapassiveright
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474376
+    m_Key: powerseed_sporeheal_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474377
+    m_Key: powerseed_sporeheal
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
