@@ -23,7 +23,7 @@ namespace Tooltip.Spell
             title.text = spellController.spellData.spellName;
             
             int damage = spellController.ComputeCurrentDamage(spellController.spellData.damage);
-            string description = LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellIndex);
+            string description = LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellData.localizationKey);
             
             mainText.text = CheckForDamage(CheckForIcons(description), damage);
 

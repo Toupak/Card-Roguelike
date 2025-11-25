@@ -14,7 +14,163 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Passives
   m_TableCollectionNameGuidString: 4d36101ea1343254d8bb7895496bcdd7
-  m_Entries: []
+  m_Entries:
+  - m_Id: 260841760587776
+    m_Key: banana_slipperytrap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841781559296
+    m_Key: barbarian_berserkrage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841781559297
+    m_Key: barbarian_berserkbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841785753600
+    m_Key: batmerchant_batpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841789947904
+    m_Key: bongo_bongopassivedamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841789947905
+    m_Key: bongo_bongopassivestatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841794142208
+    m_Key: childsoldier_childsoldierpassiveattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841794142209
+    m_Key: childsoldier_childsoldierpassivedefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841794142210
+    m_Key: teenshieldmaster_teensoldierpassivedefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841798336512
+    m_Key: teenswordmaster_teensoldierpassiveattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841798336513
+    m_Key: combo_bongopassivedamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841798336514
+    m_Key: combo_bongopassivestatus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530816
+    m_Key: cube_cubepassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530817
+    m_Key: cube_stunimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530818
+    m_Key: smokingdevil_hellfuel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530819
+    m_Key: dinoandzaur_dinoandzaurpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841810919424
+    m_Key: frien_friendweakbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841815113728
+    m_Key: gumball_gumballarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841815113729
+    m_Key: gumball_gumballboom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841815113730
+    m_Key: hognade_hogpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841819308032
+    m_Key: biggestofmonkey_oneape
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841823502336
+    m_Key: pif_pifpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841827696640
+    m_Key: pillarman_pillardefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841827696641
+    m_Key: pillarman_pillartaunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841831890944
+    m_Key: guard_guardpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841831890945
+    m_Key: jaycoon_racoonpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841831890946
+    m_Key: rooster_roosterpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085248
+    m_Key: snuk_snukeggpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085249
+    m_Key: baby_snukbabyprotect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085250
+    m_Key: baby_snukbabyattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085251
+    m_Key: snuk_egg_snukeggwait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085252
+    m_Key: thelastgnomefighter_gnomefighterprotection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085253
+    m_Key: thelastgnomefighter_gnomefighterattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279552
+    m_Key: thorse_stunimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279553
+    m_Key: thorse_allneighty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279554
+    m_Key: tinkerer_tinkererpassive_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279555
+    m_Key: tinkerer_tinkererpassive_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841844473856
+    m_Key: tinkerer_tinkererpassive_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841844473857
+    m_Key: tinkerer_tinkererpassive_4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

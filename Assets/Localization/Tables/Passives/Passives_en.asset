@@ -17,7 +17,204 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 4d36101ea1343254d8bb7895496bcdd7, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 260841760587776
+    m_Localized: 'Passive : when attacked, 50% chance to $Stun$ the enemy !'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841781559296
+    m_Localized: 'Gain 1 stack of $Rage$ for every damage dealt or received
+
+      At
+      10 $Rage$ stacks, consume all stacks and deal 1 damage to all enemies'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841781559297
+    m_Localized: When going Berserk, removes all $Stun$ and $Weak$ stacks and gain
+      1 $PermanentDamage$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841785753600
+    m_Localized: When the Bat Merchant scores a kill, He can recast his Active Spell
+      for free
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841789947904
+    m_Localized: When Bongo or Combo deals Damage to a Target, the other one will
+      also deal damage to the target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841789947905
+    m_Localized: When Bongo or Combo receives a status effect, the other one also
+      does
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841794142208
+    m_Localized: 'Gain stacks of $Vengeance$ for every damage dealt to enemies
+
+      At
+      3 stacks, grows into a Teen SwordMaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841794142209
+    m_Localized: 'Gain stacks of $Blood$ for every damage received
+
+      At 3 stacks,
+      grows into a Teen ShieldMaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841794142210
+    m_Localized: 'Gain stacks of $Blood$ for every damage received
+
+      At 10 stacks,
+      grows into a Shield King'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841798336512
+    m_Localized: 'Gain stacks of $Vengeance$ for every damage dealt to enemies
+
+      At
+      10 stacks, grows into a Sword King'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841798336513
+    m_Localized: When Bongo or Combo deals Damage to a Target, the other one will
+      also deal damage to the target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841798336514
+    m_Localized: When Bongo or Combo receives a status effect, the other one also
+      does
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530816
+    m_Localized: When a Card appear on your board, in can cast its first spell for
+      no energy cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530817
+    m_Localized: This card is immune to $Stun$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530818
+    m_Localized: Gains 1 Damage for every Death (ally or enemy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841802530819
+    m_Localized: 'Dino and Zaur are at their best when together.
+
+      When taking
+      a hit, Zaur falls off Dino and must get back on his friend to resume fighting'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841810919424
+    m_Localized: Frien gains 3 $BonusDamage$ per $Weak$ stack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841815113728
+    m_Localized: 'Gumball does not take any damage when $Stun$
+
+      Instead Gains
+      a stack of $GumBoom$'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841815113729
+    m_Localized: At 10 stacks of $GumBoom$, Gumball explodes dealing damage equal
+      to his current $Stun$ stacks to all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841815113730
+    m_Localized: On Death Consumes all stacks of $Groink$ to deal as many damages
+      to all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841819308032
+    m_Localized: If alone on your board, gains +1 $PermanentDamage$ and attacks target
+      all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841823502336
+    m_Localized: Each time Olaf deals damage to an enemy, Pif applies a stack of
+      $Vengeance$ to it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841827696640
+    m_Localized: When Pillar Man is attacked, applies 1 $Weak$ to the enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841827696641
+    m_Localized: Any $Taunt$ cast while Pillar Man is alive will be doubled and applied
+      to Pillar Man instead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841831890944
+    m_Localized: When attacked, mark the attacker with a $Vengeance$ stack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841831890945
+    m_Localized: If attacked by last target, gain 1 $Fury$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841831890946
+    m_Localized: When an enemy receives a $Vengeance$ stack, Rooster attack them
+      for 1 damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085248
+    m_Localized: 'Spawn an egg every turn
+
+      Egg hatches after 2 turns'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085249
+    m_Localized: Babies will $Protection$ their mom from damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085250
+    m_Localized: Babies will attack with their mom, but also die in the process
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085251
+    m_Localized: Egg hatches after 2 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085252
+    m_Localized: GnomeFighter will $Protection$ its Carrier from damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841836085253
+    m_Localized: GnomeFighter will launch a suicide attack on a random target at
+      the start of your next turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279552
+    m_Localized: This card is immune to $Stun$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279553
+    m_Localized: When killing an enemy, Thorse deals 1 damage to all enemies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279554
+    m_Localized: When Tinkerer has crafted 3 Power Cells, Assemble them to gain 1
+      $Energy$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841840279555
+    m_Localized: When Tinkerer has crafted 2 Power Cells and 1 Actuator, Assemble
+      them to make your team gain 1 $Armor$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841844473856
+    m_Localized: When Tinkerer has crafted 1 Power Cell and 2 Actuators, Assemble
+      them to apply 1 $Weak$ to enemy team
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260841844473857
+    m_Localized: When Tinkerer has crafted 3 Actuators, Assemble them to make your
+      team gain 1 $BonusDamage$ this turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

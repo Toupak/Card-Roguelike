@@ -14,7 +14,287 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Spells
   m_TableCollectionNameGuidString: b1c40c6066fab9d49b025dd3d664b7d0
-  m_Entries: []
+  m_Entries:
+  - m_Id: 261674585784320
+    m_Key: banana_potassiumgood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674732584960
+    m_Key: barbarian_barbarianattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674736779264
+    m_Key: barbarian_barbariandefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674736779265
+    m_Key: batmerchant_batmerchantattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674740973568
+    m_Key: bigfish_bigfishattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674740973569
+    m_Key: bigfish_bigfishtaunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674745167872
+    m_Key: bongo_bongoattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674745167873
+    m_Key: bongo_bongobuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674745167874
+    m_Key: canisbalistics_doggoloader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674745167875
+    m_Key: canisbalistics_barkblast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674745167876
+    m_Key: childsoldier_childsoldierattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674745167877
+    m_Key: childsoldier_childsoldierdefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674749362176
+    m_Key: shieldking_adultsoldierdefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674749362177
+    m_Key: swordking_adultsoldierattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674749362178
+    m_Key: teenshieldmaster_teensoldierdefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674753556480
+    m_Key: teenswordmaster_teensoldierattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674753556481
+    m_Key: combo_comboattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674753556482
+    m_Key: combo_combobuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674753556483
+    m_Key: crustix_feetjuice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674753556484
+    m_Key: crustix_shinyshell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674757750784
+    m_Key: cube_cubeprotect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674757750785
+    m_Key: smokingdevil_devildeal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674757750786
+    m_Key: smokingdevil_hellstrike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674757750787
+    m_Key: dinoandzaur_dinoandzaurattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674761945088
+    m_Key: drmarmoton_drmarmotonstun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674761945089
+    m_Key: drmarmoton_drmarmotonweak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674761945090
+    m_Key: manyfaces_faceswapmask
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674761945091
+    m_Key: manyfaces_whitefaceattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674761945092
+    m_Key: frien_frienattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674766139392
+    m_Key: gimbo_gimboattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674766139393
+    m_Key: gimbo_gimbocleanse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674766139394
+    m_Key: hmsgnome_gnomecarrierspawn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674766139395
+    m_Key: gnorp'saccountant_cigarettebreak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674766139396
+    m_Key: gnorp'saccountant_burnout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674766139397
+    m_Key: gumball_gumballtaunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674770333696
+    m_Key: hognade_hogpresence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674770333697
+    m_Key: hognade_hogpatience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674770333698
+    m_Key: machinegunxander_mgshoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674770333699
+    m_Key: machinegunxander_mgload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674774528000
+    m_Key: biggestofmonkey_gobacktomonke
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674774528001
+    m_Key: nachito_doritocaltrops
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674774528002
+    m_Key: nachito_sourcreambomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674774528003
+    m_Key: olaf&pif_olafandpifattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674774528004
+    m_Key: olaf&pif_olafandpifsplit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674774528005
+    m_Key: olaf_olafattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674778722304
+    m_Key: pif_pifregroup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674778722305
+    m_Key: meandog_turtlegive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674778722306
+    m_Key: meandog_turtlereceive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674778722307
+    m_Key: grandpantsthief_ectoplasmsteal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674778722308
+    m_Key: grandpantsthief_ectoplasmtrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674782916608
+    m_Key: patientbear_bearattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674782916609
+    m_Key: patientbear_bearbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674782916610
+    m_Key: '''zza_pizzaslice'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674782916611
+    m_Key: '''zza_pizzapepperoni'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674782916612
+    m_Key: guard_guardattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674782916613
+    m_Key: guard_guardtaunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674787110912
+    m_Key: jaycoon_racoonattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674787110913
+    m_Key: rooster_roosterattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674787110914
+    m_Key: snuk_snukattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674787110915
+    m_Key: snuk_snukbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674795499520
+    m_Key: thecount_countattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674795499521
+    m_Key: thecount_countweak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674795499522
+    m_Key: thorse_fhooveflick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674795499523
+    m_Key: tinkerer_tinkererspawn_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674795499524
+    m_Key: tinkerer_tinkererspawn_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674799693824
+    m_Key: trongle_tronglefg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674799693825
+    m_Key: trongle_tronglecheer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674799693826
+    m_Key: zanger_zangergrimace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674799693827
+    m_Key: zanger_zangerslap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261674803888128
+    m_Key: zaur_zaurremount
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

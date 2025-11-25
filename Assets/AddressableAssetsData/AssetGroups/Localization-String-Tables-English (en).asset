@@ -27,13 +27,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 727e7f7212a47f143b770a7a3e7a3856
-    m_Address: SpellsAndPassives_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc605a84c5a3da74f803db718d0aa110
     m_Address: Spells_en
     m_ReadOnly: 1
