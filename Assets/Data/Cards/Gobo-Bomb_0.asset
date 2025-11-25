@@ -27,5 +27,7 @@ MonoBehaviour:
   - {fileID: -6952304001346426934, guid: d95d6d8ad7c64a5458f9150b3d93d19b, type: 3}
   - {fileID: -6592784767832968671, guid: 75b2bcb670b45514eba02159d513dade, type: 3}
   areEnemyBehavioursLooping: 0
+  isMainBoss: 0
   isWaitingOnSpawn: 1
   preferredPosition: 2
+  localizationKey: 

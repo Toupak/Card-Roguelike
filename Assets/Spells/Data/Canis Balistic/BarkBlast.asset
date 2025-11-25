@@ -29,3 +29,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 8995259216496489303, guid: eb5ed1462da124c4fa676d299a1d62c7, type: 3}
+  localizationKey: barkblast

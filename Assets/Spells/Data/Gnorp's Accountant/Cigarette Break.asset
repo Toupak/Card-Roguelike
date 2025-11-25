@@ -17,12 +17,13 @@ MonoBehaviour:
 
     One pack a day, keeps the doctor away'
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 2
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 5
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 0}
+  localizationKey: cigarettebreak

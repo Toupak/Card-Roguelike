@@ -22,3 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278242047
   passiveController: {fileID: 3134162595908632366, guid: 83a6c3a02d8b8524d8a76aa6f2e50bd8, type: 3}
+  localizationKey: berserkrage

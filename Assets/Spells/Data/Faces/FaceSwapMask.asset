@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -5356884671911959103, guid: 4bbda2de5805e7d46917ae5677ecabeb, type: 3}
+  localizationKey: faceswapmask

@@ -16,11 +16,19 @@ MonoBehaviour:
   cardName: Crimson Lantern
   tribe: 0
   hpMax: 10
-  leftSpell: {fileID: 0}
-  rightSpell: {fileID: 0}
   artwork: {fileID: 1304165474466099429, guid: 47ee0d3defb262b438837727e793d4fc, type: 3}
   description: 
+  isSpecialSummon: 0
+  alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList: []
   enemyBehaviours:
   - {fileID: 1020172877049741965, guid: 82ccc6a6b2b4d454fa195968b80c16c7, type: 3}
   - {fileID: 2534550213103992850, guid: 6dc0eaf3c8e78324d95868794dc1a559, type: 3}
   - {fileID: -4942753384204684893, guid: d96b6aa3042ed444b93c6e12c88e3652, type: 3}
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
+  localizationKey: 

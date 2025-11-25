@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4289947850
   passiveController: {fileID: -7612365742649332321, guid: bab35444693fdf34c8be1190b2b1d251, type: 3}
+  localizationKey: snukeggwait

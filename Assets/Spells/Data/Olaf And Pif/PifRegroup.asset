@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -5971592023114132087, guid: 8ee6329eeb235c24497c0c0725f1dbfd, type: 3}
+  localizationKey: pifregroup

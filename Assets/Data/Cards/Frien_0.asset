@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 066efec250bfd764baf4057f7a859ab6, type: 2}
   passiveList:
   - {fileID: 11400000, guid: a430e2a8b2ea5db43a04a322127bddcb, type: 2}
-  localizationKey: frien
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: frien

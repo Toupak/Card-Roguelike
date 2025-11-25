@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4280098245
   passiveController: {fileID: 0}
+  localizationKey: oneape

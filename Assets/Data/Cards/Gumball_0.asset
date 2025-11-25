@@ -26,9 +26,9 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 9081437487496a44081bd2ea53e611b5, type: 2}
   - {fileID: 11400000, guid: 8c01ab296827a4948b138778cee8422e, type: 2}
-  localizationKey: gumball
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: gumball

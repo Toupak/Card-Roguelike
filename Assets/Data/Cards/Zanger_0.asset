@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2fc1ee58ae88efb4a846d3f323f23d48, type: 2}
   - {fileID: 11400000, guid: a893e83b271c4a54d88cc03404d4aec2, type: 2}
   passiveList: []
-  localizationKey: zanger
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: zanger

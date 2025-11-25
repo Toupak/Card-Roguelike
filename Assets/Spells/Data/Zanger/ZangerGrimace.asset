@@ -20,7 +20,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 10
   statusStacksApplied: 2
   spellController: {fileID: -272781016029133746, guid: 0fb0855ccdadbc44fa5fa2b26db71d02, type: 3}
+  localizationKey: zangergrimace

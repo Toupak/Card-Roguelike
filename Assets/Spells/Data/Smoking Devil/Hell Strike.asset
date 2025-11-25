@@ -19,7 +19,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 0}
+  localizationKey: hellstrike

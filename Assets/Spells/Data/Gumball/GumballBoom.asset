@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4290183416
   passiveController: {fileID: -9219674359135694538, guid: f8aecc304eb8d794ba08a26dc557bc6a, type: 3}
+  localizationKey: gumballboom

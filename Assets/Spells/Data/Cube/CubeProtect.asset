@@ -20,7 +20,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 8501506624545830929, guid: 2af85227c972af74aacb2043dfd232fb, type: 3}
+  localizationKey: cubeprotect

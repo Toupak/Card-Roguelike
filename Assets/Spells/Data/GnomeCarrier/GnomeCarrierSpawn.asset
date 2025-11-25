@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 2
   spellController: {fileID: 8421318153556225589, guid: 4c11cc29be11e8f4da9af3175acb0ccd, type: 3}
+  localizationKey: gnomecarrierspawn

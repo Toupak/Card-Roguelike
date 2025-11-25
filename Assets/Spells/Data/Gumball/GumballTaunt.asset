@@ -15,12 +15,13 @@ MonoBehaviour:
   spellName: Temerous Misstep
   description: Taunt enemies for 1 turn and stuns himself for 2 turns.
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 2
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -8615350333912063839, guid: a6e2c8fcee34a2848beea455b7cb9671, type: 3}
+  localizationKey: gumballtaunt

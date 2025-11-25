@@ -24,9 +24,9 @@ MonoBehaviour:
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: bac2589e048132b4d91caeea04dca791, type: 2}
-  localizationKey: snuk_egg
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: snuk_egg

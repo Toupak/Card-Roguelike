@@ -20,7 +20,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -5337857875645318189, guid: 8d3e6184a52210345b6ddd90fdaf25a4, type: 3}
+  localizationKey: ectoplasmtrade

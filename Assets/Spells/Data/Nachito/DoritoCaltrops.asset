@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 2
   statusStacksApplied: 1
   spellController: {fileID: 0}
+  localizationKey: doritocaltrops

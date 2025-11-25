@@ -18,12 +18,13 @@ MonoBehaviour:
     If Crustix is hiding in his
     shell, he cannot attack and taunt instead'
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 5
   statusStacksApplied: 1
   spellController: {fileID: 6487840701091472918, guid: f4b24f78c73c08943be10ad504b75e6f, type: 3}
+  localizationKey: feetjuice

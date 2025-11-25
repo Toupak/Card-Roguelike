@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4285953724
   passiveController: {fileID: -2266440165782187779, guid: a8219db5f8b81694aba51c1af2a7b3be, type: 3}
+  localizationKey: pillartaunt

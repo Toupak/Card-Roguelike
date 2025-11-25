@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4281545563
   passiveController: {fileID: 1234736899123431823, guid: 1438ab610853b5b49ac6e2eaf69a2c15, type: 3}
+  localizationKey: hogpassive

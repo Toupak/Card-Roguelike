@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 5
   statusStacksApplied: 1
   spellController: {fileID: -264538955681347399, guid: 6eddef9533b0c774ab99b84f5e5639a0, type: 3}
+  localizationKey: guardtaunt

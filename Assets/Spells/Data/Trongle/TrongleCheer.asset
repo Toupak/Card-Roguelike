@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 5
   statusStacksApplied: 2
   spellController: {fileID: 0}
+  localizationKey: tronglecheer

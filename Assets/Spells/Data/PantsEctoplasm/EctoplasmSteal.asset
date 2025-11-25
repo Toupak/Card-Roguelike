@@ -25,3 +25,4 @@ MonoBehaviour:
   inflictStatus: 10
   statusStacksApplied: 1
   spellController: {fileID: 270687146622262298, guid: a2b51c3453a2e6f469920e55724fa0dc, type: 3}
+  localizationKey: ectoplasmsteal

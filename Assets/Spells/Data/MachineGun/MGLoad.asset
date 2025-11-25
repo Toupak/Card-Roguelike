@@ -19,7 +19,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 0
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 3
   statusStacksApplied: 1
   spellController: {fileID: 0}
+  localizationKey: mgload

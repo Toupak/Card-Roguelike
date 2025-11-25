@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 1
   spellController: {fileID: -7692956784115620685, guid: 60e26e72b7bacdd4fbf42d3fcef8fb6e, type: 3}
+  localizationKey: countweak

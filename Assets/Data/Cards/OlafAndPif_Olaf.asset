@@ -24,9 +24,9 @@ MonoBehaviour:
   spellList:
   - {fileID: 11400000, guid: 3cb879b5958a52845968a39a1e864a2e, type: 2}
   passiveList: []
-  localizationKey: olaf
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: olaf

@@ -29,3 +29,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -6807247472830012916, guid: c63cc62d3a93a224480cf8df3b5e7a5d, type: 3}
+  localizationKey: countattack

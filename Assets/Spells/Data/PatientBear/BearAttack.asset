@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 0}
+  localizationKey: bearattack

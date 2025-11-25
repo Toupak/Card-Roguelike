@@ -22,3 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4287627381
   passiveController: {fileID: -2777009046371515699, guid: 08de0ad23787b6b49ba059a603d6bd62, type: 3}
+  localizationKey: gumballarmor

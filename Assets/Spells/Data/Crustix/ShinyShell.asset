@@ -22,7 +22,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 0
   energyCost: 1
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 8
   statusStacksApplied: 1
   spellController: {fileID: 8586704207358380218, guid: 6bddff9ba99934d4baf4454db11f1b0d, type: 3}
+  localizationKey: shinyshell

@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1dedf5acda6d62e4695a832e143898df, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 81b24696381d57040b977d2b15101eb3, type: 2}
-  localizationKey: biggestofmonkey
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: biggestofmonkey

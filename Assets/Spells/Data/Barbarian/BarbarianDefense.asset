@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 5
   statusStacksApplied: 1
   spellController: {fileID: 2067717345122740972, guid: 10ae0fca5d0e39d48a34d1c93dcae440, type: 3}
+  localizationKey: barbariandefense

@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 7871429357307941788, guid: 6a3e79d0a004bf24fbb6c3268d02de2e, type: 3}
+  localizationKey: mgshoot

@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4281216721
   passiveController: {fileID: -191389066439467515, guid: 1e287cf2480365748a499e21d18ce407, type: 3}
+  localizationKey: hellfuel

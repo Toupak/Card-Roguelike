@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 21
   statusStacksApplied: 1
   spellController: {fileID: -3260086876352210527, guid: a1da47b77b57aff46be05afed21dbcae, type: 3}
+  localizationKey: guardattack

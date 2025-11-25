@@ -24,9 +24,9 @@ MonoBehaviour:
   spellList:
   - {fileID: 11400000, guid: dffd8cdec6a10f94bacea4c864cb5bdc, type: 2}
   passiveList: []
-  localizationKey: swordking
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: swordking

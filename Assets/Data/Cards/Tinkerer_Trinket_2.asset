@@ -23,9 +23,9 @@ MonoBehaviour:
   holographicType: 0
   spellList: []
   passiveList: []
-  localizationKey: actuator
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: actuator

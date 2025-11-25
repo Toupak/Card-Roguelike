@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 691967040832136223, guid: e9ba1f3cb902b5344bc92c50d8b09ef4, type: 3}
+  localizationKey: whitefaceattack

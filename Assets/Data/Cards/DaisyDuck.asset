@@ -35,3 +35,4 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: 

@@ -26,9 +26,9 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 39dc44d71dcd43041a4fd3e58fce6fba, type: 2}
   - {fileID: 11400000, guid: 4b136965cc5cf3644ab9d3446a3f8fe3, type: 2}
-  localizationKey: thorse
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: thorse

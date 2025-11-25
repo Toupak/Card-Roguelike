@@ -27,9 +27,9 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 508324db9e90b31488f56125000602ad, type: 2}
   - {fileID: 11400000, guid: 6122007abf2518547a6acb79f7caf984, type: 2}
-  localizationKey: barbarian
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: barbarian

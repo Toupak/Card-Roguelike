@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4283332634
   passiveController: {fileID: -6251271598717184638, guid: daddb27f89885b54ea0e31897066e868, type: 3}
+  localizationKey: stunimmune

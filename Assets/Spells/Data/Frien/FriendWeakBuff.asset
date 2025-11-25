@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190080
   passiveController: {fileID: -5436477957054188647, guid: d136323efdbdfb74caa563d41e7224a1, type: 3}
+  localizationKey: friendweakbuff

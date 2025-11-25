@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 3944906258336311377, guid: 0ea654d3a294f534a9f33e217a34cd4d, type: 3}
+  localizationKey: tinkererspawn_1

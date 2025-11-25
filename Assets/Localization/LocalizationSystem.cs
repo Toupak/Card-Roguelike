@@ -1,5 +1,9 @@
 using BoomLib.Tools;
+using Cards.Scripts;
+using Data;
 using Localization.Icons_In_Text;
+using Passives;
+using Spells;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -71,6 +75,26 @@ namespace Localization
         private static string ComputeLocalizationKey(string cardDataCardName)
         {
             return cardDataCardName.ToLower().RemoveWhitespace();
+        }
+
+        [MenuItem("Tools/SetAllDataAsDirty")]
+        private static void SetAllDataAsDirty()
+        {
+            CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
+            
+            foreach (CardData cardData in db.AllCards)
+            {
+                if (!cardData.isEnemy)
+                {
+                    foreach (SpellData data in cardData.spellList)
+                        EditorUtility.SetDirty(data);
+                    
+                    foreach (PassiveData data in cardData.passiveList)
+                        EditorUtility.SetDirty(data);
+                }
+                
+                EditorUtility.SetDirty(cardData);
+            }
         }
     }
 }

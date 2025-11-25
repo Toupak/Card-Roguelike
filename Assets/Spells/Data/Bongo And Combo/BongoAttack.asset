@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 1
   statusStacksApplied: 1
   spellController: {fileID: 0}
+  localizationKey: bongoattack

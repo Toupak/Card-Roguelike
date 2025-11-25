@@ -22,3 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4291895043
   passiveController: {fileID: 7483720181690293983, guid: 140498a8f9bbec944ae07ee72ece99e6, type: 3}
+  localizationKey: teensoldierpassivedefense

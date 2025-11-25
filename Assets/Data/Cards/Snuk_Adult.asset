@@ -26,9 +26,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 65b0ea55e18a3d0408c11f5fa7e1dd85, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 1e875359d778c914485e40d5fc1633f3, type: 2}
-  localizationKey: snuk
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: snuk

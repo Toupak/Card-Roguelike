@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ebc13943cfb82144fa0fedbcc424f326, type: 2}
   passiveList:
   - {fileID: 11400000, guid: d84b6462de72515469cba8fb40b273c1, type: 2}
-  localizationKey: batmerchant
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: batmerchant

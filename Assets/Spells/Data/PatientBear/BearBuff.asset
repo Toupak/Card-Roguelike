@@ -26,3 +26,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 3361706029144288059, guid: 6776edf7fe00f1546a11038091edf1d3, type: 3}
+  localizationKey: bearbuff

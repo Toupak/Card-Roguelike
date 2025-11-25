@@ -22,3 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278363654
   passiveController: {fileID: 2281960521541335142, guid: 8b37e103f3da613438a35d45ec16a243, type: 3}
+  localizationKey: dinoandzaurpassive

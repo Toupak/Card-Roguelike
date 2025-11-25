@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190335
   passiveController: {fileID: 1249429135482300210, guid: f52ff338bbb7d7e42a57e7b50b8ea1af, type: 3}
+  localizationKey: tinkererpassive_1

@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4289087800
   passiveController: {fileID: 1806614976623565157, guid: 092cf3c3f2e92a346b0f933542fe4555, type: 3}
+  localizationKey: snukbabyprotect

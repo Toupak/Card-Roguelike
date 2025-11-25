@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 7487743892127970345, guid: 03d45034c46edbb40af3a4e8985e93d9, type: 3}
+  localizationKey: olafandpifsplit

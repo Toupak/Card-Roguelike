@@ -19,7 +19,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 1629087202633442298, guid: b2342967be1bfc84f81f9e0186c5d030, type: 3}
+  localizationKey: drmarmotonstun

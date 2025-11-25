@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -1660964822157447107, guid: 137a15a48690fa24e96bd0cf45486bc4, type: 3}
+  localizationKey: bigfishtaunt

@@ -19,7 +19,9 @@ MonoBehaviour:
   targetingMode: 2
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -5683479681203016717, guid: 488610cdef6f88649b66a8b58ee8cc06, type: 3}
+  localizationKey: zaurremount

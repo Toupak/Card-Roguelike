@@ -21,7 +21,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 3
   inflictStatus: 4
   statusStacksApplied: 3
   spellController: {fileID: -740544001407661782, guid: d7564e083f483034089cb1c1f36c6b25, type: 3}
+  localizationKey: devildeal

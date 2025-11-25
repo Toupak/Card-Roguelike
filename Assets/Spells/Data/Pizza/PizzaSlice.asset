@@ -15,12 +15,13 @@ MonoBehaviour:
   spellName: Reinvigorating Slice
   description: Refresh an ally cooldowns
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 0
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -913560578783915044, guid: 88158a3f0fe43544390317f0990afcab, type: 3}
+  localizationKey: pizzaslice

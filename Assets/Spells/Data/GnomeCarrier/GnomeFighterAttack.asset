@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4279571950
   passiveController: {fileID: 376541252034270576, guid: 607f958ffdb426946bf5d05768ec6b23, type: 3}
+  localizationKey: gnomefighterattack

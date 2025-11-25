@@ -15,12 +15,13 @@ MonoBehaviour:
   spellName: Fhoof Flick
   description: Use all available energy, deal as much damage to one enemy
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 0
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 1577878716918018986, guid: a7b7b1e29dc0a6440b6e409723e00ed2, type: 3}
+  localizationKey: fhooveflick

@@ -19,7 +19,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -7195131293612760716, guid: 094864d0c69ccfd4ab387c234cf5798f, type: 3}
+  localizationKey: drmarmotonweak

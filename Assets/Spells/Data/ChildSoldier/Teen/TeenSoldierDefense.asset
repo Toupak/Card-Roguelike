@@ -24,3 +24,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 5060626602221990955, guid: ef68ce0b76afdff4b9b941a383c47ff4, type: 3}
+  localizationKey: teensoldierdefense

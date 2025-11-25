@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5eb50244584169e4da11adbfad0f11e4, type: 2}
   - {fileID: 11400000, guid: 4cd2e6dd1f72c3045b81c6a383391bf5, type: 2}
   passiveList: []
-  localizationKey: '''zza'
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: '''zza'

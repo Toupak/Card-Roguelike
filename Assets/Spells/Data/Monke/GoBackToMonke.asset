@@ -15,12 +15,13 @@ MonoBehaviour:
   spellName: Going Back To Monke
   description: Launches at an enemy and deal 1 damage two times.
   icon: {fileID: 0}
-  isPassive: 0
   targetType: 1
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -3191652310665158111, guid: ac3ee14936043754f85b09d4278a95fe, type: 3}
+  localizationKey: gobacktomonke

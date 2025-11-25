@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294912272
   passiveController: {fileID: -2305483400841567304, guid: 28f9ca318e083a44db87846b53a76fe5, type: 3}
+  localizationKey: pifpassive

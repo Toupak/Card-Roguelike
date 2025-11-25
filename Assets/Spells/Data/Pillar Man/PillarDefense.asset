@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4284792773
   passiveController: {fileID: -6194711661072939270, guid: 39e15c3bb70a4bb43b2c52018f455a36, type: 3}
+  localizationKey: pillardefense

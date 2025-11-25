@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 15
   statusStacksApplied: 2
   spellController: {fileID: -6618116267531352615, guid: 2e763dbd5645c42499e603c23d915dfe, type: 3}
+  localizationKey: gimbocleanse

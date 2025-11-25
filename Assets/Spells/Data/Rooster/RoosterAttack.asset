@@ -27,3 +27,4 @@ MonoBehaviour:
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -4345266010444862432, guid: 65fc8fffea206de44baffc6c0b1b26a5, type: 3}
+  localizationKey: roosterattack

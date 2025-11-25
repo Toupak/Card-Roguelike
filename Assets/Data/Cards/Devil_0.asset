@@ -26,9 +26,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd18a7be3fa6b3048b2a24509b1b6a7f, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 8591f92fb0a429c4487d4d1716a831c0, type: 2}
-  localizationKey: smokingdevil
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: smokingdevil

@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9da995ba5354a66409f1c0ebb3a1a2c8, type: 2}
   passiveList:
   - {fileID: 11400000, guid: 70dfe9d2adea70e419bbc2b7a080f87d, type: 2}
-  localizationKey: dinoandzaur
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: dinoandzaur

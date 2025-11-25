@@ -22,7 +22,9 @@ MonoBehaviour:
   targetingMode: 1
   targetCount: 2
   energyCost: 1
+  hasNoCooldown: 0
   damage: 2
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 4831699998637386750, guid: a31ba8dc579344a408c79814c989f31b, type: 3}
+  localizationKey: dinoandzaurattack

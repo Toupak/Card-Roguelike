@@ -25,9 +25,9 @@ MonoBehaviour:
   passiveList:
   - {fileID: 11400000, guid: 26df441e60b4be744b546f68696e67de, type: 2}
   - {fileID: 11400000, guid: 8dfdd4ae94156814b94ec08279c9927e, type: 2}
-  localizationKey: thelastgnomefighter
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  localizationKey: thelastgnomefighter

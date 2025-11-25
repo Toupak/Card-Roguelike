@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278200575
   passiveController: {fileID: 4076491141116737238, guid: f5ef3bd43c94516439d77388ec6f3d3f, type: 3}
+  localizationKey: berserkbuff

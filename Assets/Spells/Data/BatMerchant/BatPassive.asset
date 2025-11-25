@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4285953654
   passiveController: {fileID: 0}
+  localizationKey: batpassive
