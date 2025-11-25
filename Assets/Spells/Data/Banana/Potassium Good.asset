@@ -26,3 +26,4 @@ MonoBehaviour:
   inflictStatus: 4
   statusStacksApplied: 1
   spellController: {fileID: 0}
+  localizationKey: potassiumgood

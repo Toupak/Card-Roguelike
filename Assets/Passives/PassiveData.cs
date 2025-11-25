@@ -12,5 +12,8 @@ namespace Passives
     
         [Space]
         public PassiveController passiveController;
+        
+        [Space] 
+        public string localizationKey;
     }
 }

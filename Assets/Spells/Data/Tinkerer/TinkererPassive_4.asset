@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: _TinkererPassive_3
+  m_Name: TinkererPassive_4
   m_EditorClassIdentifier: 
-  passiveName: Weak
-  description: When Tinkerer has crafted 1 Power Cell and 2 Actuators, Assemble them
-    to apply 1 Weak to enemy team
+  passiveName: Damage
+  description: When Tinkerer has crafted 3 Actuators, Assemble them to make your
+    team gain 1 Bonus Damage this turn
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4286252544
+    rgba: 4294901766
   passiveController: {fileID: 0}

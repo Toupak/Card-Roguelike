@@ -9,21 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
   m_Name: AllNeighty
   m_EditorClassIdentifier: 
-  spellName: All Neighty
-  description: 'Thorse is immune to Stun
-
-    When killing an enemy, Thorse deals
-    1 damage to all enemies.'
+  passiveName: All Neighty
+  description: When killing an enemy, Thorse deals 1 damage to all enemies.
   icon: {fileID: 0}
-  isPassive: 1
-  targetType: 1
-  targetingMode: 2
-  targetCount: 0
-  energyCost: 0
-  damage: 1
-  inflictStatus: 0
-  statusStacksApplied: 0
-  spellController: {fileID: 4506557977041189885, guid: 94137582ad17ad14e9031903326eab5f, type: 3}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4280818100
+  passiveController: {fileID: 4506557977041189885, guid: 94137582ad17ad14e9031903326eab5f, type: 3}

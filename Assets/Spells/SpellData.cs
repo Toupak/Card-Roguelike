@@ -39,5 +39,8 @@ namespace Spells
         
         [Space]
         public SpellController spellController;
+        
+        [Space] 
+        public string localizationKey;
     }
 }

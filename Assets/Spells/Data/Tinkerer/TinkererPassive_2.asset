@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: _TinkererPassive_1
+  m_Name: TinkererPassive_2
   m_EditorClassIdentifier: 
-  passiveName: Energy
-  description: When Tinkerer has crafted 3 Power Cells, Assemble them to gain 1 Energy
+  passiveName: Armor
+  description: When Tinkerer has crafted 2 Power Cells and 1 Actuator, Assemble them
+    to make your team gain 1 Armor
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4278190335
-  passiveController: {fileID: 1249429135482300210, guid: f52ff338bbb7d7e42a57e7b50b8ea1af, type: 3}
+    rgba: 4278190203
+  passiveController: {fileID: 0}

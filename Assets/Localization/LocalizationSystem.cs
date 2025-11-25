@@ -62,6 +62,46 @@ namespace Localization
             }
         }
         
+        [MenuItem("Tools/Split Locals")]
+        private static void SplitLocals()
+        {
+            CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(databasePath);
+            StringTable spellAndPassive = AssetDatabase.LoadAssetAtPath<StringTable>(tablePath);
+            StringTable spell = AssetDatabase.LoadAssetAtPath<StringTable>("Assets/Localization/Tables/Spells/Spells_en.asset");
+            StringTable passive = AssetDatabase.LoadAssetAtPath<StringTable>("Assets/Localization/Tables/Passives/Passives_en.asset");
+            
+            foreach (CardData cardData in db.AllCards)
+            {
+                if (!cardData.isEnemy)
+                {
+                    string localizationKey = ComputeLocalizationKey(cardData.cardName);
+                    Debug.Log($"[{nameof(LocalizationSystem)}] : Added new Entry : {localizationKey}");
+
+                    for (int i = 0; i < cardData.spellList.Count; i++)
+                    {
+                        string oldKey = $"{localizationKey}_spell_{i}";
+                        string spellKey = ComputeLocalizationKey(cardData.spellList[i].name);
+                        string description = spellAndPassive.GetEntry(oldKey) == null ? cardData.spellList[i].description : spellAndPassive.GetEntry(oldKey).Value; 
+                        cardData.spellList[i].localizationKey = spellKey;
+                        AddKeyToTable(spell, $"{localizationKey}_{spellKey}", description);
+                        Debug.Log($"[{nameof(LocalizationSystem)}] : Added new Spell : {spellKey} : {description}");
+                    }
+
+                    for (int i = 0; i < cardData.passiveList.Count; i++)
+                    {
+                        string oldKey = $"{localizationKey}_passive_{i}";
+                        string passiveKey = ComputeLocalizationKey(cardData.passiveList[i].name);
+                        string description = spellAndPassive.GetEntry(oldKey) == null ? cardData.passiveList[i].description : spellAndPassive.GetEntry(oldKey).Value; 
+                        cardData.passiveList[i].localizationKey = passiveKey;
+                        AddKeyToTable(passive, $"{localizationKey}_{passiveKey}", description);
+                        Debug.Log($"[{nameof(LocalizationSystem)}] : Added new Passive : {passiveKey} : {description}");
+                    }
+
+                    cardData.localizationKey = localizationKey;
+                }
+            }
+        }
+        
         
         private void UpdateGlyphs()
         {

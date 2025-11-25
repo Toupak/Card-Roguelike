@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: _TinkererPassive_4
+  m_Name: Slippery Trap
   m_EditorClassIdentifier: 
-  passiveName: Damage
-  description: When Tinkerer has crafted 3 Actuators, Assemble them to make your
-    team gain 1 Bonus Damage this turn
+  passiveName: Banan' Appeal
+  description: 'Passive : when attacked, 50% chance to stun the enemy'
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4294901766
-  passiveController: {fileID: 0}
+    rgba: 4283943659
+  passiveController: {fileID: 9187642045172891001, guid: 926f80db5f784e942a7a739c025d3301, type: 3}
+  localizationKey: slipperytrap
