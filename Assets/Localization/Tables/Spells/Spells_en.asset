@@ -394,6 +394,294 @@ MonoBehaviour:
     m_Localized: Applies 1 $Stun$ stack to an enemy target
     m_Metadata:
       m_Items: []
+  - m_Id: 287619090710528
+    m_Localized: Potassium Good
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653569
+    m_Localized: RAAAAAAAAAAA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653570
+    m_Localized: Berserker's Boots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653573
+    m_Localized: Just Good Business
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653575
+    m_Localized: Fish Stick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653576
+    m_Localized: Hold your Breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653577
+    m_Localized: Sting Like A Bear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653578
+    m_Localized: Last Round Bell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653581
+    m_Localized: Doggo Loader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653582
+    m_Localized: Bark Blast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653583
+    m_Localized: Weak Slash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653584
+    m_Localized: Weak Taunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653587
+    m_Localized: King Wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653588
+    m_Localized: King Slash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653589
+    m_Localized: Strong Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653591
+    m_Localized: Strong Slash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653593
+    m_Localized: Sting Like A Bee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653594
+    m_Localized: Float Like A Butterfly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653597
+    m_Localized: Stomach-Feet Juice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653598
+    m_Localized: Shiny Shell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653599
+    m_Localized: Four Sided Friendship
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653602
+    m_Localized: Devil Deal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653603
+    m_Localized: Hell Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653605
+    m_Localized: Anachronistic Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653607
+    m_Localized: Intra-Cranial Surgery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653608
+    m_Localized: Postoperative Lollipop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653609
+    m_Localized: All Around Me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653610
+    m_Localized: Frown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653611
+    m_Localized: Frienly Smil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653613
+    m_Localized: Pain Olympian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653614
+    m_Localized: Unleash The Ghoul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653615
+    m_Localized: Let The Dogs Out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653616
+    m_Localized: Cigarette Break
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653617
+    m_Localized: Burnout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653618
+    m_Localized: Temerous Misstep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653621
+    m_Localized: Hog Presence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653622
+    m_Localized: Hog Patience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653624
+    m_Localized: Lasers Are For Gnorps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653625
+    m_Localized: Load the Boomstick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653626
+    m_Localized: Going Back To Monke
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653628
+    m_Localized: Delicious Dorito Caltrops
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653629
+    m_Localized: Salsapocalypse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653630
+    m_Localized: Jolly Cooperation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653631
+    m_Localized: Tactical Split
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653632
+    m_Localized: Senior Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653633
+    m_Localized: Regroup !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653635
+    m_Localized: To Give...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653636
+    m_Localized: ...And To Receive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653637
+    m_Localized: Laughing and Stealing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653638
+    m_Localized: Oher-Worldly Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653639
+    m_Localized: Bear Slap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653640
+    m_Localized: 5 More Minutes Please
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653643
+    m_Localized: Reinvigorating Slice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653644
+    m_Localized: No pepperoni please
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653645
+    m_Localized: You Asked For It
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653646
+    m_Localized: Hold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653648
+    m_Localized: Hammer Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653650
+    m_Localized: Strong Slap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653652
+    m_Localized: Team Bite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653653
+    m_Localized: Late Brunch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653658
+    m_Localized: Sudden Squirt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653659
+    m_Localized: High Pressure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653663
+    m_Localized: Drink Blood Erry Day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653664
+    m_Localized: Sparkle In The Sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653665
+    m_Localized: Fhoof Flick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653668
+    m_Localized: Red Ball
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653669
+    m_Localized: Blue Cube
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619132653674
+    m_Localized: Three-Point Field Goal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619136847872
+    m_Localized: High On Potenuse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619136847873
+    m_Localized: Triangular Grimace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619136847874
+    m_Localized: Slap The Smartass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287619136847875
+    m_Localized: Back On The Saddle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

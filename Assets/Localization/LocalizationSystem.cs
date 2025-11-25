@@ -76,6 +76,35 @@ namespace Localization
         {
             return cardDataCardName.ToLower().RemoveWhitespace();
         }
+        
+        [MenuItem("Tools/Add Titles")]
+        private static void AddTitles()
+        {
+            CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
+            StringTable spell = AssetDatabase.LoadAssetAtPath<StringTable>(spellTablePath);
+            StringTable passive = AssetDatabase.LoadAssetAtPath<StringTable>(passiveTablePath);
+            
+            foreach (CardData cardData in db.AllCards)
+            {
+                if (!cardData.isEnemy)
+                {
+                    foreach (SpellData data in cardData.spellList)
+                    {
+                        spell.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.spellName);
+                    }
+
+                    foreach (PassiveData data in cardData.passiveList)
+                    {
+                        spell.RemoveEntry($"{cardData.localizationKey}_{data.localizationKey}_title");
+                        passive.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.passiveName);
+                    }
+                }
+            }
+            
+            EditorUtility.SetDirty(spell);
+            EditorUtility.SetDirty(passive);
+        }
+        
 
         [MenuItem("Tools/SetAllDataAsDirty")]
         private static void SetAllDataAsDirty()
