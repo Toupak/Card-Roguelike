@@ -92,12 +92,12 @@ namespace Localization
                     {
                         spell.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.spellName);
                     }
-
+                    /*
                     foreach (PassiveData data in cardData.passiveList)
                     {
-                        spell.RemoveEntry($"{cardData.localizationKey}_{data.localizationKey}_title");
                         passive.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.passiveName);
                     }
+                    */
                 }
             }
             
