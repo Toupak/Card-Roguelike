@@ -24,3 +24,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190335
   icon: {fileID: 0}
+  localizationKey: berserk

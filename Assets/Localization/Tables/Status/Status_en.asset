@@ -17,7 +17,245 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: e3811723bd8debb41aadfb3b1e931edb, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 347651937370112
+    m_Localized: Ammunitions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651975118848
+    m_Localized: Ammunitions used for some attacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651975118849
+    m_Localized: Dorito Caltrop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651975118850
+    m_Localized: 'Receive 1 damage when performing an action.
+
+      (the amount
+      of damage does not increase with the amount of stacks)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313152
+    m_Localized: Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313153
+    m_Localized: 'Stun cards cannot perform any actions.
+
+      Looses a stack at
+      the end of its turn.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313154
+    m_Localized: Bonus Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313155
+    m_Localized: Attacks deal extra damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313156
+    m_Localized: Taunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313157
+    m_Localized: 'Cards that are taunting will attract enemies'' attacks.
+
+      Each
+      stack of Taunt will attract one attack and be consumed'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313158
+    m_Localized: Permanent Bonus Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313159
+    m_Localized: This unit's attack is permanently improved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313160
+    m_Localized: Groink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313161
+    m_Localized: On Death Hognade will deal as many damages to all enemies as he
+      has stacks of Groink.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313162
+    m_Localized: Return Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313163
+    m_Localized: If attacked, enemies take 1 damage back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313164
+    m_Localized: Gumboom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313165
+    m_Localized: 'Gained when Gumball is attacked while bieng Stun
+
+      At 10 stacks,
+      Gumball explodes'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313166
+    m_Localized: Weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313167
+    m_Localized: Weakened Cards deal -1 damage per attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313168
+    m_Localized: Obedience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313169
+    m_Localized: Zanger will stop fucking around and will attack the correct target
+      for Triangular Grimace's next cast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313170
+    m_Localized: Tic Toc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313171
+    m_Localized: Its getting closer...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313172
+    m_Localized: Protected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313173
+    m_Localized: This card is Protected, every damage or status targeted at it will
+      be redirected to its Protector
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313174
+    m_Localized: Pants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313175
+    m_Localized: 'You own an extra pair of Pants, and somebody does not
+
+      Lucky
+      you'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313176
+    m_Localized: Fury
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313177
+    m_Localized: 'This card is experiencing the white burning hot rage of a thousand
+      suns.
+
+
+      Its spells will target 1 more target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313178
+    m_Localized: Dodge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313179
+    m_Localized: Each stack of Dodge provides an additional 30% chances to evades
+      enemy attacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313180
+    m_Localized: Captured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313181
+    m_Localized: Unit is unable to perform any action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313182
+    m_Localized: Berserk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313183
+    m_Localized: Deal double damage, receive double damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313184
+    m_Localized: Rage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313185
+    m_Localized: 'Gain 1 stack of Rage for every damage dealt or received
+
+      At
+      10 Rage stacks, consume stacks and go Berserk for 2 turns'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313186
+    m_Localized: Protected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313187
+    m_Localized: This card is Protected, every damage or status targeted at it will
+      be redirected to its Protector
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313188
+    m_Localized: Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313189
+    m_Localized: 'Armor will protect from damage and be consumed
+
+      Lose all
+      Armor at start of turn'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313190
+    m_Localized: Free Spell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313191
+    m_Localized: This card can cast a spell for no energy cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313192
+    m_Localized: Vengeance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313193
+    m_Localized: This card is marked with Vengeance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313194
+    m_Localized: Blood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313195
+    m_Localized: Delicious Blood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313196
+    m_Localized: Last Target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313197
+    m_Localized: This card was the last card attacked by the Racoon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313198
+    m_Localized: Terror
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313199
+    m_Localized: Terrorized Cards deal -1 damage per attack until they receive damage
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

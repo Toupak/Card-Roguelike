@@ -38,7 +38,6 @@ namespace EnemyAttack
         {
             foreach (BaseEnemyBehaviour enemyBehaviour in cardData.enemyBehaviours)
             {
-                Debug.Log($"Enemy Behaviour : {enemyBehaviour.behaviourName}");
                 BaseEnemyBehaviour instantiatedBehaviour = Instantiate(enemyBehaviour, transform);
                 instantiatedBehaviour.Setup(this);
                 behaviours.Add(instantiatedBehaviour);

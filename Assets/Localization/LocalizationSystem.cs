@@ -1,9 +1,12 @@
+using System;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Data;
 using Localization.Icons_In_Text;
 using Passives;
 using Spells;
+using Status;
+using Status.Data;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -17,6 +20,7 @@ namespace Localization
         private const string spellTablePath = "Assets/Localization/Tables/Spells/Spells_en.asset";
         private const string passiveTablePath = "Assets/Localization/Tables/Passives/Passives_en.asset";
         private const string combatTablePath = "Assets/Localization/Tables/Combat/Combat_en.asset";
+        private const string statusTablePath = "Assets/Localization/Tables/Status/Status_en.asset";
 
         public TMP_SpriteAsset spriteAsset;
         public TextToIconData textToIconData;
@@ -27,6 +31,7 @@ namespace Localization
         private StringTable spellTable;
         private StringTable passiveTable;
         private StringTable combatTable;
+        private StringTable statusTable;
         
         private void Awake()
         {
@@ -36,10 +41,23 @@ namespace Localization
             spellTable = AssetDatabase.LoadAssetAtPath<StringTable>(spellTablePath);
             passiveTable = AssetDatabase.LoadAssetAtPath<StringTable>(passiveTablePath);
             combatTable = AssetDatabase.LoadAssetAtPath<StringTable>(combatTablePath);
+            statusTable = AssetDatabase.LoadAssetAtPath<StringTable>(statusTablePath);
             
             //UpdateGlyphs();
         }
 
+        private void Start()
+        {
+            //UpdateStatus();
+        }
+        
+        public string GetSpellTitle(string cardKey, string spellKey)
+        {
+            StringTableEntry entry = spellTable.GetEntry($"{cardKey}_{spellKey}_title");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
         public string GetSpellDescription(string cardKey, string spellKey)
         {
             StringTableEntry entry = spellTable.GetEntry($"{cardKey}_{spellKey}");
@@ -47,9 +65,30 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
         
+        public string GetPassiveTitle(string cardKey, string passiveKey)
+        {
+            StringTableEntry entry = passiveTable.GetEntry($"{cardKey}_{passiveKey}_title");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
         public string GetPassiveDescription(string cardKey, string passiveKey)
         {
             StringTableEntry entry = passiveTable.GetEntry($"{cardKey}_{passiveKey}");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
+        public string GetStatusTitle(string statusKey)
+        {
+            StringTableEntry entry = statusTable.GetEntry($"{statusKey}_title");
+            
+            return entry != null ? entry.Value : "";
+        }
+        
+        public string GetStatusDescription(string statusKey)
+        {
+            StringTableEntry entry = statusTable.GetEntry($"{statusKey}");
             
             return entry != null ? entry.Value : "";
         }
@@ -72,13 +111,29 @@ namespace Localization
             }
         }
 
+        private void UpdateStatus()
+        {
+            foreach (StatusData data in StatusSystem.instance.statusData)
+            {
+                string key = ComputeLocalizationKey(data.name);
+
+                data.localizationKey = key;
+                EditorUtility.SetDirty(data);
+                
+                statusTable.AddEntry($"{key}_title", data.statusName);
+                statusTable.AddEntry($"{key}", data.statusDescription);
+                
+                //Debug.Log($"Create new Status : {key} => {data.statusName} / {data.statusDescription}");
+            }
+        }
+
         private static string ComputeLocalizationKey(string cardDataCardName)
         {
             return cardDataCardName.ToLower().RemoveWhitespace();
         }
         
-        [MenuItem("Tools/Add Titles")]
-        private static void AddTitles()
+        [MenuItem("Tools/Add New Card To Trad File")]
+        private static void AddNewCardToTradFile()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
             StringTable spell = AssetDatabase.LoadAssetAtPath<StringTable>(spellTablePath);
@@ -86,18 +141,32 @@ namespace Localization
             
             foreach (CardData cardData in db.AllCards)
             {
-                if (!cardData.isEnemy)
+                if (!cardData.isEnemy && string.IsNullOrEmpty(cardData.localizationKey))
                 {
+                    cardData.localizationKey = ComputeLocalizationKey(cardData.cardName);
+                    Debug.Log($"Added Card : {cardData.localizationKey}");
+                    
                     foreach (SpellData data in cardData.spellList)
                     {
+                        data.localizationKey = ComputeLocalizationKey(data.name);
+                        EditorUtility.SetDirty(data);
+
                         spell.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.spellName);
+                        spell.AddEntry($"{cardData.localizationKey}_{data.localizationKey}", data.description);
+                        Debug.Log($"Added Spell : {data.localizationKey}");
                     }
-                    /*
+                    
                     foreach (PassiveData data in cardData.passiveList)
                     {
+                        data.localizationKey = ComputeLocalizationKey(data.name);
+                        EditorUtility.SetDirty(data);
+                        
                         passive.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.passiveName);
+                        passive.AddEntry($"{cardData.localizationKey}_{data.localizationKey}", data.description);
+                        Debug.Log($"Added Passive : {data.localizationKey}");
                     }
-                    */
+                    
+                    EditorUtility.SetDirty(cardData);
                 }
             }
             

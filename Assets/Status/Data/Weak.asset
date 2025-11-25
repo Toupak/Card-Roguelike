@@ -24,3 +24,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4289243304
   icon: {fileID: 8782080785102536417, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  localizationKey: weak

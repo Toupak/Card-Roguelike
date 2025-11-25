@@ -14,7 +14,7 @@ namespace Status
 {
     public class StatusSystem : MonoBehaviour
     {
-        [SerializeField] private List<StatusData> statusData;
+        [SerializeField] public List<StatusData> statusData;
 
         public static StatusSystem instance;
 

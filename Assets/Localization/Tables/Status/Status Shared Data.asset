@@ -14,7 +14,215 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Status
   m_TableCollectionNameGuidString: e3811723bd8debb41aadfb3b1e931edb
-  m_Entries: []
+  m_Entries:
+  - m_Id: 347651937370112
+    m_Key: bulletammo_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651975118848
+    m_Key: bulletammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651975118849
+    m_Key: doritocaltrop_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651975118850
+    m_Key: doritocaltrop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313152
+    m_Key: stun_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313153
+    m_Key: stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313154
+    m_Key: bonusdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313155
+    m_Key: bonusdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313156
+    m_Key: taunt_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313157
+    m_Key: taunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313158
+    m_Key: permanentdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313159
+    m_Key: permanentdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313160
+    m_Key: hoggroink_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313161
+    m_Key: hoggroink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313162
+    m_Key: returndamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313163
+    m_Key: returndamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313164
+    m_Key: gumboom_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313165
+    m_Key: gumboom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313166
+    m_Key: weak_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313167
+    m_Key: weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313168
+    m_Key: obedience_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313169
+    m_Key: obedience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313170
+    m_Key: gobombcharge_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313171
+    m_Key: gobombcharge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313172
+    m_Key: protected_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313173
+    m_Key: protected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313174
+    m_Key: pants_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313175
+    m_Key: pants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313176
+    m_Key: fury_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313177
+    m_Key: fury
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313178
+    m_Key: dodge_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313179
+    m_Key: dodge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313180
+    m_Key: captured_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313181
+    m_Key: captured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313182
+    m_Key: berserk_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313183
+    m_Key: berserk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313184
+    m_Key: rage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313185
+    m_Key: rage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313186
+    m_Key: permanentprotected_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313187
+    m_Key: permanentprotected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313188
+    m_Key: armor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313189
+    m_Key: armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313190
+    m_Key: freespell_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313191
+    m_Key: freespell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313192
+    m_Key: vengeance_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313193
+    m_Key: vengeance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313194
+    m_Key: blood_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313195
+    m_Key: blood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313196
+    m_Key: racoon_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313197
+    m_Key: racoon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313198
+    m_Key: terror_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347651979313199
+    m_Key: terror
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

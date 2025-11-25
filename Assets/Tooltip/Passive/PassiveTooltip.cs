@@ -12,7 +12,7 @@ namespace Tooltip.Passive
         
         public void SetupPassiveTooltip(PassiveController passiveController)
         {
-            title.text = passiveController.passiveData.passiveName;
+            title.text = LocalizationSystem.instance.GetPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
             string description = LocalizationSystem.instance.GetPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
             
             mainText.text = CheckForIcons(description);

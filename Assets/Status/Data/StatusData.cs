@@ -17,5 +17,8 @@ namespace Status.Data
         public Color32 barColor;
         public Color32 circleColor;
         public Sprite icon;
+        
+        [Space] 
+        public string localizationKey;
     }
 }

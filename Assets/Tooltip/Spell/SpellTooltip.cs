@@ -20,7 +20,7 @@ namespace Tooltip.Spell
 
         public void SetupSpellTooltip(SpellController spellController)
         {
-            title.text = spellController.spellData.spellName;
+            title.text = LocalizationSystem.instance.GetSpellTitle(spellController.cardController.cardData.localizationKey, spellController.spellData.localizationKey);
             
             int damage = spellController.ComputeCurrentDamage(spellController.spellData.damage);
             string description = LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellData.localizationKey);
