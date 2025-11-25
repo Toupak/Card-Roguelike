@@ -1,0 +1,424 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Enemies_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 1a5f92dd5cd30cc44803bd227af873a4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2299744976896
+    m_Localized: Burn the heretics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299786919936
+    m_Localized: Deals damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114240
+    m_Localized: Praise Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114241
+    m_Localized: Glory to the glorious Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114242
+    m_Localized: Toxic Fumes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114243
+    m_Localized: Gains Permanent Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114244
+    m_Localized: Martial Slap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114245
+    m_Localized: He was trained on top of the mountain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114246
+    m_Localized: Disturbing Prayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299791114247
+    m_Localized: You'll never be the same after hearing this
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308544
+    m_Localized: Anger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308545
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308546
+    m_Localized: Main Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308547
+    m_Localized: Kill this card to end the combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308548
+    m_Localized: Immune to Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308549
+    m_Localized: This card is immune to Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308550
+    m_Localized: Root
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308551
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308552
+    m_Localized: Summon Spores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308553
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308554
+    m_Localized: Enfeebling Spores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308555
+    m_Localized: Apply 1 Weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308556
+    m_Localized: Burp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299795308557
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502848
+    m_Localized: Main Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502849
+    m_Localized: Kill this card to end the combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502850
+    m_Localized: Immune to Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502851
+    m_Localized: This card is immune to Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502852
+    m_Localized: KABOOM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502853
+    m_Localized: Detonates in a glorious blaze, killing himself and dealing 10 damages
+      to a single target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502854
+    m_Localized: Charging Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502855
+    m_Localized: This Gobo is Charging Up, danger is near
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502856
+    m_Localized: Warcry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502857
+    m_Localized: Increase permanent damage by 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502858
+    m_Localized: Two orcs walk in a tavern ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299799502859
+    m_Localized: Gives +1 Permanent Damage to the king
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697152
+    m_Localized: Snarky Flattery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697153
+    m_Localized: Gives +3 Damage to the king for the next attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697154
+    m_Localized: Enjoying The Chaos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697155
+    m_Localized: Waits menacingly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697156
+    m_Localized: Royal Claw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697157
+    m_Localized: Deals 2 DMG to a singletarget
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697158
+    m_Localized: King Stomp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697159
+    m_Localized: It seems like you have angered the King
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697160
+    m_Localized: Main Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299803697161
+    m_Localized: Kill this card to end the combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891456
+    m_Localized: Call For Backup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891457
+    m_Localized: Gobo-King regularly calls for backup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891458
+    m_Localized: Immune to Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891459
+    m_Localized: This card is immune to Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891460
+    m_Localized: Bash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891461
+    m_Localized: Deals 1 damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891462
+    m_Localized: Warcry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891463
+    m_Localized: Increase permanent damage by 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891464
+    m_Localized: Ultimate Breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891465
+    m_Localized: Deals 2 damage to every target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891466
+    m_Localized: Rallying Roar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891467
+    m_Localized: Gives +1 Atck to another head
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891468
+    m_Localized: Grand Slam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891469
+    m_Localized: Deal 2 DMG to 1 Target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891470
+    m_Localized: Recharching
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299807891471
+    m_Localized: Needs to recharge after going all out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085760
+    m_Localized: Main Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085761
+    m_Localized: Kill this card to end the combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085762
+    m_Localized: Tenacious Beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085763
+    m_Localized: After being killed, the Hydra's heads will regrow after 2 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085764
+    m_Localized: Head Slam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085765
+    m_Localized: Deals 1 damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085766
+    m_Localized: Screeching Scream
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085767
+    m_Localized: -1 Dmg to 2 targets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085768
+    m_Localized: Plotting Hiss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085769
+    m_Localized: Heal 1HP to every head alive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085770
+    m_Localized: Main Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085771
+    m_Localized: Kill this card to end the combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085772
+    m_Localized: Tenacious Beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085773
+    m_Localized: After being killed, the Hydra's heads will regrow after 2 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299812085774
+    m_Localized: Regrowing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280064
+    m_Localized: This head will regrow soon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280065
+    m_Localized: Slowly Growing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280066
+    m_Localized: This head will grow back after 3 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280067
+    m_Localized: Regrowing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280068
+    m_Localized: This head will regrow soon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280069
+    m_Localized: Slowly Growing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280070
+    m_Localized: This head will grow back after 3 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280071
+    m_Localized: Regrowing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280072
+    m_Localized: This head will regrow soon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280073
+    m_Localized: Slowly Growing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280074
+    m_Localized: This head will grow back after 3 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280075
+    m_Localized: Fire Breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299816280076
+    m_Localized: Deals 1 damage to 3 targets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474368
+    m_Localized: Intimidating Roar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474369
+    m_Localized: Apply 1 Weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474370
+    m_Localized: Head Slam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474371
+    m_Localized: Deals 1 damage to a single target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474372
+    m_Localized: Main Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474373
+    m_Localized: Kill this card to end the combat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474374
+    m_Localized: Tenacious Beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474375
+    m_Localized: After being killed, the Hydra's heads will regrow after 2 turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474376
+    m_Localized: Healing Spore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2299820474377
+    m_Localized: A dim light emits from the spore
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

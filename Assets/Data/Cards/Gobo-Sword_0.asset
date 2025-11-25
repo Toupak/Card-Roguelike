@@ -30,4 +30,4 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 1
   preferredPosition: 2
-  localizationKey: 
+  localizationKey: gobo-knight

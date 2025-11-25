@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: 407e2f29120acd34c86ae70833ee3215
   m_SerializeEntries:
+  - m_GUID: 1a5f92dd5cd30cc44803bd227af873a4
+    m_Address: Assets/Localization/Tables/Enemies/Enemies Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d36101ea1343254d8bb7895496bcdd7
     m_Address: Assets/Localization/Tables/Passives/Passives Shared Data.asset
     m_ReadOnly: 1

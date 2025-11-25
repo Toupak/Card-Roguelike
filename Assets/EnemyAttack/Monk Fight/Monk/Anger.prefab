@@ -52,4 +52,6 @@ MonoBehaviour:
   description: 
   weight: 0
   intentionIcon: {fileID: 0}
+  isWaiting: 0
+  localizationKey: anger
   damageBuff: 1

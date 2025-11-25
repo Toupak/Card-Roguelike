@@ -2,6 +2,7 @@ using System;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Data;
+using EnemyAttack;
 using Localization.Icons_In_Text;
 using Passives;
 using Spells;
@@ -21,6 +22,7 @@ namespace Localization
         private const string passiveTablePath = "Assets/Localization/Tables/Passives/Passives_en.asset";
         private const string combatTablePath = "Assets/Localization/Tables/Combat/Combat_en.asset";
         private const string statusTablePath = "Assets/Localization/Tables/Status/Status_en.asset";
+        private const string enemiesTablePath = "Assets/Localization/Tables/Enemies/Enemies_en.asset";
 
         public TMP_SpriteAsset spriteAsset;
         public TextToIconData textToIconData;
@@ -32,6 +34,7 @@ namespace Localization
         private StringTable passiveTable;
         private StringTable combatTable;
         private StringTable statusTable;
+        private StringTable enemiesTable;
         
         private void Awake()
         {
@@ -42,6 +45,7 @@ namespace Localization
             passiveTable = AssetDatabase.LoadAssetAtPath<StringTable>(passiveTablePath);
             combatTable = AssetDatabase.LoadAssetAtPath<StringTable>(combatTablePath);
             statusTable = AssetDatabase.LoadAssetAtPath<StringTable>(statusTablePath);
+            enemiesTable = AssetDatabase.LoadAssetAtPath<StringTable>(enemiesTablePath);
             
             //UpdateGlyphs();
         }
@@ -172,6 +176,46 @@ namespace Localization
             
             EditorUtility.SetDirty(spell);
             EditorUtility.SetDirty(passive);
+        }
+        
+        [MenuItem("Tools/Add Enemies To Trad File")]
+        private static void AddEnemiesToTradFile()
+        {
+            CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
+            StringTable enemies = AssetDatabase.LoadAssetAtPath<StringTable>(enemiesTablePath);
+
+            foreach (CardData cardData in db.AllCards)
+            {
+                if (cardData.isEnemy && string.IsNullOrEmpty(cardData.localizationKey))
+                {
+                    cardData.localizationKey = ComputeLocalizationKey(cardData.cardName);
+                    Debug.Log($"Added Card : {ComputeLocalizationKey(cardData.cardName)}");
+                    
+                    foreach (BaseEnemyBehaviour data in cardData.enemyBehaviours)
+                    {
+                        data.localizationKey = ComputeLocalizationKey(data.name);
+                        EditorUtility.SetDirty(data);
+
+                        enemies.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.behaviourName);
+                        enemies.AddEntry($"{cardData.localizationKey}_{data.localizationKey}", data.description);
+                        Debug.Log($"Added Spell : {ComputeLocalizationKey(data.name)}");
+                    }
+                    
+                    foreach (PassiveData data in cardData.passiveList)
+                    {
+                        data.localizationKey = ComputeLocalizationKey(data.name);
+                        EditorUtility.SetDirty(data);
+                        
+                        enemies.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.passiveName);
+                        enemies.AddEntry($"{cardData.localizationKey}_{data.localizationKey}", data.description);
+                        Debug.Log($"Added Passive : {ComputeLocalizationKey(data.name)}");
+                    }
+                    
+                    EditorUtility.SetDirty(cardData);
+                }
+            }
+            
+            EditorUtility.SetDirty(enemies);
         }
         
 

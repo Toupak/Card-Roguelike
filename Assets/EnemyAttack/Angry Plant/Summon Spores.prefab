@@ -53,6 +53,7 @@ MonoBehaviour:
   weight: 0
   intentionIcon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
+  localizationKey: summonspores
   cardsToSpawn:
   - {fileID: 11400000, guid: ef5484b54025f8d4ea737851f3e8fde3, type: 2}
   spawnCount: 3

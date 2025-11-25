@@ -52,9 +52,13 @@ MonoBehaviour:
   description: Apply 1 Weak
   weight: 2
   intentionIcon: {fileID: -1351667634, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 0
+  localizationKey: debuff
   statusType: 10
   stacks: 1
   hitCount: 1
   hitSameTarget: 0
   isTargetEnemy: 0
   cantTargetHimself: 0
+  targetSpecificCard: 0
+  specificCard: {fileID: 0}

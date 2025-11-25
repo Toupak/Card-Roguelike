@@ -53,5 +53,7 @@ MonoBehaviour:
     to a single target
   weight: 1000
   intentionIcon: {fileID: -476896502196687217, guid: 6f221081b954fcc4394844bc42343e8a, type: 3}
+  isWaiting: 0
+  localizationKey: goboexplode
   damage: 10
   selfDamage: 9000

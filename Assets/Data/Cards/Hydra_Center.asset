@@ -34,4 +34,4 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 3
-  localizationKey: 
+  localizationKey: hydracenter

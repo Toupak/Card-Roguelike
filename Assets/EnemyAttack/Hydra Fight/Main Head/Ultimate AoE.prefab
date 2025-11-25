@@ -52,5 +52,7 @@ MonoBehaviour:
   description: Deals 2 damage to every target
   weight: 1
   intentionIcon: {fileID: -625399265, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 0
+  localizationKey: ultimateaoe
   damage: 2
   waiting: {fileID: -1158222493450863108, guid: 57f0f495ff27c244d8ea87baf99d8367, type: 3}

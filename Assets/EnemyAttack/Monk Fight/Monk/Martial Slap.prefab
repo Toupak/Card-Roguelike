@@ -52,5 +52,7 @@ MonoBehaviour:
   description: He was trained on top of the mountain
   weight: 2
   intentionIcon: {fileID: 2708546368158489528, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  isWaiting: 0
+  localizationKey: martialslap
   damage: 1
   hitCount: 2

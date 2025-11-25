@@ -19,3 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278220543
   passiveController: {fileID: -157799791950869656, guid: 3579269c90c26ec4caf3c212448673b2, type: 3}
+  localizationKey: hydraneckpassiveright

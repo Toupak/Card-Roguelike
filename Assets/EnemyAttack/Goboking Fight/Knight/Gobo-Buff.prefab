@@ -53,4 +53,5 @@ MonoBehaviour:
   weight: 8
   intentionIcon: {fileID: -517237887, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
+  localizationKey: gobo-buff
   damageStacks: 1

@@ -18,6 +18,8 @@ namespace EnemyAttack
         public Sprite intentionIcon;
         public bool isWaiting;
 
+        public string localizationKey;
+
         protected EnemyCardController enemyCardController;
 
         public virtual void Setup(EnemyCardController controller)
