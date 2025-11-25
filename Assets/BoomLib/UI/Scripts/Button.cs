@@ -85,5 +85,10 @@ namespace BoomLib.UI.Scripts
             
             OnClick?.Invoke();
         }
+
+        public void SetText(string message)
+        {
+            text.text = message;
+        }
     }
 }

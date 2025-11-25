@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Localization;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -55,9 +56,9 @@ namespace CombatLoop
                 case CombatLoop.TurnType.SetupOver:
                     return "Battle";
                 case CombatLoop.TurnType.Player:
-                    return "Player's Turn";
+                    return LocalizationSystem.instance.GetCombatString("start_turn_message");
                 case CombatLoop.TurnType.Enemy:
-                    return "Enemy's Turn";
+                    return LocalizationSystem.instance.GetCombatString("end_turn_message");
                 default:
                     throw new ArgumentOutOfRangeException(nameof(currentTurn), currentTurn, null);
             }

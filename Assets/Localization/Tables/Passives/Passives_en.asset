@@ -215,6 +215,10 @@ MonoBehaviour:
       team gain 1 $BonusDamage$ this turn
     m_Metadata:
       m_Items: []
+  - m_Id: 280870652706816
+    m_Localized: Using both spells during the same turn will $Stun$ the Squirty Squire
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

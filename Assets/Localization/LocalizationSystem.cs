@@ -1,6 +1,4 @@
 using BoomLib.Tools;
-using Cards.Scripts;
-using Data;
 using Localization.Icons_In_Text;
 using TMPro;
 using UnityEditor;
@@ -14,6 +12,7 @@ namespace Localization
     {
         private const string spellTablePath = "Assets/Localization/Tables/Spells/Spells_en.asset";
         private const string passiveTablePath = "Assets/Localization/Tables/Passives/Passives_en.asset";
+        private const string combatTablePath = "Assets/Localization/Tables/Combat/Combat_en.asset";
 
         public TMP_SpriteAsset spriteAsset;
         public TextToIconData textToIconData;
@@ -23,6 +22,7 @@ namespace Localization
 
         private StringTable spellTable;
         private StringTable passiveTable;
+        private StringTable combatTable;
         
         private void Awake()
         {
@@ -31,6 +31,7 @@ namespace Localization
             textToIcon = GetComponent<TextToIcon>();
             spellTable = AssetDatabase.LoadAssetAtPath<StringTable>(spellTablePath);
             passiveTable = AssetDatabase.LoadAssetAtPath<StringTable>(passiveTablePath);
+            combatTable = AssetDatabase.LoadAssetAtPath<StringTable>(combatTablePath);
             
             //UpdateGlyphs();
         }
@@ -45,6 +46,13 @@ namespace Localization
         public string GetPassiveDescription(string cardKey, string passiveKey)
         {
             StringTableEntry entry = passiveTable.GetEntry($"{cardKey}_{passiveKey}");
+            
+            return entry != null ? entry.Value : "";
+        }
+
+        public string GetCombatString(string key)
+        {
+            StringTableEntry entry = combatTable.GetEntry(key);
             
             return entry != null ? entry.Value : "";
         }

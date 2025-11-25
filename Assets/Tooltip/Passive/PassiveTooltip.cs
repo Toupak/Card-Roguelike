@@ -1,4 +1,3 @@
-using Cards.Scripts;
 using Localization;
 using Passives;
 using TMPro;

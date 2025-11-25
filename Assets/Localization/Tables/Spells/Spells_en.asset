@@ -383,6 +383,17 @@ MonoBehaviour:
     m_Localized: Zaur climbs back on Dino
     m_Metadata:
       m_Items: []
+  - m_Id: 280928123060224
+    m_Localized: 'Deal $d$ Damages to a single target
+
+      Double Damage if target
+      is $Stun$'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281293862174720
+    m_Localized: Applies 1 $Stun$ stack to an enemy target
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

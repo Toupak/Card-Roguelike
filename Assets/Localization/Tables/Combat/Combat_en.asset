@@ -17,7 +17,49 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: f5f1611f48058e244b43a4832f46348f, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 273701811224576
+    m_Localized: Send It !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273668894326784
+    m_Localized: End Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273558668017664
+    m_Localized: Player Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273472651231232
+    m_Localized: Enemy Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273436697657344
+    m_Localized: 'This card''s health
+
+      The card dies when its health reaches
+      0
+
+      Health is not refilled after a battle
+
+      This card has %h% health'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273263862972416
+    m_Localized: 'Your current energy, each $energy$ is worth 1 energy.
+
+      You
+      currently have $e$/$m$ energy'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275639302848512
+    m_Localized: Energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275744311443456
+    m_Localized: Health
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

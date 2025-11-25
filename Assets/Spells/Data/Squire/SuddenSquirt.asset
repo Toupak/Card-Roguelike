@@ -24,7 +24,9 @@ MonoBehaviour:
   targetingMode: 0
   targetCount: 1
   energyCost: 1
+  hasNoCooldown: 0
   damage: 1
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: 4415393781491905654, guid: 0df3f368d0b6cd2408da7cb22028d793, type: 3}
+  localizationKey: suddensquirt

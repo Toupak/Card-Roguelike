@@ -3,9 +3,11 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Board.Script;
 using BoomLib.Tools;
+using BoomLib.UI.Scripts;
 using Cards.Scripts;
 using CardSlot.Script;
 using CombatLoop.EnergyBar;
+using Localization;
 using Run_Loop;
 using UnityEngine;
 
@@ -18,8 +20,8 @@ namespace CombatLoop
         [SerializeField] public CardContainer playerBoard;
         
         [Space]
-        [SerializeField] private GameObject endPreparationButton;
-        [SerializeField] private GameObject endPlayerTurnButton;
+        [SerializeField] private Button endPreparationButton;
+        [SerializeField] private Button endPlayerTurnButton;
 
         [Space] 
         [SerializeField] private TurnEndAnimation turnEndAnimation;
@@ -45,10 +47,8 @@ namespace CombatLoop
         private IEnumerator Start()
         {
             turnCount = 0;
-            endPreparationButton.SetActive(false);
-            endPlayerTurnButton.SetActive(false);
-            
             currentTurn = TurnType.Preparation;
+            yield return SetupButtons();
             yield return FightIntro();
             yield return PlaceEnemyCards();
             yield return DrawCards();
@@ -110,6 +110,16 @@ namespace CombatLoop
             yield return new WaitForSeconds(0.2f);
         }
 
+        private IEnumerator SetupButtons()
+        {
+            endPreparationButton.SetText(LocalizationSystem.instance.GetCombatString("send_it_button"));
+            endPreparationButton.gameObject.SetActive(false);
+            
+            endPlayerTurnButton.SetText(LocalizationSystem.instance.GetCombatString("end_turn_button"));
+            endPlayerTurnButton.gameObject.SetActive(false);
+            yield break;
+        }
+        
         private IEnumerator FightIntro()
         {
             yield return new WaitForSeconds(1.0f);
@@ -132,25 +142,25 @@ namespace CombatLoop
         
         private IEnumerator ActivateEndPreparationButton()
         {
-            endPreparationButton.SetActive(true);
+            endPreparationButton.gameObject.SetActive(true);
             yield break;
         }
         
         private IEnumerator DeactivateEndPreparationButton()
         {
-            endPreparationButton.SetActive(false);
+            endPreparationButton.gameObject.SetActive(false);
             yield break;
         }
         
         private IEnumerator ActivatePlayerEndTurnButton()
         {
-            endPlayerTurnButton.SetActive(true);
+            endPlayerTurnButton.gameObject.SetActive(true);
             yield break;
         }
         
         private IEnumerator DeactivatePlayerEndTurnButton()
         {
-            endPlayerTurnButton.SetActive(false);
+            endPlayerTurnButton.gameObject.SetActive(false);
             yield break;
         }
         

@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Key: tinkerer_tinkererpassive_4
     m_Metadata:
       m_Items: []
+  - m_Id: 280870652706816
+    m_Key: squirtysquire_squirtedpassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -14,7 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Combat
   m_TableCollectionNameGuidString: f5f1611f48058e244b43a4832f46348f
-  m_Entries: []
+  m_Entries:
+  - m_Id: 275639302848512
+    m_Key: energy_tooltip_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273263862972416
+    m_Key: energy_tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 275744311443456
+    m_Key: health_tooltip_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273436697657344
+    m_Key: health_tooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273472651231232
+    m_Key: end_turn_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273558668017664
+    m_Key: start_turn_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273668894326784
+    m_Key: end_turn_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273701811224576
+    m_Key: send_it_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

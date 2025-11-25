@@ -1,4 +1,5 @@
 using CombatLoop.EnergyBar;
+using Localization;
 using TMPro;
 using UnityEngine;
 
@@ -16,8 +17,11 @@ namespace Tooltip.Energy
             int maxEnergy = EnergyController.instance.currentMaxEnergy;
             int currentEnergy = EnergyController.instance.currentEnergy;
             
-            title.text = "Energy";
-            mainText.text = $"Your current energy, each $energy$ is worth 1 energy.\nYou currently have {currentEnergy}/{maxEnergy} energy";
+            title.text = LocalizationSystem.instance.GetCombatString("energy_tooltip_title");
+            string text = LocalizationSystem.instance.GetCombatString("energy_tooltip");
+            text = text.Replace("%e%", $"{currentEnergy}");
+            text = text.Replace("%m%", $"{maxEnergy}");
+            mainText.text = CheckForIcons(text);
         }
     }
 }
