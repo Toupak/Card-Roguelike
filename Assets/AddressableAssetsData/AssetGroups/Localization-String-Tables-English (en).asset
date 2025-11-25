@@ -15,12 +15,36 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-English (en)
   m_GUID: e755ade59421f9142853d037bbfc6554
   m_SerializeEntries:
+  - m_GUID: 2d983189420ad6a43bf8c29ee9050718
+    m_Address: Passives_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 359d5d555128ee545af1ea558c20a023
+    m_Address: Combat_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 727e7f7212a47f143b770a7a3e7a3856
     m_Address: SpellsAndPassives_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc605a84c5a3da74f803db718d0aa110
+    m_Address: Spells_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e97bd5a2cc3d8d1419aa94f563f201c2
+    m_Address: Status_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 6e144e8362368de4295191f34f0b07b8, type: 2}

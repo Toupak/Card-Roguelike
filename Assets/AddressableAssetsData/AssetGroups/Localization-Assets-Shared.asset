@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: 407e2f29120acd34c86ae70833ee3215
   m_SerializeEntries:
+  - m_GUID: 4d36101ea1343254d8bb7895496bcdd7
+    m_Address: Assets/Localization/Tables/Passives/Passives Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d8544a112b6cf74fa2cab25ecf4cd51
     m_Address: Assets/Localization/Tables/SpellsAndPassives Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1c40c6066fab9d49b025dd3d664b7d0
+    m_Address: Assets/Localization/Tables/Spells Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3811723bd8debb41aadfb3b1e931edb
+    m_Address: Assets/Localization/Tables/Status/Status Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5f1611f48058e244b43a4832f46348f
+    m_Address: Assets/Localization/Tables/Combat/Combat Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

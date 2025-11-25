@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Passives
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: 4d36101ea1343254d8bb7895496bcdd7, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 2d983189420ad6a43bf8c29ee9050718, type: 2}
+  m_Extensions:
+  - rid: 5064169700177215606
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds:
+    - rid: 5064169700177215606
+      type: {class: GoogleSheetsExtension, ns: UnityEditor.Localization.Plugins.Google, asm: Unity.Localization.Editor}
+      data:
+        m_Collection: {fileID: 11400000}
+        m_SheetsServiceProvider: {fileID: 11400000, guid: a10b6d75e5ac2e348861c24838b1d175, type: 2}
+        m_SpreadsheetId: 1Afp8RFwkXHEUw6xUkrX-ZxG2Xqk5ybnrbVDxNtHySYQ
+        m_SheetId: 1253707984
+        m_Columns:
+        - rid: 5064169700177215608
+        - rid: 5064169700177215609
+        m_RemoveMissingPulledKeys: 1
+    - rid: 5064169700177215608
+      type: {class: KeyColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_Column: A
+    - rid: 5064169700177215609
+      type: {class: LocaleColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_Column: B
+        m_LocaleIdentifier:
+          m_Code: en
+        m_IncludeComments: 0

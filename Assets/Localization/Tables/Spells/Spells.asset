@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Spells
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: b1c40c6066fab9d49b025dd3d664b7d0, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: dc605a84c5a3da74f803db718d0aa110, type: 2}
+  m_Extensions:
+  - rid: 5064169700177215600
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds:
+    - rid: 5064169700177215600
+      type: {class: GoogleSheetsExtension, ns: UnityEditor.Localization.Plugins.Google, asm: Unity.Localization.Editor}
+      data:
+        m_Collection: {fileID: 11400000}
+        m_SheetsServiceProvider: {fileID: 11400000, guid: a10b6d75e5ac2e348861c24838b1d175, type: 2}
+        m_SpreadsheetId: 1Afp8RFwkXHEUw6xUkrX-ZxG2Xqk5ybnrbVDxNtHySYQ
+        m_SheetId: 1326003034
+        m_Columns:
+        - rid: 5064169700177215603
+        - rid: 5064169700177215604
+        m_RemoveMissingPulledKeys: 1
+    - rid: 5064169700177215603
+      type: {class: KeyColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_Column: A
+    - rid: 5064169700177215604
+      type: {class: LocaleColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_Column: B
+        m_LocaleIdentifier:
+          m_Code: en
+        m_IncludeComments: 0
