@@ -44,6 +44,8 @@ namespace Spells.Data.Faces
 
             if (currentColor == FaceColor.White)
                 HasCastedThisTurn = true;
+            else if (currentColor == FaceColor.Red)
+                HasCastedThisTurn = false;
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
