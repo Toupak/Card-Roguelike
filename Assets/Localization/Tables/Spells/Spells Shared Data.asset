@@ -607,6 +607,14 @@ MonoBehaviour:
     m_Key: manyfaces_redfaceattack
     m_Metadata:
       m_Items: []
+  - m_Id: 563612799959040
+    m_Key: frien_frienterror_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 563687525679104
+    m_Key: frien_frienterror
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

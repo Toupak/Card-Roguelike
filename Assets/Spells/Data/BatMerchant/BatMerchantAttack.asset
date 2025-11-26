@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: BatMerchantAttack
   m_EditorClassIdentifier: 
   spellName: Just Good Business
-  description: 'Random : Deal 6 damage to a Random Target OR deal 3 damage to 2 Random
-    targets'
+  description: 'Random : Deals 4 damage to a Random Target OR deals 2 damage to 2
+    Random targets'
   icon: {fileID: 0}
   targetType: 1
   targetingMode: 2
   targetCount: 0
   energyCost: 1
   hasNoCooldown: 0
-  damage: 3
+  damage: 2
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -5788213581851168242, guid: 7b342e9c69e8311448123f5406882354, type: 3}

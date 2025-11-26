@@ -162,7 +162,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674761945092
-    m_Localized: Deal $d$ damage and apply 1 $Weak$ to enemy
+    m_Localized: 'Deal $d$ damage and apply 1 $Weak$ to enemy
+
+      If target is
+      $Terror$, deals 3 damage instead'
     m_Metadata:
       m_Items: []
   - m_Id: 261674766139392
@@ -696,6 +699,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 396850720636928
     m_Localized: Stare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 563612799959040
+    m_Localized: Frienly Stare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 563687525679104
+    m_Localized: Applies 1 $Terror$ to target enemy
     m_Metadata:
       m_Items: []
   references:

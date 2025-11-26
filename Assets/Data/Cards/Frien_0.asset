@@ -23,6 +23,7 @@ MonoBehaviour:
   holographicType: 0
   spellList:
   - {fileID: 11400000, guid: 066efec250bfd764baf4057f7a859ab6, type: 2}
+  - {fileID: 11400000, guid: 655fc82d643370a45935b686caa8707e, type: 2}
   passiveList:
   - {fileID: 11400000, guid: a430e2a8b2ea5db43a04a322127bddcb, type: 2}
   enemyBehaviours: []
