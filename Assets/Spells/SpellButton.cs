@@ -19,7 +19,6 @@ namespace Spells
         [SerializeField] private SpellController defaultSpellControllerPrefab;
         
         [HideInInspector] public UnityEvent OnClickSpellButton = new UnityEvent();
-        [HideInInspector] public UnityEvent OnCastSpell = new UnityEvent();
 
         private DisplayTooltipOnHover displayTooltipOnHover;
         
@@ -61,10 +60,7 @@ namespace Spells
             bool isPlayerTurn = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
 
             if (isCursorFree && isPlayerTurn)
-            {
                 spellController.CastSpell(transform);
-                OnCastSpell?.Invoke();
-            }
             
             OnClickSpellButton?.Invoke();
         }

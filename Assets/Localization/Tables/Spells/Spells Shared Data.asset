@@ -591,6 +591,22 @@ MonoBehaviour:
     m_Key: zaur_zaurremount_title
     m_Metadata:
       m_Items: []
+  - m_Id: 396850720636928
+    m_Key: manyfaces_bluefaceattack_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396850754191360
+    m_Key: manyfaces_bluefaceattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396850754191361
+    m_Key: manyfaces_redfaceattack_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396850754191362
+    m_Key: manyfaces_redfaceattack
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

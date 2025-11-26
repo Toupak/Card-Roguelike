@@ -379,6 +379,47 @@ MonoBehaviour:
     m_Localized: Damage
     m_Metadata:
       m_Items: []
+  - m_Id: 396017819942916
+    m_Localized: Tokens protect you
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942915
+    m_Localized: Tongue Wide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942914
+    m_Localized: Immune to $Stun$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942913
+    m_Localized: Eyes Wide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942912
+    m_Localized: Spells have no cooldown and can be casted multiple times per turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017798971392
+    m_Localized: Unlatched Mouth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409810969001984
+    m_Localized: Focus The Weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409811010945024
+    m_Localized: At the end of your turn, Deal 1 damage to a random enemy afflicted
+      with $Terror$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409811010945025
+    m_Localized: Live Fast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409811010945026
+    m_Localized: Looses 1 Health Point at the start of your turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

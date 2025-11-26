@@ -14,7 +14,7 @@ namespace Passives
         public PassiveController passiveController { get; private set; }
         public PassiveData data { get; private set; }
 
-        public PassiveController Setup(CardController CardController, PassiveData passiveData, int index)
+        public PassiveController Setup(CardController CardController, PassiveData passiveData)
         {
             data = passiveData;
             background.color = passiveData.backgroundColor;
@@ -23,13 +23,13 @@ namespace Passives
             if (passiveData.icon != null)
                 icon.sprite = passiveData.icon;
             
-            return SetupPassiveController(passiveData, index);
+            return SetupPassiveController(passiveData);
         }
         
-        private PassiveController SetupPassiveController(PassiveData passiveData, int index)
+        private PassiveController SetupPassiveController(PassiveData passiveData)
         {
             passiveController = Instantiate(data.passiveController != null ? data.passiveController : defaultPassiveController, transform);
-            passiveController.Setup(cardController, passiveData, index);
+            passiveController.Setup(cardController, passiveData);
             return passiveController;
         }
     }

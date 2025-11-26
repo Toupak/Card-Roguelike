@@ -335,6 +335,30 @@ MonoBehaviour:
     m_Key: tinkerer_tinkererpassive_4_title
     m_Metadata:
       m_Items: []
+  - m_Id: 396017798971392
+    m_Key: manyfaces_whitefacepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942912
+    m_Key: manyfaces_whitefacepassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942913
+    m_Key: manyfaces_bluefacepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942914
+    m_Key: manyfaces_bluefacepassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942915
+    m_Key: manyfaces_redfacepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396017819942916
+    m_Key: manyfaces_redfacepassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

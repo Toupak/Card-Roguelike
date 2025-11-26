@@ -57,6 +57,9 @@ MonoBehaviour:
   whiteSpell: {fileID: 11400000, guid: a389843eb54c2eb4ca5f451e38cad02d, type: 2}
   blueSpell: {fileID: 11400000, guid: a2fae6879d14a65428cf6c5fa18e53cc, type: 2}
   redSpell: {fileID: 11400000, guid: 8ad7741f57ca71a43bcdced9cd8b9efc, type: 2}
+  whitePassive: {fileID: 11400000, guid: 51daa183acda39641a999a5a14de9005, type: 2}
+  bluePassive: {fileID: 11400000, guid: a2a117d2e83ba0144bb17075a16dccc2, type: 2}
+  redPassive: {fileID: 11400000, guid: 6c03996e1a998e04db302aa243d11398, type: 2}
   whiteSprite: {fileID: -5285785097126754818, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
   blueSprite: {fileID: 5219528537255451192, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
   redSprite: {fileID: -2352396353401391747, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}

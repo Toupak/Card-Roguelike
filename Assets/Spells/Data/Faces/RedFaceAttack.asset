@@ -24,4 +24,4 @@ MonoBehaviour:
   inflictStatus: 4
   statusStacksApplied: 1
   spellController: {fileID: -5160743102781789477, guid: a1882edd29c667e469554fff44549220, type: 3}
-  localizationKey: 
+  localizationKey: redfaceattack

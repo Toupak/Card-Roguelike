@@ -10,9 +10,9 @@ namespace Spells.Data.Squire
         private SpellController leftSpell => cardController.leftButton.spellController;
         private SpellController rightSpell => cardController.rightButton.spellController;
         
-        public override void Setup(CardController controller, PassiveData data, int index)
+        public override void Setup(CardController controller, PassiveData data)
         {
-            base.Setup(controller, data, index);
+            base.Setup(controller, data);
             
             if (leftSpell == null || rightSpell == null)
                 return;

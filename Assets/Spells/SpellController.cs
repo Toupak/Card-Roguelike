@@ -181,13 +181,18 @@ namespace Spells
         protected virtual void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
             if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
-                HasCastedThisTurn = false;
+                RefreshCooldown();
         }
         
         protected virtual void RefreshCooldownReaction(RefreshCooldownGA refreshCooldownGa)
         {
             if (refreshCooldownGa.target == cardController)
-                HasCastedThisTurn = false;
+                RefreshCooldown();
+        }
+
+        public virtual void RefreshCooldown()
+        {
+            HasCastedThisTurn = false;
         }
 
         public virtual int ComputeCurrentDamage(int spellDamage)

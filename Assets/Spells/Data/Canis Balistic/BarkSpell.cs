@@ -14,7 +14,7 @@ namespace Spells.Data.Canis_Balistic
         public override void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)
         {
             base.Setup(controller, data, attacheSpellButton, otherSpell);
-            otherSpell.OnCastSpell.AddListener(() => HasCastedThisTurn = true);
+            otherSpell.spellController.OnCastSpell.AddListener(() => HasCastedThisTurn = true);
         }
         
         public override bool CanCastSpell()

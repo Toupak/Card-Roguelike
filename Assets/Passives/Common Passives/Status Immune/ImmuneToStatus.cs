@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Passives.Common_Passives.Status_Immune
 {
-    public class ImmuneToStunStatus : PassiveController
+    public class ImmuneToStatus : PassiveController
     {
         [SerializeField] private StatusType statusType;
         

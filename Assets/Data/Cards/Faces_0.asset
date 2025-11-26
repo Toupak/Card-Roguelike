@@ -24,10 +24,11 @@ MonoBehaviour:
   spellList:
   - {fileID: 11400000, guid: 238753abf070e25479ceab8fc946e3e4, type: 2}
   - {fileID: 11400000, guid: a389843eb54c2eb4ca5f451e38cad02d, type: 2}
-  passiveList: []
+  passiveList:
+  - {fileID: 11400000, guid: 51daa183acda39641a999a5a14de9005, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: 
+  localizationKey: manyfaces

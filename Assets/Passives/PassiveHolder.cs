@@ -19,13 +19,13 @@ namespace Passives
 
             for (int i = 0; i < cardData.passiveList.Count; i++)
             {
-                SpawnPassiveObject(cardData.passiveList[i], i);
+                SpawnPassiveObject(cardData.passiveList[i]);
             }
         }
 
         public void AddPassive(PassiveData data)
         {
-            SpawnPassiveObject(data, passives.Count);
+            SpawnPassiveObject(data);
         }
 
         public void RemovePassive(PassiveData data)
@@ -42,15 +42,16 @@ namespace Passives
 
             if (passiveIndex >= 0)
             {
+                passives[passiveIndex].Remove();
                 Destroy(passives[passiveIndex].transform.parent.gameObject);
                 passives.RemoveAt(passiveIndex);
             }
         }
         
-        private void SpawnPassiveObject(PassiveData data, int index)
+        private void SpawnPassiveObject(PassiveData data)
         {
             PassiveDisplay passive = Instantiate(passivePrefab, transform);
-            passives.Add(passive.Setup(cardController, data, index));
+            passives.Add(passive.Setup(cardController, data));
         }
 
         public PassiveController GetPassive(PassiveData data)

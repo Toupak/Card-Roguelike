@@ -8,13 +8,16 @@ namespace Passives
     {
         public CardController cardController { get; private set; }
         public PassiveData passiveData { get; private set; }
-        public int passiveIndex { get; private set; }
         
-        public virtual void Setup(CardController controller, PassiveData data, int index)
+        public virtual void Setup(CardController controller, PassiveData data)
         {
             cardController = controller;
             passiveData = data;
-            passiveIndex = index;
+        }
+
+        public virtual void Remove()
+        {
+            
         }
         
         protected CardController PickRandomTarget(List<CardMovement> targets)

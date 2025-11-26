@@ -7,9 +7,9 @@ namespace Spells.Data.GnomeCarrier
 {
     public class TokenProtectsParent : PassiveController
     {
-        public override void Setup(CardController controller, PassiveData data, int index)
+        public override void Setup(CardController controller, PassiveData data)
         {
-            base.Setup(controller, data, index);
+            base.Setup(controller, data);
 
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.PermanentProtected, 1, cardController, controller.tokenParentController);
             

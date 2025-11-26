@@ -682,6 +682,22 @@ MonoBehaviour:
     m_Localized: Back On The Saddle
     m_Metadata:
       m_Items: []
+  - m_Id: 396850754191362
+    m_Localized: Tokens gain 1 $BonusDamage$ this turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396850754191361
+    m_Localized: Go Forth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396850754191360
+    m_Localized: Apply 1 $Terror$ to a target enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 396850720636928
+    m_Localized: Stare
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
