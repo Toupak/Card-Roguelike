@@ -63,3 +63,5 @@ MonoBehaviour:
     icon: {fileID: 1117064413, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   - tag: Racoon
     icon: {fileID: -1358915087, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - tag: Terror
+    icon: {fileID: -635527122, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}

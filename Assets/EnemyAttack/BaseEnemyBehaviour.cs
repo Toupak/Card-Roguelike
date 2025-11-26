@@ -29,18 +29,12 @@ namespace EnemyAttack
 
         protected virtual int ComputeCurrentDamage(int spellDamage, CardController target)
         {
-            int bonus = 0;
-            
-            bonus += enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
-            bonus += enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
-            bonus -= enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.Weak);
-
-            int total = spellDamage + bonus;
+            int damage = enemyCardController.cardController.ComputeCurrentDamage(spellDamage);
 
             if (target != null && target.cardStatus.IsStatusApplied(StatusType.BerserkMode))
-                total *= 2;
-            
-            return Mathf.Max(0, total);
+                damage *= 2;
+
+            return damage;
         }
 
         protected virtual CardController ComputeTarget()

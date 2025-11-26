@@ -199,6 +199,7 @@ namespace Cards.Scripts
             bonus += cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
             bonus += cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
             bonus -= cardStatus.GetCurrentStackCount(StatusType.Weak);
+            bonus -= cardStatus.IsStatusApplied(StatusType.Terror) ? 1 : 0;
 
             int total = damage + bonus;
 

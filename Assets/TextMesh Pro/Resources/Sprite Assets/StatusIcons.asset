@@ -205,6 +205,11 @@ MonoBehaviour:
     m_GlyphIndex: 24
     m_Scale: 1
     m_Name: StatusIcons_24
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 25
+    m_Scale: 1
+    m_Name: StatusIcons_25
   m_GlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -606,5 +611,21 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: -1358915087, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  - m_Index: 25
+    m_Metrics:
+      m_Width: 32
+      m_Height: 32
+      m_HorizontalBearingX: -5
+      m_HorizontalBearingY: 24
+      m_HorizontalAdvance: 24
+    m_GlyphRect:
+      m_X: 800
+      m_Y: 0
+      m_Width: 32
+      m_Height: 32
+    m_Scale: 1.75
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -635527122, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
