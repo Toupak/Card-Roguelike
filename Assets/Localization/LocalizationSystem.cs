@@ -30,23 +30,17 @@ namespace Localization
         public static LocalizationSystem instance;
         public TextToIcon textToIcon { get; private set; }
 
-        private StringTable spellTable;
-        private StringTable passiveTable;
-        private StringTable combatTable;
-        private StringTable statusTable;
-        private StringTable enemiesTable;
+        [SerializeField] private StringTable spellTable;
+        [SerializeField] private StringTable passiveTable;
+        [SerializeField] private StringTable combatTable;
+        [SerializeField] private StringTable statusTable;
+        [SerializeField] private StringTable enemiesTable;
         
         private void Awake()
         {
             instance = this;
             
             textToIcon = GetComponent<TextToIcon>();
-            spellTable = AssetDatabase.LoadAssetAtPath<StringTable>(spellTablePath);
-            passiveTable = AssetDatabase.LoadAssetAtPath<StringTable>(passiveTablePath);
-            combatTable = AssetDatabase.LoadAssetAtPath<StringTable>(combatTablePath);
-            statusTable = AssetDatabase.LoadAssetAtPath<StringTable>(statusTablePath);
-            enemiesTable = AssetDatabase.LoadAssetAtPath<StringTable>(enemiesTablePath);
-            
             //UpdateGlyphs();
         }
 
@@ -132,6 +126,7 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
 
+        /*
         private void UpdateGlyphs()
         {
             Debug.Log($"{spriteAsset.name}");
@@ -164,7 +159,7 @@ namespace Localization
             return cardDataCardName.ToLower().RemoveWhitespace();
         }
         
-        [MenuItem("Tools/Add New Card To Trad File")]
+        //[MenuItem("Tools/Add New Card To Trad File")]
         private static void AddNewCardToTradFile()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
@@ -206,7 +201,7 @@ namespace Localization
             EditorUtility.SetDirty(passive);
         }
         
-        [MenuItem("Tools/Add Enemies To Trad File")]
+        //[MenuItem("Tools/Add Enemies To Trad File")]
         private static void AddEnemiesToTradFile()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
@@ -247,7 +242,7 @@ namespace Localization
         }
         
 
-        [MenuItem("Tools/SetAllDataAsDirty")]
+        //[MenuItem("Tools/SetAllDataAsDirty")]
         private static void SetAllDataAsDirty()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>("Assets/Data/CardDatabase.asset");
@@ -266,5 +261,6 @@ namespace Localization
                 EditorUtility.SetDirty(cardData);
             }
         }
+        */
     }
 }

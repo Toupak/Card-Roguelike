@@ -126,6 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteAsset: {fileID: 11400000, guid: bb39c64ef25cccc4ab136936cf9c7de9, type: 2}
   textToIconData: {fileID: 11400000, guid: 9423a02e4a6292f46b276fda2d0bfe31, type: 2}
+  spellTable: {fileID: 11400000, guid: dc605a84c5a3da74f803db718d0aa110, type: 2}
+  passiveTable: {fileID: 11400000, guid: 2d983189420ad6a43bf8c29ee9050718, type: 2}
+  combatTable: {fileID: 11400000, guid: 359d5d555128ee545af1ea558c20a023, type: 2}
+  statusTable: {fileID: 11400000, guid: e97bd5a2cc3d8d1419aa94f563f201c2, type: 2}
+  enemiesTable: {fileID: 11400000, guid: 0e102042a6e17f74cba8f76a5c02c810, type: 2}
 --- !u!114 &978297379452166831
 MonoBehaviour:
   m_ObjectHideFlags: 0
