@@ -12,8 +12,7 @@ namespace Spells.Data.Thorse
     {
         public override bool CanCastSpell()
         {
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
-                CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Player)
                 return false;
 
             if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
@@ -24,7 +23,7 @@ namespace Spells.Data.Thorse
         
         public override int ComputeEnergyCost()
         {
-            return EnergyController.instance.currentEnergy;
+            return EnergyController.instance != null ? EnergyController.instance.currentEnergy : 3;
         }
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)

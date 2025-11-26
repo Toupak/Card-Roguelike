@@ -51,8 +51,7 @@ namespace Spells
             if (HasCastedThisTurn)
                 return false;
 
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
-                CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Player)
                 return false;
             
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))

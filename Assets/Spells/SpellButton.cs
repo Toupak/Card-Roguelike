@@ -28,7 +28,7 @@ namespace Spells
         
         public void Setup(CardController cardController, SpellData data)
         {
-            if (data == null || CombatLoop.CombatLoop.instance == null)
+            if (data == null)
                 return;
             
             spellData = data;

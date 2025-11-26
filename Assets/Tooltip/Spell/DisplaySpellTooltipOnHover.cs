@@ -10,6 +10,7 @@ namespace Tooltip.Spell
         protected override void DisplayTooltip()
         {
             tooltipDisplay = TooltipFactory.instance.CreateSpellTooltip();
+            
             tooltipDisplay.SetPosition(spellButton.spellController.cardController.tooltipPivot.position);
             ((SpellTooltip)tooltipDisplay).SetupSpellTooltip(spellButton.spellController);
         }

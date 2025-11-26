@@ -909,7 +909,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a68591d53cd0644ad80e1971977fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipDisplayPrefab: {fileID: 5995658076509696510, guid: a7aa4998c00ced34e9e7f4420a4cba67, type: 3}
+  energyTooltipPrefab: {fileID: -8263997138852428106, guid: d11c6a6e127e3b44890e128fd9c728d2, type: 3}
+  healthTooltipPrefab: {fileID: 3207414157421860823, guid: 9680dfc4ea781334f9d2059d5182cbbf, type: 3}
+  spellTooltipPrefab: {fileID: 2820592777922802618, guid: 54e35d79572961748a039a79eb9aebe1, type: 3}
+  passiveTooltipPrefab: {fileID: 2563450842129294071, guid: fe47940f75601c84bb2f9fd8b5dcf40c, type: 3}
+  statusTooltipPrefab: {fileID: 1977483065045641958, guid: c502fbf3ba2fb8041bc5c2df4253b0ec, type: 3}
+  intentionTooltipPrefab: {fileID: -6408838458268456258, guid: 5ee2609bda9bc474f80b59c5a3dc19b7, type: 3}
 --- !u!1 &786820945
 GameObject:
   m_ObjectHideFlags: 0
