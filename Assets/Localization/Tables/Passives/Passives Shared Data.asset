@@ -359,6 +359,22 @@ MonoBehaviour:
     m_Key: manyfaces_redfacepassive
     m_Metadata:
       m_Items: []
+  - m_Id: 409810969001984
+    m_Key: child'sface_facetokenattackpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409811010945024
+    m_Key: child'sface_facetokenattackpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409811010945025
+    m_Key: child'sface_facetokendiepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 409811010945026
+    m_Key: child'sface_facetokendiepassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
