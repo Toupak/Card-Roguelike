@@ -1,4 +1,5 @@
 using Cards.Scripts;
+using Run_Loop;
 
 namespace ActionReaction.Game_Actions
 {
@@ -10,6 +11,7 @@ namespace ActionReaction.Game_Actions
 
         public bool isToken;
         public int startingHealth = -1;
+        public DeckCard deckCard = null;
 
         public SpawnCardGA(CardData data, CardController spawnerController, bool isCardAToken = false)
         {

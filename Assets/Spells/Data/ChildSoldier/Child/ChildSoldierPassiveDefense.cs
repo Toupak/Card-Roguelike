@@ -45,6 +45,7 @@ namespace Spells.Data.ChildSoldier.Child
         {
             SpawnCardGA spawnCardGa = new SpawnCardGA(teenDefenseData, cardController);
             spawnCardGa.startingHealth = cardController.cardHealth.currentHealth;
+            spawnCardGa.deckCard = cardController.deckCard;
             ActionSystem.instance.AddReaction(spawnCardGa);
             
             cardController.KillCard(false);

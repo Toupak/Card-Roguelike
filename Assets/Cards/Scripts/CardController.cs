@@ -166,6 +166,11 @@ namespace Cards.Scripts
                 artwork.sprite = newSprite;
         }
 
+        public void SetDeckCard(DeckCard newDeckCard)
+        {
+            deckCard = newDeckCard;
+        }
+
         public void KillCard(bool removeFromDeck = true)
         {
             if (removeFromDeck && !cardData.isEnemy)

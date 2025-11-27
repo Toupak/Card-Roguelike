@@ -16,7 +16,7 @@ namespace Spells.Data.Olaf_And_Pif
         {
             base.Setup(controller, data, attacheSpellButton, otherSpell);
 
-            if (CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Preparation)
                 HasCastedThisTurn = true;
         }
         

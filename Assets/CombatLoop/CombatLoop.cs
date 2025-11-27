@@ -107,6 +107,9 @@ namespace CombatLoop
             if (spawnCardGa.startingHealth > 0)
                 spawnCardGa.spawnedCard.cardHealth.SetHealth(spawnCardGa.startingHealth);
             
+            if (spawnCardGa.deckCard != null)
+                spawnCardGa.spawnedCard.SetDeckCard(spawnCardGa.deckCard);
+            
             yield return new WaitForSeconds(0.2f);
         }
 
