@@ -5,6 +5,9 @@ namespace CombatLoop.EnergyBar
 {
     public class EnergyDisplay : MonoBehaviour
     {
+        [SerializeField] public Transform tooltipPivot;
+        
+        [Space]
         [SerializeField] private GameObject energyTokenPrefab;
 
         private Dictionary<Animator, bool> tokens = new Dictionary<Animator, bool>();

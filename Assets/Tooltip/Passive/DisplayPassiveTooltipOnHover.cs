@@ -1,3 +1,4 @@
+using Localization;
 using Passives;
 using UnityEngine;
 
@@ -9,9 +10,29 @@ namespace Tooltip.Passive
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreatePassiveTooltip();
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
             tooltipDisplay.SetPosition(passiveDisplay.cardController.tooltipPivot.position);
-            ((PassiveTooltip)tooltipDisplay).SetupPassiveTooltip(passiveDisplay.passiveController);
+
+            PassiveController passiveController = passiveDisplay.passiveController;
+            string title;
+            string description;
+            
+            if (passiveController.cardController.cardData.isEnemy)
+            {
+                title = LocalizationSystem.instance.GetEnemyPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+                description = LocalizationSystem.instance.GetEnemyPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+
+                description = CheckForIcons(description);
+            }
+            else
+            {
+                title = LocalizationSystem.instance.GetPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+                description = LocalizationSystem.instance.GetPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
+
+                description = CheckForIcons(description);
+            }
+            
+            tooltipDisplay.SetupTooltip(title, description);
         }
     }
 }

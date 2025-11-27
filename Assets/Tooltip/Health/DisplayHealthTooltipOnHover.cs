@@ -1,4 +1,5 @@
 using Cards.Scripts;
+using Localization;
 using UnityEngine;
 
 namespace Tooltip.Health
@@ -10,9 +11,15 @@ namespace Tooltip.Health
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateHealthTooltip();
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
             tooltipDisplay.SetPosition(tooltipPivot.position);
-            ((HealthTooltip)tooltipDisplay).SetupHealthTooltip(cardHealth.currentHealth);
+            
+            string title = LocalizationSystem.instance.GetCombatString("health_tooltip_title");
+            string text = LocalizationSystem.instance.GetCombatString("health_tooltip");
+            text = text.Replace("%h%", $"{cardHealth.currentHealth}");
+            text = CheckForIcons(text);
+            
+            tooltipDisplay.SetupTooltip(title, text);
         }
     }
 }

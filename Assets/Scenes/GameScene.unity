@@ -581,6 +581,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &402845629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402845630}
+  - component: {fileID: 402845631}
+  m_Layer: 5
+  m_Name: Energy Tooltip Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &402845630
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402845629}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068224896}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -320}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &402845631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402845629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &439417438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c20726d3b3552e41b73598c6cd5560d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltipPivot: {fileID: 402845630}
   energyTokenPrefab: {fileID: 5964507515297043995, guid: 82dd323e17bdc7e46a5e813d061dc238, type: 3}
 --- !u!1 &1113632110
 GameObject:
@@ -1386,12 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a68591d53cd0644ad80e1971977fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyTooltipPrefab: {fileID: -8263997138852428106, guid: d11c6a6e127e3b44890e128fd9c728d2, type: 3}
-  healthTooltipPrefab: {fileID: 3207414157421860823, guid: 9680dfc4ea781334f9d2059d5182cbbf, type: 3}
-  spellTooltipPrefab: {fileID: 2820592777922802618, guid: 54e35d79572961748a039a79eb9aebe1, type: 3}
-  passiveTooltipPrefab: {fileID: 2563450842129294071, guid: fe47940f75601c84bb2f9fd8b5dcf40c, type: 3}
-  statusTooltipPrefab: {fileID: 1977483065045641958, guid: c502fbf3ba2fb8041bc5c2df4253b0ec, type: 3}
-  intentionTooltipPrefab: {fileID: -6408838458268456258, guid: 5ee2609bda9bc474f80b59c5a3dc19b7, type: 3}
+  tooltipPrefab: {fileID: 5983911002456220135, guid: a7aa4998c00ced34e9e7f4420a4cba67, type: 3}
 --- !u!1 &1453645376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +2924,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1029955431}
+  - {fileID: 402845630}
   - {fileID: 1817384098}
   - {fileID: 1744358809}
   - {fileID: 1236142090}

@@ -1,21 +1,10 @@
-using Tooltip.Enemy_Intention;
-using Tooltip.Energy;
-using Tooltip.Health;
-using Tooltip.Passive;
-using Tooltip.Spell;
-using Tooltip.Status;
 using UnityEngine;
 
 namespace Tooltip
 {
     public class TooltipFactory : MonoBehaviour
     {
-        [SerializeField] private EnergyTooltip energyTooltipPrefab;
-        [SerializeField] private HealthTooltip healthTooltipPrefab;
-        [SerializeField] private SpellTooltip spellTooltipPrefab;
-        [SerializeField] private PassiveTooltip passiveTooltipPrefab;
-        [SerializeField] private StatusTooltip statusTooltipPrefab;
-        [SerializeField] private IntentionTooltip intentionTooltipPrefab;
+        [SerializeField] private TooltipDisplay tooltipPrefab;
         
         public static TooltipFactory instance;
 
@@ -24,46 +13,11 @@ namespace Tooltip
             instance = this;
         }
 
-        public EnergyTooltip CreateEnergyTooltip()
+        public TooltipDisplay CreateTooltip()
         {
-            EnergyTooltip energyTooltip = Instantiate(energyTooltipPrefab, transform);
-            energyTooltip.Setup();
-            return energyTooltip;
-        }
-        
-        public HealthTooltip CreateHealthTooltip()
-        {
-            HealthTooltip healthTooltip = Instantiate(healthTooltipPrefab, transform);
-            healthTooltip.Setup();
-            return healthTooltip;
-        }
-        
-        public SpellTooltip CreateSpellTooltip()
-        {
-            SpellTooltip spellTooltip = Instantiate(spellTooltipPrefab, transform);
-            spellTooltip.Setup();
-            return spellTooltip;
-        }
-        
-        public PassiveTooltip CreatePassiveTooltip()
-        {
-            PassiveTooltip passiveTooltip = Instantiate(passiveTooltipPrefab, transform);
-            passiveTooltip.Setup();
-            return passiveTooltip;
-        }
-        
-        public StatusTooltip CreateStatusTooltip()
-        {
-            StatusTooltip statusTooltip = Instantiate(statusTooltipPrefab, transform);
-            statusTooltip.Setup();
-            return statusTooltip;
-        }
-        
-        public IntentionTooltip CreateEnemyIntentionTooltip()
-        {
-            IntentionTooltip intentionTooltip = Instantiate(intentionTooltipPrefab, transform);
-            intentionTooltip.Setup();
-            return intentionTooltip;
+            TooltipDisplay tooltip = Instantiate(tooltipPrefab, transform);
+            tooltip.Setup();
+            return tooltip;
         }
     }
 }

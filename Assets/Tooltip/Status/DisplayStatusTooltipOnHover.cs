@@ -1,3 +1,4 @@
+using Localization;
 using Status;
 using UnityEngine;
 
@@ -9,9 +10,12 @@ namespace Tooltip.Status
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateStatusTooltip();
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
             tooltipDisplay.SetPosition(statusTabDisplay.cardController.tooltipPivot.position);
-            ((StatusTooltip)tooltipDisplay).SetupStatusTooltip(statusTabDisplay.statusData);
+
+            string title = LocalizationSystem.instance.GetStatusTitle(statusTabDisplay.statusData.localizationKey);
+            string main = LocalizationSystem.instance.GetStatusDescription(statusTabDisplay.statusData.localizationKey);
+            tooltipDisplay.SetupTooltip(title, main);
         }
     }
 }
