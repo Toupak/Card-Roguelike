@@ -22,18 +22,18 @@ namespace Spells.Data.Guard
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();
-            ActionSystem.SubscribeReaction<ConsumeStacksGa>(ConsumeStacksReaction, ReactionTiming.POST);
+            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST, 10);
         }
 
         protected override void UnsubscribeReactions()
         {
             base.UnsubscribeReactions();
-            ActionSystem.UnsubscribeReaction<ConsumeStacksGa>(ConsumeStacksReaction, ReactionTiming.POST);
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
         }
 
-        private void ConsumeStacksReaction(ConsumeStacksGa consumeStacksGa)
+        private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.Taunt && consumeStacksGa.attacker.cardStatus.IsStatusApplied(StatusType.Vengeance))
+            if (dealDamageGa.target == cardController && cardController.cardStatus.IsStatusApplied(StatusType.Taunt) && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.Vengeance))
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Taunt, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);
