@@ -28,7 +28,6 @@ namespace Tooltip
         public virtual void SetPosition(Vector2 position)
         {
             rectTransform.position = Tools.ClampPositionInScreenUpPivot(position, rectTransform.rect.size);
-            Debug.Log($"TOOLTIP POSITION : {rectTransform.position}");
         }
 
         private void FollowCursor()

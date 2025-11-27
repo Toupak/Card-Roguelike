@@ -196,13 +196,8 @@ namespace BoomLib.Tools
             Vector2 screenBounds = new Vector2(Screen.width, Screen.height);
             Vector2 halfSize = size * 0.5f;
             
-            Debug.Log($"Screen Bounds : {screenBounds}");
-            Debug.Log($"Half Size : {halfSize}");
-            Debug.Log($"Position Before Clamp : {position}");
-            
             position.x = Mathf.Clamp(position.x, halfSize.x, screenBounds.x - halfSize.x);
             position.y = Mathf.Clamp(position.y, size.y, screenBounds.y);
-            Debug.Log($"Position : {position}");
             return new Vector3(position.x, position.y, 0);
         }
         
