@@ -44,6 +44,9 @@ namespace Spells
         
         private void SetupSpellController(CardController cardController, SpellData data)
         {
+            if (spellController != null)
+                Destroy(spellController.gameObject);
+            
             spellController = Instantiate(data.spellController != null ? data.spellController : defaultSpellControllerPrefab, transform);
             spellController.Setup(cardController, data, this, otherButton);
         }
