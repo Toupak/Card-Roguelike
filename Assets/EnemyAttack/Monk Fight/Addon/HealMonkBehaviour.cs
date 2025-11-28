@@ -1,7 +1,6 @@
 using ActionReaction;
 using Cards.Scripts;
 using Spells;
-using Spells.Data.Thorse;
 using Spells.Targeting;
 using System.Collections;
 using System.Collections.Generic;

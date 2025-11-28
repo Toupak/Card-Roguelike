@@ -1,10 +1,6 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Cards.Scripts;
-using CombatLoop;
-using EnemyAttack;
 using Passives;
-using System;
 using UnityEngine;
 
 public class CullTheWeakPassive : PassiveController

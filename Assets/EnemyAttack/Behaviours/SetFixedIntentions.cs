@@ -2,7 +2,6 @@ using ActionReaction;
 using EnemyAttack;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SetFixedIntentions : BaseEnemyBehaviour

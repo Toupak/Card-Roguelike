@@ -1,6 +1,5 @@
 using BoomLib.SFX_Player.Scripts;
 using Cards.Scripts;
-using System;
 using UnityEngine;
 
 public class CardSFX : MonoBehaviour

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Targeting;
 using UnityEngine;
 
 namespace Spells.Data.PantsEctoplasm

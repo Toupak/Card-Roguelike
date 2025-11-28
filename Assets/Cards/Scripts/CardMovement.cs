@@ -1,4 +1,3 @@
-using System;
 using Board.Script;
 using CardSlot.Script;
 using Cursor.Script;
