@@ -447,6 +447,30 @@ MonoBehaviour:
     m_Key: batsu_culltheweak
     m_Metadata:
       m_Items: []
+  - m_Id: 1003194427342848
+    m_Key: spider_bite_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194473480192
+    m_Key: spider_bite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674496
+    m_Key: spider_poisonousspit_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674497
+    m_Key: spider_poisonousspit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674498
+    m_Key: spider_web_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674499
+    m_Key: spider_web
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

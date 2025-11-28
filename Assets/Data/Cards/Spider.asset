@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: ChildSoldier
+  m_Name: Spider
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: ChildSoldier
+  cardName: Spider
   tribe: 0
-  hpMax: 25
-  artwork: {fileID: 8527130049297767959, guid: eac556524774deb45a072799c4e594e3, type: 3}
+  hpMax: 18
+  artwork: {fileID: 21300000, guid: acbf3b6a2c0211a48925340b86336163, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList:
-  - {fileID: 11400000, guid: bac89783a31d2c84bb39c73d242c5e67, type: 2}
-  - {fileID: 11400000, guid: 2d10f8037a07b8b4cb3b8a4e937e1914, type: 2}
-  passiveList:
-  - {fileID: 11400000, guid: 7cea536b7d25f434d9753712ee2ff572, type: 2}
-  - {fileID: 11400000, guid: 65e0f18ac9a34034482d28f76732b13a, type: 2}
-  enemyBehaviours: []
+  spellList: []
+  passiveList: []
+  enemyBehaviours:
+  - {fileID: -3468617098507266826, guid: 0e14e199245d38748963a9a13295994b, type: 3}
+  - {fileID: -2857510401047753313, guid: cda4db6309e20dd488a8038bf3d40c1c, type: 3}
+  - {fileID: -3901947289857154545, guid: b761654e8274b3448a52e28ea169ee2a, type: 3}
   areEnemyBehavioursLooping: 0
-  isMainBoss: 0
+  isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: childsoldier
+  localizationKey: spider

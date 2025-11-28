@@ -20,7 +20,7 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  holographicType: 0
+  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: cc1e13de0aef95a409b418a06948271b, type: 2}
   passiveList:

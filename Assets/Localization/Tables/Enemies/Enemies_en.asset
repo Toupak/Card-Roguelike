@@ -435,6 +435,30 @@ MonoBehaviour:
     m_Localized: If this card receives 0 DMG, counterattacks
     m_Metadata:
       m_Items: []
+  - m_Id: 1003194427342848
+    m_Localized: Bite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194473480192
+    m_Localized: Deals $d$ DMG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674496
+    m_Localized: Poisonous Spit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674497
+    m_Localized: Deals $d$ DMG, Applies 2 $Poison$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674498
+    m_Localized: Web
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003194477674499
+    m_Localized: Applies 1 $stun$
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
