@@ -18,5 +18,5 @@ MonoBehaviour:
   backgroundColor:
     serializedVersion: 2
     rgba: 4290017342
-  passiveController: {fileID: 0}
+  passiveController: {fileID: -4377006162449676036, guid: 6381c6a901b687a478e40a48fa0eaef3, type: 3}
   localizationKey: dolphinpassive

@@ -1,4 +1,5 @@
 using Cards.Scripts;
+using Spells.Data.Dolphin;
 
 namespace ActionReaction.Game_Actions
 {
@@ -15,6 +16,8 @@ namespace ActionReaction.Game_Actions
         public CardController originalTarget;
 
         public bool isBongoStatus;
+
+        public SpreadStatusPassive.SpreadDirection spreadDirection = SpreadStatusPassive.SpreadDirection.None;
 
         public ApplyStatusGa(StatusType statusType, int stacksAmount, CardController attackerController, CardController targetController)
         {

@@ -222,5 +222,10 @@ namespace Cards.Scripts
 
             return count;
         }
+
+        public bool IsTargetable()
+        {
+            return !cardStatus.IsStatusApplied(StatusType.Dive);
+        }
     }
 }

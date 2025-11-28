@@ -135,7 +135,12 @@ namespace Spells.Targeting
             foreach (Slot slot in container.Slots)
             {
                 if (!slot.IsEmpty)
-                    list.Add(slot.transform.GetChild(0).GetComponent<CardMovement>());
+                {
+                    CardMovement cardMovement = slot.transform.GetChild(0).GetComponent<CardMovement>();
+                    
+                    if (cardMovement.cardController.IsTargetable())
+                        list.Add(cardMovement);
+                }
             }
 
             return list;

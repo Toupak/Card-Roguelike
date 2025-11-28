@@ -9,10 +9,8 @@ namespace Spells.Data.Dolphin
 {
     public class DiveSpell : SpellController
     {
-        //on consume dive -> make shinny
-        //on cast -> check if shinny for behaviour
-        //CardController.IsTargetable
-
+        //Passive
+        
         [SerializeField] private SpellData surfaceSpell;
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)

@@ -37,19 +37,13 @@ namespace CombatLoop.EnergyBar
         {
             List<Animator> keys = new List<Animator>(tokens.Keys);
             for (int i = 0; i < keys.Count; i++)
-            {
-                Debug.Log($"Token : {i < currentEnergy}");
                 PlayTokenAnimation(keys[i], i < currentEnergy);
-            }
         }
 
         private void PlayTokenAnimation(Animator animator, bool state)
         {
             if (tokens[animator] == state)
-            {
-                Debug.Log($"Early return : {state}");
                 return;
-            }
 
             tokens[animator] = state;
             animator.Play(state ? "Spawning" : "Using");

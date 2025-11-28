@@ -265,6 +265,17 @@ MonoBehaviour:
       reduce $Poison$ by 1
     m_Metadata:
       m_Items: []
+  - m_Id: 1425529429000192
+    m_Localized: Dive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1425529475137536
+    m_Localized: 'Becomes untargetable for 1 turn
+
+      Next turn can recast to
+      attack random target'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

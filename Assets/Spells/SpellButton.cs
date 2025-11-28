@@ -27,6 +27,8 @@ namespace Spells
         
         public void Setup(CardController cardController, SpellData data)
         {
+            Debug.Log("Setup Spell Button");
+            
             if (data == null)
                 return;
             
@@ -47,6 +49,8 @@ namespace Spells
             if (spellController != null)
                 Destroy(spellController.gameObject);
             
+            Debug.Log($"Setup Spell Controller : {data.spellName}");
+
             spellController = Instantiate(data.spellController != null ? data.spellController : defaultSpellControllerPrefab, transform);
             spellController.Setup(cardController, data, this, otherButton);
         }

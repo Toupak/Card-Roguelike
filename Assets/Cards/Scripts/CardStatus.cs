@@ -160,6 +160,9 @@ namespace Cards.Scripts
         {
             foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
             {
+                if (!IsStatusApplied(keyValuePair.Key))
+                    continue;
+
                 switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).endTurnBehaviour)
                 {
                     case StatusEndTurnBehaviour.RemoveOneAtStartOfTurn:
@@ -182,6 +185,9 @@ namespace Cards.Scripts
         {
             foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
             {
+                if (!IsStatusApplied(keyValuePair.Key))
+                    continue;
+                
                 switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).endTurnBehaviour)
                 {
                     case StatusEndTurnBehaviour.RemoveOne:

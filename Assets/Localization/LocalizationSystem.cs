@@ -1,6 +1,11 @@
+using BoomLib.Tools;
+using Status;
+using Status.Data;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
+using UnityEngine.TextCore;
 
 namespace Localization
 {
@@ -25,12 +30,11 @@ namespace Localization
         private void Awake()
         {
             instance = this;
-            
-            //UpdateGlyphs();
         }
 
         private void Start()
         {
+            //UpdateGlyphs();
             //UpdateStatus();
         }
         
@@ -111,7 +115,7 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
 
-        /*
+        
         private void UpdateGlyphs()
         {
             Debug.Log($"{spriteAsset.name}");
@@ -135,7 +139,7 @@ namespace Localization
                 statusTable.AddEntry($"{key}_title", data.statusName);
                 statusTable.AddEntry($"{key}", data.statusDescription);
                 
-                //Debug.Log($"Create new Status : {key} => {data.statusName} / {data.statusDescription}");
+                Debug.Log($"Create new Status : {key} => {data.statusName} / {data.statusDescription}");
             }
         }
 
@@ -143,8 +147,5 @@ namespace Localization
         {
             return cardDataCardName.ToLower().RemoveWhitespace();
         }
-        
-        
-        */
     }
 }

@@ -730,10 +730,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068225
-    m_Localized: '$Dive$ for 1 turn, becoming untargetable
-
-      Can be recast next
-      turn to attack a random target'
+    m_Localized: $Dive$ for 1 turn
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068226
