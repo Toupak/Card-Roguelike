@@ -62,9 +62,9 @@ public class HealBehaviour : BaseEnemyBehaviour
 
             foreach (CardMovement cardMovement in targets)
             {
-                if (cardMovement.cardController.cardHealth.currentHealth <= cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
+                if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
                     return cardMovement.cardController;
-                else if (cardMovement.cardController.cardHealth.currentHealth <= cardMovement.cardController.cardData.hpMax)
+                else if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax)
                     return cardMovement.cardController;
             }
         }
@@ -102,15 +102,25 @@ public class HealBehaviour : BaseEnemyBehaviour
 
             foreach (CardMovement cardMovement in targets)
             {
-                if (cardMovement.cardController.cardHealth.currentHealth <= cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
+                if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
                     lowLifeTargets++;
-                else if (cardMovement.cardController.cardHealth.currentHealth <= cardMovement.cardController.cardData.hpMax)
+                else if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax)
                     damagedTargets++;
             }
 
             if (lowLifeTargets > 0)
                 return weight * 3;
             else if (damagedTargets > 0)
+                return weight;
+            else
+                return 0;
+        }
+
+        if (targetSelf)
+        {
+            if (enemyCardController.cardController.cardHealth.currentHealth < enemyCardController.cardController.cardData.hpMax * prioritizeHealThreshold)
+                return weight * 3;
+            else if (enemyCardController.cardController.cardHealth.currentHealth < enemyCardController.cardController.cardData.hpMax)
                 return weight;
             else
                 return 0;
