@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 8
   statusName: Return Damage
+  statusTag: ReturnDamage
   statusDescription: If attacked, enemies take 1 damage back
   endTurnBehaviour: 3
   maxStackCount: -1

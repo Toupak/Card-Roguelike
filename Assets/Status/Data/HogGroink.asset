@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 7
   statusName: Groink
+  statusTag: Groink
   statusDescription: On Death Hognade will deal as many damages to all enemies as
     he has stacks of Groink.
   endTurnBehaviour: 2

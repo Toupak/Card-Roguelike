@@ -415,6 +415,38 @@ MonoBehaviour:
     m_Key: powerseed_sporeheal
     m_Metadata:
       m_Items: []
+  - m_Id: 768040070447104
+    m_Key: batsu_bloodsuck_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001536
+    m_Key: batsu_bloodsuck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001537
+    m_Key: batsu_disorientingstrike_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001538
+    m_Key: batsu_disorientingstrike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001539
+    m_Key: batsu_shriek_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001540
+    m_Key: batsu_shriek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040108195840
+    m_Key: batsu_culltheweak_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040108195841
+    m_Key: batsu_culltheweak
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -54,13 +54,6 @@ MonoBehaviour:
   intentionIcon: {fileID: 8862108498670833452, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
   localizationKey: disorientingstrike
+  damage: 1
   statusType: 10
   stacks: 2
-  hitCount: 1
-  hitSameTarget: 0
-  isTargetEnemy: 0
-  cantTargetHimself: 0
-  targetSpecificCard: 0
-  targetAllPlayerCards: 0
-  specificCard: {fileID: 0}
-  damage: 1

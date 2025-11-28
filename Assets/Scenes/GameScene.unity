@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a68591d53cd0644ad80e1971977fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipPrefab: {fileID: 5983911002456220135, guid: a7aa4998c00ced34e9e7f4420a4cba67, type: 3}
+  tooltipPrefab: {fileID: 8051888499847997515, guid: 2c524ac5f5b7890449a82f557d26c968, type: 3}
 --- !u!1 &1453645376
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   statusName: Dorito Caltrop
+  statusTag: Caltrops
   statusDescription: 'Receive 1 damage when performing an action.
 
     (the amount

@@ -10,8 +10,7 @@ namespace Tooltip.Spell
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.SetPosition(spellButton.spellController.cardController.tooltipPivot.position);
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
 
             SpellController spellController = spellButton.spellController;
             
@@ -19,10 +18,10 @@ namespace Tooltip.Spell
             
             int damage = spellController.ComputeCurrentDamage(spellController.spellData.damage);
             string description = LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellData.localizationKey);
-            description = CheckForDamage(CheckForIcons(description), damage);
+            description = CheckForDamage(description, damage);
 
-            tooltipDisplay.GetComponent<TooltipEnergyDisplay>().AddEnergyCost(spellController.ComputeEnergyCost());
-            tooltipDisplay.SetupTooltip(title, description);
+            multiTooltipDisplay.SetupTooltip(title, description, spellButton.spellController.cardController.tooltipPivot.position);
+            multiTooltipDisplay.SetupEnergyCost(spellController.ComputeEnergyCost());
         }
     }
 }

@@ -8,8 +8,7 @@ namespace Tooltip.Energy
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.SetPosition(transform.parent.GetComponent<EnergyDisplay>().tooltipPivot.position);
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
             
             int maxEnergy = EnergyController.instance.currentMaxEnergy;
             int currentEnergy = EnergyController.instance.currentEnergy;
@@ -18,9 +17,8 @@ namespace Tooltip.Energy
             string text = LocalizationSystem.instance.GetCombatString("energy_tooltip");
             text = text.Replace("%e%", $"{currentEnergy}");
             text = text.Replace("%m%", $"{maxEnergy}");
-            text = CheckForIcons(text);
             
-            tooltipDisplay.SetupTooltip(title, text);
+            multiTooltipDisplay.SetupTooltip(title, text, transform.parent.GetComponent<EnergyDisplay>().tooltipPivot.position);
         }
     }
 }

@@ -11,15 +11,13 @@ namespace Tooltip.Health
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.SetPosition(tooltipPivot.position);
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
             
             string title = LocalizationSystem.instance.GetCombatString("health_tooltip_title");
             string text = LocalizationSystem.instance.GetCombatString("health_tooltip");
             text = text.Replace("%h%", $"{cardHealth.currentHealth}");
-            text = CheckForIcons(text);
             
-            tooltipDisplay.SetupTooltip(title, text);
+            multiTooltipDisplay.SetupTooltip(title, text, tooltipPivot.position);
         }
     }
 }

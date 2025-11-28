@@ -1,4 +1,3 @@
-using Localization.Icons_In_Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
@@ -14,10 +13,8 @@ namespace Localization
         private const string enemiesTablePath = "Assets/Localization/Tables/Enemies/Enemies_en.asset";
 
         public TMP_SpriteAsset spriteAsset;
-        public TextToIconData textToIconData;
 
         public static LocalizationSystem instance;
-        public TextToIcon textToIcon { get; private set; }
 
         [SerializeField] private StringTable spellTable;
         [SerializeField] private StringTable passiveTable;
@@ -29,7 +26,6 @@ namespace Localization
         {
             instance = this;
             
-            textToIcon = GetComponent<TextToIcon>();
             //UpdateGlyphs();
         }
 

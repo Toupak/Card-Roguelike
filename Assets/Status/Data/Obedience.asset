@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 11
   statusName: Obedience
+  statusTag: Obedience
   statusDescription: Zanger will stop fucking around and will attack the correct
     target for Triangular Grimace's next cast
   endTurnBehaviour: 2

@@ -10,14 +10,12 @@ namespace Tooltip
         [SerializeField] protected TextMeshProUGUI titleText;
         [SerializeField] protected TextMeshProUGUI mainText;
         
+        [Space]
+        [SerializeField] protected Color subTooltipColor;
+
         private RectTransform rectTransform;
         private Vector3 velocity;
         private float smoothTime = 0.1f;
-        
-        public virtual void Setup()
-        {
-            rectTransform = GetComponent<RectTransform>();
-        }
 
         public void SetupTooltip(string title, string main)
         {
@@ -25,8 +23,15 @@ namespace Tooltip
             mainText.text = main;
         }
 
-        public virtual void SetPosition(Vector2 position)
+        public void SetAsSubTooltip()
         {
+            titleText.color = subTooltipColor;
+            mainText.color = subTooltipColor;
+        }
+
+        public void SetPosition(Vector2 position)
+        {
+            rectTransform = GetComponent<RectTransform>();
             rectTransform.position = Tools.ClampPositionInScreenUpPivot(position, rectTransform.rect.size);
         }
 
@@ -38,7 +43,7 @@ namespace Tooltip
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, clampedPosition, ref velocity, smoothTime);
         }
 
-        public virtual void Hide()
+        public void Hide()
         {
             Destroy(gameObject);
         }

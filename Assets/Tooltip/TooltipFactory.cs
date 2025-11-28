@@ -4,7 +4,7 @@ namespace Tooltip
 {
     public class TooltipFactory : MonoBehaviour
     {
-        [SerializeField] private TooltipDisplay tooltipPrefab;
+        [SerializeField] private MultiTooltipDisplay tooltipPrefab;
         
         public static TooltipFactory instance;
 
@@ -13,10 +13,9 @@ namespace Tooltip
             instance = this;
         }
 
-        public TooltipDisplay CreateTooltip()
+        public MultiTooltipDisplay CreateTooltip()
         {
-            TooltipDisplay tooltip = Instantiate(tooltipPrefab, transform);
-            tooltip.Setup();
+            MultiTooltipDisplay tooltip = Instantiate(tooltipPrefab, transform);
             return tooltip;
         }
     }

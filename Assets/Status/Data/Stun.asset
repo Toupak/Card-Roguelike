@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   statusName: Stun
+  statusTag: Stun
   statusDescription: 'Stun cards cannot perform any actions.
 
     Looses a stack

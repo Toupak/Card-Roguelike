@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 19
   statusName: Berserk
+  statusTag: Berserk
   statusDescription: Deal double damage, receive double damage
   endTurnBehaviour: 3
   maxStackCount: -1

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   statusName: Taunt
+  statusTag: Taunt
   statusDescription: 'Cards that are taunting will attract enemies'' attacks.
 
     Each

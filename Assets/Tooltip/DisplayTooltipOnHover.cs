@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using Localization;
-using Localization.Icons_In_Text;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,11 +9,11 @@ namespace Tooltip
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;
 
-        protected TooltipDisplay tooltipDisplay;
+        protected MultiTooltipDisplay multiTooltipDisplay;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (tooltipDisplay != null)
+            if (multiTooltipDisplay != null)
                 return;
 
             DisplayTooltip();
@@ -28,15 +24,15 @@ namespace Tooltip
 
         protected virtual void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
         }
 
         private void HideTooltip()
         {
-            if (tooltipDisplay != null)
+            if (multiTooltipDisplay != null)
             {
-                tooltipDisplay.Hide();
-                tooltipDisplay = null;
+                multiTooltipDisplay.Hide();
+                multiTooltipDisplay = null;
             }
         }
         
@@ -54,26 +50,7 @@ namespace Tooltip
         {
             HideTooltip();
         }
-        
-        protected string CheckForIcons(string message)
-        {
-            string finalString = message;
-            string[] chunks = message.Split('$');
 
-            List<TextToIconRule> rules = LocalizationSystem.instance.textToIconData.rules;
-            
-            foreach (string chunk in chunks)
-            {
-                if (rules.Where((r) => r.tag.Equals(chunk)).ToList().Count > 0)
-                {
-                    TextToIconRule rule = rules.First((r) => r.tag.Equals(chunk));
-                    finalString = finalString.Replace($"${rule.tag}$", $"<sprite name=\"{rule.icon.name}\">");
-                }
-            }
-            
-            return finalString;
-        }
-        
         protected string CheckForDamage(string description, int damage)
         {
             return CheckForDamage(description, $"{damage}");

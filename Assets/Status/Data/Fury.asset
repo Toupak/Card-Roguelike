@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 15
   statusName: Fury
+  statusTag: Fury
   statusDescription: 'This card is experiencing the white burning hot rage of a thousand
     suns.
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 17
   statusName: Captured
+  statusTag: Captured
   statusDescription: Unit is unable to perform any action
   endTurnBehaviour: 0
   maxStackCount: -1

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 20
   statusName: Protected
+  statusTag: PermanentProtected
   statusDescription: This card is Protected, every damage or status targeted at it
     will be redirected to its Protector
   endTurnBehaviour: 2

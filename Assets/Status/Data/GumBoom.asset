@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 9
   statusName: Gumboom
+  statusTag: GumBoom
   statusDescription: 'Gained when Gumball is attacked while bieng Stun
 
     At 10

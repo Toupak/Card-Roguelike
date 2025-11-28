@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 16
   statusName: Dodge
+  statusTag: Dodge
   statusDescription: Each stack of Dodge provides an additional 30% chances to evades
     enemy attacks
   endTurnBehaviour: 4

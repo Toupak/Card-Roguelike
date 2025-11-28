@@ -13,16 +13,14 @@ namespace Tooltip.Enemy_Intention
             if (cardController.enemyCardController == null || !cardController.enemyCardController.hasIntention)
                 return;
                 
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.SetPosition(cardController.tooltipPivot.position);
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
 
             string title = LocalizationSystem.instance.GetEnemyBehaviourTitle(cardController.enemyCardController.cardController.cardData.localizationKey, cardController.enemyCardController.nextbehaviour.localizationKey);
             string main = LocalizationSystem.instance.GetEnemyBehaviourDescription(cardController.enemyCardController.cardController.cardData.localizationKey, cardController.enemyCardController.nextbehaviour.localizationKey);
 
-            main = CheckForIcons(main);
             main = CheckForDamage(main, cardController.enemyCardController.nextbehaviour.GetDamageText());
             
-            tooltipDisplay.SetupTooltip(title, main);
+            multiTooltipDisplay.SetupTooltip(title, main, cardController.tooltipPivot.position);
         }
     }
 }

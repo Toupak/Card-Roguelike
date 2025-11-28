@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 14
   statusName: Pants
+  statusTag: Pants
   statusDescription: 'You own an extra pair of Pants, and somebody does not
 
     Lucky

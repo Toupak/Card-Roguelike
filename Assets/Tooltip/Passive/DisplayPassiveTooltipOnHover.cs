@@ -10,8 +10,7 @@ namespace Tooltip.Passive
         
         protected override void DisplayTooltip()
         {
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            tooltipDisplay.SetPosition(passiveDisplay.cardController.tooltipPivot.position);
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
 
             PassiveController passiveController = passiveDisplay.passiveController;
             string title;
@@ -21,18 +20,14 @@ namespace Tooltip.Passive
             {
                 title = LocalizationSystem.instance.GetEnemyPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
                 description = LocalizationSystem.instance.GetEnemyPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
-
-                description = CheckForIcons(description);
             }
             else
             {
                 title = LocalizationSystem.instance.GetPassiveTitle(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
                 description = LocalizationSystem.instance.GetPassiveDescription(passiveController.cardController.cardData.localizationKey, passiveController.passiveData.localizationKey);
-
-                description = CheckForIcons(description);
             }
             
-            tooltipDisplay.SetupTooltip(title, description);
+            multiTooltipDisplay.SetupTooltip(title, description, passiveDisplay.cardController.tooltipPivot.position);
         }
     }
 }

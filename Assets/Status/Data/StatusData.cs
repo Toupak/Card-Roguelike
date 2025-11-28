@@ -8,6 +8,7 @@ namespace Status.Data
     {
         public StatusType type;
         public string statusName;
+        public string statusTag;
         [TextArea] public string statusDescription;
         public StatusEndTurnBehaviour endTurnBehaviour;
         public int maxStackCount = -1;

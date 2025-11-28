@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 23
   statusName: Vengeance
+  statusTag: Vengeance
   statusDescription: This card is marked with Vengeance
   endTurnBehaviour: 2
   maxStackCount: 1
