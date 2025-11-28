@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Spider
   tribe: 0
-  hpMax: 18
+  hpMax: 15
   artwork: {fileID: 21300000, guid: acbf3b6a2c0211a48925340b86336163, type: 3}
   description: 
   isSpecialSummon: 0
