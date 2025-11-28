@@ -101,3 +101,4 @@ InitTestScene*.unity*
 # API Secret Leak-Prevention
 /Assets/Localization/GoogleSheetsService.asset
 Assets/Localization/GoogleSheetsService.asset
+Assets/Localization/Google Sheets Service.asset

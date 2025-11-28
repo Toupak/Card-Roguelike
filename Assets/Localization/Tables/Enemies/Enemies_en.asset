@@ -403,6 +403,38 @@ MonoBehaviour:
     m_Localized: Burn the heretics
     m_Metadata:
       m_Items: []
+  - m_Id: 768040070447104
+    m_Localized: Blood Steal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001536
+    m_Localized: Deals 2 damage and heals for the damage dealt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001537
+    m_Localized: Disorienting Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001538
+    m_Localized: Deals 1 DMG, Applies 2 Weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001539
+    m_Localized: Shriek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040104001540
+    m_Localized: Apply 1 weak to all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040108195840
+    m_Localized: Cull the weak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768040108195841
+    m_Localized: If this card receives 0 DMG, counterattacks
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

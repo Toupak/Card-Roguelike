@@ -78,7 +78,7 @@ namespace EnemyAttack
             return null;
         }
 
-        protected virtual List<CardMovement> ComputeTargetList(bool isTargetEnemy, bool canSelfTarget)
+        protected virtual List<CardMovement> ComputeTargetList(bool isTargetEnemy, bool canSelfTarget = false)
         {
             List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(isTargetEnemy ? TargetType.Enemy : TargetType.Ally);
 

@@ -20,6 +20,7 @@ namespace EnemyAttack.Behaviours
         [SerializeField] private bool isTargetEnemy;
         [SerializeField] private bool cantTargetHimself;
         [SerializeField] private bool targetSpecificCard;
+        [SerializeField] private bool targetAllPlayerCards;
         [SerializeField] private CardData specificCard;
 
         public override IEnumerator ExecuteBehavior()
@@ -33,6 +34,18 @@ namespace EnemyAttack.Behaviours
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                     ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, target);
+                    ActionSystem.instance.Perform(applyStatusGa);
+                }
+            }
+            else if (targetAllPlayerCards)
+            {
+                List<CardMovement> targets = ComputeTargetList(isTargetEnemy);
+                
+                foreach (CardMovement target in targets)
+                {
+                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, target.cardController);
                     ActionSystem.instance.Perform(applyStatusGa);
                 }
             }

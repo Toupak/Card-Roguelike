@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: Batsu
+  m_EditorClassIdentifier: 
+  cardNumber: 0
+  cardName: Batsu
+  tribe: 0
+  hpMax: 15
+  artwork: {fileID: 21300000, guid: 53e8329beecf64a4c94fb304ebb05dbf, type: 3}
+  description: 
+  isSpecialSummon: 0
+  alternativeCardPrefab: {fileID: 0}
+  holographicType: 0
+  spellList: []
+  passiveList:
+  - {fileID: 11400000, guid: 69fb99a082aca4949ab92e0dfe0606c6, type: 2}
+  enemyBehaviours:
+  - {fileID: -4812665826472561900, guid: bc898d26da428a0408b737d1094c4318, type: 3}
+  - {fileID: 7531315627641553911, guid: 2a08ab0fffb80804a8db79863f8cc38e, type: 3}
+  - {fileID: 2550367644741885455, guid: d899b94f10f8177469f85fac40358e52, type: 3}
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 1
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
+  localizationKey: batsu

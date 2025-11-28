@@ -12,7 +12,6 @@ namespace EnemyAttack.Behaviours
         
         public override IEnumerator ExecuteBehavior()
         {
-            Debug.Log("Deal Damage Behaviour");
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             CardController target = ComputeTarget();
