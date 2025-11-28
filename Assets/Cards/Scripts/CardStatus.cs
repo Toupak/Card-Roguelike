@@ -40,7 +40,8 @@ namespace Cards.Scripts
         Blood,
         RacoonLastTarget,
         Terror,
-        Poison
+        Poison,
+        Dive
     }
 
     public enum StatusEndTurnBehaviour

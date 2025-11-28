@@ -428,6 +428,14 @@ MonoBehaviour:
     m_Localized: Gain a $Ammo$ at the start of your turn
     m_Metadata:
       m_Items: []
+  - m_Id: 1406103786848256
+    m_Localized: Sonar Mark VI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406103803625472
+    m_Localized: Spread any buff received to the card on the Left
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

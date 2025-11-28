@@ -41,7 +41,7 @@ namespace Spells.Data.BatMerchant
         private void CheckForKillRefresh(DeathGA deathGa)
         {
             if (deathGa.killer == cardController)
-                UpdateShinyState(true);
+                SetShinyState(true);
         }
         
         protected override IEnumerator ConsumeEnergy(int cost)
@@ -58,7 +58,7 @@ namespace Spells.Data.BatMerchant
         protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
             base.EndTurnRefreshCooldownReaction(startTurnGa);
-            UpdateShinyState(false);
+            SetShinyState(false);
         }
         
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
@@ -67,7 +67,7 @@ namespace Spells.Data.BatMerchant
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            UpdateShinyState(false);
+            SetShinyState(false);
             
             bool isSplitAttack = targets.Count > 1 && Tools.RandomBool();
             int targetCount = Mathf.Min(targets.Count, ComputeCurrentTargetCount(isSplitAttack ? 2 : 1));

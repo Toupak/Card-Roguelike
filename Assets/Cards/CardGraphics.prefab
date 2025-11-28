@@ -601,8 +601,8 @@ MonoBehaviour:
   enabledSpriteClicked: {fileID: -334025799, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   disabledSprite: {fileID: -184521455, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   disabledSpriteClicked: {fileID: 636433534, guid: 88e5338810df92c4689589d9ba328704, type: 3}
-  shinySprite: {fileID: 0}
-  shinySpriteClicked: {fileID: 0}
+  shinySprite: {fileID: -1701024081, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+  shinySpriteClicked: {fileID: -821830823, guid: 88e5338810df92c4689589d9ba328704, type: 3}
 --- !u!114 &2949618550067667130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,8 +979,8 @@ MonoBehaviour:
   enabledSpriteClicked: {fileID: -334025799, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   disabledSprite: {fileID: -184521455, guid: 88e5338810df92c4689589d9ba328704, type: 3}
   disabledSpriteClicked: {fileID: 636433534, guid: 88e5338810df92c4689589d9ba328704, type: 3}
-  shinySprite: {fileID: 0}
-  shinySpriteClicked: {fileID: 0}
+  shinySprite: {fileID: -1701024081, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+  shinySpriteClicked: {fileID: -821830823, guid: 88e5338810df92c4689589d9ba328704, type: 3}
 --- !u!114 &2509527285116039162
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -717,6 +717,33 @@ MonoBehaviour:
     m_Localized: Transfer all $Ammo$ to target
     m_Metadata:
       m_Items: []
+  - m_Id: 1406936691736576
+    m_Localized: Acoustic Blast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406936737873920
+    m_Localized: Applies 1 $Weak$ to target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406936742068224
+    m_Localized: Dive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406936742068225
+    m_Localized: '$Dive$ for 1 turn, becoming untargetable
+
+      Can be recast next
+      turn to attack a random target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406936742068226
+    m_Localized: Surface
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406936742068227
+    m_Localized: Surface
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

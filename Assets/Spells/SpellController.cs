@@ -60,7 +60,7 @@ namespace Spells
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 return false;
 
-            if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
+            if (cardController.cardStatus.IsStatusApplied(StatusType.Captured) || cardController.cardStatus.IsStatusApplied(StatusType.Dive))
                 return false;
 
             return true;
@@ -212,7 +212,7 @@ namespace Spells
             return spellData.energyCost;
         }
 
-        public void UpdateShinyState(bool newState)
+        public void SetShinyState(bool newState)
         {
             if (IsShiny == newState)
                 return;
