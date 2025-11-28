@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674757750784
-    m_Localized: Select an ally to $Protection$ during enemy turn. Any Spell/Attack
+    m_Localized: Select an ally to $Protected$ during enemy turn. Any Spell/Attack
       targeting it will be redirected to the Cube
     m_Metadata:
       m_Items: []
@@ -176,7 +176,7 @@ MonoBehaviour:
   - m_Id: 261674766139393
     m_Localized: 'Can only be cast when $Stun$ - Remove $Stun$
 
-      Apply 2 $Furor$
+      Apply 2 $Fury$
       stacks to self'
     m_Metadata:
       m_Items: []
