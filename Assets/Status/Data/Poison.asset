@@ -17,7 +17,7 @@ MonoBehaviour:
   statusTag: Poison
   statusDescription: At the start of its turn, loses HP equals to the stack amount,
     then reduce $Poison$ by 1
-  endTurnBehaviour: 0
+  endTurnBehaviour: 3
   maxStackCount: -1
   barColor:
     serializedVersion: 2
