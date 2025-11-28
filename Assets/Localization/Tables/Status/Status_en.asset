@@ -256,6 +256,15 @@ MonoBehaviour:
     m_Localized: Terrorized Cards deal -1 damage per attack until they receive damage
     m_Metadata:
       m_Items: []
+  - m_Id: 1366194678104064
+    m_Localized: Poison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1366194720047104
+    m_Localized: At the start of its turn, loses HP equals to the stack amount, then
+      reduce $Poison$ by 1
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
