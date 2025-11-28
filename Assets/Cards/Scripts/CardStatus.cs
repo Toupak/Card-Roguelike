@@ -39,7 +39,8 @@ namespace Cards.Scripts
         Vengeance,
         Blood,
         RacoonLastTarget,
-        Terror
+        Terror,
+        Poison
     }
 
     public enum StatusEndTurnBehaviour
@@ -95,7 +96,10 @@ namespace Cards.Scripts
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
             if (IsCorrectTurn(startTurnGa.starting))
+            {
                 UpdateStacksAtStartOfTurn();
+                CheckForPoisonStacks();
+            }
         }
 
         private void EndTurnReaction(EndTurnGA endTurnGa)
@@ -112,6 +116,15 @@ namespace Cards.Scripts
             {
                 DealDamageGA doritoCaltrop = new DealDamageGA(1, cardController, cardController);
                 ActionSystem.instance.AddReaction(doritoCaltrop);
+            }
+        }
+
+        private void CheckForPoisonStacks()
+        {
+            if (IsStatusApplied(StatusType.Poison))
+            {
+                DealDamageGA poisonDamage = new DealDamageGA(GetCurrentStackCount(StatusType.Poison), cardController, cardController);
+                ActionSystem.instance.AddReaction(poisonDamage);
             }
         }
 
