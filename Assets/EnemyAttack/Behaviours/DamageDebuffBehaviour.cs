@@ -29,6 +29,7 @@ namespace EnemyAttack.Behaviours
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, target);
             ActionSystem.instance.Perform(applyStatusGa);
         }
+
         public override string GetDamageText()
         {
             return $"{ComputeCurrentDamage(damage, null)}";

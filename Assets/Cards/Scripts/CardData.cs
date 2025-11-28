@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Board.Script;
 using EnemyAttack;
+using Frames;
 using Passives;
 using Spells;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace Cards.Scripts
         public string description;
         public bool isSpecialSummon;
         public CardController alternativeCardPrefab;
-        public CardHolographicDisplay.HolographicType holographicType;
+        public FrameData frameData;
         
         [Space]
         public List<SpellData> spellList;

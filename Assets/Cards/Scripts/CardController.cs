@@ -1,4 +1,5 @@
 using EnemyAttack;
+using Frames;
 using JetBrains.Annotations;
 using Passives;
 using Run_Loop;
@@ -23,6 +24,7 @@ namespace Cards.Scripts
         [SerializeField] public TextMeshProUGUI enemyIntentionText;
         [SerializeField] public BaseEnemyBehaviour waitingBehaviourPrefab;
         [SerializeField] public RectTransform tooltipPivot;
+        [SerializeField] public FrameDisplay frameDisplay;
 
         [HideInInspector] public UnityEvent OnKillCard = new UnityEvent();
         
@@ -37,7 +39,6 @@ namespace Cards.Scripts
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
-        public CardHolographicDisplay cardHolographicDisplay { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
 
         public CardController tokenParentController { get; private set; } // is Null for regular cards, only  set for tokens
@@ -59,7 +60,6 @@ namespace Cards.Scripts
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
             cardStatus = GetComponent<CardStatus>();
-            cardHolographicDisplay = GetComponent<CardHolographicDisplay>();
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
@@ -78,7 +78,7 @@ namespace Cards.Scripts
             SetupEnemyIntention(cardMovement.IsEnemyCard);
             SetupSpells(cardMovement.IsEnemyCard);
             SetupPassives();
-            SetupHolographicDisplay();
+            SetupFrame();
         }
 
         public void SetCardName(string newName)
@@ -155,9 +155,10 @@ namespace Cards.Scripts
                 passiveHolder.Setup(this, cardData);
         }
         
-        private void SetupHolographicDisplay()
+        private void SetupFrame()
         {
-            cardHolographicDisplay.SetHolographicMaterial(cardData.holographicType);
+            if (cardData.frameData != null)
+                frameDisplay.SetupFrame(this, cardData.frameData);
         }
 
         public void SetArtwork(Sprite newSprite)
