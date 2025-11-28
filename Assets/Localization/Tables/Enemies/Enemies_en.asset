@@ -459,6 +459,30 @@ MonoBehaviour:
     m_Localized: Applies 1 $stun$
     m_Metadata:
       m_Items: []
+  - m_Id: 1037173588656128
+    m_Localized: Protein Shake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037173622210560
+    m_Localized: Heal Self for 2HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037173622210561
+    m_Localized: 80LB Punch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037173622210562
+    m_Localized: Deals $d$ DMG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037173622210563
+    m_Localized: Fungym Sweat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037173622210564
+    m_Localized: Applies 2 $Poison$
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
