@@ -420,6 +420,14 @@ MonoBehaviour:
     m_Localized: Looses 1 Health Point at the start of your turn
     m_Metadata:
       m_Items: []
+  - m_Id: 1114501516328960
+    m_Localized: And Another One
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1114501533106176
+    m_Localized: Gain a $Ammo$ at the start of your turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

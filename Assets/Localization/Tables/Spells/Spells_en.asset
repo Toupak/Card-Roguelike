@@ -709,6 +709,14 @@ MonoBehaviour:
     m_Localized: Applies 1 $Terror$ to target enemy
     m_Metadata:
       m_Items: []
+  - m_Id: 1115334307971072
+    m_Localized: LOADIIIING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1115334471548928
+    m_Localized: Transfer all $Ammo$ to target
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
