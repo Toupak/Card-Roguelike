@@ -17,6 +17,7 @@ MonoBehaviour:
   statusTag: Ammo
   statusDescription: Ammunitions used for some attacks
   endTurnBehaviour: 2
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

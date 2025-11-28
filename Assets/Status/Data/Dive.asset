@@ -20,6 +20,7 @@ MonoBehaviour:
     Next turn can recast to
     attack random target'
   endTurnBehaviour: 3
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

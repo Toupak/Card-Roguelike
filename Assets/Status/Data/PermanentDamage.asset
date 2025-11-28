@@ -17,6 +17,7 @@ MonoBehaviour:
   statusTag: PermanentDamage
   statusDescription: This unit's attack is permanently improved
   endTurnBehaviour: 2
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

@@ -429,11 +429,27 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406103786848256
-    m_Localized: Sonar Mark VI
+    m_Localized: Sonar Mk VI
     m_Metadata:
       m_Items: []
   - m_Id: 1406103803625472
     m_Localized: Spread any buff received to the card on the Left
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461001735864320
+    m_Localized: Optical Sensor Mk IX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461001735864321
+    m_Localized: Spread any Status received to the card on the Right
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461001735864322
+    m_Localized: Bionic Fin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461001735864323
+    m_Localized: Gain 1 $PermanentDamage$ on kill
     m_Metadata:
       m_Items: []
   references:

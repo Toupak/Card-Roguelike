@@ -21,6 +21,7 @@ MonoBehaviour:
 
     Its spells will target 1 more target'
   endTurnBehaviour: 0
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

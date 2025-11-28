@@ -14,15 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardNumber: 0
   cardName: Nado
-  tribe: 0
-  hpMax: 0
+  tribe: 1
+  hpMax: 15
   artwork: {fileID: 21300000, guid: 51d31d318a4d1f344a047ebc903aefe3, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: 78a5952d7a2b1a744b2223ada7bcf436, type: 2}
+  - {fileID: 11400000, guid: ce9e26a0769b72943893bce399f0abf6, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: a5b6fec104b8d5a40a273fa390592660, type: 2}
+  - {fileID: 11400000, guid: 381b9d81f06d98d499b396570dee1b97, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

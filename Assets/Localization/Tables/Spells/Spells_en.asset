@@ -722,7 +722,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406936737873920
-    m_Localized: Applies 1 $Weak$ to target
+    m_Localized: Deals $d$ damage and Applies 1 $Weak$ to target
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068224
@@ -738,7 +738,34 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068227
+    m_Localized: Deal %d% damage to a random enemy target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461834686889984
+    m_Localized: Steel Smile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461834686889985
+    m_Localized: Deal $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461834686889986
+    m_Localized: Dive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461834686889987
+    m_Localized: '$Dive$ for 1 turn, becoming untargetable
+
+      Can be recast next
+      turn to attack a random target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461834686889988
     m_Localized: Surface
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1461834686889989
+    m_Localized: Deal $d$ damage to a random enemy target
     m_Metadata:
       m_Items: []
   references:

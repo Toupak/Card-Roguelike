@@ -17,6 +17,7 @@ MonoBehaviour:
   statusTag: Vengeance
   statusDescription: This card is marked with Vengeance
   endTurnBehaviour: 2
+  effectType: 2
   maxStackCount: 1
   barColor:
     serializedVersion: 2

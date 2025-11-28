@@ -42,10 +42,7 @@ namespace Spells.Data.Dolphin
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
             if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
-            {
-                Debug.Log("ZUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
                 cardController.SetupRightSpell(diveSpell);
-            }
         }
     }
 }

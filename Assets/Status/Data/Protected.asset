@@ -18,6 +18,7 @@ MonoBehaviour:
   statusDescription: This card is Protected, every damage or status targeted at it
     will be redirected to its Protector
   endTurnBehaviour: 3
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

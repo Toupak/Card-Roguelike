@@ -18,6 +18,7 @@ MonoBehaviour:
   statusDescription: On Death Hognade will deal as many damages to all enemies as
     he has stacks of Groink.
   endTurnBehaviour: 2
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

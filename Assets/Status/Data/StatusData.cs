@@ -6,11 +6,19 @@ namespace Status.Data
     [CreateAssetMenu(fileName = "StatusData", menuName = "Scriptable Objects/StatusData")]
     public class StatusData : ScriptableObject
     {
+        public enum EffectType
+        {
+            Neutral,
+            Positive,
+            Negative
+        }
+        
         public StatusType type;
         public string statusName;
         public string statusTag;
         [TextArea] public string statusDescription;
         public StatusEndTurnBehaviour endTurnBehaviour;
+        public EffectType effectType;
         public int maxStackCount = -1;
         
         [Space]

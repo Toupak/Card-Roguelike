@@ -18,6 +18,7 @@ MonoBehaviour:
   statusDescription: Terrorized Cards deal -1 damage per attack until they receive
     damage
   endTurnBehaviour: 2
+  effectType: 2
   maxStackCount: -1
   barColor:
     serializedVersion: 2

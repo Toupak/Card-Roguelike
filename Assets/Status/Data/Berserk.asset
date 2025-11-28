@@ -17,6 +17,7 @@ MonoBehaviour:
   statusTag: Berserk
   statusDescription: Deal double damage, receive double damage
   endTurnBehaviour: 3
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

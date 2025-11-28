@@ -4,6 +4,8 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Passives;
 using Spells.Targeting;
+using Status;
+using Status.Data;
 using UnityEngine;
 
 namespace Spells.Data.Dolphin
@@ -32,7 +34,7 @@ namespace Spells.Data.Dolphin
 
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.target == cardController)
+            if (applyStatusGa.target == cardController && applyStatusGa.type != StatusType.Dive && StatusSystem.instance.GetStatusData(applyStatusGa.type).effectType != StatusData.EffectType.Negative)
             {
                 int currentSlotIndex = cardController.cardMovement.SlotIndex;
 

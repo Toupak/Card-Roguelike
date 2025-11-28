@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
-  m_Name: DolphinDebuff
+  m_Name: SharkSurface
   m_EditorClassIdentifier: 
-  spellName: Acoustic Blast
-  description: Deals $d$ damage and Applies 1 $Weak$ to target
+  spellName: Surface
+  description: Deal $d$ damage to a random enemy target
   icon: {fileID: 0}
   targetType: 1
-  targetingMode: 0
+  targetingMode: 2
   targetCount: 1
-  energyCost: 1
+  energyCost: 0
   hasNoCooldown: 0
   damage: 1
-  inflictStatus: 10
-  statusStacksApplied: 1
-  spellController: {fileID: 0}
-  localizationKey: dolphindebuff
+  inflictStatus: 0
+  statusStacksApplied: 0
+  spellController: {fileID: 4320148321296484012, guid: 6050940e3491e6241995931259ce83f9, type: 3}
+  localizationKey: sharksurface

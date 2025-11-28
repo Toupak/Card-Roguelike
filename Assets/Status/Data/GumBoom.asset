@@ -20,6 +20,7 @@ MonoBehaviour:
     At 10
     stacks, Gumball explodes'
   endTurnBehaviour: 2
+  effectType: 1
   maxStackCount: 10
   barColor:
     serializedVersion: 2

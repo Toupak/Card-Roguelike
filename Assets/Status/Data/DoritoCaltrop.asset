@@ -20,6 +20,7 @@ MonoBehaviour:
     (the amount
     of damage does not increase with the amount of stacks)'
   endTurnBehaviour: 2
+  effectType: 2
   maxStackCount: -1
   barColor:
     serializedVersion: 2

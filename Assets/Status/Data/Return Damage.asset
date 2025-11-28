@@ -17,6 +17,7 @@ MonoBehaviour:
   statusTag: ReturnDamage
   statusDescription: If attacked, enemies take 1 damage back
   endTurnBehaviour: 3
+  effectType: 1
   maxStackCount: -1
   barColor:
     serializedVersion: 2

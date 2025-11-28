@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: DolphinPassive
+  m_Name: SharkPassive
   m_EditorClassIdentifier: 
-  passiveName: Sonar Mk VI
-  description: Spread any buff received to the card on the Left
+  passiveName: Optical Sensor Mk IX
+  description: Spread any Status received to the card on the Right
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
     rgba: 4290017342
-  passiveController: {fileID: -4377006162449676036, guid: 6381c6a901b687a478e40a48fa0eaef3, type: 3}
-  localizationKey: dolphinpassive
+  passiveController: {fileID: -4377006162449676036, guid: d2cafcd5bd8cb3a4b98b6eb03e39e0d9, type: 3}
+  localizationKey: sharkpassive

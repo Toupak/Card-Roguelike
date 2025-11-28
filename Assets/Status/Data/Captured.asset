@@ -17,6 +17,7 @@ MonoBehaviour:
   statusTag: Captured
   statusDescription: Unit is unable to perform any action
   endTurnBehaviour: 0
+  effectType: 2
   maxStackCount: -1
   barColor:
     serializedVersion: 2
