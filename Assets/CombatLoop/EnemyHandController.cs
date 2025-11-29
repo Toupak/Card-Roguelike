@@ -20,7 +20,6 @@ namespace CombatLoop
 
         [SerializeField] private CardContainer enemyBoardContainer;
         [SerializeField] private CardMovement cardMovementPrefab;
-        [SerializeField] private List<BattleData> battles;
         
         public CardContainer container => enemyBoardContainer;
 
@@ -87,11 +86,9 @@ namespace CombatLoop
             }
         }
 
-        public IEnumerator SetupBattle()
+        public IEnumerator SetupBattle(BattleData battle)
         {
-            int randomIndex = Random.Range(0, battles.Count);
-
-            foreach (CardData data in battles[randomIndex].enemyList)
+            foreach (CardData data in battle.enemyList)
             {
                 SpawnEnemy(data);
                 yield return new WaitForSeconds(0.15f);

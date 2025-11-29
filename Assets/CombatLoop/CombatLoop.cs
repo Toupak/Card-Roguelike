@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Battles.Data;
 using Board.Script;
 using BoomLib.Tools;
 using BoomLib.UI.Scripts;
@@ -26,6 +28,9 @@ namespace CombatLoop
         [Space] 
         [SerializeField] private TurnEndAnimation turnEndAnimation;
         
+        [SerializeField] private List<BattleData> battles;
+        private int battleIndex = 0;
+
         public enum TurnType
         {
             Preparation,
@@ -47,6 +52,7 @@ namespace CombatLoop
         private IEnumerator Start()
         {
             turnCount = 0;
+            battleIndex = 0;
             currentTurn = TurnType.Preparation;
             yield return SetupButtons();
             yield return FightIntro();
@@ -130,7 +136,8 @@ namespace CombatLoop
         
         private IEnumerator PlaceEnemyCards()
         {
-            yield return enemyHandController.SetupBattle();
+            yield return enemyHandController.SetupBattle(battles[battleIndex]);
+            battleIndex += 1;
         }
         
         private IEnumerator DrawCards()
