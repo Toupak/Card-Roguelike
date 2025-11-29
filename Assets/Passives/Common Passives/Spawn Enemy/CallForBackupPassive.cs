@@ -10,12 +10,12 @@ using Random = UnityEngine.Random;
 
 namespace EnemyAttack.Goboking_Fight.Goboking
 {
-    public class CallForBackup : PassiveController
+    public class CallForBackupPassive : PassiveController
     {
         [SerializeField] protected List<CardData> cardsToSpawn;
-        [SerializeField] private int goblinsToSpawnCount;
+        [SerializeField] private int cardToSpawnCount;
         [SerializeField] private int turnsBetweenSpawns;
-        [SerializeField] private int maxGoblinCount;
+        [SerializeField] private int maxEnemyCount;
 
         private int currentEnemyCount => TargetingSystem.instance.RetrieveBoard(TargetType.Enemy).Count;
 
@@ -36,10 +36,10 @@ namespace EnemyAttack.Goboking_Fight.Goboking
 
             int currentTurn = CombatLoop.CombatLoop.instance.turnCount;
             bool isSpawnTurn = currentTurn == 1 || currentTurn % turnsBetweenSpawns == 0;
-            if (isSpawnTurn && currentEnemyCount < maxGoblinCount)
+            if (isSpawnTurn && currentEnemyCount < maxEnemyCount)
             {
-                int newGoblinCount = Mathf.Min(goblinsToSpawnCount, maxGoblinCount - currentEnemyCount);
-                for (int i = 0; i < newGoblinCount; i++)
+                int newEnemyCount = Mathf.Min(cardToSpawnCount, maxEnemyCount - currentEnemyCount);
+                for (int i = 0; i < newEnemyCount; i++)
                 {
                     SpawnRandomEnemy();
                 }

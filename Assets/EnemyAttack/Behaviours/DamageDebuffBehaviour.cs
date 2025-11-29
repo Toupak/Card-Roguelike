@@ -11,23 +11,30 @@ namespace EnemyAttack.Behaviours
         [SerializeField] private int damage;
         [SerializeField] private StatusType statusType;
         [SerializeField] private int stacks;
+        [SerializeField] private int hitCount;
 
         public override IEnumerator ExecuteBehavior()
         {
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            CardController target = ComputeTarget();
+            if (hitCount <= 0) //to hit at least once if hitCount isn't set
+                hitCount = 1;
 
-            if (target == null)
-                yield break;
+            for (int i = 0; i < hitCount; i++)
+            {
+                CardController target = ComputeTarget();
 
-            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
-            ActionSystem.instance.Perform(damageGa);
+                if (target == null)
+                    yield break;
 
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
+                ActionSystem.instance.Perform(damageGa);
 
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, target);
-            ActionSystem.instance.Perform(applyStatusGa);
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, enemyCardController.cardController, target);
+                ActionSystem.instance.Perform(applyStatusGa);
+            }
         }
 
         public override string GetDamageText()
