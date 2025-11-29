@@ -138,6 +138,9 @@ namespace CombatLoop
         {
             yield return enemyHandController.SetupBattle(battles[battleIndex]);
             battleIndex += 1;
+
+            if (battleIndex >= battles.Count)
+                battleIndex = 0;
         }
         
         private IEnumerator DrawCards()
