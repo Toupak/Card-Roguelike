@@ -60,7 +60,7 @@ MonoBehaviour:
   whitePassive: {fileID: 11400000, guid: 51daa183acda39641a999a5a14de9005, type: 2}
   bluePassive: {fileID: 11400000, guid: a2a117d2e83ba0144bb17075a16dccc2, type: 2}
   redPassive: {fileID: 11400000, guid: 6c03996e1a998e04db302aa243d11398, type: 2}
-  whiteSprite: {fileID: -5285785097126754818, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
+  whiteSprite: {fileID: -5285785097126754818, guid: 720d7ca1699da174ba0f305de2bbce93, type: 3}
   blueSprite: {fileID: 5219528537255451192, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
   redSprite: {fileID: -2352396353401391747, guid: 12665ce9b220b034e8c5ce67a26ed71a, type: 3}
   tokenData:
