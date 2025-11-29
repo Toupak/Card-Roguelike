@@ -819,6 +819,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StatusIcons_29
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6543a16b3ee836e4ca2a2b9afc247828
+      internalID: -1806700418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -855,6 +877,7 @@ TextureImporter:
       StatusIcons_26: 1457112777
       StatusIcons_27: 1318001805
       StatusIcons_28: 314564684
+      StatusIcons_29: -1806700418
       StatusIcons_3: -8211022945955410972
       StatusIcons_4: 4847072211282044801
       StatusIcons_5: 8118723070098738515

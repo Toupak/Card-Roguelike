@@ -276,6 +276,16 @@ MonoBehaviour:
       attack random target'
     m_Metadata:
       m_Items: []
+  - m_Id: 1800943976546304
+    m_Localized: Corpse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1800944131735552
+    m_Localized: 'Just a pile of bones and guts
+
+      Tastes good but smells bad'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

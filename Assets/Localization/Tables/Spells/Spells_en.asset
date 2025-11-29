@@ -787,6 +787,25 @@ MonoBehaviour:
     m_Localized: Deal $d$ damage to a random enemy target
     m_Metadata:
       m_Items: []
+  - m_Id: 1802639427469312
+    m_Localized: Corpsin' Around
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802639448440832
+    m_Localized: 'Deal $d$ damage to a target
+
+      Then produce 1 $Corpse$ '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802639448440833
+    m_Localized: Back On The Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802639448440834
+    m_Localized: Consumes 3 random Corpses to give $BonusDamage$ to all your tokens
+      this turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -41,7 +41,8 @@ namespace Cards.Scripts
         RacoonLastTarget,
         Terror,
         Poison,
-        Dive
+        Dive,
+        Corpse
     }
 
     public enum StatusEndTurnBehaviour

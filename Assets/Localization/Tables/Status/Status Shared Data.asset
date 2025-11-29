@@ -239,6 +239,14 @@ MonoBehaviour:
     m_Key: dive
     m_Metadata:
       m_Items: []
+  - m_Id: 1800943976546304
+    m_Key: corpse_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1800944131735552
+    m_Key: corpse
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
