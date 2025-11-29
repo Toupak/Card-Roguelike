@@ -1,3 +1,4 @@
+using System;
 using Board.Script;
 using CardSlot.Script;
 using Cursor.Script;
@@ -167,6 +168,18 @@ namespace Cards.Scripts
             {
                 tokenContainer.Slots[i].CurrentCard.cardController.KillCard();
             }
+        }
+
+        private void OnEnable()
+        {
+            if (cardController != null)
+                cardController.gameObject.SetActive(true);
+        }
+
+        private void OnDisable()
+        {
+            if (cardController != null)
+                cardController.gameObject.SetActive(false);
         }
     }
 }
