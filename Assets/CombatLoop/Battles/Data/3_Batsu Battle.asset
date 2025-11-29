@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e90873164f7f53b4fbda6b906254d1ee, type: 3}
-  m_Name: Shroom Battle
+  m_Name: 3_Batsu Battle
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 11400000, guid: 9fd11f3134e942e449fca9df71e79ead, type: 2}
-  - {fileID: 11400000, guid: 9fd11f3134e942e449fca9df71e79ead, type: 2}
+  - {fileID: 11400000, guid: 6e08411abbe400f4e9667eb1cdf0098b, type: 2}
