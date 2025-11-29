@@ -452,6 +452,28 @@ MonoBehaviour:
     m_Localized: Gain 1 $PermanentDamage$ on kill
     m_Metadata:
       m_Items: []
+  - m_Id: 1479028212727808
+    m_Localized: Powerfull Blowhole
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479028233699328
+    m_Localized: 'At Turn start, gain 1 $BonusDamage$
+
+      The card on your Left
+      also gains 1 $BonusDamage$'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479028233699329
+    m_Localized: Warm Blubber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479028233699330
+    m_Localized: 'On Turn end, gain 1 $Armor$
+
+      The card on your Right also
+      gains 1 $Armor$'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

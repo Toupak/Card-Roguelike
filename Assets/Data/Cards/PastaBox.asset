@@ -15,14 +15,17 @@ MonoBehaviour:
   cardNumber: 0
   cardName: PastaBox
   tribe: 0
-  hpMax: 0
+  hpMax: 15
   artwork: {fileID: 21300000, guid: a611b09aa2a45a24685c48e90b620a5c, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: 1c66a57bb60d972449d790df2ebba593, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 6e5954a4b80748047b39e5f75ab91dfa, type: 2}
+  - {fileID: 11400000, guid: 7b44fc9b8101f1648a9020a732124a53, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

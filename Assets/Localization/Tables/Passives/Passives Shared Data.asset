@@ -407,6 +407,22 @@ MonoBehaviour:
     m_Key: nado_sharkbonusdamagepassive
     m_Metadata:
       m_Items: []
+  - m_Id: 1479028212727808
+    m_Key: pastabox_whaledamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479028233699328
+    m_Key: pastabox_whaledamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479028233699329
+    m_Key: pastabox_whalearmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479028233699330
+    m_Key: pastabox_whalearmor
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

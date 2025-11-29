@@ -9,8 +9,6 @@ namespace Spells.Data.Dolphin
 {
     public class DiveSpell : SpellController
     {
-        //Passive
-        
         [SerializeField] private SpellData surfaceSpell;
 
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
@@ -37,7 +35,12 @@ namespace Spells.Data.Dolphin
         private void ConsumeStacksReaction(ConsumeStacksGa consumeStacksGa)
         {
             if (consumeStacksGa.target == cardController && consumeStacksGa.type == StatusType.Dive)
-                cardController.SetupRightSpell(surfaceSpell);
+            {
+                if (cardController.cardData.spellList.Count == 1)
+                    cardController.SetupSingleSpell(surfaceSpell);
+                else
+                    cardController.SetupRightSpell(surfaceSpell);
+            }
         }
     }
 }

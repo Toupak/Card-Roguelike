@@ -21,6 +21,9 @@ namespace Spells.Data.Dolphin
         {
             yield return base.CastSpellOnTarget(targets);
 
+            if (targets.Count < 1)
+                yield break;
+            
             DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, targets[Random.Range(0, targets.Count)].cardController);
             ActionSystem.instance.Perform(dealDamageGa);
             
@@ -42,7 +45,12 @@ namespace Spells.Data.Dolphin
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
             if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
-                cardController.SetupRightSpell(diveSpell);
+            {
+                if (cardController.cardData.spellList.Count == 1)
+                    cardController.SetupSingleSpell(diveSpell);
+                else
+                    cardController.SetupRightSpell(diveSpell);
+            }
         }
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: WhaleDamage
+  m_EditorClassIdentifier: 
+  passiveName: Powerfull Blowhole
+  description: 'At Turn start, gain 1 $Damage$
+
+    The card on your Left also gains
+    1 $Damage$'
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4281544631
+  passiveController: {fileID: -4884447596345226481, guid: b28dcd8aed3a6b74c9cd45d1ebf09b71, type: 3}
+  localizationKey: whaledamage

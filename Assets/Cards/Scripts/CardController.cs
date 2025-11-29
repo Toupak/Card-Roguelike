@@ -149,6 +149,15 @@ namespace Cards.Scripts
             rightButton.gameObject.SetActive(true);
         }
         
+        public void SetupSingleSpell(SpellData right)
+        {
+            singleButton.Setup(this, right);
+            
+            rightButton.gameObject.SetActive(false);
+            leftButton.gameObject.SetActive(false);
+            singleButton.gameObject.SetActive(true);
+        }
+        
         private void SetupPassives()
         {
             if (cardData.passiveList.Count > 0)

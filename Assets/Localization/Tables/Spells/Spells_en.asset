@@ -738,7 +738,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068227
-    m_Localized: Deal %d% damage to a random enemy target
+    m_Localized: Deal $d$ damage to a random enemy target
     m_Metadata:
       m_Items: []
   - m_Id: 1461834686889984
@@ -746,7 +746,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1461834686889985
-    m_Localized: Deal $d$ damage
+    m_Localized: Deal $d$ damage to 2 enemy targets
     m_Metadata:
       m_Items: []
   - m_Id: 1461834686889986
@@ -765,6 +765,25 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1461834686889989
+    m_Localized: Deal $d$ damage to a random enemy target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479861126004736
+    m_Localized: Dive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479861167947776
+    m_Localized: '$Dive$ for 1 turn, becoming untargetable
+
+      Can be recast next
+      turn to attack a random target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479861167947777
+    m_Localized: Surface
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1479861167947778
     m_Localized: Deal $d$ damage to a random enemy target
     m_Metadata:
       m_Items: []

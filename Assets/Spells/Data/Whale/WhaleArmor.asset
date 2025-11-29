@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: WhaleArmor
+  m_EditorClassIdentifier: 
+  passiveName: Warm Blubber
+  description: 'On Turn end, gain 1 $Armor$
+
+    The card on your Right also gains
+    1 $Armor$'
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4287638565
+  passiveController: {fileID: 6273112465388469171, guid: eebfbb50c1d04da4eaf0ff0bb38db661, type: 3}
+  localizationKey: whalearmor
