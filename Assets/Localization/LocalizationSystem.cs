@@ -35,7 +35,6 @@ namespace Localization
         private void Start()
         {
             //UpdateGlyphs();
-            //UpdateStatus();
         }
         
         public string GetSpellTitle(string cardKey, string spellKey)
@@ -115,7 +114,7 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
 
-        
+        /*
         private void UpdateGlyphs()
         {
             Debug.Log($"{spriteAsset.name}");
@@ -126,26 +125,6 @@ namespace Localization
                 glyph.metrics = new GlyphMetrics(32, 32, -5, 24, 24);
             }
         }
-
-        private void UpdateStatus()
-        {
-            foreach (StatusData data in StatusSystem.instance.statusData)
-            {
-                string key = ComputeLocalizationKey(data.name);
-
-                data.localizationKey = key;
-                EditorUtility.SetDirty(data);
-                
-                statusTable.AddEntry($"{key}_title", data.statusName);
-                statusTable.AddEntry($"{key}", data.statusDescription);
-                
-                Debug.Log($"Create new Status : {key} => {data.statusName} / {data.statusDescription}");
-            }
-        }
-
-        private static string ComputeLocalizationKey(string cardDataCardName)
-        {
-            return cardDataCardName.ToLower().RemoveWhitespace();
-        }
+        */
     }
 }

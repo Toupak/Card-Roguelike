@@ -45,7 +45,18 @@ namespace Board.Script
             Center
         }
 
-        public bool IsFull => slots.Count >= maxCardCount; 
+        public bool IsFull()
+        {
+            if (type == ContainerType.Board)
+            {
+                if (CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
+                    return slots.Count >= maxCardCount;
+                else
+                    return false;
+            }
+            
+            return slots.Count >= maxCardCount;
+        } 
 
         private void OnEnable()
         {
@@ -99,7 +110,7 @@ namespace Board.Script
             
             CardContainer currentCursorCardContainer = CursorInfo.instance.LastCardContainer;
             
-            if (currentCursorCardContainer != this && !currentCursorCardContainer.IsFull && currentCursorCardContainer.type != ContainerType.Enemy)
+            if (currentCursorCardContainer != this && !currentCursorCardContainer.IsFull() && currentCursorCardContainer.type != ContainerType.Enemy)
             {
                 SendToOtherBoard(currentCursorCardContainer);
                 return true;

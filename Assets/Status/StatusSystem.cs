@@ -14,7 +14,7 @@ namespace Status
 {
     public class StatusSystem : MonoBehaviour
     {
-        [SerializeField] public List<StatusData> statusData;
+        [SerializeField] public StatusDataHolder statusData;
 
         public static StatusSystem instance;
 
@@ -71,7 +71,7 @@ namespace Status
             if (type == StatusType.None)
                 return null;
             
-            return statusData.Where((s) => s.type == type).ToList().First();
+            return statusData.data.Where((s) => s.type == type).ToList().First();
         }
         
         private IEnumerator ApplyPassivePerformer(ApplyPassiveGa applyPassiveGa)

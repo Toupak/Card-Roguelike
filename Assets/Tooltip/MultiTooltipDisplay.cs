@@ -72,7 +72,7 @@ namespace Tooltip
             string finalString = message;
             string[] chunks = message.Split('$');
 
-            List<StatusData> rules = StatusSystem.instance.statusData;
+            List<StatusData> rules = StatusSystem.instance.statusData.data;
             
             foreach (string chunk in chunks)
             {

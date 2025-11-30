@@ -4,6 +4,8 @@ using Data;
 using EnemyAttack;
 using Passives;
 using Spells;
+using Status;
+using Status.Data;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
@@ -13,11 +15,15 @@ namespace Editor
     public static class LocalizationTools
     {
         private const string cardDBPath = "Assets/Data/CardDatabase.asset";
+        
         private const string spellTablePath = "Assets/Localization/Tables/Spells/Spells_en.asset";
         private const string passiveTablePath = "Assets/Localization/Tables/Passives/Passives_en.asset";
         private const string combatTablePath = "Assets/Localization/Tables/Combat/Combat_en.asset";
         private const string statusTablePath = "Assets/Localization/Tables/Status/Status_en.asset";
         private const string enemiesTablePath = "Assets/Localization/Tables/Enemies/Enemies_en.asset";
+        
+        private const string statusHolderPath = "Assets/Status/StatusDataHolder.asset";
+        
 
         [MenuItem("Tools/Add New Card To Trad File")]
         private static void AddNewCardToTradFile()
@@ -102,7 +108,7 @@ namespace Editor
         }
         
 
-        [MenuItem("Tools/SetAllDataAsDirty")]
+        [MenuItem("Tools/Set All Data As Dirty")]
         private static void SetAllDataAsDirty()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(cardDBPath);
@@ -119,6 +125,26 @@ namespace Editor
                 }
                 
                 EditorUtility.SetDirty(cardData);
+            }
+        }
+        
+        [MenuItem("Tools/Update Status")]
+        private static void UpdateStatus()
+        {
+            StatusDataHolder statusDataHolder = AssetDatabase.LoadAssetAtPath<StatusDataHolder>(statusHolderPath);
+            StringTable statusTable = AssetDatabase.LoadAssetAtPath<StringTable>(statusTablePath);
+            
+            foreach (StatusData data in statusDataHolder.data)
+            {
+                string key = ComputeLocalizationKey(data.name);
+
+                data.localizationKey = key;
+                EditorUtility.SetDirty(data);
+                
+                statusTable.AddEntry($"{key}_title", data.statusName);
+                statusTable.AddEntry($"{key}", data.statusDescription);
+                
+                Debug.Log($"Create new Status : {key} => {data.statusName} / {data.statusDescription}");
             }
         }
         
