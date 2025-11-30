@@ -1,5 +1,7 @@
 using System.Collections;
+using Battles.Data;
 using BoomLib.Tools;
+using CombatLoop.Battles;
 using Data;
 using Run_Loop.Rewards;
 using Run_Loop.Run_Parameters;
@@ -20,11 +22,17 @@ namespace Run_Loop
 
         [Space] 
         [SerializeField] private CardDatabase cardDatabase;
-        
+
+        [Space] 
+        [SerializeField] private BattlesDataHolder battlesDataHolder;
+
         public static RunLoop instance;
         
         public RunParameterData currentRunParameterData { get; private set; }
         public CardDatabase dataBase => cardDatabase;
+        public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
+
+        private int currentBattleIndex;
         
         private void Awake()
         {
@@ -51,6 +59,8 @@ namespace Run_Loop
 
         private IEnumerator StartNewRun(bool alreadyInParameterScene)
         {
+            currentBattleIndex = 0;
+            
             if (!alreadyInParameterScene)
                 yield return LoadScene(parameterScene);
             yield return new WaitUntil(AreParametersSet);
@@ -70,6 +80,10 @@ namespace Run_Loop
                 
                 if (IsRunOver() || !isPlayerAlive)
                     break;
+
+                currentBattleIndex += 1;
+                if (currentBattleIndex >= battlesDataHolder.battles.Count)
+                    currentBattleIndex = 0;
             }
 
             if (!isPlayerAlive)

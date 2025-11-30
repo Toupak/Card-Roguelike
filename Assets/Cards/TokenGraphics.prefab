@@ -576,11 +576,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 5846551718353681148}
   otherButton: {fileID: 6589867945874465917}
+  spellIndex: 0
   defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
   OnClickSpellButton:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCastSpell:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1780229874216609130
@@ -619,7 +617,6 @@ GameObject:
   - component: {fileID: 548480995114548304}
   - component: {fileID: 6557015351701204799}
   - component: {fileID: 6970137505809147812}
-  - component: {fileID: 7921968668579303935}
   m_Layer: 5
   m_Name: TokenGraphics
   m_TagString: Untagged
@@ -711,6 +708,10 @@ MonoBehaviour:
   enemyIntentionText: {fileID: 1706371153923554771}
   waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
   tooltipPivot: {fileID: 9094074899509975384}
+  frameDisplay: {fileID: 0}
+  OnKillCard:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8295655282853786504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,24 +803,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusTabDisplayPrefab: {fileID: 1682361987783622097, guid: afedba0fe75c38c4b945691f17d26c87, type: 3}
   statusTabHolder: {fileID: 9056944542933817794}
---- !u!114 &7921968668579303935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3317175333349962056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f936744967776742b0e206aef0eb749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 6798356254265823371}
-  grayHolographicMaterial: {fileID: 2100000, guid: 729c92b979671004988b37a1b060cb2a, type: 2}
-  greenHolographicMaterial: {fileID: 2100000, guid: 0da223e27256e71469d5f045ba02eae6, type: 2}
-  colorfulHolographicMaterial: {fileID: 2100000, guid: 058f21ca922b6744bba4813e5ac7572f, type: 2}
-  redHolographicMaterial: {fileID: 2100000, guid: 89e6b794cf57cb14bb0b0ce801afe9c6, type: 2}
-  blackHolographicMaterial: {fileID: 2100000, guid: fdc2ab44f5e885349ba1e1d4513e6673, type: 2}
 --- !u!1 &3531206112174478996
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,11 +939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 158346592597015666}
   otherButton: {fileID: 6570758498232642076}
+  spellIndex: 0
   defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
   OnClickSpellButton:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCastSpell:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2526328401116805773
@@ -2499,11 +2480,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonIcon: {fileID: 8102380984424947068}
   otherButton: {fileID: 6589867945874465917}
+  spellIndex: 0
   defaultSpellControllerPrefab: {fileID: -3700422496230951604, guid: 7ca17ad293452814593133169f20300c, type: 3}
   OnClickSpellButton:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCastSpell:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &9110899485494732329

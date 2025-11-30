@@ -216,6 +216,7 @@ MonoBehaviour:
     m_SceneAsset: {fileID: 102900000, guid: e7a16b253dd531541997db84c06be90c, type: 3}
     m_SceneName: GameScene
   cardDatabase: {fileID: 11400000, guid: 1e216595a323def43aa782e09498f03d, type: 2}
+  battlesDataHolder: {fileID: 11400000, guid: 45f280a4f3e0a3b4cac13b29fdc16619, type: 2}
 --- !u!1 &8658324569094561765
 GameObject:
   m_ObjectHideFlags: 0
