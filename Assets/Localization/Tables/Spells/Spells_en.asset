@@ -802,16 +802,48 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1802639448440834
-    m_Localized: Consumes 3 random Corpses to give $BonusDamage$ to all your tokens
-      this turn
+    m_Localized: Consumes 3 $Corpse$ to give $BonusDamage$ to all your tokens this
+      turn
     m_Metadata:
       m_Items: []
   - m_Id: 1845665298350080
-    m_Localized: 
+    m_Localized: Rise And Shine
     m_Metadata:
       m_Items: []
   - m_Id: 1845665457733632
     m_Localized: Consume 3 $Corpse$ to spawn a Skeleton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850320793600
+    m_Localized: The Work Is Mysterious
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925888
+    m_Localized: Produce a $Corpse$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925889
+    m_Localized: Summon The Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925890
+    m_Localized: Consume 10 $Corpse$ to summon The Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925891
+    m_Localized: Kneel Before Him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925892
+    m_Localized: Sacrifice a $Corpse$ to feed The Master and give him 1 $BonusDamage$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925893
+    m_Localized: Adorable Carnage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854850517925894
+    m_Localized: Consume 1 $Corpse$ to deal $d$ damages to all enemies twice
     m_Metadata:
       m_Items: []
   references:

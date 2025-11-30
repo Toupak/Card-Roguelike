@@ -423,6 +423,14 @@ MonoBehaviour:
     m_Key: pastabox_whalearmor
     m_Metadata:
       m_Items: []
+  - m_Id: 1844832506707968
+    m_Key: necromancer_necromancerpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844832523485184
+    m_Key: necromancer_necromancerpassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: ClumsyCultist
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: ClumsyCultist
+  cardName: Clumsy Cultist
   tribe: 0
-  hpMax: 0
+  hpMax: 15
   artwork: {fileID: 21300000, guid: 78df690afc0ae624e84ef84819cbfadf, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList: []
+  spellList:
+  - {fileID: 11400000, guid: f0c5baad03e27ce4f8c0b4ed32587192, type: 2}
+  - {fileID: 11400000, guid: b5bf8ccd5a1b9ad418249e74528e0745, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0

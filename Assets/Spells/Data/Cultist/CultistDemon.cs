@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CombatLoop.EnergyBar;
 using UnityEngine;
 
-namespace Spells.Data.Necromancer
+namespace Spells.Data.Cultist
 {
-    public class NecromancerSpawn : NecroSpellController
+    public class CultistDemon : NecroSpellController
     {
-        [SerializeField] private List<CardData> skeletonsData;
+        [SerializeField] private CardData demonData;
 
+        [Space]
+        [SerializeField] private SpellData nextSpellData;
+        
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
 
             yield return ConsumeCorpses(corpseCost);
 
-            int currentEnergy = Mathf.Min(EnergyController.instance.currentEnergy, skeletonsData.Count - 1);
-
-            SpawnCardGA spawnCardGa = new SpawnCardGA(skeletonsData[currentEnergy], cardController);
+            SpawnCardGA spawnCardGa = new SpawnCardGA(demonData, cardController);
             ActionSystem.instance.Perform(spawnCardGa);
+            
+            cardController.SetupRightSpell(nextSpellData);
         }
     }
 }

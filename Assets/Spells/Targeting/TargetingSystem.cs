@@ -112,6 +112,34 @@ namespace Spells.Targeting
             return list;
         }
 
+        public CardMovement RetrieveCard(CardData cardData, TargetType targetType = TargetType.None)
+        {
+            switch (targetType)
+            {
+                case TargetType.Ally:
+                    return RetrieveCard(cardData, RetrieveBoard(playerBoard));
+                case TargetType.Enemy:
+                    return RetrieveCard(cardData, RetrieveBoard(enemyBoard));
+                case TargetType.None:
+                    return RetrieveCard(cardData, RetrieveBoard(playerBoard).Concat(RetrieveBoard(enemyBoard)).ToList());
+                case TargetType.Self:
+                    return null;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
+            }
+        }
+
+        private CardMovement RetrieveCard(CardData cardData, List<CardMovement> cards)
+        {
+            foreach (CardMovement card in cards)
+            {
+                if (card.cardController.cardData.cardName == cardData.cardName)
+                    return card;
+            }
+
+            return null;
+        }
+        
         public List<CardMovement> RetrieveBoard(TargetType targetType)
         {
             switch (targetType)

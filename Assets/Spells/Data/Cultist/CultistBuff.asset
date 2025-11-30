@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
-  m_Name: GraveDigBuff
+  m_Name: CultistBuff
   m_EditorClassIdentifier: 
-  spellName: Back On The Menu
-  description: Consumes 3 $Corpse$ to give $BonusDamage$ to all your tokens this
-    turn
+  spellName: Kneel Before Him
+  description: Sacrifice a $Corpse$ to feed The Master and give him 1 $BonusDamage$
   icon: {fileID: 0}
-  targetType: 0
-  targetingMode: 2
+  targetType: 2
+  targetingMode: 0
   targetCount: 1
   energyCost: 1
   hasNoCooldown: 0
   damage: 0
   inflictStatus: 4
   statusStacksApplied: 1
-  spellController: {fileID: -9059955058735864136, guid: a40df0a589b82974f81c5a6036efbda4, type: 3}
-  localizationKey: gravedigbuff
+  spellController: {fileID: 5281092972692687546, guid: c1f4329b4464a06488f8e9f55b0fe0e1, type: 3}
+  localizationKey: cultistbuff
