@@ -10,24 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Necromancer
+  m_Name: Skelly_2
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Necromancer
+  cardName: Skelly_2
   tribe: 0
-  hpMax: 15
-  artwork: {fileID: 21300000, guid: 34d38ef97e73aac4bb7f065170d8faa6, type: 3}
+  hpMax: 5
+  artwork: {fileID: -1866485394, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
   description: 
-  isSpecialSummon: 0
+  isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList:
-  - {fileID: 11400000, guid: bb5f50e1103d2ba46b459680e3855ed7, type: 2}
-  passiveList:
-  - {fileID: 11400000, guid: 642c18090638cb74e97ee2620bfb0d5d, type: 2}
+  spellList: []
+  passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: necromancer
+  localizationKey: skelly_2

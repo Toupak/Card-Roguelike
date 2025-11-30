@@ -474,6 +474,14 @@ MonoBehaviour:
       gains 1 $Armor$'
     m_Metadata:
       m_Items: []
+  - m_Id: 1844832506707968
+    m_Localized: No Waste In This Household
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1844832523485184
+    m_Localized: Produce a $Corpse$ for every card that dies
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

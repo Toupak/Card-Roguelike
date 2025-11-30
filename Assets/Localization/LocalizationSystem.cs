@@ -35,7 +35,7 @@ namespace Localization
         private void Start()
         {
             //UpdateGlyphs();
-            UpdateStatus();
+            //UpdateStatus();
         }
         
         public string GetSpellTitle(string cardKey, string spellKey)

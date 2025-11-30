@@ -806,6 +806,14 @@ MonoBehaviour:
       this turn
     m_Metadata:
       m_Items: []
+  - m_Id: 1845665298350080
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1845665457733632
+    m_Localized: Consume 3 $Corpse$ to spawn a Skeleton
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -790,6 +790,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 477ba70ee27867c4fa1c8188e1bd80c7, type: 2}
   - {fileID: 11400000, guid: 023c398c20e669c47965be82132e4025, type: 2}
   - {fileID: 11400000, guid: bf2d9b48ded35a9478add8e7d4f6327a, type: 2}
+  - {fileID: 11400000, guid: e901559045344174d90a65b092b4d2f3, type: 2}
   - {fileID: 11400000, guid: 6ed2e3ba4b1b8b443b05cdbfde295862, type: 2}
 --- !u!4 &628700216
 Transform:
