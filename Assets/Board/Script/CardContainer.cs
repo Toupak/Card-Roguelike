@@ -247,7 +247,7 @@ namespace Board.Script
         
         private void UpdateCardSpacing()
         {
-            if (type != ContainerType.Board)
+            if (type != ContainerType.Board || horizontalLayoutGroup == null)
                 return;
 
             if (slotCount <= 4)
