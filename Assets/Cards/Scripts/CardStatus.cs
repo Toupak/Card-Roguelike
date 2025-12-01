@@ -125,7 +125,8 @@ namespace Cards.Scripts
         {
             if (IsStatusApplied(StatusType.Poison))
             {
-                DealDamageGA poisonDamage = new DealDamageGA(GetCurrentStackCount(StatusType.Poison), cardController, cardController);
+                DealDamageGA poisonDamage = new DealDamageGA(GetCurrentStackCount(StatusType.Poison), null, cardController);
+                poisonDamage.bypassArmor = true;
                 ActionSystem.instance.AddReaction(poisonDamage);
             }
         }
@@ -134,8 +135,8 @@ namespace Cards.Scripts
         {
             if (GetCurrentStackCount(StatusType.Captured) > 0)
             {
-                DealDamageGA doritoCaltrop = new DealDamageGA(2, cardController, cardController);
-                ActionSystem.instance.AddReaction(doritoCaltrop);
+                DealDamageGA captureDamage = new DealDamageGA(2, null, cardController);
+                ActionSystem.instance.AddReaction(captureDamage);
             }
         }
 

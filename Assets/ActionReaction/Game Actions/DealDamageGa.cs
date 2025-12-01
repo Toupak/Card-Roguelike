@@ -14,7 +14,8 @@ namespace ActionReaction.Game_Actions
         public bool isTargetSwitched;
         public CardController originalTarget;
 
-        public bool isBongoAttack;
+        public bool bypassArmor = false;
+        public bool isBongoAttack = false;
 
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {

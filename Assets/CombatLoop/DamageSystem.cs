@@ -45,7 +45,7 @@ namespace CombatLoop
                 {
                     dealDamageGa.NegateDamage();
                 }
-                else if (dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Armor))
+                else if (!dealDamageGa.bypassArmor && dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Armor))
                 {
                     isArmored = ComputeArmorReduction(dealDamageGa);
                 }
