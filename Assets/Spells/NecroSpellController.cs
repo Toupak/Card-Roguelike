@@ -32,7 +32,10 @@ namespace Spells
 
             int remaining = count - stacks;
             if (remaining == 0)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 yield break;
+            }
 
             List<CardMovement> targets = ComputeCorpseList();
             for (int i = 0; i < targets.Count && remaining > 0; i++)
