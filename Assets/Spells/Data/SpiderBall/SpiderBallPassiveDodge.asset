@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: SpiderBallPassiveDodge
+  m_EditorClassIdentifier: 
+  passiveName: Ballin'
+  description: 50% chance to negate incoming damage
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4283564034
+  passiveController: {fileID: 7231616235325878736, guid: d4f2d8a5394f43e4480e92d462d0bb2b, type: 3}
+  localizationKey: spiderballpassivedodge

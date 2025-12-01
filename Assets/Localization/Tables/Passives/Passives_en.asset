@@ -479,6 +479,25 @@ MonoBehaviour:
     m_Localized: Produce a $Corpse$ for every card that dies
     m_Metadata:
       m_Items: []
+  - m_Id: 2338818082177025
+    m_Localized: '50% chance to deal double damage
+
+      50% chance to receive double
+      damage'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338818082177024
+    m_Localized: Breakin'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338466926657536
+    m_Localized: 50% chance to negate incoming damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338466909880320
+    m_Localized: Ballin'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

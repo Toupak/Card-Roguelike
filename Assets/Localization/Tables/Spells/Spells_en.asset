@@ -846,6 +846,30 @@ MonoBehaviour:
     m_Localized: Consume 1 $Corpse$ to deal $d$ damages to all enemies twice
     m_Metadata:
       m_Items: []
+  - m_Id: 2339651037396993
+    m_Localized: Deal $d$ damage to 1 enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339651037396992
+    m_Localized: Spare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339299865100290
+    m_Localized: Did you bring your backup ball ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339299865100289
+    m_Localized: Swap Form
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339299865100288
+    m_Localized: Deal $d$ damage to 2 enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2339299831545856
+    m_Localized: Strike
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

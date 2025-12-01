@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: SpiderBall_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: SpiderBall_0
+  cardName: Gutter-Spider
   tribe: 0
-  hpMax: 0
+  hpMax: 12
   artwork: {fileID: -1841804726479415937, guid: ff79872db82fe80458c86ac5851cf680, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: d775852acceae5c4c9f667b6a146dfd0, type: 2}
+  - {fileID: 11400000, guid: 33cd61944558be24a997f68fab1bd5f8, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: a773358893c467c48a22b1b4fe5a15d0, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: spiderball_0
+  localizationKey: gutter-spider
