@@ -1,11 +1,6 @@
-using BoomLib.Tools;
-using Status;
-using Status.Data;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
-using UnityEngine.TextCore;
 
 namespace Localization
 {

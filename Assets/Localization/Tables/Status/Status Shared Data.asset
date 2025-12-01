@@ -247,6 +247,30 @@ MonoBehaviour:
     m_Key: corpse
     m_Metadata:
       m_Items: []
+  - m_Id: 2259158371631104
+    m_Key: energy_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631105
+    m_Key: energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631106
+    m_Key: powercell_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631107
+    m_Key: powercell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631108
+    m_Key: actuator_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631109
+    m_Key: actuator
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

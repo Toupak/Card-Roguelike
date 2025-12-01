@@ -15,8 +15,8 @@ namespace Tooltip.Energy
             
             string title = LocalizationSystem.instance.GetCombatString("energy_tooltip_title");
             string text = LocalizationSystem.instance.GetCombatString("energy_tooltip");
-            text = text.Replace("%e%", $"{currentEnergy}");
-            text = text.Replace("%m%", $"{maxEnergy}");
+            text = text.Replace("$e$", $"{currentEnergy}");
+            text = text.Replace("$m$", $"{maxEnergy}");
             
             multiTooltipDisplay.SetupTooltip(title, text, transform.parent.GetComponent<EnergyDisplay>().tooltipPivot.position);
         }

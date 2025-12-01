@@ -885,6 +885,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StatusIcons_32
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 066f4ae0ef7517c4489f78eb31412e13
+      internalID: 874444041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatusIcons_33
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d672878820512499fb847b5cc52188
+      internalID: -542721777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -925,6 +969,8 @@ TextureImporter:
       StatusIcons_3: -8211022945955410972
       StatusIcons_30: 161752720
       StatusIcons_31: -350077865
+      StatusIcons_32: 874444041
+      StatusIcons_33: -542721777
       StatusIcons_4: 4847072211282044801
       StatusIcons_5: 8118723070098738515
       StatusIcons_6: 274942090106988843

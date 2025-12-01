@@ -196,23 +196,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 260841840279554
-    m_Localized: When Tinkerer has crafted 3 Power Cells, Assemble them to gain 1
-      $Energy$
+    m_Localized: 'Craft : $PowerCell$ $PowerCell$ $PowerCell$ : Gain 1 $Energy$'
     m_Metadata:
       m_Items: []
   - m_Id: 260841840279555
-    m_Localized: When Tinkerer has crafted 2 Power Cells and 1 Actuator, Assemble
-      them to make your team gain 1 $Armor$
+    m_Localized: 'Craft : $PowerCell$ $PowerCell$ $Actuator$, Your team gain 1 $Armor$'
     m_Metadata:
       m_Items: []
   - m_Id: 260841844473856
-    m_Localized: When Tinkerer has crafted 1 Power Cell and 2 Actuators, Assemble
-      them to apply 1 $Weak$ to enemy team
+    m_Localized: 'Craft : $PowerCell$ $Actuator$ $Actuator$ : Apply 1 $Weak$ to enemy
+      team'
     m_Metadata:
       m_Items: []
   - m_Id: 260841844473857
-    m_Localized: When Tinkerer has crafted 3 Actuators, Assemble them to make your
-      team gain 1 $BonusDamage$ this turn
+    m_Localized: 'Craft $Actuator$ $Actuator$ $Actuator$ : Your team gain 1 $BonusDamage$'
     m_Metadata:
       m_Items: []
   - m_Id: 280870652706816

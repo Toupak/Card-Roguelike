@@ -140,16 +140,16 @@ namespace Spells.Targeting
             return null;
         }
         
-        public List<CardMovement> RetrieveBoard(TargetType targetType)
+        public List<CardMovement> RetrieveBoard(TargetType targetType, bool includeUnTargetable = false)
         {
             switch (targetType)
             {
                 case TargetType.Ally:
-                    return RetrieveBoard(playerBoard);
+                    return RetrieveBoard(playerBoard, includeUnTargetable);
                 case TargetType.Enemy:
-                    return RetrieveBoard(enemyBoard);
+                    return RetrieveBoard(enemyBoard, includeUnTargetable);
                 case TargetType.None:
-                    return RetrieveBoard(playerBoard).Concat(RetrieveBoard(enemyBoard)).ToList();
+                    return RetrieveBoard(playerBoard, includeUnTargetable).Concat(RetrieveBoard(enemyBoard, includeUnTargetable)).ToList();
                 case TargetType.Self:
                     return null;
                 default:
@@ -157,7 +157,7 @@ namespace Spells.Targeting
             }
         }
 
-        private List<CardMovement> RetrieveBoard(CardContainer container)
+        private List<CardMovement> RetrieveBoard(CardContainer container, bool includeUnTargetable = false)
         {
             List<CardMovement> list = new List<CardMovement>();
             foreach (Slot slot in container.Slots)
@@ -166,7 +166,7 @@ namespace Spells.Targeting
                 {
                     CardMovement cardMovement = slot.transform.GetChild(0).GetComponent<CardMovement>();
                     
-                    if (cardMovement.cardController.IsTargetable())
+                    if (cardMovement.cardController.IsTargetable() || includeUnTargetable)
                         list.Add(cardMovement);
                 }
             }

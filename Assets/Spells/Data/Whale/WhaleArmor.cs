@@ -28,7 +28,7 @@ namespace Spells.Data.Whale
                 
                 int currentSlotIndex = cardController.cardMovement.SlotIndex;
 
-                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(cardController.cardMovement.IsEnemyCard ? TargetType.Enemy : TargetType.Ally);
+                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(cardController.cardMovement.IsEnemyCard ? TargetType.Enemy : TargetType.Ally, true);
                 
                 for (int i = currentSlotIndex + 1; i < targets.Count; i++)
                 {

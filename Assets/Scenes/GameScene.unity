@@ -229,8 +229,6 @@ MonoBehaviour:
   endPreparationButton: {fileID: 2017245389}
   endPlayerTurnButton: {fileID: 1744358810}
   turnEndAnimation: {fileID: 914106417}
-  battles:
-  - {fileID: 11400000, guid: 91a892c82290f194dbbbb83044320113, type: 2}
 --- !u!4 &147471251
 Transform:
   m_ObjectHideFlags: 0

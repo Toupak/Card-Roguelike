@@ -38,7 +38,7 @@ namespace Spells.Data.Dolphin
             {
                 int currentSlotIndex = cardController.cardMovement.SlotIndex;
 
-                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(cardController.cardMovement.IsEnemyCard ? TargetType.Enemy : TargetType.Ally);
+                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(cardController.cardMovement.IsEnemyCard ? TargetType.Enemy : TargetType.Ally, true);
 
                 if (spreadLeft && applyStatusGa.spreadDirection != SpreadDirection.Right)
                 {

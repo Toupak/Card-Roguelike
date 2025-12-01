@@ -46,7 +46,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 273263862972416
-    m_Localized: 'Your current energy, each $energy$ is worth 1 energy.
+    m_Localized: 'Your current energy, each $Energy$ is worth 1 energy.
 
       You
       currently have $e$/$m$ energy'

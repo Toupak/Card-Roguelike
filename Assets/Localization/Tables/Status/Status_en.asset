@@ -281,9 +281,35 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1800944131735552
-    m_Localized: 'Just a pile of bones and guts
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631109
+    m_Localized: 'A blue $Actuator$
 
-      Tastes good but smells bad'
+      Used by the Tinkerer to craft weird contraptions'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631108
+    m_Localized: Actuator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631107
+    m_Localized: 'A red $PowerCell$
+
+      Used by the Tinkerer to craft weird contraptions'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631106
+    m_Localized: PowerCell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631105
+    m_Localized: Your $Energy$ is used to cast spells with your cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2259158371631104
+    m_Localized: Energy
     m_Metadata:
       m_Items: []
   references:

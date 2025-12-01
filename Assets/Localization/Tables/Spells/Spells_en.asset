@@ -357,11 +357,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674795499523
-    m_Localized: Craft a red Power Cell Trinket
+    m_Localized: Craft a red $PowerCell$ Trinket
     m_Metadata:
       m_Items: []
   - m_Id: 261674795499524
-    m_Localized: Craft a blue Actuator Trinket
+    m_Localized: Craft a blue $Actuator$ Trinket
     m_Metadata:
       m_Items: []
   - m_Id: 261674799693824
