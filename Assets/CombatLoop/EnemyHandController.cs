@@ -10,7 +10,6 @@ using CardSlot.Script;
 using EnemyAttack;
 using Run_Loop;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace CombatLoop
 {
@@ -54,6 +53,10 @@ namespace CombatLoop
                 {
                     Debug.Log("Enemy is Stun, skip its turn");
                     yield return CardTween.PlayCardIsStun(card);
+                    
+                    if (card.enemyCardController != null)
+                        card.enemyCardController.SkipIntention();
+                    
                     continue;
                 }
 

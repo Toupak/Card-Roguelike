@@ -64,6 +64,11 @@ namespace EnemyAttack
             yield return behaviourQueue.Dequeue().ExecuteBehavior();
         }
 
+        public void SkipIntention()
+        {
+            behaviourQueue.Dequeue();
+        }
+
         public void ComputeNextIntention()
         {
             if (hasIntention)
