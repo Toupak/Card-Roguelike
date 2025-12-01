@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
+using BoomLib.Tools;
 using Cards.Scripts;
 using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Board.Script
 {
@@ -21,6 +24,8 @@ namespace Board.Script
 
         public bool isLocked;
 
+        private HorizontalLayoutGroup horizontalLayoutGroup;
+        
         private CardMovement currentSelectedCard;
 
         private List<Slot> slots = new List<Slot>();
@@ -45,29 +50,23 @@ namespace Board.Script
             Center
         }
 
-        public bool IsFull()
-        {
-            if (type == ContainerType.Board)
-            {
-                if (CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
-                    return slots.Count >= maxCardCount;
-                else
-                    return false;
-            }
-            
-            return slots.Count >= maxCardCount;
-        } 
-
         private void OnEnable()
         {
             OnStartDragging.AddListener(StartDraggingNewCard);
             OnStopDragging.AddListener(StopDraggingCard);
+            OnAnyContainerUpdated.AddListener(UpdateCardSpacing);
         }
 
         private void OnDisable()
         {
-            OnStartDragging.RemoveAllListeners();
-            OnStopDragging.RemoveAllListeners();
+            OnStartDragging.RemoveListener(StartDraggingNewCard);
+            OnStopDragging.RemoveListener(StopDraggingCard);
+            OnAnyContainerUpdated.RemoveListener(UpdateCardSpacing);
+        }
+
+        private void Start()
+        {
+            horizontalLayoutGroup = GetComponent<HorizontalLayoutGroup>();
         }
 
         private void Update()
@@ -95,6 +94,19 @@ namespace Board.Script
                     }
             }
         }
+        
+        public bool IsFull()
+        {
+            if (type == ContainerType.Board)
+            {
+                if (CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
+                    return slots.Count >= maxCardCount;
+                else
+                    return slots.Count >= 12;
+            }
+            
+            return slots.Count >= maxCardCount;
+        } 
 
         public void SendCardToOtherBoard(int slot, CardContainer otherContainer)
         {
@@ -127,6 +139,15 @@ namespace Board.Script
             currentSelectedCard = null;
         }
         
+        private Slot CreateNewSlot()
+        {
+            Slot newSlot = Instantiate(slotPrefab, transform);
+            newSlot.Setup(slots.Count, this);
+            slots.Add(newSlot);
+
+            return newSlot;
+        }
+        
         public void DeleteCurrentSlot(int index)
         {
             Destroy(slots[index].gameObject);
@@ -153,16 +174,7 @@ namespace Board.Script
             
             OnAnyContainerUpdated?.Invoke();
         }
-        
-        private Slot CreateNewSlot()
-        {
-            Slot newSlot = Instantiate(slotPrefab, transform);
-            newSlot.Setup(slots.Count, this);
-            slots.Add(newSlot);
 
-            return newSlot;
-        }
-        
         private void MoveCardToPreferredPosition(CardMovement card, PreferredPosition preferredPosition)
         {
             if (slots.Count < 3)
@@ -231,6 +243,17 @@ namespace Board.Script
         private void StopDraggingCard()
         {
             currentSelectedCard = null;
+        }
+        
+        private void UpdateCardSpacing()
+        {
+            if (type != ContainerType.Board)
+                return;
+
+            if (slotCount <= 4)
+                horizontalLayoutGroup.spacing = 250.0f;
+            else
+                horizontalLayoutGroup.spacing = Mathf.Clamp(Tools.NormalizeValueInRange(slotCount, 4.0f, 12.0f, 250.0f, 110.0f), 110.0f, 250.0f);
         }
     }
 }

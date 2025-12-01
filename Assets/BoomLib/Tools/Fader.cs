@@ -241,7 +241,7 @@ namespace BoomLib.Tools
 
             while (timer <= duration)
             {
-                source.volume = Tools.NormalizeValueInRange(timer, 0.0f, duration, from, to);
+                source.volume = Tools.NormalizedValueToDecibel(Tools.NormalizeValueInRange(timer, 0.0f, duration, from, to));
                 yield return null;
                 timer += Time.deltaTime;
             }

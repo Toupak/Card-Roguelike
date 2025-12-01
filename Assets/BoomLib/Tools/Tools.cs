@@ -123,7 +123,7 @@ namespace BoomLib.Tools
     
         public static float NormalizeValueInRange(float value, float min, float max, float rangeMin, float rangeMax)
         {
-            return ((rangeMax - rangeMin) * ((value - min) / (max - min))) + rangeMin;
+            return (rangeMax - rangeMin) * ((value - min) / (max - min)) + rangeMin;
         }
 
         public static Quaternion ShortestRotation(Quaternion a, Quaternion b)
