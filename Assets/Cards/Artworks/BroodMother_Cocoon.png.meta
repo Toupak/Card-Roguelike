@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec955e21f4cb5b941a2095755d059c9e
+guid: f8c38e84248ace14994e38d8f1d2ca18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3921128192577619467
-    second: Spider_Tiny_0
+      213: 5712910179712728222
+    second: Spider_Cocoon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spider_Tiny_0
+      name: Spider_Cocoon_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 19
-        width: 27
-        height: 45
+        x: 12
+        y: 6
+        width: 38
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f934a21faa5599c0800000000000000
-      internalID: -3921128192577619467
+      spriteID: e9c7d774a85584f40800000000000000
+      internalID: 5712910179712728222
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spider_Tiny_0: -3921128192577619467
+      Spider_Cocoon_0: 5712910179712728222
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
