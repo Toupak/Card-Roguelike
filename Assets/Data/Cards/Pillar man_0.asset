@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Pillar man
   tribe: 0
-  hpMax: 8
+  hpMax: 35
   artwork: {fileID: -4373126044167616179, guid: 5178bc6b2bffe7d408f534b4a6e425bf, type: 3}
   description: 
   isSpecialSummon: 0

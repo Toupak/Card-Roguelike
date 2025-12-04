@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674736779265
-    m_Localized: 'Random : Deal 6 damage to a Random Target OR deal 3 damage to 2
+    m_Localized: 'Random : Deal 4 damage to a Random Target OR deal 2 damage to 2
       Random targets'
     m_Metadata:
       m_Items: []
@@ -253,7 +253,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674774528004
-    m_Localized: Olaf and Pif split to gain a tactical advantage
+    m_Localized: 'Olaf and Pif split to gain a tactical advantage
+
+      Also removes
+      all status'
     m_Metadata:
       m_Items: []
   - m_Id: 261674774528005
@@ -261,7 +264,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674778722304
-    m_Localized: Olaf and Pif regroup to gain a tactical advantage
+    m_Localized: 'Olaf and Pif regroup to gain a tactical advantage
+
+      Also adds
+      up their status'
     m_Metadata:
       m_Items: []
   - m_Id: 261674778722305
@@ -868,6 +874,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2339299831545856
     m_Localized: Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629359352741888
+    m_Localized: Defend Friend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3629359394684928
+    m_Localized: Applies 1 $Taunt$ to self
     m_Metadata:
       m_Items: []
   references:

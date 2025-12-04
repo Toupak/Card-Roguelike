@@ -15,7 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Crustix
   tribe: 0
-  hpMax: 8
+  hpMax: 17
   artwork: {fileID: 8744307821027899365, guid: 8f073b0453321b24eab62509cb215428, type: 3}
   description: 
   isSpecialSummon: 0

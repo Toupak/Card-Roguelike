@@ -179,7 +179,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085252
-    m_Localized: GnomeFighter will $Protection$ its Carrier from damage
+    m_Localized: GnomeFighter will $Protected$ its Carrier from damage
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085253

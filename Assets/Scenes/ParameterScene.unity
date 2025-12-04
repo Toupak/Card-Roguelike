@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5097084, y: -3.4}
+  m_AnchoredPosition: {x: 0, y: -3.4}
   m_SizeDelta: {x: 880.478, y: 52.816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175454649
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1374602077}
-  defaultValue: 5
+  defaultValue: 3
 --- !u!1001 &231783978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8392334, y: 0.13046265}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &367888256
@@ -632,7 +632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5097084, y: 138}
+  m_AnchoredPosition: {x: 0, y: 138}
   m_SizeDelta: {x: 880.478, y: 52.816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367888258
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 747892553}
-  defaultValue: 5
+  defaultValue: 3
 --- !u!1 &371119312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.1493, y: -2.7653}
+  m_AnchoredPosition: {x: 0, y: -2.7653}
   m_SizeDelta: {x: 1433.7202, y: 918.4191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705915640
@@ -3058,7 +3058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.509552, y: 91.399994}
+  m_AnchoredPosition: {x: 0, y: 91.399994}
   m_SizeDelta: {x: 880.478, y: 37.8552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511232022
@@ -3557,7 +3557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5097084, y: -136.23709}
+  m_AnchoredPosition: {x: 0, y: -136.23709}
   m_SizeDelta: {x: 880.478, y: 35.0997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1747058327
@@ -3923,7 +3923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.83923, y: 0.13046}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1900570102
@@ -4174,7 +4174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.509552, y: -50}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 880.478, y: 37.8552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034037582
@@ -4190,7 +4190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1634005516}
-  defaultValue: 3
+  defaultValue: 1
 --- !u!1 &2073269623
 GameObject:
   m_ObjectHideFlags: 0

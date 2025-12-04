@@ -304,7 +304,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433951
-    m_Key: thelastgnomefighter_gnomefighterprotection_title
+    m_Key: Babies will $Protected$ their mom from damage
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433952
@@ -429,6 +429,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1844832523485184
     m_Key: necromancer_necromancerpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338466909880320
+    m_Key: gutter-spider_spiderballpassivedodge_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338466926657536
+    m_Key: gutter-spider_spiderballpassivedodge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338818082177024
+    m_Key: gutter-spider_spiderballpassiveberserk_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2338818082177025
+    m_Key: gutter-spider_spiderballpassiveberserk
     m_Metadata:
       m_Items: []
   m_Metadata:
