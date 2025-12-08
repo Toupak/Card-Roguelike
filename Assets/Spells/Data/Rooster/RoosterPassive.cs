@@ -21,7 +21,7 @@ namespace Spells.Data.Rooster
         {
             if (applyStatusGa.target.cardMovement.IsEnemyCard && applyStatusGa.type == StatusType.Vengeance)
             {
-                DealDamageGA dealDamageGa = new DealDamageGA(1, cardController, applyStatusGa.target);
+                DealDamageGA dealDamageGa = new DealDamageGA(cardController.ComputeCurrentDamage(1), cardController, applyStatusGa.target);
                 ActionSystem.instance.AddReaction(dealDamageGa);
             }
         }
