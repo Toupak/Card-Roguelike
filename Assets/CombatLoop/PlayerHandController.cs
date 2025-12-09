@@ -17,6 +17,8 @@ namespace CombatLoop
         [SerializeField] private List<CardData> cardData;
         
         public CardContainer container => handContainer;
+
+        private int currentDebugDeckIndex = 0;
         
         public IEnumerator DrawHand()
         {
@@ -34,7 +36,9 @@ namespace CombatLoop
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    SpawnCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
+                    SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
+                    currentDebugDeckIndex = currentDebugDeckIndex + 1 >= cardData.Count ? 0 : currentDebugDeckIndex + 1;
+
                     yield return new WaitForSeconds(0.1f);
                 }   
             }
@@ -83,7 +87,8 @@ namespace CombatLoop
 
             for (int i = 0; i < 12; i++)
             {
-                SpawnCard(new DeckCard(cardData[Random.Range(0, cardData.Count)]), handContainer);
+                SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
+                currentDebugDeckIndex = currentDebugDeckIndex + 1 >= cardData.Count ? 0 : currentDebugDeckIndex + 1;
                 yield return new WaitForSeconds(0.1f);
             }
         }
