@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: Skelly_0
   m_EditorClassIdentifier: 
   cardNumber: 0
-  cardName: Skelly_0
+  cardName: Boner
   tribe: 0
-  hpMax: 5
+  hpMax: 2
   artwork: {fileID: 2691162081737138541, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   frameData: {fileID: 0}
-  spellList: []
+  spellList:
+  - {fileID: 11400000, guid: 8848095b5f7c139408ee51f414edf240, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: skelly_0
+  localizationKey: boner

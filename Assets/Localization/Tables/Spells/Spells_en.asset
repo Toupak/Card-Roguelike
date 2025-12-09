@@ -884,6 +884,30 @@ MonoBehaviour:
     m_Localized: Applies 1 $Taunt$ to self
     m_Metadata:
       m_Items: []
+  - m_Id: 5271842260221952
+    m_Localized: Spooky Bone Slam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657408
+    m_Localized: Deal $d$ damage to target enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657409
+    m_Localized: Spooky Stare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657410
+    m_Localized: Apply 1 $Terror$ stack to target enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657411
+    m_Localized: Spooky Dance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657412
+    m_Localized: Gain 1 $Taunt$ stack
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
