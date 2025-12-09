@@ -25,5 +25,10 @@ namespace Spells.Data.Rooster
                 ActionSystem.instance.AddReaction(dealDamageGa);
             }
         }
+
+        public override string ComputeTooltipDescription(int damage = int.MinValue)
+        {
+            return base.ComputeTooltipDescription(1);
+        }
     }
 }

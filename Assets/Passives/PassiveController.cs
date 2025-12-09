@@ -37,12 +37,21 @@ namespace Passives
                 return LocalizationSystem.instance.GetPassiveTitle(cardController.cardData.localizationKey, passiveData.localizationKey);
         }
         
-        public virtual string ComputeTooltipDescription()
+        public virtual string ComputeTooltipDescription(int damage = int.MinValue)
         {
-            if (cardController.cardData.isEnemy)
-                return LocalizationSystem.instance.GetEnemyPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey);
-            else
-                return LocalizationSystem.instance.GetPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey);
+            string description = cardController.cardData.isEnemy ? 
+                LocalizationSystem.instance.GetEnemyPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey) : 
+                LocalizationSystem.instance.GetPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey);
+
+            if (damage > int.MinValue)
+            {
+                int computedDamage = cardController.ComputeCurrentDamage(damage);
+                LocalizationSystem.TextDisplayStyle style = LocalizationSystem.instance.ComputeTextDisplayStyle(damage, computedDamage);
+                
+                description = LocalizationSystem.instance.CheckForDamageInText(description, computedDamage.ToString(), style);
+            }
+
+            return description;
         }
     }
 }

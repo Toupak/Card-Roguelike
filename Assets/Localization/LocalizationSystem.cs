@@ -1,4 +1,6 @@
+using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization.Tables;
 
@@ -6,6 +8,14 @@ namespace Localization
 {
     public class LocalizationSystem : MonoBehaviour
     {
+        public enum TextDisplayStyle
+        {
+            None,
+            Bonus,
+            Malus,
+            Crit
+        }
+        
         private const string spellTablePath = "Assets/Localization/Tables/Spells/Spells_en.asset";
         private const string passiveTablePath = "Assets/Localization/Tables/Passives/Passives_en.asset";
         private const string combatTablePath = "Assets/Localization/Tables/Combat/Combat_en.asset";
@@ -21,6 +31,11 @@ namespace Localization
         [SerializeField] private StringTable combatTable;
         [SerializeField] private StringTable statusTable;
         [SerializeField] private StringTable enemiesTable;
+
+        [Space] 
+        [SerializeField] private Color bonusTextColor;
+        [SerializeField] private Color malusTextColor;
+        [SerializeField] private Color critTextColor;
         
         private void Awake()
         {
@@ -109,9 +124,36 @@ namespace Localization
             return entry != null ? entry.Value : "";
         }
         
-        public string CheckForDamageInText(string description, string damage, string damageTag = "$d$")
+        public string CheckForDamageInText(string description, string damage, TextDisplayStyle textDisplayStyle = TextDisplayStyle.None, string damageTag = "$d$")
         {
-            return description.Replace(damageTag, damage);
+            
+            return description.Replace(damageTag, ComputeDamageColor(damage, textDisplayStyle));
+        }
+
+        private string ComputeDamageColor(string damage, TextDisplayStyle textDisplayStyle)
+        {
+            switch (textDisplayStyle)
+            {
+                case TextDisplayStyle.None:
+                    return damage;
+                case TextDisplayStyle.Bonus:
+                    return $"<color=#{bonusTextColor.ToHexString()}>" + damage + "</color>";
+                case TextDisplayStyle.Malus:
+                    return $"<color=#{malusTextColor.ToHexString()}>" + damage + "</color>";
+                case TextDisplayStyle.Crit:
+                    return $"<color=#{critTextColor.ToHexString()}>" + damage + "</color>";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(textDisplayStyle), textDisplayStyle, null);
+            }
+        }
+
+        public TextDisplayStyle ComputeTextDisplayStyle(int baseDamage, int computedDamage)
+        {
+            if (baseDamage < computedDamage)
+                return TextDisplayStyle.Bonus;
+            if (baseDamage > computedDamage)
+                return TextDisplayStyle.Malus;
+            return TextDisplayStyle.None;
         }
 
         /*

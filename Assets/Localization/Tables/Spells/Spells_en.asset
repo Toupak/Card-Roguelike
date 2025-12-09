@@ -36,8 +36,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674736779265
-    m_Localized: 'Random : Deal 4 damage to a Random Target OR deal 2 damage to 2
-      Random targets'
+    m_Localized: 'Random : Deal $d1$ damage to a Random Target OR deal $d2$ damage
+      to 2 Random targets'
     m_Metadata:
       m_Items: []
   - m_Id: 261674740973568

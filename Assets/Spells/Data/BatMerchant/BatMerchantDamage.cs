@@ -5,6 +5,7 @@ using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Cards.Scripts;
 using CombatLoop.EnergyBar;
+using Localization;
 using UnityEngine;
 
 namespace Spells.Data.BatMerchant
@@ -84,6 +85,20 @@ namespace Spells.Data.BatMerchant
                 
                 targets.RemoveAt(RandomEnemy);
             }
+        }
+        
+        public override string ComputeTooltipDescription()
+        {
+            string description = base.ComputeTooltipDescription();
+
+            int damage_1 = ComputeCurrentDamage(spellData.damage * 2);
+            int damage_2 = ComputeCurrentDamage(spellData.damage);
+            LocalizationSystem.TextDisplayStyle style = LocalizationSystem.instance.ComputeTextDisplayStyle(spellData.damage, damage_2);
+
+            description = LocalizationSystem.instance.CheckForDamageInText(description, damage_1.ToString(), style, "$d1$");
+            description = LocalizationSystem.instance.CheckForDamageInText(description, damage_2.ToString(), style, "$d2$");
+
+            return description;
         }
     }
 }

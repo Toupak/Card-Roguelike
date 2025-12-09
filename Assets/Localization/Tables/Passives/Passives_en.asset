@@ -157,7 +157,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 260841831890946
     m_Localized: When an enemy receives a $Vengeance$ stack, Rooster attack them
-      for 1 damage
+      for $d$ damage
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085248

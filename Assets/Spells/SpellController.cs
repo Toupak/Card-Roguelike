@@ -221,7 +221,11 @@ namespace Spells
         public virtual string ComputeTooltipDescription()
         {
             string description = LocalizationSystem.instance.GetSpellDescription(cardController.cardData.localizationKey, spellData.localizationKey);
-            description = LocalizationSystem.instance.CheckForDamageInText(description, ComputeCurrentDamage(spellData.damage).ToString());
+
+            int damage = ComputeCurrentDamage(spellData.damage);
+            LocalizationSystem.TextDisplayStyle style = LocalizationSystem.instance.ComputeTextDisplayStyle(spellData.damage, damage);
+
+            description = LocalizationSystem.instance.CheckForDamageInText(description, damage.ToString(), style);
 
             return description;
         }

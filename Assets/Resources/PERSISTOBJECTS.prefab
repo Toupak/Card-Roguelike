@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2750067428166458748}
   - component: {fileID: 5017273279773726988}
   m_Layer: 5
-  m_Name: LocalizationSystem
+  m_Name: __LocalizationSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +129,9 @@ MonoBehaviour:
   combatTable: {fileID: 11400000, guid: 359d5d555128ee545af1ea558c20a023, type: 2}
   statusTable: {fileID: 11400000, guid: e97bd5a2cc3d8d1419aa94f563f201c2, type: 2}
   enemiesTable: {fileID: 11400000, guid: 0e102042a6e17f74cba8f76a5c02c810, type: 2}
+  bonusTextColor: {r: 0.42352942, g: 0.65882355, b: 0.13725491, a: 1}
+  malusTextColor: {r: 0.7882353, g: 0.20392157, b: 0.14901961, a: 1}
+  critTextColor: {r: 0.98039216, g: 0.69411767, b: 0.23529412, a: 1}
 --- !u!1 &6435026947695677602
 GameObject:
   m_ObjectHideFlags: 0

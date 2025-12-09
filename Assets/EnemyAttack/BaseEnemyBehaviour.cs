@@ -102,7 +102,11 @@ namespace EnemyAttack
         public virtual string ComputeTooltipDescription()
         {
             string toolTipDescription = LocalizationSystem.instance.GetEnemyBehaviourDescription(enemyCardController.cardController.cardData.localizationKey, localizationKey);
-            toolTipDescription = LocalizationSystem.instance.CheckForDamageInText(toolTipDescription, GetDamageText());
+         
+            int damage = enemyCardController.cardController.ComputeCurrentDamage(1);
+            LocalizationSystem.TextDisplayStyle style = LocalizationSystem.instance.ComputeTextDisplayStyle(1, damage);
+            
+            toolTipDescription = LocalizationSystem.instance.CheckForDamageInText(toolTipDescription, GetDamageText(), style);
 
             return toolTipDescription;
         }
