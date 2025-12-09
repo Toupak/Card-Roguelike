@@ -108,6 +108,11 @@ namespace Localization
             
             return entry != null ? entry.Value : "";
         }
+        
+        public string CheckForDamageInText(string description, string damage, string damageTag = "$d$")
+        {
+            return description.Replace(damageTag, damage);
+        }
 
         /*
         private void UpdateGlyphs()

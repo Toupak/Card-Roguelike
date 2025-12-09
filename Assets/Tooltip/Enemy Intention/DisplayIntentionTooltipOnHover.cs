@@ -1,5 +1,5 @@
 using Cards.Scripts;
-using Localization;
+using EnemyAttack;
 using UnityEngine;
 
 namespace Tooltip.Enemy_Intention
@@ -12,14 +12,13 @@ namespace Tooltip.Enemy_Intention
         {
             if (cardController.enemyCardController == null || !cardController.enemyCardController.hasIntention)
                 return;
-                
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
 
-            string title = LocalizationSystem.instance.GetEnemyBehaviourTitle(cardController.enemyCardController.cardController.cardData.localizationKey, cardController.enemyCardController.nextbehaviour.localizationKey);
-            string main = LocalizationSystem.instance.GetEnemyBehaviourDescription(cardController.enemyCardController.cardController.cardData.localizationKey, cardController.enemyCardController.nextbehaviour.localizationKey);
+            BaseEnemyBehaviour nextBehaviour = cardController.enemyCardController.nextbehaviour;
 
-            main = CheckForDamage(main, cardController.enemyCardController.nextbehaviour.GetDamageText());
+            string title = nextBehaviour.ComputeTooltipTitle();
+            string main = nextBehaviour.ComputeTooltipDescription();
             
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
             multiTooltipDisplay.SetupTooltip(title, main, cardController.tooltipPivot.position);
         }
     }

@@ -1,4 +1,3 @@
-using Localization;
 using Spells;
 using UnityEngine;
 
@@ -10,16 +9,12 @@ namespace Tooltip.Spell
         
         protected override void DisplayTooltip()
         {
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
-
             SpellController spellController = spellButton.spellController;
-            
-            string title = LocalizationSystem.instance.GetSpellTitle(spellController.cardController.cardData.localizationKey, spellController.spellData.localizationKey);
-            
-            int damage = spellController.ComputeCurrentDamage(spellController.spellData.damage);
-            string description = LocalizationSystem.instance.GetSpellDescription(spellController.cardController.cardData.localizationKey, spellController.spellData.localizationKey);
-            description = CheckForDamage(description, damage);
 
+            string title = spellController.ComputeTooltipTitle();
+            string description = spellController.ComputeTooltipDescription();
+
+            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
             multiTooltipDisplay.SetupTooltip(title, description, spellButton.spellController.cardController.tooltipPivot.position);
             multiTooltipDisplay.SetupEnergyCost(spellController.ComputeEnergyCost());
         }

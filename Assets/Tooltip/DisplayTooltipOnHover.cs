@@ -50,15 +50,5 @@ namespace Tooltip
         {
             HideTooltip();
         }
-
-        protected string CheckForDamage(string description, int damage)
-        {
-            return CheckForDamage(description, $"{damage}");
-        }
-        
-        protected string CheckForDamage(string description, string damage)
-        {
-            return description.Replace("$d$", damage);
-        }
     }
 }

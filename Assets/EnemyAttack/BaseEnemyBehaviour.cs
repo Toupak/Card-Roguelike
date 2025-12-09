@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CombatLoop;
+using Localization;
 using Spells;
 using Spells.Targeting;
 using UnityEngine;
@@ -91,6 +92,19 @@ namespace EnemyAttack
         public virtual string GetDamageText()
         {
             return "";
+        }
+        
+        public virtual string ComputeTooltipTitle()
+        {
+            return LocalizationSystem.instance.GetEnemyBehaviourTitle(enemyCardController.cardController.cardData.localizationKey, localizationKey);
+        }
+        
+        public virtual string ComputeTooltipDescription()
+        {
+            string toolTipDescription = LocalizationSystem.instance.GetEnemyBehaviourDescription(enemyCardController.cardController.cardData.localizationKey, localizationKey);
+            toolTipDescription = LocalizationSystem.instance.CheckForDamageInText(toolTipDescription, GetDamageText());
+
+            return toolTipDescription;
         }
 
         public virtual DamageSystem.DamageType GetDamageType()

@@ -5,6 +5,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using CombatLoop.EnergyBar;
+using Localization;
 using Spells.Targeting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -210,6 +211,19 @@ namespace Spells
                 return 0;
 
             return spellData.energyCost;
+        }
+
+        public virtual string ComputeTooltipTitle()
+        {
+            return LocalizationSystem.instance.GetSpellTitle(cardController.cardData.localizationKey, spellData.localizationKey);
+        }
+        
+        public virtual string ComputeTooltipDescription()
+        {
+            string description = LocalizationSystem.instance.GetSpellDescription(cardController.cardData.localizationKey, spellData.localizationKey);
+            description = LocalizationSystem.instance.CheckForDamageInText(description, ComputeCurrentDamage(spellData.damage).ToString());
+
+            return description;
         }
 
         public void SetShinyState(bool newState)

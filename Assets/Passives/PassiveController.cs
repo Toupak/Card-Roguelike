@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cards.Scripts;
+using Localization;
 using UnityEngine;
 
 namespace Passives
@@ -26,6 +27,22 @@ namespace Passives
                 return null;
             
             return targets[Random.Range(0, targets.Count)].cardController;
+        }
+        
+        public virtual string ComputeTooltipTitle()
+        {
+            if (cardController.cardData.isEnemy)
+                return LocalizationSystem.instance.GetEnemyPassiveTitle(cardController.cardData.localizationKey, passiveData.localizationKey);
+            else
+                return LocalizationSystem.instance.GetPassiveTitle(cardController.cardData.localizationKey, passiveData.localizationKey);
+        }
+        
+        public virtual string ComputeTooltipDescription()
+        {
+            if (cardController.cardData.isEnemy)
+                return LocalizationSystem.instance.GetEnemyPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey);
+            else
+                return LocalizationSystem.instance.GetPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey);
         }
     }
 }
