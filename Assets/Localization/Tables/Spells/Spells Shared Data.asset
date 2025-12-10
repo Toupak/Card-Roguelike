@@ -775,6 +775,30 @@ MonoBehaviour:
     m_Key: gutter-spider_spiderballspare
     m_Metadata:
       m_Items: []
+  - m_Id: 5271842260221952
+    m_Key: boner_skellydamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657408
+    m_Key: boner_skellydamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657409
+    m_Key: bonnie_skellyterror_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657410
+    m_Key: bonnie_skellyterror
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657411
+    m_Key: bono_skellytaunt_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5271842528657412
+    m_Key: bono_skellytaunt
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -10,11 +10,10 @@ namespace Tooltip.Status
         
         protected override void DisplayTooltip()
         {
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
-
             string title = LocalizationSystem.instance.GetStatusTitle(statusTabDisplay.statusData.localizationKey);
             string main = LocalizationSystem.instance.GetStatusDescription(statusTabDisplay.statusData.localizationKey);
-            multiTooltipDisplay.SetupTooltip(title, main, statusTabDisplay.cardController.tooltipPivot.position, statusTabDisplay.statusData);
+         
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip(title, main, statusTabDisplay.cardController.tooltipPivot.position, statusTabDisplay.statusData);
         }
     }
 }

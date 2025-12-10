@@ -1,3 +1,4 @@
+using System;
 using BoomLib.Tools;
 using Cursor.Script;
 using TMPro;
@@ -14,6 +15,8 @@ namespace Tooltip
         [SerializeField] protected Color subTooltipColor;
 
         private RectTransform rectTransform;
+        private Vector2 targetPosition;
+        
         private Vector3 velocity;
         private float smoothTime = 0.1f;
 
@@ -21,6 +24,7 @@ namespace Tooltip
         {
             titleText.text = title;
             mainText.text = main;
+            
         }
 
         public void SetAsSubTooltip()
@@ -29,10 +33,17 @@ namespace Tooltip
             mainText.color = subTooltipColor;
         }
 
+        private void Update()
+        {
+            if (rectTransform != null)
+                rectTransform.position = Tools.ClampPositionInScreenUpPivot(targetPosition, rectTransform.rect.size);
+        }
+
         public void SetPosition(Vector2 position)
         {
+            targetPosition = position;
             rectTransform = GetComponent<RectTransform>();
-            rectTransform.position = Tools.ClampPositionInScreenUpPivot(position, rectTransform.rect.size);
+            rectTransform.position = Tools.ClampPositionInScreenUpPivot(targetPosition, rectTransform.rect.size);
         }
 
         private void FollowCursor()
@@ -45,7 +56,7 @@ namespace Tooltip
 
         public void Hide()
         {
-            Destroy(gameObject);
+            TooltipFactory.instance.Hide();
         }
     }
 }

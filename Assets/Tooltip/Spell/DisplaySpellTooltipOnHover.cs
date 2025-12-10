@@ -14,9 +14,7 @@ namespace Tooltip.Spell
             string title = spellController.ComputeTooltipTitle();
             string description = spellController.ComputeTooltipDescription();
 
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            multiTooltipDisplay.SetupTooltip(title, description, spellButton.spellController.cardController.tooltipPivot.position);
-            multiTooltipDisplay.SetupEnergyCost(spellController.ComputeEnergyCost());
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip(title, description, spellButton.spellController.cardController.tooltipPivot.position, energyCost:spellController.ComputeEnergyCost());
         }
     }
 }

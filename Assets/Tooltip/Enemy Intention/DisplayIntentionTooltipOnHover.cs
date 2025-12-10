@@ -18,8 +18,7 @@ namespace Tooltip.Enemy_Intention
             string title = nextBehaviour.ComputeTooltipTitle();
             string main = nextBehaviour.ComputeTooltipDescription();
             
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            multiTooltipDisplay.SetupTooltip(title, main, cardController.tooltipPivot.position);
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip(title, main, cardController.tooltipPivot.position);
         }
     }
 }

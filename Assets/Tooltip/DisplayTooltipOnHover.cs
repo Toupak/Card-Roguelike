@@ -9,11 +9,11 @@ namespace Tooltip
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;
 
-        protected MultiTooltipDisplay multiTooltipDisplay;
+        protected TooltipDisplay tooltipDisplay;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (multiTooltipDisplay != null)
+            if (tooltipDisplay != null)
                 return;
 
             DisplayTooltip();
@@ -24,15 +24,15 @@ namespace Tooltip
 
         protected virtual void DisplayTooltip()
         {
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip("base", "base", Vector2.zero);
         }
 
         private void HideTooltip()
         {
-            if (multiTooltipDisplay != null)
+            if (tooltipDisplay != null)
             {
-                multiTooltipDisplay.Hide();
-                multiTooltipDisplay = null;
+                tooltipDisplay.Hide();
+                tooltipDisplay = null;
             }
         }
         

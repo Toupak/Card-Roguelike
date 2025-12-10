@@ -14,8 +14,7 @@ namespace Tooltip.Passive
             string title = passiveController.ComputeTooltipTitle();
             string description = passiveController.ComputeTooltipDescription();
 
-            multiTooltipDisplay = TooltipFactory.instance.CreateTooltip();
-            multiTooltipDisplay.SetupTooltip(title, description, passiveDisplay.cardController.tooltipPivot.position);
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip(title, description, passiveDisplay.cardController.tooltipPivot.position);
         }
     }
 }
