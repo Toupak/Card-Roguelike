@@ -8,6 +8,7 @@ TagManager:
   - Container
   - Slot
   - CardMovement
+  - Character
   layers:
   - Default
   - TransparentFX

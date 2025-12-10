@@ -3,8 +3,8 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float accelerationSpeed;
-    [SerializeField] private float decelerationSpeed;
+    //[SerializeField] private float accelerationSpeed;
+    //[SerializeField] private float decelerationSpeed;
 
     private Rigidbody2D rb;
 

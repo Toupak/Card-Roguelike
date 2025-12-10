@@ -24,4 +24,12 @@ public static class PlayerInput
 
         return inputDirection.normalized;
     }
+
+    public static bool GetInteractInput()
+    {
+        if (Gamepad.current != null && Gamepad.current.aButton.wasPressedThisFrame)
+            return true;
+        else
+            return Keyboard.current.spaceKey.wasPressedThisFrame;
+    }
 }
