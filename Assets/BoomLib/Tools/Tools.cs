@@ -163,7 +163,7 @@ namespace BoomLib.Tools
         public static int GetCardinalDirection(Vector2 currentDirection)
         {
             float angle = Mathf.Atan2(currentDirection.y, currentDirection.x);
-            int direction = Mathf.RoundToInt(8 * angle / (2 * Mathf.PI) + 8) % 8;
+            int direction = Mathf.RoundToInt(4 * angle / (2 * Mathf.PI) + 4) % 4;
 
             return direction;
         }
