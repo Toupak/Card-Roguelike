@@ -30,6 +30,6 @@ public static class PlayerInput
         if (Gamepad.current != null && Gamepad.current.aButton.wasPressedThisFrame)
             return true;
         else
-            return Keyboard.current.spaceKey.wasPressedThisFrame;
+            return Mouse.current.leftButton.wasPressedThisFrame;
     }
 }
