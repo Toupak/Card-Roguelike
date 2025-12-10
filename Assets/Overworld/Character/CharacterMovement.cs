@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    float speed;
-    float accelerationSpeed;
-    float decelerationSpeed;
+    [SerializeField] private float speed;
+    [SerializeField] private float accelerationSpeed;
+    [SerializeField] private float decelerationSpeed;
 
     private Rigidbody2D rb;
 
@@ -17,21 +17,26 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        Walk();
     }
 
     private void MovePlayer(Vector2 direction, float speed)
     {
+        if (direction.magnitude > 0.01f)
+            lastMovement = (direction * speed).normalized;
 
+        rb.linearVelocity = direction * speed;
     }
 
     private void StopMovement()
     {
-
+        rb.linearVelocity = Vector2.zero;
     }
 
-    private void Move()
+    private void Walk()
     {
+        Vector2 inputDirection = PlayerInput.ComputeMoveDirection();
 
+        MovePlayer(inputDirection, speed);
     }
 }

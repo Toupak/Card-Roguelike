@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+public static class PlayerInput
 {
     public static Vector2 ComputeMoveDirection()
     {
@@ -19,15 +19,8 @@ public class PlayerInput : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.qKey.isPressed)
             inputDirection.x = -1.0f;
 
-        if (Gamepad.current != null)
-        {
-            Vector2 joystickInput = Gamepad.current.leftStick.value;
-
-            if (joystickInput.magnitude < 0.1f)
-                joystickInput = Vector2.zero;
-
-            return joystickInput;
-        }
+        if (Gamepad.current != null && Gamepad.current.leftStick.value.magnitude > 0.1f)
+            return Gamepad.current.leftStick.value;
 
         return inputDirection.normalized;
     }
