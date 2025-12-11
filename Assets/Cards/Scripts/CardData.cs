@@ -22,9 +22,18 @@ namespace Cards.Scripts
             Alien
         }
 
+        public enum Rarity
+        {
+            Common,
+            Rare,
+            Legendary,
+            Exotic
+        }
+
         public int cardNumber;
         public string cardName;
         public Tribe tribe;
+        public Rarity rarity;
         public int hpMax;
         public Sprite artwork;
         public string description;
