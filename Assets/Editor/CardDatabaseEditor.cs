@@ -13,7 +13,7 @@ namespace Editor
         private CardDatabase db;
         private Vector2 scrollPos;
         private string _globalfilter = "All";
-        //private string _rarityfilter = "All";
+        private string _rarityfilter = "All";
         private List<bool> foldouts = new List<bool>();
         private HashSet<int> wrongCardNumbers = new();
         private int _lowestMissingNumber = -1;
@@ -50,11 +50,13 @@ namespace Editor
         
         private void SyncNumbers()
         {
-            var orderedCards = new List<CardData>(db.AllCards);
+            List<CardData> orderedCards = new List<CardData>(db.AllCards);
             orderedCards.Sort((a, b) => a.cardNumber.CompareTo(b.cardNumber));
+            
             _lowestMissingNumber = -1;
             _highestNumber = 0;
             int expectedNumber = 1;
+            
             wrongCardNumbers.Clear();
             foreach (var card in orderedCards)
             {
@@ -83,7 +85,8 @@ namespace Editor
 
         public override void OnInspectorGUI()
         {
-            if (EditorApplication.isCompiling || EditorApplication.isUpdating || Selection.activeObject != target) return;
+            if (EditorApplication.isCompiling || EditorApplication.isUpdating || Selection.activeObject != target) 
+                return;
 
             serializedObject.Update();
 
@@ -200,17 +203,16 @@ namespace Editor
             }
             
 
-            /*
+            
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Rarity:", GUILayout.Width(40));
             if (GUILayout.Toggle(_rarityfilter == "All", $"All ({filteredCards.Count()})", EditorStyles.miniButtonLeft)) _rarityfilter = "All";
-            if (GUILayout.Toggle(_rarityfilter == "Common", $"Common ({filteredCards.Count(x => x.Rarity == Rarity.Common)})", EditorStyles.miniButtonMid)) _rarityfilter = "Common";
-            if (GUILayout.Toggle(_rarityfilter == "Rare", $"Rare ({filteredCards.Count(x => x.Rarity == Rarity.Rare)})", EditorStyles.miniButtonMid)) _rarityfilter = "Rare";
-            if (GUILayout.Toggle(_rarityfilter == "Epic", $"Epic ({filteredCards.Count(x => x.Rarity == Rarity.Epic)})", EditorStyles.miniButtonMid)) _rarityfilter = "Epic";
-            if (GUILayout.Toggle(_rarityfilter == "Legendary", $"Legendary ({filteredCards.Count(x => x.Rarity == Rarity.Legendary)})", EditorStyles.miniButtonRight)) _rarityfilter = "Legendary";
-            if (GUILayout.Toggle(_rarityfilter == "Unique", $"Unique ({filteredCards.Count(x => x.Rarity == Rarity.Unique)})", EditorStyles.miniButtonRight)) _rarityfilter = "Unique";
+            if (GUILayout.Toggle(_rarityfilter == "Common", $"Common ({filteredCards.Count(x => x.rarity == CardData.Rarity.Common)})", EditorStyles.miniButtonMid)) _rarityfilter = "Common";
+            if (GUILayout.Toggle(_rarityfilter == "Rare", $"Rare ({filteredCards.Count(x => x.rarity == CardData.Rarity.Rare)})", EditorStyles.miniButtonMid)) _rarityfilter = "Rare";
+            if (GUILayout.Toggle(_rarityfilter == "Legendary", $"Legendary ({filteredCards.Count(x => x.rarity == CardData.Rarity.Legendary)})", EditorStyles.miniButtonRight)) _rarityfilter = "Legendary";
+            if (GUILayout.Toggle(_rarityfilter == "Exotic", $"Exotic ({filteredCards.Count(x => x.rarity == CardData.Rarity.Exotic)})", EditorStyles.miniButtonRight)) _rarityfilter = "Exotic";
             EditorGUILayout.EndHorizontal();
-            */
+            
             EditorGUILayout.Space();
 
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
@@ -221,10 +223,12 @@ namespace Editor
             for (int i = 0; i < allCardsProp.arraySize; i++)
             {
                 SerializedProperty cardProp = allCardsProp.GetArrayElementAtIndex(i);
-                if (cardProp == null || cardProp.objectReferenceValue == null) continue;
+                if (cardProp == null || cardProp.objectReferenceValue == null) 
+                    continue;
 
                 CardData card = (CardData)cardProp.objectReferenceValue;
-                if (card == null) continue;
+                if (card == null) 
+                    continue;
 
                 if (EditorApplication.isCompiling || EditorApplication.isUpdating)
                 {
@@ -235,7 +239,10 @@ namespace Editor
                 SerializedObject cardSO = new SerializedObject(card);
                 SerializedProperty propCardName = cardSO.FindProperty("cardName");
                 SerializedProperty propDescription = cardSO.FindProperty("description");
-                //SerializedProperty propRarity = cardSO.FindProperty("_rarity");
+                SerializedProperty propTribe = cardSO.FindProperty("tribe");
+                SerializedProperty propRarity = cardSO.FindProperty("rarity");
+                SerializedProperty propHpMax = cardSO.FindProperty("hpMax");
+                SerializedProperty propSpecialSummon = cardSO.FindProperty("isSpecialSummon");
                 SerializedProperty propNumber = cardSO.FindProperty("cardNumber");
                 SerializedProperty propArtwork = cardSO.FindProperty("artwork");
                 //SerializedProperty propAlternatePrefab = cardSO.FindProperty("_alternatePrefab");
@@ -244,9 +251,12 @@ namespace Editor
 
                 bool isIncomplete = IsIncomplete(card);
 
-                if (_globalfilter == "Incomplete" && !isIncomplete && !foldouts[i]) continue;
-                if (_globalfilter == "WrongNumber" && !foldouts[i] && !wrongCardNumbers.Contains(propNumber.intValue)) continue;
-                //if (_rarityfilter != "All" && propRarity.enumNames[propRarity.enumValueIndex] != _rarityfilter && !foldouts[i]) continue;
+                if (_globalfilter == "Incomplete" && !isIncomplete && !foldouts[i]) 
+                    continue;
+                if (_globalfilter == "WrongNumber" && !foldouts[i] && !wrongCardNumbers.Contains(propNumber.intValue)) 
+                    continue;
+                if (_rarityfilter != "All" && propRarity.enumNames[propRarity.enumValueIndex] != _rarityfilter && !foldouts[i]) 
+                    continue;
 
                 EditorGUILayout.BeginVertical("box");
                 EditorGUILayout.BeginHorizontal();
@@ -273,10 +283,12 @@ namespace Editor
                     GUILayout.Label("⚠️ Incomplete", GUILayout.Width(100));
                 }
                 EditorGUILayout.EndHorizontal();
-
-                //EditorGUILayout.PropertyField(propRarity, GUIContent.none, GUILayout.Width(80));
+                
                 // ---- Flags, lien et foldout ----
                 EditorGUILayout.BeginHorizontal();
+                
+                GUILayout.Label("Hp", GUILayout.Width(25));
+                EditorGUILayout.PropertyField(propHpMax, GUIContent.none, GUILayout.Width(80));
 
                 // Petit label fixe
                 GUILayout.Label("#", GUILayout.Width(12));
@@ -293,8 +305,19 @@ namespace Editor
 
                 // Foldout
                 foldouts[i] = EditorGUILayout.Foldout(foldouts[i], "", true);
-
+                
                 EditorGUILayout.EndHorizontal(); // end flags + link + foldout
+                
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.PropertyField(propRarity, GUIContent.none, GUILayout.Width(80));
+                EditorGUILayout.PropertyField(propTribe, GUIContent.none, GUILayout.Width(80));
+                EditorGUILayout.EndHorizontal();
+                
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.Label("Is Special Summon", GUILayout.Width(120));
+                EditorGUILayout.PropertyField(propSpecialSummon, GUIContent.none, GUILayout.Width(80));
+                EditorGUILayout.EndHorizontal();
+                
                 EditorGUILayout.EndVertical();   // end vertical nom + warning + flags
                 EditorGUILayout.EndHorizontal(); // end horizontal header
 
