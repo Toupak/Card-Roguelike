@@ -14,7 +14,7 @@ namespace Editor
 {
     public static class LocalizationTools
     {
-        private const string cardDBPath = "Assets/Data/CardDatabase.asset";
+        private const string cardDBPath = "Assets/Cards/CardDatabase.asset";
         
         private const string spellTablePath = "Assets/Localization/Tables/Spells/Spells_en.asset";
         private const string passiveTablePath = "Assets/Localization/Tables/Passives/Passives_en.asset";

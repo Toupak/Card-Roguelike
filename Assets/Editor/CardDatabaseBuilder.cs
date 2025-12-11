@@ -8,12 +8,12 @@ namespace Editor
 {
     public abstract class CardDatabaseBuilder
     {
-        private const string databasePath = "Assets/Data/CardDatabase.asset";
+        private const string databasePath = "Assets/Cards/CardDatabase.asset";
 
         [MenuItem("Tools/Build Card Database")]
         public static void BuildDatabase()
         {
-            string[] guids = AssetDatabase.FindAssets("t:CardData", new[] { "Assets/Data/Cards" });
+            string[] guids = AssetDatabase.FindAssets("t:CardData", new[] { "Assets/Cards/Data" });
             List<CardData> allCards = new List<CardData>();
 
             foreach (string guid in guids)

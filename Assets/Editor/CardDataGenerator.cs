@@ -1,5 +1,4 @@
 using Cards.Scripts;
-using Data;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace Editor
         [MenuItem("Tools/Generate Cards From Sprites")]
         public static void GenerateCards()
         {
-            string cardsPath = "Assets/Data/Cards";
+            string cardsPath = "Assets/Cards/Data";
             if (!System.IO.Directory.Exists(cardsPath))
                 System.IO.Directory.CreateDirectory(cardsPath);
 
@@ -27,7 +26,7 @@ namespace Editor
                 {
                     if (obj is Sprite sprite)
                     {
-                        string assetPath = $"Assets/Data/Cards/{sprite.name}.asset";
+                        string assetPath = $"Assets/Cards/Data/{sprite.name}.asset";
 
                         var card = AssetDatabase.LoadAssetAtPath<CardData>(assetPath);
                         if (card == null)
