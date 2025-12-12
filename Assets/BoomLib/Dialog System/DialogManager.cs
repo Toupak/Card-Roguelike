@@ -64,7 +64,7 @@ namespace BoomLib.Dialog_System
 
             ClearText();
             
-            yield return BTween.TweenLocalPosition(panel, displayedPosition.localPosition, 0.2f, unscaledTime: true);
+            yield return BTween.TweenLocalPosition(panel, hiddenPosition.localPosition, 0.2f, unscaledTime: true);
             
             isDialogDisplayed = false;
         }
