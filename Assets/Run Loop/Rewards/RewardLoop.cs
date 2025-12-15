@@ -76,10 +76,7 @@ namespace Run_Loop.Rewards
 
         private RunParameterData ComputeRunParameterData()
         {
-            if (RunLoop.instance != null && RunLoop.instance.currentRunParameterData != null)
-                return RunLoop.instance.currentRunParameterData;
-            else
-                return new RunParameterData(4, 5, 3, 5, 3);
+            return new RunParameterData(4, 3, 1, 3, 3);
         }
         
         private bool IsFirstRun()
