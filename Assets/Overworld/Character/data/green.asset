@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5a8ce78a75686408ae45bdba60469a, type: 3}
+  m_Name: green
+  m_EditorClassIdentifier: 
+  characterName: Green
+  description: hey
+  displaySprite: {fileID: -1394050701, guid: 236428da740494d49ae42db31f3317a7, type: 3}
+  spriteLibrary: {fileID: 7108339969198208228, guid: e6f88674765a7bb4f81dfe0269aaf5c0, type: 3}
+  startingCards:
+  - {fileID: 11400000, guid: 7c4b87b244623eb44b275f69f25f284a, type: 2}

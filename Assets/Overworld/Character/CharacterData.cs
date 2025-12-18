@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
-namespace Character_Selection
+namespace Overworld.Character
 {
     [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]
     public class CharacterData : ScriptableObject
@@ -10,7 +11,7 @@ namespace Character_Selection
         public string characterName;
         public string description;
         public Sprite displaySprite;
-        public GameObject characterPrefab;
+        public SpriteLibraryAsset spriteLibrary;
         public List<CardData> startingCards;
     }
 }
