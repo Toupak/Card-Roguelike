@@ -221,8 +221,18 @@ MonoBehaviour:
   combatScene:
     m_SceneAsset: {fileID: 102900000, guid: e7a16b253dd531541997db84c06be90c, type: 3}
     m_SceneName: GameScene
+  characterSelectionScene:
+    m_SceneAsset: {fileID: 102900000, guid: 26287eefed1b4e845993869663c77f0d, type: 3}
+    m_SceneName: CharacterSelection
   cardDatabase: {fileID: 11400000, guid: 1e216595a323def43aa782e09498f03d, type: 2}
   battlesDataHolder: {fileID: 11400000, guid: 45f280a4f3e0a3b4cac13b29fdc16619, type: 2}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
 --- !u!1 &8658324569094561765
 GameObject:
   m_ObjectHideFlags: 0

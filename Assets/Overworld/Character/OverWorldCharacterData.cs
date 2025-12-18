@@ -6,7 +6,7 @@ using UnityEngine.U2D.Animation;
 namespace Overworld.Character
 {
     [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]
-    public class CharacterData : ScriptableObject
+    public class OverWorldCharacterData : ScriptableObject
     {
         public string characterName;
         public string description;

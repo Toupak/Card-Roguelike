@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class CharacterSingleton : MonoBehaviour
+namespace Overworld.Character
 {
-    public static CharacterSingleton instance;
-
-    private void Awake()
+    public class CharacterSingleton : MonoBehaviour
     {
-        if (instance != null && instance != this)
+        public static CharacterSingleton instance;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+                instance = this;
         }
-        else
-            instance = this;
     }
 }

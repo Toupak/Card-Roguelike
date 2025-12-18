@@ -777,7 +777,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1641724263, guid: 644d570084940fb48a773929dc9ed1a4, type: 3}
+  m_Sprite: {fileID: -1104794728, guid: 644d570084940fb48a773929dc9ed1a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -887,8 +887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 0.009161512
-  m_labelHash: 1.4624454e-29
+  m_CategoryHash: 1.8625731e-11
+  m_labelHash: 6.0127604e-11
   m_SpriteKey: 0
   m_SpriteHash: 141541714
 --- !u!1 &988518859
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 1560595261}
   - component: {fileID: 1560595259}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Hub Character
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

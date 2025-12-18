@@ -1,9 +1,13 @@
 using System.Collections;
 using Battles.Data;
 using BoomLib.Tools;
+using Cards.Scripts;
+using Character_Selection;
 using CombatLoop.Battles;
 using Data;
+using Overworld.Character;
 using Run_Loop.Rewards;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,6 +23,7 @@ namespace Run_Loop
         [SerializeField] private SceneField overWorldScene;
         [SerializeField] private SceneField rewardScene;
         [SerializeField] private SceneField combatScene;
+        [SerializeField] private SceneField characterSelectionScene;
 
         [Space] 
         [SerializeField] private CardDatabase cardDatabase;
@@ -27,7 +32,8 @@ namespace Run_Loop
         [SerializeField] private BattlesDataHolder battlesDataHolder;
 
         public static RunLoop instance;
-        
+
+        public OverWorldCharacterData characterData;
         public CardDatabase dataBase => cardDatabase;
         public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
@@ -60,6 +66,39 @@ namespace Run_Loop
             StartCoroutine(StartNewRun());
         }
 
+        private IEnumerator StartNewRun()
+        {
+            currentBattleIndex = 0;
+            PlayerDeck.instance.ClearDeck();
+            
+            yield return LoadScene(characterSelectionScene);
+            yield return new WaitUntil(IsCharacterSelected);
+            StoreSelectedCharacter();
+            
+            yield return LoadScene(overWorldScene);
+            LoadSelectedCharacter();
+        }
+
+        private void LoadSelectedCharacter()
+        {
+            CharacterSingleton.instance.GetComponent<CharacterSpriteResolver>().SetSpriteLibrary(characterData.spriteLibrary);
+
+            foreach (CardData card in characterData.startingCards)
+            {
+                PlayerDeck.instance.AddCardToDeck(card);
+            }
+        }
+
+        private bool IsCharacterSelected()
+        {
+            return CharacterSelectionLoop.instance != null && CharacterSelectionLoop.instance.isCharacterSelected;
+        }
+        
+        private void StoreSelectedCharacter()
+        {
+            characterData = CharacterSelectionLoop.instance.GetSelectedCharacter();
+        }
+        
         public void StartBattle()
         {
             if (!isInRun)
@@ -89,14 +128,6 @@ namespace Run_Loop
             
             if (!isPlayerAlive)
                 yield return LoadScene(hubScene);
-        }
-
-        private IEnumerator StartNewRun()
-        {
-            currentBattleIndex = 0;
-            PlayerDeck.instance.ClearDeck();
-            
-            yield return LoadScene(overWorldScene);
         }
 
         private bool IsRewardSelected()
