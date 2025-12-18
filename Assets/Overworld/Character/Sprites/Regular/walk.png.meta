@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 236428da740494d49ae42db31f3317a7
+guid: 644d570084940fb48a773929dc9ed1a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1106804837614304279
-    second: NPC 12_idle (16x24)_0
+      213: 4185421760194967535
+    second: NPC 12_walk (16x24)_0
   - first:
-      213: -9057157375364536993
-    second: NPC 12_idle (16x24)_1
+      213: 2232422904814742100
+    second: NPC 12_walk (16x24)_1
   - first:
-      213: 8963073464817613272
-    second: NPC 12_idle (16x24)_2
+      213: -7025515336465396970
+    second: NPC 12_walk (16x24)_2
   - first:
-      213: 2117471876678712996
-    second: NPC 12_idle (16x24)_3
+      213: 8139973764847568678
+    second: NPC 12_walk (16x24)_3
   - first:
-      213: 3528127700617297551
-    second: NPC 12_idle (16x24)_4
+      213: 2727380121179894011
+    second: NPC 12_walk (16x24)_4
   - first:
-      213: 4623846055345555954
-    second: NPC 12_idle (16x24)_5
+      213: -3734946555474551691
+    second: NPC 12_walk (16x24)_5
   - first:
-      213: 1507877580537735565
-    second: NPC 12_idle (16x24)_6
+      213: 2549522821827506533
+    second: NPC 12_walk (16x24)_6
   - first:
-      213: 4440784487661940354
-    second: NPC 12_idle (16x24)_7
+      213: 3958906889648223205
+    second: NPC 12_walk (16x24)_7
   - first:
-      213: -1535784139751372257
-    second: NPC 12_idle (16x24)_8
+      213: 3302764581898526740
+    second: NPC 12_walk (16x24)_8
   - first:
-      213: -3191109849800403289
-    second: NPC 12_idle (16x24)_9
+      213: -792875001062543111
+    second: NPC 12_walk (16x24)_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_0
+      name: walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,16 +153,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 71c3fadb2292c5f00800000000000000
-      internalID: 1106804837614304279
+      spriteID: cdaa63642267e364eac91aa76f6d8333
+      internalID: -1135927858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_1
+      name: walk_1
       rect:
         serializedVersion: 2
         x: 16
@@ -175,16 +175,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f55669e9a538e4280800000000000000
-      internalID: -9057157375364536993
+      spriteID: 757ed20e1b1e3f742ac5d29bc95fd595
+      internalID: 374481132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_2
+      name: walk_2
       rect:
         serializedVersion: 2
         x: 32
@@ -197,16 +197,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8d9fe2ee3db336c70800000000000000
-      internalID: 8963073464817613272
+      spriteID: 1092e822501f481498c7178d0a1ac117
+      internalID: -609291571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_3
+      name: walk_3
       rect:
         serializedVersion: 2
         x: 48
@@ -219,16 +219,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4ae7057f375c26d10800000000000000
-      internalID: 2117471876678712996
+      spriteID: 2cb6a5f8eb5c86d419e967396530972d
+      internalID: 144032279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_4
+      name: walk_4
       rect:
         serializedVersion: 2
         x: 0
@@ -241,16 +241,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f8e728d637d66f030800000000000000
-      internalID: 3528127700617297551
+      spriteID: 0a1e0a57f9e20684fa867f5d3fc87d3b
+      internalID: 2072578079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_5
+      name: walk_5
       rect:
         serializedVersion: 2
         x: 16
@@ -263,16 +263,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2f986f83d733b2040800000000000000
-      internalID: 4623846055345555954
+      spriteID: e30f1db5068c42749afeb4d5d98146ee
+      internalID: -1480633370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_6
+      name: walk_6
       rect:
         serializedVersion: 2
         x: 32
@@ -285,16 +285,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d892ab0abae0de410800000000000000
-      internalID: 1507877580537735565
+      spriteID: 462813d6eb8bf014788a46f49e9e6fe3
+      internalID: -1122592632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_7
+      name: walk_7
       rect:
         serializedVersion: 2
         x: 48
@@ -307,16 +307,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 28ea72796f5d0ad30800000000000000
-      internalID: 4440784487661940354
+      spriteID: 1fff94c5206c9c0469cac5cf7cef2d91
+      internalID: -594520282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_8
+      name: walk_8
       rect:
         serializedVersion: 2
         x: 0
@@ -329,16 +329,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f1ac07a367ccfaae0800000000000000
-      internalID: -1535784139751372257
+      spriteID: 0640921ce04ce6f489dd8ff28f1fd3b2
+      internalID: -828269106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_9
+      name: walk_9
       rect:
         serializedVersion: 2
         x: 16
@@ -351,16 +351,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a69563bf76e6b3d0800000000000000
-      internalID: -3191109849800403289
+      spriteID: 0147323c73da33740a3db9f506eb6f7e
+      internalID: 1179663935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_10
+      name: walk_10
       rect:
         serializedVersion: 2
         x: 32
@@ -375,14 +375,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc49f1ae97763b5498f9c0fbe8c93257
-      internalID: 1352403526
+      spriteID: aa339f7e0273def4cad7c91e37d111de
+      internalID: -1302624307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_11
+      name: walk_11
       rect:
         serializedVersion: 2
         x: 48
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1d3dedf09fd3cf4fad39bbb08cbb0a6
-      internalID: 2059872872
+      spriteID: ee4c0257a4bec634a886562d4dbce63e
+      internalID: 674512186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_12
+      name: walk_12
       rect:
         serializedVersion: 2
         x: 0
@@ -419,14 +419,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1440b7d57d07a2d47b147c0fafd19ebf
-      internalID: -1491730981
+      spriteID: 3b36b3fa5f108b94c9290a636b311764
+      internalID: -1104794728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_13
+      name: walk_13
       rect:
         serializedVersion: 2
         x: 16
@@ -441,14 +441,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e4e0fd47f2c5fc459e0ea2a8b5112ba
-      internalID: 107191309
+      spriteID: aec852c1d49832d4295a3e734310872f
+      internalID: 745505161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_14
+      name: walk_14
       rect:
         serializedVersion: 2
         x: 32
@@ -463,14 +463,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 783bcc3b62f360f4fb3cff286654975b
-      internalID: 1984529480
+      spriteID: 1e3a8558beed97c48aab9fdbf542ebda
+      internalID: -1067157263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC 12_idle (16x24)_15
+      name: walk_15
       rect:
         serializedVersion: 2
         x: 48
@@ -485,8 +485,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c360b7dcd91b66e4686a4393c2b64f12
-      internalID: 2067888691
+      spriteID: 229f5021055c4fe489b57c3aba0ac97c
+      internalID: -1641724263
       vertices: []
       indices: 
       edges: []
@@ -495,7 +495,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2766aed1574a4e142aa09fd0e2bbc8d8
+    spriteID: 8251993e66774fd428aaaa57e1ccd485
     internalID: 0
     vertices: []
     indices: 
@@ -505,22 +505,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NPC 12_idle (16x24)_0: 1106804837614304279
-      NPC 12_idle (16x24)_1: -9057157375364536993
-      NPC 12_idle (16x24)_10: 1352403526
-      NPC 12_idle (16x24)_11: 2059872872
-      NPC 12_idle (16x24)_12: -1491730981
-      NPC 12_idle (16x24)_13: 107191309
-      NPC 12_idle (16x24)_14: 1984529480
-      NPC 12_idle (16x24)_15: 2067888691
-      NPC 12_idle (16x24)_2: 8963073464817613272
-      NPC 12_idle (16x24)_3: 2117471876678712996
-      NPC 12_idle (16x24)_4: 3528127700617297551
-      NPC 12_idle (16x24)_5: 4623846055345555954
-      NPC 12_idle (16x24)_6: 1507877580537735565
-      NPC 12_idle (16x24)_7: 4440784487661940354
-      NPC 12_idle (16x24)_8: -1535784139751372257
-      NPC 12_idle (16x24)_9: -3191109849800403289
+      walk_0: -1135927858
+      walk_1: 374481132
+      walk_10: -1302624307
+      walk_11: 674512186
+      walk_12: -1104794728
+      walk_13: 745505161
+      walk_14: -1067157263
+      walk_15: -1641724263
+      walk_2: -609291571
+      walk_3: 144032279
+      walk_4: 2072578079
+      walk_5: -1480633370
+      walk_6: -1122592632
+      walk_7: -594520282
+      walk_8: -828269106
+      walk_9: 1179663935
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

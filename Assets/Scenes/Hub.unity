@@ -709,6 +709,8 @@ GameObject:
   - component: {fileID: 842173806}
   - component: {fileID: 842173807}
   - component: {fileID: 842173808}
+  - component: {fileID: 842173810}
+  - component: {fileID: 842173809}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -775,12 +777,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1106804837614304279, guid: 236428da740494d49ae42db31f3317a7, type: 3}
+  m_Sprite: {fileID: -1641724263, guid: 644d570084940fb48a773929dc9ed1a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.16, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -859,6 +861,36 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00019017917, y: -0.0054829274}
   m_Size: {x: 0.085695565, y: 0.03731694}
   m_Direction: 1
+--- !u!114 &842173809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842173803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: e6f88674765a7bb4f81dfe0269aaf5c0, type: 3}
+--- !u!114 &842173810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842173803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 0.009161512
+  m_labelHash: 1.4624454e-29
+  m_SpriteKey: 0
+  m_SpriteHash: 141541714
 --- !u!1 &988518859
 GameObject:
   m_ObjectHideFlags: 0
