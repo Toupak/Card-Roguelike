@@ -4,7 +4,6 @@ using BoomLib.Tools;
 using CombatLoop.Battles;
 using Data;
 using Run_Loop.Rewards;
-using Run_Loop.Run_Parameters;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,7 +15,8 @@ namespace Run_Loop
         [SerializeField] private Image blackScreen;
         
         [Space]
-        [SerializeField] private SceneField parameterScene;
+        [SerializeField] private SceneField hubScene;
+        [SerializeField] private SceneField overWorldScene;
         [SerializeField] private SceneField rewardScene;
         [SerializeField] private SceneField combatScene;
 
@@ -28,79 +28,75 @@ namespace Run_Loop
 
         public static RunLoop instance;
         
-        public RunParameterData currentRunParameterData { get; private set; }
         public CardDatabase dataBase => cardDatabase;
         public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
         private int currentBattleIndex;
+        private bool isInRun;
         
         private void Awake()
         {
             instance = this;
         }
 
-        private IEnumerator Start()
+        private void Start()
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             
-            if (currentSceneName == parameterScene.SceneName)
-                yield return StartNewRun(true);
-            else if (currentSceneName == rewardScene)
+            if (currentSceneName != hubScene)
             {
-                Debug.Log($"Game was not started in scene : {parameterScene.SceneName} => RunLoop will stop itself.");
-                yield break;
-            }
-            else
-            {
-                Debug.Log($"Game was not started in scene : {parameterScene.SceneName} => RunLoop will self destroy.");
+                Debug.Log($"Game was not started in scene : {hubScene.SceneName} => RunLoop will self destroy.");
                 Destroy(gameObject);
+                return;
             }
         }
 
-        private IEnumerator StartNewRun(bool alreadyInParameterScene)
+        public void StartRun()
         {
-            currentBattleIndex = 0;
-            
-            if (!alreadyInParameterScene)
-                yield return LoadScene(parameterScene);
-            yield return new WaitUntil(AreParametersSet);
+            if (isInRun)
+                return;
 
-            currentRunParameterData = RetrieveRunParameters();
-            
-            bool isPlayerAlive = true;
-            while (isPlayerAlive)
+            isInRun = true;
+            StartCoroutine(StartNewRun());
+        }
+
+        public void StartBattle()
+        {
+            if (!isInRun)
+                return;
+
+            StartCoroutine(StartNewBattle());
+        }
+
+        private IEnumerator StartNewBattle()
+        {
+            yield return LoadScene(combatScene);
+            yield return new WaitUntil(IsCombatOver);
+            bool isPlayerAlive = CheckCombatResult();
+            StoreCardsHealth();
+
+            if (!IsRunOver() && isPlayerAlive)
             {
                 yield return LoadScene(rewardScene);
                 yield return new WaitUntil(IsRewardSelected);
                 
-                yield return LoadScene(combatScene);
-                yield return new WaitUntil(IsCombatOver);
-                isPlayerAlive = CheckCombatResult();
-                StoreCardsHealth();
-                
-                if (IsRunOver() || !isPlayerAlive)
-                    break;
-
                 currentBattleIndex += 1;
                 if (currentBattleIndex >= battlesDataHolder.battles.Count)
                     currentBattleIndex = 0;
+                
+                yield return LoadScene(overWorldScene);
             }
-
+            
             if (!isPlayerAlive)
-            {
-                PlayerDeck.instance.ClearDeck();
-                yield return StartNewRun(false);
-            }
+                yield return LoadScene(hubScene);
         }
 
-        private RunParameterData RetrieveRunParameters()
+        private IEnumerator StartNewRun()
         {
-            return RunParameterGatherer.instance.selectedRunParameter;
-        }
-
-        private bool AreParametersSet()
-        {
-            return RunParameterGatherer.instance.isParameterSelected;
+            currentBattleIndex = 0;
+            PlayerDeck.instance.ClearDeck();
+            
+            yield return LoadScene(overWorldScene);
         }
 
         private bool IsRewardSelected()
@@ -133,7 +129,7 @@ namespace Run_Loop
             Debug.Log($"Load Scene : {sceneField.SceneName}");
             yield return Fader.Fade(blackScreen, 0.3f, true);
 
-            var operation = SceneManager.LoadSceneAsync(sceneField.SceneName);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneField.SceneName);
             yield return new WaitUntil(() => operation.isDone);
             
             yield return Fader.Fade(blackScreen, 0.3f, false);

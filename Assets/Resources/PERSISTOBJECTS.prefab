@@ -209,9 +209,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 1157304409776309419}
-  parameterScene:
-    m_SceneAsset: {fileID: 102900000, guid: cf202a97371c298488e208c5129ffaee, type: 3}
-    m_SceneName: ParameterScene
+  hubScene:
+    m_SceneAsset: {fileID: 102900000, guid: 26628ddef0740fe4f972a41cecd6f1a3, type: 3}
+    m_SceneName: Hub
+  overWorldScene:
+    m_SceneAsset: {fileID: 102900000, guid: d85e8089edc98df4fae74d05e71f1e56, type: 3}
+    m_SceneName: Overworld
   rewardScene:
     m_SceneAsset: {fileID: 102900000, guid: 47261ba9e11a35748a77ca068533cf6c, type: 3}
     m_SceneName: RewardScene
