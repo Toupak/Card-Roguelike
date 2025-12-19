@@ -15,8 +15,8 @@ namespace Overworld.Character
 
         private void SetSpriteLibrary()
         {
-            if (RunLoop.instance != null && RunLoop.instance.characterData != null)
-                spriteLibrary.spriteLibraryAsset = RunLoop.instance.characterData.spriteLibrary;
+            if (RunLoop.instance != null)
+                spriteLibrary.spriteLibraryAsset = RunLoop.instance.CharacterData.spriteLibrary;
         }
     }
 }

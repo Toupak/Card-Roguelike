@@ -22,6 +22,8 @@ namespace Run_Loop
         public static PlayerDeck instance;
 
         public List<DeckCard> deck { get; private set; } = new List<DeckCard>();
+
+        public bool IsEmpty => deck.Count < 1;
         
         private void Awake()
         {

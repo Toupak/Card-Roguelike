@@ -27,13 +27,17 @@ namespace Run_Loop
 
         [Space] 
         [SerializeField] private CardDatabase cardDatabase;
+        
+        [Space] 
+        [SerializeField] private OverWorldCharacterData defaultCharacter;
 
         [Space] 
         [SerializeField] private BattlesDataHolder battlesDataHolder;
 
         public static RunLoop instance;
 
-        public OverWorldCharacterData characterData;
+        private OverWorldCharacterData characterData;
+        public OverWorldCharacterData CharacterData => isInRun ? characterData : defaultCharacter;
         public CardDatabase dataBase => cardDatabase;
         public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
@@ -45,6 +49,7 @@ namespace Run_Loop
             instance = this;
         }
 
+        /*
         private void Start()
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
@@ -56,6 +61,7 @@ namespace Run_Loop
                 return;
             }
         }
+        */
 
         public void StartRun()
         {
@@ -74,14 +80,14 @@ namespace Run_Loop
             yield return LoadScene(characterSelectionScene);
             yield return new WaitUntil(IsCharacterSelected);
             StoreSelectedCharacter();
-            LoadCharacterDeck();
+            LoadCharacterDeck(characterData);
             
             yield return LoadScene(overWorldScene);
         }
 
-        private void LoadCharacterDeck()
+        private void LoadCharacterDeck(OverWorldCharacterData data)
         {
-            foreach (CardData card in characterData.startingCards)
+            foreach (CardData card in data.startingCards)
             {
                 PlayerDeck.instance.AddCardToDeck(card);
             }
@@ -99,9 +105,9 @@ namespace Run_Loop
         
         public void StartBattle()
         {
-            if (!isInRun)
-                return;
-
+            if (!isInRun && PlayerDeck.instance.IsEmpty)
+                LoadCharacterDeck(defaultCharacter);
+            
             StartCoroutine(StartNewBattle());
         }
 
