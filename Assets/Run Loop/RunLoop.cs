@@ -74,15 +74,13 @@ namespace Run_Loop
             yield return LoadScene(characterSelectionScene);
             yield return new WaitUntil(IsCharacterSelected);
             StoreSelectedCharacter();
+            LoadCharacterDeck();
             
             yield return LoadScene(overWorldScene);
-            LoadSelectedCharacter();
         }
 
-        private void LoadSelectedCharacter()
+        private void LoadCharacterDeck()
         {
-            CharacterSingleton.instance.GetComponent<CharacterSpriteResolver>().SetSpriteLibrary(characterData.spriteLibrary);
-
             foreach (CardData card in characterData.startingCards)
             {
                 PlayerDeck.instance.AddCardToDeck(card);

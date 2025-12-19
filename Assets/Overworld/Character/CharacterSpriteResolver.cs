@@ -1,3 +1,4 @@
+using Run_Loop;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
@@ -6,10 +7,16 @@ namespace Overworld.Character
     public class CharacterSpriteResolver : MonoBehaviour
     {
         [SerializeField] private SpriteLibrary spriteLibrary;
-        
-        public void SetSpriteLibrary(SpriteLibraryAsset spriteLibraryAsset)
+
+        private void Start()
         {
-            spriteLibrary.spriteLibraryAsset = spriteLibraryAsset;
+            SetSpriteLibrary();
+        }
+
+        private void SetSpriteLibrary()
+        {
+            if (RunLoop.instance != null && RunLoop.instance.characterData != null)
+                spriteLibrary.spriteLibraryAsset = RunLoop.instance.characterData.spriteLibrary;
         }
     }
 }

@@ -2,13 +2,13 @@ using Overworld;
 
 namespace Run_Loop
 {
-    public class StartRunInteraction : Interactable
+    public class StartBattleInteraction : Interactable
     {
         public override void ExecuteInteract()
         {
             base.ExecuteInteract();
             
-            RunLoop.instance.StartRun();
+            RunLoop.instance.StartBattle();
         }
     }
 }
