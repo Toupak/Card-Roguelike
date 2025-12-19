@@ -1,3 +1,4 @@
+using BoomLib.Dialog_System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +11,7 @@ namespace Overworld
         public virtual void ExecuteInteract()
         {
             OnCharacterInteract.Invoke();
-            Debug.Log("Object Has Been Interacted, no interaction implemented");
+            Debug.Log("Object Has Been Interacted");
         }
     }
 }

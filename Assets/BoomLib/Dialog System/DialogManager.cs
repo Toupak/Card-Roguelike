@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BoomLib.BoomTween;
 using BoomLib.Inputs;
+using BoomLib.Tools;
 using TMPro;
 using UnityEngine;
 
@@ -46,7 +48,7 @@ namespace BoomLib.Dialog_System
             
             ClearText();
             
-            yield return BTween.TweenLocalPosition(panel, displayedPosition.localPosition, 0.2f, unscaledTime: true);
+            yield return BTween.TweenLocalPosition(panel, displayedPosition.localPosition, 0.2f, unscaledTime: true); //FadeIn
 
             foreach (string line in dialog)
             {
@@ -64,7 +66,7 @@ namespace BoomLib.Dialog_System
 
             ClearText();
             
-            yield return BTween.TweenLocalPosition(panel, hiddenPosition.localPosition, 0.2f, unscaledTime: true);
+            yield return BTween.TweenLocalPosition(panel, hiddenPosition.localPosition, 0.2f, unscaledTime: true); //FadeOut
             
             isDialogDisplayed = false;
         }
