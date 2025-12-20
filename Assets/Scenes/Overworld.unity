@@ -904,9 +904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 1.8625731e-11
-  m_labelHash: 6.0127604e-11
+  m_labelHash: 3.4849808e-34
   m_SpriteKey: 0
-  m_SpriteHash: 141541714
+  m_SpriteHash: 554460263
 --- !u!70 &556242761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1024,7 +1024,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1104794728, guid: 644d570084940fb48a773929dc9ed1a4, type: 3}
+  m_Sprite: {fileID: -1067157263, guid: 644d570084940fb48a773929dc9ed1a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2184,6 +2184,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Dialog_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1011463903804882671, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2147372776}
+    - target: {fileID: 1011463903804882671, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2731753606188196653, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2263,6 +2271,18 @@ PrefabInstance:
     - target: {fileID: 2731753606188196653, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275744204836597111, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275744204836597111, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275744204836597111, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

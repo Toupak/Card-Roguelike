@@ -6,6 +6,7 @@ using BoomLib.Inputs;
 using BoomLib.Tools;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace BoomLib.Dialog_System
 {
@@ -34,21 +35,21 @@ namespace BoomLib.Dialog_System
             panel.localPosition = hiddenPosition.localPosition;
         }
 
-        public void StartDialog(List<string> dialog)
+        public void StartDialog(List<string> dialog, Vector2 position)
         {
             if (isDialogDisplayed)
                 return;
             
-            StartCoroutine(DisplayDialog(dialog));
+            StartCoroutine(DisplayDialog(dialog, position));
         }
         
-        private IEnumerator DisplayDialog(List<string> dialog)
+        private IEnumerator DisplayDialog(List<string> dialog, Vector2 position)
         {
             isDialogDisplayed = true;
             
             ClearText();
             
-            yield return BTween.TweenLocalPosition(panel, displayedPosition.localPosition, 0.2f, unscaledTime: true); //FadeIn
+            yield return BTween.TweenLocalPosition(panel, WorldToScreenPosition(position), 0.2f, unscaledTime: true); //FadeIn
 
             foreach (string line in dialog)
             {
@@ -104,6 +105,14 @@ namespace BoomLib.Dialog_System
         private void ClearText()
         {
             textMeshProUGUI.text = "";
+        }
+
+        private Vector3 WorldToScreenPosition(Vector3 position)
+        {
+            Vector3 myScreenPos = Camera.main.WorldToScreenPoint(position);
+            myScreenPos = new Vector3(myScreenPos.x / 3, myScreenPos.y / 3, myScreenPos.z);
+
+            return myScreenPos;
         }
     }
 }

@@ -11,6 +11,8 @@ public class CharacterInteract : MonoBehaviour
     private bool isWithinRange;
 
     private GameObject interactButton;
+    private Vector2 interactButtonPosition;
+
     private Interactable interactable;
 
     private void Update()
@@ -43,7 +45,7 @@ public class CharacterInteract : MonoBehaviour
             isWithinRange = true;
 
             if (interactButton == null)
-                SpawnInteractButton(collider.bounds.size.y/2 + offsety);
+                SpawnInteractButton(collider.bounds.size.y / 2 + offsety);
         }
     }
 
@@ -60,7 +62,10 @@ public class CharacterInteract : MonoBehaviour
     private void SpawnInteractButton(float offset)
     {
         if (interactButton == null)
-            interactButton = Instantiate(interactButtonPrefab, new Vector2(interactable.transform.position.x, interactable.transform.position.y + offset), Quaternion.identity, interactable.transform);
+        {
+            interactButtonPosition = new Vector2(interactable.transform.position.x, interactable.transform.position.y + offset);
+            interactButton = Instantiate(interactButtonPrefab, interactButtonPosition, Quaternion.identity, interactable.transform);
+        }
     }
 
     private void DestroyInteractButton()
@@ -69,6 +74,7 @@ public class CharacterInteract : MonoBehaviour
         {
             Destroy(interactButton.gameObject);
             interactButton = null;
+            interactButtonPosition = Vector2.zero;
         }
     }
 }
