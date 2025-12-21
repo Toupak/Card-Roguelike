@@ -36,6 +36,7 @@ namespace Editor
 
                     SerializedObject so = new SerializedObject(room);
                     so.FindProperty("roomName").stringValue = sceneName;
+                    so.FindProperty("scenePath").stringValue = path;
                     so.ApplyModifiedProperties();
 
                     AssetDatabase.CreateAsset(room, assetPath);

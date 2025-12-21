@@ -7,6 +7,10 @@ namespace MapMaker.Rooms
     {
         public string roomName;
         public string description;
+        public string scenePath;
+
+        [Space] 
+        public Sprite screenShot;
         
         [Space]
         public bool hasTopDoor;

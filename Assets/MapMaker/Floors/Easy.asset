@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcba23b4577e2aa44936505dc89d68bc, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
-  floorSize: 150
-  minRoomCount: 100
-  maxRoomCount: 150
+  floorSize: 15
+  minRoomCount: 10
+  maxRoomCount: 15

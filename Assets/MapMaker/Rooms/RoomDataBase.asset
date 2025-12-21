@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8f46c4a923ac94788de060a272d114, type: 3}
   m_Name: RoomDataBase
   m_EditorClassIdentifier: 
-  allRooms:
-  - {fileID: 11400000, guid: 965a7f136fd4e054d83831e7256a01ed, type: 2}
-  - {fileID: 11400000, guid: 86cbce1fadfb44842b6d02142ccd294f, type: 2}
+  allRooms: []
