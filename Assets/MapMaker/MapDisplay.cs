@@ -1,4 +1,5 @@
 using BoomLib.Tools;
+using MapMaker.Floors;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,27 +7,34 @@ namespace MapMaker
 {
     public class MapDisplay : MonoBehaviour
     {
+        [SerializeField] private FloorData floorData;
         [SerializeField] private Transform parentCanvas;
         [SerializeField] private Image roomPrefab;
 
-        private MapBuilder mapBuilder;
 
         private void Start()
         {
-            mapBuilder = GetComponent<MapBuilder>();
             MapBuilder.OnBuildMap.AddListener(DisplayMap);
+            MapBuilder.instance.SetupMap(floorData);
+        }
+        
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                MapBuilder.instance.SetupMap(floorData);
         }
 
         private void DisplayMap()
         {
             parentCanvas.DeleteAllChildren();
 
-            int[][] map = mapBuilder.Map;
-            Vector2 offset = ComputeOffset();
+            int[][] map = MapBuilder.instance.Map;
+            int mapSize = MapBuilder.instance.MapSize;
+            Vector2 offset = ComputeOffset(MapBuilder.instance.mapCenter);
             
-            for (int i = 0; i < mapBuilder.MapSize; i++)
+            for (int i = 0; i < mapSize; i++)
             {
-                for (int j = 0; j < mapBuilder.MapSize; j++)
+                for (int j = 0; j < mapSize; j++)
                 {
                     if (map[i][j] > 0)
                         SpawnRoom(map, i, j, offset);
@@ -34,10 +42,10 @@ namespace MapMaker
             }
         }
 
-        private Vector2 ComputeOffset()
+        private Vector2 ComputeOffset(int mapCenter)
         {
-            float x = (1920.0f / 2.0f) - (mapBuilder.mapCenter * 100.0f);
-            float y = (1080.0f / 2.0f) - (mapBuilder.mapCenter * 100.0f);
+            float x = (1920.0f / 2.0f) - (mapCenter * 100.0f);
+            float y = (1080.0f / 2.0f) - (mapCenter * 100.0f);
 
             return new Vector2(x, y);
         }

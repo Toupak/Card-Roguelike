@@ -1,0 +1,38 @@
+using UnityEngine;
+
+namespace MapMaker.Rooms
+{
+    [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
+    public class RoomData : ScriptableObject
+    {
+        public string roomName;
+        public string description;
+        
+        [Space]
+        public bool hasTopDoor;
+        public bool hasRightDoor;
+        public bool hasBotDoor;
+        public bool hasLeftDoor;
+
+        public int DoorCount()
+        {
+            int count = 0;
+
+            if (hasTopDoor)
+                count += 1;
+
+            if (hasRightDoor)
+                count += 1;
+
+            if (hasBotDoor)
+                count += 1;
+
+            if (hasLeftDoor)
+                count += 1;
+
+            return count;
+        }
+        
+        public bool isIncomplete => DoorCount() < 1;
+    }
+}

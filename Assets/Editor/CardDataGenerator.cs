@@ -6,7 +6,7 @@ namespace Editor
 {
     public abstract class CardDataGenerator
     {
-        [MenuItem("Tools/Generate Cards From Sprites")]
+        [MenuItem("Tools/CardDatabase/Generate Cards From Sprites")]
         public static void GenerateCards()
         {
             string cardsPath = "Assets/Cards/Data";

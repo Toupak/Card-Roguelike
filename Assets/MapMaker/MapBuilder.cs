@@ -1,53 +1,57 @@
+using System;
 using System.Collections.Generic;
+using MapMaker.Floors;
 using UnityEngine;
 using UnityEngine.Events;
 using Tools = BoomLib.Tools.Tools;
 
 namespace MapMaker
 {
+    // 0 -> Empty
+    // 1 -> Combat
+    // 2 -> Start
+    // 3 -> EndRooms
+    // 4 -> Boss
+    
     public class MapBuilder : MonoBehaviour
     {
-        [SerializeField] private int mapSize;
-        [SerializeField] private int minRoomCount;
-        [SerializeField] private int maxRoomCount;
-        [SerializeField] private int maxAlgoIterations;
-
+        public static MapBuilder instance;
+        
         public static UnityEvent OnBuildMap = new UnityEvent();
         
         private int[][] map;
         public int[][] Map => map;
+
+        private int mapSize;
         public int MapSize => mapSize;
-        public int mapCenter => mapSize / 2;
+        public int mapCenter => MapSize / 2;
 
-        private Queue<(int, int)> roomQueue;
         private int currentRoomCount;
-        private int algoIterations;
+        private Queue<(int, int)> roomQueue;
+        
+        private int currentAlgoIterations;
+        private const int maxAlgoIterations = 100;
 
-        private void Start()
+        private void Awake()
         {
-            SetupMap();
+            instance = this;
         }
 
-        private void Update()
+        public void SetupMap(FloorData data, bool resetAlgo = true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                algoIterations = 0;
-                SetupMap();
-            }
-        }
-
-        private void SetupMap()
-        {
+            mapSize = data.floorSize;
+            
             currentRoomCount = 0;
             roomQueue = new Queue<(int, int)>();
-            
+            if (resetAlgo)
+                currentAlgoIterations = 0;
+
             ClearMap();
 
-            VisitCell(mapCenter, mapCenter);
+            VisitCell(mapCenter, mapCenter, data.maxRoomCount);
             map[mapCenter][mapCenter] = 2;
             
-            BuildMap();
+            BuildMap(data);
         }
 
         private void ClearMap()
@@ -61,7 +65,7 @@ namespace MapMaker
             }
         }
 
-        private void BuildMap()
+        private void BuildMap(FloorData data)
         {
             List<(int, int)> endRooms = new List<(int, int)>();
 
@@ -72,33 +76,34 @@ namespace MapMaker
                 bool createdNeighbour = false;
 
                 if (x > 0)
-                    createdNeighbour |= VisitCell(x - 1, y);
+                    createdNeighbour |= VisitCell(x - 1, y, data.maxRoomCount);
                 if (x < mapSize - 1)
-                    createdNeighbour |= VisitCell(x + 1, y);
+                    createdNeighbour |= VisitCell(x + 1, y, data.maxRoomCount);
                 if (y > 0)
-                    createdNeighbour |= VisitCell(x, y - 1);
+                    createdNeighbour |= VisitCell(x, y - 1, data.maxRoomCount);
                 if (y < mapSize - 1)
-                    createdNeighbour |= VisitCell(x, y + 1);
+                    createdNeighbour |= VisitCell(x, y + 1, data.maxRoomCount);
                 
                 if (!createdNeighbour)
                     endRooms.Add((x, y));
             }
 
-            if (currentRoomCount < minRoomCount && algoIterations < maxAlgoIterations)
+            bool isMapValid = currentRoomCount >= data.minRoomCount;
+            bool hasReachedMaxAlgoIterationCount = currentAlgoIterations >= maxAlgoIterations;
+            if (!isMapValid && !hasReachedMaxAlgoIterationCount)
             {
-                algoIterations += 1;
-                SetupMap();
+                currentAlgoIterations += 1;
+                SetupMap(data, false);
                 return;
             }
             
-            Debug.Log($"Map generated with {currentRoomCount} rooms, in {algoIterations + 1} iterations.");
-
             SetupSpecialRooms(endRooms);
 
+            Debug.Log($"Map generated with {currentRoomCount} rooms, in {currentAlgoIterations + 1} iterations.");
             OnBuildMap?.Invoke();
         }
 
-        private bool VisitCell(int x, int y)
+        private bool VisitCell(int x, int y, int maxRoomCount)
         {
             if (map[x][y] != 0)
                 return false;

@@ -25,7 +25,7 @@ namespace Editor
         private const string statusHolderPath = "Assets/Status/StatusDataHolder.asset";
         
 
-        [MenuItem("Tools/Add New Card To Trad File")]
+        [MenuItem("Tools/Localization/Add New Card To Trad File")]
         private static void AddNewCardToTradFile()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(cardDBPath);
@@ -67,7 +67,7 @@ namespace Editor
             EditorUtility.SetDirty(passive);
         }
         
-        [MenuItem("Tools/Add Enemies To Trad File")]
+        [MenuItem("Tools/Localization/Add Enemies To Trad File")]
         private static void AddEnemiesToTradFile()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(cardDBPath);
@@ -108,7 +108,7 @@ namespace Editor
         }
         
 
-        [MenuItem("Tools/Set All Data As Dirty")]
+        [MenuItem("Tools/Localization/Set All Data As Dirty")]
         private static void SetAllDataAsDirty()
         {
             CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(cardDBPath);
@@ -128,7 +128,7 @@ namespace Editor
             }
         }
         
-        [MenuItem("Tools/Update Status")]
+        [MenuItem("Tools/Localization/Update Status")]
         private static void UpdateStatus()
         {
             StatusDataHolder statusDataHolder = AssetDatabase.LoadAssetAtPath<StatusDataHolder>(statusHolderPath);

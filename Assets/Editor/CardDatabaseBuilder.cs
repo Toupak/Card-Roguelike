@@ -10,7 +10,7 @@ namespace Editor
     {
         private const string databasePath = "Assets/Cards/CardDatabase.asset";
 
-        [MenuItem("Tools/Build Card Database")]
+        [MenuItem("Tools/CardDatabase/Build Card Database")]
         public static void BuildDatabase()
         {
             string[] guids = AssetDatabase.FindAssets("t:CardData", new[] { "Assets/Cards/Data" });

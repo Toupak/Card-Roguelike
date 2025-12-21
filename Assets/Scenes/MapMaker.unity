@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a756fff1022d847a74c6dae580605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorData: {fileID: 11400000, guid: 9a6113106f3d2b34a81bb4875e84ebe5, type: 2}
   parentCanvas: {fileID: 1560464840}
   roomPrefab: {fileID: 896746924860555797, guid: 6e6d9cf86d497c54690e81fd9026882c, type: 3}
 --- !u!114 &796530963
@@ -300,10 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8cae3959d9616478850c5d0b307fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: 15
-  minRoomCount: 10
-  maxRoomCount: 15
-  maxAlgoIterations: 100
 --- !u!4 &796530964
 Transform:
   m_ObjectHideFlags: 0
