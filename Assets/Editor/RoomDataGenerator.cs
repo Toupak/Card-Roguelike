@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace Editor
 {
-    public abstract class RoomDatabaseGenerator
+    public abstract class RoomDataGenerator
     {
         [MenuItem("Tools/RoomDatabase/Generate Rooms From Scenes")]
         public static void GenerateRooms()
         {
-            string roomPath = "Assets/MapMaker/Rooms/data";
+            string roomPath = "Assets/MapMaker/Rooms/Data";
             if (!System.IO.Directory.Exists(roomPath))
                 System.IO.Directory.CreateDirectory(roomPath);
 
@@ -40,7 +40,7 @@ namespace Editor
 
                     AssetDatabase.CreateAsset(room, assetPath);
                     created.Add(path);
-                    Debug.Log($"Created card: {room.roomName}");
+                    Debug.Log($"Created room : {room.roomName}");
                 }
             }
 
