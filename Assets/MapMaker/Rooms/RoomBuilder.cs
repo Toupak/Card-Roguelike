@@ -1,9 +1,25 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MapMaker.Rooms
 {
     public class RoomBuilder : MonoBehaviour
     {
+        private class RoomPackage
+        {
+            public RoomData room;
+            public int x;
+            public int y;
+
+            public RoomPackage(RoomData room, int x, int y)
+            {
+                this.room = room;
+                this.x = x;
+                this.y = y;
+            }
+        }
+        
         [SerializeField] private RoomDataBase roomDataBase;
         
         public static RoomBuilder instance;
@@ -12,8 +28,10 @@ namespace MapMaker.Rooms
         
         private int[][] map;
 
-        private RoomData startingRoom = null;
         private RoomData currentRoom = null;
+        private (int, int) currentRoomCoords;
+
+        private List<RoomPackage> alreadyVisitedRooms = new List<RoomPackage>();
             
         private void Awake()
         {
@@ -33,7 +51,37 @@ namespace MapMaker.Rooms
 
         public string GetNextRoom(RoomData.DoorDirection doorDirection)
         {
-            return "";
+            (int x, int y) = ComputeNextRoomCoords(doorDirection);
+            RoomData nextRoom = GetRoom(x, y);
+            SetCurrentRoom(nextRoom, x, y);
+            
+            return nextRoom.roomName;
+        }
+
+        private (int, int) ComputeNextRoomCoords(RoomData.DoorDirection doorDirection)
+        {
+            int x = currentRoomCoords.Item1;
+            int y = currentRoomCoords.Item2;
+            
+            switch (doorDirection)
+            {
+                case RoomData.DoorDirection.Top:
+                    return (x, y - 1);
+                case RoomData.DoorDirection.Right:
+                    return (x + 1, y);
+                case RoomData.DoorDirection.Bot:
+                    return (x, y + 1);
+                case RoomData.DoorDirection.Left:
+                    return (x - 1, y);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(doorDirection), doorDirection, null);
+            }
+        }
+
+        private void SetCurrentRoom(RoomData room, int x, int y)
+        {
+            currentRoom = room;
+            currentRoomCoords = (x, y);
         }
 
         public string GetCurrentRoom()
@@ -43,22 +91,36 @@ namespace MapMaker.Rooms
 
         public string GetStartingRoom()
         {
-            if (startingRoom == null)
-                startingRoom = GetRoom(mapBuilder.mapCenter, mapBuilder.mapCenter);
+            RoomData room = GetRoom(mapBuilder.mapCenter, mapBuilder.mapCenter);
 
-            currentRoom = startingRoom;
+            SetCurrentRoom(room, mapBuilder.mapCenter, mapBuilder.mapCenter);
             
-            return startingRoom.roomName;
+            return room.roomName;
         }
 
         private RoomData GetRoom(int x, int y)
+        {
+            foreach (RoomPackage roomPackage in alreadyVisitedRooms)
+            {
+                if (roomPackage.x == x && roomPackage.y == y)
+                    return roomPackage.room;
+            }
+
+            return GetRoomFromDataBase(x, y);
+        }
+
+        private RoomData GetRoomFromDataBase(int x, int y)
         {
             bool top = y > 0 && map[x][y - 1] != 0;
             bool right = x < mapBuilder.MapSize - 1 && map[x + 1][y] != 0;
             bool bot = y < mapBuilder.MapSize - 1 && map[x][y + 1] != 0;
             bool left = x > 0 && map[x - 1][y] != 0;
             
-            return roomDataBase.GetRandomRoom(top, right, bot, left);
+            RoomData newRoom = roomDataBase.GetRandomRoom(top, right, bot, left);
+            
+            alreadyVisitedRooms.Add(new RoomPackage(newRoom, x, y));
+
+            return newRoom;
         }
     }
 }
