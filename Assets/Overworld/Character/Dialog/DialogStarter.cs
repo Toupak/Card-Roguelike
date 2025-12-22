@@ -19,8 +19,6 @@ namespace Overworld.Character.Dialog
 
             Vector2 position = new Vector2(transform.position.x, transform.position.y + offsety);
 
-            Debug.Log($"Execute Interaction : {position}");
-            
             DialogManager.instance.StartDialog(dialogData.DialogTexts, position);
         }
     }
