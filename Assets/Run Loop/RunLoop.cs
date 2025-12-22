@@ -1,6 +1,5 @@
 using System.Collections;
 using Battles.Data;
-using BoomLib.Tools;
 using Cards.Scripts;
 using Character_Selection;
 using CombatLoop.Battles;
@@ -11,22 +10,20 @@ using MapMaker.Rooms;
 using Overworld.Character;
 using Run_Loop.Rewards;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Run_Loop
 {
     public class RunLoop : MonoBehaviour
     {
-        [SerializeField] private Image blackScreen;
-        
         [Space]
         [SerializeField] private SceneField hubScene;
-        [SerializeField] private SceneField overWorldScene;
         [SerializeField] private SceneField rewardScene;
         [SerializeField] private SceneField combatScene;
         [SerializeField] private SceneField characterSelectionScene;
 
+        [Space] 
+        [SerializeField] private GameObject characterPrefab;
+        
         [Space] 
         [SerializeField] private FloorData floorData;
         
@@ -46,12 +43,16 @@ namespace Run_Loop
         public CardDatabase dataBase => cardDatabase;
         public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
+        private SceneLoader sceneLoader;
+        
         private int currentBattleIndex;
         private bool isInRun;
 
         private void Awake()
         {
             instance = this;
+
+            sceneLoader = GetComponent<SceneLoader>();
         }
 
         /*
@@ -83,12 +84,38 @@ namespace Run_Loop
             PlayerDeck.instance.ClearDeck();
             MapBuilder.instance.SetupMap(floorData);
             
-            yield return LoadScene(characterSelectionScene);
+            yield return sceneLoader.LoadScene(characterSelectionScene);
             yield return new WaitUntil(IsCharacterSelected);
             StoreSelectedCharacter();
             LoadCharacterDeck(characterData);
+            SpawnCharacter();
             
-            yield return LoadScene(RoomBuilder.instance.GetStartingRoom());
+            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetStartingRoom());
+        }
+
+        private void SpawnCharacter()
+        {
+            DontDestroyOnLoad(Instantiate(characterPrefab, Vector3.zero, Quaternion.identity));
+        }
+        
+        private void MovePlayerToRoomDoor(RoomData.DoorDirection doorDirection)
+        {
+            CharacterSingleton.instance.transform.position = DoorHolder.instance.GetDoorExitPosition(doorDirection, 1.5f);
+        }
+
+        private void MovePlayerToCenterOfRoom()
+        {
+            CharacterSingleton.instance.transform.position = Vector3.zero;
+        }
+
+        private void LockPlayer()
+        {
+            
+        }
+
+        private void UnlockPlayer()
+        {
+            
         }
 
         private void LoadCharacterDeck(OverWorldCharacterData data)
@@ -119,25 +146,26 @@ namespace Run_Loop
 
         private IEnumerator StartNewBattle()
         {
-            yield return LoadScene(combatScene);
+            LockPlayer();
+            yield return sceneLoader.LoadScene(combatScene);
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
             StoreCardsHealth();
 
             if (!IsRunOver() && isPlayerAlive)
             {
-                yield return LoadScene(rewardScene);
+                yield return sceneLoader.LoadScene(rewardScene);
                 yield return new WaitUntil(IsRewardSelected);
                 
                 currentBattleIndex += 1;
                 if (currentBattleIndex >= battlesDataHolder.battles.Count)
                     currentBattleIndex = 0;
                 
-                yield return LoadScene(RoomBuilder.instance.GetCurrentRoom());
+                yield return sceneLoader.LoadScene(RoomBuilder.instance.GetCurrentRoom(), UnlockPlayer);
             }
             
             if (!isPlayerAlive)
-                yield return LoadScene(hubScene);
+                yield return sceneLoader.LoadScene(hubScene, MovePlayerToCenterOfRoom);
         }
 
         private bool IsRewardSelected()
@@ -164,26 +192,16 @@ namespace Run_Loop
         {
             return false;
         }
-
-        private IEnumerator LoadScene(string sceneName)
-        {
-            Debug.Log($"Load Scene : {sceneName}");
-            yield return Fader.Fade(blackScreen, 0.3f, true);
-
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-            yield return new WaitUntil(() => operation.isDone);
-            
-            yield return Fader.Fade(blackScreen, 0.3f, false);
-        }
-
+        
         public void OnTriggerDoor(RoomData.DoorDirection doorDirection)
         {
-            StartCoroutine(GoToNextRoom(doorDirection));
+            if (!sceneLoader.IsLoading)
+                StartCoroutine(GoToNextRoom(doorDirection));
         }
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
         {
-            yield return LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection));
+            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection), () => MovePlayerToRoomDoor(doorDirection));
         }
     }
 }

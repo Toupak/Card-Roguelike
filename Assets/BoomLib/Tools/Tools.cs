@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MapMaker.Rooms;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -227,6 +228,23 @@ namespace BoomLib.Tools
             return new string(input
                 .Where(c => !Char.IsWhiteSpace(c))
                 .ToArray());
+        }
+
+        public static RoomData.DoorDirection Opposite(this RoomData.DoorDirection direction)
+        {
+            switch (direction)
+            {
+                case RoomData.DoorDirection.Top:
+                    return RoomData.DoorDirection.Bot;
+                case RoomData.DoorDirection.Right:
+                    return RoomData.DoorDirection.Left;
+                case RoomData.DoorDirection.Bot:
+                    return RoomData.DoorDirection.Top;
+                case RoomData.DoorDirection.Left:
+                    return RoomData.DoorDirection.Right;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
         }
     }
 }

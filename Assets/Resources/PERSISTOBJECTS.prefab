@@ -232,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8820599815545447953}
   - component: {fileID: 2368184901256708554}
+  - component: {fileID: 8160040923871809748}
   m_Layer: 0
   m_Name: __RunLoop
   m_TagString: Untagged
@@ -266,13 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c8865ec3438244e98a28dc36c5665c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackScreen: {fileID: 1157304409776309419}
   hubScene:
     m_SceneAsset: {fileID: 102900000, guid: 26628ddef0740fe4f972a41cecd6f1a3, type: 3}
     m_SceneName: Hub
-  overWorldScene:
-    m_SceneAsset: {fileID: 102900000, guid: d85e8089edc98df4fae74d05e71f1e56, type: 3}
-    m_SceneName: Overworld
   rewardScene:
     m_SceneAsset: {fileID: 102900000, guid: 47261ba9e11a35748a77ca068533cf6c, type: 3}
     m_SceneName: RewardScene
@@ -282,10 +279,24 @@ MonoBehaviour:
   characterSelectionScene:
     m_SceneAsset: {fileID: 102900000, guid: 26287eefed1b4e845993869663c77f0d, type: 3}
     m_SceneName: CharacterSelection
+  characterPrefab: {fileID: 7162381865942633979, guid: cf09b311e7407f04182c3f5b2637c313, type: 3}
   floorData: {fileID: 11400000, guid: 9a6113106f3d2b34a81bb4875e84ebe5, type: 2}
   cardDatabase: {fileID: 11400000, guid: 1e216595a323def43aa782e09498f03d, type: 2}
   defaultCharacter: {fileID: 11400000, guid: 7fa9591a4c438f5429f51d822e33f0a6, type: 2}
   battlesDataHolder: {fileID: 11400000, guid: 45f280a4f3e0a3b4cac13b29fdc16619, type: 2}
+--- !u!114 &8160040923871809748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8612042534088307676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37275082f0722ed449163f27f44249d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackScreen: {fileID: 1157304409776309419}
 --- !u!1 &8658324569094561765
 GameObject:
   m_ObjectHideFlags: 0
