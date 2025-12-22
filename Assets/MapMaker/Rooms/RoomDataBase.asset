@@ -12,4 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8f46c4a923ac94788de060a272d114, type: 3}
   m_Name: RoomDataBase
   m_EditorClassIdentifier: 
-  allRooms: []
+  allRooms:
+  - {fileID: 11400000, guid: e4f0f8f1c0f56bb4897c9d9f7e7aa152, type: 2}
+  - {fileID: 11400000, guid: a1bcd7072e4be4142928e375dcb93a60, type: 2}
+  - {fileID: 11400000, guid: aaafca4e7f0635f459d91cd9ea5e553b, type: 2}
+  - {fileID: 11400000, guid: 45030bad91eced24a985522b426194bc, type: 2}
+  - {fileID: 11400000, guid: b5cc73b4d58f7234bb8ffd7a1929717c, type: 2}
+  - {fileID: 11400000, guid: ebf7c26471c6ea24395bcc195f2e08d8, type: 2}
+  - {fileID: 11400000, guid: 1d3ce8cf9c003bf44ab67fd3348f6edd, type: 2}
+  - {fileID: 11400000, guid: f7850490cbb36554cad6519744f96d17, type: 2}
+  - {fileID: 11400000, guid: a3aad99d412d7e048bacd82ef8c6bd21, type: 2}
+  - {fileID: 11400000, guid: 65ce0f6d697f22543b0928b25173c84e, type: 2}
+  - {fileID: 11400000, guid: 9218f25c340bde649ae1b7d068cb5939, type: 2}
+  - {fileID: 11400000, guid: b10a712fd11dbd047bfc142dd58b16ae, type: 2}
+  - {fileID: 11400000, guid: 576ed9d0a7bf4f849845f3213a52fead, type: 2}
+  - {fileID: 11400000, guid: ba50340bc9375ca4085f78ad354798bc, type: 2}
+  - {fileID: 11400000, guid: 4744a9a34a693fe43b535e2f4ae1e864, type: 2}

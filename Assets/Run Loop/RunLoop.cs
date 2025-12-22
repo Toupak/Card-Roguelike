@@ -5,6 +5,8 @@ using Cards.Scripts;
 using Character_Selection;
 using CombatLoop.Battles;
 using Data;
+using MapMaker;
+using MapMaker.Floors;
 using MapMaker.Rooms;
 using Overworld.Character;
 using Run_Loop.Rewards;
@@ -25,6 +27,9 @@ namespace Run_Loop
         [SerializeField] private SceneField combatScene;
         [SerializeField] private SceneField characterSelectionScene;
 
+        [Space] 
+        [SerializeField] private FloorData floorData;
+        
         [Space] 
         [SerializeField] private CardDatabase cardDatabase;
         
@@ -76,6 +81,7 @@ namespace Run_Loop
         {
             currentBattleIndex = 0;
             PlayerDeck.instance.ClearDeck();
+            MapBuilder.instance.SetupMap(floorData);
             
             yield return LoadScene(characterSelectionScene);
             yield return new WaitUntil(IsCharacterSelected);

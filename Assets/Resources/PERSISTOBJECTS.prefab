@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef81d4c792c06146b541ef26c11c155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomDataBase: {fileID: 11400000, guid: 51d7ebb0d4e5aee4b9c6df4ccd30044e, type: 2}
 --- !u!1 &6435026947695677602
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
   characterSelectionScene:
     m_SceneAsset: {fileID: 102900000, guid: 26287eefed1b4e845993869663c77f0d, type: 3}
     m_SceneName: CharacterSelection
+  floorData: {fileID: 11400000, guid: 9a6113106f3d2b34a81bb4875e84ebe5, type: 2}
   cardDatabase: {fileID: 11400000, guid: 1e216595a323def43aa782e09498f03d, type: 2}
   defaultCharacter: {fileID: 11400000, guid: 7fa9591a4c438f5429f51d822e33f0a6, type: 2}
   battlesDataHolder: {fileID: 11400000, guid: 45f280a4f3e0a3b4cac13b29fdc16619, type: 2}

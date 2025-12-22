@@ -100,6 +100,8 @@ namespace MapMaker.Rooms
 
         private RoomData GetRoom(int x, int y)
         {
+            Debug.Log("Get Room");
+            
             foreach (RoomPackage roomPackage in alreadyVisitedRooms)
             {
                 if (roomPackage.x == x && roomPackage.y == y)
@@ -111,6 +113,8 @@ namespace MapMaker.Rooms
 
         private RoomData GetRoomFromDataBase(int x, int y)
         {
+            Debug.Log("Get Room From DataBase");
+            
             bool top = y > 0 && map[x][y - 1] != 0;
             bool right = x < mapBuilder.MapSize - 1 && map[x + 1][y] != 0;
             bool bot = y < mapBuilder.MapSize - 1 && map[x][y + 1] != 0;
