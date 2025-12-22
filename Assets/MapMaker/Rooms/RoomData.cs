@@ -5,6 +5,14 @@ namespace MapMaker.Rooms
     [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
     public class RoomData : ScriptableObject
     {
+        public enum DoorDirection
+        {
+            Top,
+            Right,
+            Bot,
+            Left
+        }
+        
         public string roomName;
         public string description;
         public string scenePath;
@@ -35,6 +43,23 @@ namespace MapMaker.Rooms
                 count += 1;
 
             return count;
+        }
+
+        public bool CheckDoors(bool t, bool r, bool b, bool l)
+        {
+            if (t != hasTopDoor)
+                return false;
+
+            if (r != hasRightDoor)
+                return false;
+            
+            if (b != hasBotDoor)
+                return false;
+            
+            if (l != hasLeftDoor)
+                return false;
+
+            return true;
         }
         
         public bool isIncomplete => DoorCount() < 1;

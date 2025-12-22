@@ -29,14 +29,17 @@ public class RoomDataBase : ScriptableObject
         return allRooms.Find(c => c != null && string.Equals(c.roomName, roomName, StringComparison.Ordinal));
     }
 
-    public RoomData GetRandomRoom(Predicate<RoomData> predicate = null)
+    public RoomData GetRandomRoom(bool top, bool right, bool bot, bool left, Predicate<RoomData> predicate = null)
     {
-        List<RoomData> pool = (predicate == null)
-            ? allRooms.FindAll(c => c != null)
-            : allRooms.FindAll(c => c != null && predicate(c));
+        List<RoomData> pool = allRooms.FindAll(c => c != null && c.CheckDoors(top, right, bot, left));
+        
+        pool = (predicate == null)
+            ? pool.FindAll(c => c != null)
+            : pool.FindAll(c => c != null && predicate(c));
 
         if (pool.Count == 0) 
             return null;
+
         return pool[UnityEngine.Random.Range(0, pool.Count)];
     }
 

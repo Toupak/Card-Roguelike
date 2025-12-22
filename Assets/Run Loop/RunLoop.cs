@@ -5,9 +5,9 @@ using Cards.Scripts;
 using Character_Selection;
 using CombatLoop.Battles;
 using Data;
+using MapMaker.Rooms;
 using Overworld.Character;
 using Run_Loop.Rewards;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,7 +43,7 @@ namespace Run_Loop
 
         private int currentBattleIndex;
         private bool isInRun;
-        
+
         private void Awake()
         {
             instance = this;
@@ -82,7 +82,7 @@ namespace Run_Loop
             StoreSelectedCharacter();
             LoadCharacterDeck(characterData);
             
-            yield return LoadScene(overWorldScene);
+            yield return LoadScene(RoomBuilder.instance.GetStartingRoom());
         }
 
         private void LoadCharacterDeck(OverWorldCharacterData data)
@@ -127,7 +127,7 @@ namespace Run_Loop
                 if (currentBattleIndex >= battlesDataHolder.battles.Count)
                     currentBattleIndex = 0;
                 
-                yield return LoadScene(overWorldScene);
+                yield return LoadScene(RoomBuilder.instance.GetCurrentRoom());
             }
             
             if (!isPlayerAlive)
@@ -159,15 +159,20 @@ namespace Run_Loop
             return false;
         }
 
-        private IEnumerator LoadScene(SceneField sceneField)
+        private IEnumerator LoadScene(string sceneName)
         {
-            Debug.Log($"Load Scene : {sceneField.SceneName}");
+            Debug.Log($"Load Scene : {sceneName}");
             yield return Fader.Fade(blackScreen, 0.3f, true);
 
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneField.SceneName);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
             yield return new WaitUntil(() => operation.isDone);
             
             yield return Fader.Fade(blackScreen, 0.3f, false);
+        }
+
+        public void OnTriggerDoor(RoomData.DoorDirection doorDirection)
+        {
+            
         }
     }
 }
