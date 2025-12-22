@@ -37,8 +37,6 @@ public class RoomDataBase : ScriptableObject
             ? pool.FindAll(c => c != null)
             : pool.FindAll(c => c != null && predicate(c));
 
-        Debug.Log($"Pool Count : {pool.Count} : {top} / {right} / {bot} / {left}");
-        
         if (pool.Count == 0) 
             return null;
 
