@@ -172,7 +172,12 @@ namespace Run_Loop
 
         public void OnTriggerDoor(RoomData.DoorDirection doorDirection)
         {
-            
+            StartCoroutine(GoToNextRoom(doorDirection));
+        }
+
+        private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
+        {
+            yield return LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection));
         }
     }
 }
