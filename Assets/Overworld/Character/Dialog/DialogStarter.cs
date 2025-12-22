@@ -1,25 +1,27 @@
 using BoomLib.Dialog_System;
-using NUnit.Framework;
-using Overworld;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogStarter : Interactable
+namespace Overworld.Character.Dialog
 {
-    [SerializeField] private DialogData dialogData;
-
-    public override void ExecuteInteract()
+    public class DialogStarter : Interactable
     {
-        base.ExecuteInteract();
+        [SerializeField] private DialogData dialogData;
 
-        Collider2D collider = GetComponent<Collider2D>();
+        public override void ExecuteInteract()
+        {
+            base.ExecuteInteract();
 
-        float offsety = 0;
-        if (collider != null)
-           offsety = collider.bounds.size.y / 2 + 0.5f;
+            Collider2D collider = GetComponent<Collider2D>();
 
-        Vector2 position = new Vector2(transform.position.x, transform.position.y + offsety);
+            float offsety = 0;
+            if (collider != null)
+                offsety = collider.bounds.size.y / 2 + 0.5f;
 
-        DialogManager.instance.StartDialog(dialogData.DialogTexts, position);
+            Vector2 position = new Vector2(transform.position.x, transform.position.y + offsety);
+
+            Debug.Log($"Execute Interaction : {position}");
+            
+            DialogManager.instance.StartDialog(dialogData.DialogTexts, position);
+        }
     }
 }

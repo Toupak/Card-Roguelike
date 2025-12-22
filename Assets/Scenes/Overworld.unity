@@ -2188,10 +2188,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2147372776}
-    - target: {fileID: 1011463903804882671, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2731753606188196653, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2271,18 +2267,6 @@ PrefabInstance:
     - target: {fileID: 2731753606188196653, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275744204836597111, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275744204836597111, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275744204836597111, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

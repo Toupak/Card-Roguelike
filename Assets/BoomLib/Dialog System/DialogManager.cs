@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using BoomLib.BoomTween;
 using BoomLib.Inputs;
 using BoomLib.Tools;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace BoomLib.Dialog_System
 {
@@ -16,15 +14,13 @@ namespace BoomLib.Dialog_System
         
         [SerializeField] private Transform panel;
         [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+        [SerializeField] private CanvasGroup canvasGroup;
         
-        [Space]
-        [SerializeField] private Transform displayedPosition;
-        [SerializeField] private Transform hiddenPosition;
-
         private bool isDialogDisplayed;
         public bool IsDialogDisplayed => isDialogDisplayed;
 
         private InputPacker inputPacker = new InputPacker();
+        private RectTransform panelRect;
         
         private void Awake()
         {
@@ -32,7 +28,8 @@ namespace BoomLib.Dialog_System
                 Destroy(instance.gameObject);
             instance = this;
 
-            panel.localPosition = hiddenPosition.localPosition;
+            panelRect = panel.GetComponent<RectTransform>();
+            canvasGroup.alpha = 0.0f;
         }
 
         public void StartDialog(List<string> dialog, Vector2 position)
@@ -48,8 +45,8 @@ namespace BoomLib.Dialog_System
             isDialogDisplayed = true;
             
             ClearText();
-            
-            yield return BTween.TweenLocalPosition(panel, WorldToScreenPosition(position), 0.2f, unscaledTime: true); //FadeIn
+
+            yield return DisplayPanel(WorldToScreenPosition(position));
 
             foreach (string line in dialog)
             {
@@ -67,9 +64,41 @@ namespace BoomLib.Dialog_System
 
             ClearText();
             
-            yield return BTween.TweenLocalPosition(panel, hiddenPosition.localPosition, 0.2f, unscaledTime: true); //FadeOut
+            yield return HidePanel();
             
             isDialogDisplayed = false;
+        }
+
+        private IEnumerator DisplayPanel(Vector3 targetPosition)
+        {
+            bool isComplete = false;
+
+            float fadeDistance = 100.0f;
+            Vector2 startingPosition = targetPosition.ToVector2() + Vector2.down * fadeDistance;
+
+            panelRect.anchoredPosition = startingPosition;
+            
+            Sequence.Create()
+                .Group(Tween.UIAnchoredPosition(panelRect, targetPosition, 0.2f, Ease.OutSine))
+                .Group(Tween.Alpha(canvasGroup, 1.0f, 0.1f))
+                .ChainCallback(() => isComplete = true);
+
+            yield return new WaitUntil(() => isComplete);
+        }
+        
+        private IEnumerator HidePanel()
+        {
+            bool isComplete = false;
+
+            float fadeDistance = 100.0f;
+            Vector2 targetPosition = panelRect.anchoredPosition + Vector2.down * fadeDistance;
+            
+            Sequence.Create()
+                .Group(Tween.UIAnchoredPosition(panelRect, targetPosition, 0.2f, Ease.OutSine))
+                .Group(Tween.Alpha(canvasGroup, 0.0f, 0.1f))
+                .ChainCallback(() => isComplete = true);
+
+            yield return new WaitUntil(() => isComplete);
         }
         
         private IEnumerator WaitForPlayerInput()
