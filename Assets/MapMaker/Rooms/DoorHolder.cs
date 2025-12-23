@@ -21,7 +21,7 @@ namespace MapMaker.Rooms
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                doors.Add(transform.GetChild(i).GetChild(0).GetComponent<DoorTrigger>());
+                doors.Add(transform.GetChild(i).GetComponent<DoorTrigger>());
             }
         }
 
@@ -62,6 +62,22 @@ namespace MapMaker.Rooms
                     return Vector3.left;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(doorDirection), doorDirection, null);
+            }
+        }
+
+        public void LockAllDoors()
+        {
+            foreach (DoorTrigger doorTrigger in doors)
+            {
+                doorTrigger.LockDoor();
+            }
+        }
+
+        public void UnlockAllDoors()
+        {
+            foreach (DoorTrigger doorTrigger in doors)
+            {
+                doorTrigger.UnlockDoor();
             }
         }
     }

@@ -162,6 +162,8 @@ namespace Run_Loop
                     currentBattleIndex = 0;
                 
                 yield return sceneLoader.LoadScene(RoomBuilder.instance.GetCurrentRoom(), true, UnlockPlayer);
+                
+                UnlockRoom();
             }
             
             if (!isPlayerAlive)
@@ -202,6 +204,19 @@ namespace Run_Loop
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
         {
             yield return sceneLoader.LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection), true,() => MovePlayerToRoomDoor(doorDirection));
+
+            if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle)
+                LockRoom();
+        }
+
+        private void LockRoom()
+        {
+            DoorHolder.instance.LockAllDoors();
+        }
+
+        private void UnlockRoom()
+        {
+            DoorHolder.instance.UnlockAllDoors();
         }
     }
 }

@@ -30,6 +30,7 @@ namespace MapMaker.Rooms
 
         private RoomData currentRoom = null;
         private (int, int) currentRoomCoords;
+        private RoomData.RoomType currentRoomType;
 
         private List<RoomPackage> alreadyVisitedRooms = new List<RoomPackage>();
             
@@ -47,6 +48,15 @@ namespace MapMaker.Rooms
         private void StoreMap()
         {
             map = mapBuilder.Map;
+        }
+        
+        public string GetStartingRoom()
+        {
+            RoomData room = GetRoom(mapBuilder.mapCenter, mapBuilder.mapCenter);
+
+            SetCurrentRoom(room, mapBuilder.mapCenter, mapBuilder.mapCenter);
+            
+            return room.roomName;
         }
 
         public string GetNextRoom(RoomData.DoorDirection doorDirection)
@@ -82,20 +92,12 @@ namespace MapMaker.Rooms
         {
             currentRoom = room;
             currentRoomCoords = (x, y);
+            currentRoomType = ComputeRoomType(map[x][y]);
         }
 
         public string GetCurrentRoom()
         {
             return currentRoom.roomName;
-        }
-
-        public string GetStartingRoom()
-        {
-            RoomData room = GetRoom(mapBuilder.mapCenter, mapBuilder.mapCenter);
-
-            SetCurrentRoom(room, mapBuilder.mapCenter, mapBuilder.mapCenter);
-            
-            return room.roomName;
         }
 
         private RoomData GetRoom(int x, int y)
@@ -125,7 +127,7 @@ namespace MapMaker.Rooms
 
         public RoomData.RoomType GetCurrentRoomType()
         {
-            return ComputeRoomType(map[currentRoomCoords.Item1][currentRoomCoords.Item2]);
+            return currentRoomType;
         }
 
         private RoomData.RoomType ComputeRoomType(int type)

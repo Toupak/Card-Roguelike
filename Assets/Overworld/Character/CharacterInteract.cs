@@ -32,7 +32,8 @@ public class CharacterInteract : MonoBehaviour
 
     private void Interact()
     {
-        interactable.ExecuteInteract();
+        if (interactable != null)
+            interactable.ExecuteInteract();
     }
 
     private void EnterInteractRange(Collider2D collider)
