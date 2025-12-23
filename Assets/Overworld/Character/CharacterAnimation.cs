@@ -1,4 +1,5 @@
 using BoomLib.Tools;
+using Overworld.Character;
 using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour

@@ -110,12 +110,12 @@ namespace Run_Loop
 
         private void LockPlayer()
         {
-            
+            CharacterSingleton.instance.LockPlayer();
         }
 
         private void UnlockPlayer()
         {
-            
+            CharacterSingleton.instance.UnlockPlayer();
         }
 
         private void LoadCharacterDeck(OverWorldCharacterData data)

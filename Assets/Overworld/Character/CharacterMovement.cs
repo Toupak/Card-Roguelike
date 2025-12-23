@@ -1,42 +1,46 @@
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+namespace Overworld.Character
 {
-    [SerializeField] private float speed;
-    //[SerializeField] private float accelerationSpeed;
-    //[SerializeField] private float decelerationSpeed;
-
-    private Rigidbody2D rb;
-
-    public Vector2 lastMovement { get; private set; }
-
-    void Start()
+    public class CharacterMovement : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField] private float speed;
+        //[SerializeField] private float accelerationSpeed;
+        //[SerializeField] private float decelerationSpeed;
 
-    void FixedUpdate()
-    {
-        Walk();
-    }
+        private Rigidbody2D rb;
 
-    private void MovePlayer(Vector2 direction, float speed)
-    {
-        if (direction.magnitude > 0.01f)
-            lastMovement = (direction * speed).normalized;
+        public Vector2 lastMovement { get; private set; } = Vector2.down;
 
-        rb.linearVelocity = direction * speed;
-    }
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
-    private void StopMovement()
-    {
-        rb.linearVelocity = Vector2.zero;
-    }
+        private void FixedUpdate()
+        {
+            if (!CharacterSingleton.instance.IsLocked)
+                Walk();
+        }
+    
+        private void Walk()
+        {
+            Vector2 inputDirection = PlayerInput.ComputeMoveDirection();
 
-    private void Walk()
-    {
-        Vector2 inputDirection = PlayerInput.ComputeMoveDirection();
+            MovePlayer(inputDirection, speed);
+        }
 
-        MovePlayer(inputDirection, speed);
+        private void MovePlayer(Vector2 direction, float movementSpeed)
+        {
+            if (direction.magnitude > 0.01f)
+                lastMovement = (direction * movementSpeed).normalized;
+
+            rb.linearVelocity = direction * movementSpeed;
+        }
+
+        private void StopMovement()
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 }

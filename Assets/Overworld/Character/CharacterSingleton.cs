@@ -6,6 +6,9 @@ namespace Overworld.Character
     {
         public static CharacterSingleton instance;
 
+        private bool isLocked;
+        public bool IsLocked => isLocked;
+        
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -15,6 +18,16 @@ namespace Overworld.Character
             }
             else
                 instance = this;
+        }
+
+        public void LockPlayer()
+        {
+            isLocked = true;
+        }
+
+        public void UnlockPlayer()
+        {
+            isLocked = false;
         }
     }
 }

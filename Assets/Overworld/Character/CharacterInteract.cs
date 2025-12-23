@@ -1,7 +1,6 @@
-using System;
 using Overworld;
+using Overworld.Character;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CharacterInteract : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class CharacterInteract : MonoBehaviour
 
     private void Update()
     {
-        if (isWithinRange && PlayerInput.GetInteractInput())
+        if (!CharacterSingleton.instance.IsLocked && isWithinRange && PlayerInput.GetInteractInput())
             Interact();
     }
 
