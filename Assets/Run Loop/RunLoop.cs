@@ -84,13 +84,13 @@ namespace Run_Loop
             PlayerDeck.instance.ClearDeck();
             MapBuilder.instance.SetupMap(floorData);
             
-            yield return sceneLoader.LoadScene(characterSelectionScene);
+            yield return sceneLoader.LoadScene(characterSelectionScene, false);
             yield return new WaitUntil(IsCharacterSelected);
             StoreSelectedCharacter();
             LoadCharacterDeck(characterData);
             SpawnCharacter();
             
-            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetStartingRoom());
+            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetStartingRoom(), true);
         }
 
         private void SpawnCharacter()
@@ -147,25 +147,25 @@ namespace Run_Loop
         private IEnumerator StartNewBattle()
         {
             LockPlayer();
-            yield return sceneLoader.LoadScene(combatScene);
+            yield return sceneLoader.LoadScene(combatScene, false);
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
             StoreCardsHealth();
 
             if (!IsRunOver() && isPlayerAlive)
             {
-                yield return sceneLoader.LoadScene(rewardScene);
+                yield return sceneLoader.LoadScene(rewardScene, false);
                 yield return new WaitUntil(IsRewardSelected);
                 
                 currentBattleIndex += 1;
                 if (currentBattleIndex >= battlesDataHolder.battles.Count)
                     currentBattleIndex = 0;
                 
-                yield return sceneLoader.LoadScene(RoomBuilder.instance.GetCurrentRoom(), UnlockPlayer);
+                yield return sceneLoader.LoadScene(RoomBuilder.instance.GetCurrentRoom(), true, UnlockPlayer);
             }
             
             if (!isPlayerAlive)
-                yield return sceneLoader.LoadScene(hubScene, MovePlayerToCenterOfRoom);
+                yield return sceneLoader.LoadScene(hubScene, false, MovePlayerToCenterOfRoom);
         }
 
         private bool IsRewardSelected()
@@ -201,7 +201,7 @@ namespace Run_Loop
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
         {
-            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection), () => MovePlayerToRoomDoor(doorDirection));
+            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection), true,() => MovePlayerToRoomDoor(doorDirection));
         }
     }
 }

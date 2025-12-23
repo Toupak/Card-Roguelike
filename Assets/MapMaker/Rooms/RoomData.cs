@@ -13,6 +13,14 @@ namespace MapMaker.Rooms
             Left
         }
         
+        public enum RoomType
+        {
+            Starting,
+            Battle,
+            Special,
+            Boss
+        }
+        
         public string roomName;
         public string description;
         public string scenePath;

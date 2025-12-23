@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 3824273867171373355}
   - component: {fileID: 321040319353944359}
   - component: {fileID: 1672030506187805345}
+  - component: {fileID: 5449888472364821272}
   m_Layer: 0
   m_Name: __MapBuilder
   m_TagString: Untagged
@@ -190,6 +191,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomDataBase: {fileID: 11400000, guid: 51d7ebb0d4e5aee4b9c6df4ccd30044e, type: 2}
+--- !u!114 &5449888472364821272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287801134312450437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0a3233c2217f047aa313952b2b3031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6435026947695677602
 GameObject:
   m_ObjectHideFlags: 0

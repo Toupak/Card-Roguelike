@@ -122,5 +122,24 @@ namespace MapMaker.Rooms
 
             return newRoom;
         }
+
+        public RoomData.RoomType GetCurrentRoomType()
+        {
+            return ComputeRoomType(map[currentRoomCoords.Item1][currentRoomCoords.Item2]);
+        }
+
+        private RoomData.RoomType ComputeRoomType(int type)
+        {
+            if (type == 1)
+                return RoomData.RoomType.Battle;
+            if (type == 2)
+                return RoomData.RoomType.Starting;
+            if (type == 3)
+                return RoomData.RoomType.Special;
+            if (type == 4)
+                return RoomData.RoomType.Boss;
+
+            return RoomData.RoomType.Starting;
+        }
     }
 }
