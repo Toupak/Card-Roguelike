@@ -11,12 +11,14 @@ namespace MapMaker.Rooms
             public RoomData room;
             public int x;
             public int y;
+            public bool hasBeenCleared;
 
             public RoomPackage(RoomData room, int x, int y)
             {
                 this.room = room;
                 this.x = x;
                 this.y = y;
+                this.hasBeenCleared = false;
             }
         }
         
@@ -102,13 +104,23 @@ namespace MapMaker.Rooms
 
         private RoomData GetRoom(int x, int y)
         {
+            RoomPackage roomPackage = GetRoomFromAlreadyVisited(x, y);
+
+            if (roomPackage != null)
+                return roomPackage.room;
+
+            return GetRoomFromDataBase(x, y);
+        }
+
+        private RoomPackage GetRoomFromAlreadyVisited(int x, int y)
+        {
             foreach (RoomPackage roomPackage in alreadyVisitedRooms)
             {
                 if (roomPackage.x == x && roomPackage.y == y)
-                    return roomPackage.room;
+                    return roomPackage;
             }
 
-            return GetRoomFromDataBase(x, y);
+            return null;
         }
 
         private RoomData GetRoomFromDataBase(int x, int y)
@@ -142,6 +154,29 @@ namespace MapMaker.Rooms
                 return RoomData.RoomType.Boss;
 
             return RoomData.RoomType.Starting;
+        }
+
+        public bool HasRoomBeenCleared()
+        {
+            if (currentRoomType == RoomData.RoomType.Battle)
+            {
+                RoomPackage roomPackage = GetRoomFromAlreadyVisited(currentRoomCoords.Item1, currentRoomCoords.Item2);
+
+                if (roomPackage != null)
+                    return roomPackage.hasBeenCleared;
+                else
+                    return false;
+            }
+
+            return true;
+        }
+
+        public void MarkCurrentRoomAsCleared()
+        {
+            RoomPackage roomPackage = GetRoomFromAlreadyVisited(currentRoomCoords.Item1, currentRoomCoords.Item2);
+
+            if (roomPackage != null)
+                roomPackage.hasBeenCleared = true;
         }
     }
 }

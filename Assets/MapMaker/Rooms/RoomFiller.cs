@@ -47,7 +47,8 @@ namespace MapMaker.Rooms
         
         private void SetupBattleRoom()
         {
-            Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
+            if (!roomBuilder.HasRoomBeenCleared())
+                Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
         }
         
         private void SetupSpecialRoom()
