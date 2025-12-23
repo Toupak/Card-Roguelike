@@ -1541,6 +1541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hub Character
       objectReference: {fileID: 0}
+    - target: {fileID: 2334905712624591531, guid: 449c0512fcce95c4b80dc71d936dffee, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5019502670596260545, guid: 449c0512fcce95c4b80dc71d936dffee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.23
