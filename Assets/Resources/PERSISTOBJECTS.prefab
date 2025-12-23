@@ -203,6 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0a3233c2217f047aa313952b2b3031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleInteractionPrefab: {fileID: 1270374925612961921, guid: 9ed65d522d41f8e4bb05ece59223be8f, type: 3}
+  dialogInteractionPrefab: {fileID: 8912084564866941252, guid: f6a3cb03353875d4dbcccc3417c4482c, type: 3}
 --- !u!1 &6435026947695677602
 GameObject:
   m_ObjectHideFlags: 0
