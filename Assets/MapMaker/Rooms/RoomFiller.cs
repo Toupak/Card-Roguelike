@@ -1,5 +1,4 @@
 using System;
-using Run_Loop;
 using UnityEngine;
 
 namespace MapMaker.Rooms
@@ -9,31 +8,28 @@ namespace MapMaker.Rooms
         [SerializeField] private GameObject battleInteractionPrefab;
         [SerializeField] private GameObject dialogInteractionPrefab;
         
-        private RoomBuilder roomBuilder;
+        public static RoomFiller instance;
         
-        private void Start()
+        private void Awake()
         {
-            roomBuilder = GetComponent<RoomBuilder>();
-            SceneLoader.OnLoadRoom.AddListener(FillRoom);
+            instance = this;
         }
 
-        private void FillRoom()
+        public void FillRoom(RoomData.RoomType roomType, bool hasRoomBeenCleared)
         {
-            RoomData.RoomType roomType = roomBuilder.GetCurrentRoomType();
-
             switch (roomType)
             {
                 case RoomData.RoomType.Starting:
                     SetupStartingRoom();
                     break;
                 case RoomData.RoomType.Battle:
-                    SetupBattleRoom();
+                    SetupBattleRoom(hasRoomBeenCleared);
                     break;
                 case RoomData.RoomType.Special:
                     SetupSpecialRoom();
                     break;
                 case RoomData.RoomType.Boss:
-                    SetupBossRoom();
+                    SetupBossRoom(hasRoomBeenCleared);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -45,9 +41,9 @@ namespace MapMaker.Rooms
             
         }
         
-        private void SetupBattleRoom()
+        private void SetupBattleRoom(bool hasRoomBeenCleared)
         {
-            if (!roomBuilder.HasRoomBeenCleared())
+            if (!hasRoomBeenCleared)
                 Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
         }
         
@@ -56,7 +52,7 @@ namespace MapMaker.Rooms
             Instantiate(dialogInteractionPrefab, Vector3.zero, Quaternion.identity);
         }
         
-        private void SetupBossRoom()
+        private void SetupBossRoom(bool hasRoomBeenCleared)
         {
             
         }

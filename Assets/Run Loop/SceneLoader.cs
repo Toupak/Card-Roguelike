@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using BoomLib.Tools;
+using MapMaker.Rooms;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -13,16 +14,15 @@ namespace Run_Loop
         [SerializeField] private Image blackScreen;
 
         public static UnityEvent<string> OnLoadScene = new UnityEvent<string>();
-        public static UnityEvent OnLoadRoom = new UnityEvent();
 
         private bool isLoading;
         public bool IsLoading => isLoading;
         
-        public IEnumerator LoadScene(string sceneName, bool isNewRoom, Action callback = null)
+        public IEnumerator LoadScene(string sceneName, Action callback = null)
         {
             isLoading = true;
             Debug.Log($"Load Scene : {sceneName}");
-            yield return Fader.Fade(blackScreen, 0.15f, true);
+            yield return FadeScreen(true);
 
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
             yield return new WaitUntil(() => operation.isDone);
@@ -30,13 +30,35 @@ namespace Run_Loop
             if (callback != null)
                 callback.Invoke();
             
-            if (isNewRoom)
-                OnLoadRoom?.Invoke();
-            
             OnLoadScene?.Invoke(sceneName);
             
-            yield return Fader.Fade(blackScreen, 0.15f, false);
+            yield return FadeScreen(false);
             isLoading = false;
+        }
+
+        public IEnumerator LoadRoom(string roomName, RoomData.RoomType roomType, bool hasRoomBeenCleared, Action callback = null)
+        {
+            isLoading = true;
+            Debug.Log($"Load Room : {roomName}");
+            yield return FadeScreen(true);
+
+            AsyncOperation operation = SceneManager.LoadSceneAsync(roomName);
+            yield return new WaitUntil(() => operation.isDone);
+
+            RoomFiller.instance.FillRoom(RoomBuilder.instance.GetCurrentRoomType(), RoomBuilder.instance.HasRoomBeenCleared());
+            
+            if (callback != null)
+                callback.Invoke();
+            
+            OnLoadScene?.Invoke(roomName);
+            
+            yield return FadeScreen(false);
+            isLoading = false;
+        }
+
+        private IEnumerator FadeScreen(bool fadeIn)
+        {
+            yield return Fader.Fade(blackScreen, 0.15f, fadeIn);
         }
     }
 }

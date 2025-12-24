@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Battles.Data;
 using Cards.Scripts;
@@ -55,20 +56,6 @@ namespace Run_Loop
             sceneLoader = GetComponent<SceneLoader>();
         }
 
-        /*
-        private void Start()
-        {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            
-            if (currentSceneName != hubScene)
-            {
-                Debug.Log($"Game was not started in scene : {hubScene.SceneName} => RunLoop will self destroy.");
-                Destroy(gameObject);
-                return;
-            }
-        }
-        */
-
         public void StartRun()
         {
             if (isInRun)
@@ -84,13 +71,13 @@ namespace Run_Loop
             PlayerDeck.instance.ClearDeck();
             MapBuilder.instance.SetupMap(floorData);
             
-            yield return sceneLoader.LoadScene(characterSelectionScene, false);
+            yield return sceneLoader.LoadScene(characterSelectionScene);
             yield return new WaitUntil(IsCharacterSelected);
             StoreSelectedCharacter();
             LoadCharacterDeck(characterData);
             SpawnCharacter();
             
-            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetStartingRoom(), true);
+            yield return LoadRoom(RoomBuilder.instance.GetStartingRoom());
         }
 
         private void SpawnCharacter()
@@ -147,14 +134,14 @@ namespace Run_Loop
         private IEnumerator StartNewBattle()
         {
             LockPlayer();
-            yield return sceneLoader.LoadScene(combatScene, false);
+            yield return sceneLoader.LoadScene(combatScene);
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
             StoreCardsHealth();
 
             if (!IsRunOver() && isPlayerAlive)
             {
-                yield return sceneLoader.LoadScene(rewardScene, false);
+                yield return sceneLoader.LoadScene(rewardScene);
                 yield return new WaitUntil(IsRewardSelected);
                 
                 currentBattleIndex += 1;
@@ -162,13 +149,13 @@ namespace Run_Loop
                     currentBattleIndex = 0;
                 
                 RoomBuilder.instance.MarkCurrentRoomAsCleared();
-                yield return sceneLoader.LoadScene(RoomBuilder.instance.GetCurrentRoom(), true, UnlockPlayer);
+                yield return LoadRoom(RoomBuilder.instance.GetCurrentRoom(), UnlockPlayer);
                 
                 UnlockRoom();
             }
             
             if (!isPlayerAlive)
-                yield return sceneLoader.LoadScene(hubScene, false, MovePlayerToCenterOfRoom);
+                yield return sceneLoader.LoadScene(hubScene, MovePlayerToCenterOfRoom);
         }
 
         private bool IsRewardSelected()
@@ -204,10 +191,15 @@ namespace Run_Loop
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
         {
-            yield return sceneLoader.LoadScene(RoomBuilder.instance.GetNextRoom(doorDirection), true,() => MovePlayerToRoomDoor(doorDirection));
+            yield return LoadRoom(RoomBuilder.instance.GetNextRoom(doorDirection),() => MovePlayerToRoomDoor(doorDirection));
 
             if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
                 LockRoom();
+        }
+
+        private IEnumerator LoadRoom(string roomName, Action callback = null)
+        {
+            yield return sceneLoader.LoadRoom(roomName, RoomBuilder.instance.GetCurrentRoomType(), RoomBuilder.instance.HasRoomBeenCleared(), callback);
         }
 
         private void LockRoom()
