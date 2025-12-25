@@ -18,6 +18,7 @@ namespace Run_Loop
     {
         [Space]
         [SerializeField] private SceneField hubScene;
+        [SerializeField] private SceneField introScene;
         [SerializeField] private SceneField rewardScene;
         [SerializeField] private SceneField combatScene;
         [SerializeField] private SceneField characterSelectionScene;
@@ -40,7 +41,7 @@ namespace Run_Loop
         public static RunLoop instance;
 
         private OverWorldCharacterData characterData;
-        public OverWorldCharacterData CharacterData => isInRun ? characterData : defaultCharacter;
+        public OverWorldCharacterData CharacterData => isInRun && characterData != null ? characterData : defaultCharacter;
         public CardDatabase dataBase => cardDatabase;
         public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
@@ -58,22 +59,38 @@ namespace Run_Loop
                 return;
 
             isInRun = true;
-            StartCoroutine(StartNewRun());
+            StartCoroutine(StartNewRun(true));
+        }
+        
+        public void StartRunFromIntro()
+        {
+            if (isInRun)
+                return;
+
+            isInRun = true;
+            StartCoroutine(StartNewRun(false));
         }
 
-        private IEnumerator StartNewRun()
+        private IEnumerator StartNewRun(bool isSelectingCharacter)
         {
             currentBattleIndex = 0;
             PlayerDeck.instance.ClearDeck();
             MapBuilder.instance.SetupMap(floorData);
+
+            if (isSelectingCharacter)
+                yield return SelectCharacter();
             
-            yield return SceneLoader.instance.LoadScene(characterSelectionScene);
-            yield return new WaitUntil(IsCharacterSelected);
-            StoreSelectedCharacter();
-            LoadCharacterDeck(characterData);
+            LoadCharacterDeck(CharacterData);
             SpawnCharacter();
             
             yield return LoadRoom(RoomBuilder.instance.GetStartingRoom());
+        }
+
+        private IEnumerator SelectCharacter()
+        {
+            yield return SceneLoader.instance.LoadScene(characterSelectionScene);
+            yield return new WaitUntil(IsCharacterSelected);
+            StoreSelectedCharacter();
         }
 
         private void SpawnCharacter()
@@ -183,6 +200,11 @@ namespace Run_Loop
         {
             if (!SceneLoader.instance.IsLoading)
                 StartCoroutine(GoToNextRoom(doorDirection));
+        }
+        
+        public void GoToIntroFromMainMenu()
+        {
+            StartCoroutine(SceneLoader.instance.LoadScene(introScene.SceneName));
         }
         
         public void LoadHubFromMainMenu()

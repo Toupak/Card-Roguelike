@@ -1,8 +1,6 @@
-using BoomLib.Tools;
 using Run_Loop;
 using Save_System;
 using TMPro;
-using Tutorial;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,6 +11,8 @@ namespace Main_Menu
         [SerializeField] private TextMeshProUGUI startGameButtonText;
         
         private bool isFirstTimePlaying;
+
+        private bool hasClicked;
         
         private void Start()
         {
@@ -28,8 +28,12 @@ namespace Main_Menu
 
         public void OnClickStartGame()
         {
+            if (hasClicked)
+                return;
+            hasClicked = true;
+
             if (isFirstTimePlaying)
-                TutorialManager.instance.StartTutorial();
+                RunLoop.instance.GoToIntroFromMainMenu();
             else
                 RunLoop.instance.LoadHubFromMainMenu();
         }
@@ -46,6 +50,10 @@ namespace Main_Menu
 
         public void OnClickQuit()
         {
+            if (hasClicked)
+                return;
+            hasClicked = true;
+            
             if (Application.isEditor)
                 EditorApplication.ExitPlaymode();
             Application.Quit();

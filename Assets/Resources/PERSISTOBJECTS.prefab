@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &334155224364549911
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2308855999259240790}
-  - component: {fileID: 6780849851653364560}
-  m_Layer: 0
-  m_Name: __Tutorial
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2308855999259240790
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334155224364549911}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5168994591370224491}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6780849851653364560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334155224364549911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 132c6e8e857cb3b4586d8f585a74e08e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2103266483835978898
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +280,6 @@ Transform:
   - {fileID: 2565726826618425718}
   - {fileID: 3824273867171373355}
   - {fileID: 8820599815545447953}
-  - {fileID: 2308855999259240790}
   - {fileID: 8165258998309450470}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -376,6 +331,9 @@ MonoBehaviour:
   hubScene:
     m_SceneAsset: {fileID: 102900000, guid: 26628ddef0740fe4f972a41cecd6f1a3, type: 3}
     m_SceneName: Hub
+  introScene:
+    m_SceneAsset: {fileID: 102900000, guid: d4dada849bf39e2489569f39c2075911, type: 3}
+    m_SceneName: Intro
   rewardScene:
     m_SceneAsset: {fileID: 102900000, guid: 47261ba9e11a35748a77ca068533cf6c, type: 3}
     m_SceneName: RewardScene

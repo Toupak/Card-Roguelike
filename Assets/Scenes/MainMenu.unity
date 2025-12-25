@@ -884,6 +884,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameButtonText: {fileID: 259293583}
+  introScene:
+    m_SceneAsset: {fileID: 102900000, guid: d4dada849bf39e2489569f39c2075911, type: 3}
+    m_SceneName: Intro
 --- !u!1 &1908277428
 GameObject:
   m_ObjectHideFlags: 0
