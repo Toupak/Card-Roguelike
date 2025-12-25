@@ -44,16 +44,12 @@ namespace Run_Loop
         public CardDatabase dataBase => cardDatabase;
         public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
-        private SceneLoader sceneLoader;
-        
         private int currentBattleIndex;
         private bool isInRun;
 
         private void Awake()
         {
             instance = this;
-
-            sceneLoader = GetComponent<SceneLoader>();
         }
 
         public void StartRun()
@@ -71,7 +67,7 @@ namespace Run_Loop
             PlayerDeck.instance.ClearDeck();
             MapBuilder.instance.SetupMap(floorData);
             
-            yield return sceneLoader.LoadScene(characterSelectionScene);
+            yield return SceneLoader.instance.LoadScene(characterSelectionScene);
             yield return new WaitUntil(IsCharacterSelected);
             StoreSelectedCharacter();
             LoadCharacterDeck(characterData);
@@ -134,14 +130,14 @@ namespace Run_Loop
         private IEnumerator StartNewBattle()
         {
             LockPlayer();
-            yield return sceneLoader.LoadScene(combatScene);
+            yield return SceneLoader.instance.LoadScene(combatScene);
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
             StoreCardsHealth();
 
             if (!IsRunOver() && isPlayerAlive)
             {
-                yield return sceneLoader.LoadScene(rewardScene);
+                yield return SceneLoader.instance.LoadScene(rewardScene);
                 yield return new WaitUntil(IsRewardSelected);
                 
                 currentBattleIndex += 1;
@@ -153,9 +149,9 @@ namespace Run_Loop
                 
                 UnlockRoom();
             }
-            
+
             if (!isPlayerAlive)
-                yield return sceneLoader.LoadScene(hubScene, MovePlayerToCenterOfRoom);
+                yield return GoBackToHub();
         }
 
         private bool IsRewardSelected()
@@ -185,8 +181,18 @@ namespace Run_Loop
         
         public void OnTriggerDoor(RoomData.DoorDirection doorDirection)
         {
-            if (!sceneLoader.IsLoading)
+            if (!SceneLoader.instance.IsLoading)
                 StartCoroutine(GoToNextRoom(doorDirection));
+        }
+        
+        public void LoadHubFromMainMenu()
+        {
+            StartCoroutine(GoBackToHub());
+        }
+
+        private IEnumerator GoBackToHub()
+        {
+            yield return SceneLoader.instance.LoadScene(hubScene, MovePlayerToCenterOfRoom);
         }
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
@@ -199,7 +205,7 @@ namespace Run_Loop
 
         private IEnumerator LoadRoom(string roomName, Action callback = null)
         {
-            yield return sceneLoader.LoadRoom(roomName, RoomBuilder.instance.GetCurrentRoomType(), RoomBuilder.instance.HasRoomBeenCleared(), callback);
+            yield return SceneLoader.instance.LoadRoom(roomName, RoomBuilder.instance.GetCurrentRoomType(), RoomBuilder.instance.HasRoomBeenCleared(), callback);
         }
 
         private void LockRoom()

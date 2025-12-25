@@ -13,11 +13,18 @@ namespace Run_Loop
     {
         [SerializeField] private Image blackScreen;
 
+        public static SceneLoader instance;
+        
         public static UnityEvent<string> OnLoadScene = new UnityEvent<string>();
 
         private bool isLoading;
         public bool IsLoading => isLoading;
-        
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
         public IEnumerator LoadScene(string sceneName, Action callback = null)
         {
             isLoading = true;
