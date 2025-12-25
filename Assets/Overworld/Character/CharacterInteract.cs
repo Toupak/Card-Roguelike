@@ -22,12 +22,12 @@ namespace Overworld.Character
 
         protected void OnTriggerEnter2D(Collider2D otherCollider)
         {
-            EnterInteractRange(otherCollider);
+            EnterInteractRange(otherCollider.GetComponent<Interactable>(), otherCollider.bounds);
         }
 
         protected void OnTriggerExit2D(Collider2D otherCollider)
         {
-            ExitInteractRange();
+            ExitInteractRange(otherCollider.GetComponent<Interactable>());
         }
 
         private void Interact()
@@ -36,21 +36,23 @@ namespace Overworld.Character
                 interactable.ExecuteInteract();
         }
 
-        private void EnterInteractRange(Collider2D collider)
+        private void EnterInteractRange(Interactable colliderInteractable, Bounds bounds)
         {
-            interactable = collider.GetComponent<Interactable>();
-
-            if (interactable != null)
+            if (colliderInteractable != null)
             {
+                interactable = colliderInteractable;
                 isWithinRange = true;
 
                 if (interactButton == null)
-                    SpawnInteractButton(collider.bounds.size.y / 2 + offsety);
+                    SpawnInteractButton(bounds.size.y / 2 + offsety);
             }
         }
 
-        private void ExitInteractRange()
+        private void ExitInteractRange(Interactable colliderInteractable)
         {
+            if (colliderInteractable != interactable)
+                return;
+            
             isWithinRange = false;
 
             if (interactButton != null)

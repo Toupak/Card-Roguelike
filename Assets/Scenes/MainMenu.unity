@@ -709,7 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -232
+      value: -209
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -884,9 +884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameButtonText: {fileID: 259293583}
-  introScene:
-    m_SceneAsset: {fileID: 102900000, guid: d4dada849bf39e2489569f39c2075911, type: 3}
-    m_SceneName: Intro
 --- !u!1 &1908277428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -333
+      value: -310
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1355,7 +1352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -432
+      value: -409
       objectReference: {fileID: 0}
     - target: {fileID: 7284099867829063195, guid: 682769e4cd26ba246aaeef98f6a6d427, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
