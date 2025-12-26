@@ -1,37 +1,42 @@
 using BoomLib.Tools;
-using Overworld.Character;
 using UnityEngine;
 
-public class CharacterAnimation : MonoBehaviour
+namespace Overworld.Character
 {
-    [SerializeField] private CharacterMovement movement;
-    [SerializeField] private Rigidbody2D rb;
-    private Animator animator;
-
-    void Start()
+    public class CharacterAnimation : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        [SerializeField] private CharacterMovement movement;
+        [SerializeField] private Rigidbody2D rb;
+        private Animator animator;
 
-    void LateUpdate()
-    {
-        if (rb.linearVelocity.magnitude > 0.1f)
-            PlayAnimation("Walk");
-        else
-            PlayAnimation("Idle");
-    }
+        void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
 
-    private void PlayAnimation(string animation)
-    {
-        animator.Play($"{animation}_{GetLastDirection()}");
-    }
+        void LateUpdate()
+        {
+            if (CharacterSingleton.instance.IsLocked)
+                return;
+        
+            if (rb.linearVelocity.magnitude > 0.1f)
+                PlayAnimation("Walk");
+            else
+                PlayAnimation("Idle");
+        }
 
-    private string GetLastDirection()
-    {
-        string[] directions = { "Right", "Up", "Left", "Down" };
+        private void PlayAnimation(string animation)
+        {
+            animator.Play($"{animation}_{GetLastDirection()}");
+        }
 
-        int direction = Tools.GetCardinalDirection(movement.lastMovement);
+        private string GetLastDirection()
+        {
+            string[] directions = { "Right", "Up", "Left", "Down" };
 
-        return directions[direction];
+            int direction = Tools.GetCardinalDirection(movement.lastMovement);
+
+            return directions[direction];
+        }
     }
 }

@@ -10,6 +10,7 @@ using MapMaker.Floors;
 using MapMaker.Rooms;
 using Overworld.Character;
 using Run_Loop.Rewards;
+using Tutorial;
 using UnityEngine;
 
 namespace Run_Loop
@@ -68,10 +69,10 @@ namespace Run_Loop
                 return;
 
             isInRun = true;
-            StartCoroutine(StartNewRun(false));
+            StartCoroutine(StartNewRun(false, () => TutorialManager.instance.PlayCharacterWakeUpAnimation()));
         }
 
-        private IEnumerator StartNewRun(bool isSelectingCharacter)
+        private IEnumerator StartNewRun(bool isSelectingCharacter, Action callback = null)
         {
             currentBattleIndex = 0;
             PlayerDeck.instance.ClearDeck();
@@ -83,7 +84,7 @@ namespace Run_Loop
             LoadCharacterDeck(CharacterData);
             SpawnCharacter();
             
-            yield return LoadRoom(RoomBuilder.instance.GetStartingRoom());
+            yield return LoadRoom(RoomBuilder.instance.GetStartingRoom(), callback);
         }
 
         private IEnumerator SelectCharacter()

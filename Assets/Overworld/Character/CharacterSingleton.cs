@@ -4,6 +4,8 @@ namespace Overworld.Character
 {
     public class CharacterSingleton : MonoBehaviour
     {
+        public Animator animator;
+        
         public static CharacterSingleton instance;
 
         private bool isLocked;

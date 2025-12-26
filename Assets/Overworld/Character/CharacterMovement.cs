@@ -10,7 +10,7 @@ namespace Overworld.Character
 
         private Rigidbody2D rb;
 
-        public Vector2 lastMovement { get; private set; } = Vector2.down;
+        public Vector2 lastMovement { get; private set; } = Vector2.right;
 
         private void Start()
         {

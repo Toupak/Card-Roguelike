@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using PrimeTween;
 using Run_Loop;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Intro
 {
@@ -12,6 +14,8 @@ namespace Intro
         [SerializeField] private CanvasGroup line_3;
         [SerializeField] private CanvasGroup line_4;
 
+        private bool isSkipping;
+        
         private IEnumerator Start()
         {
             line_1.alpha = 0.0f;
@@ -37,7 +41,17 @@ namespace Intro
             yield return new WaitUntil(() => isAnimationCompleted);
             yield return new WaitForSeconds(1.0f);
             
-            RunLoop.instance.StartRunFromIntro();
+            if (!isSkipping)
+                RunLoop.instance.StartRunFromIntro();
+        }
+
+        private void Update()
+        {
+            if (!isSkipping && Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                isSkipping = true;
+                RunLoop.instance.StartRunFromIntro();
+            }
         }
     }
 }

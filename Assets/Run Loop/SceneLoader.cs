@@ -52,7 +52,7 @@ namespace Run_Loop
             AsyncOperation operation = SceneManager.LoadSceneAsync(roomName);
             yield return new WaitUntil(() => operation.isDone);
 
-            RoomFiller.instance.FillRoom(RoomBuilder.instance.GetCurrentRoomType(), RoomBuilder.instance.HasRoomBeenCleared());
+            RoomFiller.instance.FillRoom(roomType, hasRoomBeenCleared);
             
             if (callback != null)
                 callback.Invoke();

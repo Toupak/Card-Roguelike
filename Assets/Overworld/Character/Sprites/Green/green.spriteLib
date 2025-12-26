@@ -185,6 +185,37 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -1467152055, guid: 236428da740494d49ae42db31f3317a7, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 16
+  - m_Name: WakeUp
+    m_Hash: 837379829
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: WakeUp_0
+      m_Hash: 389645236
+      m_Sprite: {fileID: -3932650510211940999, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3932650510211940999, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+    - m_Name: WakeUp_1
+      m_Hash: 540980002
+      m_Sprite: {fileID: -8880146949402785913, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8880146949402785913, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+    - m_Name: WakeUp_2
+      m_Hash: 959963800
+      m_Sprite: {fileID: -6855628561032564870, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6855628561032564870, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+    - m_Name: WakeUp_3
+      m_Hash: 238080526
+      m_Sprite: {fileID: -2947687677609720280, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2947687677609720280, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+    - m_Name: WakeUp_4
+      m_Hash: 273958829
+      m_Sprite: {fileID: 7058061449305699036, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7058061449305699036, guid: 75db8205bdca3d34f863aca336c13c38, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 639016783024751547
+  m_ModificationHash: 639023774151298995
   m_Version: 1

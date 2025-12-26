@@ -5,7 +5,6 @@ namespace Save_System
     [Serializable]
     public class SaveData
     {
-
         #region STATS
         
         public DateTime firstTimePlayed;
