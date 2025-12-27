@@ -2,7 +2,10 @@ using System.Collections;
 using BoomLib.Tools;
 using Overworld.Character;
 using Overworld.Lights;
+using Run_Loop;
+using Save_System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
 namespace Tutorial
@@ -14,6 +17,14 @@ namespace Tutorial
         private void Awake()
         {
             instance = this;
+            
+            RunLoop.OnStartBattle.AddListener(CheckForFirstBattleTutorial);
+        }
+
+        private void CheckForFirstBattleTutorial()
+        {
+            if (SaveSystem.instance.SaveData.totalBattleCount == 0)
+                BattleTutorial.instance.ActivateTutorialForThisBattle();
         }
 
         public void PlayCharacterWakeUpAnimation()

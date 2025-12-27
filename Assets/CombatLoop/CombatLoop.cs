@@ -12,6 +12,7 @@ using CombatLoop.EnergyBar;
 using Localization;
 using Run_Loop;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CombatLoop
 {
@@ -27,6 +28,10 @@ namespace CombatLoop
 
         [Space] 
         [SerializeField] private TurnEndAnimation turnEndAnimation;
+
+        public static UnityEvent OnPlayerDrawHand = new UnityEvent();
+        public static UnityEvent OnPlayerPlayAtLeastOneCard = new UnityEvent();
+        public static UnityEvent OnPlayerPlayStartFirstTurn = new UnityEvent();
         
         public enum TurnType
         {
@@ -54,7 +59,9 @@ namespace CombatLoop
             yield return FightIntro();
             yield return PlaceEnemyCards();
             yield return DrawCards();
+            OnPlayerDrawHand?.Invoke();
             yield return WaitForAtLeastOneCardOnPlayerBoard();
+            OnPlayerPlayAtLeastOneCard?.Invoke();
             yield return ActivateEndPreparationButton();
             yield return PlayHand();
             yield return DeactivateEndPreparationButton();
@@ -65,6 +72,7 @@ namespace CombatLoop
             currentTurn = TurnType.Player;
             turnCount = 1;
             yield return StartTurn(TurnType.Player);
+            OnPlayerPlayStartFirstTurn?.Invoke();
             
             while (IsMatchOver() == false)
             {

@@ -12,6 +12,7 @@ using Overworld.Character;
 using Run_Loop.Rewards;
 using Tutorial;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Run_Loop
 {
@@ -39,6 +40,9 @@ namespace Run_Loop
         [Space] 
         [SerializeField] private BattlesDataHolder battlesDataHolder;
 
+        public static UnityEvent OnStartRun = new UnityEvent();
+        public static UnityEvent OnStartBattle = new UnityEvent();
+        
         public static RunLoop instance;
 
         private OverWorldCharacterData characterData;
@@ -85,6 +89,7 @@ namespace Run_Loop
             SpawnCharacter();
             
             yield return LoadRoom(RoomBuilder.instance.GetStartingRoom(), callback);
+            OnStartRun?.Invoke();
         }
 
         private IEnumerator SelectCharacter()
@@ -149,6 +154,7 @@ namespace Run_Loop
         {
             LockPlayer();
             yield return SceneLoader.instance.LoadScene(combatScene);
+            OnStartBattle?.Invoke();
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
             StoreCardsHealth();
