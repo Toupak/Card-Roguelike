@@ -1,3 +1,5 @@
+using BoomLib.Tools;
+using Overworld.UI.Selection_Cursor;
 using UnityEngine;
 
 namespace Overworld.Character
@@ -5,12 +7,14 @@ namespace Overworld.Character
     public class CharacterInteract : MonoBehaviour
     {
         [SerializeField] private GameObject interactButtonPrefab;
+        [SerializeField] private GameObject selectionCursorPrefab;
         [SerializeField] private float offsety;
 
         private bool isWithinRange;
 
         private GameObject interactButton;
-        private Vector2 interactButtonPosition;
+
+        private SelectionCursor selectionCursor;
 
         private Interactable interactable;
 
@@ -43,8 +47,7 @@ namespace Overworld.Character
                 interactable = colliderInteractable;
                 isWithinRange = true;
 
-                if (interactButton == null)
-                    SpawnInteractButton(bounds.size.y / 2 + offsety);
+                SpawnInteractButton(bounds);
             }
         }
 
@@ -55,19 +58,23 @@ namespace Overworld.Character
             
             isWithinRange = false;
 
-            if (interactButton != null)
-                DestroyInteractButton();
+            DestroyInteractButton();
 
             interactable = null;
         }
 
-        private void SpawnInteractButton(float offset)
+        private void SpawnInteractButton(Bounds bounds)
         {
-            if (interactButton == null)
-            {
-                interactButtonPosition = new Vector2(interactable.transform.position.x, interactable.transform.position.y + offset);
-                interactButton = Instantiate(interactButtonPrefab, interactButtonPosition, Quaternion.identity, interactable.transform);
-            }
+            float offset = bounds.size.y / 2 + offsety;
+            
+            DestroyInteractButton();
+
+            Vector2 interactablePosition = interactable.transform.position.ToVector2();
+            Vector2 interactButtonPosition = interactablePosition + Vector2.up * offset;
+            interactButton = Instantiate(interactButtonPrefab, interactButtonPosition, Quaternion.identity, interactable.transform);
+
+            selectionCursor = Instantiate(selectionCursorPrefab, interactablePosition, Quaternion.identity, interactable.transform).GetComponent<SelectionCursor>();
+            selectionCursor.Setup(bounds.size.ToVector2() * 0.5f, Vector2.zero);
         }
 
         private void DestroyInteractButton()
@@ -76,7 +83,12 @@ namespace Overworld.Character
             {
                 Destroy(interactButton.gameObject);
                 interactButton = null;
-                interactButtonPosition = Vector2.zero;
+            }
+
+            if (selectionCursor != null)
+            {
+                Destroy(selectionCursor.gameObject);
+                selectionCursor = null;
             }
         }
     }
