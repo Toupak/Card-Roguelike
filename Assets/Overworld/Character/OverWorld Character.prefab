@@ -466,4 +466,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactButtonPrefab: {fileID: 8459700529425210031, guid: 433e5f64f0c504d4db72a08f624b4122, type: 3}
+  selectionCursorPrefab: {fileID: 850462308297980376, guid: 1305b79b70bcd5e409e3297b391a8c17, type: 3}
   offsety: 0.5

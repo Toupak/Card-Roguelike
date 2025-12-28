@@ -52,6 +52,9 @@ MonoBehaviour:
   topRight: {fileID: 2974760006898052846}
   botRight: {fileID: 7400211075504828997}
   botLeft: {fileID: 564168275435229927}
+  endValue: 1.1
+  duration: 0.5
+  ease: 11
 --- !u!1 &1040222355978148603
 GameObject:
   m_ObjectHideFlags: 0
