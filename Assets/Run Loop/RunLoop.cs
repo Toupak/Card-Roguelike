@@ -41,6 +41,7 @@ namespace Run_Loop
         [SerializeField] private BattlesDataHolder battlesDataHolder;
 
         public static UnityEvent OnStartRun = new UnityEvent();
+        public static UnityEvent OnWinRun = new UnityEvent();
         public static UnityEvent OnStartBattle = new UnityEvent();
         
         public static RunLoop instance;

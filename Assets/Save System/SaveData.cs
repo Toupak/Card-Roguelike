@@ -16,17 +16,22 @@ namespace Save_System
         
         public int totalBattleCount;
         public int totalKillCount;
-        public int totalDamageDealt;
-        public int totalDamageReceived;
-        public int highestDamageInOneAttack;
-        public int highestTokenCountInOneTurn;
+        public int totalDamageDealt;//TODO
+        public int totalDamageReceived;//TODO
+        public int highestDamageInOneAttack;//TODO
+        public int highestTokenCountInOneTurn;//TODO
         
         //public string mostPlayedCharacter;
         //public string mostPlayedCard;
         //public string cardWithBestWinRate;
 
-        public int totalBoosterOpenedCount;
+        public int totalBoosterOpenedCount;//TODO
         
         #endregion
+
+        public SaveData()
+        {
+            firstTimePlayed = DateTime.Now;
+        }
     }
 }

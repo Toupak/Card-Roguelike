@@ -182,6 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822935589718283916}
   - component: {fileID: 8294218540731124542}
+  - component: {fileID: 3087189973509206952}
   m_Layer: 5
   m_Name: __SaveSystem
   m_TagString: Untagged
@@ -214,6 +215,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93bd6a38fdf0bb441b91391031da509b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3087189973509206952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521289603462127047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5518d226c4a1ad94c8bee70c86a6aa22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6287801134312450437
@@ -608,6 +621,10 @@ PrefabInstance:
     - target: {fileID: 652242659623154562, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
       propertyPath: m_Name
       value: _Dialog_Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011463903804882671, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2731753606188196653, guid: c70d2e93aee4cc84e9922b85164ae050, type: 3}
       propertyPath: m_Pivot.x
