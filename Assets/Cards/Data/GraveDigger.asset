@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: GraveDigger
   tribe: 0
+  rarity: 1
   hpMax: 15
   artwork: {fileID: 21300000, guid: 3abcdfb82295e374386c81d39b9c8bf2, type: 3}
   description: 

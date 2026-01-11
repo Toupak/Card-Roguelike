@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Tinkerer
   tribe: 0
+  rarity: 2
   hpMax: 12
   artwork: {fileID: 21300000, guid: 4e5b428bd4c1c0b4c8a8c4080e303cf5, type: 3}
   description: 

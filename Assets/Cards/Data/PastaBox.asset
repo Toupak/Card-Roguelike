@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: PastaBox
   tribe: 0
+  rarity: 1
   hpMax: 15
   artwork: {fileID: 21300000, guid: a611b09aa2a45a24685c48e90b620a5c, type: 3}
   description: 

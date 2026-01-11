@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Combo
   tribe: 0
+  rarity: 1
   hpMax: 11
   artwork: {fileID: 5307882462097650756, guid: f6e4897c864cad345b2f27878c9838c3, type: 3}
   description: 

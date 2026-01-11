@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Snuk
   tribe: 1
+  rarity: 3
   hpMax: 15
   artwork: {fileID: 21300000, guid: 5d28be3f27f86a344b3ed2cc9be72a50, type: 3}
   description: 

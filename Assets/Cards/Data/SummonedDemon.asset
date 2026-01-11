@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Summoned Demon
   tribe: 0
+  rarity: 3
   hpMax: 25
   artwork: {fileID: 21300000, guid: fb9c5e33107bd994a93a63138c433377, type: 3}
   description: 

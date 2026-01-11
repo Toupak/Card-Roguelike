@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Grand Pants Thief
   tribe: 6
+  rarity: 1
   hpMax: 6
   artwork: {fileID: 354279647000644078, guid: 5150060763edaf04f8994de9abd95afc, type: 3}
   description: 

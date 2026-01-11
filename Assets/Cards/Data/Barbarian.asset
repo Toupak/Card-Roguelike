@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Barbarian
   tribe: 6
+  rarity: 2
   hpMax: 18
   artwork: {fileID: 21300000, guid: e86736f85bc676840881a139f2502ffe, type: 3}
   description: 

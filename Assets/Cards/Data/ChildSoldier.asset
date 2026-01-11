@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: ChildSoldier
   tribe: 0
+  rarity: 2
   hpMax: 25
   artwork: {fileID: 8527130049297767959, guid: eac556524774deb45a072799c4e594e3, type: 3}
   description: 

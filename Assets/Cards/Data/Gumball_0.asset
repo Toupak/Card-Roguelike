@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Gumball
   tribe: 3
+  rarity: 1
   hpMax: 12
   artwork: {fileID: 3619846235778968933, guid: 3849756d198ebab448dd3e7fd5c8ae1c, type: 3}
   description: 

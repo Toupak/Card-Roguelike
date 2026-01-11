@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 1
   cardName: Canis Balistics
   tribe: 1
+  rarity: 1
   hpMax: 6
   artwork: {fileID: -770609818667629619, guid: bc755d3fcc0a7ed4a939d1dcaeac416e, type: 3}
   description: Test

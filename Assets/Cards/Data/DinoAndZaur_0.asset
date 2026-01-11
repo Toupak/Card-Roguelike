@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Dino And Zaur
   tribe: 0
+  rarity: 1
   hpMax: 12
   artwork: {fileID: 7537354129705965272, guid: 6c1264b6b224d5f48a05e92c6a96b4a3, type: 3}
   description: 

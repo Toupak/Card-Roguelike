@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 10
   cardName: Smoking Devil
   tribe: 6
+  rarity: 1
   hpMax: 7
   artwork: {fileID: 7277215093650894194, guid: de7a1c6e901c5954aaefa078d91ba73a, type: 3}
   description: 

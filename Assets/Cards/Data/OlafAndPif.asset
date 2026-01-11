@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Olaf & Pif
   tribe: 0
+  rarity: 2
   hpMax: 17
   artwork: {fileID: -8581886174996920847, guid: 234433e77a0cb3c41a8d654d209f5ddb, type: 3}
   description: 

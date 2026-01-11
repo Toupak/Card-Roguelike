@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Teen SwordMaster
   tribe: 0
+  rarity: 2
   hpMax: 25
   artwork: {fileID: 670000288, guid: eac556524774deb45a072799c4e594e3, type: 3}
   description: 

@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Machine Gun Xander
   tribe: 0
+  rarity: 2
   hpMax: 8
   artwork: {fileID: 21300000, guid: 19f868a1c1cc9ed4bb9d836a031be215, type: 3}
   description: 

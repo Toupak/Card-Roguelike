@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Many Faces
   tribe: 0
+  rarity: 3
   hpMax: 12
   artwork: {fileID: -5285785097126754818, guid: 720d7ca1699da174ba0f305de2bbce93, type: 3}
   description: 

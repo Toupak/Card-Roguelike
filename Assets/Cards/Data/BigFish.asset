@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: Big Fish
   tribe: 1
+  rarity: 1
   hpMax: 12
   artwork: {fileID: 21300000, guid: 0cd136934d0b8fc4d8541a27ffc0a53f, type: 3}
   description: 

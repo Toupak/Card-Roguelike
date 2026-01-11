@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 0
   cardName: AmmoCarrierXachary
   tribe: 6
+  rarity: 3
   hpMax: 12
   artwork: {fileID: 21300000, guid: 0ef58ad7686bc634395368acd1c10273, type: 3}
   description: 
