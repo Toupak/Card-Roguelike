@@ -43,7 +43,6 @@ namespace Cards.Scripts
             _3
         }
 
-        public int cardNumber;
         public string cardName;
         public Tribe tribe;
         public Rarity rarity;
@@ -66,8 +65,6 @@ namespace Cards.Scripts
         public bool isMainBoss;
         public bool isWaitingOnSpawn;
         public CardContainer.PreferredPosition preferredPosition;
-        public EnemyDifficulty enemyDifficulty;
-        public EnemyFloor enemyFloor;
         
         [Space] 
         public string localizationKey;

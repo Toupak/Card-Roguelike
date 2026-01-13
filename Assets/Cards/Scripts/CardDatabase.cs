@@ -17,12 +17,6 @@ namespace Data
                 _allCards = new List<CardData>();
         }
 
-        public CardData GetByNumber(int number, bool force = false)
-        {
-            if (!force && number <= 0) return null;
-            return _allCards.Find(c => c != null && c.cardNumber == number);
-        }
-
         public CardData GetByName(string name)
         {
             if (string.IsNullOrEmpty(name))
