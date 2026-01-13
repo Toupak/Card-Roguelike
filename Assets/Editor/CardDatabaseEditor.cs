@@ -12,8 +12,10 @@ namespace Editor
     {
         private CardDatabase db;
         private Vector2 scrollPos;
-        private string _globalfilter = "All";
-        private string _rarityfilter = "All";
+        private string _globalFilter = "All";
+        private string _rarityFilter = "All";
+        private string _enemyFilter = "All";
+        private string _specialSummonFilter = "All";
         private List<bool> foldouts = new List<bool>();
         private HashSet<int> wrongCardNumbers = new();
         private int _lowestMissingNumber = -1;
@@ -183,16 +185,16 @@ namespace Editor
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Filter:", GUILayout.Width(40));
-            if (GUILayout.Toggle(_globalfilter == "All", $"All ({db.AllCards.Count})", EditorStyles.miniButtonLeft)) _globalfilter = "All";
-            if (GUILayout.Toggle(_globalfilter == "Incomplete", $"Incomplete ({db.AllCards.Count(x => IsIncomplete(x, db.AllCards.ToList().IndexOf(x)))})", EditorStyles.miniButtonMid)) _globalfilter = "Incomplete";
-            if (GUILayout.Toggle(_globalfilter == "WrongNumber", $"Wrong Number ({db.AllCards.Count(x => wrongCardNumbers.Contains(x.cardNumber))})", EditorStyles.miniButtonRight)) _globalfilter = "WrongNumber";
+            if (GUILayout.Toggle(_globalFilter == "All", $"All ({db.AllCards.Count})", EditorStyles.miniButtonLeft)) _globalFilter = "All";
+            if (GUILayout.Toggle(_globalFilter == "Incomplete", $"Incomplete ({db.AllCards.Count(x => IsIncomplete(x, db.AllCards.ToList().IndexOf(x)))})", EditorStyles.miniButtonMid)) _globalFilter = "Incomplete";
+            if (GUILayout.Toggle(_globalFilter == "WrongNumber", $"Wrong Number ({db.AllCards.Count(x => wrongCardNumbers.Contains(x.cardNumber))})", EditorStyles.miniButtonRight)) _globalFilter = "WrongNumber";
             EditorGUILayout.EndHorizontal();
 
 
             // Applique le filtre global avant de compter les raretés
             
             IEnumerable<CardData> filteredCards = db.AllCards;
-            switch (_globalfilter)
+            switch (_globalFilter)
             {
                 case "Incomplete":
                     filteredCards = filteredCards.Where(x => IsIncomplete(x));
@@ -202,15 +204,49 @@ namespace Editor
                     break;
             }
             
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Enemy:", GUILayout.Width(40));
+            if (GUILayout.Toggle(_enemyFilter == "All", $"All ({filteredCards.Count()})", EditorStyles.miniButtonLeft)) _enemyFilter = "All";
+            if (GUILayout.Toggle(_enemyFilter == "False", $"Player ({filteredCards.Count(x => !x.isEnemy)})", EditorStyles.miniButtonMid)) _enemyFilter = "False";
+            if (GUILayout.Toggle(_enemyFilter == "True", $"Enemy ({filteredCards.Count(x => x.isEnemy)})", EditorStyles.miniButtonRight)) _enemyFilter = "True";
+            EditorGUILayout.EndHorizontal();
 
+            switch (_enemyFilter)
+            {
+                case "False":
+                    filteredCards = filteredCards.Where(x => !x.isEnemy);
+                    break;
+                case "True":
+                    filteredCards = filteredCards.Where(x => x.isEnemy);
+                    break;
+            }
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Special Summon:", GUILayout.Width(40));
+            if (GUILayout.Toggle(_specialSummonFilter == "All", $"All ({filteredCards.Count()})", EditorStyles.miniButtonLeft)) _specialSummonFilter = "All";
+            if (GUILayout.Toggle(_specialSummonFilter == "False", $"Regular ({filteredCards.Count(x => !x.isSpecialSummon)})", EditorStyles.miniButtonMid)) _specialSummonFilter = "False";
+            if (GUILayout.Toggle(_specialSummonFilter == "True", $"Special Summon ({filteredCards.Count(x => x.isSpecialSummon)})", EditorStyles.miniButtonRight)) _specialSummonFilter = "True";
+            EditorGUILayout.EndHorizontal();
             
+            
+            switch (_specialSummonFilter)
+            {
+                case "False":
+                    filteredCards = filteredCards.Where(x => !x.isSpecialSummon);
+                    break;
+                case "True":
+                    filteredCards = filteredCards.Where(x => x.isSpecialSummon);
+                    break;
+            }
+            
+
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Rarity:", GUILayout.Width(40));
-            if (GUILayout.Toggle(_rarityfilter == "All", $"All ({filteredCards.Count()})", EditorStyles.miniButtonLeft)) _rarityfilter = "All";
-            if (GUILayout.Toggle(_rarityfilter == "Common", $"Common ({filteredCards.Count(x => x.rarity == CardData.Rarity.Common)})", EditorStyles.miniButtonMid)) _rarityfilter = "Common";
-            if (GUILayout.Toggle(_rarityfilter == "Rare", $"Rare ({filteredCards.Count(x => x.rarity == CardData.Rarity.Rare)})", EditorStyles.miniButtonMid)) _rarityfilter = "Rare";
-            if (GUILayout.Toggle(_rarityfilter == "Legendary", $"Legendary ({filteredCards.Count(x => x.rarity == CardData.Rarity.Legendary)})", EditorStyles.miniButtonRight)) _rarityfilter = "Legendary";
-            if (GUILayout.Toggle(_rarityfilter == "Exotic", $"Exotic ({filteredCards.Count(x => x.rarity == CardData.Rarity.Exotic)})", EditorStyles.miniButtonRight)) _rarityfilter = "Exotic";
+            if (GUILayout.Toggle(_rarityFilter == "All", $"All ({filteredCards.Count()})", EditorStyles.miniButtonLeft)) _rarityFilter = "All";
+            if (GUILayout.Toggle(_rarityFilter == "Common", $"Common ({filteredCards.Count(x => x.rarity == CardData.Rarity.Common)})", EditorStyles.miniButtonMid)) _rarityFilter = "Common";
+            if (GUILayout.Toggle(_rarityFilter == "Rare", $"Rare ({filteredCards.Count(x => x.rarity == CardData.Rarity.Rare)})", EditorStyles.miniButtonMid)) _rarityFilter = "Rare";
+            if (GUILayout.Toggle(_rarityFilter == "Legendary", $"Legendary ({filteredCards.Count(x => x.rarity == CardData.Rarity.Legendary)})", EditorStyles.miniButtonMid)) _rarityFilter = "Legendary";
+            if (GUILayout.Toggle(_rarityFilter == "Exotic", $"Exotic ({filteredCards.Count(x => x.rarity == CardData.Rarity.Exotic)})", EditorStyles.miniButtonRight)) _rarityFilter = "Exotic";
             EditorGUILayout.EndHorizontal();
             
             EditorGUILayout.Space();
@@ -245,17 +281,23 @@ namespace Editor
                 SerializedProperty propSpecialSummon = cardSO.FindProperty("isSpecialSummon");
                 SerializedProperty propNumber = cardSO.FindProperty("cardNumber");
                 SerializedProperty propArtwork = cardSO.FindProperty("artwork");
+                SerializedProperty propEnemyDifficulty = cardSO.FindProperty("enemyDifficulty");
+                SerializedProperty propEnemyFloor = cardSO.FindProperty("enemyFloor");
                 //SerializedProperty propAlternatePrefab = cardSO.FindProperty("_alternatePrefab");
 
                 cardSO.Update();
 
                 bool isIncomplete = IsIncomplete(card);
 
-                if (_globalfilter == "Incomplete" && !isIncomplete && !foldouts[i]) 
+                if (_globalFilter == "Incomplete" && !isIncomplete && !foldouts[i]) 
                     continue;
-                if (_globalfilter == "WrongNumber" && !foldouts[i] && !wrongCardNumbers.Contains(propNumber.intValue)) 
+                if (_globalFilter == "WrongNumber" && !foldouts[i] && !wrongCardNumbers.Contains(propNumber.intValue)) 
                     continue;
-                if (_rarityfilter != "All" && propRarity.enumNames[propRarity.enumValueIndex] != _rarityfilter && !foldouts[i]) 
+                if (_rarityFilter != "All" && propRarity.enumNames[propRarity.enumValueIndex] != _rarityFilter && !foldouts[i]) 
+                    continue;
+                if (_enemyFilter != "All" && card.isEnemy.ToString() != _enemyFilter && !foldouts[i]) 
+                    continue;
+                if (_specialSummonFilter != "All" && card.isSpecialSummon.ToString() != _specialSummonFilter && !foldouts[i]) 
                     continue;
 
                 EditorGUILayout.BeginVertical("box");
@@ -357,8 +399,8 @@ namespace Editor
 
         private bool IsIncomplete(CardData card, int indexOf = -42)
         {
-            if (indexOf != -42)
-                Debug.Log($"Wtf : {indexOf}");
+            //if (indexOf != -42)
+              //  Debug.Log($"Wtf : {indexOf}");
             
             return string.IsNullOrEmpty(card.cardName) ||
                    string.IsNullOrEmpty(card.description) ||

@@ -18,3 +18,4 @@ MonoBehaviour:
   spriteLibrary: {fileID: 7108339969198208228, guid: 8226e70131c9c4e479a5fdd8ef32b2fa, type: 3}
   startingCards:
   - {fileID: 11400000, guid: 2a7e8f99b9e5c5a45a181de10e0c83ae, type: 2}
+  - {fileID: 11400000, guid: bd60871a2a139804482337ab1434c519, type: 2}

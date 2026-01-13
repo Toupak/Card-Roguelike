@@ -17,4 +17,4 @@ MonoBehaviour:
   displaySprite: {fileID: -1394050701, guid: 236428da740494d49ae42db31f3317a7, type: 3}
   spriteLibrary: {fileID: 7108339969198208228, guid: e6f88674765a7bb4f81dfe0269aaf5c0, type: 3}
   startingCards:
-  - {fileID: 11400000, guid: 7c4b87b244623eb44b275f69f25f284a, type: 2}
+  - {fileID: 11400000, guid: ae461de2f5cec2b42b0326f89cc68c01, type: 2}

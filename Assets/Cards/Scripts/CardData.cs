@@ -30,6 +30,19 @@ namespace Cards.Scripts
             Exotic
         }
 
+        public enum EnemyDifficulty
+        {
+            Easy,
+            Hard
+        }
+
+        public enum EnemyFloor
+        {
+            _1,
+            _2,
+            _3
+        }
+
         public int cardNumber;
         public string cardName;
         public Tribe tribe;
@@ -53,7 +66,9 @@ namespace Cards.Scripts
         public bool isMainBoss;
         public bool isWaitingOnSpawn;
         public CardContainer.PreferredPosition preferredPosition;
-
+        public EnemyDifficulty enemyDifficulty;
+        public EnemyFloor enemyFloor;
+        
         [Space] 
         public string localizationKey;
         

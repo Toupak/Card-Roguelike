@@ -15,6 +15,7 @@ MonoBehaviour:
   cardNumber: 3
   cardName: Squirty Squire
   tribe: 0
+  rarity: 1
   hpMax: 8
   artwork: {fileID: 314153588172875450, guid: 385d36dd462c8254989b1524db951cd8, type: 3}
   description: 
