@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Battles.Data;
 using Board.Script;
 using BoomLib.Tools;
 using BoomLib.UI.Scripts;
 using Cards.Scripts;
 using CardSlot.Script;
+using CombatLoop.Battles.Data;
 using CombatLoop.EnergyBar;
 using Localization;
 using Run_Loop;
@@ -57,7 +57,7 @@ namespace CombatLoop
             currentTurn = TurnType.Preparation;
             yield return SetupButtons();
             yield return FightIntro();
-            yield return PlaceEnemyCards();
+            yield return PlaceEnemyCards(RunLoop.instance.SelectBattle());
             yield return DrawCards();
             OnPlayerDrawHand?.Invoke();
             yield return WaitForAtLeastOneCardOnPlayerBoard();
@@ -138,9 +138,9 @@ namespace CombatLoop
             yield return new WaitForSeconds(1.0f);
         }
         
-        private IEnumerator PlaceEnemyCards()
+        private IEnumerator PlaceEnemyCards(BattleData battle)
         {
-            yield return enemyHandController.SetupBattle(RunLoop.instance.currentBattleData);
+            yield return enemyHandController.SetupBattle(battle);
         }
         
         private IEnumerator DrawCards()

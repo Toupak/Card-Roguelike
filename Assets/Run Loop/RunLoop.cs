@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
-using Battles.Data;
 using Cards.Scripts;
 using Character_Selection;
 using CombatLoop.Battles;
+using CombatLoop.Battles.Data;
 using Data;
 using MapMaker;
 using MapMaker.Floors;
@@ -49,10 +49,9 @@ namespace Run_Loop
         private OverWorldCharacterData characterData;
         public OverWorldCharacterData CharacterData => isInRun && characterData != null ? characterData : defaultCharacter;
         public CardDatabase dataBase => cardDatabase;
-        public BattleData currentBattleData => battlesDataHolder.battles[currentBattleIndex];
 
         private int currentBattleIndex;
-        private bool isInRun;
+        public bool isInRun { get; private set; }
 
         private void Awake()
         {
@@ -246,6 +245,11 @@ namespace Run_Loop
         private void UnlockRoom()
         {
             DoorHolder.instance.UnlockAllDoors();
+        }
+
+        public BattleData SelectBattle()
+        {
+            return battlesDataHolder.ChooseRandomBattle(BattleData.Floor.First, currentBattleIndex < 3 ? BattleData.Difficulty.Easy : BattleData.Difficulty.Hard);
         }
     }
 }
