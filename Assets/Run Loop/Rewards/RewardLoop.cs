@@ -5,6 +5,7 @@ using BoomLib.Tools;
 using Cards.Scripts;
 using Cards.Tween_Animations;
 using CardSlot.Script;
+using Frames;
 using Run_Loop.Run_Parameters;
 using UnityEngine;
 
@@ -42,28 +43,45 @@ namespace Run_Loop.Rewards
         private IEnumerator Start()
         {
             runParameterData = ComputeRunParameterData();
-            //FillDeckForTest();
+            FillDeckForTest();
 
             bool isFirstRun = IsFirstRun();
             
             if (!isFirstRun)
                 yield return LoadCurrentDeckInHand();
 
-            int boosterCount = isFirstRun ? runParameterData.startBoosterCount : runParameterData.boosterCount;
+            yield return OpenFrameBooster();
+            
+            int boosterCount = 1;
+            int cardCount = 3;
             for (int i = 0; i < boosterCount; i++)
             {
-                yield return WaitUntilOpenButtonIsClicked();
-                yield return OpenBoosterAndDisplayCards(isFirstRun);
-                yield return WaitUntilCardHasBeenSelected();
-                if (IsSelectedCardAlreadyInDeck())
-                    yield return HealDeckCard();
-                else
-                    yield return StoreSelectedCard();
-                yield return RemoveRemainingCards();
+                yield return OpenBooster(cardCount);
             }
 
             yield return DisplayFinalSelection();
             yield return WaitUntilFinalValidation();
+        }
+
+        private IEnumerator OpenFrameBooster()
+        {
+            yield return WaitUntilOpenButtonIsClicked();
+            yield return OpenBoosterAndDisplayFrames(3);
+            yield return WaitUntilCardHasBeenSelected();
+            yield return StoreSelectedFrame(); //TODO : implement
+            yield return RemoveRemainingCards();
+        }
+
+        private IEnumerator OpenBooster(int cardCount)
+        {
+            yield return WaitUntilOpenButtonIsClicked();
+            yield return OpenBoosterAndDisplayCards(cardCount);
+            yield return WaitUntilCardHasBeenSelected();
+            if (IsSelectedCardAlreadyInDeck())
+                yield return HealDeckCard();
+            else
+                yield return StoreSelectedCard();
+            yield return RemoveRemainingCards();
         }
 
         private void FillDeckForTest()
@@ -113,7 +131,21 @@ namespace Run_Loop.Rewards
             hasClickedOnOpenBooster = true;
         }
         
-        private IEnumerator OpenBoosterAndDisplayCards(bool isFirstRun)
+        private IEnumerator OpenBoosterAndDisplayFrames(int framesCount)
+        {
+            List<FrameData> frames = RunLoop.instance.framesData;
+            
+            List<FrameData> shuffledList = new List<FrameData>(frames);
+            shuffledList.Shuffle();
+            
+            for (int i = 0; i < framesCount && i < shuffledList.Count; i++)
+            {
+                DrawCardToContainer(new DeckCard(shuffledList[i]), mainContainer);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        
+        private IEnumerator OpenBoosterAndDisplayCards(int cardCount)
         {
             List<CardData> cards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn);
             if (cards == null)
@@ -124,8 +156,7 @@ namespace Run_Loop.Rewards
 
             List<CardData> shuffledList = new List<CardData>(cards);
             shuffledList.Shuffle();
-
-            int cardCount = isFirstRun ? runParameterData.startCardCount : runParameterData.cardCount;
+            
             for (int i = 0; i < cardCount && i < shuffledList.Count; i++)
             {
                 DrawCardToContainer(new DeckCard(shuffledList[i]), mainContainer);
@@ -190,7 +221,7 @@ namespace Run_Loop.Rewards
             }
 
             yield return CardTween.PlayPhysicalAttack(healer, target);
-            healer.KillCard();
+            healer.KillCard(false);
 
             target.cardHealth.Heal(target.cardData.hpMax);
             PlayerDeck.instance.UpdateCardHealthPoints(target.deckCard, target.cardHealth.currentHealth);
@@ -212,12 +243,18 @@ namespace Run_Loop.Rewards
             selectionContainer.SendCardToOtherBoard(0, selectedCardsContainer);
             yield return new WaitForSeconds(0.3f);
         }
+        
+        private IEnumerator StoreSelectedFrame()
+        {
+            selectionContainer.SendCardToOtherBoard(0, selectedCardsContainer);
+            yield return new WaitForSeconds(0.3f);
+        }
 
         private IEnumerator RemoveRemainingCards()
         {
             while (mainContainer.Slots.Count > 0)
             {
-                mainContainer.Slots[0].CurrentCard.cardController.KillCard();
+                mainContainer.Slots[0].CurrentCard.cardController.KillCard(false);
                 yield return new WaitForSeconds(0.1f);
             }
         }
@@ -256,6 +293,12 @@ namespace Run_Loop.Rewards
         {
             while (mainContainer.Slots.Count > 0)
             {
+                if (mainContainer.Slots[0].CurrentCard.cardController.deckCard.isItem)
+                {
+                    mainContainer.Slots[0].CurrentCard.cardController.KillCard(false);
+                    continue;
+                }
+                
                 PlayerDeck.instance.AddCardToDeck(mainContainer.Slots[0].CurrentCard.cardController.cardData);
                 
                 mainContainer.SendCardToOtherBoard(0, handContainer);
@@ -264,6 +307,12 @@ namespace Run_Loop.Rewards
             
             while (selectionContainer.Slots.Count > 0)
             {
+                if (mainContainer.Slots[0].CurrentCard.cardController.deckCard.isItem)
+                {
+                    mainContainer.Slots[0].CurrentCard.cardController.KillCard(false);
+                    continue;
+                }
+                
                 PlayerDeck.instance.AddCardToDeck(selectionContainer.Slots[0].CurrentCard.cardController.cardData);
                 
                 selectionContainer.SendCardToOtherBoard(0, handContainer);

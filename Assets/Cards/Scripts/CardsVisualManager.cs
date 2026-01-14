@@ -17,7 +17,9 @@ namespace Cards.Scripts
 
         public CardController SpawnNewCardVisuals(CardMovement movement, DeckCard deckCard)
         {
-            CardController newCard = Instantiate(deckCard.cardData.alternativeCardPrefab != null ? deckCard.cardData.alternativeCardPrefab : cardGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
+            CardController prefab = deckCard.cardData != null && deckCard.cardData.alternativeCardPrefab != null ? deckCard.cardData.alternativeCardPrefab : cardGraphicsPrefab;
+            
+            CardController newCard = Instantiate(prefab, movement.transform.position, Quaternion.identity, transform);
             newCard.Setup(movement, deckCard);
 
             return newCard;

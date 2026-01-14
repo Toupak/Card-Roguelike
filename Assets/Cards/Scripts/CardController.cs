@@ -53,9 +53,38 @@ namespace Cards.Scripts
         public void Setup(CardMovement movement, DeckCard cardFromDeck)
         {
             deckCard = cardFromDeck;
-            SetupCard(movement, cardFromDeck.cardData, cardFromDeck.currentHealth);
+
+            if (!cardFromDeck.isItem)
+                SetupCard(movement, cardFromDeck.cardData, cardFromDeck.currentHealth);
+            else
+                SetupItem(movement, cardFromDeck.frameData);
         }
-        
+
+        private void SetupItem(CardMovement movement, FrameData frameData)
+        {
+            rectTransform = GetComponent<RectTransform>();
+            followTarget = GetComponent<FollowTarget>();
+            cardStatus = GetComponent<CardStatus>();
+            frameDisplay = GetComponent<FrameDisplay>();
+            cardBackgroundDisplay = GetComponent<CardBackgroundDisplay>();
+            followTarget.SetTarget(movement);
+            
+            cardHealth = GetComponent<CardHealth>();
+            cardHealth.Hide();
+            
+            displayCardEffect = GetComponent<DisplayCardEffects>();
+            
+            cardMovement = movement;
+
+            gameObject.name = frameData.frameName;
+            
+            SetupCardBackground(frameData.rarity);
+            SetArtwork(null);
+            SetCardName(frameData.frameName);
+            SetupSpells(true);
+            SetupFrame(frameData.rarity);
+        }
+
         private void SetupCard(CardMovement movement, CardData data, int health)
         {
             rectTransform = GetComponent<RectTransform>();
@@ -82,7 +111,7 @@ namespace Cards.Scripts
             SetupEnemyIntention(cardMovement.IsEnemyCard);
             SetupSpells(cardMovement.IsEnemyCard);
             SetupPassives();
-            SetupFrame();
+            SetupFrame(cardData.rarity);
         }
 
         private void SetupCardBackground(CardData.Rarity cardRarity)
@@ -92,7 +121,7 @@ namespace Cards.Scripts
         
         public void SetArtwork(Sprite newSprite)
         {
-            if (newSprite != null && artwork != null && artwork.sprite != null)
+            if (artwork != null && artwork.sprite != null)
                 artwork.sprite = newSprite;
         }
 
@@ -179,10 +208,10 @@ namespace Cards.Scripts
                 passiveHolder.Setup(this, cardData);
         }
         
-        private void SetupFrame()
+        private void SetupFrame(CardData.Rarity rarity)
         {
-            if (cardData.frameData != null)
-                frameDisplay.SetupFrame(this, cardData);
+            if (deckCard != null && deckCard.frameData != null)
+                frameDisplay.SetupFrame(this, rarity, deckCard.frameData);
         }
 
         public void SetDeckCard(DeckCard newDeckCard)

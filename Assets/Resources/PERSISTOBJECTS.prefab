@@ -407,6 +407,10 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: 1e216595a323def43aa782e09498f03d, type: 2}
   defaultCharacter: {fileID: 11400000, guid: c7807214f809f9d4398c228d2dfbe90f, type: 2}
   battlesDataHolder: {fileID: 11400000, guid: 45f280a4f3e0a3b4cac13b29fdc16619, type: 2}
+  framesData:
+  - {fileID: 11400000, guid: 7a2a062c890b14941ac86ba3dd219fe0, type: 2}
+  - {fileID: 11400000, guid: 145bc177ea09bc74ca532109b793fc57, type: 2}
+  - {fileID: 11400000, guid: 17388ee882b0493459f21a45103ccb91, type: 2}
 --- !u!114 &8160040923871809748
 MonoBehaviour:
   m_ObjectHideFlags: 0

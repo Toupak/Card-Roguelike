@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
-  m_Name: TestFrame
+  m_Name: Auto-Load
   m_EditorClassIdentifier: 
-  frameName: test
-  frameDescription: testing
-  material: {fileID: 2100000, guid: 729c92b979671004988b37a1b060cb2a, type: 2}
+  frameName: Auto-Load
+  frameDescription: Gain 1 $Ammo$ at start of turn
+  rarity: 3
+  material: {fileID: 2100000, guid: fdc2ab44f5e885349ba1e1d4513e6673, type: 2}
   frameController: {fileID: 0}
   localizationKey: 

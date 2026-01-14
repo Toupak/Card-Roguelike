@@ -1,26 +1,33 @@
 using BoomLib.BoomTween;
-using Cards.Scripts;
 using TMPro;
 using UnityEngine;
 
-public class CardHealthDisplay : MonoBehaviour
+namespace Cards.Scripts
 {
-    [SerializeField] private CardHealth cardHealth;
-    [SerializeField] private TextMeshProUGUI healthText;
-
-    private void OnEnable()
+    public class CardHealthDisplay : MonoBehaviour
     {
-        cardHealth.OnUpdateHP.AddListener(UpdateUI);
-    }
+        [SerializeField] private CardHealth cardHealth;
+        [SerializeField] private TextMeshProUGUI healthText;
 
-    private void OnDisable()
-    {
-        cardHealth.OnUpdateHP.RemoveListener(UpdateUI);
-    }
+        private void OnEnable()
+        {
+            cardHealth.OnUpdateHP.AddListener(UpdateUI);
+        }
 
-    private void UpdateUI(int currentHealth)
-    {
-        healthText.text = currentHealth.ToString();
-        StartCoroutine(BTween.Squeeze(transform));
+        private void OnDisable()
+        {
+            cardHealth.OnUpdateHP.RemoveListener(UpdateUI);
+        }
+
+        private void UpdateUI(int currentHealth)
+        {
+            healthText.text = currentHealth.ToString();
+            StartCoroutine(BTween.Squeeze(transform));
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

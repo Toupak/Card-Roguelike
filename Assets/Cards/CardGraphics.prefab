@@ -771,6 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e74322abe00b04aa31ab2214a2648f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardHealthDisplay: {fileID: 8041540687545209302}
   OnUpdateHP:
     m_PersistentCalls:
       m_Calls: []

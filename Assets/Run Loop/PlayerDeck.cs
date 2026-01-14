@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cards.Scripts;
+using Frames;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Run_Loop
@@ -9,11 +11,21 @@ namespace Run_Loop
     {
         public CardData cardData;
         public int currentHealth;
+        public FrameData frameData;
 
+        public bool isItem { get; private set; }
+        
         public DeckCard(CardData data)
         {
             cardData = data;
             currentHealth = data.hpMax;
+            isItem = false;
+        }
+        
+        public DeckCard(FrameData data)
+        {
+            frameData = data;
+            isItem = true;
         }
     }
     

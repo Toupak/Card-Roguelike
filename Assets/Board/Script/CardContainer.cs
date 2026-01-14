@@ -99,7 +99,7 @@ namespace Board.Script
         {
             if (type == ContainerType.Board)
             {
-                if (CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
+                if (CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
                     return slots.Count >= maxCardCount;
                 else
                     return slots.Count >= 12;

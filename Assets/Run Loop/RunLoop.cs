@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Cards.Scripts;
 using Character_Selection;
 using CombatLoop.Battles;
 using CombatLoop.Battles.Data;
 using Data;
+using Frames;
 using MapMaker;
 using MapMaker.Floors;
 using MapMaker.Rooms;
@@ -49,6 +51,7 @@ namespace Run_Loop
         private OverWorldCharacterData characterData;
         public OverWorldCharacterData CharacterData => isInRun && characterData != null ? characterData : defaultCharacter;
         public CardDatabase dataBase => cardDatabase;
+        public List<FrameData> framesData;
 
         private int currentBattleIndex;
         public bool isInRun { get; private set; }

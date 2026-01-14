@@ -8,6 +8,8 @@ namespace Cards.Scripts
 {
     public class CardHealth : MonoBehaviour
     {
+        [SerializeField] private CardHealthDisplay cardHealthDisplay;
+        
         [HideInInspector] public UnityEvent<int> OnUpdateHP = new UnityEvent<int>();
         [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
         
@@ -19,6 +21,11 @@ namespace Cards.Scripts
         private void Start()
         {
             cardController = GetComponent<CardController>();
+        }
+
+        public void Hide()
+        {
+            cardHealthDisplay.Hide();
         }
 
         public void Setup(int health)

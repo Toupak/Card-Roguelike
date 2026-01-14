@@ -20,10 +20,10 @@ namespace Frames
         public FrameController frameController { get; private set; }
         public bool hasFrame => frameController != null;
         
-        public FrameController SetupFrame(CardController controller, CardData data)
+        public FrameController SetupFrame(CardController controller, CardData.Rarity rarity, FrameData frameData)
         {
-            SetMaterial(data.rarity, data.frameData.material);
-            return SetupFrameController(controller, data.frameData);
+            SetMaterial(rarity, frameData.material);
+            return SetupFrameController(controller, frameData);
         }
         
         private FrameController SetupFrameController(CardController controller, FrameData data)

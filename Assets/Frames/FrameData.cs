@@ -1,3 +1,4 @@
+using Cards.Scripts;
 using UnityEngine;
 
 namespace Frames
@@ -7,6 +8,7 @@ namespace Frames
     {
         public string frameName;
         public string frameDescription;
+        public CardData.Rarity rarity;
         
         [Space] 
         public Material material;
