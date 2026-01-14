@@ -22,7 +22,7 @@ namespace CombatLoop
         
         public IEnumerator DrawHand()
         {
-            if (RunLoop.instance != null)
+            if (RunLoop.instance != null && RunLoop.instance.isInRun)
             {
                 List<DeckCard> cards = PlayerDeck.instance.deck;
 
@@ -68,7 +68,7 @@ namespace CombatLoop
         
         private void Update()
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame && RunLoop.instance == null && CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && !RunLoop.instance.isInRun && CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation)
             {
                 StopAllCoroutines();
                 StartCoroutine(DrawNewHand());
