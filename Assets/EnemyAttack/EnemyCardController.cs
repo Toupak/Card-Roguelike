@@ -27,11 +27,15 @@ namespace EnemyAttack
             cardData = data;
             
             cardController.cardStatus.OnUpdateStatus.AddListener((_,_) => UpdateDamageText());
+            CombatLoop.CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() =>
+            {
+                SetupIntentionDisplay();
+                ComputeNextIntention();
+                DisplayNextIntention();
+            });
 
             SetupBehaviours();
             SetupDisplay();
-            ComputeNextIntention();
-            DisplayNextIntention();
         }
 
         private void SetupBehaviours()
@@ -51,9 +55,6 @@ namespace EnemyAttack
         {
             cardController.rightButton.gameObject.SetActive(false);   
             cardController.leftButton.gameObject.SetActive(false);   
-            cardController.enemyIntentionIcon.gameObject.SetActive(true);   
-            cardController.enemyIntentionBackground.gameObject.SetActive(true);   
-            cardController.enemyIntentionText.gameObject.SetActive(true);
         }
 
         public IEnumerator ExecuteIntention()
@@ -113,6 +114,13 @@ namespace EnemyAttack
                 behaviourQueue.Clear();
             
             behaviourQueue.Enqueue(targetBehaviour);
+        }
+        
+        private void SetupIntentionDisplay()
+        {
+            cardController.enemyIntentionIcon.gameObject.SetActive(true);   
+            cardController.enemyIntentionBackground.gameObject.SetActive(true);   
+            cardController.enemyIntentionText.gameObject.SetActive(true);
         }
 
         public void DisplayNextIntention()

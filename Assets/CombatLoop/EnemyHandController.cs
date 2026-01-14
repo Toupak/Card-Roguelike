@@ -91,6 +91,7 @@ namespace CombatLoop
 
         public IEnumerator SetupBattle(BattleData battle)
         {
+            enemyBoardContainer.ResetContainer();
             foreach (CardData data in battle.enemyList)
             {
                 SpawnEnemy(data);

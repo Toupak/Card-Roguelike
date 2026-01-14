@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
@@ -13,6 +14,7 @@ using Localization;
 using Run_Loop;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace CombatLoop
 {
@@ -28,6 +30,10 @@ namespace CombatLoop
 
         [Space] 
         [SerializeField] private TurnEndAnimation turnEndAnimation;
+
+        [Space] 
+        [SerializeField] private BattleData.Floor debugBattleFloor;
+        [SerializeField] private BattleData.Difficulty debugBattleDifficulty;
 
         public static UnityEvent OnPlayerDrawHand = new UnityEvent();
         public static UnityEvent OnPlayerPlayAtLeastOneCard = new UnityEvent();
@@ -88,6 +94,18 @@ namespace CombatLoop
                 yield return StartTurn(TurnType.Player);
                 yield return RefreshPlayerEnergyCount();
                 turnCount += 1;
+            }
+        }
+
+        private Coroutine reloadEnemiesCoroutine = null;
+        private void Update()
+        {
+            if (Keyboard.current.bKey.wasPressedThisFrame && !RunLoop.instance.isInRun && currentTurn == TurnType.Preparation)
+            {
+                if (reloadEnemiesCoroutine != null)
+                    StopCoroutine(reloadEnemiesCoroutine);
+                
+                reloadEnemiesCoroutine = StartCoroutine(PlaceEnemyCards(RunLoop.instance.SelectBattle(debugBattleFloor, debugBattleDifficulty)));
             }
         }
 

@@ -255,5 +255,14 @@ namespace Board.Script
             else
                 horizontalLayoutGroup.spacing = Mathf.Clamp(Tools.NormalizeValueInRange(slotCount, 4.0f, 12.0f, 250.0f, 110.0f), 110.0f, 250.0f);
         }
+
+        public void ResetContainer()
+        {
+            for (int i = slots.Count - 1; i >= 0; i--)
+            {
+                if (!slots[i].IsEmpty)
+                    slots[i].CurrentCard.cardController.KillCard(false);
+            }
+        }
     }
 }

@@ -251,5 +251,10 @@ namespace Run_Loop
         {
             return battlesDataHolder.ChooseRandomBattle(BattleData.Floor.First, currentBattleIndex < 3 ? BattleData.Difficulty.Easy : BattleData.Difficulty.Hard);
         }
+        
+        public BattleData SelectBattle(BattleData.Floor floor, BattleData.Difficulty difficulty)
+        {
+            return battlesDataHolder.ChooseRandomBattle(floor, difficulty);
+        }
     }
 }
