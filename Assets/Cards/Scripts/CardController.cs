@@ -24,7 +24,6 @@ namespace Cards.Scripts
         [SerializeField] public TextMeshProUGUI enemyIntentionText;
         [SerializeField] public BaseEnemyBehaviour waitingBehaviourPrefab;
         [SerializeField] public RectTransform tooltipPivot;
-        [SerializeField] public FrameDisplay frameDisplay;
 
         [HideInInspector] public UnityEvent OnKillCard = new UnityEvent();
         
@@ -39,6 +38,8 @@ namespace Cards.Scripts
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
+        public FrameDisplay frameDisplay { get; private set; }
+        public CardBackgroundDisplay cardBackgroundDisplay { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
 
         public CardController tokenParentController { get; private set; } // is Null for regular cards, only  set for tokens
@@ -60,6 +61,8 @@ namespace Cards.Scripts
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
             cardStatus = GetComponent<CardStatus>();
+            frameDisplay = GetComponent<FrameDisplay>();
+            cardBackgroundDisplay = GetComponent<CardBackgroundDisplay>();
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
@@ -73,12 +76,24 @@ namespace Cards.Scripts
 
             gameObject.name = cardData.cardName;
 
+            SetupCardBackground(cardData.rarity);
             SetArtwork(cardData.artwork);
             SetCardName(cardData.cardName);
             SetupEnemyIntention(cardMovement.IsEnemyCard);
             SetupSpells(cardMovement.IsEnemyCard);
             SetupPassives();
             SetupFrame();
+        }
+
+        private void SetupCardBackground(CardData.Rarity cardRarity)
+        {
+            cardBackgroundDisplay.SetupBackground(cardRarity);
+        }
+        
+        public void SetArtwork(Sprite newSprite)
+        {
+            if (newSprite != null && artwork != null && artwork.sprite != null)
+                artwork.sprite = newSprite;
         }
 
         public void SetCardName(string newName)
@@ -167,13 +182,7 @@ namespace Cards.Scripts
         private void SetupFrame()
         {
             if (cardData.frameData != null)
-                frameDisplay.SetupFrame(this, cardData.frameData);
-        }
-
-        public void SetArtwork(Sprite newSprite)
-        {
-            if (newSprite != null && artwork != null && artwork.sprite != null)
-                artwork.sprite = newSprite;
+                frameDisplay.SetupFrame(this, cardData);
         }
 
         public void SetDeckCard(DeckCard newDeckCard)

@@ -635,6 +635,8 @@ GameObject:
   - component: {fileID: 548480995114548304}
   - component: {fileID: 6557015351701204799}
   - component: {fileID: 6970137505809147812}
+  - component: {fileID: 387351114068576617}
+  - component: {fileID: 7934747295322210270}
   m_Layer: 5
   m_Name: CardGraphics
   m_TagString: Untagged
@@ -725,7 +727,6 @@ MonoBehaviour:
   enemyIntentionText: {fileID: 1706371153923554771}
   waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
   tooltipPivot: {fileID: 4177954642535158387}
-  frameDisplay: {fileID: 3078222510564059811}
   OnKillCard:
     m_PersistentCalls:
       m_Calls: []
@@ -820,6 +821,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusTabDisplayPrefab: {fileID: 1682361987783622097, guid: afedba0fe75c38c4b945691f17d26c87, type: 3}
   statusTabHolder: {fileID: 9056944542933817794}
+--- !u!114 &387351114068576617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317175333349962056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51031cf179dab104a9234c24f4f9f033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 6798356254265823371}
+  defaultFrameControllerPrefab: {fileID: -2131359733119874969, guid: 9b42ef81c2d0c0841a3af4fdb9a15b7f, type: 3}
+  frameControllerParent: {fileID: 1065428522733026844}
+  commonTexture: {fileID: 2800000, guid: 67dba9dc1892f4d40b55fc5ffcaf792f, type: 3}
+  rareTexture: {fileID: 2800000, guid: 9cabf0dc70087f348b8399a7f3d95476, type: 3}
+  legendaryTexture: {fileID: 2800000, guid: cb1a5f9d11d501243b0a0aee51621f99, type: 3}
+  exoticTexture: {fileID: 2800000, guid: 882ea848ca926514c8f1be812a37d796, type: 3}
+--- !u!114 &7934747295322210270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317175333349962056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3be67588037bd641a9488ca383e029f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 6798356254265823371}
+  commonSprite: {fileID: 6008755849024553855, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+  rareSprite: {fileID: -284859260, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+  legendarySprite: {fileID: 1699919283, guid: 88e5338810df92c4689589d9ba328704, type: 3}
+  exoticSprite: {fileID: -1395397267, guid: 88e5338810df92c4689589d9ba328704, type: 3}
 --- !u!1 &3531206112174478996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1042,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1065428522733026844}
-  - component: {fileID: 3078222510564059811}
   m_Layer: 5
   m_Name: FrameDisplay
   m_TagString: Untagged
@@ -1032,20 +1068,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3078222510564059811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3640039836867341530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51031cf179dab104a9234c24f4f9f033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 6798356254265823371}
-  defaultFrameControllerPrefab: {fileID: -2131359733119874969, guid: 9b42ef81c2d0c0841a3af4fdb9a15b7f, type: 3}
 --- !u!1 &3933860843223180544
 GameObject:
   m_ObjectHideFlags: 0
