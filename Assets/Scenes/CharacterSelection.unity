@@ -1156,6 +1156,7 @@ MonoBehaviour:
   characterData:
   - {fileID: 11400000, guid: c7807214f809f9d4398c228d2dfbe90f, type: 2}
   - {fileID: 11400000, guid: 7fa9591a4c438f5429f51d822e33f0a6, type: 2}
+  - {fileID: 11400000, guid: d4d589074a676834e9367e8b5f598fe1, type: 2}
   isCharacterSelected: 0
 --- !u!1 &1010311324
 GameObject:

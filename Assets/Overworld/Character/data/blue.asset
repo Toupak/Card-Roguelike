@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c5a8ce78a75686408ae45bdba60469a, type: 3}
-  m_Name: green
+  m_Name: blue
   m_EditorClassIdentifier: 
-  characterName: Green
-  description: hey
-  displaySprite: {fileID: -1394050701, guid: 236428da740494d49ae42db31f3317a7, type: 3}
-  spriteLibrary: {fileID: 7108339969198208228, guid: e6f88674765a7bb4f81dfe0269aaf5c0, type: 3}
+  characterName: Blue
+  description: Zbraaa
+  displaySprite: {fileID: 371815984, guid: 4162500f018eff041b1699e73595ac15, type: 3}
+  spriteLibrary: {fileID: 7108339969198208228, guid: 8226e70131c9c4e479a5fdd8ef32b2fa, type: 3}
   startingCards:
-  - {fileID: 11400000, guid: ae461de2f5cec2b42b0326f89cc68c01, type: 2}
-  - {fileID: 11400000, guid: 3d68e23fb199d0040a1e5dda5a2e93ff, type: 2}
+  - {fileID: 11400000, guid: b9acf74c4cb69a746a5e3467a9e5542e, type: 2}
+  - {fileID: 11400000, guid: 477ba70ee27867c4fa1c8188e1bd80c7, type: 2}
