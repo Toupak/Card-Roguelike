@@ -55,5 +55,16 @@ namespace Items
             OnKillItem?.Invoke();
             Destroy(gameObject);
         }
+
+        public bool CanEquipItem(CardMovement target)
+        {
+            return GetComponent<FrameItem>().CanEquipItem(target);
+        }
+
+        public void EquipItem(CardMovement target)
+        {
+            GetComponent<FrameItem>().EquipItem(target);
+            KillItem(false);
+        }
     }
 }

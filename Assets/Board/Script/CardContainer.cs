@@ -84,9 +84,16 @@ namespace Board.Script
 
             if (CheckForSendingCardToOtherContainer())
                 return;
-                
+
+            bool isCurrentCardAnItem = currentSelectedCard.itemController != null;
             for (int i = 0; i < slots.Count; i++)
             {
+                if (isCurrentCardAnItem && slots[i].CurrentCard.cardController != null)
+                {
+                    if (IsSlotOverlapping(i))
+                        break;
+                }
+                
                 if (IsSlotFurtherThanCurrent(i))
                 {
                     SwapSlots(currentSelectedCard, i);
@@ -99,6 +106,13 @@ namespace Board.Script
                     break;
                 }
             }
+        }
+
+        private bool IsSlotOverlapping(int index)
+        {
+            float distance = currentSelectedCard.transform.position.Distance(slots[index].CurrentCard.transform.position);
+
+            return distance < 100.0f;
         }
 
         private bool IsSlotFurtherThanCurrent(int index)
@@ -128,7 +142,28 @@ namespace Board.Script
             }
             
             return slots.Count >= maxCardCount;
-        } 
+        }
+
+        public bool CanReceiveCard(CardMovement cardMovement)
+        {
+            if (IsFull())
+                return false;
+
+            switch (type)
+            {
+                case ContainerType.Hand:
+                    return cardMovement.cardController != null;
+                case ContainerType.Inventory:
+                    return cardMovement.itemController != null;
+                case ContainerType.Enemy:
+                    return false;
+                case ContainerType.Board:
+                case ContainerType.Sticky:
+                    return true;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
 
         public void SendCardToOtherBoard(int slot, CardContainer otherContainer)
         {
@@ -144,7 +179,7 @@ namespace Board.Script
             
             CardContainer currentCursorCardContainer = CursorInfo.instance.LastCardContainer;
             
-            if (currentCursorCardContainer != this && !currentCursorCardContainer.IsFull() && currentCursorCardContainer.type != ContainerType.Enemy)
+            if (currentCursorCardContainer != null && currentCursorCardContainer != this && currentCursorCardContainer.CanReceiveCard(currentSelectedCard))
             {
                 SendToOtherBoard(currentCursorCardContainer);
                 return true;
@@ -264,9 +299,27 @@ namespace Board.Script
 
         private void StopDraggingCard()
         {
+            if (currentSelectedCard.itemController != null)
+                CheckForItemEquipment();
+
             currentSelectedCard = null;
         }
-        
+
+        private void CheckForItemEquipment()
+        {
+            for (int i = 0; i < slots.Count; i++)
+            {
+                if (slots[i].CurrentCard.cardController != null)
+                {
+                    if (IsSlotOverlapping(i) && currentSelectedCard.itemController.CanEquipItem(slots[i].CurrentCard))
+                    {
+                        currentSelectedCard.itemController.EquipItem(slots[i].CurrentCard);
+                        return;
+                    }
+                }
+            }
+        }
+
         private void UpdateCardSpacing()
         {
             if (type != ContainerType.Board || horizontalLayoutGroup == null)

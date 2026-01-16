@@ -224,6 +224,7 @@ namespace Run_Loop
         {
             yield return SceneLoader.instance.LoadScene(hubScene, () =>
             {
+                isInRun = false;
                 MovePlayerToCenterOfRoom();
                 UnlockPlayer();
             });

@@ -93,11 +93,13 @@ namespace Cards.Scripts
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            ResetPosition();
-
             isDragging = false;
-            Deselect();
+
             slot.board.OnStopDragging?.Invoke();
+            
+            Deselect();
+            ResetPosition();
+            
             OnDrop?.Invoke();
         }
 

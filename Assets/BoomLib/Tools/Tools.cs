@@ -23,6 +23,11 @@ namespace BoomLib.Tools
         {
             return (other - position).magnitude;
         }
+        
+        public static float Distance(this Vector3 position, Vector3 other)
+        {
+            return (other - position).magnitude;
+        }
 
         public static Quaternion ToRotation(this Vector2 direction)
         {

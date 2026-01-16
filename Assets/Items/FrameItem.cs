@@ -47,5 +47,18 @@ namespace Items
                     throw new ArgumentOutOfRangeException(nameof(rarity), rarity, null);
             }
         }
+
+        public bool CanEquipItem(CardMovement target)
+        {
+            return true;
+        }
+
+        public void EquipItem(CardMovement target)
+        {
+            if (target.cardController.frameDisplay.hasFrame)
+                target.cardController.RemoveFrame();
+            
+            target.cardController.AddFrame(data);    
+        }
     }
 }
