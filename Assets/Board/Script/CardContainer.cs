@@ -33,13 +33,21 @@ namespace Board.Script
         public int slotCount => slots.Count;
 
         public ContainerType type;
+        public ContainerOrientation orientation;
 
         public enum ContainerType
         {
             Hand,
             Board,
             Enemy,
-            Sticky
+            Sticky,
+            Inventory
+        }
+        
+        public enum ContainerOrientation
+        {
+            Horizontal,
+            Vertical
         }
         
         public enum PreferredPosition
@@ -79,20 +87,34 @@ namespace Board.Script
                 
             for (int i = 0; i < slots.Count; i++)
             {
-                if (currentSelectedCard.transform.position.x > slots[i].transform.position.x)
-                    if (currentSelectedCard.SlotIndex < i)
-                    {
-                        SwapSlots(currentSelectedCard, i);
-                        return;
-                    }
+                if (IsSlotFurtherThanCurrent(i))
+                {
+                    SwapSlots(currentSelectedCard, i);
+                    break;
+                }
 
-                if (currentSelectedCard.transform.position.x < slots[i].transform.position.x)
-                    if (currentSelectedCard.SlotIndex > i)
-                    {
-                        SwapSlots(currentSelectedCard, i);
-                        return;
-                    }
+                if (IsSlotCloserThanCurrent(i))
+                {
+                    SwapSlots(currentSelectedCard, i);
+                    break;
+                }
             }
+        }
+
+        private bool IsSlotFurtherThanCurrent(int index)
+        {
+            if (orientation == ContainerOrientation.Horizontal)
+                return currentSelectedCard.transform.position.x > slots[index].transform.position.x && currentSelectedCard.SlotIndex < index;
+            else
+                return currentSelectedCard.transform.position.y < slots[index].transform.position.y && currentSelectedCard.SlotIndex < index;
+        }
+
+        private bool IsSlotCloserThanCurrent(int index)
+        {
+            if (orientation == ContainerOrientation.Horizontal)
+                return currentSelectedCard.transform.position.x < slots[index].transform.position.x && currentSelectedCard.SlotIndex > index;
+            else
+                return currentSelectedCard.transform.position.y > slots[index].transform.position.y && currentSelectedCard.SlotIndex > index;
         }
         
         public bool IsFull()

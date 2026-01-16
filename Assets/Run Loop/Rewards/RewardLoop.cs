@@ -65,7 +65,7 @@ namespace Run_Loop.Rewards
             yield return WaitUntilOpenButtonIsClicked();
             yield return OpenBoosterAndDisplayFrames(3);
             yield return WaitUntilCardHasBeenSelected();
-            yield return StoreSelectedFrame(); //TODO : implement
+            yield return StoreSelectedCard();
             yield return RemoveRemainingCards();
         }
 
@@ -246,12 +246,6 @@ namespace Run_Loop.Rewards
             selectionContainer.SendCardToOtherBoard(0, selectedCardsContainer);
             yield return new WaitForSeconds(0.3f);
         }
-        
-        private IEnumerator StoreSelectedFrame()
-        {
-            selectionContainer.SendCardToOtherBoard(0, selectedCardsContainer);
-            yield return new WaitForSeconds(0.3f);
-        }
 
         private IEnumerator RemoveRemainingCards()
         {
@@ -301,8 +295,15 @@ namespace Run_Loop.Rewards
                     PlayerDeck.instance.AddCardToDeck(mainContainer.Slots[0].CurrentCard.cardController.cardData);
                     mainContainer.SendCardToOtherBoard(0, handContainer);
                 }
-                else 
+                else
+                {
+                    Items.FrameItem frameItem = mainContainer.Slots[0].CurrentCard.itemController.GetComponent<Items.FrameItem>();
+
+                    if (frameItem != null)
+                        PlayerInventory.instance.LootFrame(frameItem.data);
+
                     mainContainer.Slots[0].CurrentCard.KillCard();
+                }
                 
                 yield return new WaitForSeconds(0.25f);
             }

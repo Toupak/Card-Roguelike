@@ -434,6 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2565726826618425718}
   - component: {fileID: 5901526860224326648}
+  - component: {fileID: 3886590813496228466}
   m_Layer: 0
   m_Name: __PlayerDeck
   m_TagString: Untagged
@@ -468,6 +469,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1315ac9239e0e1148ba1891625d76df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3886590813496228466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658324569094561765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c79d2772daa1134388857c8e028600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugFrames:
+  - {fileID: 11400000, guid: 145bc177ea09bc74ca532109b793fc57, type: 2}
+  - {fileID: 11400000, guid: 17388ee882b0493459f21a45103ccb91, type: 2}
 --- !u!1 &8802287362730742065
 GameObject:
   m_ObjectHideFlags: 0

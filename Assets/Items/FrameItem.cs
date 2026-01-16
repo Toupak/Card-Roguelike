@@ -17,8 +17,12 @@ namespace Items
         
         private static readonly int mask = Shader.PropertyToID("_Mask");
 
+        public FrameData data { get; private set; }
+        
         public void Setup(FrameData frameData)
         {
+            data = frameData;
+            
             Material newMaterial = new Material(frameData.material);
             newMaterial.mainTexture = GetTextureFromRarity(frameData.rarity);
             newMaterial.SetTexture(mask, maskTexture);
