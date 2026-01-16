@@ -55,8 +55,6 @@ namespace Items
 
         public void EquipItem(CardMovement target)
         {
-            
-            
             target.cardController.AddFrame(data);    
         }
     }

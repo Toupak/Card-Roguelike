@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BoomLib.Tools;
 using Cards.Scripts;
 using CardSlot.Script;
 using Cursor.Script;
+using Items;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -88,7 +90,8 @@ namespace Board.Script
             bool isCurrentCardAnItem = currentSelectedCard.itemController != null;
             for (int i = 0; i < slots.Count; i++)
             {
-                if (isCurrentCardAnItem && slots[i].CurrentCard.cardController != null)
+                bool isTargetAnItem = slots[i].CurrentCard.itemController != null;
+                if (isCurrentCardAnItem != isTargetAnItem)
                 {
                     if (IsSlotOverlapping(i))
                         break;
@@ -136,7 +139,7 @@ namespace Board.Script
             if (type == ContainerType.Board)
             {
                 if (CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
-                    return slots.Count >= maxCardCount;
+                    return slots.Count(s => s.CurrentCard.cardController != null) >= maxCardCount;
                 else
                     return slots.Count >= 12;
             }
@@ -297,8 +300,7 @@ namespace Board.Script
 
         private void StopDraggingCard()
         {
-            if (currentSelectedCard.itemController != null)
-                CheckForItemEquipment();
+            CheckForItemEquipment();
             
             if (currentSelectedCard.cardController != null && currentSelectedCard.cardController.frameDisplay.hasFrame && type != ContainerType.Board)
                 currentSelectedCard.cardController.frameDisplay.RemoveFrame();
@@ -308,13 +310,18 @@ namespace Board.Script
 
         private void CheckForItemEquipment()
         {
+            bool isCurrentCardAnItem = currentSelectedCard.itemController != null;
+            
             for (int i = 0; i < slots.Count; i++)
             {
-                if (slots[i].CurrentCard.cardController != null)
+                bool isTargetAnItem = slots[i].CurrentCard.itemController != null;
+                if (isCurrentCardAnItem != isTargetAnItem && IsSlotOverlapping(i))
                 {
-                    if (IsSlotOverlapping(i) && currentSelectedCard.itemController.CanEquipItem(slots[i].CurrentCard))
+                    ItemController itemController = isCurrentCardAnItem ? currentSelectedCard.itemController : slots[i].CurrentCard.itemController;
+                    CardMovement target = isCurrentCardAnItem ? slots[i].CurrentCard : currentSelectedCard;
+                    if (itemController.CanEquipItem(target))
                     {
-                        currentSelectedCard.itemController.EquipItem(slots[i].CurrentCard);
+                        itemController.EquipItem(target);
                         return;
                     }
                 }
