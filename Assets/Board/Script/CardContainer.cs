@@ -146,20 +146,17 @@ namespace Board.Script
 
         public bool CanReceiveCard(CardMovement cardMovement)
         {
-            if (IsFull())
-                return false;
-
             switch (type)
             {
                 case ContainerType.Hand:
-                    return cardMovement.cardController != null;
+                    return !IsFull() && cardMovement.cardController != null;
                 case ContainerType.Inventory:
                     return cardMovement.itemController != null;
                 case ContainerType.Enemy:
                     return false;
                 case ContainerType.Board:
                 case ContainerType.Sticky:
-                    return true;
+                    return !IsFull() || cardMovement.itemController != null;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

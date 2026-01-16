@@ -170,6 +170,7 @@ namespace Cards.Scripts
                         verticalOffset += selectedHeightOffsetEnemy;
                         break;
                     case ContainerType.Board:
+                    case ContainerType.Inventory:
                     case ContainerType.Sticky:
                         verticalOffset += selectedHeightOffsetPlayer;
                         break;
