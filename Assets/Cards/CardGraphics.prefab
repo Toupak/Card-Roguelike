@@ -615,6 +615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a71ba032a95104bb4b8a9d3f66a956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardController: {fileID: -4129232798781121940}
+  itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 6251304531099071850}
   squeezePowerOnHover: 0.5
   spellButton: {fileID: 6570758498232642076}
@@ -1031,6 +1033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a71ba032a95104bb4b8a9d3f66a956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardController: {fileID: -4129232798781121940}
+  itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 4456902868140776374}
   squeezePowerOnHover: 0.5
   spellButton: {fileID: 6589867945874465917}
@@ -2159,6 +2163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289148ea9120c8846be345af0654d276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardController: {fileID: -4129232798781121940}
+  itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 4137363588590150322}
   squeezePowerOnHover: 0.5
   tooltipPivot: {fileID: 4177954642535158387}
@@ -2388,6 +2394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031207f2598b71148b085747f3007fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardController: {fileID: -4129232798781121940}
+  itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 1697762264458700465}
   squeezePowerOnHover: 0.3
   cardController: {fileID: -4129232798781121940}
@@ -2639,6 +2647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a71ba032a95104bb4b8a9d3f66a956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardController: {fileID: -4129232798781121940}
+  itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 8170742621991121404}
   squeezePowerOnHover: 0.5
   spellButton: {fileID: 2253255731906166765}

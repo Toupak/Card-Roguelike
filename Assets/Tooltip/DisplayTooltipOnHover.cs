@@ -1,3 +1,5 @@
+using Cards.Scripts;
+using Items;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,6 +8,9 @@ namespace Tooltip
 {
     public abstract class DisplayTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        [SerializeField] private CardController cardController;
+        [SerializeField] private ItemController itemController;
+        
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;
 
@@ -13,7 +18,7 @@ namespace Tooltip
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (tooltipDisplay != null)
+            if (tooltipDisplay != null || (cardController != null && cardController.cardMovement.isDragging) || (itemController != null && itemController.cardMovement.isDragging))
                 return;
 
             DisplayTooltip();
