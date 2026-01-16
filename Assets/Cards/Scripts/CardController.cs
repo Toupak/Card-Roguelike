@@ -87,7 +87,8 @@ namespace Cards.Scripts
 
         private void SetupCardBackground(CardData.Rarity cardRarity)
         {
-            cardBackgroundDisplay.SetupBackground(cardRarity);
+            if (cardBackgroundDisplay != null)
+                cardBackgroundDisplay.SetupBackground(cardRarity);
         }
         
         public void SetArtwork(Sprite newSprite)

@@ -33,8 +33,8 @@ namespace Inventory
 
             LoadInventoryContent();
             
-            //if (PlayerInventory.instance.isEmpty) //TODO : uncomment this
-                //HideInventoryCompletely();
+            if (PlayerInventory.instance.isEmpty)
+                HideInventoryCompletely();
         }
 
         private void LoadInventoryContent()

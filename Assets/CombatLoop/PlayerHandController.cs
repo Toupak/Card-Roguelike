@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ActionReaction.Game_Actions;
 using Board.Script;
 using Cards.Scripts;
@@ -37,15 +38,20 @@ namespace CombatLoop
 
         private IEnumerator DrawLastFightHand()
         {
+            List<FrameItem> frames = PlayerInventory.instance.frames;
             List<DeckCard> lastHandCards = PlayerDeck.instance.lastHandPlayed;
             for (int i = 0; i < lastHandCards.Count; i++)
             {
                 CardContainer targetContainer = i < 4 ? playerBoard : handContainer;
+                CardController card = SpawnCard(lastHandCards[i], targetContainer);
                 
-                SpawnCard(lastHandCards[i], targetContainer);
+                List<FrameItem> equippedFrame = frames.Where((f) => f.target == card.deckCard).ToList();
+                if (equippedFrame.Count > 0)
+                    card.AddFrame(equippedFrame[0].data);
+                
                 yield return new WaitForSeconds(0.1f);
             }
-            
+
             List<DeckCard> deck = PlayerDeck.instance.deck;
             for (int i = 0; i < deck.Count; i++)
             {
