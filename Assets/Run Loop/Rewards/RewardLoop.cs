@@ -7,7 +7,6 @@ using Cards.Tween_Animations;
 using CardSlot.Script;
 using Frames;
 using Items;
-using Run_Loop.Run_Parameters;
 using UnityEngine;
 
 namespace Run_Loop.Rewards
@@ -32,8 +31,6 @@ namespace Run_Loop.Rewards
 
         public static RewardLoop instance;
 
-        private RunParameterData runParameterData;
-        
         public bool isRewardScreenOver { get; private set; }
         
         private void Awake()
@@ -43,7 +40,6 @@ namespace Run_Loop.Rewards
 
         private IEnumerator Start()
         {
-            runParameterData = ComputeRunParameterData();
             //FillDeckForTest();
 
             bool isFirstRun = IsFirstRun();
@@ -93,11 +89,6 @@ namespace Run_Loop.Rewards
             }
         }
 
-        private RunParameterData ComputeRunParameterData()
-        {
-            return new RunParameterData(4, 3, 1, 3, 3);
-        }
-        
         private bool IsFirstRun()
         {
             return PlayerDeck.instance.deck.Count < 1;
