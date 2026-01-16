@@ -6,6 +6,7 @@ using Cards.Scripts;
 using Cards.Tween_Animations;
 using CardSlot.Script;
 using Frames;
+using Items;
 using Run_Loop.Run_Parameters;
 using UnityEngine;
 
@@ -140,7 +141,7 @@ namespace Run_Loop.Rewards
             
             for (int i = 0; i < framesCount && i < shuffledList.Count; i++)
             {
-                DrawCardToContainer(new DeckCard(shuffledList[i]), mainContainer);
+                DrawItemToContainer(mainContainer).SetupAsFrameItem(shuffledList[i]);
                 yield return new WaitForSeconds(0.1f);
             }
         }
@@ -171,6 +172,17 @@ namespace Run_Loop.Rewards
             
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, card);
             newCard.SetCardController(controller);
+        }
+        
+        private ItemController DrawItemToContainer(CardContainer container)
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            container.ReceiveCard(newCard);
+            
+            ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
+            newCard.SetItemController(controller);
+
+            return controller;
         }
 
         private IEnumerator WaitUntilCardHasBeenSelected()
@@ -254,7 +266,7 @@ namespace Run_Loop.Rewards
         {
             while (mainContainer.Slots.Count > 0)
             {
-                mainContainer.Slots[0].CurrentCard.cardController.KillCard(false);
+                mainContainer.Slots[0].CurrentCard.KillCard(false);
                 yield return new WaitForSeconds(0.1f);
             }
         }
@@ -293,29 +305,27 @@ namespace Run_Loop.Rewards
         {
             while (mainContainer.Slots.Count > 0)
             {
-                if (mainContainer.Slots[0].CurrentCard.cardController.deckCard.isItem)
+                if (mainContainer.Slots[0].CurrentCard.cardController != null)
                 {
-                    mainContainer.Slots[0].CurrentCard.cardController.KillCard(false);
-                    continue;
+                    PlayerDeck.instance.AddCardToDeck(mainContainer.Slots[0].CurrentCard.cardController.cardData);
+                    mainContainer.SendCardToOtherBoard(0, handContainer);
                 }
+                else 
+                    mainContainer.Slots[0].CurrentCard.KillCard();
                 
-                PlayerDeck.instance.AddCardToDeck(mainContainer.Slots[0].CurrentCard.cardController.cardData);
-                
-                mainContainer.SendCardToOtherBoard(0, handContainer);
                 yield return new WaitForSeconds(0.25f);
             }
             
             while (selectionContainer.Slots.Count > 0)
             {
-                if (mainContainer.Slots[0].CurrentCard.cardController.deckCard.isItem)
+                if (selectionContainer.Slots[0].CurrentCard.cardController != null)
                 {
-                    mainContainer.Slots[0].CurrentCard.cardController.KillCard(false);
-                    continue;
+                    PlayerDeck.instance.AddCardToDeck(selectionContainer.Slots[0].CurrentCard.cardController.cardData);
+                    selectionContainer.SendCardToOtherBoard(0, handContainer);
                 }
+                else 
+                    selectionContainer.Slots[0].CurrentCard.KillCard();
                 
-                PlayerDeck.instance.AddCardToDeck(selectionContainer.Slots[0].CurrentCard.cardController.cardData);
-                
-                selectionContainer.SendCardToOtherBoard(0, handContainer);
                 yield return new WaitForSeconds(0.25f);
             }
 

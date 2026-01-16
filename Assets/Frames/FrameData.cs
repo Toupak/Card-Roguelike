@@ -8,11 +8,12 @@ namespace Frames
     {
         public string frameName;
         public string frameDescription;
+        public Sprite icon;
         public CardData.Rarity rarity;
         
         [Space] 
         public Material material;
-        
+
         [Space] 
         public FrameController frameController;
         

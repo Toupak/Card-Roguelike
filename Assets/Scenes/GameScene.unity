@@ -291,6 +291,8 @@ MonoBehaviour:
   endPreparationButton: {fileID: 2017245389}
   endPlayerTurnButton: {fileID: 1744358810}
   turnEndAnimation: {fileID: 914106417}
+  debugBattleFloor: 0
+  debugBattleDifficulty: 0
 --- !u!4 &147471251
 Transform:
   m_ObjectHideFlags: 0
@@ -356,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardGraphicsPrefab: {fileID: -4129232798781121940, guid: 7a32b4a7f636be74eba064bedaed1ece, type: 3}
   tokenGraphicsPrefab: {fileID: -4129232798781121940, guid: 52761fafac3448542afd8b96cb3e6697, type: 3}
+  itemGraphicsPrefab: {fileID: 3050017496643724262, guid: 0dd6f44a76e872c4ca5c1c8bb647a9a9, type: 3}
 --- !u!1 &236631248
 GameObject:
   m_ObjectHideFlags: 0

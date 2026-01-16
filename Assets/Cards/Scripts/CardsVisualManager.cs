@@ -1,3 +1,4 @@
+using Items;
 using Run_Loop;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Cards.Scripts
     {
         [SerializeField] private CardController cardGraphicsPrefab;
         [SerializeField] private CardController tokenGraphicsPrefab;
+        [SerializeField] private ItemController itemGraphicsPrefab;
         
         public static CardsVisualManager instance;
 
@@ -31,6 +33,14 @@ namespace Cards.Scripts
             newCard.SetupToken(movement, tokenData, parentCardController);
 
             return newCard;
+        }
+        
+        public ItemController SpawnNewItemVisuals(CardMovement movement)
+        {
+            ItemController newItem = Instantiate(itemGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
+            newItem.SetupItem(movement);
+
+            return newItem;
         }
     }
 }

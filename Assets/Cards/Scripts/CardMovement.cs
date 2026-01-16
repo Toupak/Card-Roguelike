@@ -2,6 +2,7 @@ using System;
 using Board.Script;
 using CardSlot.Script;
 using Cursor.Script;
+using Items;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -26,6 +27,7 @@ namespace Cards.Scripts
 
         public RectTransform rectTransform { get;  private set; }
         public CardController cardController { get;  private set; }
+        public ItemController itemController { get;  private set; }
         private Slot slot;
         public Slot CurrentSlot => slot;
         public int SlotIndex => transform.parent.CompareTag("Slot") ? transform.parent.GetSiblingIndex() : 0;
@@ -162,6 +164,11 @@ namespace Cards.Scripts
             cardController = newController;
         }
 
+        public void SetItemController(ItemController newController)
+        {
+            itemController = newController;
+        }
+
         public void KillAllTokens()
         {
             for (int i = tokenContainer.Slots.Count - 1; i >= 0; i--)
@@ -180,6 +187,14 @@ namespace Cards.Scripts
         {
             if (cardController != null)
                 cardController.gameObject.SetActive(false);
+        }
+
+        public void KillCard(bool removeFromDeck = true)
+        {
+            if (cardController != null)
+                cardController.KillCard(removeFromDeck);
+            else if (itemController != null)
+                itemController.KillItem(removeFromDeck);
         }
     }
 }

@@ -54,35 +54,7 @@ namespace Cards.Scripts
         {
             deckCard = cardFromDeck;
 
-            if (!cardFromDeck.isItem)
-                SetupCard(movement, cardFromDeck.cardData, cardFromDeck.currentHealth);
-            else
-                SetupItem(movement, cardFromDeck.frameData);
-        }
-
-        private void SetupItem(CardMovement movement, FrameData frameData)
-        {
-            rectTransform = GetComponent<RectTransform>();
-            followTarget = GetComponent<FollowTarget>();
-            cardStatus = GetComponent<CardStatus>();
-            frameDisplay = GetComponent<FrameDisplay>();
-            cardBackgroundDisplay = GetComponent<CardBackgroundDisplay>();
-            followTarget.SetTarget(movement);
-            
-            cardHealth = GetComponent<CardHealth>();
-            cardHealth.Hide();
-            
-            displayCardEffect = GetComponent<DisplayCardEffects>();
-            
-            cardMovement = movement;
-
-            gameObject.name = frameData.frameName;
-            
-            SetupCardBackground(frameData.rarity);
-            SetArtwork(null);
-            SetCardName(frameData.frameName);
-            SetupSpells(true);
-            SetupFrame(frameData.rarity);
+            SetupCard(movement, cardFromDeck.cardData, cardFromDeck.currentHealth);
         }
 
         private void SetupCard(CardMovement movement, CardData data, int health)
@@ -212,11 +184,6 @@ namespace Cards.Scripts
         {
             if (deckCard != null && deckCard.frameData != null)
                 frameDisplay.SetupFrame(this, rarity, deckCard.frameData);
-        }
-
-        public void SetDeckCard(DeckCard newDeckCard)
-        {
-            deckCard = newDeckCard;
         }
 
         public void KillCard(bool removeFromDeck = true)
