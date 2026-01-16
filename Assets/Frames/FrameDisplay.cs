@@ -19,26 +19,38 @@ namespace Frames
 
         public FrameController frameController { get; private set; }
         public bool hasFrame => frameController != null;
+
+        private bool isStartingMaterialSaved;
+        private Material startingMaterial;
+        private Sprite startingSprite;
+        
+        public void RemoveFrame()
+        {
+            if (!isStartingMaterialSaved)
+                return;
+
+            background.sprite = startingSprite;
+            background.material = startingMaterial;
+            frameController.Remove();
+        }
         
         public FrameController SetupFrame(CardController controller, CardData.Rarity rarity, FrameData frameData)
         {
+            if (!isStartingMaterialSaved)
+                SaveStartingMaterial();
             SetMaterial(rarity, frameData.material);
             return SetupFrameController(controller, frameData);
         }
-        
-        private FrameController SetupFrameController(CardController controller, FrameData data)
+
+        private void SaveStartingMaterial()
         {
-            frameController = Instantiate(data.frameController != null ? data.frameController : defaultFrameControllerPrefab, frameControllerParent);
-            frameController.Setup(controller, data);
-            return frameController;
+            startingSprite = background.sprite;
+            startingMaterial = background.material;
         }
         
         private void SetMaterial(CardData.Rarity rarity, Material material)
         {
-            background.material = new Material(material)
-            {
-                mainTexture = GetTextureFromRarity(rarity)
-            };
+            background.material = new Material(material) { mainTexture = GetTextureFromRarity(rarity) };
             background.sprite = null;
         }
 
@@ -57,6 +69,13 @@ namespace Frames
                 default:
                     throw new ArgumentOutOfRangeException(nameof(rarity), rarity, null);
             }
+        }
+        
+        private FrameController SetupFrameController(CardController controller, FrameData data)
+        {
+            frameController = Instantiate(data.frameController != null ? data.frameController : defaultFrameControllerPrefab, frameControllerParent);
+            frameController.Setup(controller, data);
+            return frameController;
         }
     }
 }

@@ -83,7 +83,6 @@ namespace Cards.Scripts
             SetupEnemyIntention(cardMovement.IsEnemyCard);
             SetupSpells(cardMovement.IsEnemyCard);
             SetupPassives();
-            SetupFrame(cardData.rarity);
         }
 
         private void SetupCardBackground(CardData.Rarity cardRarity)
@@ -180,10 +179,14 @@ namespace Cards.Scripts
                 passiveHolder.Setup(this, cardData);
         }
         
-        private void SetupFrame(CardData.Rarity rarity)
+        public void AddFrame(FrameData frameData)
         {
-            if (deckCard != null && deckCard.frameData != null)
-                frameDisplay.SetupFrame(this, rarity, deckCard.frameData);
+            frameDisplay.SetupFrame(this, cardData.rarity, frameData);
+        }
+
+        public void RemoveFrame()
+        {
+            frameDisplay.RemoveFrame();
         }
 
         public void KillCard(bool removeFromDeck = true)

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cards.Scripts;
-using Frames;
 using UnityEngine;
 
 namespace Run_Loop
@@ -10,7 +9,6 @@ namespace Run_Loop
     {
         public CardData cardData;
         public int currentHealth;
-        public FrameData frameData;
 
         public DeckCard(CardData data)
         {
