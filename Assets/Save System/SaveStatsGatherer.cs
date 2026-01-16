@@ -27,7 +27,7 @@ namespace Save_System
 
         private void DeathReaction(DeathGA deathGa)
         {
-            if (!deathGa.killer.cardData.isEnemy && deathGa.isEnemy)
+            if (deathGa.killer != null && !deathGa.killer.cardData.isEnemy && deathGa.isEnemy)
                 SaveSystem.instance.SaveData.totalKillCount += 1;
         }
 

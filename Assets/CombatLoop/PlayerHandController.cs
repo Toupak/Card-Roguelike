@@ -24,24 +24,61 @@ namespace CombatLoop
         {
             if (RunLoop.instance != null && RunLoop.instance.isInRun)
             {
-                List<DeckCard> cards = PlayerDeck.instance.deck;
-
-                foreach (DeckCard deckCard in cards)
-                {
-                    SpawnCard(deckCard, handContainer);
-                    yield return new WaitForSeconds(0.1f);
-                }    
+                if (RunLoop.instance.currentBattleIndex == 0)
+                    yield return DrawFirstFightHand();
+                else
+                    yield return DrawLastFightHand();
             }
             else
             {
-                for (int i = 0; i < 12; i++)
-                {
-                    SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
-                    currentDebugDeckIndex = currentDebugDeckIndex + 1 >= cardData.Count ? 0 : currentDebugDeckIndex + 1;
-
-                    yield return new WaitForSeconds(0.1f);
-                }   
+                yield return DrawDebugModeHand();
             }
+        }
+
+        private IEnumerator DrawLastFightHand()
+        {
+            List<DeckCard> lastHandCards = PlayerDeck.instance.lastHandPlayed;
+            for (int i = 0; i < lastHandCards.Count; i++)
+            {
+                CardContainer targetContainer = i < 4 ? playerBoard : handContainer;
+                
+                SpawnCard(lastHandCards[i], targetContainer);
+                yield return new WaitForSeconds(0.1f);
+            }
+            
+            List<DeckCard> deck = PlayerDeck.instance.deck;
+            for (int i = 0; i < deck.Count; i++)
+            {
+                if (lastHandCards.Contains(deck[i]))
+                    continue;
+                
+                SpawnCard(deck[i], handContainer);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        private IEnumerator DrawFirstFightHand()
+        {
+            List<DeckCard> cards = PlayerDeck.instance.deck;
+
+            for (int i = 0; i < cards.Count; i++)
+            {
+                CardContainer targetContainer = i < 4 ? playerBoard : handContainer;
+                
+                SpawnCard(cards[i], targetContainer);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        private IEnumerator DrawDebugModeHand()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
+                currentDebugDeckIndex = currentDebugDeckIndex + 1 >= cardData.Count ? 0 : currentDebugDeckIndex + 1;
+
+                yield return new WaitForSeconds(0.1f);
+            } 
         }
 
         public CardController SpawnCard(DeckCard deckCard, CardContainer targetContainer)

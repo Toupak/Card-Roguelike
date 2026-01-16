@@ -53,7 +53,7 @@ namespace Run_Loop
         public CardDatabase dataBase => cardDatabase;
         public List<FrameData> framesData;
 
-        private int currentBattleIndex;
+        public int currentBattleIndex { get; private set; }
         public bool isInRun { get; private set; }
 
         private void Awake()
@@ -168,9 +168,7 @@ namespace Run_Loop
                 yield return new WaitUntil(IsRewardSelected);
                 
                 currentBattleIndex += 1;
-                if (currentBattleIndex >= battlesDataHolder.battles.Count)
-                    currentBattleIndex = 0;
-                
+
                 RoomBuilder.instance.MarkCurrentRoomAsCleared();
                 yield return LoadRoom(RoomBuilder.instance.GetCurrentRoom(), UnlockPlayer);
                 
@@ -224,7 +222,11 @@ namespace Run_Loop
 
         private IEnumerator GoBackToHub()
         {
-            yield return SceneLoader.instance.LoadScene(hubScene, MovePlayerToCenterOfRoom);
+            yield return SceneLoader.instance.LoadScene(hubScene, () =>
+            {
+                MovePlayerToCenterOfRoom();
+                UnlockPlayer();
+            });
         }
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)

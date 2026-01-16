@@ -44,7 +44,7 @@ namespace Run_Loop.Rewards
         private IEnumerator Start()
         {
             runParameterData = ComputeRunParameterData();
-            FillDeckForTest();
+            //FillDeckForTest();
 
             bool isFirstRun = IsFirstRun();
             

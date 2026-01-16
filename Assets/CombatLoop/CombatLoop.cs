@@ -306,13 +306,17 @@ namespace CombatLoop
 
         public void StoreCardsHealth()
         {
+            List<DeckCard> cardsToSave = new List<DeckCard>();
             foreach (Slot slot in playerBoard.Slots)
             {
                 CardController card = slot.CurrentCard.cardController;
+                cardsToSave.Add(card.deckCard);
                 
                 if (!card.cardHealth.IsDead)
                     PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
             }
+
+            PlayerDeck.instance.SaveLastHandPlayed(cardsToSave);
         }
     }
 }

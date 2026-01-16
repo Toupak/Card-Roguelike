@@ -24,6 +24,7 @@ namespace Run_Loop
         public static PlayerDeck instance;
 
         public List<DeckCard> deck { get; private set; } = new List<DeckCard>();
+        public List<DeckCard> lastHandPlayed { get; private set; } = new List<DeckCard>();
 
         public bool IsEmpty => deck.Count < 1;
         
@@ -57,6 +58,11 @@ namespace Run_Loop
         public bool ContainsCard(CardData cardData)
         {
             return deck.Count((dc) => dc.cardData.name == cardData.name) > 0;
+        }
+
+        public void SaveLastHandPlayed(List<DeckCard> cardsToSave)
+        {
+            lastHandPlayed = cardsToSave.Where((dc) => !dc.cardData.isEnemy && !dc.cardData.isSpecialSummon).ToList();
         }
     }
 }
