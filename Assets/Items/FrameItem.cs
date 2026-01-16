@@ -55,8 +55,7 @@ namespace Items
 
         public void EquipItem(CardMovement target)
         {
-            if (target.cardController.frameDisplay.hasFrame)
-                target.cardController.RemoveFrame();
+            
             
             target.cardController.AddFrame(data);    
         }

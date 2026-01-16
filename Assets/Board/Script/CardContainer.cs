@@ -193,6 +193,7 @@ namespace Board.Script
             int currentIndex = currentSelectedCard.SlotIndex;
             currentCursorCardContainer.ReceiveCardFromOtherBoard(currentSelectedCard, false);
             DeleteCurrentSlot(currentIndex);
+
             currentSelectedCard = null;
         }
         
@@ -301,6 +302,9 @@ namespace Board.Script
         {
             if (currentSelectedCard.itemController != null)
                 CheckForItemEquipment();
+            
+            if (currentSelectedCard.cardController != null && currentSelectedCard.cardController.frameDisplay.hasFrame && type != ContainerType.Board)
+                currentSelectedCard.cardController.frameDisplay.RemoveFrame();
 
             currentSelectedCard = null;
         }

@@ -1,5 +1,7 @@
 using System;
 using Cards.Scripts;
+using Inventory;
+using Run_Loop;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +19,7 @@ namespace Frames
         [SerializeField] private Texture legendaryTexture;
         [SerializeField] private Texture exoticTexture;
 
+        public FrameData data { get; private set; }
         public FrameController frameController { get; private set; }
         public bool hasFrame => frameController != null;
 
@@ -29,6 +32,8 @@ namespace Frames
             if (!isStartingMaterialSaved)
                 return;
 
+            PlayerInventory.instance.UnEquipFrame(data, GetComponent<RectTransform>().anchoredPosition);
+            data = null;
             background.sprite = startingSprite;
             background.material = startingMaterial;
             frameController.Remove();
@@ -38,7 +43,10 @@ namespace Frames
         {
             if (!isStartingMaterialSaved)
                 SaveStartingMaterial();
+
+            data = frameData;
             SetMaterial(rarity, frameData.material);
+            PlayerInventory.instance.EquipFrame(data, controller.deckCard);
             return SetupFrameController(controller, frameData);
         }
 
@@ -46,6 +54,7 @@ namespace Frames
         {
             startingSprite = background.sprite;
             startingMaterial = background.material;
+            isStartingMaterialSaved = true;
         }
         
         private void SetMaterial(CardData.Rarity rarity, Material material)

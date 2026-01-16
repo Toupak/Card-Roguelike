@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Board.Script;
 using BoomLib.UI.Scripts;
 using Cards.Scripts;
+using Frames;
 using Items;
 using PrimeTween;
 using Run_Loop;
@@ -25,32 +26,40 @@ namespace Inventory
         
         private void Start()
         {
-            //if (PlayerInventory.instance.isEmpty) //TODO : uncomment this
-                //HideInventoryCompletely();
-
+            PlayerInventory.OnUnEquipFrame.AddListener(CreateItem);
+            
             inventoryRect = inventoryContainer.GetComponent<RectTransform>();
             buttonRect = inventoryButton.GetComponent<RectTransform>();
 
             LoadInventoryContent();
+            
+            //if (PlayerInventory.instance.isEmpty) //TODO : uncomment this
+                //HideInventoryCompletely();
         }
 
         private void LoadInventoryContent()
         {
             List<FrameItem> frames = PlayerInventory.instance.frames;
 
+            Vector3 position = inventoryContainer.transform.position;
             foreach (FrameItem frameItem in frames)
             {
                 if (frameItem.target == null)
                 {
-                    CardMovement newCard = Instantiate(cardMovementPrefab);
-                    inventoryContainer.ReceiveCard(newCard);
-            
-                    ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
-                    newCard.SetItemController(controller);
-
-                    controller.SetupAsFrameItem(frameItem.data);
+                    CreateItem(frameItem, position);
                 }
             }
+        }
+
+        public void CreateItem(FrameItem frameItem, Vector3 position)
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab, position, Quaternion.identity);
+            inventoryContainer.ReceiveCard(newCard);
+            
+            ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
+            newCard.SetItemController(controller);
+
+            controller.SetupAsFrameItem(frameItem.data);
         }
 
         private void HideInventoryCompletely()

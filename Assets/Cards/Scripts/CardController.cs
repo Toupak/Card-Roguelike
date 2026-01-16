@@ -181,12 +181,10 @@ namespace Cards.Scripts
         
         public void AddFrame(FrameData frameData)
         {
+            if (frameDisplay.hasFrame)
+                frameDisplay.RemoveFrame();
+            
             frameDisplay.SetupFrame(this, cardData.rarity, frameData);
-        }
-
-        public void RemoveFrame()
-        {
-            frameDisplay.RemoveFrame();
         }
 
         public void KillCard(bool removeFromDeck = true)
