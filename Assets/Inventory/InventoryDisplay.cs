@@ -23,10 +23,13 @@ namespace Inventory
 
         private RectTransform inventoryRect;
         private RectTransform buttonRect;
+
+        private bool isDisplayed;
         
         private void Start()
         {
             PlayerInventory.OnUnEquipFrame.AddListener(CreateItem);
+            CombatLoop.CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(HideInventoryDuringFight);
             
             inventoryRect = inventoryContainer.GetComponent<RectTransform>();
             buttonRect = inventoryButton.GetComponent<RectTransform>();
@@ -70,6 +73,10 @@ namespace Inventory
 
         public void DisplayInventory()
         {
+            if (isDisplayed)
+                return;
+
+            isDisplayed = true;
             Sequence.Create()
                 .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x + 200.0f, animationDuration))
                 .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x + 200.0f, animationDuration))
@@ -83,6 +90,10 @@ namespace Inventory
 
         public void HideInventory()
         {
+            if (!isDisplayed)
+                return;
+            
+            isDisplayed = false;
             Sequence.Create()
                 .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 200.0f, animationDuration))
                 .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 200.0f, animationDuration))
@@ -92,6 +103,24 @@ namespace Inventory
                     inventoryButton.OnClick.AddListener(DisplayInventory);
                     inventoryButton.SetText(">");
                 });
+        }
+
+        private void HideInventoryDuringFight()
+        {
+            if (isDisplayed)
+            {
+                Sequence.Create()
+                    .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 200.0f, animationDuration))
+                    .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 200.0f, animationDuration))
+                    .Chain(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 500.0f, animationDuration))
+                    .Chain(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 500.0f, animationDuration));
+            }
+            else
+            {
+                Sequence.Create()
+                    .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 500.0f, animationDuration))
+                    .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 500.0f, animationDuration));
+            }
         }
     }
 }
