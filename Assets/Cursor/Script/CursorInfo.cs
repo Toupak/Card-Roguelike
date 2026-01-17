@@ -24,10 +24,16 @@ namespace Cursor.Script
 
         [CanBeNull] public CardContainer LastCardContainer { get; private set; } = null;
         [CanBeNull] public CardMovement currentCardMovement { get; private set; } = null;
+        [CanBeNull] public CardMovement currentDraggingCard { get; private set; } = null;
+        [CanBeNull] public List<CardMovement> currentCardMovementHitStack { get; private set; } = new List<CardMovement>();
+
+        public bool wasSpellButtonHit { get; private set; }
 
         public CursorMode currentMode { get; private set; } = CursorMode.Free;
         
         public Vector2 currentPosition { get; private set; }
+        public bool isDragging { get; private set; }
+        
         
         private void Awake()
         {
@@ -37,9 +43,49 @@ namespace Cursor.Script
         private void Update()
         {
             currentPosition = ComputeCursorPosition();
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+                OnLeftClick();
+            
+            if (Mouse.current.leftButton.wasReleasedThisFrame)
+                OnReleaseLeftClick();
             
             if (Mouse.current.rightButton.isPressed)
-                EventSystem.current.SetSelectedGameObject(null);
+                OnRightClick();
+        }
+
+        private void OnLeftClick()
+        {
+            if (currentMode != CursorMode.Free)
+                return;
+
+            if (!wasSpellButtonHit && currentCardMovement != null && currentCardMovement.canBeDragged)
+            {
+                currentDraggingCard = currentCardMovement;
+                currentDraggingCard.OnBeginDrag();
+                isDragging = true;
+            }
+        }
+        
+        private void OnReleaseLeftClick()
+        {
+            if (currentMode != CursorMode.Free)
+                return;
+
+            if (currentDraggingCard != null && isDragging)
+            {
+                currentDraggingCard.OnEndDrag();
+                currentDraggingCard = null;
+                isDragging = false;
+            }
+        }
+        
+        private void OnRightClick()
+        {
+            if (currentMode != CursorMode.Free)
+                return;
+            
+            EventSystem.current.SetSelectedGameObject(null);
         }
 
         private void FixedUpdate()
@@ -49,10 +95,10 @@ namespace Cursor.Script
             pointerEventData.position = Input.mousePosition;
 
             EventSystem.current.RaycastAll(pointerEventData, results);
-            
-            if (results.Count < 1)
-                return;
 
+            results = results.OrderByDescending((c) => c.depth).ToList();
+            wasSpellButtonHit = ComputeSpellButtonHit(results);
+            
             List<RaycastResult> containers = results.Where((c) => c.gameObject.CompareTag("Container")).ToList();
             SetLastContainer(containers);
             
@@ -60,9 +106,31 @@ namespace Cursor.Script
             SetCurrentCard(cards);
         }
 
+        private bool ComputeSpellButtonHit(List<RaycastResult> results)
+        {
+            int cardsAboveButton = 0;
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject.CompareTag("CardMovement"))
+                    cardsAboveButton += 1;
+
+                if (result.gameObject.CompareTag("SpellButton"))
+                {
+                    return cardsAboveButton < 2;
+                }
+            }
+
+            return false;
+        }
+
         private void SetCurrentCard(List<RaycastResult> cards)
         {
             currentCardMovement = cards.Count > 0 ? cards[0].gameObject.GetComponent<CardMovement>() : null;
+            currentCardMovementHitStack = new List<CardMovement>();
+            foreach (RaycastResult result in cards)
+            {
+                currentCardMovementHitStack.Add(result.gameObject.GetComponent<CardMovement>());
+            }
         }
 
         private void SetLastContainer(List<RaycastResult> containers)

@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 2949618550067667130}
   m_Layer: 5
   m_Name: Spell_Left
-  m_TagString: Untagged
+  m_TagString: SpellButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 2509527285116039162}
   m_Layer: 5
   m_Name: Spell_Right
-  m_TagString: Untagged
+  m_TagString: SpellButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2463,7 +2463,6 @@ MonoBehaviour:
   itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 1697762264458700465}
   squeezePowerOnHover: 0.3
-  cardController: {fileID: -4129232798781121940}
 --- !u!1 &6811975206779943955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,7 +2555,7 @@ GameObject:
   - component: {fileID: 2783394798300861469}
   m_Layer: 5
   m_Name: Spell_Single
-  m_TagString: Untagged
+  m_TagString: SpellButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

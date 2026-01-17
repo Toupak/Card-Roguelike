@@ -9,6 +9,7 @@ TagManager:
   - Slot
   - CardMovement
   - Character
+  - SpellButton
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Cards.Scripts
 {
-    public class CardMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler, ISelectHandler, IDeselectHandler
+    public class CardMovement : MonoBehaviour
     {
         [SerializeField] public CardContainer tokenContainer;
         
@@ -37,7 +37,7 @@ namespace Cards.Scripts
         public bool IsEnemyCard => ContainerType == CardContainer.ContainerType.Enemy;
 
         private bool isCursorFree => CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
-        private bool canBeDragged => !IsEnemyCard && isCursorFree;
+        public bool canBeDragged => !IsEnemyCard && isCursorFree;
 
         private Selectable selectable;
 
@@ -50,6 +50,9 @@ namespace Cards.Scripts
         {
             if (isHovering && CursorInfo.instance.currentCardMovement != this)
                 isHovering = false;
+
+            if (isDragging)
+                transform.position = CursorInfo.instance.currentPosition;
         }
 
         public void SetNewSlot(Slot newSlot, bool resetPosition)
@@ -66,7 +69,7 @@ namespace Cards.Scripts
             OnSetNewSlot?.Invoke();
         }
         
-        public void OnBeginDrag(PointerEventData eventData)
+        public void OnBeginDrag()
         {
             if (!canBeDragged)
             {
@@ -91,7 +94,7 @@ namespace Cards.Scripts
             transform.position = eventData.position;
         }
 
-        public void OnEndDrag(PointerEventData eventData)
+        public void OnEndDrag()
         {
             isDragging = false;
 
