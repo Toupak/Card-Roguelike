@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: FacesTokens_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Child's Face
   tribe: 0
+  rarity: 3
   hpMax: 2
   artwork: {fileID: 3330278032841075960, guid: f5d4c6caecf0e324d8448b018776ac27, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: 7b5002716ec01db40bb374f4e9e6ce86, type: 2}

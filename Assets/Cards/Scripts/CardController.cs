@@ -39,10 +39,12 @@ namespace Cards.Scripts
         public CardStatus cardStatus { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
         public FrameDisplay frameDisplay { get; private set; }
-        public CardBackgroundDisplay cardBackgroundDisplay { get; private set; }
+        public CardRarityDisplay cardRarityDisplay { get; private set; }
         [CanBeNull] public EnemyCardController enemyCardController { get; private set; } // is Null for Player cards
+        public bool isEnemy => enemyCardController != null;
 
         public CardController tokenParentController { get; private set; } // is Null for regular cards, only  set for tokens
+        public bool isToken => tokenParentController != null;
         
         public void SetupToken(CardMovement movement, CardData data, CardController parentCardController)
         {
@@ -63,7 +65,7 @@ namespace Cards.Scripts
             followTarget = GetComponent<FollowTarget>();
             cardStatus = GetComponent<CardStatus>();
             frameDisplay = GetComponent<FrameDisplay>();
-            cardBackgroundDisplay = GetComponent<CardBackgroundDisplay>();
+            cardRarityDisplay = GetComponent<CardRarityDisplay>();
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
@@ -87,8 +89,8 @@ namespace Cards.Scripts
 
         private void SetupCardBackground(CardData.Rarity cardRarity)
         {
-            if (cardBackgroundDisplay != null)
-                cardBackgroundDisplay.SetupBackground(cardRarity);
+            if (cardRarityDisplay != null)
+                cardRarityDisplay.SetupBackground(cardRarity);
         }
         
         public void SetArtwork(Sprite newSprite)
@@ -185,7 +187,7 @@ namespace Cards.Scripts
             if (frameDisplay.hasFrame)
                 frameDisplay.RemoveFrame();
             
-            frameDisplay.SetupFrame(this, cardData.rarity, frameData);
+            frameDisplay.SetupFrame(this, frameData);
         }
 
         public void KillCard(bool removeFromDeck = true)

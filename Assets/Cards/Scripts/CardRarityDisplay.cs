@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 namespace Cards.Scripts
 {
-    public class CardBackgroundDisplay : MonoBehaviour
+    public class CardRarityDisplay : MonoBehaviour
     {
-        [SerializeField] private Image backgroundImage;
+        [SerializeField] private Image rarityOverlay;
         
         [Space]
         [SerializeField] private Sprite commonSprite;
@@ -16,7 +16,7 @@ namespace Cards.Scripts
         
         public void SetupBackground(CardData.Rarity rarity)
         {
-            backgroundImage.sprite = GetBackgroundSprite(rarity);
+            rarityOverlay.sprite = GetBackgroundSprite(rarity);
         }
 
         private Sprite GetBackgroundSprite(CardData.Rarity rarity)
