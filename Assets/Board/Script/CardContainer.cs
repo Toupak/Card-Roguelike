@@ -88,7 +88,7 @@ namespace Board.Script
                 return;
 
             bool isCurrentCardAnItem = currentSelectedCard.itemController != null;
-            for (int i = 0; i < slots.Count; i++)
+            for (int i = slots.Count - 1; i >= 0; i--)
             {
                 bool isTargetAnItem = slots[i].CurrentCard.itemController != null;
                 if (isCurrentCardAnItem != isTargetAnItem)
