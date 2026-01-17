@@ -10,6 +10,8 @@ namespace Frames
         public string frameDescription;
         public Sprite icon;
         public CardData.Rarity rarity;
+        public Color barColor;
+        public Color circleColor;
         
         [Space] 
         public Material material;

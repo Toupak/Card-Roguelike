@@ -16,8 +16,8 @@ MonoBehaviour:
   frameDescription: Applies 1 $Taunt$ at the start of Turn
   icon: {fileID: 3408304561271322054, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
   rarity: 0
+  barColor: {r: 0.22846209, g: 0.3207547, b: 0.31987804, a: 1}
+  circleColor: {r: 0.61196154, g: 0.6792453, b: 0.67311555, a: 1}
   material: {fileID: 2100000, guid: 729c92b979671004988b37a1b060cb2a, type: 2}
-  mainTexture: {fileID: 2800000, guid: d8255752e77e0c14b8dd51a12c48e78c, type: 3}
-  maskTexture: {fileID: 2800000, guid: 3659a094f53c51746965797f6d14a75d, type: 3}
   frameController: {fileID: 0}
   localizationKey: 

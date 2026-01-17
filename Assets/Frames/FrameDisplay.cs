@@ -12,6 +12,8 @@ namespace Frames
         [SerializeField] private Image background;
         [SerializeField] private FrameController defaultFrameControllerPrefab;
         [SerializeField] private Transform frameControllerParent;
+        [SerializeField] private FrameTabDisplay frameTabDisplayPrefab;
+        [SerializeField] private Transform frameTabHolder ;
         
         [Space]
         [SerializeField] private Texture commonTexture;
@@ -23,6 +25,8 @@ namespace Frames
         public FrameController frameController { get; private set; }
         public bool hasFrame => frameController != null;
 
+        private FrameTabDisplay currentTab;
+        
         private bool isStartingMaterialSaved;
         private Material startingMaterial;
         private Sprite startingSprite;
@@ -37,8 +41,11 @@ namespace Frames
             background.sprite = startingSprite;
             background.material = startingMaterial;
             frameController.Remove();
+            
+            if (currentTab != null)
+                currentTab.Remove();
         }
-        
+
         public FrameController SetupFrame(CardController controller, CardData.Rarity rarity, FrameData frameData)
         {
             if (!isStartingMaterialSaved)
@@ -47,7 +54,17 @@ namespace Frames
             data = frameData;
             SetMaterial(rarity, frameData.material);
             PlayerInventory.instance.EquipFrame(data, controller.deckCard);
+            CreateTab(data, controller);
             return SetupFrameController(controller, frameData);
+        }
+        
+        private void CreateTab(FrameData frameData, CardController cardController)
+        {
+            if (currentTab != null)
+                currentTab.Remove();
+            
+            currentTab = Instantiate(frameTabDisplayPrefab, frameTabHolder);
+            currentTab.Setup(frameData, cardController);
         }
 
         private void SaveStartingMaterial()

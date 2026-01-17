@@ -16,8 +16,8 @@ MonoBehaviour:
   frameDescription: Attack a random enemy for 2 damage at start of Turn
   icon: {fileID: -8304840455306791219, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
   rarity: 1
+  barColor: {r: 0.33962262, g: 0.07208972, b: 0.07208972, a: 1}
+  circleColor: {r: 0.745283, g: 0.2917853, b: 0.2917853, a: 1}
   material: {fileID: 2100000, guid: 89e6b794cf57cb14bb0b0ce801afe9c6, type: 2}
-  mainTexture: {fileID: 2800000, guid: d8255752e77e0c14b8dd51a12c48e78c, type: 3}
-  maskTexture: {fileID: 2800000, guid: 3659a094f53c51746965797f6d14a75d, type: 3}
   frameController: {fileID: 0}
   localizationKey: 

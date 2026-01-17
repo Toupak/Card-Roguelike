@@ -16,8 +16,8 @@ MonoBehaviour:
   frameDescription: Gain 1 $Ammo$ at start of turn
   icon: {fileID: 1471263578924250768, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
   rarity: 3
+  barColor: {r: 0, g: 0, b: 0, a: 1}
+  circleColor: {r: 0.7924528, g: 0.76368976, b: 0.497152, a: 1}
   material: {fileID: 2100000, guid: fdc2ab44f5e885349ba1e1d4513e6673, type: 2}
-  mainTexture: {fileID: 2800000, guid: d8255752e77e0c14b8dd51a12c48e78c, type: 3}
-  maskTexture: {fileID: 2800000, guid: 3659a094f53c51746965797f6d14a75d, type: 3}
   frameController: {fileID: 0}
   localizationKey: 
