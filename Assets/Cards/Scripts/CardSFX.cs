@@ -1,35 +1,37 @@
 using BoomLib.SFX_Player.Scripts;
-using Cards.Scripts;
 using UnityEngine;
 
-public class CardSFX : MonoBehaviour
+namespace Cards.Scripts
 {
-    [SerializeField] private AudioClip pickUp;
-    [SerializeField] private AudioClip drop;
-
-    private CardMovement cardMovement;
-
-    private void OnEnable()
+    public class CardSFX : MonoBehaviour
     {
-        cardMovement = GetComponent<CardMovement>();
+        [SerializeField] private AudioClip pickUp;
+        [SerializeField] private AudioClip drop;
 
-        cardMovement.OnStartDrag.AddListener(PlayPickUpSound);
-        cardMovement.OnDrop.AddListener(PlayDropSound);
-    }
+        private CardMovement cardMovement;
 
-    private void OnDisable()
-    {
-        cardMovement.OnStartDrag.RemoveListener(PlayPickUpSound);
-        cardMovement.OnDrop.RemoveListener(PlayDropSound);
-    }
+        private void OnEnable()
+        {
+            cardMovement = GetComponent<CardMovement>();
 
-    private void PlayPickUpSound()
-    {
-        SFXPlayer.instance.PlaySFX(pickUp);
-    }
+            cardMovement.OnStartDrag.AddListener(PlayPickUpSound);
+            cardMovement.OnDrop.AddListener(PlayDropSound);
+        }
 
-    private void PlayDropSound()
-    {
-        SFXPlayer.instance.PlaySFX(drop);
+        private void OnDisable()
+        {
+            cardMovement.OnStartDrag.RemoveListener(PlayPickUpSound);
+            cardMovement.OnDrop.RemoveListener(PlayDropSound);
+        }
+
+        private void PlayPickUpSound()
+        {
+            SFXPlayer.instance.PlaySFX(pickUp);
+        }
+
+        private void PlayDropSound()
+        {
+            SFXPlayer.instance.PlaySFX(drop);
+        }
     }
 }

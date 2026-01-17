@@ -1,22 +1,24 @@
-using ActionReaction;
-using EnemyAttack;
 using System.Collections;
 using System.Collections.Generic;
+using ActionReaction;
 using UnityEngine;
 
-public class SetFixedIntentions : BaseEnemyBehaviour
+namespace EnemyAttack.Behaviours
 {
-    [SerializeField] List<BaseEnemyBehaviour> intentions = new();
-
-    public override IEnumerator ExecuteBehavior()
+    public class SetFixedIntentions : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [SerializeField] List<BaseEnemyBehaviour> intentions = new();
 
-        for (int count= 0; count < 50; count++)
+        public override IEnumerator ExecuteBehavior()
         {
-            for (int i = 0; i < intentions.Count; i++)
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            for (int count= 0; count < 50; count++)
             {
-                enemyCardController.SetNewIntention(intentions[i]);
+                for (int i = 0; i < intentions.Count; i++)
+                {
+                    enemyCardController.SetNewIntention(intentions[i]);
+                }
             }
         }
     }

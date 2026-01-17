@@ -1,28 +1,30 @@
-using ActionReaction;
-using Cards.Scripts;
-using EnemyAttack;
 using System.Collections;
 using System.Collections.Generic;
+using ActionReaction;
+using Cards.Scripts;
 using UnityEngine;
 
-public class BurpCard : BaseEnemyBehaviour
+namespace EnemyAttack.Angry_Plant
 {
-    [HideInInspector] public CardMovement cardRooted;
-
-    public override IEnumerator ExecuteBehavior()
+    public class BurpCard : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [HideInInspector] public CardMovement cardRooted;
 
-        List<CardMovement> targets = ComputeTargetList(true, false);
-
-        foreach(CardMovement target in targets)
+        public override IEnumerator ExecuteBehavior()
         {
-            if (target.cardController.cardStatus.IsStatusApplied(StatusType.Captured))
-            {
-                target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.CombatLoop.instance.playerBoard);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                yield return new WaitForSeconds(0.5f);
-                yield break;
+            List<CardMovement> targets = ComputeTargetList(true, false);
+
+            foreach(CardMovement target in targets)
+            {
+                if (target.cardController.cardStatus.IsStatusApplied(StatusType.Captured))
+                {
+                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.CombatLoop.instance.playerBoard);
+
+                    yield return new WaitForSeconds(0.5f);
+                    yield break;
+                }
             }
         }
     }

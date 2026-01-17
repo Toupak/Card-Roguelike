@@ -5,7 +5,7 @@ using Spells;
 using Spells.Targeting;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.Bag
+namespace EnemyAttack.Goboking_Fight.Knight
 {
     public class GoboSlam : StunBehaviour
     {

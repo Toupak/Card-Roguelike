@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Board.Script;
 using BoomLib.UI.Scripts;
 using Cards.Scripts;
-using Frames;
 using Items;
 using PrimeTween;
 using Run_Loop;

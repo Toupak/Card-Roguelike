@@ -1,19 +1,23 @@
-using ActionReaction;
-using EnemyAttack.Behaviours;
 using System.Collections;
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using EnemyAttack.Behaviours;
 using UnityEngine;
 
-public class LifeDrain : DealDamageBehaviour
+namespace EnemyAttack.Angry_Plant
 {
-    [SerializeField] private int healAmount;
-
-    public override IEnumerator ExecuteBehavior()
+    public class LifeDrain : DealDamageBehaviour
     {
-        yield return base.ExecuteBehavior();
+        [SerializeField] private int healAmount;
 
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        public override IEnumerator ExecuteBehavior()
+        {
+            yield return base.ExecuteBehavior();
 
-        HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, enemyCardController.cardController);
-        ActionSystem.instance.Perform(healGa);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, enemyCardController.cardController);
+            ActionSystem.instance.Perform(healGa);
+        }
     }
 }

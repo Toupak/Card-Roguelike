@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 96484268912698718}
   - component: {fileID: 2445149541372546664}
   - component: {fileID: 7555581903597277478}
+  - component: {fileID: 1012840518523340270}
   m_Layer: 5
   m_Name: Frame Tab
   m_TagString: Untagged
@@ -169,6 +170,24 @@ MonoBehaviour:
   lineImage: {fileID: 3077566509795498544}
   circleImage: {fileID: 6024186948996115315}
   iconImage: {fileID: 2153892129678912134}
+--- !u!114 &1012840518523340270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670676032166273362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8006d5fb5d47da4caba2f61771b0d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardController: {fileID: 0}
+  itemController: {fileID: 0}
+  targetToSqueezeOnHover: {fileID: 8687816992778024582}
+  squeezePowerOnHover: 0.3
+  tooltipPivot: {fileID: 0}
+  frameTabDisplay: {fileID: 7555581903597277478}
 --- !u!1 &6155583530507468270
 GameObject:
   m_ObjectHideFlags: 0

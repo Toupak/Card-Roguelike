@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cards.Scripts;
-using Data;
 using UnityEditor;
 using UnityEngine;
 

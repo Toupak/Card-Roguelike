@@ -2,13 +2,12 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
 using Spells;
 using Spells.Targeting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace EnemyAttack.Goboking_Fight.Goboking
+namespace Passives.Common_Passives.Spawn_Enemy
 {
     public class CallForBackupPassive : PassiveController
     {

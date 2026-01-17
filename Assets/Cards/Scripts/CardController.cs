@@ -1,5 +1,5 @@
 using EnemyAttack;
-using Frames;
+using Items.Frames;
 using JetBrains.Annotations;
 using Passives;
 using Run_Loop;

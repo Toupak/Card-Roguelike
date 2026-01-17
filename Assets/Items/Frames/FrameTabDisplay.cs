@@ -1,10 +1,9 @@
 using Cards.Scripts;
 using PrimeTween;
-using Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Frames
+namespace Items.Frames
 {
     public class FrameTabDisplay : MonoBehaviour
     {
@@ -14,9 +13,12 @@ namespace Frames
         [SerializeField] private Image iconImage;
 
         public CardController cardController { get; private set; }
+        public FrameData data { get; private set; }
         
-        public void Setup(FrameData data, CardController controller)
+        
+        public void Setup(FrameData frameData, CardController controller)
         {
+            data = frameData;
             cardController = controller;
             lineImage.color = data.barColor;
             circleImage.color = data.circleColor;

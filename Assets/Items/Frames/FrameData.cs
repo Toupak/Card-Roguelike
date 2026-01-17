@@ -1,7 +1,7 @@
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Frames
+namespace Items.Frames
 {
     [CreateAssetMenu(fileName = "FrameData", menuName = "Scriptable Objects/FrameData")]
     public class FrameData : ScriptableObject

@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BoomLib.Tools;
 using Cards.Scripts;
 using Character_Selection;
 using CombatLoop.Battles;
 using CombatLoop.Battles.Data;
-using Data;
-using Frames;
+using Items.Frames;
 using MapMaker;
 using MapMaker.Floors;
 using MapMaker.Rooms;

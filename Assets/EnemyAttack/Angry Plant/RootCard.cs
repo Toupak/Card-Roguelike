@@ -1,28 +1,30 @@
+using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using CombatLoop;
-using EnemyAttack;
-using System.Collections;
 using UnityEngine;
 
-public class RootCard : BaseEnemyBehaviour
+namespace EnemyAttack.Angry_Plant
 {
-    [SerializeField] private int stacks;
-
-    public override IEnumerator ExecuteBehavior()
+    public class RootCard : BaseEnemyBehaviour
     {
-        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        [SerializeField] private int stacks;
 
-        CardController target = ComputeTarget();
+        public override IEnumerator ExecuteBehavior()
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-        target.cardMovement.CurrentSlot.board.SendCardToOtherBoard(target.cardMovement.SlotIndex, EnemyHandController.instance.container);
+            CardController target = ComputeTarget();
 
-        yield return new WaitForSeconds(0.5f);
+            target.cardMovement.CurrentSlot.board.SendCardToOtherBoard(target.cardMovement.SlotIndex, EnemyHandController.instance.container);
 
-        ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Captured, stacks, enemyCardController.cardController, target);
-        ActionSystem.instance.Perform(applyStatusGa);
+            yield return new WaitForSeconds(0.5f);
 
-        //Deal damage to card every turn
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Captured, stacks, enemyCardController.cardController, target);
+            ActionSystem.instance.Perform(applyStatusGa);
+
+            //Deal damage to card every turn
+        }
     }
 }

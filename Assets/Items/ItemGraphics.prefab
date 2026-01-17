@@ -93,7 +93,7 @@ MonoBehaviour:
   targetToSqueezeOnHover: {fileID: 5626255079321082006}
   squeezePowerOnHover: 0.1
   tooltipPivot: {fileID: 4177954642535158387}
-  frameItem: {fileID: -3217834950591004542}
+  frameCardItem: {fileID: -3217834950591004542}
 --- !u!1 &821254635309827148
 GameObject:
   m_ObjectHideFlags: 0

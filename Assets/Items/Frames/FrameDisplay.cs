@@ -1,11 +1,10 @@
 using System;
 using Cards.Scripts;
-using Inventory;
 using Run_Loop;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Frames
+namespace Items.Frames
 {
     public class FrameDisplay : MonoBehaviour
     {

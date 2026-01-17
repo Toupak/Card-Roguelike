@@ -5,8 +5,8 @@ using BoomLib.Tools;
 using Cards.Scripts;
 using Cards.Tween_Animations;
 using CardSlot.Script;
-using Frames;
 using Items;
+using Items.Frames;
 using UnityEngine;
 
 namespace Run_Loop.Rewards

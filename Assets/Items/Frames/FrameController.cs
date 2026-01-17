@@ -1,7 +1,7 @@
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Frames
+namespace Items.Frames
 {
     public class FrameController : MonoBehaviour
     {

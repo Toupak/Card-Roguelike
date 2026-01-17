@@ -1,35 +1,37 @@
+using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using EnemyAttack;
-using System.Collections;
 using UnityEngine;
 
-public class AngerBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Monk_Fight.Monk
 {
-    [SerializeField] private int damageBuff;
-
-    private void OnEnable()
+    public class AngerBehaviour : BaseEnemyBehaviour
     {
-        ActionSystem.SubscribeReaction<DeathGA>(AngerReaction, ReactionTiming.POST);
-    }
+        [SerializeField] private int damageBuff;
 
-    private void OnDisable()
-    {
-        ActionSystem.UnsubscribeReaction<DeathGA>(AngerReaction, ReactionTiming.POST);
-    }
-
-    private void AngerReaction(DeathGA gA)
-    {
-        if (gA.isEnemy)
+        private void OnEnable()
         {
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.PermanentBonusDamage, damageBuff, enemyCardController.cardController, enemyCardController.cardController);
-            ActionSystem.instance.AddReaction(applyStatusGa);
+            ActionSystem.SubscribeReaction<DeathGA>(AngerReaction, ReactionTiming.POST);
         }
-    }
 
-    public override IEnumerator ExecuteBehavior()
-    {
-        yield break;
+        private void OnDisable()
+        {
+            ActionSystem.UnsubscribeReaction<DeathGA>(AngerReaction, ReactionTiming.POST);
+        }
+
+        private void AngerReaction(DeathGA gA)
+        {
+            if (gA.isEnemy)
+            {
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.PermanentBonusDamage, damageBuff, enemyCardController.cardController, enemyCardController.cardController);
+                ActionSystem.instance.AddReaction(applyStatusGa);
+            }
+        }
+
+        public override IEnumerator ExecuteBehavior()
+        {
+            yield break;
+        }
     }
 }

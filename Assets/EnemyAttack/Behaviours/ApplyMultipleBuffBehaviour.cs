@@ -1,107 +1,109 @@
+using System.Collections;
+using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using EnemyAttack;
 using Status;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyMultipleBuffBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Behaviours
 {
-    [SerializeField] private List<StatusType> statusTypes;
-    [SerializeField] private int stacks;
-    [SerializeField] private int hitCount;
-    [SerializeField] private bool hitSameTarget;
-    [SerializeField] private bool isTargetEnemy;
-    [SerializeField] private bool cantTargetHimself;
-    [SerializeField] private bool targetSpecificCard;
-    [SerializeField] private bool targetAllPlayerCards;
-    [SerializeField] private CardData specificCard;
-
-    public override IEnumerator ExecuteBehavior()
+    public class ApplyMultipleBuffBehaviour : BaseEnemyBehaviour
     {
-        Debug.Log("Apply Buff Behaviour");
+        [SerializeField] private List<StatusType> statusTypes;
+        [SerializeField] private int stacks;
+        [SerializeField] private int hitCount;
+        [SerializeField] private bool hitSameTarget;
+        [SerializeField] private bool isTargetEnemy;
+        [SerializeField] private bool cantTargetHimself;
+        [SerializeField] private bool targetSpecificCard;
+        [SerializeField] private bool targetAllPlayerCards;
+        [SerializeField] private CardData specificCard;
 
-        if (hitSameTarget)
+        public override IEnumerator ExecuteBehavior()
         {
-            CardController target = ComputeTarget();
-            for (int i = 0; i < hitCount; i++)
-            {
-                for (int j = 0; j < statusTypes.Count; j++)
-                {
-                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+            Debug.Log("Apply Buff Behaviour");
 
-                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusTypes[j], stacks, enemyCardController.cardController, target);
-                    ActionSystem.instance.Perform(applyStatusGa);
-                }
-            }
-        }
-        else if (targetAllPlayerCards)
-        {
-            List<CardMovement> targets = ComputeTargetList(isTargetEnemy);
-
-            foreach (CardMovement target in targets)
-            {
-                for (int j = 0; j < statusTypes.Count; j++)
-                {
-                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-
-                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusTypes[j], stacks, enemyCardController.cardController, target.cardController);
-                    ActionSystem.instance.Perform(applyStatusGa);
-                }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < hitCount; i++)
+            if (hitSameTarget)
             {
                 CardController target = ComputeTarget();
-
-                for (int j = 0; j < statusTypes.Count; j++)
+                for (int i = 0; i < hitCount; i++)
                 {
-                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                    for (int j = 0; j < statusTypes.Count; j++)
+                    {
+                        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusTypes[j], stacks, enemyCardController.cardController, target);
-                    ActionSystem.instance.Perform(applyStatusGa);
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusTypes[j], stacks, enemyCardController.cardController, target);
+                        ActionSystem.instance.Perform(applyStatusGa);
+                    }
+                }
+            }
+            else if (targetAllPlayerCards)
+            {
+                List<CardMovement> targets = ComputeTargetList(isTargetEnemy);
+
+                foreach (CardMovement target in targets)
+                {
+                    for (int j = 0; j < statusTypes.Count; j++)
+                    {
+                        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusTypes[j], stacks, enemyCardController.cardController, target.cardController);
+                        ActionSystem.instance.Perform(applyStatusGa);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < hitCount; i++)
+                {
+                    CardController target = ComputeTarget();
+
+                    for (int j = 0; j < statusTypes.Count; j++)
+                    {
+                        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusTypes[j], stacks, enemyCardController.cardController, target);
+                        ActionSystem.instance.Perform(applyStatusGa);
+                    }
                 }
             }
         }
-    }
 
-    protected override CardController ComputeTarget()
-    {
-        List<CardMovement> targets = ComputeTargetList(isTargetEnemy, !cantTargetHimself);
-
-        if (targets.Count < 1)
-            return null;
-
-        if (targetSpecificCard)
+        protected override CardController ComputeTarget()
         {
-            return ComputeSpecificTarget(targets, specificCard);
+            List<CardMovement> targets = ComputeTargetList(isTargetEnemy, !cantTargetHimself);
+
+            if (targets.Count < 1)
+                return null;
+
+            if (targetSpecificCard)
+            {
+                return ComputeSpecificTarget(targets, specificCard);
+            }
+
+            if (!isTargetEnemy)
+            {
+                foreach (CardMovement cardMovement in targets)
+                {
+                    if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
+                        return cardMovement.cardController;
+                }
+            }
+
+            int randomTarget = Random.Range(0, targets.Count);
+            return targets[randomTarget].cardController;
         }
 
-        if (!isTargetEnemy)
+        protected CardController ComputeSpecificTarget(List<CardMovement> targets, CardData specificTarget)
         {
             foreach (CardMovement cardMovement in targets)
             {
-                if (StatusSystem.instance.IsCardAfflictedByStatus(cardMovement.cardController, StatusType.Taunt))
+                if (cardMovement.cardController.cardData.cardName == specificTarget.cardName)
                     return cardMovement.cardController;
             }
+
+            return null;
         }
-
-        int randomTarget = Random.Range(0, targets.Count);
-        return targets[randomTarget].cardController;
-    }
-
-    protected CardController ComputeSpecificTarget(List<CardMovement> targets, CardData specificTarget)
-    {
-        foreach (CardMovement cardMovement in targets)
-        {
-            if (cardMovement.cardController.cardData.cardName == specificTarget.cardName)
-                return cardMovement.cardController;
-        }
-
-        return null;
     }
 }

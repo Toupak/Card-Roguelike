@@ -1,141 +1,144 @@
-using ActionReaction;
-using Cards.Scripts;
-using CombatLoop;
-using EnemyAttack;
-using Spells;
-using Spells.Targeting;
 using System.Collections;
 using System.Collections.Generic;
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using CombatLoop;
+using Spells;
+using Spells.Targeting;
 using UnityEngine;
 
-public class HealBehaviour : BaseEnemyBehaviour
+namespace EnemyAttack.Behaviours
 {
-    [SerializeField] private int healAmount;
-    [Space]
-    [SerializeField] private float prioritizeHealThreshold;
-    [SerializeField] private bool isWeightStatic;
-    [Space]
-    [SerializeField] private bool targetAnyone;
-    [SerializeField] private bool targetSelf;
-    [SerializeField] private bool aoeHeal;
-    [SerializeField] private bool targetSpecificCard;
-    [Tooltip("Used to target the correct enemy during the fight")][SerializeField] private CardData specificCardData;
-
-    public override IEnumerator ExecuteBehavior()
+    public class HealBehaviour : BaseEnemyBehaviour
     {
-        if (aoeHeal == true)
-        {
-            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+        [SerializeField] private int healAmount;
+        [Space]
+        [SerializeField] private float prioritizeHealThreshold;
+        [SerializeField] private bool isWeightStatic;
+        [Space]
+        [SerializeField] private bool targetAnyone;
+        [SerializeField] private bool targetSelf;
+        [SerializeField] private bool aoeHeal;
+        [SerializeField] private bool targetSpecificCard;
+        [Tooltip("Used to target the correct enemy during the fight")][SerializeField] private CardData specificCardData;
 
-            foreach (CardMovement cardMovement in targets)
+        public override IEnumerator ExecuteBehavior()
+        {
+            if (aoeHeal == true)
+            {
+                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+                foreach (CardMovement cardMovement in targets)
+                {
+                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+                    HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, cardMovement.cardController);
+                    ActionSystem.instance.Perform(healGa);
+                }
+            }
+            else
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, cardMovement.cardController);
+                HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, ComputeTarget());
                 ActionSystem.instance.Perform(healGa);
             }
         }
-        else
+        protected override CardController ComputeTarget()
         {
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-
-            HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, ComputeTarget());
-            ActionSystem.instance.Perform(healGa);
-        }
-    }
-    protected override CardController ComputeTarget()
-    {
-        if (targetSpecificCard == true && specificCardData != null)
-        {
-            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-
-            foreach (CardMovement cardMovement in targets)
+            if (targetSpecificCard == true && specificCardData != null)
             {
-                if (cardMovement.cardController.cardData.cardName == specificCardData.cardName)
-                    return cardMovement.cardController;
+                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+                foreach (CardMovement cardMovement in targets)
+                {
+                    if (cardMovement.cardController.cardData.cardName == specificCardData.cardName)
+                        return cardMovement.cardController;
+                }
             }
-        }
 
-        if (targetAnyone)
-        {
-            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-
-            foreach (CardMovement cardMovement in targets)
+            if (targetAnyone)
             {
-                if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
-                    return cardMovement.cardController;
-                else if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax)
-                    return cardMovement.cardController;
+                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+                foreach (CardMovement cardMovement in targets)
+                {
+                    if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
+                        return cardMovement.cardController;
+                    else if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax)
+                        return cardMovement.cardController;
+                }
             }
+
+            if (targetSelf == true)
+            {
+                return enemyCardController.cardController;
+            }
+
+            return null;
         }
 
-        if (targetSelf == true)
+        public override int ComputeWeight()
         {
-            return enemyCardController.cardController;
-        }
+            if (isWeightStatic)
+                return weight;
 
-        return null;
-    }
+            if (targetSpecificCard == true)
+            {
+                CardController boss = GetSpecificCard(specificCardData);
 
-    public override int ComputeWeight()
-    {
-        if (isWeightStatic)
+                if (boss != null && boss.cardHealth.currentHealth == specificCardData.hpMax)
+                    return 0;
+
+                if (boss != null && boss.cardHealth.currentHealth < specificCardData.hpMax * prioritizeHealThreshold)
+                    return weight * 3;
+            }
+
+            if (targetAnyone)
+            {
+                List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+                int lowLifeTargets = 0;
+                int damagedTargets = 0;
+
+                foreach (CardMovement cardMovement in targets)
+                {
+                    if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
+                        lowLifeTargets++;
+                    else if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax)
+                        damagedTargets++;
+                }
+
+                if (lowLifeTargets > 0)
+                    return weight * 3;
+                else if (damagedTargets > 0)
+                    return weight;
+                else
+                    return 0;
+            }
+
+            if (targetSelf)
+            {
+                if (enemyCardController.cardController.cardHealth.currentHealth < enemyCardController.cardController.cardData.hpMax * prioritizeHealThreshold)
+                    return weight * 3;
+                else if (enemyCardController.cardController.cardHealth.currentHealth < enemyCardController.cardController.cardData.hpMax)
+                    return weight;
+                else
+                    return 0;
+            }
+
             return weight;
-
-        if (targetSpecificCard == true)
-        {
-            CardController boss = GetSpecificCard(specificCardData);
-
-            if (boss != null && boss.cardHealth.currentHealth == specificCardData.hpMax)
-                return 0;
-
-            if (boss != null && boss.cardHealth.currentHealth < specificCardData.hpMax * prioritizeHealThreshold)
-                return weight * 3;
         }
 
-        if (targetAnyone)
+        public override string GetDamageText()
         {
-            List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-
-            int lowLifeTargets = 0;
-            int damagedTargets = 0;
-
-            foreach (CardMovement cardMovement in targets)
-            {
-                if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax * prioritizeHealThreshold)
-                    lowLifeTargets++;
-                else if (cardMovement.cardController.cardHealth.currentHealth < cardMovement.cardController.cardData.hpMax)
-                    damagedTargets++;
-            }
-
-            if (lowLifeTargets > 0)
-                return weight * 3;
-            else if (damagedTargets > 0)
-                return weight;
-            else
-                return 0;
+            return $"{healAmount}";
         }
 
-        if (targetSelf)
+        public override DamageSystem.DamageType GetDamageType()
         {
-            if (enemyCardController.cardController.cardHealth.currentHealth < enemyCardController.cardController.cardData.hpMax * prioritizeHealThreshold)
-                return weight * 3;
-            else if (enemyCardController.cardController.cardHealth.currentHealth < enemyCardController.cardController.cardData.hpMax)
-                return weight;
-            else
-                return 0;
+            return DamageSystem.DamageType.Heal;
         }
-
-        return weight;
-    }
-
-    public override string GetDamageText()
-    {
-        return $"{healAmount}";
-    }
-
-    public override DamageSystem.DamageType GetDamageType()
-    {
-        return DamageSystem.DamageType.Heal;
     }
 }

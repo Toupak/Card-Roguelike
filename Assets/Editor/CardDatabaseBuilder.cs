@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Cards.Scripts;
-using Data;
 using UnityEditor;
 using UnityEngine;
 

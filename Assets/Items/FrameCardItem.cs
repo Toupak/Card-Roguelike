@@ -1,6 +1,6 @@
 using System;
 using Cards.Scripts;
-using Frames;
+using Items.Frames;
 using UnityEngine;
 using UnityEngine.UI;
 

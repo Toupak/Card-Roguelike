@@ -1,5 +1,5 @@
 using Cards.Scripts;
-using Frames;
+using Items.Frames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

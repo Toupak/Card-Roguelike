@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
-public class DialogData : ScriptableObject
+namespace Overworld.Character.Dialog
 {
-    [SerializeField, TextArea(1, 3)] List<string> dialogTexts;
-    public List<string> DialogTexts => dialogTexts;
+    [CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
+    public class DialogData : ScriptableObject
+    {
+        [SerializeField, TextArea(1, 3)] List<string> dialogTexts;
+        public List<string> DialogTexts => dialogTexts;
+    }
 }

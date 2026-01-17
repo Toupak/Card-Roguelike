@@ -3,38 +3,41 @@ using ActionReaction.Game_Actions;
 using Passives;
 using UnityEngine;
 
-public class CullTheWeakPassive : PassiveController
+namespace EnemyAttack.Batsu.BatPassive
 {
-    [SerializeField] private int damage;
-
-    private bool isThisReaction;
-
-    private void OnEnable()
+    public class CullTheWeakPassive : PassiveController
     {
-        ActionSystem.SubscribeReaction<DealDamageGA>(ExecutePassiveBehaviour, ReactionTiming.POST);
-    }
+        [SerializeField] private int damage;
 
-    private void OnDisable()
-    {
-        ActionSystem.UnsubscribeReaction<DealDamageGA>(ExecutePassiveBehaviour, ReactionTiming.POST);
-    }
+        private bool isThisReaction;
 
-    private void ExecutePassiveBehaviour(DealDamageGA gA)
-    {
-        if (gA.amount <= 0 && gA.target == cardController)
+        private void OnEnable()
         {
-            DealDamageGA damageGa = new DealDamageGA(cardController.ComputeCurrentDamage(damage), cardController, gA.attacker);
-            ActionSystem.instance.AddReaction(damageGa);
-
-            isThisReaction = true;
+            ActionSystem.SubscribeReaction<DealDamageGA>(ExecutePassiveBehaviour, ReactionTiming.POST);
         }
 
-        if (gA.attacker == cardController && isThisReaction)
+        private void OnDisable()
         {
-            HealGa healGa = new HealGa(gA.amount, cardController, cardController);
-            ActionSystem.instance.AddReaction(healGa);
+            ActionSystem.UnsubscribeReaction<DealDamageGA>(ExecutePassiveBehaviour, ReactionTiming.POST);
+        }
 
-            isThisReaction = false;
+        private void ExecutePassiveBehaviour(DealDamageGA gA)
+        {
+            if (gA.amount <= 0 && gA.target == cardController)
+            {
+                DealDamageGA damageGa = new DealDamageGA(cardController.ComputeCurrentDamage(damage), cardController, gA.attacker);
+                ActionSystem.instance.AddReaction(damageGa);
+
+                isThisReaction = true;
+            }
+
+            if (gA.attacker == cardController && isThisReaction)
+            {
+                HealGa healGa = new HealGa(gA.amount, cardController, cardController);
+                ActionSystem.instance.AddReaction(healGa);
+
+                isThisReaction = false;
+            }
         }
     }
 }

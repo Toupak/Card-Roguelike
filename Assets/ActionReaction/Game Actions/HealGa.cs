@@ -1,21 +1,23 @@
-using ActionReaction;
 using Cards.Scripts;
 
-public class HealGa : GameAction
+namespace ActionReaction.Game_Actions
 {
-    public int amount;
-    public readonly CardController attacker;
-    public readonly CardController target;
-
-    public HealGa(int healAmount, CardController attackerController, CardController targetController)
+    public class HealGa : GameAction
     {
-        amount = healAmount;
-        attacker = attackerController;
-        target = targetController;
-    }
+        public int amount;
+        public readonly CardController attacker;
+        public readonly CardController target;
 
-    public void NegateHeal()
-    {
-        amount = 0;
+        public HealGa(int healAmount, CardController attackerController, CardController targetController)
+        {
+            amount = healAmount;
+            attacker = attackerController;
+            target = targetController;
+        }
+
+        public void NegateHeal()
+        {
+            amount = 0;
+        }
     }
 }

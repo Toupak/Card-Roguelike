@@ -1,6 +1,5 @@
 using BoomLib.Tools;
 using Cards.Scripts;
-using Data;
 using EnemyAttack;
 using Passives;
 using Spells;
