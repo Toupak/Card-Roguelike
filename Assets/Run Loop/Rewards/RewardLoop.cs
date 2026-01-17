@@ -297,10 +297,10 @@ namespace Run_Loop.Rewards
                 }
                 else
                 {
-                    Items.FrameItem frameItem = mainContainer.Slots[0].CurrentCard.itemController.GetComponent<Items.FrameItem>();
+                    Items.FrameCardItem frameCardItem = mainContainer.Slots[0].CurrentCard.itemController.GetComponent<Items.FrameCardItem>();
 
-                    if (frameItem != null)
-                        PlayerInventory.instance.LootFrame(frameItem.data);
+                    if (frameCardItem != null)
+                        PlayerInventory.instance.LootFrame(frameCardItem.data);
 
                     mainContainer.Slots[0].CurrentCard.KillCard();
                 }

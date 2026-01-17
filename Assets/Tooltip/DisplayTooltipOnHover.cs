@@ -8,8 +8,8 @@ namespace Tooltip
 {
     public abstract class DisplayTooltipOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private CardController cardController;
-        [SerializeField] private ItemController itemController;
+        [SerializeField] protected CardController cardController;
+        [SerializeField] protected ItemController itemController;
         
         [SerializeField] private RectTransform targetToSqueezeOnHover;
         [SerializeField] private float squeezePowerOnHover;

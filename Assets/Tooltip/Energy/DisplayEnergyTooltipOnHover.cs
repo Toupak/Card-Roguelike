@@ -5,7 +5,6 @@ namespace Tooltip.Energy
 {
     public class DisplayEnergyTooltipOnHover : DisplayTooltipOnHover
     {
-        
         protected override void DisplayTooltip()
         {
             int maxEnergy = EnergyController.instance.currentMaxEnergy;

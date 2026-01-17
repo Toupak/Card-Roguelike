@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Items
 {
-    public class FrameItem : MonoBehaviour
+    public class FrameCardItem : MonoBehaviour
     {
         [SerializeField] private Image background;
         [SerializeField] private Texture commonMainTexture;

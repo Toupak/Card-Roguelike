@@ -36,7 +36,7 @@ namespace Items
             gameObject.name = frameData.frameName;
             SetItemName(frameData.frameName);
             SetIcon(frameData.icon);
-            GetComponent<FrameItem>().Setup(frameData);
+            GetComponent<FrameCardItem>().Setup(frameData);
         }
 
         private void SetItemName(string newName)
@@ -58,12 +58,12 @@ namespace Items
 
         public bool CanEquipItem(CardMovement target)
         {
-            return GetComponent<FrameItem>().CanEquipItem(target);
+            return GetComponent<FrameCardItem>().CanEquipItem(target);
         }
 
         public void EquipItem(CardMovement target)
         {
-            GetComponent<FrameItem>().EquipItem(target);
+            GetComponent<FrameCardItem>().EquipItem(target);
             KillItem(false);
         }
     }
