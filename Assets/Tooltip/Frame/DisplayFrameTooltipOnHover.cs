@@ -1,13 +1,12 @@
 using Items;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Tooltip.Frame
 {
     public class DisplayFrameTooltipOnHover : DisplayTooltipOnHover
     {
         [SerializeField] private Transform tooltipPivot;
-        [FormerlySerializedAs("frameItem")] [SerializeField] private FrameCardItem frameCardItem;
+        [SerializeField] private FrameCardItem frameCardItem;
         
         protected override void DisplayTooltip()
         {
