@@ -5,7 +5,6 @@ namespace Tooltip.Frame
 {
     public class DisplayFrameTooltipOnHover : DisplayTooltipOnHover
     {
-        [SerializeField] private Transform tooltipPivot;
         [SerializeField] private FrameCardItem frameCardItem;
         
         protected override void DisplayTooltip()
@@ -13,7 +12,7 @@ namespace Tooltip.Frame
             string title = frameCardItem.data.frameName;
             string text = frameCardItem.data.frameDescription;
             
-            tooltipDisplay = TooltipFactory.instance.CreateTooltip(title, text, tooltipPivot.position);
+            tooltipDisplay = TooltipFactory.instance.CreateTooltip(title, text, itemController.tooltipPivot.position);
         }
     }
 }

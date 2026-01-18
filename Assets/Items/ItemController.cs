@@ -11,7 +11,10 @@ namespace Items
     {
         [SerializeField] private TextMeshProUGUI itemName;
         [SerializeField] private Image icon;
-        [SerializeField] public RectTransform tooltipPivot;
+        [SerializeField] public RectTransform regularTooltipPivot;
+        [SerializeField] public RectTransform inspectionTooltipPivot;
+        
+        public RectTransform tooltipPivot => cardMovement.isInspected ? inspectionTooltipPivot : regularTooltipPivot;
 
         [HideInInspector] public UnityEvent OnKillItem = new UnityEvent();
         

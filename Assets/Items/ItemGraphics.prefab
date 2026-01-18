@@ -92,7 +92,6 @@ MonoBehaviour:
   itemController: {fileID: 3050017496643724262}
   targetToSqueezeOnHover: {fileID: 5626255079321082006}
   squeezePowerOnHover: 0.1
-  tooltipPivot: {fileID: 4177954642535158387}
   frameCardItem: {fileID: -3217834950591004542}
 --- !u!1 &821254635309827148
 GameObject:
@@ -304,6 +303,41 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3165154708870130580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6905906334779249040}
+  m_Layer: 5
+  m_Name: Inspection Tooltip Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6905906334779249040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165154708870130580}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6962972880766045709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 335, y: 75}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3317175333349962056
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +372,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4177954642535158387}
+  - {fileID: 6905906334779249040}
   - {fileID: 3125272246496311840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -412,7 +447,6 @@ MonoBehaviour:
   tiltSpeed: 10
   curve: {fileID: 11400000, guid: 115254c45569cca488b5b6c803b05001, type: 2}
   tiltParent: {fileID: 3125272246496311840}
-  scaledTransform: {fileID: 3125272246496311840}
 --- !u!114 &3050017496643724262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: {fileID: 2399145194846334007}
   icon: {fileID: 2053106647318339214}
-  tooltipPivot: {fileID: 4177954642535158387}
+  regularTooltipPivot: {fileID: 4177954642535158387}
+  inspectionTooltipPivot: {fileID: 6905906334779249040}
   OnKillItem:
     m_PersistentCalls:
       m_Calls: []
