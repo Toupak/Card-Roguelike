@@ -327,7 +327,6 @@ RectTransform:
   - {fileID: 1421150413442761472}
   - {fileID: 8999083201106883157}
   - {fileID: 1065428522733026844}
-  - {fileID: 4177954642535158387}
   m_Father: {fileID: 6962972880766045709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -438,7 +437,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3125272246496311840}
+  m_Father: {fileID: 6962972880766045709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -797,6 +796,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4177954642535158387}
+  - {fileID: 3694240076155934811}
   - {fileID: 3125272246496311840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -867,7 +868,8 @@ MonoBehaviour:
   enemyIntentionBackground: {fileID: 3926171671042198451}
   enemyIntentionText: {fileID: 1706371153923554771}
   waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
-  tooltipPivot: {fileID: 4177954642535158387}
+  regularTooltipPivot: {fileID: 4177954642535158387}
+  inspectionTooltipPivot: {fileID: 3694240076155934811}
   OnKillCard:
     m_PersistentCalls:
       m_Calls: []
@@ -887,9 +889,6 @@ MonoBehaviour:
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60
-  selectedHeightOffsetHand: 120
-  selectedHeightOffsetPlayer: 85
-  selectedHeightOffsetEnemy: -50
   scaleMultiplierOnSelect: 2
   scaleMultiplierOnDrag: 1.15
   scaleSpeed: 0.15
@@ -980,10 +979,6 @@ MonoBehaviour:
   frameControllerParent: {fileID: 1065428522733026844}
   frameTabDisplayPrefab: {fileID: 7555581903597277478, guid: 2f8eb88be7a4826488e80bf6a169ee71, type: 3}
   frameTabHolder: {fileID: 833710064920105622}
-  commonTexture: {fileID: 2800000, guid: 67dba9dc1892f4d40b55fc5ffcaf792f, type: 3}
-  rareTexture: {fileID: 2800000, guid: 9cabf0dc70087f348b8399a7f3d95476, type: 3}
-  legendaryTexture: {fileID: 2800000, guid: cb1a5f9d11d501243b0a0aee51621f99, type: 3}
-  exoticTexture: {fileID: 2800000, guid: 882ea848ca926514c8f1be812a37d796, type: 3}
 --- !u!114 &7934747295322210270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2308,8 +2303,42 @@ MonoBehaviour:
   itemController: {fileID: 0}
   targetToSqueezeOnHover: {fileID: 4137363588590150322}
   squeezePowerOnHover: 0.5
-  tooltipPivot: {fileID: 4177954642535158387}
   cardHealth: {fileID: 6472005057933680085}
+--- !u!1 &6342319773796924367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3694240076155934811}
+  m_Layer: 5
+  m_Name: Inspection Tooltip Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3694240076155934811
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342319773796924367}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6962972880766045709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 335, y: 75}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6560936980927583882
 GameObject:
   m_ObjectHideFlags: 0

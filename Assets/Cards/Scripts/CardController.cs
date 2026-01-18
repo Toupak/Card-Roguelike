@@ -23,7 +23,10 @@ namespace Cards.Scripts
         [SerializeField] public Image enemyIntentionBackground;
         [SerializeField] public TextMeshProUGUI enemyIntentionText;
         [SerializeField] public BaseEnemyBehaviour waitingBehaviourPrefab;
-        [SerializeField] public RectTransform tooltipPivot;
+        [SerializeField] public RectTransform regularTooltipPivot;
+        [SerializeField] public RectTransform inspectionTooltipPivot;
+        
+        public RectTransform tooltipPivot => cardMovement.isInspected ? inspectionTooltipPivot : regularTooltipPivot;
 
         [HideInInspector] public UnityEvent OnKillCard = new UnityEvent();
         

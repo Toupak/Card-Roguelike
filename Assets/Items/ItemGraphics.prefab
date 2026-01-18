@@ -126,7 +126,6 @@ RectTransform:
   - {fileID: 5626255079321082006}
   - {fileID: 2740502679434361451}
   - {fileID: 1697762264458700465}
-  - {fileID: 4177954642535158387}
   m_Father: {fileID: 6962972880766045709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -162,7 +161,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3125272246496311840}
+  m_Father: {fileID: 6962972880766045709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -338,6 +337,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4177954642535158387}
   - {fileID: 3125272246496311840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -402,9 +402,6 @@ MonoBehaviour:
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60
-  selectedHeightOffsetHand: 120
-  selectedHeightOffsetPlayer: 85
-  selectedHeightOffsetEnemy: -50
   scaleMultiplierOnSelect: 2
   scaleMultiplierOnDrag: 1.15
   scaleSpeed: 0.15
@@ -415,6 +412,7 @@ MonoBehaviour:
   tiltSpeed: 10
   curve: {fileID: 11400000, guid: 115254c45569cca488b5b6c803b05001, type: 2}
   tiltParent: {fileID: 3125272246496311840}
+  scaledTransform: {fileID: 3125272246496311840}
 --- !u!114 &3050017496643724262
 MonoBehaviour:
   m_ObjectHideFlags: 0

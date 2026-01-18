@@ -16,11 +16,6 @@ namespace Cards.Scripts
         [SerializeField] private float maxAngle;
 
         [Space] 
-        [SerializeField] private float selectedHeightOffsetHand;
-        [SerializeField] private float selectedHeightOffsetPlayer;
-        [SerializeField] private float selectedHeightOffsetEnemy;
-        
-        [Space] 
         [SerializeField] private float scaleMultiplierOnSelect;
         [SerializeField] private float scaleMultiplierOnDrag;
         [SerializeField] private float scaleSpeed;
@@ -51,7 +46,6 @@ namespace Cards.Scripts
         private float curveYOffset;
         private float curveRotationOffset;
 
-        private float targetScale = 1.0f;
         private float scaleVelocity;
 
         private bool isLocked;
@@ -90,17 +84,17 @@ namespace Cards.Scripts
 
         private void UpdateScale()
         {
+             float targetScale = 1.0f;
+
             if (target.isDragging)
                 targetScale = scaleMultiplierOnDrag;
-            else if (target.isSelected)
+            else if (target.isInspected)
                 targetScale = scaleMultiplierOnSelect;
-            else
-                targetScale = 1.0f;
 
-            float current = transform.localScale.x;
+            float current = tiltParent.localScale.x;
             float newScale = Mathf.SmoothDamp(current, targetScale, ref scaleVelocity, scaleSpeed);
 
-            transform.localScale = Vector3.one * newScale;
+            tiltParent.localScale = Vector3.one * newScale;
         }
 
         private void UpdateHandPositionAndRotationOffsets()
@@ -124,8 +118,8 @@ namespace Cards.Scripts
             Vector3 offset = transform.position - Input.mousePosition;
 
             float screenSizedManualTiltAmount = manualTiltAmount / (Screen.width / 960.0f);
-            float tiltX = target.isHovering && !target.isSelected ? ((offset.y * -1) * screenSizedManualTiltAmount) : 0;
-            float tiltY = target.isHovering && !target.isSelected ? ((offset.x) * screenSizedManualTiltAmount) : 0;
+            float tiltX = target.isHovering && !target.isInspected ? ((offset.y * -1) * screenSizedManualTiltAmount) : 0;
+            float tiltY = target.isHovering && !target.isInspected ? ((offset.x) * screenSizedManualTiltAmount) : 0;
             float tiltZ = target.isDragging || target.ContainerType != ContainerType.Hand ? 0.0f : (curveRotationOffset * (curve.rotationInfluence * siblingCount));
 
             Vector3 currentAngles = tiltParent.eulerAngles;
@@ -148,40 +142,13 @@ namespace Cards.Scripts
         
         private void FollowPosition()
         {
-            float verticalOffset = ComputeVerticalOffset();
+            float verticalOffset = target.isDragging || target.isInspected ? 0.0f : curveYOffset;
             Vector2 targetPosition = target.rectTransform.position.ToVector2() + Vector2.up * verticalOffset;
             Vector3 clampedPosition = target.isDragging ? Tools.ClampPositionInScreen(targetPosition, rectTransform.rect.size) : targetPosition;
             
             rectTransform.position = Vector3.Lerp(rectTransform.position, clampedPosition, Time.deltaTime * speed);
         }
 
-        private float ComputeVerticalOffset()
-        {
-            float verticalOffset = target.isDragging ? 0.0f : curveYOffset;
-                
-            if (target.isSelected)
-            {
-                switch (target.ContainerType)
-                {
-                    case ContainerType.Hand:
-                        verticalOffset += selectedHeightOffsetHand;
-                        break;
-                    case ContainerType.Enemy:
-                        verticalOffset += selectedHeightOffsetEnemy;
-                        break;
-                    case ContainerType.Board:
-                    case ContainerType.Inventory:
-                    case ContainerType.Sticky:
-                        verticalOffset += selectedHeightOffsetPlayer;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-
-            return verticalOffset;
-        }
-        
         private void FollowRotation()
         {
             Vector3 movement = (transform.position - target.transform.position);
@@ -193,7 +160,7 @@ namespace Cards.Scripts
         
         private void Squeeze()
         {
-            if (target.isSelected)
+            if (target.isInspected)
                 return;
             
             StopAllCoroutines();
@@ -202,7 +169,7 @@ namespace Cards.Scripts
         
         private void UpdateSortingOrder()
         {
-            if (target.isDragging || target.isSelected)
+            if (target.isDragging || target.isInspected)
                 canvas.sortingOrder = 1000;
             else
                 canvas.sortingOrder = target.SlotIndex + 1;

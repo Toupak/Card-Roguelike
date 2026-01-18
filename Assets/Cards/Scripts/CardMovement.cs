@@ -1,5 +1,6 @@
 using System;
 using Board.Script;
+using BoomLib.Tools;
 using CardSlot.Script;
 using Cursor.Script;
 using Items;
@@ -23,7 +24,7 @@ namespace Cards.Scripts
 
         public bool isDragging { get;  private set; }
         public bool isHovering { get;  private set; }
-        public bool isSelected { get;  private set; }
+        public bool isInspected { get;  private set; }
 
         public RectTransform rectTransform { get;  private set; }
         public CardController cardController { get;  private set; }
@@ -38,12 +39,17 @@ namespace Cards.Scripts
 
         private bool isCursorFree => CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
         public bool canBeDragged => !IsEnemyCard && isCursorFree;
+        public bool canBeInspected => true;
 
-        private Selectable selectable;
-
+        private Vector2 startingSize;
+        private Vector2 scaleVelocity;
+        
         private void Start()
         {
-            selectable = GetComponent<Selectable>();
+            if (rectTransform == null)
+                rectTransform = GetComponent<RectTransform>();
+
+            startingSize = new Vector2(rectTransform.rect.width, rectTransform.rect.height);
         }
 
         private void LateUpdate()
@@ -52,12 +58,29 @@ namespace Cards.Scripts
                 isHovering = false;
 
             if (isDragging)
-                transform.position = CursorInfo.instance.currentPosition;
+                transform.position = Tools.ClampPositionInScreen(CursorInfo.instance.currentPosition, rectTransform.rect.size);
+            
+            if (isInspected)
+                transform.position = Tools.ClampPositionInScreen(SlotPosition, rectTransform.rect.size);
+
+            UpdateScale();
+        }
+
+        private void UpdateScale()
+        {
+            Vector2 targetScale = startingSize * (isInspected ? 2.0f : 1.0f);
+
+            Vector2 currentScale = new Vector2(rectTransform.rect.width, rectTransform.rect.height);
+            Vector2 newScale = Vector2.SmoothDamp(currentScale, targetScale, ref scaleVelocity, 0.15f);
+
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newScale.x);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newScale.y);
         }
 
         public void SetNewSlot(Slot newSlot, bool resetPosition)
         {
-            rectTransform = GetComponent<RectTransform>();
+            if (rectTransform == null)
+                rectTransform = GetComponent<RectTransform>();
             
             slot = newSlot;
             transform.SetParent(slot.transform, true);
@@ -83,17 +106,6 @@ namespace Cards.Scripts
             OnStartDrag?.Invoke();
         }
 
-        public void OnDrag(PointerEventData eventData)
-        {
-            if (!canBeDragged)
-            {
-                Deselect();
-                return;
-            }
-            
-            transform.position = eventData.position;
-        }
-
         public void OnEndDrag()
         {
             isDragging = false;
@@ -104,20 +116,6 @@ namespace Cards.Scripts
             ResetPosition();
             
             OnDrop?.Invoke();
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            if (EventSystem.current.currentSelectedGameObject == gameObject && isCursorFree)
-            {
-                isSelected = true;
-                OnSelected?.Invoke();
-            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -139,26 +137,24 @@ namespace Cards.Scripts
             transform.localPosition = Vector3.zero;
         }
 
-        public void OnSelect(BaseEventData eventData)
+        public void OnInspect()
         {
-            if (IsEnemyCard)
-            {
-                Deselect();
-                return;
-            }
+            isInspected = true;
+            OnSelected?.Invoke();
         }
 
-        public void OnDeselect(BaseEventData eventData)
+        public void OnDeselect()
         {
             Deselect(false);
+            ResetPosition();
         }
 
         private void Deselect(bool forceDeselect = true)
         {
-            if (!isSelected)
+            if (!isInspected)
                 return;
             
-            isSelected = false;
+            isInspected = false;
             if (forceDeselect)
                 EventSystem.current.SetSelectedGameObject(null);
             OnDeselected?.Invoke();

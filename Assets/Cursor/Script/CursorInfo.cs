@@ -24,7 +24,7 @@ namespace Cursor.Script
 
         [CanBeNull] public CardContainer LastCardContainer { get; private set; } = null;
         [CanBeNull] public CardMovement currentCardMovement { get; private set; } = null;
-        [CanBeNull] public CardMovement currentDraggingCard { get; private set; } = null;
+        [CanBeNull] public CardMovement currentInteractionCard { get; private set; } = null;
         [CanBeNull] public List<CardMovement> currentCardMovementHitStack { get; private set; } = new List<CardMovement>();
 
         public bool wasSpellButtonHit { get; private set; }
@@ -33,7 +33,7 @@ namespace Cursor.Script
         
         public Vector2 currentPosition { get; private set; }
         public bool isDragging { get; private set; }
-        
+        public bool isInspecting { get; private set; }
         
         private void Awake()
         {
@@ -50,21 +50,20 @@ namespace Cursor.Script
             if (Mouse.current.leftButton.wasReleasedThisFrame)
                 OnReleaseLeftClick();
             
-            if (Mouse.current.rightButton.isPressed)
+            if (Mouse.current.rightButton.wasPressedThisFrame)
                 OnRightClick();
         }
 
         private void OnLeftClick()
         {
+            if (isInspecting)
+                StopInspecting();
+            
             if (currentMode != CursorMode.Free)
                 return;
 
             if (!wasSpellButtonHit && currentCardMovement != null && currentCardMovement.canBeDragged)
-            {
-                currentDraggingCard = currentCardMovement;
-                currentDraggingCard.OnBeginDrag();
-                isDragging = true;
-            }
+                StartDragging();
         }
         
         private void OnReleaseLeftClick()
@@ -72,22 +71,55 @@ namespace Cursor.Script
             if (currentMode != CursorMode.Free)
                 return;
 
-            if (currentDraggingCard != null && isDragging)
-            {
-                currentDraggingCard.OnEndDrag();
-                currentDraggingCard = null;
-                isDragging = false;
-            }
+            if (currentInteractionCard != null && isDragging)
+                StopDragging();
         }
         
         private void OnRightClick()
         {
-            if (currentMode != CursorMode.Free)
+            if (isInspecting)
+            {
+                StopInspecting();
                 return;
+            }
             
-            EventSystem.current.SetSelectedGameObject(null);
+            if (currentMode != CursorMode.Free || isDragging)
+                return;
+
+            if (!isInspecting && currentCardMovement != null && currentCardMovement.canBeInspected)
+                StartInspecting();
         }
 
+        private void StartDragging()
+        {
+            currentInteractionCard = currentCardMovement;
+            currentInteractionCard.OnBeginDrag();
+            isDragging = true;
+        }
+
+        private void StopDragging()
+        {
+            if (currentInteractionCard != null)
+                currentInteractionCard.OnEndDrag();
+            currentInteractionCard = null;
+            isDragging = false;
+        }
+        
+        private void StartInspecting()
+        {
+            currentInteractionCard = currentCardMovement;
+            currentInteractionCard.OnInspect();
+            isInspecting = true;
+        }
+        
+        private void StopInspecting()
+        {
+            if (currentInteractionCard != null)
+                currentInteractionCard.OnDeselect();
+            currentInteractionCard = null;
+            isInspecting = false;
+        }
+        
         private void FixedUpdate()
         {
             List<RaycastResult> results = new List<RaycastResult>();
