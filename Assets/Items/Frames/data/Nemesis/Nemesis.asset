@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
+  m_Name: Nemesis
+  m_EditorClassIdentifier: 
+  frameName: Nemesis Frame
+  frameDescription: Apply 1 $Vengeance$ when dealing damage
+  icon: {fileID: -3604799569318052655, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  rarity: 1
+  barColor: {r: 0, g: 0, b: 0, a: 1}
+  circleColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  material: {fileID: 2100000, guid: a21f4548f27373f4d8fb1940df04fa6f, type: 2}
+  frameController: {fileID: 4320291459420490960, guid: 7890983876735d745bfafeea69b3d2fb, type: 3}
+  localizationKey: 

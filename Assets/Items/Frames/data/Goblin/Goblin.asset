@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
+  m_Name: Goblin
+  m_EditorClassIdentifier: 
+  frameName: Goblin Frame
+  frameDescription: Gain 1 $Armor$ when dealing damage
+  icon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  rarity: 1
+  barColor: {r: 0.12842648, g: 0.24528301, b: 0.14156136, a: 1}
+  circleColor: {r: 0.1516554, g: 0.4528302, b: 0.18554093, a: 1}
+  material: {fileID: 2100000, guid: 0da223e27256e71469d5f045ba02eae6, type: 2}
+  frameController: {fileID: 875585683138805231, guid: be864a40cb756fd4eac361cb2d9ba050, type: 3}
+  localizationKey: 
