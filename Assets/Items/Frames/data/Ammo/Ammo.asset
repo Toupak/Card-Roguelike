@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameName: Bullet Frame
   frameDescription: Gain 1 $Ammo$ at start of turn
-  icon: {fileID: 1471263578924250768, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
+  icon: {fileID: 2526043692424303287, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   rarity: 3
   barColor: {r: 0, g: 0, b: 0, a: 1}
   circleColor: {r: 0.7924528, g: 0.76368976, b: 0.497152, a: 1}

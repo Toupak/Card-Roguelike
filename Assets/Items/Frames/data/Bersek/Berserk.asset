@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameName: Berserk Frame
   frameDescription: Deal +1 damage, receive + 1 damage
-  icon: {fileID: -8304840455306791219, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
+  icon: {fileID: 2410264602078539193, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   rarity: 1
   barColor: {r: 0, g: 0.37254903, b: 0.5411765, a: 1}
   circleColor: {r: 0.45882356, g: 0.13333334, b: 0.23137257, a: 1}
   material: {fileID: 2100000, guid: a82f2d82428750142b74851f7333bc13, type: 2}
-  frameController: {fileID: 0}
+  frameController: {fileID: 4673959434157342202, guid: d1dba634de9001d48a03f3efe8e98222, type: 3}
   localizationKey: 

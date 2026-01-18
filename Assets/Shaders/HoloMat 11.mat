@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _HoloTex:
-        m_Texture: {fileID: 2800000, guid: 87f735995cf01f84b8e88c5c03a50345, type: 3}
+        m_Texture: {fileID: 2800000, guid: d5b9273bdc4a88c479cf0089e9087b10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -55,7 +55,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0.5
     - _ColorMask: 15
-    - _DistortionAmount: 38.5
+    - _DistortionAmount: 50
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0

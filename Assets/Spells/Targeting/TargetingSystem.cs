@@ -8,6 +8,7 @@ using CardSlot.Script;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Spells.Targeting
 {
@@ -172,6 +173,16 @@ namespace Spells.Targeting
             }
 
             return list;
+        }
+
+        public CardMovement RetrieveRandomCard(TargetType targetType, bool includeUnTargetable = false)
+        {
+            List<CardMovement> cards = RetrieveBoard(targetType, includeUnTargetable);
+
+            if (cards.Count < 1)
+                return null;
+            
+            return cards[Random.Range(0, cards.Count)];
         }
 
         private int ComputeMaxAmountOfTargets(int potentialTargetsCount, TargetingMode targetingMode, int targetCount)

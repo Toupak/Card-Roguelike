@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameName: Heckler Frame
   frameDescription: Applies 1 $Taunt$ at the start of Turn
-  icon: {fileID: 3408304561271322054, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
+  icon: {fileID: 4847072211282044801, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   rarity: 0
   barColor: {r: 0.3715115, g: 0.3773585, b: 0.069419734, a: 1}
   circleColor: {r: 0.6981132, g: 0.6778815, b: 0.1284265, a: 1}

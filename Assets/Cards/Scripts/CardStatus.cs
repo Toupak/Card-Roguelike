@@ -63,6 +63,14 @@ namespace Cards.Scripts
         OnCombatEnd,
         None
     }
+
+    public enum StatusBehaviourTarget
+    {
+        OnMe,
+        OnTarget,
+        OnRandomAlly,
+        OnRandomEnemy
+    }
     
     public enum StatusTabModification
     {
