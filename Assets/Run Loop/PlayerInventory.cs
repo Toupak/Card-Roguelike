@@ -34,7 +34,7 @@ namespace Run_Loop
         {
             instance = this;
 
-            LoadDebugInventory(); //TODO : comment this
+            //LoadDebugInventory(); //TODO : comment this
         }
 
         private void LoadDebugInventory()

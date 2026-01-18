@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HoloMat
+  m_Name: HoloMat 8
   m_Shader: {fileID: -6465566751694194690, guid: 28b2e376268d9ca4689f70bca53b49f2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _HoloTex:
-        m_Texture: {fileID: 2800000, guid: 83ff4037aba031d479424d8947cae002, type: 3}
+        m_Texture: {fileID: 2800000, guid: a3738a97267c1ee47a4681c209e1bda3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -55,7 +55,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0.5
     - _ColorMask: 15
-    - _DistortionAmount: 38.2
+    - _DistortionAmount: 25.2
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -63,7 +63,7 @@ Material:
     - _StencilWriteMask: 255
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
-    - _offsetAmount: 1
+    - _offsetAmount: 0.1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
-  m_Name: Auto-Taunt
+  m_Name: Armor
   m_EditorClassIdentifier: 
-  frameName: Heckler Frame
-  frameDescription: Applies 1 $Taunt$ at the start of Turn
-  icon: {fileID: 3408304561271322054, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
-  rarity: 0
-  barColor: {r: 0.3715115, g: 0.3773585, b: 0.069419734, a: 1}
-  circleColor: {r: 0.6981132, g: 0.6778815, b: 0.1284265, a: 1}
-  material: {fileID: 2100000, guid: 058f21ca922b6744bba4813e5ac7572f, type: 2}
+  frameName: Shield Frame
+  frameDescription: Gain 1 $Armor$ on turn start
+  icon: {fileID: 111348885547944589, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
+  rarity: 1
+  barColor: {r: 0.061276253, g: 0.07924035, b: 0.254717, a: 1}
+  circleColor: {r: 0.11275155, g: 0.10666607, b: 0.4811321, a: 1}
+  material: {fileID: 2100000, guid: 414887a94a2b76f42ac5b714a9bc245b, type: 2}
   frameController: {fileID: 0}
   localizationKey: 

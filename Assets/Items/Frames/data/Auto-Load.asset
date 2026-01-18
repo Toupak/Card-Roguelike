@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
   m_Name: Auto-Load
   m_EditorClassIdentifier: 
-  frameName: Auto-Load
+  frameName: Bullet Frame
   frameDescription: Gain 1 $Ammo$ at start of turn
   icon: {fileID: 1471263578924250768, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
   rarity: 3
