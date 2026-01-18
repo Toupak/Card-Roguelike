@@ -17,6 +17,8 @@ MonoBehaviour:
   statusTag: Corpse
   statusDescription: 
   endTurnBehaviour: 2
+  behaviour: 2
+  behaviourTiming: 6
   effectType: 0
   maxStackCount: -1
   barColor:

@@ -17,6 +17,8 @@ MonoBehaviour:
   statusTag: Weak
   statusDescription: Weakened Cards deal -1 damage per attack
   endTurnBehaviour: 0
+  behaviour: 0
+  behaviourTiming: 1
   effectType: 2
   maxStackCount: -1
   barColor:

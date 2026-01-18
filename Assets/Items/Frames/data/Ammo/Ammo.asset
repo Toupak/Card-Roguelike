@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
-  m_Name: Auto-Load
+  m_Name: Ammo
   m_EditorClassIdentifier: 
   frameName: Bullet Frame
   frameDescription: Gain 1 $Ammo$ at start of turn
@@ -19,5 +19,5 @@ MonoBehaviour:
   barColor: {r: 0, g: 0, b: 0, a: 1}
   circleColor: {r: 0.7924528, g: 0.76368976, b: 0.497152, a: 1}
   material: {fileID: 2100000, guid: fdc2ab44f5e885349ba1e1d4513e6673, type: 2}
-  frameController: {fileID: 0}
+  frameController: {fileID: 4320291459420490960, guid: b39adb3927ec8714894b0ac9dba5c478, type: 3}
   localizationKey: 

@@ -20,6 +20,8 @@ MonoBehaviour:
     Used by the Tinkerer to craft weird
     contraptions'
   endTurnBehaviour: 2
+  behaviour: 2
+  behaviourTiming: 1
   effectType: 0
   maxStackCount: -1
   barColor:

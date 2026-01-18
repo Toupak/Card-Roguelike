@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
-  m_Name: Auto-Taunt
+  m_Name: Taunt
   m_EditorClassIdentifier: 
   frameName: Heckler Frame
   frameDescription: Applies 1 $Taunt$ at the start of Turn
@@ -19,5 +19,5 @@ MonoBehaviour:
   barColor: {r: 0.3715115, g: 0.3773585, b: 0.069419734, a: 1}
   circleColor: {r: 0.6981132, g: 0.6778815, b: 0.1284265, a: 1}
   material: {fileID: 2100000, guid: 058f21ca922b6744bba4813e5ac7572f, type: 2}
-  frameController: {fileID: 0}
+  frameController: {fileID: -6728946942684735256, guid: 57a13d58c6ec93f4eb8a7d2a082de19a, type: 3}
   localizationKey: 

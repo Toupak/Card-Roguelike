@@ -17,6 +17,8 @@ MonoBehaviour:
   statusTag: BonusDamage
   statusDescription: Attacks deal extra damage
   endTurnBehaviour: 1
+  behaviour: 1
+  behaviourTiming: 1
   effectType: 1
   maxStackCount: -1
   barColor:

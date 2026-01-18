@@ -16,7 +16,7 @@ namespace Items.Frames
 
         public virtual void Remove()
         {
-            
+            Destroy(gameObject);
         }
     }
 }

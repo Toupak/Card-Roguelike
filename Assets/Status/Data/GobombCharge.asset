@@ -17,6 +17,8 @@ MonoBehaviour:
   statusTag: Gobomb
   statusDescription: Its getting closer...
   endTurnBehaviour: 0
+  behaviour: 0
+  behaviourTiming: 1
   effectType: 0
   maxStackCount: -1
   barColor:

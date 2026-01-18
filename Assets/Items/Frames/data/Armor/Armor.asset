@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
+  m_Name: Armor
+  m_EditorClassIdentifier: 
+  frameName: Shield Frame
+  frameDescription: Gain 1 $Armor$ on turn end
+  icon: {fileID: 111348885547944589, guid: ebce113c8b9df1d4da5a6fda55013bda, type: 3}
+  rarity: 1
+  barColor: {r: 0.061276253, g: 0.07924035, b: 0.254717, a: 1}
+  circleColor: {r: 0.11275155, g: 0.10666607, b: 0.4811321, a: 1}
+  material: {fileID: 2100000, guid: 414887a94a2b76f42ac5b714a9bc245b, type: 2}
+  frameController: {fileID: 875585683138805231, guid: b1241fefea2e7974886061e13017a5b9, type: 3}
+  localizationKey: 

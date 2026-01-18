@@ -18,6 +18,8 @@ MonoBehaviour:
   statusDescription: Zanger will stop fucking around and will attack the correct
     target for Triangular Grimace's next cast
   endTurnBehaviour: 2
+  behaviour: 2
+  behaviourTiming: 6
   effectType: 1
   maxStackCount: -1
   barColor:

@@ -17,7 +17,8 @@ namespace Status.Data
         public string statusName;
         public string statusTag;
         [TextArea] public string statusDescription;
-        public StatusEndTurnBehaviour endTurnBehaviour;
+        public StatusBehaviour behaviour;
+        public StatusBehaviourTimings behaviourTiming;
         public EffectType effectType;
         public int maxStackCount = -1;
         

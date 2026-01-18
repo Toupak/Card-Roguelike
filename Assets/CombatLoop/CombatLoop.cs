@@ -247,7 +247,7 @@ namespace CombatLoop
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 
             Debug.Log($"Start Turn : current : {turnType}");
-            StartTurnGa startTurnGa = new StartTurnGa(turnType);
+            StartTurnGa startTurnGa = new StartTurnGa(turnType, turnCount);
             ActionSystem.instance.Perform(startTurnGa);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

@@ -18,6 +18,8 @@ MonoBehaviour:
   statusDescription: Each stack of Dodge provides an additional 30% chances to evades
     enemy attacks
   endTurnBehaviour: 4
+  behaviour: 1
+  behaviourTiming: 0
   effectType: 1
   maxStackCount: -1
   barColor:

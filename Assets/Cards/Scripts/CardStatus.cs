@@ -45,13 +45,23 @@ namespace Cards.Scripts
         Corpse
     }
 
-    public enum StatusEndTurnBehaviour
+    public enum StatusBehaviour
     {
         RemoveOne,
         RemoveAll,
         RemoveNone,
-        RemoveOneAtStartOfTurn,
-        RemoveAllAtStartOfTurn
+        AddOne
+    }
+
+    public enum StatusBehaviourTimings
+    {
+        OnTurnStart,
+        OnTurnEnd,
+        OnDamageDealt,
+        OnDamageReceived,
+        OnCombatStart,
+        OnCombatEnd,
+        None
     }
     
     public enum StatusTabModification
@@ -164,18 +174,19 @@ namespace Cards.Scripts
             {
                 if (!IsStatusApplied(keyValuePair.Key))
                     continue;
-
-                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).endTurnBehaviour)
+                
+                if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnTurnStart)
+                    continue;
+                    
+                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
                 {
-                    case StatusEndTurnBehaviour.RemoveOneAtStartOfTurn:
+                    case StatusBehaviour.RemoveOne:
                         RemoveOneStack(keyValuePair); 
                         break;
-                    case StatusEndTurnBehaviour.RemoveAllAtStartOfTurn:
+                    case StatusBehaviour.RemoveAll:
                         RemoveAllStacks(keyValuePair);
                         break;
-                    case StatusEndTurnBehaviour.RemoveOne:
-                    case StatusEndTurnBehaviour.RemoveAll:
-                    case StatusEndTurnBehaviour.RemoveNone:
+                    case StatusBehaviour.RemoveNone:
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -190,17 +201,18 @@ namespace Cards.Scripts
                 if (!IsStatusApplied(keyValuePair.Key))
                     continue;
                 
-                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).endTurnBehaviour)
+                if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnTurnEnd)
+                    continue;
+                
+                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
                 {
-                    case StatusEndTurnBehaviour.RemoveOne:
+                    case StatusBehaviour.RemoveOne:
                         RemoveOneStack(keyValuePair); 
                         break;
-                    case StatusEndTurnBehaviour.RemoveAll:
+                    case StatusBehaviour.RemoveAll:
                         RemoveAllStacks(keyValuePair);
                         break;
-                    case StatusEndTurnBehaviour.RemoveNone:
-                    case StatusEndTurnBehaviour.RemoveOneAtStartOfTurn:
-                    case StatusEndTurnBehaviour.RemoveAllAtStartOfTurn:
+                    case StatusBehaviour.RemoveNone:
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

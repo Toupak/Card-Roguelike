@@ -20,6 +20,8 @@ MonoBehaviour:
     Lose all
     Armor at start of turn'
   endTurnBehaviour: 4
+  behaviour: 1
+  behaviourTiming: 0
   effectType: 1
   maxStackCount: -1
   barColor:
