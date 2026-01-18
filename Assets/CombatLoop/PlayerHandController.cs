@@ -138,6 +138,12 @@ namespace CombatLoop
 
         public void DeactivateHand()
         {
+            for (int i = playerBoard.Slots.Count - 1; i >= 0; i--)
+            {
+                if (playerBoard.Slots[i].CurrentCard.cardController == null)
+                    playerBoard.Slots[i].CurrentCard.KillCard();
+            }
+            
             for (int i = handContainer.Slots.Count - 1; i >= 0; i--)
             {
                 handContainer.Slots[i].CurrentCard.cardController.KillCard(false);
