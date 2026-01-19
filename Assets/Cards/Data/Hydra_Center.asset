@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Hydra_Center
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Hydra Center
   tribe: 0
+  rarity: 2
   hpMax: 14
   artwork: {fileID: 21300000, guid: c16a7de27a8b3314bb87e876799ce2a5, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: 6400e0a33030a634d890b47bc35cc83b, type: 2}

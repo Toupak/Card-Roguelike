@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Gobo-King_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Gobo King
   tribe: 6
+  rarity: 3
   hpMax: 37
   artwork: {fileID: 1351902681591436168, guid: 1b4d7734420514c4faaea86756b22aa8, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 8532891456618958194, guid: 6c23a5a9b575fe647aa3c6ccb9a25f23, type: 3}
-  frameData: {fileID: 0}
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: 6400e0a33030a634d890b47bc35cc83b, type: 2}

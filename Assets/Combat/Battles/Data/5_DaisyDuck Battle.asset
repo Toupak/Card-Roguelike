@@ -15,4 +15,4 @@ MonoBehaviour:
   enemyList:
   - {fileID: 11400000, guid: 05650dfbee421da43b020ee64cb8aab0, type: 2}
   floor: 0
-  difficulty: 1
+  difficulty: 2
