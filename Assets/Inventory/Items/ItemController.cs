@@ -22,13 +22,14 @@ namespace Inventory.Items
         public Vector2 screenPosition => rectTransform.anchoredPosition;
         
         private FollowTarget followTarget;
+        private CardRarityDisplay cardRarityDisplay;
         public CardMovement cardMovement { get;  private set; }
-        
-        
+
         public void SetupItem(CardMovement movement)
         {
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
+            cardRarityDisplay = GetComponent<CardRarityDisplay>();
             followTarget.SetTarget(movement);
             
             cardMovement = movement;
@@ -39,7 +40,13 @@ namespace Inventory.Items
             gameObject.name = frameData.frameName;
             SetItemName(frameData.frameName);
             SetIcon(frameData.icon);
+            SetRarity(frameData.rarity);
             GetComponent<FrameCardItem>().Setup(frameData);
+        }
+
+        private void SetRarity(CardData.Rarity rarity)
+        {
+            cardRarityDisplay.SetupBackground(rarity);
         }
 
         private void SetItemName(string newName)

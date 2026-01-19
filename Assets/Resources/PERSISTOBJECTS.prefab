@@ -516,6 +516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsLegendary: {fileID: 11400000, guid: 7362f8bdb30b54a49b59dd9e757b4b2a, type: 2}
   cardsExotic: {fileID: 11400000, guid: 6c6ddbffff226954ba75badede6776ad, type: 2}
+  frame: {fileID: 11400000, guid: a7b54d4e2271fab448335ae3bd1841f4, type: 2}
+  framesLegendary: {fileID: 11400000, guid: f667e71fd684ad14e85414fa5e02f9c9, type: 2}
+  framesExotic: {fileID: 11400000, guid: d2485bd7bb3c1034ea5287a5301acb13, type: 2}
 --- !u!1 &8802287362730742065
 GameObject:
   m_ObjectHideFlags: 0
