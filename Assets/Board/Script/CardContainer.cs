@@ -6,6 +6,7 @@ using Cards.Scripts;
 using CardSlot.Script;
 using Cursor.Script;
 using Items;
+using Run_Loop;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -136,13 +137,23 @@ namespace Board.Script
         
         public bool IsFull()
         {
+            
             if (type == ContainerType.Board)
             {
-                if (CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation)
+                bool isInPreparation = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation;
+                if (isInPreparation)
                     return slots.Count(s => s.CurrentCard.cardController != null) >= maxCardCount;
                 else
-                    return slots.Count >= 12;
+                    return slots.Count >= 16;
             }
+            else if (type == ContainerType.Hand)
+            {
+                if (RunLoop.instance.isInRun)
+                    return slots.Count >= maxCardCount;
+                else
+                    return slots.Count >= 16;
+            }
+            
             
             return slots.Count >= maxCardCount;
         }
@@ -214,10 +225,10 @@ namespace Board.Script
             OnAnyContainerUpdated?.Invoke();
         }
 
-        public void ReceiveCard(CardMovement card, PreferredPosition preferredPosition = PreferredPosition.None)
+        public void ReceiveCard(CardMovement card, PreferredPosition preferredPosition = PreferredPosition.None, bool resetPosition = true)
         {
-            card.SetNewSlot(CreateNewSlot(), true);
-
+            card.SetNewSlot(CreateNewSlot(), resetPosition);
+            
             if (preferredPosition != PreferredPosition.None)
                 MoveCardToPreferredPosition(card, preferredPosition);
             

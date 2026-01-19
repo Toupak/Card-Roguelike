@@ -11,6 +11,7 @@ namespace Cards.Scripts
     public class FollowTarget : MonoBehaviour
     {
         [SerializeField] private float speed;
+        [SerializeField] private float slowSpeed;
         [SerializeField] private float rotationAmount;
         [SerializeField] private float rotationSpeed;
         [SerializeField] private float maxAngle;
@@ -49,6 +50,7 @@ namespace Cards.Scripts
         private float scaleVelocity;
 
         private bool isLocked;
+        private bool isSlowMode;
 
         public void SetTarget(CardMovement newTarget)
         {
@@ -69,8 +71,13 @@ namespace Cards.Scripts
         {
             if (isLocked)
                 return;
+
+            float distanceFromSlot = Vector3.Distance(target.SlotPosition, target.transform.position);
+
+            if (isSlowMode && transform.position.Distance(target.transform.position) <= 1f)
+                isSlowMode = false;
             
-            if (target.ContainerType == ContainerType.Sticky && Vector3.Distance(target.SlotPosition, target.transform.position) <= stickyMaxDistance && target.isDragging)
+            if (target.ContainerType == ContainerType.Sticky && distanceFromSlot <= stickyMaxDistance && target.isDragging)
                 FollowPositionSticky();
             else
                 FollowPosition();
@@ -137,7 +144,7 @@ namespace Cards.Scripts
             
             Vector3 stickyTarget = target.SlotPosition + direction.normalized * (distance * stickyMoveFactorNormalized);
 
-            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, stickyTarget, Time.deltaTime * (isSlowMode ? slowSpeed : speed));
         }
         
         private void FollowPosition()
@@ -146,7 +153,7 @@ namespace Cards.Scripts
             Vector2 targetPosition = target.rectTransform.position.ToVector2() + Vector2.up * verticalOffset;
             Vector3 clampedPosition = target.isDragging ? Tools.ClampPositionInScreen(targetPosition, rectTransform.rect.size) : targetPosition;
             
-            rectTransform.position = Vector3.Lerp(rectTransform.position, clampedPosition, Time.deltaTime * speed);
+            rectTransform.position = Vector3.Lerp(rectTransform.position, clampedPosition, Time.deltaTime * (isSlowMode ? slowSpeed : speed));
         }
 
         private void FollowRotation()
@@ -188,6 +195,11 @@ namespace Cards.Scripts
         public void SetFollowState(bool state)
         {
             isLocked = !state;
+        }
+
+        public void SetSlowMode(bool state)
+        {
+            isSlowMode = state;
         }
     }
 }

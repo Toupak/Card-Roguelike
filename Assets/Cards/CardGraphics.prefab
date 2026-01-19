@@ -755,8 +755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardController: {fileID: -4129232798781121940}
   itemController: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 6251304531099071850}
-  squeezePowerOnHover: 0.5
+  targetToSqueezeOnHover: {fileID: 8047140356048354188}
+  squeezePowerOnHover: 0.1
   spellButton: {fileID: 6570758498232642076}
 --- !u!1 &3317175333349962056
 GameObject:
@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  slowSpeed: 10
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60
@@ -1171,8 +1172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardController: {fileID: -4129232798781121940}
   itemController: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 4456902868140776374}
-  squeezePowerOnHover: 0.5
+  targetToSqueezeOnHover: {fileID: 7302991935744889764}
+  squeezePowerOnHover: 0.1
   spellButton: {fileID: 6589867945874465917}
 --- !u!1 &3640039836867341530
 GameObject:
@@ -2818,8 +2819,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardController: {fileID: -4129232798781121940}
   itemController: {fileID: 0}
-  targetToSqueezeOnHover: {fileID: 8170742621991121404}
-  squeezePowerOnHover: 0.5
+  targetToSqueezeOnHover: {fileID: 6384890819803805295}
+  squeezePowerOnHover: 0.1
   spellButton: {fileID: 2253255731906166765}
 --- !u!1 &7618242119281701267
 GameObject:

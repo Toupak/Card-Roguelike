@@ -27,7 +27,7 @@ namespace Inventory
         
         private void Start()
         {
-            PlayerInventory.OnUnEquipFrame.AddListener(CreateItem);
+            PlayerInventory.OnUnEquipFrame.AddListener((frameItem, position) => CreateItem(frameItem, position, false));
             CombatLoop.CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(HideInventoryDuringFight);
             
             inventoryRect = inventoryContainer.GetComponent<RectTransform>();
@@ -53,15 +53,22 @@ namespace Inventory
             }
         }
 
-        public void CreateItem(FrameItem frameItem, Vector3 position)
+        public void CreateItem(FrameItem frameItem, Vector3 position, bool resetPosition = true)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab, position, Quaternion.identity);
+
             inventoryContainer.ReceiveCard(newCard);
             
             ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
             newCard.SetItemController(controller);
 
             controller.SetupAsFrameItem(frameItem.data);
+
+            if (!resetPosition)
+            {
+                controller.GetComponent<FollowTarget>().SetSlowMode(true);
+                controller.transform.position = position;
+            }
         }
 
         private void HideInventoryCompletely()

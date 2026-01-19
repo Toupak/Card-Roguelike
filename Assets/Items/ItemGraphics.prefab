@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  slowSpeed: 10
   rotationAmount: 1.5
   rotationSpeed: 20
   maxAngle: 60

@@ -29,7 +29,7 @@ namespace Items.Frames
             if (!isStartingMaterialSaved)
                 return;
 
-            PlayerInventory.instance.UnEquipFrame(data, GetComponent<RectTransform>().anchoredPosition);
+            PlayerInventory.instance.UnEquipFrame(data, transform.position);
             data = null;
             
             background.sprite = startingSprite;
