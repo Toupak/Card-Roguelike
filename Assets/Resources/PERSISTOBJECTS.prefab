@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 2565726826618425718}
   - component: {fileID: 5901526860224326648}
   - component: {fileID: 3886590813496228466}
+  - component: {fileID: 1661523022023678170}
   m_Layer: 0
   m_Name: __PlayerDeck
   m_TagString: Untagged
@@ -501,6 +502,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70f3f27ba197f384badad043aa9e0f51, type: 2}
   - {fileID: 11400000, guid: a510e62d058839b4c9d040252a98f61f, type: 2}
   - {fileID: 11400000, guid: 7b8e9b22f9ed6a147834fff1c26e3cf0, type: 2}
+--- !u!114 &1661523022023678170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658324569094561765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da8d230e6fabd404e9fe48c232e5ce5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsLegendary: {fileID: 11400000, guid: 7362f8bdb30b54a49b59dd9e757b4b2a, type: 2}
+  cardsExotic: {fileID: 11400000, guid: 6c6ddbffff226954ba75badede6776ad, type: 2}
 --- !u!1 &8802287362730742065
 GameObject:
   m_ObjectHideFlags: 0

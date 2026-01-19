@@ -21,5 +21,7 @@ namespace Inventory.Items.Frames
         
         [Space] 
         public string localizationKey;
+        
+        public bool isLowRarity => rarity == CardData.Rarity.Common || rarity == CardData.Rarity.Rare;
     }
 }

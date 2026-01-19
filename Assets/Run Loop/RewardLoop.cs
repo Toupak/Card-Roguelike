@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Cards.Tween_Animations;
 using Combat.Card_Container.CardSlot;
 using Combat.Card_Container.Script;
+using Inventory.Drop_Rates;
 using Inventory.Items;
 using Inventory.Items.Frames;
 using UnityEngine;
@@ -47,14 +49,10 @@ namespace Run_Loop
             if (!isFirstRun)
                 yield return LoadCurrentDeckInHand();
 
-            yield return OpenFrameBooster();
+            yield return OpenBooster(3);
             
-            int boosterCount = 1;
-            int cardCount = 3;
-            for (int i = 0; i < boosterCount; i++)
-            {
-                yield return OpenBooster(cardCount);
-            }
+            if (DropRateManager.instance.CheckForFrameReward())
+                yield return OpenFrameBooster();
 
             yield return DisplayFinalSelection();
             yield return WaitUntilFinalValidation();
@@ -125,33 +123,64 @@ namespace Run_Loop
         
         private IEnumerator OpenBoosterAndDisplayFrames(int framesCount)
         {
-            List<FrameData> frames = RunLoop.instance.framesData;
+            List<FrameData> commonFrames = RunLoop.instance.framesData.Where((c) => c.isLowRarity).ToList();
+            if (commonFrames.Count < 1)
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no Common and Rare frames found in dataBase");
+            commonFrames.Shuffle();
             
-            List<FrameData> shuffledList = new List<FrameData>(frames);
-            shuffledList.Shuffle();
+            List<FrameData> legendaryFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Legendary).ToList();
+            if (legendaryFrames.Count < 1)
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no Legendary frames found in dataBase");
+            legendaryFrames.Shuffle();
             
-            for (int i = 0; i < framesCount && i < shuffledList.Count; i++)
+            List<FrameData> exoticFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Exotic).ToList();
+            if (exoticFrames.Count < 1)
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no Exotic frames found in dataBase");
+            exoticFrames.Shuffle();
+
+            int commonIndex = 0;
+            int legendaryIndex = 0;
+            int exoticIndex = 0;
+            for (int i = 0; i < framesCount; i++)
             {
-                DrawItemToContainer(mainContainer).SetupAsFrameItem(shuffledList[i]);
+                if (exoticIndex < exoticFrames.Count && DropRateManager.instance.CheckForExoticFrameReward())
+                    DrawItemToContainer(mainContainer).SetupAsFrameItem(exoticFrames[exoticIndex++]);
+                else if (legendaryIndex < legendaryFrames.Count && DropRateManager.instance.CheckForLegendaryFrameReward())
+                    DrawItemToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[exoticIndex++]);
+                else if (commonIndex < commonFrames.Count)
+                    DrawItemToContainer(mainContainer).SetupAsFrameItem(commonFrames[exoticIndex++]);
                 yield return new WaitForSeconds(0.1f);
             }
         }
         
         private IEnumerator OpenBoosterAndDisplayCards(int cardCount)
         {
-            List<CardData> cards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn);
-            if (cards == null)
-            {
-                Debug.LogError($"[{nameof(RewardLoop)}] error : no cards found in dataBase");
-                yield break;
-            }
-
-            List<CardData> shuffledList = new List<CardData>(cards);
-            shuffledList.Shuffle();
+            List<CardData> commonCards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn && c.isLowRarity);
+            if (commonCards == null || commonCards.Count < 1)
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no Common and Rare cards found in dataBase");
+            commonCards.Shuffle();
             
-            for (int i = 0; i < cardCount && i < shuffledList.Count; i++)
+            List<CardData> legendaryCards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn && c.rarity == CardData.Rarity.Legendary);
+            if (legendaryCards == null || legendaryCards.Count < 1)
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no Legendary cards found in dataBase");
+            legendaryCards.Shuffle();
+            
+            List<CardData> exoticCards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn && c.rarity == CardData.Rarity.Exotic);
+            if (exoticCards == null || exoticCards.Count < 1)
+                Debug.LogError($"[{nameof(RewardLoop)}] error : no Exotic cards found in dataBase");
+            exoticCards.Shuffle();
+
+            int commonIndex = 0;
+            int legendaryIndex = 0;
+            int exoticIndex = 0;
+            for (int i = 0; i < cardCount; i++)
             {
-                DrawCardToContainer(new DeckCard(shuffledList[i]), mainContainer);
+                if (exoticCards != null && exoticIndex < exoticCards.Count && DropRateManager.instance.CheckForExoticCardReward())
+                    DrawCardToContainer(new DeckCard(exoticCards[exoticIndex++]), mainContainer);
+                else if (legendaryCards != null && legendaryIndex < legendaryCards.Count && DropRateManager.instance.CheckForLegendaryCardReward())
+                    DrawCardToContainer(new DeckCard(legendaryCards[legendaryIndex++]), mainContainer);
+                else if (commonCards != null && commonIndex < commonCards.Count)
+                    DrawCardToContainer(new DeckCard(commonCards[commonIndex++]), mainContainer);
                 yield return new WaitForSeconds(0.1f);
             }
         }
