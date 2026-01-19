@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Xachary
+namespace Combat.Spells.Data.Xachary
 {
     public class XacharyTransfer : SpellController
     {

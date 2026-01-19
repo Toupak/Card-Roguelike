@@ -1,5 +1,5 @@
 using Cards.Scripts;
-using Items;
+using Inventory.Items;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.EventSystems;

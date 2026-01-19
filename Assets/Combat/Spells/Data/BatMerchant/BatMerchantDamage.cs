@@ -4,18 +4,18 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Cards.Scripts;
-using CombatLoop.EnergyBar;
+using Combat.EnergyBar;
 using Localization;
 using UnityEngine;
 
-namespace Spells.Data.BatMerchant
+namespace Combat.Spells.Data.BatMerchant
 {
     public class BatMerchantDamage : SpellController
     {
         public override bool CanCastSpell()
         {
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
-                CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn ==
+                CombatLoop.TurnType.Preparation)
                 return false;
             
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun) || cardController.cardStatus.IsStatusApplied(StatusType.Captured))

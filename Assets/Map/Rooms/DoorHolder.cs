@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BoomLib.Tools;
 using UnityEngine;
 
-namespace MapMaker.Rooms
+namespace Map.Rooms
 {
     public class DoorHolder : MonoBehaviour
     {

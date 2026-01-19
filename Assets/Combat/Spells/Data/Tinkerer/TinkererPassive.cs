@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Spells.Data.Tinkerer
+namespace Combat.Spells.Data.Tinkerer
 {
     public class TinkererPassive : PassiveController
     {

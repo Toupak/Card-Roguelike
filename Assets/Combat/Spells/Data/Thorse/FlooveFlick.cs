@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CombatLoop.EnergyBar;
+using Combat.EnergyBar;
 using UnityEngine;
 
-namespace Spells.Data.Thorse
+namespace Combat.Spells.Data.Thorse
 {
     public class FlooveFlick : SpellController
     {
         public override bool CanCastSpell()
         {
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Player)
+            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn != CombatLoop.TurnType.Player)
                 return false;
 
             if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))

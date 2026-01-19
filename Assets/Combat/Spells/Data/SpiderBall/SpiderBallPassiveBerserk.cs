@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.SpiderBall
+namespace Combat.Spells.Data.SpiderBall
 {
     public class SpiderBallPassiveBerserk : PassiveController
     {

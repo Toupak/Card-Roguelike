@@ -1,4 +1,4 @@
-using EnemyAttack;
+using Combat.EnemyAttack;
 
 namespace Tooltip.Enemy_Intention
 {

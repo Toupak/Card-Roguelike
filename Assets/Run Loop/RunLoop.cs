@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Character_Selection;
-using CombatLoop.Battles;
-using CombatLoop.Battles.Data;
-using Items.Frames;
-using MapMaker;
-using MapMaker.Floors;
-using MapMaker.Rooms;
-using Overworld.Character;
-using Run_Loop.Rewards;
+using Character_Selection.Character;
+using Combat;
+using Combat.Battles;
+using Combat.Battles.Data;
+using Inventory.Items.Frames;
+using Map;
+using Map.Floors;
+using Map.Rooms;
 using Tutorial;
 using UnityEngine;
 using UnityEngine.Events;
@@ -186,17 +186,17 @@ namespace Run_Loop
 
         private bool IsCombatOver()
         {
-            return CombatLoop.CombatLoop.instance.IsMatchOver();
+            return CombatLoop.instance.IsMatchOver();
         }
 
         private bool CheckCombatResult()
         {
-            return CombatLoop.CombatLoop.instance.HasPlayerWon();
+            return CombatLoop.instance.HasPlayerWon();
         }
         
         private void StoreCardsHealth()
         {
-            CombatLoop.CombatLoop.instance.StoreCardsHealth();
+            CombatLoop.instance.StoreCardsHealth();
         }
         
         private bool IsRunOver()

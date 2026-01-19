@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Xachary
+namespace Combat.Spells.Data.Xachary
 {
     public class XacharyPassive : PassiveController
     {
@@ -19,7 +19,7 @@ namespace Spells.Data.Xachary
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.BulletAmmo, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

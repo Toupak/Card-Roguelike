@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Gnorp_s_Accountant
+namespace Combat.Spells.Data.Gnorp_s_Accountant
 {
     public class Burnout : SpellController
 

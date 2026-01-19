@@ -1,7 +1,7 @@
 using Run_Loop;
 using UnityEngine;
 
-namespace MapMaker.Rooms
+namespace Map.Rooms
 {
     public class DoorTrigger : MonoBehaviour
     {

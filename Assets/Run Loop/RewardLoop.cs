@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Board.Script;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Cards.Tween_Animations;
-using CardSlot.Script;
-using Items;
-using Items.Frames;
+using Combat.Card_Container.CardSlot;
+using Combat.Card_Container.Script;
+using Inventory.Items;
+using Inventory.Items.Frames;
 using UnityEngine;
 
-namespace Run_Loop.Rewards
+namespace Run_Loop
 {
     public class RewardLoop : MonoBehaviour
     {
@@ -297,7 +297,7 @@ namespace Run_Loop.Rewards
                 }
                 else
                 {
-                    Items.FrameCardItem frameCardItem = mainContainer.Slots[0].CurrentCard.itemController.GetComponent<Items.FrameCardItem>();
+                    FrameCardItem frameCardItem = mainContainer.Slots[0].CurrentCard.itemController.GetComponent<FrameCardItem>();
 
                     if (frameCardItem != null)
                         PlayerInventory.instance.LootFrame(frameCardItem.data);

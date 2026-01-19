@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Overworld.Character
+namespace Character_Selection.Character
 {
     public static class PlayerInput
     {

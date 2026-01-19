@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Items.Frames;
+using Inventory.Items.Frames;
 using UnityEngine;
 using UnityEngine.Events;
 

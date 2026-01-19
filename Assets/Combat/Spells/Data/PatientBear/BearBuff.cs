@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.PatientBear
+namespace Combat.Spells.Data.PatientBear
 {
     public class BearBuff : SpellController
     {
@@ -35,7 +35,7 @@ namespace Spells.Data.PatientBear
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (hasSpellBeenCasted && startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (hasSpellBeenCasted && startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 hasSpellBeenCasted = false;
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.BonusDamage, 1, cardController, cardController);

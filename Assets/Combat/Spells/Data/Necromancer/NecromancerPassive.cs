@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Necromancer
+namespace Combat.Spells.Data.Necromancer
 {
     public class NecromancerPassive : PassiveController
     {

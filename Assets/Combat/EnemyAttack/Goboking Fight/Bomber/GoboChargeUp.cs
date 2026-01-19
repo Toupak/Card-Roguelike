@@ -4,7 +4,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.Bomber
+namespace Combat.EnemyAttack.Goboking_Fight.Bomber
 {
     public class GoboChargeUp : BaseEnemyBehaviour
     {
@@ -14,7 +14,7 @@ namespace EnemyAttack.Goboking_Fight.Bomber
         {
             base.Setup(controller);
 
-            int stacks = CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation
+            int stacks = CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation
                 ? turnsToChargeUp
                 : turnsToChargeUp + 1;
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.GobombCharging, stacks, enemyCardController.cardController, enemyCardController.cardController);

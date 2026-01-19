@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using CombatLoop.Battles.Data;
+using Combat.Battles.Data;
 using UnityEngine;
 
-namespace CombatLoop.Battles
+namespace Combat.Battles
 {
     [CreateAssetMenu(fileName = "BattlesDataHolder", menuName = "Scriptable Objects/BattlesHolder")]
     public class BattlesDataHolder : ScriptableObject

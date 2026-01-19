@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 
-namespace Spells.Data.Hog
+namespace Combat.Spells.Data.Hog
 {
     public class BoarSploader : PassiveController
     {

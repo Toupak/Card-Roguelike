@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Trongle
+namespace Combat.Spells.Data.Trongle
 {
     public class TrongleFG : SpellController
     {

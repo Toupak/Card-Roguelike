@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.Dino_And_Zaur
+namespace Combat.Spells.Data.Dino_And_Zaur
 {
     public class DinoAndZaurPassive : PassiveController
     {

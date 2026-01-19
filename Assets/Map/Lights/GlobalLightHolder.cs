@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Overworld.Lights
+namespace Map.Lights
 {
     public class GlobalLightHolder : MonoBehaviour
     {

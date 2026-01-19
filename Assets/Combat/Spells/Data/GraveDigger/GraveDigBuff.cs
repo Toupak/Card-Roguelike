@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CardSlot.Script;
+using Combat.Card_Container.CardSlot;
 using UnityEngine;
 
-namespace Spells.Data.GraveDigger
+namespace Combat.Spells.Data.GraveDigger
 {
     public class GraveDigBuff : NecroSpellController
     {

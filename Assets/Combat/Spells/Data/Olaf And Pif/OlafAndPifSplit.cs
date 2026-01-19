@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Olaf_And_Pif
+namespace Combat.Spells.Data.Olaf_And_Pif
 {
     public class OlafAndPifSplit : SpellController
     {
@@ -16,7 +16,7 @@ namespace Spells.Data.Olaf_And_Pif
         {
             base.Setup(controller, data, attacheSpellButton, otherSpell);
 
-            if (CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.instance != null && CombatLoop.instance.currentTurn != CombatLoop.TurnType.Preparation)
                 HasCastedThisTurn = true;
         }
         

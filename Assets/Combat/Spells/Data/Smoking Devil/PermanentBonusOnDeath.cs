@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.Smoking_Devil
+namespace Combat.Spells.Data.Smoking_Devil
 {
     public class PermanentBonusOnDeath : PassiveController
     {

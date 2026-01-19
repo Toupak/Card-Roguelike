@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Overworld
+namespace Map
 {
     public class Interactable : MonoBehaviour
     {

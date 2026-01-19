@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Status;
+using Combat.Status;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static CombatLoop.CombatLoop;
+using static Combat.CombatLoop;
 
 namespace Cards.Scripts
 {

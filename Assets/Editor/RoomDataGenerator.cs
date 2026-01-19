@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
-using MapMaker.Rooms;
+using Map.Rooms;
 using UnityEditor;
 using UnityEngine;
 

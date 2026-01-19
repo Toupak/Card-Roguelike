@@ -1,7 +1,7 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 
-namespace Items.Frames.data.Shield
+namespace Inventory.Items.Frames.data.Shield
 {
     public class ShieldFrameController : FrameController
     {

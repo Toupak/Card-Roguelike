@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Smoking_Devil
+namespace Combat.Spells.Data.Smoking_Devil
 {
     public class DevilDeal : SpellController
     {

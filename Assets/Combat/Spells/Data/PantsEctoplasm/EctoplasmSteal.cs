@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.PantsEctoplasm
+namespace Combat.Spells.Data.PantsEctoplasm
 {
     public class EctoplasmSteal : SpellController
     {

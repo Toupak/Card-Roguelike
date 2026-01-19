@@ -1,3 +1,4 @@
+using Combat;
 using PrimeTween;
 using Tutorial.Post_it;
 using UnityEngine;
@@ -26,9 +27,9 @@ namespace Tutorial
 
         public void ActivateTutorialForThisBattle()
         {
-            CombatLoop.CombatLoop.OnPlayerDrawHand.AddListener(() => ActivatePostIt(boardPostIt));
-            CombatLoop.CombatLoop.OnPlayerPlayAtLeastOneCard.AddListener(() => ActivatePostIt(enemyPostIt));
-            CombatLoop.CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() => ActivatePostIt(cardSpellPostIt));
+            CombatLoop.OnPlayerDrawHand.AddListener(() => ActivatePostIt(boardPostIt));
+            CombatLoop.OnPlayerPlayAtLeastOneCard.AddListener(() => ActivatePostIt(enemyPostIt));
+            CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() => ActivatePostIt(cardSpellPostIt));
         }
 
         private void ActivatePostIt(PostIt postIt)

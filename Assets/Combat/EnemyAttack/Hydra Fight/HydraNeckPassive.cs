@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace EnemyAttack.Hydra_Fight
+namespace Combat.EnemyAttack.Hydra_Fight
 {
     public class HydraNeckPassive : PassiveController
     {
@@ -25,7 +25,7 @@ namespace EnemyAttack.Hydra_Fight
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Enemy)
+            if (startTurnGa.starting == CombatLoop.TurnType.Enemy)
             {
                 currentTurn += 1;
 

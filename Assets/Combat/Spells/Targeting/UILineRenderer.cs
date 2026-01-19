@@ -2,7 +2,7 @@ using BoomLib.Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Spells.Targeting
+namespace Combat.Spells.Targeting
 {
     [RequireComponent(typeof(CanvasRenderer))]
     public class UILineRenderer : Graphic

@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.MachineGun
+namespace Combat.Spells.Data.MachineGun
 {
     public class MGShoot : SpellController
     {

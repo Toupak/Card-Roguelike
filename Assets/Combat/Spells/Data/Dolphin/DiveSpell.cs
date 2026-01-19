@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Dolphin
+namespace Combat.Spells.Data.Dolphin
 {
     public class DiveSpell : SpellController
     {

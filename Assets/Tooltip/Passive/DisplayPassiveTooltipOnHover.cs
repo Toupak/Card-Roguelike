@@ -1,4 +1,4 @@
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
 namespace Tooltip.Passive

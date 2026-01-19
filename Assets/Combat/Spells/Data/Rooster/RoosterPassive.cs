@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Rooster
+namespace Combat.Spells.Data.Rooster
 {
     public class RoosterPassive : PassiveController
     {

@@ -1,8 +1,8 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Snuk
+namespace Combat.Spells.Data.Snuk
 {
     public class SnukBabyAttack : PassiveController
     {

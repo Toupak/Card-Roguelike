@@ -1,5 +1,5 @@
+using Combat.Status;
 using Localization;
-using Status;
 using UnityEngine;
 
 namespace Tooltip.Status

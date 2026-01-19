@@ -1,8 +1,9 @@
 using BoomLib.Dialog_System;
 using BoomLib.Tools;
+using Map;
 using UnityEngine;
 
-namespace Overworld.Character.Dialog
+namespace Character_Selection.Character.Dialog
 {
     public class DialogStarter : Interactable
     {

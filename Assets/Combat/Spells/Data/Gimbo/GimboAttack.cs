@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Gimbo
+namespace Combat.Spells.Data.Gimbo
 {
     public class GimboAttack : SpellController
     {

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using MapMaker.Floors;
+using Map.Floors;
 using UnityEngine;
 using UnityEngine.Events;
 using Tools = BoomLib.Tools.Tools;
 
-namespace MapMaker
+namespace Map
 {
     // 0 -> Empty
     // 1 -> Combat

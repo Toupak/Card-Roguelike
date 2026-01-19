@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Cards.Scripts;
 using Codice.Client.BaseCommands.Merge.ApplyMergeOperations;
-using MapMaker.Rooms;
+using Map.Rooms;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

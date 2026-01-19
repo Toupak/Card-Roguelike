@@ -1,12 +1,11 @@
 using Cards.Scripts;
+using Combat.Status.Data;
 using PrimeTween;
-using Status.Data;
 using TMPro;
-using Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Status
+namespace Combat.Status
 {
     public class StatusTabDisplay : MonoBehaviour
     {

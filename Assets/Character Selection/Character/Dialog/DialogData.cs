@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Overworld.Character.Dialog
+namespace Character_Selection.Character.Dialog
 {
     [CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
     public class DialogData : ScriptableObject

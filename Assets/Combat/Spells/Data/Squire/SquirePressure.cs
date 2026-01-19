@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Squire
+namespace Combat.Spells.Data.Squire
 {
     public class SquirePressure : SpellController
     {

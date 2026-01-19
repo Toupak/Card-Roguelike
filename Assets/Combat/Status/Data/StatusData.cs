@@ -1,7 +1,7 @@
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Status.Data
+namespace Combat.Status.Data
 {
     [CreateAssetMenu(fileName = "StatusData", menuName = "Scriptable Objects/StatusData")]
     public class StatusData : ScriptableObject

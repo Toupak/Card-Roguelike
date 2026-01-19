@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Dino_And_Zaur
+namespace Combat.Spells.Data.Dino_And_Zaur
 {
     public class DinoAndZaurAttack : SpellController
     {

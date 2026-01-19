@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ActionReaction.Game_Actions;
-using Board.Script;
 using Cards.Scripts;
+using Combat.Card_Container.Script;
 using Run_Loop;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace CombatLoop
+namespace Combat
 {
     public class PlayerHandController : MonoBehaviour
     {

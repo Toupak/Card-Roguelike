@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Cube
+namespace Combat.Spells.Data.Cube
 {
     public class CubeProtect : SpellController
     {
@@ -43,7 +43,7 @@ namespace Spells.Data.Cube
         protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
             base.EndTurnRefreshCooldownReaction(startTurnGa);
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
                 protectionTargets = new List<CardController>();
         }
 
@@ -61,7 +61,7 @@ namespace Spells.Data.Cube
 
         private bool IsCardProtected(CardController card)
         {
-            return CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Enemy && protectionTargets != null && protectionTargets.Count > 0 && protectionTargets.Contains(card);
+            return CombatLoop.instance.currentTurn == CombatLoop.TurnType.Enemy && protectionTargets != null && protectionTargets.Count > 0 && protectionTargets.Contains(card);
         }
     }
 }

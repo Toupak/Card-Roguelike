@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Gumball
+namespace Combat.Spells.Data.Gumball
 {
     public class GumballTaunt : SpellController
     {

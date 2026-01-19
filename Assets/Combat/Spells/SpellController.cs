@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CombatLoop.EnergyBar;
+using Combat.EnergyBar;
+using Combat.Spells.Targeting;
 using Localization;
-using Spells.Targeting;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace Spells
+namespace Combat.Spells
 {
     public class SpellController : MonoBehaviour, ISpellController
     {
@@ -52,7 +52,7 @@ namespace Spells
             if (HasCastedThisTurn)
                 return false;
 
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn != CombatLoop.CombatLoop.TurnType.Player)
+            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn != CombatLoop.TurnType.Player)
                 return false;
             
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))
@@ -180,7 +180,7 @@ namespace Spells
 
         protected virtual void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
                 RefreshCooldown();
         }
         

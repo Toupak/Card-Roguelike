@@ -1,7 +1,7 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using UnityEngine;
-using static CombatLoop.CombatLoop;
+using static Combat.CombatLoop;
 
 namespace RunTracker
 {

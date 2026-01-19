@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CombatLoop.EnergyBar;
+using Combat.EnergyBar;
 using UnityEngine;
 
-namespace Spells.Data.Turtle
+namespace Combat.Spells.Data.Turtle
 {
     public class TurtleReceive : SpellController
     {
@@ -15,8 +15,8 @@ namespace Spells.Data.Turtle
             if (HasCastedThisTurn)
                 return false;
 
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
-                CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn ==
+                CombatLoop.TurnType.Preparation)
                 return false;
             
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))

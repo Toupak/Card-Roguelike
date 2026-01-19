@@ -1,14 +1,13 @@
-using ActionReaction;
-using Cards.Scripts;
-using Spells;
-using Spells.Targeting;
 using System.Collections;
 using System.Collections.Generic;
+using ActionReaction;
 using ActionReaction.Game_Actions;
-using CombatLoop;
+using Cards.Scripts;
+using Combat.Spells;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace EnemyAttack.Monk_Fight.Addon
+namespace Combat.EnemyAttack.Monk_Fight.Addon
 {
     public class HealMonkBehaviour : BaseEnemyBehaviour
     {

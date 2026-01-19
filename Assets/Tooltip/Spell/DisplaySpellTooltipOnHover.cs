@@ -1,4 +1,4 @@
-using Spells;
+using Combat.Spells;
 using UnityEngine;
 
 namespace Tooltip.Spell

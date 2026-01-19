@@ -1,5 +1,5 @@
 using Cards.Scripts;
-using Spells.Data.Dolphin;
+using Combat.Spells.Data.Dolphin;
 
 namespace ActionReaction.Game_Actions
 {

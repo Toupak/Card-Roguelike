@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Targeting;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Spells.Data.Monke
+namespace Combat.Spells.Data.Monke
 {
     public class GoBackToMonke : SpellController
     {

@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 
-namespace Spells.Data.Whale
+namespace Combat.Spells.Data.Whale
 {
     public class WhaleArmor : PassiveController
     {
@@ -21,7 +21,7 @@ namespace Spells.Data.Whale
         
         private void EndTurnReaction(EndTurnGA endTurnGa)
         {
-            if (endTurnGa.ending == CombatLoop.CombatLoop.TurnType.Player)
+            if (endTurnGa.ending == CombatLoop.TurnType.Player)
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Armor, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

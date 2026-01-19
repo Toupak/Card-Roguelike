@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Board.Script;
-using EnemyAttack;
-using Passives;
-using Spells;
+using Combat.Card_Container.Script;
+using Combat.EnemyAttack;
+using Combat.Passives;
+using Combat.Spells;
 using UnityEngine;
 
 namespace Cards.Scripts

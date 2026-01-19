@@ -3,7 +3,7 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Spells
+namespace Combat.Spells
 {
     public class AnimateSpellButton : MonoBehaviour
     {

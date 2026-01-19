@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MapMaker.Rooms
+namespace Map.Rooms
 {
     public class RoomBuilder : MonoBehaviour
     {

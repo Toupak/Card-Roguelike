@@ -3,7 +3,7 @@ using BoomLib.BoomTween;
 using BoomLib.Tools;
 using Cards.HandCurves;
 using UnityEngine;
-using static Board.Script.CardContainer;
+using static Combat.Card_Container.Script.CardContainer;
 using Tools = BoomLib.Tools.Tools;
 
 namespace Cards.Scripts

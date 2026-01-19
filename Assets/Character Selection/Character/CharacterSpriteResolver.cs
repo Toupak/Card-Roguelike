@@ -2,7 +2,7 @@ using Run_Loop;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
-namespace Overworld.Character
+namespace Character_Selection.Character
 {
     public class CharacterSpriteResolver : MonoBehaviour
     {

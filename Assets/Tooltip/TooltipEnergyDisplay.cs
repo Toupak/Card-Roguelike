@@ -1,4 +1,4 @@
-using CombatLoop.EnergyBar;
+using Combat.EnergyBar;
 using UnityEngine;
 
 namespace Tooltip

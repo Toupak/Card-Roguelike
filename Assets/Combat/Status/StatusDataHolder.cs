@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Status.Data;
+using Combat.Status.Data;
 using UnityEngine;
 
-namespace Status
+namespace Combat.Status
 {
     [CreateAssetMenu(fileName = "StatusDataHolder", menuName = "Scriptable Objects/StatusDataHolder")]
     public class StatusDataHolder : ScriptableObject

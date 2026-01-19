@@ -1,7 +1,7 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 
-namespace Items.Frames.data.Sword
+namespace Inventory.Items.Frames.data.Sword
 {
     public class SwordFrameController : FrameController
     {

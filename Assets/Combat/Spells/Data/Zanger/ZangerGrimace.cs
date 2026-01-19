@@ -4,10 +4,10 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Cards.Scripts;
-using Spells.Targeting;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Spells.Data.Zanger
+namespace Combat.Spells.Data.Zanger
 {
     public class ZangerGrimace : SpellController
     {

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using PrimeTween;
 using UnityEngine;
 
-namespace Spells.Data.Dino_And_Zaur
+namespace Combat.Spells.Data.Dino_And_Zaur
 {
     public class ZaurRemount : SpellController
     {

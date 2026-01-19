@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Passives
+namespace Combat.Passives
 {
     [CreateAssetMenu(fileName = "PassiveData", menuName = "Scriptable Objects/PassiveData")]
     public class PassiveData : ScriptableObject

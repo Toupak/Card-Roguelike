@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using UnityEngine;
 
-namespace EnemyAttack.Behaviours
+namespace Combat.EnemyAttack.Behaviours
 {
     public class SetFixedIntentions : BaseEnemyBehaviour
     {

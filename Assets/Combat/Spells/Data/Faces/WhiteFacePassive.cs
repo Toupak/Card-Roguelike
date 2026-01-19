@@ -1,7 +1,7 @@
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Faces
+namespace Combat.Spells.Data.Faces
 {
     public class WhiteFacePassive : PassiveController
     {

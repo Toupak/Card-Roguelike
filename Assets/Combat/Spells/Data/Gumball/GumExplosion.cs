@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
-using Status;
+using Combat.Passives;
+using Combat.Spells.Targeting;
+using Combat.Status;
 
-namespace Spells.Data.Gumball
+namespace Combat.Spells.Data.Gumball
 {
     public class GumExplosion : PassiveController
     {

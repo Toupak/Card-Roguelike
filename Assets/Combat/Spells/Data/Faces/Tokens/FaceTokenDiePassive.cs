@@ -1,8 +1,8 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Faces.Tokens
+namespace Combat.Spells.Data.Faces.Tokens
 {
     public class FaceTokenDiePassive : PassiveController
     {
@@ -18,7 +18,7 @@ namespace Spells.Data.Faces.Tokens
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 DealDamageGA dealDamageGa = new DealDamageGA(1, cardController, cardController);
                 ActionSystem.instance.AddReaction(dealDamageGa);

@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.Snuk
+namespace Combat.Spells.Data.Snuk
 {
     public class SnukEggWait : PassiveController
     {
@@ -27,7 +27,7 @@ namespace Spells.Data.Snuk
         
         private void StartTurnGaReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 currentTurnCount += 1;
 

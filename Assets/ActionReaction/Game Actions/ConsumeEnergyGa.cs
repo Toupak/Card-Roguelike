@@ -1,4 +1,4 @@
-using Spells;
+using Combat.Spells;
 
 namespace ActionReaction.Game_Actions
 {

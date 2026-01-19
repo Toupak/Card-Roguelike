@@ -2,15 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Board.Script;
 using Cards.Scripts;
-using CardSlot.Script;
+using Combat.Card_Container.CardSlot;
+using Combat.Card_Container.Script;
 using Cursor.Script;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-namespace Spells.Targeting
+namespace Combat.Spells.Targeting
 {
     public class TargetingSystem : MonoBehaviour
     {

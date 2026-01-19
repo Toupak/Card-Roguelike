@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Pillar_Man
+namespace Combat.Spells.Data.Pillar_Man
 {
     public class PillarTaunt : PassiveController
     {

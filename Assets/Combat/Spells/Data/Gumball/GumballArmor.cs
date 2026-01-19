@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.Gumball
+namespace Combat.Spells.Data.Gumball
 {
     public class GumballArmor : PassiveController
     {

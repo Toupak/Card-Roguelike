@@ -1,8 +1,7 @@
-using System;
 using PrimeTween;
 using UnityEngine;
 
-namespace Overworld.UI.Selection_Cursor
+namespace Map.UI.Selection_Cursor
 {
     public class SelectionCursor : MonoBehaviour
     {

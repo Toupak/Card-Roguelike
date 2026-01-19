@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace EnemyAttack
+namespace Combat.EnemyAttack
 {
     public interface IEnemyBehaviour
     {

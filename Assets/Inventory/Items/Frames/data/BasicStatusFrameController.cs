@@ -2,11 +2,12 @@ using System;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells;
-using Spells.Targeting;
+using Combat;
+using Combat.Spells;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Items.Frames.data
+namespace Inventory.Items.Frames.data
 {
     public class BasicStatusFrameController : FrameController
     {
@@ -71,13 +72,13 @@ namespace Items.Frames.data
         
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
                 CheckBehaviour(ComputeTarget());
         }
 
         private void EndTurnReaction(EndTurnGA endTurnGa)
         {
-            if (endTurnGa.ending == CombatLoop.CombatLoop.TurnType.Player)
+            if (endTurnGa.ending == CombatLoop.TurnType.Player)
                 CheckBehaviour(ComputeTarget());
         }
 

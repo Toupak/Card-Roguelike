@@ -3,11 +3,11 @@ using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 using Random = UnityEngine.Random;
 
-namespace Spells.Data.Faces.Tokens
+namespace Combat.Spells.Data.Faces.Tokens
 {
     public class FaceTokenAttackPassive : PassiveController
     {
@@ -23,7 +23,7 @@ namespace Spells.Data.Faces.Tokens
 
         private void EndTurnReaction(EndTurnGA endTurnGa)
         {
-            if (endTurnGa.ending == CombatLoop.CombatLoop.TurnType.Player)
+            if (endTurnGa.ending == CombatLoop.TurnType.Player)
             {
                 List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy).Where((c) => c.cardController.cardStatus.IsStatusApplied(StatusType.Terror)).ToList();
                 

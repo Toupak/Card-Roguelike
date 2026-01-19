@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace EnemyAttack.Hydra_Fight
+namespace Combat.EnemyAttack.Hydra_Fight
 {
     public class HydraPassive : PassiveController
     {

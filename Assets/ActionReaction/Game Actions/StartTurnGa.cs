@@ -1,4 +1,4 @@
-using static CombatLoop.CombatLoop;
+using static Combat.CombatLoop;
 
 namespace ActionReaction.Game_Actions
 {

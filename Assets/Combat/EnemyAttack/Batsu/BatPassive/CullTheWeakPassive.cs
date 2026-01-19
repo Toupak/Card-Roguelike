@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace EnemyAttack.Batsu.BatPassive
+namespace Combat.EnemyAttack.Batsu.BatPassive
 {
     public class CullTheWeakPassive : PassiveController
     {

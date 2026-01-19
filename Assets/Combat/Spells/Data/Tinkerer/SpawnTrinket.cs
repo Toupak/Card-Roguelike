@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Tinkerer
+namespace Combat.Spells.Data.Tinkerer
 {
     public class SpawnTrinket : SpellController
     {

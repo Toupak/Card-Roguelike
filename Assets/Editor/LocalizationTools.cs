@@ -1,10 +1,10 @@
 using BoomLib.Tools;
 using Cards.Scripts;
-using EnemyAttack;
-using Passives;
-using Spells;
-using Status;
-using Status.Data;
+using Combat.EnemyAttack;
+using Combat.Passives;
+using Combat.Spells;
+using Combat.Status;
+using Combat.Status.Data;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Tables;

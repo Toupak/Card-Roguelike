@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using BoomLib.Tools;
+using Combat.Status;
+using Combat.Status.Data;
 using Localization;
-using Status;
-using Status.Data;
 using UnityEngine;
 
 namespace Tooltip

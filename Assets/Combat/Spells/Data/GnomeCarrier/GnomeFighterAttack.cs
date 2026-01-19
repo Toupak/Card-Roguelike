@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 
-namespace Spells.Data.GnomeCarrier
+namespace Combat.Spells.Data.GnomeCarrier
 {
     public class GnomeFighterAttack : PassiveController
     {
@@ -20,7 +20,7 @@ namespace Spells.Data.GnomeCarrier
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting != CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting != CombatLoop.TurnType.Player)
                 return;
 
             CardController target = PickRandomTarget(TargetingSystem.instance.RetrieveBoard(TargetType.Enemy));

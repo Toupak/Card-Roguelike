@@ -6,7 +6,7 @@ using Cards.Tween_Animations;
 using UI.Damage_Numbers;
 using UnityEngine;
 
-namespace CombatLoop
+namespace Combat
 {
     public class DamageSystem : MonoBehaviour
     {

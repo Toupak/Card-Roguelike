@@ -2,10 +2,9 @@ using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CombatLoop;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.Bomber
+namespace Combat.EnemyAttack.Goboking_Fight.Bomber
 {
     public class GoboExplode : BaseEnemyBehaviour
     {

@@ -1,11 +1,11 @@
 using Cards.Scripts;
-using Items.Frames;
+using Inventory.Items.Frames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Items
+namespace Inventory.Items
 {
     public class ItemController : MonoBehaviour
     {

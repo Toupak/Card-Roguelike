@@ -1,7 +1,7 @@
 using BoomLib.Tools;
 using UnityEngine;
 
-namespace Overworld.Character
+namespace Character_Selection.Character
 {
     public class CharacterAnimation : MonoBehaviour
     {

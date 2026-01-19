@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Status
+namespace Combat.Status
 {
     public class StatusTabManager : MonoBehaviour
     {

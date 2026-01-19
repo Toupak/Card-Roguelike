@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using BoomLib.Tools;
-using MapMaker.Rooms;
+using Map.Rooms;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;

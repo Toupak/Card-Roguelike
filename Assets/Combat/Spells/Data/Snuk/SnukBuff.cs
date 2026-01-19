@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CardSlot.Script;
+using Combat.Card_Container.CardSlot;
 using UnityEngine;
 
-namespace Spells.Data.Snuk
+namespace Combat.Spells.Data.Snuk
 {
     public class SnukBuff : SpellController
     {

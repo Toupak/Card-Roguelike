@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells
+namespace Combat.Spells
 {
     public interface ISpellController
     {

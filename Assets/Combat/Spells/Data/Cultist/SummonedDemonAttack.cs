@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Cultist
+namespace Combat.Spells.Data.Cultist
 {
     public class SummonedDemonAttack : NecroSpellController
     {

@@ -4,7 +4,7 @@ using ActionReaction;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace EnemyAttack.Angry_Plant
+namespace Combat.EnemyAttack.Angry_Plant
 {
     public class BurpCard : BaseEnemyBehaviour
     {
@@ -20,7 +20,7 @@ namespace EnemyAttack.Angry_Plant
             {
                 if (target.cardController.cardStatus.IsStatusApplied(StatusType.Captured))
                 {
-                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.CombatLoop.instance.playerBoard);
+                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.instance.playerBoard);
 
                     yield return new WaitForSeconds(0.5f);
                     yield break;

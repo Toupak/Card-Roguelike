@@ -1,10 +1,10 @@
+using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using System.Collections;
 using UnityEngine;
 
-namespace EnemyAttack.Behaviours
+namespace Combat.EnemyAttack.Behaviours
 {
     public class DealDamageSelfDamageBehaviour : BaseEnemyBehaviour
     {

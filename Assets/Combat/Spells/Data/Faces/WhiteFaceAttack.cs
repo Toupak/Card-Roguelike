@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Faces
+namespace Combat.Spells.Data.Faces
 {
     public class WhiteFaceAttack : SpellController
     {

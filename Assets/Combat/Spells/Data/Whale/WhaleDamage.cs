@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 
-namespace Spells.Data.Whale
+namespace Combat.Spells.Data.Whale
 {
     public class WhaleDamage : PassiveController
     {
@@ -21,7 +21,7 @@ namespace Spells.Data.Whale
         
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.BonusDamage, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

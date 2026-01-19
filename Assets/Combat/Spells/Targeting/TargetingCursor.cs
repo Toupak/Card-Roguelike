@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Spells.Targeting
+namespace Combat.Spells.Targeting
 {
     public class TargetingCursor : MonoBehaviour
     {

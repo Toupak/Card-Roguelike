@@ -1,10 +1,10 @@
 using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using EnemyAttack.Behaviours;
+using Combat.EnemyAttack.Behaviours;
 using UnityEngine;
 
-namespace EnemyAttack.Angry_Plant
+namespace Combat.EnemyAttack.Angry_Plant
 {
     public class LifeDrain : DealDamageBehaviour
     {

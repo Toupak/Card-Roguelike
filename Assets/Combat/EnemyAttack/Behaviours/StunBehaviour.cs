@@ -4,7 +4,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace EnemyAttack.Behaviours
+namespace Combat.EnemyAttack.Behaviours
 {
     public class StunBehaviour : BaseEnemyBehaviour
     {

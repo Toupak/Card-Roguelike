@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Turtle
+namespace Combat.Spells.Data.Turtle
 {
     public class TurtleGive : SpellController
     {

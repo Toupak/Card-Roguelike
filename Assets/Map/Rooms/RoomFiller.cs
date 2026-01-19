@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MapMaker.Rooms
+namespace Map.Rooms
 {
     public class RoomFiller : MonoBehaviour
     {

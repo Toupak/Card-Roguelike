@@ -5,7 +5,7 @@ using Cards.Scripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace EnemyAttack
+namespace Combat.EnemyAttack
 {
     public class EnemyCardController : MonoBehaviour
     {
@@ -27,7 +27,7 @@ namespace EnemyAttack
             cardData = data;
             
             cardController.cardStatus.OnUpdateStatus.AddListener((_,_) => UpdateDamageText());
-            CombatLoop.CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() =>
+            CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() =>
             {
                 SetupIntentionDisplay();
                 ComputeNextIntention();
@@ -47,7 +47,7 @@ namespace EnemyAttack
                 behaviours.Add(instantiatedBehaviour);
             }
 
-            if (CombatLoop.CombatLoop.instance.turnCount > 0 && cardData.isWaitingOnSpawn)
+            if (CombatLoop.instance.turnCount > 0 && cardData.isWaitingOnSpawn)
                 behaviourQueue.Enqueue(cardController.waitingBehaviourPrefab);
         }
         

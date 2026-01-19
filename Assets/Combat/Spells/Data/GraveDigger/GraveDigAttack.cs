@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.GraveDigger
+namespace Combat.Spells.Data.GraveDigger
 {
     public class GraveDigAttack : SpellController
     {

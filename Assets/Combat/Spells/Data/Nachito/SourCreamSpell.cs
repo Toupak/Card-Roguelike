@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Status;
+using Combat.Status;
 using UnityEngine;
 
-namespace Spells.Data.Nachito
+namespace Combat.Spells.Data.Nachito
 {
     public class SourCreamSpell : SpellController
     {

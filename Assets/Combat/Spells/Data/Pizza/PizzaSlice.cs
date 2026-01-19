@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Pizza
+namespace Combat.Spells.Data.Pizza
 {
     public class PizzaSlice : SpellController
     {

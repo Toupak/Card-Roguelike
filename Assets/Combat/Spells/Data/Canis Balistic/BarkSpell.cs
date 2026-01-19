@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Status;
+using Combat.Status;
 using UnityEngine;
 
-namespace Spells.Data.Canis_Balistic
+namespace Combat.Spells.Data.Canis_Balistic
 {
     public class BarkSpell : SpellController
     {

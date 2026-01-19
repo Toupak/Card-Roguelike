@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Spells.Data.Faces
+namespace Combat.Spells.Data.Faces
 {
     public class FaceSwapMask : SpellController
     {

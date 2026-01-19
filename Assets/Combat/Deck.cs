@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace CombatLoop
+namespace Combat
 {
     public class Deck : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.ChildSoldier.Teen
+namespace Combat.Spells.Data.ChildSoldier.Teen
 {
     public class TeenSoldierDefense : SpellController
     {

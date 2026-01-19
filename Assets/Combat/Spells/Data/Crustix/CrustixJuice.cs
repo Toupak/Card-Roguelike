@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Crustix
+namespace Combat.Spells.Data.Crustix
 {
     public class CrustixJuice : SpellController
     {

@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Cube
+namespace Combat.Spells.Data.Cube
 {
     public class CubePassive : PassiveController
     {

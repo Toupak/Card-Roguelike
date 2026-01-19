@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.Olaf_And_Pif
+namespace Combat.Spells.Data.Olaf_And_Pif
 {
     public class PifPassive : PassiveController
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CombatLoop.EnergyBar
+namespace Combat.EnergyBar
 {
     public class EnergyDisplay : MonoBehaviour
     {

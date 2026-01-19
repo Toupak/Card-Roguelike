@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MapMaker.Rooms
+namespace Map.Rooms
 {
     [CreateAssetMenu(fileName = "RoomDataBase", menuName = "Scriptable Objects/RoomDataBase")]
     public class RoomDataBase : ScriptableObject

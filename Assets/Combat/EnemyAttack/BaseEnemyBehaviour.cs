@@ -1,15 +1,14 @@
-using Cards.Scripts;
-using Status;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using CombatLoop;
+using Cards.Scripts;
+using Combat.Spells;
+using Combat.Spells.Targeting;
+using Combat.Status;
 using Localization;
-using Spells;
-using Spells.Targeting;
 using UnityEngine;
 
-namespace EnemyAttack
+namespace Combat.EnemyAttack
 {
     public abstract class BaseEnemyBehaviour : MonoBehaviour, IEnemyBehaviour
     {

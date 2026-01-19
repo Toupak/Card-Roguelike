@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using MapMaker.Rooms;
+using Map.Rooms;
 using UnityEditor;
 using UnityEngine;
 

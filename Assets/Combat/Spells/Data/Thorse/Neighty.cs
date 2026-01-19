@@ -1,11 +1,11 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
+using Combat.Passives;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Spells.Data.Thorse
+namespace Combat.Spells.Data.Thorse
 {
     public class Neighty : PassiveController
     {

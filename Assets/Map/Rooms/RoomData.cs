@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MapMaker.Rooms
+namespace Map.Rooms
 {
     [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
     public class RoomData : ScriptableObject

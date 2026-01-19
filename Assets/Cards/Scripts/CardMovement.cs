@@ -1,9 +1,9 @@
 using System;
-using Board.Script;
 using BoomLib.Tools;
-using CardSlot.Script;
+using Combat.Card_Container.CardSlot;
+using Combat.Card_Container.Script;
 using Cursor.Script;
-using Items;
+using Inventory.Items;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;

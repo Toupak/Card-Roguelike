@@ -1,5 +1,4 @@
-using Items;
-using Items.Frames;
+using Inventory.Items.Frames;
 using UnityEngine;
 
 namespace Tooltip.Frame

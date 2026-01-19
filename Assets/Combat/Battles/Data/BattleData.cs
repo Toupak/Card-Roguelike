@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace CombatLoop.Battles.Data
+namespace Combat.Battles.Data
 {
     [CreateAssetMenu(fileName = "BattleData", menuName = "Scriptable Objects/BattleData")]
     public class BattleData : ScriptableObject

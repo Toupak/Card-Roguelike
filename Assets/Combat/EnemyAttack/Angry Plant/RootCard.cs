@@ -2,10 +2,9 @@ using System.Collections;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using CombatLoop;
 using UnityEngine;
 
-namespace EnemyAttack.Angry_Plant
+namespace Combat.EnemyAttack.Angry_Plant
 {
     public class RootCard : BaseEnemyBehaviour
     {

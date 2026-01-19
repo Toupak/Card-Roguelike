@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.GnomeCarrier
+namespace Combat.Spells.Data.GnomeCarrier
 {
     public class SpawnTokens : SpellController
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Overworld.Character
+namespace Character_Selection.Character
 {
     public class CharacterMovement : MonoBehaviour
     {

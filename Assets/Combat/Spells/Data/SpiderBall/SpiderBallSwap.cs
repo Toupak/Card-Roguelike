@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.SpiderBall
+namespace Combat.Spells.Data.SpiderBall
 {
     public class SpiderBallSwap : SpellController
     {

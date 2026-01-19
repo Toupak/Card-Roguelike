@@ -5,12 +5,12 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Cards.Tween_Animations;
-using Spells;
-using Spells.Targeting;
-using Status.Data;
+using Combat.Spells;
+using Combat.Spells.Targeting;
+using Combat.Status.Data;
 using UnityEngine;
 
-namespace Status
+namespace Combat.Status
 {
     public class StatusSystem : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells
+namespace Combat.Spells
 {
     public class DefaultSpellController : SpellController
     {

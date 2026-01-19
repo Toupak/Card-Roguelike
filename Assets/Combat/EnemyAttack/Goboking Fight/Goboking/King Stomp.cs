@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells;
-using Spells.Targeting;
+using Combat.Spells;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.Goboking
+namespace Combat.EnemyAttack.Goboking_Fight.Goboking
 {
     public class KingStomp : BaseEnemyBehaviour
     {

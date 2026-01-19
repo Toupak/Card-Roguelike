@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
-using CombatLoop.EnergyBar;
+using Combat.EnergyBar;
 using UnityEngine;
 
-namespace Spells.Data.Gimbo
+namespace Combat.Spells.Data.Gimbo
 {
     public class GimboCleanse : SpellController
     {
@@ -14,8 +14,8 @@ namespace Spells.Data.Gimbo
             if (HasCastedThisTurn)
                 return false;
 
-            if (CombatLoop.CombatLoop.instance == null || CombatLoop.CombatLoop.instance.currentTurn ==
-                CombatLoop.CombatLoop.TurnType.Preparation)
+            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn ==
+                CombatLoop.TurnType.Preparation)
                 return false;
             
             if (!EnergyController.instance.CheckForEnergy(spellData.energyCost))

@@ -3,7 +3,7 @@ using Cards.Scripts;
 using Localization;
 using UnityEngine;
 
-namespace Passives
+namespace Combat.Passives
 {
     public class PassiveController : MonoBehaviour
     {

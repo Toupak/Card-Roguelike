@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Dolphin
+namespace Combat.Spells.Data.Dolphin
 {
     public class SurfaceSpell : SpellController
     {
@@ -44,7 +44,7 @@ namespace Spells.Data.Dolphin
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 if (cardController.cardData.spellList.Count == 1)
                     cardController.SetupSingleSpell(diveSpell);

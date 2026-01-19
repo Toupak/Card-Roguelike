@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Board.Script;
 using Cards.Scripts;
-using Overworld.Character;
+using Character_Selection.Character;
+using Combat.Card_Container.Script;
 using Run_Loop;
 using TMPro;
 using UnityEngine;

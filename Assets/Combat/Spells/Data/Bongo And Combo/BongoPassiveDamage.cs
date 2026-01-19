@@ -1,8 +1,8 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Bongo_And_Combo
+namespace Combat.Spells.Data.Bongo_And_Combo
 {
     public class BongoPassiveDamage : PassiveController
     {

@@ -2,9 +2,9 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Banana
+namespace Combat.Spells.Data.Banana
 {
     public class SlipperyTrap : PassiveController
     {

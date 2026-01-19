@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Targeting;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Spells.Data.TheCount
+namespace Combat.Spells.Data.TheCount
 {
     public class CountAttack : SpellController
     {
@@ -61,7 +61,7 @@ namespace Spells.Data.TheCount
 
         private void StartTurnCountReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 foreach (KeyValuePair<CardController,int> friend in friends)
                 {

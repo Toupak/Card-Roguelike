@@ -1,10 +1,10 @@
 using System;
 using Cards.Scripts;
-using Items.Frames;
+using Inventory.Items.Frames;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Items
+namespace Inventory.Items
 {
     public class FrameCardItem : MonoBehaviour
     {

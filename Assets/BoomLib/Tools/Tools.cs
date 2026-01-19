@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MapMaker.Rooms;
+using Combat;
+using Map.Rooms;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -207,13 +208,13 @@ namespace BoomLib.Tools
             return new Vector3(position.x, position.y, 0);
         }
         
-        public static CombatLoop.CombatLoop.TurnType Opposite(this CombatLoop.CombatLoop.TurnType type)
+        public static CombatLoop.TurnType Opposite(this CombatLoop.TurnType type)
         {
-            if (type == CombatLoop.CombatLoop.TurnType.Player)
-                return CombatLoop.CombatLoop.TurnType.Enemy;
+            if (type == CombatLoop.TurnType.Player)
+                return CombatLoop.TurnType.Enemy;
 
-            if (type == CombatLoop.CombatLoop.TurnType.Enemy)
-                return CombatLoop.CombatLoop.TurnType.Player;
+            if (type == CombatLoop.TurnType.Enemy)
+                return CombatLoop.TurnType.Player;
 
             return type;
         }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Passives
+namespace Combat.Passives
 {
     public class PassiveHolder : MonoBehaviour
     {

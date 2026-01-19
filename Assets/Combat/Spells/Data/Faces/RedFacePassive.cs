@@ -1,8 +1,8 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Faces
+namespace Combat.Spells.Data.Faces
 {
     public class RedFacePassive : PassiveController
     {

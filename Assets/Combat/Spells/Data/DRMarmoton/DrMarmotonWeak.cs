@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.DRMarmoton
+namespace Combat.Spells.Data.DRMarmoton
 {
     public class DrMarmotonWeak : SpellController
     {

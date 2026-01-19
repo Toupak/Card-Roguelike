@@ -4,7 +4,7 @@ using Cards.Scripts;
 using UI.Damage_Numbers;
 using UnityEngine;
 
-namespace Passives.Common_Passives.Status_Immune
+namespace Combat.Passives.Common_Passives.Status_Immune
 {
     public class ImmuneToStatus : PassiveController
     {

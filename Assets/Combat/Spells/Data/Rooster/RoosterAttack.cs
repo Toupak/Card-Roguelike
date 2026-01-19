@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Rooster
+namespace Combat.Spells.Data.Rooster
 {
     public class RoosterAttack : SpellController
     {

@@ -1,9 +1,9 @@
 using BoomLib.Tools;
-using MapMaker.Floors;
+using Map.Floors;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MapMaker
+namespace Map
 {
     public class MapDisplay : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 
-namespace Items.Frames.data.Bersek
+namespace Inventory.Items.Frames.data.Bersek
 {
     public class BerserkFrameController : FrameController
     {

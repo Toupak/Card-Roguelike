@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using Board.Script;
 using BoomLib.UI.Scripts;
 using Cards.Scripts;
-using Items;
+using Combat;
+using Combat.Card_Container.Script;
+using Inventory.Items;
 using PrimeTween;
 using Run_Loop;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace Inventory
         private void Start()
         {
             PlayerInventory.OnUnEquipFrame.AddListener((frameItem, position) => CreateItem(frameItem, position, false));
-            CombatLoop.CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(HideInventoryDuringFight);
+            CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(HideInventoryDuringFight);
             
             inventoryRect = inventoryContainer.GetComponent<RectTransform>();
             buttonRect = inventoryButton.GetComponent<RectTransform>();

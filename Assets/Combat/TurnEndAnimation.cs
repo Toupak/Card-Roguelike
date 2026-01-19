@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CombatLoop
+namespace Combat
 {
     public class TurnEndAnimation : MonoBehaviour
     {

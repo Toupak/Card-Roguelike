@@ -1,8 +1,9 @@
 using BoomLib.Tools;
-using Overworld.UI.Selection_Cursor;
+using Map;
+using Map.UI.Selection_Cursor;
 using UnityEngine;
 
-namespace Overworld.Character
+namespace Character_Selection.Character
 {
     public class CharacterInteract : MonoBehaviour
     {

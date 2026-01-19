@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Guard
+namespace Combat.Spells.Data.Guard
 {
     public class GuardPassive : PassiveController
     {

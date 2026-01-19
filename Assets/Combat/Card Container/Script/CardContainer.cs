@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using BoomLib.Tools;
 using Cards.Scripts;
-using CardSlot.Script;
+using Combat.Card_Container.CardSlot;
 using Cursor.Script;
-using Items;
+using Inventory.Items;
 using Run_Loop;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Board.Script
+namespace Combat.Card_Container.Script
 {
     public class CardContainer : MonoBehaviour
     {
@@ -140,7 +140,7 @@ namespace Board.Script
             
             if (type == ContainerType.Board)
             {
-                bool isInPreparation = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Preparation;
+                bool isInPreparation = CombatLoop.instance != null && CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation;
                 if (isInPreparation)
                     return slots.Count(s => s.CurrentCard.cardController != null) >= maxCardCount;
                 else

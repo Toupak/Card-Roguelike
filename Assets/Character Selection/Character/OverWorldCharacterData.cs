@@ -3,7 +3,7 @@ using Cards.Scripts;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
-namespace Overworld.Character
+namespace Character_Selection.Character
 {
     [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]
     public class OverWorldCharacterData : ScriptableObject

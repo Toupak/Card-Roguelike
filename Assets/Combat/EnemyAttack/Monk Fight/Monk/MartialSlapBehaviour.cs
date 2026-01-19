@@ -4,7 +4,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace EnemyAttack.Monk_Fight.Monk
+namespace Combat.EnemyAttack.Monk_Fight.Monk
 {
     public class MartialSlapBehaviour : BaseEnemyBehaviour
     {

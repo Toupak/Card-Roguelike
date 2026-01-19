@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Big_Fish
+namespace Combat.Spells.Data.Big_Fish
 {
     public class BigFishAttack : SpellController
     {

@@ -1,9 +1,9 @@
-using EnemyAttack;
-using Items.Frames;
+using Combat.EnemyAttack;
+using Combat.Passives;
+using Combat.Spells;
+using Inventory.Items.Frames;
 using JetBrains.Annotations;
-using Passives;
 using Run_Loop;
-using Spells;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

@@ -4,10 +4,10 @@ using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells.Targeting;
+using Combat.Spells.Targeting;
 using UnityEngine;
 
-namespace Spells
+namespace Combat.Spells
 {
     public class NecroSpellController : SpellController
     {

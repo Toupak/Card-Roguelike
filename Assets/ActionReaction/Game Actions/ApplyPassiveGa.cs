@@ -1,5 +1,5 @@
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
 namespace ActionReaction.Game_Actions
 {

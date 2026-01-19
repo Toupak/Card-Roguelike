@@ -2,7 +2,7 @@ using Cards.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Passives
+namespace Combat.Passives
 {
     public class PassiveDisplay : MonoBehaviour
     {

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Spells
+namespace Combat.Spells
 {
     public class SpellButton : MonoBehaviour, IPointerDownHandler
     {
@@ -59,7 +59,7 @@ namespace Spells
                 return;
             
             bool isCursorFree = CursorInfo.instance.currentMode == CursorInfo.CursorMode.Free;
-            bool isPlayerTurn = CombatLoop.CombatLoop.instance != null && CombatLoop.CombatLoop.instance.currentTurn == CombatLoop.CombatLoop.TurnType.Player;
+            bool isPlayerTurn = CombatLoop.instance != null && CombatLoop.instance.currentTurn == CombatLoop.TurnType.Player;
 
             if (isCursorFree && isPlayerTurn)
                 spellController.CastSpell(transform);

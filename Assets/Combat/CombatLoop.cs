@@ -1,22 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using Board.Script;
 using BoomLib.Tools;
 using BoomLib.UI.Scripts;
 using Cards.Scripts;
-using CardSlot.Script;
-using CombatLoop.Battles.Data;
-using CombatLoop.EnergyBar;
+using Combat.Battles.Data;
+using Combat.Card_Container.CardSlot;
+using Combat.Card_Container.Script;
+using Combat.EnergyBar;
 using Localization;
 using Run_Loop;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace CombatLoop
+namespace Combat
 {
     public class CombatLoop : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Barbarian
+namespace Combat.Spells.Data.Barbarian
 {
     public class BarbarianDefense : SpellController
     {

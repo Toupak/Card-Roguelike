@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.Snuk
+namespace Combat.Spells.Data.Snuk
 {
     public class SnukEggPassive : PassiveController
     {
@@ -22,7 +22,7 @@ namespace Spells.Data.Snuk
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting == CombatLoop.CombatLoop.TurnType.Player)
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 SpawnCardGA spawnCardGa = new SpawnCardGA(tokenData, cardController, true);
                 ActionSystem.instance.AddReaction(spawnCardGa);

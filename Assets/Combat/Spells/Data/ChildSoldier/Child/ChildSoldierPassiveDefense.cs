@@ -1,10 +1,10 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 using UnityEngine;
 
-namespace Spells.Data.ChildSoldier.Child
+namespace Combat.Spells.Data.ChildSoldier.Child
 {
     public class ChildSoldierPassiveDefense : PassiveController
     {

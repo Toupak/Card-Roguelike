@@ -3,7 +3,7 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Items.Frames
+namespace Inventory.Items.Frames
 {
     public class FrameTabDisplay : MonoBehaviour
     {

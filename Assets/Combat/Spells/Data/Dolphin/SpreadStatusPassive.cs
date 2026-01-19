@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
-using Spells.Targeting;
-using Status;
-using Status.Data;
+using Combat.Passives;
+using Combat.Spells.Targeting;
+using Combat.Status;
+using Combat.Status.Data;
 using UnityEngine;
 
-namespace Spells.Data.Dolphin
+namespace Combat.Spells.Data.Dolphin
 {
     public class SpreadStatusPassive : PassiveController
     {

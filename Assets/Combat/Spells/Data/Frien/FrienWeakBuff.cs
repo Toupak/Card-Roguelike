@@ -1,9 +1,9 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Passives;
+using Combat.Passives;
 
-namespace Spells.Data.Frien
+namespace Combat.Spells.Data.Frien
 {
     public class FrienWeakBuff : PassiveController
     {

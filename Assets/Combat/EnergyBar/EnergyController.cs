@@ -4,7 +4,7 @@ using ActionReaction.Game_Actions;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CombatLoop.EnergyBar
+namespace Combat.EnergyBar
 {
     public class EnergyController : MonoBehaviour
     {

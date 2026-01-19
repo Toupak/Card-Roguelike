@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using Spells;
-using Spells.Targeting;
+using Combat.Spells;
+using Combat.Spells.Targeting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Passives.Common_Passives.Spawn_Enemy
+namespace Combat.Passives.Common_Passives.Spawn_Enemy
 {
     public class CallForBackupPassive : PassiveController
     {
@@ -30,10 +30,10 @@ namespace Passives.Common_Passives.Spawn_Enemy
 
         private void StartTurnReaction(StartTurnGa startTurnGa)
         {
-            if (startTurnGa.starting != CombatLoop.CombatLoop.TurnType.Enemy)
+            if (startTurnGa.starting != CombatLoop.TurnType.Enemy)
                 return;
 
-            int currentTurn = CombatLoop.CombatLoop.instance.turnCount;
+            int currentTurn = CombatLoop.instance.turnCount;
             bool isSpawnTurn = currentTurn == 1 || currentTurn % turnsBetweenSpawns == 0;
             if (isSpawnTurn && currentEnemyCount < maxEnemyCount)
             {

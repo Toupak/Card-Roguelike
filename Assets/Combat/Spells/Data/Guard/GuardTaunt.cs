@@ -5,7 +5,7 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 
-namespace Spells.Data.Guard
+namespace Combat.Spells.Data.Guard
 {
     public class GuardTaunt : SpellController
     {

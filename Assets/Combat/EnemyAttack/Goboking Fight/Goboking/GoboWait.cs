@@ -2,7 +2,7 @@ using System.Collections;
 using ActionReaction;
 using UnityEngine;
 
-namespace EnemyAttack.Goboking_Fight.Goboking
+namespace Combat.EnemyAttack.Goboking_Fight.Goboking
 {
     public class GoboWait : BaseEnemyBehaviour
     {

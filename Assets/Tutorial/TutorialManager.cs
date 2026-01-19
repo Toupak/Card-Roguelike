@@ -1,7 +1,7 @@
 using System.Collections;
 using BoomLib.Tools;
-using Overworld.Character;
-using Overworld.Lights;
+using Character_Selection.Character;
+using Map.Lights;
 using Run_Loop;
 using Save_System;
 using UnityEngine;

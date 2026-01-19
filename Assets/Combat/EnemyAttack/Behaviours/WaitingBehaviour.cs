@@ -2,7 +2,7 @@ using System.Collections;
 using ActionReaction;
 using UnityEngine;
 
-namespace EnemyAttack.Behaviours
+namespace Combat.EnemyAttack.Behaviours
 {
     public class WaitingBehaviour : BaseEnemyBehaviour
     {
