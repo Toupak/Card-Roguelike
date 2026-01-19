@@ -1,40 +1,49 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Map.Rooms
 {
+    public class RoomPackage
+    {
+        public RoomData room;
+        public int x;
+        public int y;
+        public RoomData.RoomType roomType;
+        public bool isVisible;
+        public bool hasBeenVisited;
+        public bool hasBeenCleared;
+
+        public RoomPackage(RoomData room, int x, int y, RoomData.RoomType roomType)
+        {
+            this.room = room;
+            this.x = x;
+            this.y = y;
+            this.roomType = roomType;
+            this.isVisible = roomType == RoomData.RoomType.Starting;
+            this.hasBeenVisited = roomType == RoomData.RoomType.Starting;
+            this.hasBeenCleared = roomType == RoomData.RoomType.Starting;
+        }
+    }
+    
     public class RoomBuilder : MonoBehaviour
     {
-        private class RoomPackage
-        {
-            public RoomData room;
-            public int x;
-            public int y;
-            public bool hasBeenCleared;
-
-            public RoomPackage(RoomData room, int x, int y)
-            {
-                this.room = room;
-                this.x = x;
-                this.y = y;
-                this.hasBeenCleared = false;
-            }
-        }
-        
         [SerializeField] private RoomDataBase roomDataBase;
+
+        public static UnityEvent OnBuildRooms = new UnityEvent();
         
         public static RoomBuilder instance;
 
-        private MapBuilder mapBuilder;
+        private int mapSize;
         
-        private int[][] map;
+        private RoomPackage currentRoom = null;
+        public RoomPackage CurrentRoom => currentRoom;
+        private (int, int) currentRoomCoords => (currentRoom.x, currentRoom.y);
+        private RoomData.RoomType currentRoomType => currentRoom.roomType;
 
-        private RoomData currentRoom = null;
-        private (int, int) currentRoomCoords;
-        private RoomData.RoomType currentRoomType;
-
-        private List<RoomPackage> alreadyVisitedRooms = new List<RoomPackage>();
+        private List<RoomPackage> rooms = new List<RoomPackage>();
+        public List<RoomPackage> Rooms => rooms;
             
         private void Awake()
         {
@@ -43,31 +52,90 @@ namespace Map.Rooms
 
         private void Start()
         {
-            mapBuilder = MapBuilder.instance;
-            MapBuilder.OnBuildMap.AddListener(StoreMap);
+            MapBuilder.OnBuildMap.AddListener(BuildRooms);
         }
 
-        private void StoreMap()
+        private void BuildRooms()
         {
-            map = mapBuilder.Map;
+            int[][] map = MapBuilder.instance.Map;
+            mapSize = MapBuilder.instance.MapSize;
+            
+            rooms = new List<RoomPackage>();
+            
+            for (int x = 0; x < mapSize; x++)
+                for (int y = 0; y < mapSize; y++)
+                    if (map[x][y] != 0)
+                        rooms.Add(new RoomPackage(GetRoomFromDataBase(map, x, y), x, y, ComputeRoomType(map[x][y])));
+
+            GetStartingRoom();
+            
+            OnBuildRooms?.Invoke();
         }
-        
+
         public string GetStartingRoom()
         {
-            RoomData room = GetRoom(mapBuilder.mapCenter, mapBuilder.mapCenter);
+            currentRoom = GetRoom(RoomData.RoomType.Starting);
+            UpdateRoomsVisibility();
+            return GetCurrentRoomName();
+        }
 
-            SetCurrentRoom(room, mapBuilder.mapCenter, mapBuilder.mapCenter);
+        private void UpdateRoomsVisibility()
+        {
+            currentRoom.hasBeenVisited = true;
+            currentRoom.isVisible = true;
             
-            return room.roomName;
+            (int x, int y) = ComputeNextRoomCoords(RoomData.DoorDirection.Left);
+            RoomPackage room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
+            
+            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Top);
+            room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
+            
+            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Right);
+            room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
+            
+            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Bot);
+            room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
         }
 
         public string GetNextRoom(RoomData.DoorDirection doorDirection)
         {
             (int x, int y) = ComputeNextRoomCoords(doorDirection);
-            RoomData nextRoom = GetRoom(x, y);
-            SetCurrentRoom(nextRoom, x, y);
-            
-            return nextRoom.roomName;
+            currentRoom = GetRoom(x, y);
+            currentRoom.hasBeenVisited = true;
+            UpdateRoomsVisibility();
+            return GetCurrentRoomName();
+        }
+        
+        public string GetCurrentRoomName()
+        {
+            return currentRoom.room.roomName;
+        }
+        
+        public RoomData.RoomType GetCurrentRoomType()
+        {
+            return currentRoomType;
+        }
+
+        public bool HasRoomBeenCleared()
+        {
+            if (currentRoom != null && currentRoomType == RoomData.RoomType.Battle)
+                return currentRoom.hasBeenCleared;
+
+            return true;
+        }
+
+        public void MarkCurrentRoomAsCleared()
+        {
+            if (currentRoom != null)
+                currentRoom.hasBeenCleared = true;
         }
 
         private (int, int) ComputeNextRoomCoords(RoomData.DoorDirection doorDirection)
@@ -90,58 +158,38 @@ namespace Map.Rooms
             }
         }
 
-        private void SetCurrentRoom(RoomData room, int x, int y)
+        private RoomPackage GetRoom(int x, int y)
         {
-            currentRoom = room;
-            currentRoomCoords = (x, y);
-            currentRoomType = ComputeRoomType(map[x][y]);
-        }
-
-        public string GetCurrentRoom()
-        {
-            return currentRoom.roomName;
-        }
-
-        private RoomData GetRoom(int x, int y)
-        {
-            RoomPackage roomPackage = GetRoomFromAlreadyVisited(x, y);
-
-            if (roomPackage != null)
-                return roomPackage.room;
-
-            return GetRoomFromDataBase(x, y);
-        }
-
-        private RoomPackage GetRoomFromAlreadyVisited(int x, int y)
-        {
-            foreach (RoomPackage roomPackage in alreadyVisitedRooms)
+            foreach (RoomPackage room in rooms)
             {
-                if (roomPackage.x == x && roomPackage.y == y)
-                    return roomPackage;
+                if (room.x == x && room.y == y)
+                    return room;
+            }
+
+            return null;
+        }
+        
+        private RoomPackage GetRoom(RoomData.RoomType roomType)
+        {
+            foreach (RoomPackage room in rooms)
+            {
+                if (room.roomType == roomType)
+                    return room;
             }
 
             return null;
         }
 
-        private RoomData GetRoomFromDataBase(int x, int y)
+        private RoomData GetRoomFromDataBase(int[][] map, int x, int y)
         {
             bool top = y > 0 && map[x][y - 1] != 0;
-            bool right = x < mapBuilder.MapSize - 1 && map[x + 1][y] != 0;
-            bool bot = y < mapBuilder.MapSize - 1 && map[x][y + 1] != 0;
+            bool right = x < mapSize - 1 && map[x + 1][y] != 0;
+            bool bot = y < mapSize - 1 && map[x][y + 1] != 0;
             bool left = x > 0 && map[x - 1][y] != 0;
             
-            RoomData newRoom = roomDataBase.GetRandomRoom(top, right, bot, left);
-            
-            alreadyVisitedRooms.Add(new RoomPackage(newRoom, x, y));
-
-            return newRoom;
+            return roomDataBase.GetRandomRoom(top, right, bot, left);
         }
-
-        public RoomData.RoomType GetCurrentRoomType()
-        {
-            return currentRoomType;
-        }
-
+        
         private RoomData.RoomType ComputeRoomType(int type)
         {
             if (type == 1)
@@ -154,29 +202,6 @@ namespace Map.Rooms
                 return RoomData.RoomType.Boss;
 
             return RoomData.RoomType.Starting;
-        }
-
-        public bool HasRoomBeenCleared()
-        {
-            if (currentRoomType == RoomData.RoomType.Battle)
-            {
-                RoomPackage roomPackage = GetRoomFromAlreadyVisited(currentRoomCoords.Item1, currentRoomCoords.Item2);
-
-                if (roomPackage != null)
-                    return roomPackage.hasBeenCleared;
-                else
-                    return false;
-            }
-
-            return true;
-        }
-
-        public void MarkCurrentRoomAsCleared()
-        {
-            RoomPackage roomPackage = GetRoomFromAlreadyVisited(currentRoomCoords.Item1, currentRoomCoords.Item2);
-
-            if (roomPackage != null)
-                roomPackage.hasBeenCleared = true;
         }
     }
 }

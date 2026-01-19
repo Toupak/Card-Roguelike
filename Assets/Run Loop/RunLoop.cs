@@ -11,6 +11,7 @@ using Combat.Battles.Data;
 using Inventory.Items.Frames;
 using Map;
 using Map.Floors;
+using Map.MiniMap;
 using Map.Rooms;
 using Tutorial;
 using UnityEngine;
@@ -92,6 +93,8 @@ namespace Run_Loop
             SpawnCharacter();
             
             yield return LoadRoom(RoomBuilder.instance.GetStartingRoom(), callback);
+            
+            MinimapBuilder.instance.SetMinimapState(true);
             OnStartRun?.Invoke();
         }
 
@@ -156,7 +159,7 @@ namespace Run_Loop
         private IEnumerator StartNewBattle()
         {
             LockPlayer();
-            yield return SceneLoader.instance.LoadScene(combatScene);
+            yield return SceneLoader.instance.LoadScene(combatScene, () => MinimapBuilder.instance.SetMinimapState(false));
             OnStartBattle?.Invoke();
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
@@ -170,7 +173,11 @@ namespace Run_Loop
                 currentBattleIndex += 1;
 
                 RoomBuilder.instance.MarkCurrentRoomAsCleared();
-                yield return LoadRoom(RoomBuilder.instance.GetCurrentRoom(), UnlockPlayer);
+                yield return LoadRoom(RoomBuilder.instance.GetCurrentRoomName(), () =>
+                {
+                    MinimapBuilder.instance.SetMinimapState(true);
+                    UnlockPlayer();
+                });
                 
                 UnlockRoom();
             }
@@ -232,7 +239,11 @@ namespace Run_Loop
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
         {
-            yield return LoadRoom(RoomBuilder.instance.GetNextRoom(doorDirection),() => MovePlayerToRoomDoor(doorDirection));
+            yield return LoadRoom(RoomBuilder.instance.GetNextRoom(doorDirection),() =>
+            {
+                MinimapBuilder.instance.UpdateMap();
+                MovePlayerToRoomDoor(doorDirection);
+            });
 
             if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
                 LockRoom();

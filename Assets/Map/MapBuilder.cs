@@ -26,6 +26,7 @@ namespace Map
         public int mapCenter => MapSize / 2;
 
         private int currentRoomCount;
+        public int RoomCount => currentRoomCount;
         private Queue<(int, int)> roomQueue;
         
         private int currentAlgoIterations;
