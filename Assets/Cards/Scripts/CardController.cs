@@ -198,6 +198,9 @@ namespace Cards.Scripts
             if (removeFromDeck && !cardData.isEnemy)
                 PlayerDeck.instance.RemoveCardFromDeck(deckCard);
             
+            if (frameDisplay.hasFrame)
+                frameDisplay.RemoveFrame();
+            
             cardMovement.KillAllTokens();
             cardMovement.CurrentSlot.board.DeleteCurrentSlot(cardMovement.SlotIndex);
             OnKillCard?.Invoke();
