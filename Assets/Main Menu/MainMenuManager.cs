@@ -54,9 +54,7 @@ namespace Main_Menu
                 return;
             hasClicked = true;
             
-            if (Application.isEditor)
-                EditorApplication.ExitPlaymode();
-            Application.Quit();
+            BoomLib.Tools.QuitGameHelper.Quit();
         }
     }
 }
