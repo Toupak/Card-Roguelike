@@ -13,11 +13,17 @@ namespace Map.Rooms
             Left
         }
         
+        //When Adding a new Value :
+        // -> Got to RoomBuilder/RoomPackage if the new room is Hostile
+        // -> Got to RoomBuilder.cs to assign it
+        // -> Go to RoomFiller.cs to instantiate special stuff when entering room
+        // -> Go to RunLoop.ComputeDifficulty() to prevent nullref
         public enum RoomType
         {
             Starting,
             Battle,
-            Special,
+            Encounter,
+            Elite,
             Boss
         }
         

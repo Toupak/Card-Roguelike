@@ -25,8 +25,11 @@ namespace Map.Rooms
                 case RoomData.RoomType.Battle:
                     SetupBattleRoom(hasRoomBeenCleared);
                     break;
-                case RoomData.RoomType.Special:
+                case RoomData.RoomType.Encounter:
                     SetupSpecialRoom();
+                    break;
+                case RoomData.RoomType.Elite:
+                    SetupEliteRoom(hasRoomBeenCleared);
                     break;
                 case RoomData.RoomType.Boss:
                     SetupBossRoom(hasRoomBeenCleared);
@@ -52,9 +55,16 @@ namespace Map.Rooms
             Instantiate(dialogInteractionPrefab, Vector3.zero, Quaternion.identity);
         }
         
+        private void SetupEliteRoom(bool hasRoomBeenCleared)
+        {
+            if (!hasRoomBeenCleared)
+                Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
+        }
+        
         private void SetupBossRoom(bool hasRoomBeenCleared)
         {
-            
+            if (!hasRoomBeenCleared)
+                Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
         }
     }
 }

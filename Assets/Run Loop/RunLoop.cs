@@ -266,12 +266,34 @@ namespace Run_Loop
 
         public BattleData SelectBattle()
         {
-            return battlesDataHolder.ChooseRandomBattle(BattleData.Floor.First, currentBattleIndex < 3 ? BattleData.Difficulty.Easy : BattleData.Difficulty.Hard);
+           return battlesDataHolder.ChooseRandomBattle(BattleData.Floor.First, ComputeDifficulty(RoomBuilder.instance.CurrentRoom.roomType));
+        }
+
+        private BattleData.Difficulty ComputeDifficulty(RoomData.RoomType roomType)
+        {
+            switch (roomType)
+            {
+                case RoomData.RoomType.Starting:
+                case RoomData.RoomType.Encounter:
+                case RoomData.RoomType.Battle:
+                    return currentBattleIndex < 3 ? BattleData.Difficulty.Easy : BattleData.Difficulty.Hard;
+                case RoomData.RoomType.Elite:
+                    return BattleData.Difficulty.Elite;
+                case RoomData.RoomType.Boss:
+                    return BattleData.Difficulty.Boss;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
         
         public BattleData SelectBattle(BattleData.Floor floor, BattleData.Difficulty difficulty)
         {
             return battlesDataHolder.ChooseRandomBattle(floor, difficulty);
+        }
+
+        public FloorData GetCurrentFloorData()
+        {
+            return floorData;
         }
     }
 }

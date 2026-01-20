@@ -15,3 +15,6 @@ MonoBehaviour:
   floorSize: 15
   minRoomCount: 10
   maxRoomCount: 15
+  minEliteRooms: 1
+  maxEliteRooms: 3
+  maxEncounterRooms: 5
