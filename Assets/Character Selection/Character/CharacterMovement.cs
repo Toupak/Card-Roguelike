@@ -12,6 +12,8 @@ namespace Character_Selection.Character
 
         public Vector2 lastMovement { get; private set; } = Vector2.right;
 
+        private bool isLocked;
+        
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -19,8 +21,10 @@ namespace Character_Selection.Character
 
         private void FixedUpdate()
         {
-            if (!CharacterSingleton.instance.IsLocked)
-                Walk();
+            if (isLocked)
+                return;
+            
+            Walk();
         }
     
         private void Walk()
@@ -41,6 +45,12 @@ namespace Character_Selection.Character
         private void StopMovement()
         {
             rb.linearVelocity = Vector2.zero;
+        }
+
+        public void SetLockState(bool state)
+        {
+            isLocked = state;
+            StopMovement();
         }
     }
 }

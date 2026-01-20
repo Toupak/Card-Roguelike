@@ -8,6 +8,8 @@ namespace Character_Selection.Character
         
         public static CharacterSingleton instance;
 
+        private CharacterMovement characterMovement;
+        
         private bool isLocked;
         public bool IsLocked => isLocked;
         
@@ -20,16 +22,20 @@ namespace Character_Selection.Character
             }
             else
                 instance = this;
+
+            characterMovement = GetComponent<CharacterMovement>();
         }
 
         public void LockPlayer()
         {
             isLocked = true;
+            characterMovement.SetLockState(isLocked);
         }
 
         public void UnlockPlayer()
         {
             isLocked = false;
+            characterMovement.SetLockState(isLocked);
         }
     }
 }
