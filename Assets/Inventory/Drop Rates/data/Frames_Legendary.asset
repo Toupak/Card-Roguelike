@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Frames_Legendary
   m_EditorClassIdentifier: 
   startingValue: 0
-  valueIncreaseOnFail: 3
+  valueIncreaseOnFail: 5
   valueIncreaseOnEliteKill: 25
   valueIncreaseOnBossKill: 50
