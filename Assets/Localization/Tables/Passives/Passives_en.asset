@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 260841810919424
-    m_Localized: Frien gains 3 $BonusDamage$ per $Weak$ stack
+    m_Localized: When Frien receives a $Weak$ stack, he also gains 3 $BonusDamage$
     m_Metadata:
       m_Items: []
   - m_Id: 260841815113728

@@ -323,7 +323,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674787110912
-    m_Localized: Deal $d$ damage, if target is same as last attack, deal +1 damage
+    m_Localized: Deal $d$ damage, if target is same as last attack, attack twice
     m_Metadata:
       m_Items: []
   - m_Id: 261674787110913

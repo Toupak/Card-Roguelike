@@ -13,7 +13,6 @@ namespace Combat.Spells.Data.Racoon
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
-            
 
             List<CardMovement> allEnemies = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 
@@ -31,10 +30,17 @@ namespace Combat.Spells.Data.Racoon
         private IEnumerator AttackTarget(CardMovement cardMovement)
         {
             bool isLastTarget = cardMovement.cardController.cardStatus.IsStatusApplied(StatusType.RacoonLastTarget);
-            int damage = isLastTarget ? spellData.damage + 1 : spellData.damage;
 
-            DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(damage), cardController, cardMovement.cardController);
+            DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, cardMovement.cardController);
             ActionSystem.instance.Perform(dealDamageGa);
+
+            if (isLastTarget)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                DealDamageGA secondAttack = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, cardMovement.cardController);
+                ActionSystem.instance.Perform(secondAttack);
+                
+            }
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
