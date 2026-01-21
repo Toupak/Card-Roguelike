@@ -511,6 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleInteractionPrefab: {fileID: 685268710571563161, guid: 6b1d065330b855647807df0867722cf4, type: 3}
+  eliteBattleGroundMark: {fileID: 6834018171098575146, guid: 059405f489bfffd43af71c29f38d62e5, type: 3}
+  bossBattleGroundMark: {fileID: 8984177703290394683, guid: 2a7664d9b3464494a8465a838926ac3b, type: 3}
   dialogInteractionPrefab: {fileID: 8912084564866941252, guid: f6a3cb03353875d4dbcccc3417c4482c, type: 3}
 --- !u!1 &6435026947695677602
 GameObject:

@@ -6,6 +6,8 @@ namespace Map.Rooms
     public class RoomFiller : MonoBehaviour
     {
         [SerializeField] private GameObject battleInteractionPrefab;
+        [SerializeField] private GameObject eliteBattleGroundMark;
+        [SerializeField] private GameObject bossBattleGroundMark;
         [SerializeField] private GameObject dialogInteractionPrefab;
         
         public static RoomFiller instance;
@@ -46,8 +48,7 @@ namespace Map.Rooms
         
         private void SetupBattleRoom(bool hasRoomBeenCleared)
         {
-            if (!hasRoomBeenCleared)
-                Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
+            SpawnBattleInteraction(hasRoomBeenCleared);
         }
         
         private void SetupSpecialRoom()
@@ -57,11 +58,17 @@ namespace Map.Rooms
         
         private void SetupEliteRoom(bool hasRoomBeenCleared)
         {
-            if (!hasRoomBeenCleared)
-                Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
+            SpawnBattleInteraction(hasRoomBeenCleared);
+            Instantiate(eliteBattleGroundMark, Vector3.zero, Quaternion.identity);
         }
         
         private void SetupBossRoom(bool hasRoomBeenCleared)
+        {
+            SpawnBattleInteraction(hasRoomBeenCleared);
+            Instantiate(bossBattleGroundMark, Vector3.zero, Quaternion.identity);
+        }
+
+        private void SpawnBattleInteraction(bool hasRoomBeenCleared)
         {
             if (!hasRoomBeenCleared)
                 Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
