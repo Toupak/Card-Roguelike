@@ -17,7 +17,6 @@ MonoBehaviour:
   statusTag: Terror
   statusDescription: Terrorized Cards deal -1 damage per attack until they receive
     damage
-  endTurnBehaviour: 2
   behaviour: 2
   behaviourTiming: 6
   effectType: 2

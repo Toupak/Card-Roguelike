@@ -170,7 +170,7 @@ namespace Cards.Scripts
 
                 if (IsStatusApplied(StatusType.Terror))
                 {
-                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Terror, 1, dealDamageGa.attacker, cardController);
+                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Terror, GetCurrentStackCount(StatusType.Terror), dealDamageGa.attacker, cardController);
                     ActionSystem.instance.AddReaction(consumeStacksGa);
                 }
             }
