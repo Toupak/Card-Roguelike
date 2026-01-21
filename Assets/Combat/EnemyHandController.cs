@@ -33,7 +33,7 @@ namespace Combat
         public IEnumerator PlayTurn()
         {
             yield return ExecuteEachCardBehaviour();
-            ComputeAndDisplayEachCardsNextIntention();
+            //ComputeAndDisplayEachCardsNextIntention();
         }
 
         private IEnumerator ExecuteEachCardBehaviour()
@@ -75,6 +75,7 @@ namespace Combat
             }
         }
 
+        /*
         private void ComputeAndDisplayEachCardsNextIntention()
         {
             foreach (Slot slot in enemyBoardContainer.Slots)
@@ -88,6 +89,7 @@ namespace Combat
                 }
             }
         }
+        */
 
         public IEnumerator SetupBattle(BattleData battle)
         {

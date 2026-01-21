@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ActionReaction;
+using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -27,15 +29,29 @@ namespace Combat.EnemyAttack
             cardData = data;
             
             cardController.cardStatus.OnUpdateStatus.AddListener((_,_) => UpdateDamageText());
-            CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() =>
+
+            SetupBehaviours();
+            SetupDisplay();
+        }
+
+        private void OnEnable()
+        {
+            ActionSystem.SubscribeReaction<StartTurnGa>(PlayerStartTurnReaction, ReactionTiming.PRE);
+        }
+        
+        private void OnDisable()
+        {
+            ActionSystem.UnsubscribeReaction<StartTurnGa>(PlayerStartTurnReaction, ReactionTiming.PRE);
+        }
+
+        private void PlayerStartTurnReaction(StartTurnGa startTurnGa)
+        {
+            if (startTurnGa.starting == CombatLoop.TurnType.Player)
             {
                 SetupIntentionDisplay();
                 ComputeNextIntention();
                 DisplayNextIntention();
-            });
-
-            SetupBehaviours();
-            SetupDisplay();
+            }
         }
 
         private void SetupBehaviours()

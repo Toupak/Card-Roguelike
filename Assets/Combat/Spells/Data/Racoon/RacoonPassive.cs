@@ -19,7 +19,7 @@ namespace Combat.Spells.Data.Racoon
         
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.RacoonLastTarget))
+            if (dealDamageGa.target == cardController && dealDamageGa.attacker != null && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.RacoonLastTarget))
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Fury, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

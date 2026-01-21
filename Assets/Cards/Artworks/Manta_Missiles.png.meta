@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 197c8f157e56ee5498acc69eaf746a4a
+guid: 5813c8a39977410428dee71897469b15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1223526088056373679
-    second: Rooster_0
+      213: 1243875465296738913
+    second: Manta_Missiles_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rooster_0
+      name: Manta_Missiles_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 62
-        height: 61
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa1060c9e76daf010800000000000000
-      internalID: 1223526088056373679
+      spriteID: 16af5d53522234110800000000000000
+      internalID: 1243875465296738913
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 2e643d1b565afd846b1ba5a29eee673a
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rooster_0: 1223526088056373679
+      Manta_Missiles_0: 1243875465296738913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

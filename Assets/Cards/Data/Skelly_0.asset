@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Skelly_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Boner
   tribe: 0
-  hpMax: 2
+  rarity: 0
+  hpMax: 1
   artwork: {fileID: 2691162081737138541, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 8848095b5f7c139408ee51f414edf240, type: 2}
   passiveList: []

@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Skelly_1
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Bonnie
   tribe: 0
-  hpMax: 4
+  rarity: 0
+  hpMax: 2
   artwork: {fileID: -258086784, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: a402f8e9698f5aa45b6ade8874457252, type: 2}
   passiveList: []

@@ -62,7 +62,7 @@ namespace Combat
             currentTurn = TurnType.Preparation;
             yield return SetupButtons();
             yield return FightIntro();
-            yield return PlaceEnemyCards(RunLoop.instance.SelectBattle());
+            yield return PlaceEnemyCards(GetBattleData());
             yield return DrawCards();
             OnPlayerDrawHand?.Invoke();
             yield return WaitForAtLeastOneCardOnPlayerBoard();
@@ -104,8 +104,16 @@ namespace Combat
                 if (reloadEnemiesCoroutine != null)
                     StopCoroutine(reloadEnemiesCoroutine);
                 
-                reloadEnemiesCoroutine = StartCoroutine(PlaceEnemyCards(RunLoop.instance.SelectBattle(debugBattleFloor, debugBattleDifficulty)));
+                reloadEnemiesCoroutine = StartCoroutine(PlaceEnemyCards(GetBattleData()));
             }
+        }
+
+        private BattleData GetBattleData()
+        {
+            if (RunLoop.instance.isInRun)
+                return RunLoop.instance.SelectBattle();
+            else
+                return RunLoop.instance.SelectBattle(debugBattleFloor, debugBattleDifficulty);
         }
 
         private void OnEnable()
