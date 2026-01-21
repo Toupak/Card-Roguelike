@@ -2,6 +2,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Combat.Passives;
+using UnityEngine;
 
 namespace Combat.Spells.Data.Rooster
 {

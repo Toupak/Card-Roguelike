@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cards.Scripts;
@@ -14,6 +15,7 @@ namespace Editor
         private string _rarityFilter = "All";
         private string _enemyFilter = "All";
         private string _specialSummonFilter = "All";
+        private int selectedTribe = 0;
         private List<bool> foldouts = new List<bool>();
         private HashSet<int> wrongCardNumbers = new();
 
@@ -68,9 +70,36 @@ namespace Editor
             }
 
            
-            IEnumerable<CardData> filteredCards = db.AllCards;
-
+            
+            
+            
             EditorGUILayout.Space();
+
+            
+            
+            
+            IEnumerable<CardData> filteredCards = db.AllCards;
+            
+            
+            
+            EditorGUILayout.BeginHorizontal();
+            List<string> tribeOptions = Enum.GetNames(typeof(CardData.Tribe)).ToList();
+            for (int i = 0; i < tribeOptions.Count; i++)
+            {
+                tribeOptions[i] = $"{tribeOptions[i]} ({filteredCards.Count(x => x.tribe == (CardData.Tribe)i)})";
+            }
+            tribeOptions.Insert(0, $"All ({filteredCards.Count()})");
+            
+            selectedTribe = EditorGUILayout.Popup("Tribe:", selectedTribe, tribeOptions.ToArray());
+            EditorGUILayout.EndHorizontal();
+            
+            if (selectedTribe > 0)
+                filteredCards = filteredCards.Where(x => x.tribe == (CardData.Tribe)selectedTribe - 1);
+            
+            
+            
+            
+            
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Enemy:", GUILayout.Width(40));
             if (GUILayout.Toggle(_enemyFilter == "All", $"All ({filteredCards.Count()})", EditorStyles.miniButtonLeft)) _enemyFilter = "All";
@@ -87,6 +116,8 @@ namespace Editor
                     filteredCards = filteredCards.Where(x => x.isEnemy);
                     break;
             }
+            
+            
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Special Summon:", GUILayout.Width(40));
@@ -106,6 +137,9 @@ namespace Editor
                     break;
             }
             
+            
+            
+            
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Rarity:", GUILayout.Width(40));
@@ -116,7 +150,32 @@ namespace Editor
             if (GUILayout.Toggle(_rarityFilter == "Exotic", $"Exotic ({filteredCards.Count(x => x.rarity == CardData.Rarity.Exotic)})", EditorStyles.miniButtonRight)) _rarityFilter = "Exotic";
             EditorGUILayout.EndHorizontal();
             
+            /*
+            switch (_rarityFilter)
+            {
+                case "Common":
+                    filteredCards = filteredCards.Where(x => x.rarity == CardData.Rarity.Common);
+                    break;
+                case "Rare":
+                    filteredCards = filteredCards.Where(x => x.rarity == CardData.Rarity.Rare);
+                    break;
+                case "Legendary":
+                    filteredCards = filteredCards.Where(x => x.rarity == CardData.Rarity.Legendary);
+                    break;
+                case "Exotic":
+                    filteredCards = filteredCards.Where(x => x.rarity == CardData.Rarity.Exotic);
+                    break;
+            }
+            */
+            
+            
+            
+            
             EditorGUILayout.Space();
+            
+            
+            
+            
 
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
@@ -155,6 +214,8 @@ namespace Editor
                 if (_enemyFilter != "All" && card.isEnemy.ToString() != _enemyFilter && !foldouts[i]) 
                     continue;
                 if (_specialSummonFilter != "All" && card.isSpecialSummon.ToString() != _specialSummonFilter && !foldouts[i]) 
+                    continue;
+                if (selectedTribe > 0 && card.tribe != (CardData.Tribe)selectedTribe - 1)
                     continue;
 
                 EditorGUILayout.BeginVertical("box");
