@@ -28,7 +28,7 @@ namespace Map.Rooms
                     SetupBattleRoom(hasRoomBeenCleared);
                     break;
                 case RoomData.RoomType.Encounter:
-                    SetupSpecialRoom();
+                    SetupSpecialRoom(hasRoomBeenCleared);
                     break;
                 case RoomData.RoomType.Elite:
                     SetupEliteRoom(hasRoomBeenCleared);
@@ -51,9 +51,10 @@ namespace Map.Rooms
             SpawnBattleInteraction(hasRoomBeenCleared);
         }
         
-        private void SetupSpecialRoom()
+        private void SetupSpecialRoom(bool hasRoomBeenCleared)
         {
-            Instantiate(dialogInteractionPrefab, Vector3.zero, Quaternion.identity);
+            if (!hasRoomBeenCleared)
+                Instantiate(dialogInteractionPrefab, Vector3.zero, Quaternion.identity);
         }
         
         private void SetupEliteRoom(bool hasRoomBeenCleared)

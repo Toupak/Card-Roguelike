@@ -166,7 +166,7 @@ namespace Map.Rooms
 
         public bool HasRoomBeenCleared()
         {
-            if (currentRoom != null && currentRoom.IsHostile)
+            if (currentRoom != null)
                 return currentRoom.hasBeenCleared;
 
             return true;

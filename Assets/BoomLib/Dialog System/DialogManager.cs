@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BoomLib.Inputs;
@@ -32,15 +33,15 @@ namespace BoomLib.Dialog_System
             canvasGroup.alpha = 0.0f;
         }
 
-        public void StartDialog(List<string> dialog, Vector2 position)
+        public void StartDialog(List<string> dialog, Vector2 position, Action callback = null)
         {
             if (isDialogDisplayed)
                 return;
             
-            StartCoroutine(DisplayDialog(dialog, position));
+            StartCoroutine(DisplayDialog(dialog, position, callback));
         }
         
-        private IEnumerator DisplayDialog(List<string> dialog, Vector2 position)
+        private IEnumerator DisplayDialog(List<string> dialog, Vector2 position, Action callback = null)
         {
             isDialogDisplayed = true;
             
@@ -67,6 +68,8 @@ namespace BoomLib.Dialog_System
             yield return HidePanel();
             
             isDialogDisplayed = false;
+            
+            callback?.Invoke();
         }
 
         private IEnumerator DisplayPanel(Vector3 targetPosition)

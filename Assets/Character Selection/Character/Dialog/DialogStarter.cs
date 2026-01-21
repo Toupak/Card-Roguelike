@@ -7,10 +7,10 @@ namespace Character_Selection.Character.Dialog
 {
     public class DialogStarter : Interactable
     {
-        [SerializeField] private DialogData dialogData;
+        [SerializeField] protected DialogData dialogData;
 
         private float offsetY;
-        private Vector2 dialogPosition => transform.position.ToVector2() + Vector2.up * offsetY;
+        protected Vector2 dialogPosition => transform.position.ToVector2() + Vector2.up * offsetY;
         
         private void Start()
         {
@@ -20,6 +20,11 @@ namespace Character_Selection.Character.Dialog
         public override void ExecuteInteract()
         {
             base.ExecuteInteract();
+            StartDialog();
+        }
+
+        protected virtual void StartDialog()
+        {
             DialogManager.instance.StartDialog(dialogData.DialogTexts, dialogPosition);
         }
     }

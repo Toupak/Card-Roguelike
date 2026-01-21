@@ -167,8 +167,7 @@ namespace Run_Loop
 
             if (!IsRunOver() && isPlayerAlive)
             {
-                yield return SceneLoader.instance.LoadScene(rewardScene);
-                yield return new WaitUntil(IsRewardSelected);
+                yield return PerformRewardScene();
                 
                 currentBattleIndex += 1;
 
@@ -184,6 +183,29 @@ namespace Run_Loop
 
             if (!isPlayerAlive)
                 yield return GoBackToHub();
+        }
+
+        public void StartOpeningReward()
+        {
+            StartCoroutine(OpenReward());
+        }
+
+        private IEnumerator OpenReward()
+        {
+            MinimapBuilder.instance.SetMinimapState(false);
+            yield return PerformRewardScene();
+            RoomBuilder.instance.MarkCurrentRoomAsCleared();
+            yield return LoadRoom(RoomBuilder.instance.GetCurrentRoomName(), () =>
+            {
+                MinimapBuilder.instance.SetMinimapState(true);
+                UnlockPlayer();
+            });
+        }
+
+        private IEnumerator PerformRewardScene()
+        {
+            yield return SceneLoader.instance.LoadScene(rewardScene);
+            yield return new WaitUntil(IsRewardSelected);
         }
 
         private bool IsRewardSelected()
@@ -245,8 +267,8 @@ namespace Run_Loop
                 MovePlayerToRoomDoor(doorDirection);
             });
 
-            if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
-                LockRoom();
+            //if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
+              //  LockRoom();
         }
 
         private IEnumerator LoadRoom(string roomName, Action callback = null)
