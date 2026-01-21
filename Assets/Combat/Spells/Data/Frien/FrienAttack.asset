@@ -26,5 +26,5 @@ MonoBehaviour:
   damage: 1
   inflictStatus: 10
   statusStacksApplied: 1
-  spellController: {fileID: 0}
+  spellController: {fileID: -1066056205417557095, guid: cf78055f62cab9349aa3560dce26f6cf, type: 3}
   localizationKey: frienattack
