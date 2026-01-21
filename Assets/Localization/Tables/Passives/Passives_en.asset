@@ -156,8 +156,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 260841831890946
-    m_Localized: When an enemy receives a $Vengeance$ stack, Rooster attack them
-      for $d$ damage
+    m_Localized: When any other Card applies a $Vengeance$ stack to an enemy, Rooster
+      attack the enemy for $d$ damage
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085248
