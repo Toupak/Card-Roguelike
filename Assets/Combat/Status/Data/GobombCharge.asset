@@ -16,11 +16,11 @@ MonoBehaviour:
   statusName: Tic Toc
   statusTag: Gobomb
   statusDescription: Its getting closer...
-  endTurnBehaviour: 0
   behaviour: 0
-  behaviourTiming: 1
+  behaviourTiming: 0
   effectType: 0
   maxStackCount: -1
+  neverRemoveTab: 1
   barColor:
     serializedVersion: 2
     rgba: 4280059886

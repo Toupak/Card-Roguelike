@@ -21,6 +21,7 @@ namespace Combat.Status.Data
         public StatusBehaviourTimings behaviourTiming;
         public EffectType effectType;
         public int maxStackCount = -1;
+        public bool neverRemoveTab;
         
         [Space]
         [Header("Status Bar Display")]

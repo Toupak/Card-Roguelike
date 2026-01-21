@@ -14,10 +14,7 @@ namespace Combat.EnemyAttack.Goboking_Fight.Bomber
         {
             base.Setup(controller);
 
-            int stacks = CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation
-                ? turnsToChargeUp
-                : turnsToChargeUp + 1;
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.GobombCharging, stacks, enemyCardController.cardController, enemyCardController.cardController);
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.GobombCharging, turnsToChargeUp, enemyCardController.cardController, enemyCardController.cardController);
             
             if (ActionSystem.instance.IsPerforming)
                 ActionSystem.instance.AddReaction(applyStatusGa);

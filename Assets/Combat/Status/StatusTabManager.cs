@@ -33,7 +33,10 @@ namespace Combat.Status
                     UpdateTab(statusType, stackCount);
                     break;
                 case StatusTabModification.Remove:
-                    RemoveTab(statusType);
+                    if (StatusSystem.instance.GetStatusData(statusType).neverRemoveTab)
+                        UpdateTab(statusType, stackCount);
+                    else
+                        RemoveTab(statusType);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(statusTabModification), statusTabModification, null);
