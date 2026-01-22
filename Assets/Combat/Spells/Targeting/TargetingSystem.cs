@@ -207,7 +207,7 @@ namespace Combat.Spells.Targeting
 
             CardMovement card = CursorInfo.instance.currentCardMovement;
             
-            if (card != null && IsSelectedTargetValid(card, targetType))
+            if (card != null && !currentTargets.Contains(card) && IsSelectedTargetValid(card, targetType))
                 ValidateTarget(card);
         }
 
