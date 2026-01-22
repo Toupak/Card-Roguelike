@@ -29,19 +29,6 @@ namespace Cards.Scripts
             Exotic
         }
 
-        public enum EnemyDifficulty
-        {
-            Easy,
-            Hard
-        }
-
-        public enum EnemyFloor
-        {
-            _1,
-            _2,
-            _3
-        }
-
         public string cardName;
         public Tribe tribe;
         public Rarity rarity;

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: KrakenDamagePassive
+  m_EditorClassIdentifier: 
+  passiveName: Trusty Blowtorch
+  description: Gives $BonusDamage$ to adjacent cards when Diving
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4282270388
+  passiveController: {fileID: -4300682538330788127, guid: 4fe81366688968b4e8660140568f9ca2, type: 3}
+  localizationKey: krakendamagepassive

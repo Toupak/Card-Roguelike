@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: KrakenArmorPassive
+  m_EditorClassIdentifier: 
+  passiveName: Check the TODO list
+  description: Gives $Armor$ to adjacent cards when Surfacing
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4290012990
+  passiveController: {fileID: -1620788709806117433, guid: 381a9b0b28a60a8499e6011d50848920, type: 3}
+  localizationKey: krakenarmorpassive

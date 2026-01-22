@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Thorse_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Thorse
   tribe: 6
+  rarity: 0
   hpMax: 10
   artwork: {fileID: 2942673451012882491, guid: b7e3478983bb51c42b238b105d83f567, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: a0795b14ad0ebfb4d98de012aeb2de58, type: 2}
   passiveList:

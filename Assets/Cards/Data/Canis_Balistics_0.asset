@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Canis_Balistics_0
   m_EditorClassIdentifier: 
-  cardNumber: 1
   cardName: Canis Balistics
   tribe: 1
   rarity: 1
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: Test
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 9088219196102771630, guid: 3b0c51bffe659fe408980bb5c957bf42, type: 3}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: ff2f36a1698b46847a262c6a36f52864, type: 2}
   - {fileID: 11400000, guid: 889be38557415ba44af1163b90e9ac2a, type: 2}

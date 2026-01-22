@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: AmmoCarrierXachary
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: AmmoCarrierXachary
   tribe: 6
   rarity: 3
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 3e7556481d60a494986cd0e49dd6d4d9, type: 2}
   passiveList:

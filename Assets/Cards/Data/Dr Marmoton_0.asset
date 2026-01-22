@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Dr Marmoton_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Dr Marmoton
   tribe: 1
   rarity: 1
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 5add67fe6a16cff40acab2f26dd7a559, type: 2}
   - {fileID: 11400000, guid: ec7f8cb87a5508e4dade9bd2b294722c, type: 2}

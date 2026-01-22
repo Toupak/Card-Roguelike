@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Faces_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Many Faces
   tribe: 0
   rarity: 3
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 238753abf070e25479ceab8fc946e3e4, type: 2}
   - {fileID: 11400000, guid: a389843eb54c2eb4ca5f451e38cad02d, type: 2}

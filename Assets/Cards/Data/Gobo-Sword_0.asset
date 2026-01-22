@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Gobo-Sword_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Gobo-Knight
   tribe: 0
+  rarity: 0
   hpMax: 7
   artwork: {fileID: 5388931267197553056, guid: 5fefb013588c47f41852cbe4efe174a0, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList: []
   enemyBehaviours:

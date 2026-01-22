@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Nachito_brown_0
   m_EditorClassIdentifier: 
-  cardNumber: 2
   cardName: Nachito
   tribe: 0
+  rarity: 0
   hpMax: 7
   artwork: {fileID: 3805251014732396877, guid: e7dc4d4f68d81444887bf125fe036d04, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 3751203361209507760, guid: efcee273a7c99ed44ae50cf792e044a9, type: 3}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 4d5cb7abef5507f409a5834e0e50c6ba, type: 2}
   - {fileID: 11400000, guid: 75505918eae27534ebaa31fdbd370ce4, type: 2}

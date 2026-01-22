@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: SpiderBall_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Gutter-Spider
   tribe: 0
+  rarity: 0
   hpMax: 12
   artwork: {fileID: -1841804726479415937, guid: ff79872db82fe80458c86ac5851cf680, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: d775852acceae5c4c9f667b6a146dfd0, type: 2}
   - {fileID: 11400000, guid: 33cd61944558be24a997f68fab1bd5f8, type: 2}

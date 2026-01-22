@@ -498,6 +498,22 @@ MonoBehaviour:
     m_Localized: Ballin'
     m_Metadata:
       m_Items: []
+  - m_Id: 21143546815545344
+    m_Localized: Trusty Blowtorch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21143546836516864
+    m_Localized: Gives $BonusDamage$ to adjacent cards when Diving
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21143546836516865
+    m_Localized: Check the TODO list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21143546836516866
+    m_Localized: Gives $Armor$ to adjacent cards when Surfacing
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

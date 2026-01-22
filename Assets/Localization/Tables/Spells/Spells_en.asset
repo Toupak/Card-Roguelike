@@ -908,6 +908,25 @@ MonoBehaviour:
     m_Localized: Gain 1 $Taunt$ stack
     m_Metadata:
       m_Items: []
+  - m_Id: 21144379481358336
+    m_Localized: Dive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21144379770765312
+    m_Localized: '$Dive$ for 1 turn, becoming untargetable
+
+      Can be recast next
+      turn to attack a random target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21144975051554816
+    m_Localized: Surface
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21144975051554817
+    m_Localized: Deal $d$ damage to a random enemy target
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

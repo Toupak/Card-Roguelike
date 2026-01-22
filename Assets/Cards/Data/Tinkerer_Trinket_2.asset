@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Tinkerer_Trinket_2
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Actuator
   tribe: 0
   rarity: 0
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList: []
   enemyBehaviours: []
@@ -29,6 +27,4 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  enemyDifficulty: 0
-  enemyFloor: 0
   localizationKey: actuator

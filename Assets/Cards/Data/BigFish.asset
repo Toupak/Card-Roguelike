@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: BigFish
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Big Fish
   tribe: 1
   rarity: 1
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 7ce984cc150b8ee428e4629a8b4c8921, type: 2}
   - {fileID: 11400000, guid: 19a637546f94c794bae74cc4ac233c35, type: 2}

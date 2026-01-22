@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: BatMerchant_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Bat Merchant
   tribe: 1
+  rarity: 0
   hpMax: 8
   artwork: {fileID: -1838755935441141064, guid: 7e0802f6d4f58604c987a1d2354e3e38, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 7743824647932158952, guid: b732c1a01b65a1543b92792dadfc3b61, type: 3}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: ebc13943cfb82144fa0fedbcc424f326, type: 2}
   passiveList:

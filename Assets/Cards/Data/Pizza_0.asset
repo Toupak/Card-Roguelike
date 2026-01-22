@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Pizza_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: '''Zza'
   tribe: 5
+  rarity: 0
   hpMax: 6
   artwork: {fileID: 6048862160296339182, guid: d216c33758f950047959efe5f3db7f28, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 2716580378618364730, guid: a7a6cc00c8cf6e449bc49c4ae9c0d8d2, type: 3}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 5eb50244584169e4da11adbfad0f11e4, type: 2}
   - {fileID: 11400000, guid: 4cd2e6dd1f72c3045b81c6a383391bf5, type: 2}

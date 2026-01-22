@@ -447,6 +447,22 @@ MonoBehaviour:
     m_Key: gutter-spider_spiderballpassiveberserk
     m_Metadata:
       m_Items: []
+  - m_Id: 21143546815545344
+    m_Key: kraken_krakendamagepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21143546836516864
+    m_Key: kraken_krakendamagepassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21143546836516865
+    m_Key: kraken_krakenarmorpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21143546836516866
+    m_Key: kraken_krakenarmorpassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: The last Gnomefighter_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: The last Gnomefighter
   tribe: 0
   rarity: 2
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: 26df441e60b4be744b546f68696e67de, type: 2}

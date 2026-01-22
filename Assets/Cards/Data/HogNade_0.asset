@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: HogNade_0
   m_EditorClassIdentifier: 
-  cardNumber: 4
   cardName: HogNade
   tribe: 1
+  rarity: 0
   hpMax: 12
   artwork: {fileID: 7215446072429191201, guid: 656e9def085212d489e54ed91ea7595f, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: a93ed9e812564a14dbdbe7c8b78e9702, type: 2}
   - {fileID: 11400000, guid: 509ff96cb26e0324694e1f9e55e74542, type: 2}

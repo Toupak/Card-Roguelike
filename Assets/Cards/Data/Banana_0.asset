@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Banana_0
   m_EditorClassIdentifier: 
-  cardNumber: 6
   cardName: Banana
   tribe: 5
+  rarity: 0
   hpMax: 6
   artwork: {fileID: 7381965769198725172, guid: 2df081ac6ce010347b4ec94a4241e2e3, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 234f1fdf4f1b2674ba415d34cec9e604, type: 2}
   passiveList:

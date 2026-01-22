@@ -799,6 +799,22 @@ MonoBehaviour:
     m_Key: bono_skellytaunt
     m_Metadata:
       m_Items: []
+  - m_Id: 21144379481358336
+    m_Key: kraken_krakendive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21144379770765312
+    m_Key: kraken_krakendive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21144975051554816
+    m_Key: kraken_krakensurface_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21144975051554817
+    m_Key: kraken_krakensurface
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

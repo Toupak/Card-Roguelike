@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Batsu
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Batsu
   tribe: 0
   rarity: 0
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList:
   - {fileID: 11400000, guid: 69fb99a082aca4949ab92e0dfe0606c6, type: 2}
@@ -33,6 +31,4 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  enemyDifficulty: 0
-  enemyFloor: 0
   localizationKey: batsu

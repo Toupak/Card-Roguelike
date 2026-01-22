@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Kraken_0
   m_EditorClassIdentifier: 
-  cardName: Kraken_0
-  tribe: 0
+  cardName: Kraken
+  tribe: 1
   rarity: 0
-  hpMax: 0
+  hpMax: 8
   artwork: {fileID: -2663931023770825618, guid: 3b5c92acb92591e42bc9d5ffe49f9344, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: 591502eaca4c1ec499bbaf1cf404cc95, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: f7d80e3d9f3ccba479b2b6e0883d937f, type: 2}
+  - {fileID: 11400000, guid: 28de832c6eed3664cb10ea905dd87d81, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: 
+  localizationKey: kraken

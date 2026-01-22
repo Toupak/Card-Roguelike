@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: ChildSoldier
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: ChildSoldier
   tribe: 0
   rarity: 2
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: bac89783a31d2c84bb39c73d242c5e67, type: 2}
   - {fileID: 11400000, guid: 2d10f8037a07b8b4cb3b8a4e937e1914, type: 2}

@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Gobo-Bomb_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Gobo-Bomb
   tribe: 0
+  rarity: 0
   hpMax: 4
   artwork: {fileID: 8749302817991680212, guid: 29eb32ed09f848648ac6d8528957d3af, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList: []
   passiveList: []
   enemyBehaviours:

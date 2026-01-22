@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: ChildSoldierKingSword
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Sword King
   tribe: 0
   rarity: 3
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: dffd8cdec6a10f94bacea4c864cb5bdc, type: 2}
   passiveList: []

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Squirty_squire_0
   m_EditorClassIdentifier: 
-  cardNumber: 3
   cardName: Squirty Squire
   tribe: 0
   rarity: 1
@@ -21,7 +20,6 @@ MonoBehaviour:
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 6ee60165c440c644394182de41d3b196, type: 2}
   - {fileID: 11400000, guid: ef039d16e8db1824592526ce4acfb455, type: 2}

@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Cube_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Cube
   tribe: 0
+  rarity: 0
   hpMax: 15
   artwork: {fileID: 5752739366588724016, guid: 15f2abb38cef91249a3b056c559eb3a9, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 1e84870535341394d9f66e9c24ac3304, type: 2}
   passiveList:

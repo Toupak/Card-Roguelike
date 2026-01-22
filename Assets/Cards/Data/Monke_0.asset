@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Monke_0
   m_EditorClassIdentifier: 
-  cardNumber: 0
   cardName: Biggest of Monkey
   tribe: 1
+  rarity: 0
   hpMax: 10
   artwork: {fileID: -8140683129667006736, guid: ba0a378e55913174ba87540c849fef96, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 7053965526187389570, guid: 82d5c66f6cdf9fe459984ab63d2cff36, type: 3}
-  frameData: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 1dedf5acda6d62e4695a832e143898df, type: 2}
   passiveList:
