@@ -12,19 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Starseer_0
   m_EditorClassIdentifier: 
-  cardName: Starseer_0
-  tribe: 0
-  rarity: 0
-  hpMax: 0
+  cardName: Starseer
+  tribe: 1
+  rarity: 2
+  hpMax: 10
   artwork: {fileID: -6040127883190505361, guid: c82d838f3cf2ba84f8390ba37cb839d7, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: f9b6bf56f1acc384aa6c0aa798113605, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: bc5a801fda9960941845163631c6e60b, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: starseer_0
+  localizationKey: starseer

@@ -30,6 +30,13 @@ namespace Combat.Spells.Data.Zanger
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(spellData.inflictStatus, spellData.statusStacksApplied, cardController, target);
             ActionSystem.instance.Perform(applyStatusGa);
+
+            if (isObedient)
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                ConsumeStacksGa consume = new ConsumeStacksGa(StatusType.Obedience, 1, cardController, cardController);
+                ActionSystem.instance.Perform(consume);
+            }
         }
     }
 }

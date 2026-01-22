@@ -514,6 +514,14 @@ MonoBehaviour:
     m_Localized: Gives $Armor$ to adjacent cards when Surfacing
     m_Metadata:
       m_Items: []
+  - m_Id: 21158694607355904
+    m_Localized: Everyday is leg day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21158694624133120
+    m_Localized: $BonusDamage$ applied to Starseer never expire
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

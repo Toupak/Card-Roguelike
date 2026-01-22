@@ -815,6 +815,14 @@ MonoBehaviour:
     m_Key: kraken_krakensurface
     m_Metadata:
       m_Items: []
+  - m_Id: 21157393630724096
+    m_Key: starseer_starseertransfer_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21157393672667136
+    m_Key: starseer_starseertransfer
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

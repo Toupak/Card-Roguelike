@@ -18,7 +18,7 @@ MonoBehaviour:
   hpMax: 0
   artwork: {fileID: 1243875465296738913, guid: 5813c8a39977410428dee71897469b15, type: 3}
   description: 
-  isSpecialSummon: 0
+  isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   spellList: []
   passiveList: []

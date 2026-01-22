@@ -927,6 +927,14 @@ MonoBehaviour:
     m_Localized: Deal $d$ damage to a random enemy target
     m_Metadata:
       m_Items: []
+  - m_Id: 21157393630724096
+    m_Localized: Morale boosting stare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21157393672667136
+    m_Localized: Transfer all status currently affecting Starseer to selected target
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
