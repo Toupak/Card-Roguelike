@@ -20,11 +20,11 @@ MonoBehaviour:
 
 
     Its spells will target 1 more target'
-  endTurnBehaviour: 0
   behaviour: 0
   behaviourTiming: 1
   effectType: 1
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4278204159

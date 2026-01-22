@@ -19,11 +19,11 @@ MonoBehaviour:
 
     At 10
     stacks, Gumball explodes'
-  endTurnBehaviour: 2
   behaviour: 2
   behaviourTiming: 6
   effectType: 1
   maxStackCount: 10
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4285205940

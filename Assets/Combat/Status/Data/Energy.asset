@@ -16,11 +16,11 @@ MonoBehaviour:
   statusName: Energy
   statusTag: Energy
   statusDescription: Your $Energy$ is used to cast spells with your cards
-  endTurnBehaviour: 2
   behaviour: 2
   behaviourTiming: 6
   effectType: 0
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4279729899

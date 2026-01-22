@@ -19,11 +19,11 @@ MonoBehaviour:
 
     (the amount
     of damage does not increase with the amount of stacks)'
-  endTurnBehaviour: 2
   behaviour: 2
   behaviourTiming: 6
   effectType: 2
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4279729899

@@ -16,9 +16,11 @@ MonoBehaviour:
   statusName: Berserk
   statusTag: Berserk
   statusDescription: Deal double damage, receive double damage
-  endTurnBehaviour: 3
+  behaviour: 0
+  behaviourTiming: 0
   effectType: 1
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4287203825

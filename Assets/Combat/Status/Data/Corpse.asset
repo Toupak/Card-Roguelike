@@ -16,11 +16,11 @@ MonoBehaviour:
   statusName: Corpse
   statusTag: Corpse
   statusDescription: 
-  endTurnBehaviour: 2
   behaviour: 2
   behaviourTiming: 6
   effectType: 0
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4279452751

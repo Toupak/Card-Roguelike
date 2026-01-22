@@ -42,7 +42,8 @@ namespace Cards.Scripts
         Terror,
         Poison,
         Dive,
-        Corpse
+        Corpse,
+        Spear
     }
 
     public enum StatusBehaviour

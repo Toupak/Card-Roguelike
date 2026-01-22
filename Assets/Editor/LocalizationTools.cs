@@ -21,7 +21,7 @@ namespace Editor
         private const string statusTablePath = "Assets/Localization/Tables/Status/Status_en.asset";
         private const string enemiesTablePath = "Assets/Localization/Tables/Enemies/Enemies_en.asset";
         
-        private const string statusHolderPath = "Assets/Status/StatusDataHolder.asset";
+        private const string statusHolderPath = "Assets/Combat/Status/StatusDataHolder.asset";
         
 
         [MenuItem("Tools/Localization/Add New Card To Trad File")]

@@ -20,7 +20,7 @@ namespace Combat.Spells.Data.Rooster
 
         private void ApplyStatusReaction(ApplyStatusGa applyStatusGa)
         {
-            if (applyStatusGa.target.cardMovement.IsEnemyCard && applyStatusGa.type == StatusType.Vengeance && applyStatusGa.attacker != cardController)
+            if (applyStatusGa.target != null && applyStatusGa.target.cardMovement.IsEnemyCard && applyStatusGa.type == StatusType.Vengeance && applyStatusGa.attacker != null && applyStatusGa.attacker != cardController)
             {
                 DealDamageGA dealDamageGa = new DealDamageGA(cardController.ComputeCurrentDamage(1), cardController, applyStatusGa.target);
                 ActionSystem.instance.AddReaction(dealDamageGa);

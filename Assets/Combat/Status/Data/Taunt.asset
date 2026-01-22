@@ -19,11 +19,11 @@ MonoBehaviour:
 
     Each
     stack of Taunt will attract one attack and be consumed'
-  endTurnBehaviour: 2
   behaviour: 2
   behaviourTiming: 6
   effectType: 1
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4280534496

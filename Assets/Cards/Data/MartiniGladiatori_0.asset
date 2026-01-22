@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: MartiniGladiatori_0
   m_EditorClassIdentifier: 
-  cardName: MartiniGladiatori_0
-  tribe: 0
+  cardName: Martini Gladiatorini
+  tribe: 5
   rarity: 0
-  hpMax: 0
+  hpMax: 18
   artwork: {fileID: 6735330410586063916, guid: dae225945ba3574438d71abb67f8a3c6, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: 550da8415aaba784bbe1f9fcce9f9817, type: 2}
+  - {fileID: 11400000, guid: b162e30179bd40f4cbb6baf4315fe7cb, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: d70c06efa2d1415439e520b4459a8f23, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: martinigladiatori_0
+  localizationKey: martinigladiatorini

@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 347651979313155
-    m_Localized: Attacks deal extra damage this turn
+    m_Localized: Attacks deal extra damage
     m_Metadata:
       m_Items: []
   - m_Id: 347651979313156
@@ -281,8 +281,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1800944131735552
-    m_Localized: The remains of a fallen card, can be used by unatura forces to perform
-      dark rituals...
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 2259158371631109
@@ -311,6 +310,15 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2259158371631104
     m_Localized: Energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21346909108797440
+    m_Localized: Spear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21346909268180992
+    m_Localized: When an enemy attacks the Martini Gladiatorini, they take as much
+      damage back as their current $Spear$ count
     m_Metadata:
       m_Items: []
   references:

@@ -19,9 +19,11 @@ MonoBehaviour:
 
     Next turn can recast to
     attack random target'
-  endTurnBehaviour: 3
+  behaviour: 0
+  behaviourTiming: 0
   effectType: 1
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4285736483

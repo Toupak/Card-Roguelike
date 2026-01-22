@@ -935,6 +935,25 @@ MonoBehaviour:
     m_Localized: Transfer all status currently affecting Starseer to selected target
     m_Metadata:
       m_Items: []
+  - m_Id: 21353054158422016
+    m_Localized: Wooden Spear Yeet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21353054330388480
+    m_Localized: Deal $d$ damage to 2 enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21353054330388481
+    m_Localized: Paper Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21353054330388482
+    m_Localized: 'Gains 1 $Taunt$
+
+      Pulls all $Spear$ from all enemies, gains
+      as much $Armor$'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -862,7 +862,6 @@ MonoBehaviour:
   playerBoard: {fileID: 236631251}
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   cardData:
-  - {fileID: 11400000, guid: b45aabbed37fc7545bbddb8dbe80c11b, type: 2}
   - {fileID: 11400000, guid: 77493d91f08d2c34f8af5681cf0b8c99, type: 2}
   - {fileID: 11400000, guid: e7258a4f1e627b940957da16e8deaa15, type: 2}
   - {fileID: 11400000, guid: 5ad49483ed8055a428228626e89de8ce, type: 2}
@@ -893,11 +892,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84d2293258958594eac1314455a4580f, type: 2}
   - {fileID: 11400000, guid: eac11239de997e04895423be036e5ec1, type: 2}
   - {fileID: 11400000, guid: d0ea2fd3b9b8b6e4b869b8384bc722a8, type: 2}
+  - {fileID: 11400000, guid: e91170c3198e80846afc2d7f117ee1b2, type: 2}
   - {fileID: 11400000, guid: b761af65222c49f4ebc0b1fb3f3d09f6, type: 2}
   - {fileID: 11400000, guid: 1bafb18726e1abb4fbb7a98f5b0616fe, type: 2}
   - {fileID: 11400000, guid: 4b1716301b61ba0499a6ea3de47bcedd, type: 2}
   - {fileID: 11400000, guid: d44d5ead24c1c624d9315bb1746a0518, type: 2}
   - {fileID: 11400000, guid: 275058c224daad14190808e074dd0793, type: 2}
+  - {fileID: 11400000, guid: 6ed2e3ba4b1b8b443b05cdbfde295862, type: 2}
   - {fileID: 11400000, guid: 9d59b7e02bd32454ca6c4ae6ed6673c3, type: 2}
   - {fileID: 11400000, guid: ae461de2f5cec2b42b0326f89cc68c01, type: 2}
   - {fileID: 11400000, guid: f3d4e336d4492b849b5adaf040e6a78f, type: 2}
@@ -910,7 +911,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e901559045344174d90a65b092b4d2f3, type: 2}
   - {fileID: 11400000, guid: 75cab164d3531044ba2a60508b2d0124, type: 2}
   - {fileID: 11400000, guid: 3a14009df7d84bf44938d7e19731d4d7, type: 2}
-  - {fileID: 11400000, guid: 6ed2e3ba4b1b8b443b05cdbfde295862, type: 2}
+  - {fileID: 11400000, guid: b45aabbed37fc7545bbddb8dbe80c11b, type: 2}
 --- !u!4 &628700216
 Transform:
   m_ObjectHideFlags: 0

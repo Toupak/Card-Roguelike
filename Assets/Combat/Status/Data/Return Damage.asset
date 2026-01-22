@@ -16,9 +16,11 @@ MonoBehaviour:
   statusName: Return Damage
   statusTag: ReturnDamage
   statusDescription: If attacked, enemies take 1 damage back
-  endTurnBehaviour: 3
+  behaviour: 0
+  behaviourTiming: 0
   effectType: 1
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4289997584

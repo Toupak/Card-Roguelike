@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Name: GladiatorTaunt
+  m_EditorClassIdentifier: 
+  spellName: Paper Shield
+  description: 'Gains 1 $Taunt$
+
+    Pulls all $Spear$ from all enemies, gains as
+    much $Armor$'
+  icon: {fileID: 0}
+  targetType: 1
+  targetingMode: 2
+  targetCount: 0
+  energyCost: 1
+  hasNoCooldown: 0
+  damage: 0
+  inflictStatus: 5
+  statusStacksApplied: 1
+  spellController: {fileID: -3574174498928415081, guid: 53dfc4bef2439b14a86dc53c4b065859, type: 3}
+  localizationKey: gladiatortaunt

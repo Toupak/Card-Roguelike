@@ -19,11 +19,11 @@ MonoBehaviour:
 
     Looses a stack
     at the end of its turn.'
-  endTurnBehaviour: 0
   behaviour: 0
   behaviourTiming: 1
   effectType: 2
   maxStackCount: -1
+  neverRemoveTab: 0
   barColor:
     serializedVersion: 2
     rgba: 4278190080
