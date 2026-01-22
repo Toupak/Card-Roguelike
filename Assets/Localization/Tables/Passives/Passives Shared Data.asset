@@ -471,6 +471,14 @@ MonoBehaviour:
     m_Key: starseer_starseerpassive
     m_Metadata:
       m_Items: []
+  - m_Id: 21352221375168512
+    m_Key: martinigladiatorini_gladiatorpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21352221391945728
+    m_Key: martinigladiatorini_gladiatorpassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

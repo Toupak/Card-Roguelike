@@ -176,7 +176,7 @@ MonoBehaviour:
   - m_Id: 261674766139393
     m_Localized: 'Can only be cast when $Stun$ - Remove $Stun$
 
-      Apply 2 $Fury$
+      Apply 1 $Fury$
       stacks to self'
     m_Metadata:
       m_Items: []

@@ -823,6 +823,22 @@ MonoBehaviour:
     m_Key: starseer_starseertransfer
     m_Metadata:
       m_Items: []
+  - m_Id: 21353054158422016
+    m_Key: martinigladiatorini_gladiatorattack_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21353054330388480
+    m_Key: martinigladiatorini_gladiatorattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21353054330388481
+    m_Key: martinigladiatorini_gladiatortaunt_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21353054330388482
+    m_Key: martinigladiatorini_gladiatortaunt
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

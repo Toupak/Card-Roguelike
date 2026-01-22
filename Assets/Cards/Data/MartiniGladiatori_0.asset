@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Martini Gladiatorini
   tribe: 5
-  rarity: 0
+  rarity: 1
   hpMax: 18
   artwork: {fileID: 6735330410586063916, guid: dae225945ba3574438d71abb67f8a3c6, type: 3}
   description: 

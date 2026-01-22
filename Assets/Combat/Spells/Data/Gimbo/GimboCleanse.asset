@@ -25,6 +25,6 @@ MonoBehaviour:
   hasNoCooldown: 0
   damage: 0
   inflictStatus: 15
-  statusStacksApplied: 2
+  statusStacksApplied: 1
   spellController: {fileID: -6618116267531352615, guid: 2e763dbd5645c42499e603c23d915dfe, type: 3}
   localizationKey: gimbocleanse
