@@ -17,4 +17,6 @@ MonoBehaviour:
   maxRoomCount: 15
   minEliteRooms: 1
   maxEliteRooms: 3
-  maxEncounterRooms: 5
+  eliteRoomMinDistanceFromStart: 3
+  minEncounterRooms: 1
+  maxEncounterRooms: 3

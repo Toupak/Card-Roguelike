@@ -72,44 +72,11 @@ namespace Map.Rooms
             for (int x = 0; x < mapSize; x++)
                 for (int y = 0; y < mapSize; y++)
                     if (map[x][y] != 0)
-                        rooms.Add(new RoomPackage(GetRoomFromDataBase(map, x, y), x, y, ComputeRoomType(map[x][y])));
+                        rooms.Add(new RoomPackage(GetRoomFromDataBase(map, x, y), x, y, MapBuilder.instance.ComputeRoomType(map[x][y])));
             
-            SetupEliteRooms();
-            LimitEncounterRooms();
             GetStartingRoom();
             
             OnBuildRooms?.Invoke();
-        }
-
-        private void LimitEncounterRooms()
-        {
-            FloorData floorData = RunLoop.instance.GetCurrentFloorData();
-            int maxEncounterRooms = floorData.maxEncounterRooms;
-
-            List<RoomPackage> encounterRooms = rooms.Where((r) => r.roomType == RoomData.RoomType.Encounter).ToList();
-            encounterRooms.Shuffle();
-
-            if (encounterRooms.Count <= maxEncounterRooms)
-                return;
-            
-            for (int i = encounterRooms.Count - 1; i >= 0 && i > maxEncounterRooms; i--)
-            {
-                encounterRooms[i].roomType = RoomData.RoomType.Battle;
-            }
-        }
-
-        private void SetupEliteRooms()
-        {
-            FloorData floorData = RunLoop.instance.GetCurrentFloorData();
-            int eliteCount = Random.Range(floorData.minEliteRooms, floorData.maxEliteRooms + 1);
-
-            List<RoomPackage> encounterRooms = rooms.Where((r) => r.roomType == RoomData.RoomType.Encounter).ToList();
-            encounterRooms.Shuffle();
-
-            for (int i = 0; i < encounterRooms.Count && i < eliteCount; i++)
-            {
-                encounterRooms[i].roomType = RoomData.RoomType.Elite;
-            }
         }
 
         public string GetStartingRoom()
@@ -228,20 +195,6 @@ namespace Map.Rooms
             bool left = x > 0 && map[x - 1][y] != 0;
             
             return roomDataBase.GetRandomRoom(top, right, bot, left);
-        }
-        
-        private RoomData.RoomType ComputeRoomType(int type)
-        {
-            if (type == 1)
-                return RoomData.RoomType.Battle;
-            if (type == 2)
-                return RoomData.RoomType.Starting;
-            if (type == 3)
-                return RoomData.RoomType.Encounter;
-            if (type == 4)
-                return RoomData.RoomType.Boss;
-
-            return RoomData.RoomType.Starting;
         }
     }
 }

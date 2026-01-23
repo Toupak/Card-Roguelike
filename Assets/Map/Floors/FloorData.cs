@@ -12,8 +12,10 @@ namespace Map.Floors
         [Space] 
         public int minEliteRooms;
         public int maxEliteRooms;
+        public int eliteRoomMinDistanceFromStart;
         
         [Space] 
+        public int minEncounterRooms;
         public int maxEncounterRooms;
     }
 }
