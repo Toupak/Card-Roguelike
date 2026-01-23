@@ -33,12 +33,14 @@ namespace Combat.Spells.Data.Olaf_And_Pif
 
             SpawnCardGA spawnOlaf = new SpawnCardGA(olafData, cardController);
             spawnOlaf.startingHealth = olafHealth;
+            spawnOlaf.frameData = cardController.frameDisplay.hasFrame ? cardController.frameDisplay.data : null;
             ActionSystem.instance.Perform(spawnOlaf);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             
             SpawnCardGA spawnPif = new SpawnCardGA(pifData, cardController);
             spawnPif.startingHealth = pifHealth;
+            spawnPif.frameData = cardController.frameDisplay.hasFrame ? cardController.frameDisplay.data : null;
             ActionSystem.instance.Perform(spawnPif, () => cardController.KillCard(false));
         }
     }

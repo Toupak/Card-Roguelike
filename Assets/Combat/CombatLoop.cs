@@ -139,6 +139,9 @@ namespace Combat
             
             if (spawnCardGa.startingHealth > 0)
                 spawnCardGa.spawnedCard.cardHealth.SetHealth(spawnCardGa.startingHealth);
+            
+            if (spawnCardGa.frameData != null)
+                spawnCardGa.spawnedCard.AddFrame(spawnCardGa.frameData);
 
             yield return new WaitForSeconds(0.2f);
         }

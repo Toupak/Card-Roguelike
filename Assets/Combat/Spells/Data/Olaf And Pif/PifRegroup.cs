@@ -31,6 +31,7 @@ namespace Combat.Spells.Data.Olaf_And_Pif
 
             SpawnCardGA spawnOlafAndPif = new SpawnCardGA(olafAndPifData, cardController);
             spawnOlafAndPif.startingHealth = totalHealth;
+            spawnOlafAndPif.frameData = cardController.frameDisplay.hasFrame ? cardController.frameDisplay.data : null;
             ActionSystem.instance.Perform(spawnOlafAndPif, () =>
             {
                 cardController.KillCard(false);

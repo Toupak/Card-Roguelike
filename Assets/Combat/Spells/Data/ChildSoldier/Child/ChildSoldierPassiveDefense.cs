@@ -45,6 +45,9 @@ namespace Combat.Spells.Data.ChildSoldier.Child
         {
             SpawnCardGA spawnCardGa = new SpawnCardGA(teenDefenseData, cardController);
             spawnCardGa.startingHealth = cardController.cardHealth.currentHealth;
+            spawnCardGa.frameData = cardController.frameDisplay.hasFrame ? cardController.frameDisplay.data : null;
+            
+            cardController.deckCard.cardData = teenDefenseData;
             spawnCardGa.deckCard = cardController.deckCard;
             ActionSystem.instance.AddReaction(spawnCardGa);
             

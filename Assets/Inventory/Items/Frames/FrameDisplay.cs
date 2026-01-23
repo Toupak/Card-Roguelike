@@ -13,7 +13,7 @@ namespace Inventory.Items.Frames
         [SerializeField] private FrameTabDisplay frameTabDisplayPrefab;
         [SerializeField] private Transform frameTabHolder ;
 
-        public FrameData data { get; private set; }
+        public FrameData data { get; private set; } = null;
         public FrameController frameController { get; private set; }
         public bool hasFrame => frameController != null;
 
