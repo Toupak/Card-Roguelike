@@ -20,7 +20,7 @@ namespace Combat.EnemyAttack.Angry_Plant
             {
                 if (target.cardController.cardStatus.IsStatusApplied(StatusType.Captured))
                 {
-                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.instance.playerHandController.container);
+                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.instance.playerHandController.hand);
 
                     yield return new WaitForSeconds(0.5f);
                 }

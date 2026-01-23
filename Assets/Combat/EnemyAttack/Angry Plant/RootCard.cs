@@ -16,7 +16,7 @@ namespace Combat.EnemyAttack.Angry_Plant
 
             CardController target = ComputeTarget();
 
-            target.cardMovement.CurrentSlot.board.SendCardToOtherBoard(target.cardMovement.SlotIndex, EnemyHandController.instance.container);
+            target.cardMovement.CurrentSlot.board.SendCardToOtherBoard(target.cardMovement.SlotIndex, EnemyHandController.instance.board);
 
             yield return new WaitForSeconds(0.5f);
 

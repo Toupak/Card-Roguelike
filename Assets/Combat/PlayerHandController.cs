@@ -17,7 +17,8 @@ namespace Combat
         [SerializeField] private CardMovement cardMovementPrefab;
         [SerializeField] private List<CardData> cardData;
         
-        public CardContainer container => handContainer;
+        public CardContainer hand => handContainer;
+        public CardContainer board => playerBoard;
 
         private int currentDebugDeckIndex = 0;
         

@@ -7,7 +7,6 @@ using Cards.Tween_Animations;
 using Combat.Battles.Data;
 using Combat.Card_Container.CardSlot;
 using Combat.Card_Container.Script;
-using Combat.EnemyAttack;
 using Run_Loop;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace Combat
         [SerializeField] private CardContainer enemyBoardContainer;
         [SerializeField] private CardMovement cardMovementPrefab;
         
-        public CardContainer container => enemyBoardContainer;
+        public CardContainer board => enemyBoardContainer;
 
         private void Awake()
         {

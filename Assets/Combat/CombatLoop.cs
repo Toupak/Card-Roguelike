@@ -7,7 +7,6 @@ using BoomLib.UI.Scripts;
 using Cards.Scripts;
 using Combat.Battles.Data;
 using Combat.Card_Container.CardSlot;
-using Combat.Card_Container.Script;
 using Combat.EnergyBar;
 using Localization;
 using Run_Loop;
@@ -136,7 +135,7 @@ namespace Combat
             else if (spawnCardGa.isToken)
                 spawnCardGa.spawnedCard = playerHandController.SpawnToken(spawnCardGa);
             else    
-                spawnCardGa.spawnedCard = playerHandController.SpawnCard(spawnCardGa.deckCard ?? new DeckCard(spawnCardGa.cardData), playerHandController.container);
+                spawnCardGa.spawnedCard = playerHandController.SpawnCard(spawnCardGa.deckCard ?? new DeckCard(spawnCardGa.cardData), playerHandController.board);
             
             if (spawnCardGa.startingHealth > 0)
                 spawnCardGa.spawnedCard.cardHealth.SetHealth(spawnCardGa.startingHealth);
@@ -171,7 +170,7 @@ namespace Combat
         
         private IEnumerator WaitForAtLeastOneCardOnPlayerBoard()
         {
-            yield return new WaitUntil(() => playerHandController.container.Slots.Count > 0);
+            yield return new WaitUntil(() => playerHandController.board.Slots.Count > 0);
         }
         
         private IEnumerator ActivateEndPreparationButton()
@@ -286,17 +285,17 @@ namespace Combat
         
         public bool IsMatchOver()
         {
-            bool isPlayerDead = playerHandController.container.Slots.Count == 0;
+            bool isPlayerDead = playerHandController.board.Slots.Count == 0;
             
             return currentTurn != TurnType.SetupOver && currentTurn != TurnType.Preparation && (isPlayerDead || IsEnemyDead());
         }
 
         public bool IsEnemyDead()
         {
-            if (enemyHandController.container.Slots.Count == 0)
+            if (enemyHandController.board.Slots.Count == 0)
                 return true;
 
-            foreach (Slot slot in enemyHandController.container.Slots)
+            foreach (Slot slot in enemyHandController.board.Slots)
             {
                 if (slot.CurrentCard.cardController.cardData.isMainBoss)
                     return false;
@@ -313,7 +312,7 @@ namespace Combat
         public void StoreCardsHealth()
         {
             List<DeckCard> cardsToSave = new List<DeckCard>();
-            foreach (Slot slot in playerHandController.container.Slots)
+            foreach (Slot slot in playerHandController.board.Slots)
             {
                 CardController card = slot.CurrentCard.cardController;
 
@@ -323,7 +322,7 @@ namespace Combat
                     PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
                 }
             }
-            foreach (Slot slot in enemyHandController.container.Slots)
+            foreach (Slot slot in enemyHandController.board.Slots)
             {
                 CardController card = slot.CurrentCard.cardController;
 

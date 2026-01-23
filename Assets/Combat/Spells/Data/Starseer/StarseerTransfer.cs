@@ -4,7 +4,6 @@ using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 namespace Combat.Spells.Data.Starseer
