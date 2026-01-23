@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dr Marmoton_0
   m_EditorClassIdentifier: 
   cardName: Dr Marmoton
-  tribe: 1
+  tribe: 6
   rarity: 1
   hpMax: 10
   artwork: {fileID: -1932002448818386534, guid: eced0ad742530c2428c4238598869f1a, type: 3}

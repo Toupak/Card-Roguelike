@@ -16,14 +16,13 @@ namespace Combat.EnemyAttack.Angry_Plant
 
             List<CardMovement> targets = ComputeTargetList(true, false);
 
-            foreach(CardMovement target in targets)
+            foreach (CardMovement target in targets)
             {
                 if (target.cardController.cardStatus.IsStatusApplied(StatusType.Captured))
                 {
-                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.instance.playerBoard);
+                    target.CurrentSlot.board.SendCardToOtherBoard(target.SlotIndex, CombatLoop.instance.playerHandController.container);
 
                     yield return new WaitForSeconds(0.5f);
-                    yield break;
                 }
             }
         }

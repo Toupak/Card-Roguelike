@@ -19,9 +19,8 @@ namespace Combat
 {
     public class CombatLoop : MonoBehaviour
     {
-        [SerializeField] private EnemyHandController enemyHandController;
-        [SerializeField] private PlayerHandController playerHandController;
-        [SerializeField] public CardContainer playerBoard;
+        public EnemyHandController enemyHandController;
+        public PlayerHandController playerHandController;
         
         [Space]
         [SerializeField] private Button endPreparationButton;
@@ -137,7 +136,7 @@ namespace Combat
             else if (spawnCardGa.isToken)
                 spawnCardGa.spawnedCard = playerHandController.SpawnToken(spawnCardGa);
             else    
-                spawnCardGa.spawnedCard = playerHandController.SpawnCard(spawnCardGa.deckCard ?? new DeckCard(spawnCardGa.cardData), playerBoard);
+                spawnCardGa.spawnedCard = playerHandController.SpawnCard(spawnCardGa.deckCard ?? new DeckCard(spawnCardGa.cardData), playerHandController.container);
             
             if (spawnCardGa.startingHealth > 0)
                 spawnCardGa.spawnedCard.cardHealth.SetHealth(spawnCardGa.startingHealth);
@@ -172,7 +171,7 @@ namespace Combat
         
         private IEnumerator WaitForAtLeastOneCardOnPlayerBoard()
         {
-            yield return new WaitUntil(() => playerBoard.Slots.Count > 0);
+            yield return new WaitUntil(() => playerHandController.container.Slots.Count > 0);
         }
         
         private IEnumerator ActivateEndPreparationButton()
@@ -287,7 +286,7 @@ namespace Combat
         
         public bool IsMatchOver()
         {
-            bool isPlayerDead = playerBoard.Slots.Count == 0;
+            bool isPlayerDead = playerHandController.container.Slots.Count == 0;
             
             return currentTurn != TurnType.SetupOver && currentTurn != TurnType.Preparation && (isPlayerDead || IsEnemyDead());
         }
@@ -314,13 +313,25 @@ namespace Combat
         public void StoreCardsHealth()
         {
             List<DeckCard> cardsToSave = new List<DeckCard>();
-            foreach (Slot slot in playerBoard.Slots)
+            foreach (Slot slot in playerHandController.container.Slots)
             {
                 CardController card = slot.CurrentCard.cardController;
-                cardsToSave.Add(card.deckCard);
-                
-                if (!card.cardHealth.IsDead)
+
+                if (card.deckCard != null && !card.cardHealth.IsDead)
+                {
+                    cardsToSave.Add(card.deckCard);
                     PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
+                }
+            }
+            foreach (Slot slot in enemyHandController.container.Slots)
+            {
+                CardController card = slot.CurrentCard.cardController;
+
+                if (!card.cardData.isEnemy && card.deckCard != null && !card.cardHealth.IsDead)
+                {
+                    PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
+                    cardsToSave.Add(card.deckCard);
+                }
             }
 
             PlayerDeck.instance.SaveLastHandPlayed(cardsToSave);

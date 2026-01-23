@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcba23b4577e2aa44936505dc89d68bc, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
-  floorSize: 15
-  minRoomCount: 10
+  floorSize: 25
+  minRoomCount: 15
   maxRoomCount: 15
-  minEliteRooms: 1
-  maxEliteRooms: 3
+  minEliteRooms: 2
+  maxEliteRooms: 2
   eliteRoomMinDistanceFromStart: 3
-  minEncounterRooms: 1
+  minEncounterRooms: 3
   maxEncounterRooms: 3
