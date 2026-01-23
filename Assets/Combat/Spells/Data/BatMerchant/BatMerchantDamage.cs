@@ -4,29 +4,13 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Cards.Scripts;
-using Combat.EnergyBar;
 using Localization;
 using UnityEngine;
 
 namespace Combat.Spells.Data.BatMerchant
 {
     public class BatMerchantDamage : SpellController
-    {
-        public override bool CanCastSpell()
-        {
-            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn ==
-                CombatLoop.TurnType.Preparation)
-                return false;
-            
-            if (cardController.cardStatus.IsStatusApplied(StatusType.Stun) || cardController.cardStatus.IsStatusApplied(StatusType.Captured))
-                return false;
-
-            if (IsShiny)
-                return true;
-                
-            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(spellData.energyCost);
-        }
-        
+    { 
         protected override void SubscribeReactions()
         {
             base.SubscribeReactions();
@@ -44,24 +28,7 @@ namespace Combat.Spells.Data.BatMerchant
             if (deathGa.killer == cardController)
                 SetShinyState(true);
         }
-        
-        protected override IEnumerator ConsumeEnergy(int cost)
-        {
-            if (!IsShiny && cost > 0)
-            {
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                ConsumeEnergyGa consumeEnergyGa = new ConsumeEnergyGa(cost, this);
-                ActionSystem.instance.Perform(consumeEnergyGa);
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            }
-        }
-        
-        protected override void EndTurnRefreshCooldownReaction(StartTurnGa startTurnGa)
-        {
-            base.EndTurnRefreshCooldownReaction(startTurnGa);
-            SetShinyState(false);
-        }
-        
+
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);

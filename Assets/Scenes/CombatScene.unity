@@ -287,7 +287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHandController: {fileID: 1715712363}
   playerHandController: {fileID: 628700215}
-  playerBoard: {fileID: 236631251}
   endPreparationButton: {fileID: 2017245389}
   endPlayerTurnButton: {fileID: 1744358810}
   turnEndAnimation: {fileID: 914106417}
@@ -892,7 +891,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84d2293258958594eac1314455a4580f, type: 2}
   - {fileID: 11400000, guid: eac11239de997e04895423be036e5ec1, type: 2}
   - {fileID: 11400000, guid: d0ea2fd3b9b8b6e4b869b8384bc722a8, type: 2}
-  - {fileID: 11400000, guid: e91170c3198e80846afc2d7f117ee1b2, type: 2}
   - {fileID: 11400000, guid: b761af65222c49f4ebc0b1fb3f3d09f6, type: 2}
   - {fileID: 11400000, guid: 1bafb18726e1abb4fbb7a98f5b0616fe, type: 2}
   - {fileID: 11400000, guid: 4b1716301b61ba0499a6ea3de47bcedd, type: 2}
@@ -911,7 +909,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e901559045344174d90a65b092b4d2f3, type: 2}
   - {fileID: 11400000, guid: 75cab164d3531044ba2a60508b2d0124, type: 2}
   - {fileID: 11400000, guid: 3a14009df7d84bf44938d7e19731d4d7, type: 2}
+  - {fileID: 11400000, guid: e91170c3198e80846afc2d7f117ee1b2, type: 2}
   - {fileID: 11400000, guid: b45aabbed37fc7545bbddb8dbe80c11b, type: 2}
+  - {fileID: 11400000, guid: 7d40a2d5c65332e498af96c5f3237ca0, type: 2}
 --- !u!4 &628700216
 Transform:
   m_ObjectHideFlags: 0

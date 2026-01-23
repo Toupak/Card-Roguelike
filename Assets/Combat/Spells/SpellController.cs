@@ -49,19 +49,25 @@ namespace Combat.Spells
 
         public virtual bool CanCastSpell()
         {
-            if (HasCastedThisTurn)
-                return false;
-
             if (CombatLoop.instance == null || CombatLoop.instance.currentTurn != CombatLoop.TurnType.Player)
                 return false;
             
-            if (!EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))
+            if (CombatLoop.instance == null || CombatLoop.instance.currentTurn == CombatLoop.TurnType.Preparation)
                 return false;
-
+            
             if (cardController.cardStatus.IsStatusApplied(StatusType.Stun))
                 return false;
 
             if (cardController.cardStatus.IsStatusApplied(StatusType.Captured) || cardController.cardStatus.IsStatusApplied(StatusType.Dive))
+                return false;
+            
+            if (IsShiny)
+                return true;
+            
+            if (HasCastedThisTurn)
+                return false;
+
+            if (!EnergyController.instance.CheckForEnergy(spellData.energyCost) && !cardController.cardStatus.IsStatusApplied(StatusType.FreeSpell))
                 return false;
 
             return true;
@@ -147,7 +153,7 @@ namespace Combat.Spells
                 ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.FreeSpell, 1, cardController, cardController);
                 ActionSystem.instance.Perform(consumeStacksGa);
             }
-            else if (cost > 0)
+            else if (!IsShiny && cost > 0)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 ConsumeEnergyGa consumeEnergyGa = new ConsumeEnergyGa(cost, this);
@@ -182,6 +188,7 @@ namespace Combat.Spells
         {
             if (startTurnGa.starting == CombatLoop.TurnType.Player)
                 RefreshCooldown();
+            SetShinyState(false);
         }
         
         protected virtual void RefreshCooldownReaction(RefreshCooldownGA refreshCooldownGa)

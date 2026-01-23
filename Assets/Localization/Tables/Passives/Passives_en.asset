@@ -530,6 +530,15 @@ MonoBehaviour:
     m_Localized: Martini's attacks apply a $Spear$ stack to targets
     m_Metadata:
       m_Items: []
+  - m_Id: 21757641348579328
+    m_Localized: The People's Champion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21757641365356544
+    m_Localized: When killing a target afflicted by $Vengeance$, Forceps gains 1
+      $PermanentDamage$
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

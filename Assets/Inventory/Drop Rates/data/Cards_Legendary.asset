@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingValue: 0
   valueIncreaseOnFail: 3
-  valueIncreaseOnEliteKill: 25
-  valueIncreaseOnBossKill: 50
+  valueIncreaseOnEliteKill: 50
+  valueIncreaseOnBossKill: 100

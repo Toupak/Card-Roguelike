@@ -43,7 +43,7 @@ Deal 1 damage to the second target"
 If target is $Terror$, deals 3 damage instead"
 "gimbo_gimboattack",261674766139392,"Deal $d$ Damage to a random enemy. If the Enemy is $Stun$, consume stacks and add them to damages"
 "gimbo_gimbocleanse",261674766139393,"Can only be cast when $Stun$ - Remove $Stun$
-Apply 2 $Fury$ stacks to self"
+Apply 1 $Fury$ stacks to self"
 "hmsgnome_gnomecarrierspawn",261674766139394,"Spawn 2 GnomeFire Tokens
 $Weak$ stacks will reduce the amount of Tokens spawned"
 "gnorp'saccountant_cigarettebreak",261674766139395,"-5HP
@@ -244,3 +244,9 @@ Can be recast next turn to attack a random target"
 "martinigladiatorini_gladiatortaunt_title",21353054330388481,"Paper Shield"
 "martinigladiatorini_gladiatortaunt",21353054330388482,"Gains 1 $Taunt$
 Pulls all $Spear$ from all enemies, gains as much $Armor$"
+"forceps_forcepsattack_title",21758474039558144,"Quick Jab"
+"forceps_forcepsattack",21758474299604992,"Deal $d$ damage to target enemy
+If enemy is afflicted by $Vengeance$, steal 1 $Vengeance$ stack and can recast spell for Free"
+"forceps_forcepsbuff_title",21758474303799296,"Roach Might"
+"forceps_forcepsbuff",21758474303799297,"Cost 3 $Vengeance$ to perform - Consumes all $Vengeance$ stacks
+Gain 1 $BonusDamage$"

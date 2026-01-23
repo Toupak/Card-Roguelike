@@ -954,6 +954,28 @@ MonoBehaviour:
       as much $Armor$'
     m_Metadata:
       m_Items: []
+  - m_Id: 21758474039558144
+    m_Localized: Quick Jab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21758474299604992
+    m_Localized: 'Deal $d$ damage to target enemy
+
+      If enemy is afflicted by
+      $Vengeance$, steal 1 $Vengeance$ stack and can recast spell for Free'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21758474303799296
+    m_Localized: Roach Might
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21758474303799297
+    m_Localized: 'Cost 3 $Vengeance$ to perform - Consumes all $Vengeance$ stacks
+
+      Gain
+      1 $BonusDamage$'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
