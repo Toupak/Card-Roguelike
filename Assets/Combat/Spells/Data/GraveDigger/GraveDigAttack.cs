@@ -12,19 +12,21 @@ namespace Combat.Spells.Data.GraveDigger
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             foreach (CardMovement target in targets)
             {
-                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-
                 DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, target.cardController);
                 ActionSystem.instance.Perform(dealDamageGa);
-            }
-            
-            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Corpse, spellData.statusStacksApplied, cardController, cardController);
-            ActionSystem.instance.Perform(applyStatusGa);
+                if (!dealDamageGa.isDamageNegated && dealDamageGa.amount > 0)
+                {
+                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Corpse, spellData.statusStacksApplied, cardController, cardController);
+                    ActionSystem.instance.Perform(applyStatusGa);
+                    yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                }
+            }
         }
     }
 }

@@ -800,7 +800,8 @@ MonoBehaviour:
   - m_Id: 1802639448440832
     m_Localized: 'Deal $d$ damage to a target
 
-      Then produce 1 $Corpse$ '
+      Then produce as many $Corpse$
+      as damage dealt'
     m_Metadata:
       m_Items: []
   - m_Id: 1802639448440833

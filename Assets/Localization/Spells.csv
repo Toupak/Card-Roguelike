@@ -215,7 +215,7 @@ Can be recast next turn to attack a random target"
 "summoneddemon_summoneddemonattack",1854850517925894,"Consume 1 $Corpse$ to deal $d$ damages to all enemies twice"
 "gravedigger_gravedigattack_title",1802639427469312,"Corpsin' Around"
 "gravedigger_gravedigattack",1802639448440832,"Deal $d$ damage to a target
-Then produce 1 $Corpse$ "
+Then produce as many $Corpse$ as damage dealt"
 "gravedigger_gravedigbuff_title",1802639448440833,"Back On The Menu"
 "gravedigger_gravedigbuff",1802639448440834,"Consumes 3 $Corpse$ to give $BonusDamage$ to all your tokens this turn"
 "necromancer_necromancerspawn_title",1845665298350080,"Rise And Shine"
