@@ -51,7 +51,7 @@ namespace Cards.Scripts
         
         public void SetupToken(CardMovement movement, CardData data, CardController parentCardController)
         {
-            tokenParentController = parentCardController;
+            SetTokenParentController(parentCardController);
             SetupCard(movement, data, data.hpMax);
         }
         
@@ -183,6 +183,11 @@ namespace Cards.Scripts
         {
             if (cardData.passiveList.Count > 0)
                 passiveHolder.Setup(this, cardData);
+        }
+
+        public void SetTokenParentController(CardController parent)
+        {
+            tokenParentController = parent;
         }
         
         public void AddFrame(FrameData frameData)

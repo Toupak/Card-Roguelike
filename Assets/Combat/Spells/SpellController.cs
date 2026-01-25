@@ -30,7 +30,7 @@ namespace Combat.Spells
         public bool IsShiny { get; protected set; }
         public bool HasCastedThisTurn { get; protected set; }
 
-        private bool isLocking;
+        protected bool isLocking;
         public int spellIndex => thisSpellButton.spellIndex;
 
         public virtual void Setup(CardController controller, SpellData data, SpellButton attacheSpellButton, SpellButton otherSpell)

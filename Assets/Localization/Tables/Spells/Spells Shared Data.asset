@@ -839,6 +839,22 @@ MonoBehaviour:
     m_Key: martinigladiatorini_gladiatortaunt
     m_Metadata:
       m_Items: []
+  - m_Id: 21758474039558144
+    m_Key: forceps_forcepsattack_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21758474299604992
+    m_Key: forceps_forcepsattack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21758474303799296
+    m_Key: forceps_forcepsbuff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21758474303799297
+    m_Key: forceps_forcepsbuff
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

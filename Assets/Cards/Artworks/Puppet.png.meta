@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 7d9c75568d5ef8346aee652a172284c5
+guid: 920c8f098ac0d1444a30c33b9db6d1ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4817607443485080491
-    second: BigMan_0
+      213: 9115083180326498312
+    second: Puppet_0
+  - first:
+      213: 1020269839452872013
+    second: Puppet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,23 +116,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigMan_0
+      name: Puppet_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 62
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: babb430f1749bd240800000000000000
-      internalID: 4817607443485080491
+      spriteID: 800bf75dbd74f7e70800000000000000
+      internalID: 9115083180326498312
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: c62e0507626d3d14eb862d8fd10a1e22
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +151,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BigMan_0: 4817607443485080491
+      Puppet_0: 9115083180326498312
+      Puppet_1: 1020269839452872013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

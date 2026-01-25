@@ -40,11 +40,22 @@ namespace Combat.Passives
             }
 
             if (passiveIndex >= 0)
+                RemovePassiveAtIndex(passiveIndex);
+        }
+
+        public void RemoveAllPassives()
+        {
+            for (int i = passives.Count - 1; i >= 0; i--)
             {
-                passives[passiveIndex].Remove();
-                Destroy(passives[passiveIndex].transform.parent.gameObject);
-                passives.RemoveAt(passiveIndex);
+                RemovePassiveAtIndex(i);    
             }
+        }
+
+        private void RemovePassiveAtIndex(int passiveIndex)
+        {
+            passives[passiveIndex].Remove();
+            Destroy(passives[passiveIndex].transform.parent.gameObject);
+            passives.RemoveAt(passiveIndex);
         }
         
         private void SpawnPassiveObject(PassiveData data)

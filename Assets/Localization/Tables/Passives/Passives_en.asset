@@ -539,6 +539,42 @@ MonoBehaviour:
       $PermanentDamage$
     m_Metadata:
       m_Items: []
+  - m_Id: 22283358427643904
+    m_Localized: Ventriloquist Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358654136320
+    m_Localized: Whenever the Card the Puppet is attached to deals damage, the Puppet
+      deals 2 damage to the same target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358654136321
+    m_Localized: String Lash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358654136322
+    m_Localized: The Puppet will inflict 1 damage to the card it is attached to at
+      the start of the enemy's turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330624
+    m_Localized: Stunt Double
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330625
+    m_Localized: The Puppet protect the card it is attached to and will take any
+      damage that would directly target them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330626
+    m_Localized: Awkward Hug
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330627
+    m_Localized: The Puppet will apply 1 $Weak$ to the card it is attached to at
+      the start of the enemy's turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

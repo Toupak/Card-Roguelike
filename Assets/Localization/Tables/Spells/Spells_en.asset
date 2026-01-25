@@ -977,6 +977,36 @@ MonoBehaviour:
       1 $BonusDamage$'
     m_Metadata:
       m_Items: []
+  - m_Id: 22284191613550592
+    m_Localized: Start The Show
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191630327808
+    m_Localized: Craft a Puppet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191630327809
+    m_Localized: Take Center Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191630327810
+    m_Localized: 'Attach the Puppet to a Target
+
+      The Puppet will behave differently
+      if you attach it on an enemy.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191634522112
+    m_Localized: Second Act
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191634522113
+    m_Localized: 'Change the Puppet''s current mode
+
+      The Puppet has an Offensive
+      and a Defensive mode'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

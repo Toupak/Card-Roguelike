@@ -314,9 +314,9 @@ namespace Combat.Card_Container.Script
             if (type == ContainerType.Board)
                 CheckForItemEquipment();
 
-            bool cardHasFrame = currentSelectedCard.cardController != null && currentSelectedCard.cardController.frameDisplay.hasFrame;
+            bool cardHasFrame = currentSelectedCard.cardController != null && currentSelectedCard.cardController.frameDisplay != null && currentSelectedCard.cardController.frameDisplay.hasFrame;
             bool cardWasDroppedInInventory = CursorInfo.instance.LastCardContainer != null && CursorInfo.instance.LastCardContainer.type == ContainerType.Inventory && type != ContainerType.Inventory;
-            bool cardWasDroppedInHand = currentSelectedCard.cardController != null && currentSelectedCard.cardController.frameDisplay.hasFrame && type != ContainerType.Board;
+            bool cardWasDroppedInHand = currentSelectedCard.cardController != null && currentSelectedCard.cardController.frameDisplay != null && currentSelectedCard.cardController.frameDisplay.hasFrame && type != ContainerType.Board;
             
             if (cardHasFrame && (cardWasDroppedInInventory || cardWasDroppedInHand))
                 currentSelectedCard.cardController.frameDisplay.RemoveFrame();

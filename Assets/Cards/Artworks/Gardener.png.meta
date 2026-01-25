@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3b5c92acb92591e42bc9d5ffe49f9344
+guid: e09040ab0d97ef8499312e4f9e4173b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2663931023770825618
-    second: Kraken_0
+      213: 2517129459159921533
+    second: Gardener_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kraken_0
+      name: Gardener_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 64
+        width: 62
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6c4ff519d0d70bd0800000000000000
-      internalID: -2663931023770825618
+      spriteID: d73f5e228e3aee220800000000000000
+      internalID: 2517129459159921533
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a4105bb75d6870e45b8baaa8055e2a98
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kraken_0: -2663931023770825618
+      Gardener_0: 2517129459159921533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

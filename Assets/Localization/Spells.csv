@@ -250,3 +250,11 @@ If enemy is afflicted by $Vengeance$, steal 1 $Vengeance$ stack and can recast s
 "forceps_forcepsbuff_title",21758474303799296,"Roach Might"
 "forceps_forcepsbuff",21758474303799297,"Cost 3 $Vengeance$ to perform - Consumes all $Vengeance$ stacks
 Gain 1 $BonusDamage$"
+"puppeteer_puppeteerspawn_title",22284191613550592,"Start The Show"
+"puppeteer_puppeteerspawn",22284191630327808,"Craft a Puppet"
+"puppeteer_puppeteermove_title",22284191630327809,"Take Center Stage"
+"puppeteer_puppeteermove",22284191630327810,"Attach the Puppet to a Target
+The Puppet will behave differently if you attach it on an enemy."
+"puppeteer_puppeteerswapmode_title",22284191634522112,"Second Act"
+"puppeteer_puppeteerswapmode",22284191634522113,"Change the Puppet's current mode
+The Puppet has an Offensive and a Defensive mode"

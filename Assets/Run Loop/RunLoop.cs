@@ -267,8 +267,8 @@ namespace Run_Loop
                 MovePlayerToRoomDoor(doorDirection);
             });
 
-            if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
-                LockRoom();
+            //if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
+              //  LockRoom();
         }
 
         private IEnumerator LoadRoom(string roomName, Action callback = null)
