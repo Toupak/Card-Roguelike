@@ -88,9 +88,9 @@ namespace Combat
                 yield return DoEnemyTurn();
                 yield return EndTurn(TurnType.Enemy);
                 
+                turnCount += 1;
                 yield return StartTurn(TurnType.Player);
                 yield return RefreshPlayerEnergyCount();
-                turnCount += 1;
             }
         }
 

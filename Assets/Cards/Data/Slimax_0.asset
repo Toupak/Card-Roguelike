@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Skelly_0
+  m_Name: Slimax_0
   m_EditorClassIdentifier: 
-  cardName: Na
+  cardName: Slimax_0
   tribe: 0
   rarity: 0
-  hpMax: 1
-  artwork: {fileID: 2691162081737138541, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
+  hpMax: 0
+  artwork: {fileID: 7742661302043738507, guid: 660430100a6c7d14f81fe304ea76e9b4, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  spellList:
-  - {fileID: 11400000, guid: 8848095b5f7c139408ee51f414edf240, type: 2}
+  spellList: []
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: boner
+  localizationKey: 

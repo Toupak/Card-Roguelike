@@ -17,7 +17,7 @@ namespace Combat.Spells
         Multi,
         All
     }
-    
+
     [CreateAssetMenu(fileName = "SpellData", menuName = "Scriptable Objects/SpellData")]
     public class SpellData : ScriptableObject
     {
@@ -29,6 +29,7 @@ namespace Combat.Spells
         public TargetType targetType;
         public TargetingMode targetingMode;
         public int targetCount = 1;
+        public bool targetTokens;
         
         [Space]
         public int energyCost;

@@ -105,7 +105,7 @@ namespace Combat.Spells
 
         protected virtual IEnumerator SelectTargetAndCast(Transform startPosition)
         {
-            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, spellData.targetingMode, ComputeCurrentTargetCount(spellData.targetCount));
+            yield return TargetingSystem.instance.SelectTargets(cardController.cardMovement, startPosition, spellData.targetType, spellData.targetingMode, ComputeCurrentTargetCount(spellData.targetCount), spellData.targetTokens);
             if (TargetingSystem.instance.IsCanceled)
                 CancelTargeting();
             else

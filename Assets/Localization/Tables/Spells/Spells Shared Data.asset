@@ -855,6 +855,30 @@ MonoBehaviour:
     m_Key: forceps_forcepsbuff
     m_Metadata:
       m_Items: []
+  - m_Id: 22284191613550592
+    m_Key: puppeteer_puppeteerspawn_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191630327808
+    m_Key: puppeteer_puppeteerspawn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191630327809
+    m_Key: puppeteer_puppeteermove_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191630327810
+    m_Key: puppeteer_puppeteermove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191634522112
+    m_Key: puppeteer_puppeteerswapmode_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22284191634522113
+    m_Key: puppeteer_puppeteerswapmode
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

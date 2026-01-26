@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae4adec9bd8474ebcbe111f73c7949, type: 3}
+  m_Name: GardenerWater
+  m_EditorClassIdentifier: 
+  spellName: Step 2
+  description: Use the watering can to pour water on a Plant and make it grow
+  icon: {fileID: 0}
+  targetType: 0
+  targetingMode: 0
+  targetCount: 1
+  targetTokens: 1
+  energyCost: 1
+  hasNoCooldown: 1
+  damage: 0
+  inflictStatus: 0
+  statusStacksApplied: 0
+  spellController: {fileID: -8936765854038909735, guid: 0ca43956977c12043a88b0b2ff332c7b, type: 3}
+  localizationKey: 

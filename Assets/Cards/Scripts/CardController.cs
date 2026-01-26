@@ -72,7 +72,7 @@ namespace Cards.Scripts
             followTarget.SetTarget(movement);
             
             cardHealth = GetComponent<CardHealth>();
-            cardHealth.Setup(health);
+            cardHealth.Setup(health, data.isInvincible);
             cardHealth.OnDeath.AddListener(() => KillCard());
             
             displayCardEffect = GetComponent<DisplayCardEffects>();

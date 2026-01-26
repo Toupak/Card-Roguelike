@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Skelly_0
+  m_Name: GardenerPot_1
   m_EditorClassIdentifier: 
-  cardName: Na
+  cardName: Green Pot
   tribe: 0
   rarity: 0
-  hpMax: 1
-  artwork: {fileID: 2691162081737138541, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
+  hpMax: -1
+  isInvincible: 1
+  artwork: {fileID: -3694450687256633363, guid: 4383bb99047e2b348b557972ab2a5327, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
-  spellList:
-  - {fileID: 11400000, guid: 8848095b5f7c139408ee51f414edf240, type: 2}
+  spellList: []
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: boner
+  localizationKey: 

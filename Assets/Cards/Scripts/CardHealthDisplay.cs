@@ -25,9 +25,11 @@ namespace Cards.Scripts
             StartCoroutine(BTween.Squeeze(transform));
         }
 
-        public void Hide()
+        public void SetDisplayState(bool state, int currentHealth = 0)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(state);
+            if (state)
+                UpdateUI(currentHealth);
         }
     }
 }

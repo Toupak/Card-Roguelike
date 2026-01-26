@@ -487,6 +487,38 @@ MonoBehaviour:
     m_Key: forceps_forcepspassive
     m_Metadata:
       m_Items: []
+  - m_Id: 22283358427643904
+    m_Key: puppet_puppetoffensivefriend_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358654136320
+    m_Key: puppet_puppetoffensivefriend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358654136321
+    m_Key: puppet_puppetoffensiveenemy_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358654136322
+    m_Key: puppet_puppetoffensiveenemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330624
+    m_Key: puppet_puppetdefensivefriend_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330625
+    m_Key: puppet_puppetdefensivefriend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330626
+    m_Key: puppet_puppetdefensiveenemy_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22283358658330627
+    m_Key: puppet_puppetdefensiveenemy
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

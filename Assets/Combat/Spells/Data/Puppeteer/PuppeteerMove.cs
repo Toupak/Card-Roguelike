@@ -38,7 +38,7 @@ namespace Combat.Spells.Data.Puppeteer
 
         private void DeathReaction(DeathGA deathGA)
         {
-            if (deathGA.target != null && deathGA.target == puppetCard)
+            if (deathGA.target != null && (deathGA.target == puppetCard || deathGA.target == puppetCard.tokenParentController))
                 cardController.SetupSingleSpell(singleSpell);
         }
     }

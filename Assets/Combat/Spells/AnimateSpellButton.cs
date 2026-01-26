@@ -52,8 +52,7 @@ namespace Combat.Spells
         {
             if (spellButton.spellController == null)
                 return;
-            
-            
+
             currentState = ComputeButtonState();
 
             if (!isPlayingAnimation)

@@ -16,7 +16,9 @@ namespace Cards.Scripts
         public CardController cardController { get; private set; }
         public int currentHealth { get; private set; }
 
-        public bool IsDead => currentHealth <= 0;
+        public bool IsDead => !isInvincible && currentHealth <= 0;
+        
+        public bool isInvincible { get; private set; }
 
         private void Start()
         {
@@ -25,12 +27,22 @@ namespace Cards.Scripts
 
         public void Hide()
         {
-            cardHealthDisplay.Hide();
+            cardHealthDisplay.SetDisplayState(false);
         }
 
-        public void Setup(int health)
+        public void Show()
+        {
+            cardHealthDisplay.SetDisplayState(true, currentHealth);
+        }
+
+        public void Setup(int health, bool isCardInvincible)
         {
             currentHealth = health;
+            isInvincible = isCardInvincible;
+            
+            if (currentHealth < 0 && isInvincible)
+                Hide();
+            
             OnUpdateHP.Invoke(currentHealth);
         }
 
@@ -59,7 +71,7 @@ namespace Cards.Scripts
 
             currentHealth += heal;
 
-            if (currentHealth > cardController.cardData.hpMax)
+            if (!isInvincible && currentHealth > cardController.cardData.hpMax)
                 currentHealth = cardController.cardData.hpMax;
 
             DamageNumberFactory.instance.DisplayHealNumber(cardController.screenPosition, heal);

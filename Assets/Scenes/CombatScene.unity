@@ -862,6 +862,7 @@ MonoBehaviour:
   cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   cardData:
   - {fileID: 11400000, guid: 77493d91f08d2c34f8af5681cf0b8c99, type: 2}
+  - {fileID: 11400000, guid: b67f86d75f024504ebba0e723484db3f, type: 2}
   - {fileID: 11400000, guid: e7258a4f1e627b940957da16e8deaa15, type: 2}
   - {fileID: 11400000, guid: 5ad49483ed8055a428228626e89de8ce, type: 2}
   - {fileID: 11400000, guid: d6bb8bf1cc3e36843af1a187cb4c621a, type: 2}
@@ -939,6 +940,7 @@ GameObject:
   - component: {fileID: 646855806}
   - component: {fileID: 646855808}
   - component: {fileID: 646855807}
+  - component: {fileID: 646855809}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1003,6 +1005,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646855805}
   m_CullTransparentMesh: 1
+--- !u!114 &646855809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646855805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26ecf4deb2baab4f878f296dea43360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStartCastingSpell:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCastSpell:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &670571511
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: Skelly_1
   m_EditorClassIdentifier: 
-  cardName: Bonnie
+  cardName: Ni
   tribe: 0
   rarity: 0
   hpMax: 2
-  artwork: {fileID: -258086784, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
+  artwork: {fileID: -7783929846569201473, guid: 9aaadbebebfa07b47a008b6735bcb59c, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}

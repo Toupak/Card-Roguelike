@@ -40,7 +40,7 @@ namespace Combat.Spells.Targeting
             SpellController.OnCancelSpell.AddListener(StopTargeting);
         }
 
-        public IEnumerator SelectTargets(CardMovement castingCard, Transform startingPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1)
+        public IEnumerator SelectTargets(CardMovement castingCard, Transform startingPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1, bool targetToken = false)
         {
             Debug.Log("Start Targeting");
 
@@ -51,7 +51,7 @@ namespace Combat.Spells.Targeting
             if (targetCount > 1 && targetType != TargetType.Self && targetingMode == TargetingMode.Single)
                 targetingMode = TargetingMode.Multi;
             
-            potentialTargets = ComputeTargetAllList(castingCard, targetType);
+            potentialTargets = ComputeTargetAllList(castingCard, targetType, targetToken);
 
             if (targetingMode == TargetingMode.All)
             {
@@ -74,7 +74,7 @@ namespace Combat.Spells.Targeting
                 
                 UpdateTargetingCursorPosition();
                 if (Mouse.current.leftButton.wasPressedThisFrame)
-                    CheckForTarget(targetType);
+                    CheckForTarget(targetType, targetToken);
                 if (Mouse.current.rightButton.wasPressedThisFrame)
                     isCanceled = true;
                 yield return null;
@@ -88,23 +88,26 @@ namespace Combat.Spells.Targeting
             StopTargeting();
         }
 
-        private List<CardMovement> ComputeTargetAllList(CardMovement current, TargetType targetType)
+        private List<CardMovement> ComputeTargetAllList(CardMovement current, TargetType targetType, bool targetToken)
         {
             List<CardMovement> list = new List<CardMovement>();
             switch (targetType)
             {
                 case TargetType.Ally:
-                    list = RetrieveBoard(playerBoard);
+                    list = RetrieveBoard(playerBoard, false, targetToken);
                     break;
                 case TargetType.Enemy:
-                    list = RetrieveBoard(enemyBoard);
+                    list = RetrieveBoard(enemyBoard, false, targetToken);
                     break;
                 case TargetType.Self:
-                    list.Add(current);
+                    if (targetToken)
+                        list.AddRange(RetrieveCardTokens(current));
+                    else
+                        list.Add(current);
                     break;
                 case TargetType.None:
-                    list = RetrieveBoard(playerBoard);
-                    list.AddRange(RetrieveBoard(enemyBoard));
+                    list = RetrieveBoard(playerBoard, false, targetToken);
+                    list.AddRange(RetrieveBoard(enemyBoard, false, targetToken));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
@@ -140,6 +143,17 @@ namespace Combat.Spells.Targeting
 
             return null;
         }
+
+        private List<CardMovement> RetrieveCardTokens(CardMovement cardMovement)
+        {
+            List<CardMovement> tokens = new List<CardMovement>();
+            foreach (Slot slot in cardMovement.tokenContainer.Slots)
+            {
+                tokens.Add(slot.CurrentCard);
+            }
+
+            return tokens;
+        }
         
         public List<CardMovement> RetrieveBoard(TargetType targetType, bool includeUnTargetable = false)
         {
@@ -158,7 +172,7 @@ namespace Combat.Spells.Targeting
             }
         }
 
-        private List<CardMovement> RetrieveBoard(CardContainer container, bool includeUnTargetable = false)
+        private List<CardMovement> RetrieveBoard(CardContainer container, bool includeUnTargetable = false, bool targetToken = false)
         {
             List<CardMovement> list = new List<CardMovement>();
             foreach (Slot slot in container.Slots)
@@ -166,9 +180,16 @@ namespace Combat.Spells.Targeting
                 if (!slot.IsEmpty)
                 {
                     CardMovement cardMovement = slot.transform.GetChild(0).GetComponent<CardMovement>();
-                    
-                    if (cardMovement.cardController.IsTargetable() || includeUnTargetable)
-                        list.Add(cardMovement);
+
+                    if (targetToken)
+                    {
+                        list.AddRange(RetrieveCardTokens(cardMovement));
+                    }
+                    else
+                    {
+                        if (cardMovement.cardController.IsTargetable() || includeUnTargetable)
+                            list.Add(cardMovement);
+                    }
                 }
             }
 
@@ -201,13 +222,13 @@ namespace Combat.Spells.Targeting
             }
         }
 
-        private void CheckForTarget(TargetType targetType)
+        private void CheckForTarget(TargetType targetType, bool targetToken)
         {
             Debug.Log($"Targeting : Check for targets : {CursorInfo.instance.currentCardMovement}");
 
             CardMovement card = CursorInfo.instance.currentCardMovement;
             
-            if (card != null && !currentTargets.Contains(card) && IsSelectedTargetValid(card, targetType))
+            if (card != null && !currentTargets.Contains(card) && IsSelectedTargetValid(card, targetType, targetToken))
                 ValidateTarget(card);
         }
 
@@ -219,18 +240,18 @@ namespace Combat.Spells.Targeting
             currentTargetingCursor = null;
         }
 
-        private bool IsSelectedTargetValid(CardMovement card, TargetType targetType)
+        private bool IsSelectedTargetValid(CardMovement card, TargetType targetType, bool targetToken)
         {
             switch (targetType)
             {
                 case TargetType.Ally:
-                    return card.IsEnemyCard == false;
+                    return card.IsEnemyCard == false && card.cardController.isToken == targetToken;
                 case TargetType.Enemy:
-                    return card.IsEnemyCard;
+                    return card.IsEnemyCard && card.cardController.isToken == targetToken;
                 case TargetType.Self:
                     return false;
                 case TargetType.None:
-                    return true;
+                    return card.cardController.isToken == targetToken;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
             }
