@@ -31,6 +31,19 @@ namespace Combat.Spells.Data.Gardener
         [SerializeField] private List<Sprite> greenSprites;
         [SerializeField] private List<Sprite> redSprites;
 
+        [Space]
+        [SerializeField] private PassiveData seedPassive;
+        
+        [Space]
+        [SerializeField] private PassiveData bluePotPassive;
+        [SerializeField] private PassiveData greenPotPassive;
+        [SerializeField] private PassiveData redPotPassive;
+        
+        [Space]
+        [SerializeField] private List<PassiveData> bluePlantPassives;
+        [SerializeField] private List<PassiveData> greenPlantPassives;
+        [SerializeField] private List<PassiveData> redPlantPassives;
+        
         private CardController bluePotController;
         private CardController greenPotController;
         private CardController redPotController;
@@ -171,6 +184,14 @@ namespace Combat.Spells.Data.Gardener
             CardController pot = ComputePotController(potColor);
             pot.SetArtwork(ComputeArtwork(potColor, plantLevel));
 
+            UpdateCardHealthDisplay(pot, plantLevel);
+            UpdateCardPassives(pot, potColor, plantLevel);
+
+            yield break;
+        }
+
+        private void UpdateCardHealthDisplay(CardController pot, int plantLevel)
+        {
             if (plantLevel == 0)
             {
                 pot.cardHealth.Hide();
@@ -179,9 +200,20 @@ namespace Combat.Spells.Data.Gardener
             {
                 pot.cardHealth.SetHealth(plantStartingHealthPoints);
                 pot.cardHealth.Show();
+                
             }
-
-            yield break;
+        }
+        
+        private void UpdateCardPassives(CardController pot, PotColor potColor, int plantLevel)
+        {
+            pot.passiveHolder.RemoveAllPassives();
+            pot.passiveHolder.AddPassive(ComputePotPassive(potColor));
+            
+            if (plantLevel > 0)
+                pot.passiveHolder.AddPassive(seedPassive);
+            
+            //if (plantLevel > 2)
+              //  pot.passiveHolder.AddPassive(ComputePlantPassive(potColor, plantLevel));
         }
 
         private IEnumerator HealPlant(PotColor potColor)
@@ -246,6 +278,38 @@ namespace Combat.Spells.Data.Gardener
                     return greenPotController;
                 case PotColor.Red:
                     return redPotController;
+                case PotColor.Error:
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(potColor), potColor, null);
+            }
+        }
+        
+        private PassiveData ComputePotPassive(PotColor potColor)
+        {
+            switch (potColor)
+            {
+                case PotColor.Blue:
+                    return bluePotPassive;
+                case PotColor.Green:
+                    return greenPotPassive;
+                case PotColor.Red:
+                    return redPotPassive;
+                case PotColor.Error:
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(potColor), potColor, null);
+            }   
+        }
+        
+        private PassiveData ComputePlantPassive(PotColor potColor, int plantLevel)
+        {
+            switch (potColor)
+            {
+                case PotColor.Blue:
+                    return bluePlantPassives[plantLevel - 3];
+                case PotColor.Green:
+                    return greenPlantPassives[plantLevel - 3];
+                case PotColor.Red:
+                    return redPlantPassives[plantLevel - 3];
                 case PotColor.Error:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(potColor), potColor, null);

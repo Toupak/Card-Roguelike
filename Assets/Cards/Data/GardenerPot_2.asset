@@ -22,7 +22,8 @@ MonoBehaviour:
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   spellList: []
-  passiveList: []
+  passiveList:
+  - {fileID: 11400000, guid: 20c184d304c42de4dbb7e1b2e4e39a51, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0

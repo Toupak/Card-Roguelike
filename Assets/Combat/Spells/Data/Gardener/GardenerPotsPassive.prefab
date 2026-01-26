@@ -73,3 +73,10 @@ MonoBehaviour:
   - {fileID: 1450270541, guid: 5ec6d8af043602f4e8e8ee2b526c9829, type: 3}
   - {fileID: 1424176364, guid: 5ec6d8af043602f4e8e8ee2b526c9829, type: 3}
   - {fileID: 1437122774, guid: 5ec6d8af043602f4e8e8ee2b526c9829, type: 3}
+  seedPassive: {fileID: 11400000, guid: 272fc1611009f67469c73e755e4fc80e, type: 2}
+  bluePotPassive: {fileID: 11400000, guid: 6135a2c0cce9b89458a588c713815b1e, type: 2}
+  greenPotPassive: {fileID: 11400000, guid: 7b313368ae979d04c8e6010adee72e15, type: 2}
+  redPotPassive: {fileID: 11400000, guid: 20c184d304c42de4dbb7e1b2e4e39a51, type: 2}
+  bluePlantPassives: []
+  greenPlantPassives: []
+  redPlantPassives: []
