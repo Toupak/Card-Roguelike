@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: GardenerPotPassiveGreen
+  m_Name: GardenerPlantPassiveBlue_1
   m_EditorClassIdentifier: 
-  passiveName: Charming Bells
-  description: Plants growing in this Pot wil defend the Gardener
+  passiveName: Blue Plant Small
+  description: On Turn end, apply 1 $Weak$ to a random enemy
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4290510155
-  passiveController: {fileID: 0}
-  localizationKey: gardenerpotpassivegreen
+    rgba: 4288174125
+  passiveController: {fileID: 905192938963087846, guid: e178b7a842b98ce419a345c26a487744, type: 3}
+  localizationKey: gardenerplantpassiveblue_1

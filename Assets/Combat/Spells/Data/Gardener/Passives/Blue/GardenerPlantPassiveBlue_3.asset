@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: GardenerPotPassiveGreen
+  m_Name: GardenerPlantPassiveBlue_3
   m_EditorClassIdentifier: 
-  passiveName: Charming Bells
-  description: Plants growing in this Pot wil defend the Gardener
+  passiveName: Blue Plant Big
+  description: On Turn end, apply 1 $Terror$ to all enemies
   icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4290510155
-  passiveController: {fileID: 0}
-  localizationKey: gardenerpotpassivegreen
+    rgba: 4288163118
+  passiveController: {fileID: -184445958358410719, guid: b9bec4bef34ccd24eb3e320ad637d88d, type: 3}
+  localizationKey: gardenerplantpassiveblue_3

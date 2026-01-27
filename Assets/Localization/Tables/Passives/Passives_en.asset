@@ -575,6 +575,143 @@ MonoBehaviour:
       the start of the enemy's turn
     m_Metadata:
       m_Items: []
+  - m_Id: 22859783195033600
+    m_Localized: Dwarven Pot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005120
+    m_Localized: The Gardener starts battle with 3 Pots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005121
+    m_Localized: Sad Geranium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005122
+    m_Localized: Plants growing in this Pot wil debuff the enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005123
+    m_Localized: Growth and Shivering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005124
+    m_Localized: 'Seeds can grow into Plants
+
+      Seeds and Plants lose 1 Health
+      Point at the end of your turn'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005125
+    m_Localized: Blue Plant Small
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005126
+    m_Localized: On Turn end, apply 1 $Weak$ to a random enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005127
+    m_Localized: Blue Plant Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783216005128
+    m_Localized: On Turn end, apply 1 $Terror$ to a random enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199424
+    m_Localized: Blue Plant Big
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199425
+    m_Localized: On Turn end, apply 1 $Terror$ to all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199426
+    m_Localized: Charming Bells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199427
+    m_Localized: Plants growing in this Pot wil defend the Gardener
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199428
+    m_Localized: Charming Bells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199429
+    m_Localized: Plants growing in this Pot wil defend the Gardener
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199430
+    m_Localized: Charming Bells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199431
+    m_Localized: Plants growing in this Pot wil defend the Gardener
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199432
+    m_Localized: Charming Bells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199433
+    m_Localized: Plants growing in this Pot wil defend the Gardener
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199434
+    m_Localized: Angry Camelia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199435
+    m_Localized: Plants growing in this Pot wil attack the enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199436
+    m_Localized: Red Plant Small
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783220199437
+    m_Localized: On turn end, deal 1 damage to 1 random enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783224393728
+    m_Localized: Red Plant Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783224393729
+    m_Localized: On turn end, deal 2 damage to 1 random enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783224393730
+    m_Localized: Red Plant Big
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22859783224393731
+    m_Localized: On turn end, deal 2 damage to 2 random enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22860997924192256
+    m_Localized: Growth and Shivering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22861031440875520
+    m_Localized: 'Seeds can grow into Plants
+
+      Seeds and Plants lose 1 Health
+      Point at the end of your turn'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22861355769626624
+    m_Localized: Growth and Shivering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22861473818312704
+    m_Localized: 'Seeds can grow into Plants
+
+      Seeds and Plants lose 1 Health
+      Point at the end of your turn'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

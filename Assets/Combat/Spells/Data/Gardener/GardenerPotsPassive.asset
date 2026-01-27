@@ -19,4 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4280463395
   passiveController: {fileID: -333701970870720060, guid: 2be93455c5f17cc44bb095415c84c181, type: 3}
-  localizationKey: 
+  localizationKey: gardenerpotspassive

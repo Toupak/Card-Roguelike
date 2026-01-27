@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Gardener
   tribe: 0
-  rarity: 0
+  rarity: 3
   hpMax: 10
+  isInvincible: 0
   artwork: {fileID: 2517129459159921533, guid: e09040ab0d97ef8499312e4f9e4173b7, type: 3}
   description: 
   isSpecialSummon: 0
@@ -30,4 +31,4 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: 
+  localizationKey: gardener

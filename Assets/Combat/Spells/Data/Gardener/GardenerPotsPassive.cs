@@ -55,7 +55,7 @@ namespace Combat.Spells.Data.Gardener
         private void OnEnable()
         {
             ActionSystem.SubscribeReaction<StartTurnGa>(SpawnPots, ReactionTiming.POST);
-            ActionSystem.SubscribeReaction<EndTurnGA>(UpdatePlantHealth, ReactionTiming.PRE);
+            ActionSystem.SubscribeReaction<EndTurnGA>(UpdatePlantHealth, ReactionTiming.PRE, -10);
         }
 
         private void OnDisable()
@@ -150,7 +150,11 @@ namespace Combat.Spells.Data.Gardener
             if (potColor == PotColor.Error)
                 yield break;
             
-            if (ComputePlantLevel(potColor) > 0)
+            int plantLevel = ComputePlantLevel(potColor);
+            
+            if (plantLevel == 5)
+                yield return HealPlant(potColor);
+            else if (plantLevel > 0)
                 yield return IncreasePlantLevel(potColor);
         }
 
@@ -212,8 +216,8 @@ namespace Combat.Spells.Data.Gardener
             if (plantLevel > 0)
                 pot.passiveHolder.AddPassive(seedPassive);
             
-            //if (plantLevel > 2)
-              //  pot.passiveHolder.AddPassive(ComputePlantPassive(potColor, plantLevel));
+            if (plantLevel > 2)
+                pot.passiveHolder.AddPassive(ComputePlantPassive(potColor, plantLevel));
         }
 
         private IEnumerator HealPlant(PotColor potColor)

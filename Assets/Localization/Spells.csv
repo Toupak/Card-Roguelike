@@ -258,3 +258,9 @@ The Puppet will behave differently if you attach it on an enemy."
 "puppeteer_puppeteerswapmode_title",22284191634522112,"Second Act"
 "puppeteer_puppeteerswapmode",22284191634522113,"Change the Puppet's current mode
 The Puppet has an Offensive and a Defensive mode"
+"gardener_gardenerplantseed_title",22860615953121280,"Step 1"
+"gardener_gardenerplantseed",22860616146059264,"Drop a Seed in a one of the Gardener's Pots
+If there is already a Plant in the Pot, heal it for 1 HP instead"
+"gardener_gardenerwater_title",22860616146059265,"Step 2"
+"gardener_gardenerwater",22860616146059266,"Use the watering can to pour water on a Plant and make it grow
+If the Plant is already fully grown, heal it for 1 HP instead"

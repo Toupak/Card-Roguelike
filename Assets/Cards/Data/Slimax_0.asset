@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 0
   hpMax: 0
+  isInvincible: 0
   artwork: {fileID: 7742661302043738507, guid: 660430100a6c7d14f81fe304ea76e9b4, type: 3}
   description: 
   isSpecialSummon: 1
@@ -27,4 +28,4 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: 
+  localizationKey: slimax_0

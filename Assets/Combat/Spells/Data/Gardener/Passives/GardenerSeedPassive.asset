@@ -22,4 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4283170124
   passiveController: {fileID: 0}
-  localizationKey: 
+  localizationKey: gardenerseedpassive

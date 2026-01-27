@@ -16,16 +16,16 @@ MonoBehaviour:
   description: 'Drop a Seed in a one of the Gardener''s Pots
 
     If there is already
-    a Plant in the Pot, heal it for 1 HP'
+    a Plant in the Pot, heal it for 1 HP instead'
   icon: {fileID: 0}
   targetType: 0
   targetingMode: 0
   targetCount: 1
   targetTokens: 1
-  energyCost: 1
-  hasNoCooldown: 1
+  energyCost: 0
+  hasNoCooldown: 0
   damage: 0
   inflictStatus: 0
   statusStacksApplied: 0
   spellController: {fileID: -7834726952586262536, guid: f17db7623bd7faa41a960082c5004e16, type: 3}
-  localizationKey: 
+  localizationKey: gardenerplantseed

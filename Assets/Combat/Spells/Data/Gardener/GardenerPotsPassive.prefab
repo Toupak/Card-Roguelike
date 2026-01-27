@@ -77,6 +77,15 @@ MonoBehaviour:
   bluePotPassive: {fileID: 11400000, guid: 6135a2c0cce9b89458a588c713815b1e, type: 2}
   greenPotPassive: {fileID: 11400000, guid: 7b313368ae979d04c8e6010adee72e15, type: 2}
   redPotPassive: {fileID: 11400000, guid: 20c184d304c42de4dbb7e1b2e4e39a51, type: 2}
-  bluePlantPassives: []
-  greenPlantPassives: []
-  redPlantPassives: []
+  bluePlantPassives:
+  - {fileID: 11400000, guid: fc03a8622a5ad2549806585746eff23b, type: 2}
+  - {fileID: 11400000, guid: f28eec1a14e1ed846ad6cd52d6300ce5, type: 2}
+  - {fileID: 11400000, guid: f792a9a4424afbf48b51e48a898a98f5, type: 2}
+  greenPlantPassives:
+  - {fileID: 11400000, guid: 874ee7c6b957116498e4e44ee6360370, type: 2}
+  - {fileID: 11400000, guid: 4a0354620303829429c13a5495ee0dd8, type: 2}
+  - {fileID: 11400000, guid: ed869f069db8a9845a42f89166a6d688, type: 2}
+  redPlantPassives:
+  - {fileID: 11400000, guid: 9265319949b16c842aa6dc944b401a58, type: 2}
+  - {fileID: 11400000, guid: 617bda9f497a75a41833f3fce47b245a, type: 2}
+  - {fileID: 11400000, guid: b9f6786f2eb2eac45ac3fe8403447c6e, type: 2}
