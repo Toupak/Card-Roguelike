@@ -879,6 +879,22 @@ MonoBehaviour:
     m_Key: puppeteer_puppeteerswapmode
     m_Metadata:
       m_Items: []
+  - m_Id: 22860615953121280
+    m_Key: gardener_gardenerplantseed_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22860616146059264
+    m_Key: gardener_gardenerplantseed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22860616146059265
+    m_Key: gardener_gardenerwater_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22860616146059266
+    m_Key: gardener_gardenerwater
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

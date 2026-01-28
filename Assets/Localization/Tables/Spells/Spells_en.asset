@@ -183,8 +183,8 @@ MonoBehaviour:
   - m_Id: 261674766139394
     m_Localized: 'Spawn 2 GnomeFire Tokens
 
-      $Weak$ stacks will reduce the amount
-      of Tokens spawned'
+      $Weak$ stacks will reduce the
+      amount of Tokens spawned'
     m_Metadata:
       m_Items: []
   - m_Id: 261674766139395
@@ -196,6 +196,7 @@ MonoBehaviour:
   - m_Id: 261674766139396
     m_Localized: 'Self Destruct, the lower the HP, the higher the damage
 
+      
 
       He''s
       had enough, and so will his boss.'
@@ -266,8 +267,8 @@ MonoBehaviour:
   - m_Id: 261674778722304
     m_Localized: 'Olaf and Pif regroup to gain a tactical advantage
 
-      Also adds
-      up their status'
+      Also
+      adds up their status'
     m_Metadata:
       m_Items: []
   - m_Id: 261674778722305
@@ -285,9 +286,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674778722308
-    m_Localized: "Consume 1/3/5 $Pants$ to cast on a target : \n$Pants$ : Apply 1
-      $Weak$\n$Pants$ $Pants$ $Pants$ : Apply 2 $BonusDamage$\n$Pants$ $Pants$ $Pants$
-      $Pants$ $Pants$ : Apply 1 $Fury$"
+    m_Localized: "Consume 1/3/5 $Pants$ to cast on a target : \r\n$Pants$ : Apply
+      1 $Weak$\r\n$Pants$ $Pants$ $Pants$ : Apply 2 $BonusDamage$\r\n$Pants$ $Pants$
+      $Pants$ $Pants$ $Pants$ : Apply 1 $Fury$"
     m_Metadata:
       m_Items: []
   - m_Id: 261674782916608
@@ -318,8 +319,8 @@ MonoBehaviour:
   - m_Id: 261674782916613
     m_Localized: 'Gain 1 $Taunt$
 
-      If the $Taunt$ is triggered by an enemy marked
-      by $Vengeance$, refresh the $Taunt$'
+      If the $Taunt$ is triggered by an enemy
+      marked by $Vengeance$, refresh the $Taunt$'
     m_Metadata:
       m_Items: []
   - m_Id: 261674787110912
@@ -346,8 +347,8 @@ MonoBehaviour:
   - m_Id: 261674795499520
     m_Localized: 'Steal 3 hp to target ally and store it as $Blood$
 
-      Deal as
-      much damage to random enemy
+      Deal
+      as much damage to random enemy
 
       Next turn, if ally is still alive, give
       health back'
@@ -762,8 +763,8 @@ MonoBehaviour:
   - m_Id: 1461834686889987
     m_Localized: '$Dive$ for 1 turn, becoming untargetable
 
-      Can be recast next
-      turn to attack a random target'
+      Can be recast
+      next turn to attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 1461834686889988
@@ -781,8 +782,8 @@ MonoBehaviour:
   - m_Id: 1479861167947776
     m_Localized: '$Dive$ for 1 turn, becoming untargetable
 
-      Can be recast next
-      turn to attack a random target'
+      Can be recast
+      next turn to attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 1479861167947777
@@ -916,8 +917,8 @@ MonoBehaviour:
   - m_Id: 21144379770765312
     m_Localized: '$Dive$ for 1 turn, becoming untargetable
 
-      Can be recast next
-      turn to attack a random target'
+      Can be recast
+      next turn to attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 21144975051554816
