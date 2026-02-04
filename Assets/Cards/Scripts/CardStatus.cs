@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using BoomLib.Tools;
 using Combat.Status;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,7 +44,8 @@ namespace Cards.Scripts
         Poison,
         Dive,
         Corpse,
-        Spear
+        Spear,
+        Webbed
     }
 
     public enum StatusBehaviour
@@ -263,6 +265,12 @@ namespace Cards.Scripts
             {
                 currentStacks.Add(statusType, stacksCount);
                 OnUpdateStatus?.Invoke(statusType, StatusTabModification.Create);
+            }
+
+            if (statusType == StatusType.Webbed && currentStacks[statusType] >= 2)
+            {
+                RemoveAllStacks(currentStacks.GetEntry(StatusType.Webbed));
+                ApplyStatusStacks(StatusType.Stun, 1);
             }
         }
 

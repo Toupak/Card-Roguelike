@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877231f3c38d8da4082e44b2830221fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardsToSpawn: []
+  cardsToSpawn:
+  - {fileID: 11400000, guid: d021caa9aefdd7047aadb63d2609d7b4, type: 2}
   cardToSpawnCount: 2
   turnsBetweenSpawns: 2
-  maxEnemyCount: 5
+  maxEnemyCount: 6

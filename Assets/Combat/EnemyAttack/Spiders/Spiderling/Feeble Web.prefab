@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourName: Feeble Web
-  description: Applies 1 $Weak$
-  weight: 1
+  description: Applies 1 $Webbed$
+  weight: 2
   intentionIcon: {fileID: -1351667634, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
   localizationKey: 
-  statusType: 10
+  statusType: 31
   stacks: 1
   hitCount: 1
   hitSameTarget: 0
