@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -4985349031520876273}
+  - component: {fileID: -6916591339546831796}
   m_Layer: 5
-  m_Name: Radioactive Spray
+  m_Name: Eat Spiderlings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-4985349031520876273
+--- !u!114 &-6916591339546831796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,14 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f60af784b33acf4dbeb3a9e1ad293b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Radioactive Spray
-  description: Applies 2 $Poison$ to every ally card
-  weight: 2
-  intentionIcon: {fileID: -299762431, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  behaviourName: Sticky Web
+  description: Applies 1 $Stun$ and 1 $Weak$ to 1 target
+  weight: 1
+  intentionIcon: {fileID: 987724994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
   localizationKey: 
-  statusType: 27
-  stacks: 2
+  statusType: 10
+  stacks: 1
   hitCount: 1
   hitSameTarget: 0
   isTargetEnemy: 0

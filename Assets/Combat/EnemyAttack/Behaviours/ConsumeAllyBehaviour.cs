@@ -1,0 +1,51 @@
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using Combat.EnemyAttack;
+using Combat.Spells.Targeting;
+using System.Collections;
+using UnityEngine;
+
+public class ConsumeAllyBehaviour : BaseEnemyBehaviour
+{
+    [SerializeField] CardData cardToConsume;
+
+    [Space]
+    [SerializeField] bool isHealingAfterConsume;
+    [SerializeField] int healAmount;
+    
+    [Space]
+    [SerializeField] bool isBuffingAfterConsume;
+    [SerializeField] StatusType statusType;
+    [SerializeField] int stacksAmount;
+
+    public override IEnumerator ExecuteBehavior()
+    {
+        CardController card = TargetingSystem.instance.RetrieveCard(cardToConsume).cardController;
+        yield return KillCard(card);
+
+        if (isHealingAfterConsume)
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            HealGa healGa = new HealGa(healAmount, enemyCardController.cardController, enemyCardController.cardController);
+            ActionSystem.instance.Perform(healGa);
+        }
+
+        if (isBuffingAfterConsume)
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+            ApplyStatusGa statusGa = new ApplyStatusGa(statusType, stacksAmount, enemyCardController.cardController, enemyCardController.cardController);
+            ActionSystem.instance.Perform(statusGa);
+        }
+    }
+
+    private IEnumerator KillCard(CardController card)
+    {
+        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+
+        DealDamageGA damageGa = new DealDamageGA(999, enemyCardController.cardController, card);
+        ActionSystem.instance.Perform(damageGa);
+    }
+}

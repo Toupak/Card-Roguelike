@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -6916591339546831796}
+  - component: {fileID: 8796688353522898535}
   m_Layer: 5
-  m_Name: Sticky Web
+  m_Name: ConsumeAllyBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-6916591339546831796
+--- !u!114 &8796688353522898535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,21 +45,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f60af784b33acf4dbeb3a9e1ad293b5, type: 3}
+  m_Script: {fileID: 11500000, guid: cf4a887c8f37f814f8b3c0a94c6ee2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Sticky Web
-  description: Applies 1 $Stun$
-  weight: 1
-  intentionIcon: {fileID: 987724994, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  behaviourName: 
+  description: 
+  weight: 0
+  intentionIcon: {fileID: 0}
   isWaiting: 0
   localizationKey: 
-  statusType: 1
-  stacks: 1
-  hitCount: 1
-  hitSameTarget: 0
-  isTargetEnemy: 0
-  cantTargetHimself: 0
-  targetSpecificCard: 0
-  targetAllPlayerCards: 0
-  specificCard: {fileID: 0}
+  cardToConsume: {fileID: 0}
+  isHealingAfterConsume: 0
+  healQuantity: 0
+  isBuffingAfterConsume: 0
+  buffStacks: 0

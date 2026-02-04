@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -4635934136397411760}
+  - component: {fileID: -2209117149256911525}
   m_Layer: 5
-  m_Name: SpiderlingSpawn
+  m_Name: RadioActive Bite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-4635934136397411760
+--- !u!114 &-2209117149256911525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea37428691db85546923d1ec2ed590c5, type: 3}
+  m_Script: {fileID: 11500000, guid: b7cf6b757f114474eb1e797be013fd21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Spawn Spiderlings
-  description: Summon 2 Spiderlings
+  behaviourName: RadioActive Bite
+  description: Deals $d$ DMG and Applies 2 $Poison$
   weight: 1
-  intentionIcon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  intentionIcon: {fileID: 2708546368158489528, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
   localizationKey: 
-  cardsToSpawn: []
-  spawnCount: 2
+  damage: 4
+  statusType: 27
+  stacks: 2
+  hitCount: 1
