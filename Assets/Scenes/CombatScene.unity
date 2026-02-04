@@ -291,7 +291,7 @@ MonoBehaviour:
   endPlayerTurnButton: {fileID: 1744358810}
   turnEndAnimation: {fileID: 914106417}
   debugBattleFloor: 0
-  debugBattleDifficulty: 1
+  debugBattleDifficulty: 3
 --- !u!4 &147471251
 Transform:
   m_ObjectHideFlags: 0

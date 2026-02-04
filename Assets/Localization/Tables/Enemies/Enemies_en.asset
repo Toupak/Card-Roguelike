@@ -483,6 +483,46 @@ MonoBehaviour:
     m_Localized: Applies 2 $Poison$
     m_Metadata:
       m_Items: []
+  - m_Id: 25723885619150848
+    m_Localized: RadioActive Bite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733760
+    m_Localized: Deals $d$ DMG and Applies 2 $Poison$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733761
+    m_Localized: Radioactive Spray
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733762
+    m_Localized: Applies 2 $Poison$ to every ally card
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733763
+    m_Localized: Eat Spiderlings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733764
+    m_Localized: Feeds on its offspring to GROW
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733765
+    m_Localized: Silky Secretion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733766
+    m_Localized: Apply $Webbed$ to random allies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733767
+    m_Localized: BroodMother's nest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25723885631733768
+    m_Localized: 2 Spiderlings will join the fight every 2 turns
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

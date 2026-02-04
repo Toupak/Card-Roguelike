@@ -18,5 +18,5 @@ MonoBehaviour:
   backgroundColor:
     serializedVersion: 2
     rgba: 4292024300
-  passiveController: {fileID: 0}
-  localizationKey: 
+  passiveController: {fileID: 7162010157362152129, guid: 99c1372d3f4c9ae4e8282289577c955d, type: 3}
+  localizationKey: webpassive

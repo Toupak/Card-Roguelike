@@ -53,10 +53,12 @@ MonoBehaviour:
   weight: 3
   intentionIcon: {fileID: 7374479990129353598, guid: 2018f6db57311b049beb367b337483af, type: 3}
   isWaiting: 0
-  localizationKey: 
+  localizationKey: eatspiderlings
   cardToConsume: {fileID: 11400000, guid: d021caa9aefdd7047aadb63d2609d7b4, type: 2}
   isHealingAfterConsume: 0
   healAmount: 0
   isBuffingAfterConsume: 1
   statusType: 4
   stacksAmount: 7
+  isQueueNextIntentionOn: 0
+  nextIntention: {fileID: 0}

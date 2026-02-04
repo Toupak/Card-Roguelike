@@ -25,8 +25,12 @@ public class ConsumeAllyBehaviour : BaseEnemyBehaviour
 
     public override IEnumerator ExecuteBehavior()
     {
-        CardController card = TargetingSystem.instance.RetrieveCard(cardToConsume).cardController;
-        yield return KillCard(card);
+        CardMovement card = TargetingSystem.instance.RetrieveCard(cardToConsume);
+
+        if (card == null)
+            yield break;
+
+        yield return KillCard(card.cardController);
 
         if (isHealingAfterConsume)
         {
@@ -59,7 +63,7 @@ public class ConsumeAllyBehaviour : BaseEnemyBehaviour
 
     public override int ComputeWeight()
     {
-        CardController card = TargetingSystem.instance.RetrieveCard(cardToConsume).cardController;
+        CardMovement card = TargetingSystem.instance.RetrieveCard(cardToConsume);
         
         if (card == null)
             return 0;

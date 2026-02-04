@@ -166,8 +166,7 @@ Seeds and Plants lose 1 Health Point at the end of your turn"
 "redpot_gardenerplantpassivered_3_title",22859783224393730,"Red Plant Big"
 "redpot_gardenerplantpassivered_3",22859783224393731,"On turn end, deal 2 damage to 2 random enemy"
 "greenpot_gardenerseedpassive_title",22860997924192256,"Growth and Shivering"
-"greenpot_gardenerseedpassive
-",22861031440875520,"Seeds can grow into Plants
+"greenpot_gardenerseedpassive",22861031440875520,"Seeds can grow into Plants
 Seeds and Plants lose 1 Health Point at the end of your turn"
 "redpot_gardenerseedpassive_title",22861355769626624,"Growth and Shivering"
 "redpot_gardenerseedpassive",22861473818312704,"Seeds can grow into Plants
