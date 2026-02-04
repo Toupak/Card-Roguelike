@@ -19,6 +19,10 @@ public class ConsumeAllyBehaviour : BaseEnemyBehaviour
     [SerializeField] StatusType statusType;
     [SerializeField] int stacksAmount;
 
+    [Space]
+    [SerializeField] bool isQueueNextIntentionOn;
+    [SerializeField] BaseEnemyBehaviour nextIntention;
+
     public override IEnumerator ExecuteBehavior()
     {
         CardController card = TargetingSystem.instance.RetrieveCard(cardToConsume).cardController;
@@ -39,6 +43,10 @@ public class ConsumeAllyBehaviour : BaseEnemyBehaviour
             ApplyStatusGa statusGa = new ApplyStatusGa(statusType, stacksAmount, enemyCardController.cardController, enemyCardController.cardController);
             ActionSystem.instance.Perform(statusGa);
         }
+
+        enemyCardController.SetNewIntention(nextIntention);
+
+        enemyCardController.cardController.cardMovement.transform.localScale *= 3f;
     }
 
     private IEnumerator KillCard(CardController card)
@@ -47,5 +55,15 @@ public class ConsumeAllyBehaviour : BaseEnemyBehaviour
 
         DealDamageGA damageGa = new DealDamageGA(999, enemyCardController.cardController, card);
         ActionSystem.instance.Perform(damageGa);
+    }
+
+    public override int ComputeWeight()
+    {
+        CardController card = TargetingSystem.instance.RetrieveCard(cardToConsume).cardController;
+        
+        if (card == null)
+            return 0;
+
+        return base.ComputeWeight();
     }
 }

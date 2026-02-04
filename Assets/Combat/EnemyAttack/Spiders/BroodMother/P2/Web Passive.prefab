@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -1293782905987469305}
   m_Layer: 5
-  m_Name: Eat Spiderlings
+  m_Name: Web Passive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,27 +35,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-1293782905987469305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996121797547756110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4a887c8f37f814f8b3c0a94c6ee2c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behaviourName: Eat Spiderlings
-  description: Feeds on its offspring to GROW
-  weight: 3
-  intentionIcon: {fileID: 7374479990129353598, guid: 2018f6db57311b049beb367b337483af, type: 3}
-  isWaiting: 0
-  localizationKey: 
-  cardToConsume: {fileID: 11400000, guid: d021caa9aefdd7047aadb63d2609d7b4, type: 2}
-  isHealingAfterConsume: 0
-  healAmount: 0
-  isBuffingAfterConsume: 1
-  statusType: 4
-  stacksAmount: 7

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: Cocoon Passive
+  m_Name: Web Passive
   m_EditorClassIdentifier: 
   passiveName: BroodMother's nest
   description: 2 Spiderlings will join the fight every 2 turns
