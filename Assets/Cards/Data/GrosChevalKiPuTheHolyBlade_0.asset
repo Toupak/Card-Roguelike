@@ -10,23 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Manta_0
+  m_Name: GrosChevalKiPuTheHolyBlade_0
   m_EditorClassIdentifier: 
-  cardName: Manta_0
-  tribe: 0
-  rarity: 0
-  hpMax: 0
+  cardName: Bojack Swordsman
+  tribe: 1
+  rarity: 2
+  hpMax: 17
   isInvincible: 0
-  artwork: {fileID: 6179328517169894790, guid: e0c9d3c36df874d4d91ea141edad4d2c, type: 3}
+  artwork: {fileID: -1280168245947431769, guid: 8bb84d953776e964caf1bb4cfaf9e959, type: 3}
   description: 
-  isSpecialSummon: 1
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
-  passiveList: []
+  spellList:
+  - {fileID: 11400000, guid: bdab2167c631d254c8bb61e17b23680d, type: 2}
+  - {fileID: 11400000, guid: 4e15d8652de34264aa71835cfa116553, type: 2}
+  passiveList:
+  - {fileID: 11400000, guid: 5be8610a2b221ae4c973a901d08603d2, type: 2}
+  - {fileID: 11400000, guid: dfa80a6d51d97614285aadf8c37868db, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
   isEnemySummon: 0
-  localizationKey: manta_0
+  localizationKey: bojackswordsman

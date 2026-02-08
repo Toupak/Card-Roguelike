@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Manta_0
+  m_Name: SpotterXimitri_0
   m_EditorClassIdentifier: 
-  cardName: Manta_0
+  cardName: SpotterXimitri_0
   tribe: 0
   rarity: 0
   hpMax: 0
   isInvincible: 0
-  artwork: {fileID: 6179328517169894790, guid: e0c9d3c36df874d4d91ea141edad4d2c, type: 3}
+  artwork: {fileID: 6989536355952228559, guid: ad0e65288398d374587a6f3004acfde1, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
@@ -29,4 +29,4 @@ MonoBehaviour:
   isWaitingOnSpawn: 0
   preferredPosition: 0
   isEnemySummon: 0
-  localizationKey: manta_0
+  localizationKey: spotterximitri_0

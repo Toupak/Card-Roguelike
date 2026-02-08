@@ -46,7 +46,8 @@ namespace Cards.Scripts
         Corpse,
         Spear,
         Webbed,
-        Sonar
+        Sonar,
+        Moonlight
     }
 
     public enum StatusBehaviour

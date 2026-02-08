@@ -712,6 +712,23 @@ MonoBehaviour:
       Point at the end of your turn'
     m_Metadata:
       m_Items: []
+  - m_Id: 27523455653740544
+    m_Localized: Lunar Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27523455670517760
+    m_Localized: Bojack attacks apply $Moonlight$ stacks to target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27523455670517761
+    m_Localized: Lunar Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27523455670517762
+    m_Localized: When an enemy has 3 stacks of $Moonlight$, Bojack will consume the
+      stacks and refresh his first spell
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

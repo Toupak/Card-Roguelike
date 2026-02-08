@@ -647,6 +647,22 @@ MonoBehaviour:
     m_Key: redpot_gardenerseedpassive
     m_Metadata:
       m_Items: []
+  - m_Id: 27523455653740544
+    m_Key: bojackswordsman_bojackmoonlightpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27523455670517760
+    m_Key: bojackswordsman_bojackmoonlightpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27523455670517761
+    m_Key: bojackswordsman_bojackstrikepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27523455670517762
+    m_Key: bojackswordsman_bojackstrikepassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

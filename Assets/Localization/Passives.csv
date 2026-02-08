@@ -171,3 +171,7 @@ Seeds and Plants lose 1 Health Point at the end of your turn"
 "redpot_gardenerseedpassive_title",22861355769626624,"Growth and Shivering"
 "redpot_gardenerseedpassive",22861473818312704,"Seeds can grow into Plants
 Seeds and Plants lose 1 Health Point at the end of your turn"
+"bojackswordsman_bojackmoonlightpassive_title",27523455653740544,"Lunar Light"
+"bojackswordsman_bojackmoonlightpassive",27523455670517760,"Bojack attacks apply $Moonlight$ stacks to target"
+"bojackswordsman_bojackstrikepassive_title",27523455670517761,"Lunar Strike"
+"bojackswordsman_bojackstrikepassive",27523455670517762,"When an enemy has 3 stacks of $Moonlight$, Bojack will consume the stacks and refresh his first spell"

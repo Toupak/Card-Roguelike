@@ -1046,6 +1046,22 @@ MonoBehaviour:
       Pif also gains the $Armor$'
     m_Metadata:
       m_Items: []
+  - m_Id: 27524288571211776
+    m_Localized: Cleave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27524288608960512
+    m_Localized: Deal $d$ damage to all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27524288608960513
+    m_Localized: Smash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27524288608960514
+    m_Localized: Deal $d$ damage to single target
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -270,3 +270,7 @@ If the Plant is already fully grown, heal it for 1 HP instead"
 "olaf_olafattackarmor",27502506246111232,"Deal 1 Damage to a target
 Then consume all the targets $Vengeance$ stacks and gain as much $Armor$.
 Pif also gains the $Armor$"
+"bojackswordsman_bojackcleave_title",27524288571211776,"Cleave"
+"bojackswordsman_bojackcleave",27524288608960512,"Deal $d$ damage to all enemies"
+"bojackswordsman_bojacksingleattack_title",27524288608960513,"Smash"
+"bojackswordsman_bojacksingleattack",27524288608960514,"Deal $d$ damage to single target"

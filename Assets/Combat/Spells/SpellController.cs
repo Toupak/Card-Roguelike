@@ -140,6 +140,7 @@ namespace Combat.Spells
             //yield return base.CastSpellOnTarget(targets);
             //yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             yield return ConsumeEnergy(spellData.energyCost);
+            SetShinyState(false);
             HasCastedThisTurn = !spellData.hasNoCooldown;
             OnCastSpell?.Invoke();
             Debug.Log($"Cast Spell {spellData.spellName} on targets : ");
