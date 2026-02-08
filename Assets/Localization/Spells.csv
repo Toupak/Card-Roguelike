@@ -50,6 +50,7 @@ $Weak$ stacks will reduce the amount of Tokens spawned"
 One pack a day, keeps the doctor away"
 "gnorp'saccountant_burnout",261674766139396,"Self Destruct, the lower the HP, the higher the damage
 
+
 He's had enough, and so will his boss."
 "gumball_gumballtaunt",261674766139397,"$Taunt$ enemies for 1 turn and $Stun$ himself for 2 turns."
 "hognade_hogpresence",261674770333696,"Gain 1 $Taunt$
@@ -67,7 +68,7 @@ Deal 1 damage for each stack consumed"
 If an enemy has $Vengeance$ stack, consume all stacks and deal 2 damage to him instead"
 "olaf&pif_olafandpifsplit",261674774528004,"Olaf and Pif split to gain a tactical advantage
 Also removes all status"
-"olaf_olafattack",261674774528005,"Deal $d$ damage to 2 target enemies"
+"olaf_olafattack",261674774528005,"Deal 1 damage to 2 target enemies"
 "pif_pifregroup",261674778722304,"Olaf and Pif regroup to gain a tactical advantage
 Also adds up their status"
 "meandog_turtlegive",261674778722305,"Swap 2 targets stun stacks"
@@ -264,3 +265,7 @@ If there is already a Plant in the Pot, heal it for 1 HP instead"
 "gardener_gardenerwater_title",22860616146059265,"Step 2"
 "gardener_gardenerwater",22860616146059266,"Use the watering can to pour water on a Plant and make it grow
 If the Plant is already fully grown, heal it for 1 HP instead"
+"olaf_olafattackarmor_title",27502505277227008,"Fast Fencing"
+"olaf_olafattackarmor",27502506246111232,"Deal 1 Damage to a target
+Then consume all the targets $Vengeance$ stacks and gain as much $Armor$.
+Pif also gains the $Armor$"

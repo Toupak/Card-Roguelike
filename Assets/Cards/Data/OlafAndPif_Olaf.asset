@@ -16,16 +16,19 @@ MonoBehaviour:
   tribe: 0
   rarity: 2
   hpMax: 0
+  isInvincible: 0
   artwork: {fileID: -1355849658, guid: 234433e77a0cb3c41a8d654d209f5ddb, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   spellList:
   - {fileID: 11400000, guid: 3cb879b5958a52845968a39a1e864a2e, type: 2}
+  - {fileID: 11400000, guid: 9c42747b011f90845964d6f0fd3c97d7, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: olaf
