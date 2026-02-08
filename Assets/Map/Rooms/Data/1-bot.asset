@@ -15,7 +15,7 @@ MonoBehaviour:
   roomName: 1-bot
   description: 
   scenePath: Assets/Scenes/Rooms/1-bot.unity
-  screenShot: {fileID: 21300000, guid: e47bb7e3b384acf40b878cc6d7babd7b, type: 3}
+  screenShot: {fileID: 21300000, guid: 1dde838ad6fd8d44e85627e3b77c067e, type: 3}
   hasTopDoor: 0
   hasRightDoor: 0
   hasBotDoor: 1

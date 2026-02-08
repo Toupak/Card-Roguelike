@@ -286,8 +286,8 @@ namespace Editor
                 
                 if (GUILayout.Button("ScreenShot", GUILayout.Width(80)))
                 {
-                    string filepath = Application.dataPath + $"/Resources/Screenshots/{room.roomName}.jpg";
-                    string metapath = Application.dataPath + $"/Resources/Screenshots/{room.roomName}.jpg.meta";
+                    string filepath = Application.dataPath + $"/Resources/Screenshots/{room.roomName}.png";
+                    string metapath = Application.dataPath + $"/Resources/Screenshots/{room.roomName}.png.meta";
                     
                     if (File.Exists(filepath))
                     {
@@ -303,7 +303,7 @@ namespace Editor
                 
                 if (GUILayout.Button("Update", GUILayout.Width(80)))
                 {
-                    string filepath = $"Assets/Resources/Screenshots/{room.roomName}.jpg";
+                    string filepath = $"Assets/Resources/Screenshots/{room.roomName}.png";
                     
                     AssetDatabase.Refresh();
                     
