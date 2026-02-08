@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Spider_Tiny
   tribe: 0
   rarity: 0
-  hpMax: 0
+  hpMax: 3
   isInvincible: 0
   artwork: {fileID: 21300000, guid: ec955e21f4cb5b941a2095755d059c9e, type: 3}
   description: 
@@ -28,6 +28,7 @@ MonoBehaviour:
   - {fileID: 103155337696271685, guid: 73145eeb7c54e7a4fbc8ee98e359dbd9, type: 3}
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
-  isWaitingOnSpawn: 0
+  isWaitingOnSpawn: 1
   preferredPosition: 0
-  localizationKey: spider_tiny
+  isEnemySummon: 0
+  localizationKey: 

@@ -60,5 +60,5 @@ MonoBehaviour:
   isBuffingAfterConsume: 1
   statusType: 4
   stacksAmount: 7
-  isQueueNextIntentionOn: 0
-  nextIntention: {fileID: 0}
+  isQueueNextIntentionOn: 1
+  nextIntention: {fileID: -2209117149256911525, guid: 16962e99932fe8740a63334dcbdb42ad, type: 3}

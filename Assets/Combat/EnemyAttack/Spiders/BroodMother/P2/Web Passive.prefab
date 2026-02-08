@@ -49,6 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 31
-  stackAmount: 2
+  stackAmount: 1
   multipleTarget: 1
   targetAmount: 2

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 8_BroodMother Battle
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 11400000, guid: 08a48b75cd97c874f8483abc865f6561, type: 2}
+  - {fileID: 11400000, guid: e15f2728ce7c82341939439a518a1b34, type: 2}
   floor: 0
   difficulty: 3

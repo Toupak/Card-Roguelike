@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: -6916591339546831796}
+  - component: {fileID: 6682354428829349513}
   m_Layer: 5
-  m_Name: Sticky Web
+  m_Name: AlluringAroma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-6916591339546831796
+--- !u!114 &6682354428829349513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,21 +45,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f60af784b33acf4dbeb3a9e1ad293b5, type: 3}
+  m_Script: {fileID: 11500000, guid: e8ff94e2c398a714490c170274e809f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Sticky Web
-  description: Applies 1 $Webbed$
-  weight: 1
-  intentionIcon: {fileID: -588955456, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
-  isWaiting: 0
-  localizationKey: stickyweb
-  statusType: 31
-  stacks: 1
-  hitCount: 2
-  hitSameTarget: 0
-  isTargetEnemy: 0
-  cantTargetHimself: 0
-  targetSpecificCard: 0
-  targetAllPlayerCards: 0
-  specificCard: {fileID: 0}
+  hpBeforePhase2: 15
+  bigSpiderCardData: {fileID: 11400000, guid: af72ba58d82044c41966ab6c690331c4, type: 2}
+  spiderlings: {fileID: 11400000, guid: d021caa9aefdd7047aadb63d2609d7b4, type: 2}
+  cocon: {fileID: 11400000, guid: 8ac23ec27c9ac524ca511ed055ae639c, type: 2}

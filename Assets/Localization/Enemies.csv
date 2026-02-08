@@ -129,3 +129,7 @@ Key,Id,English(en)
 "broodmother_evolved_webpassive",25723885631733766,"Apply $Webbed$ to random allies"
 "broodmother_evolved_spiderlingpassive_title",25723885631733767,"BroodMother's nest"
 "broodmother_evolved_spiderlingpassive",25723885631733768,"2 Spiderlings will join the fight every 2 turns"
+"spider_tiny_tinyfang_title",27048260184211456,"Tiny Fang"
+"spider_tiny_tinyfang",27048260213571584,"Deal $d$ DMG, Applies 1 $Poison$"
+"spider_tiny_feebleweb_title",27048260213571585,"Feeble Web"
+"spider_tiny_feebleweb",27048260213571586,"Applies 1 $Webbed$"

@@ -15,16 +15,22 @@ MonoBehaviour:
   cardName: BroodMother_Small
   tribe: 0
   rarity: 0
-  hpMax: 0
+  hpMax: 40
+  isInvincible: 0
   artwork: {fileID: 21300000, guid: b2fedd3cec0e9054f8bbecae66db4aa4, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   spellList: []
-  passiveList: []
-  enemyBehaviours: []
+  passiveList:
+  - {fileID: 11400000, guid: 8908fd0c9086b2a4bab7a433cfdea9a2, type: 2}
+  - {fileID: 11400000, guid: 8f5c2f65c18cefc4b90662f6f793a73c, type: 2}
+  enemyBehaviours:
+  - {fileID: -4985349031520876273, guid: a0bd7d10a72a55e4fb6f00a541ab74f3, type: 3}
+  - {fileID: -6916591339546831796, guid: 06bd31f28de05634197974136f0b80fb, type: 3}
+  - {fileID: -2209117149256911525, guid: 6d51c2bb385aa5b4d99d724f9ea7a2af, type: 3}
   areEnemyBehavioursLooping: 0
-  isMainBoss: 0
+  isMainBoss: 1
   isWaitingOnSpawn: 0
-  preferredPosition: 0
+  preferredPosition: 3
   localizationKey: broodmother_small

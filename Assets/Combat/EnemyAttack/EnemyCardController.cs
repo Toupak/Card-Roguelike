@@ -78,7 +78,8 @@ namespace Combat.EnemyAttack
             if (!hasIntention)
                 ComputeNextIntention();
             
-            yield return behaviourQueue.Dequeue().ExecuteBehavior();
+            if (behaviourQueue.Count > 0)
+                yield return behaviourQueue.Dequeue().ExecuteBehavior();
         }
 
         public void SkipIntention()
@@ -141,6 +142,9 @@ namespace Combat.EnemyAttack
 
         public void DisplayNextIntention()
         {
+            if (behaviourQueue.Count <= 0)
+                return;
+
             BaseEnemyBehaviour behaviour = behaviourQueue.Peek();
             cardController.enemyIntentionIcon.sprite = behaviour.intentionIcon;
 

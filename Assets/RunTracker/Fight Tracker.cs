@@ -39,10 +39,10 @@ namespace RunTracker
             thisTurnDMG += gA.amount;
             totalDMG += gA.amount;
 
-            Debug.Log("TOUP Average DMG per turn : " + avgDMGPerTurn);
-            Debug.Log("TOUP This Turn DMG : " + thisTurnDMG);
-            Debug.Log("TOUP Last Turn DMG : " + lastTurnDMG);
-            Debug.Log("TOUP Total Damage : " + totalDMG);
+            //Debug.Log("TOUP Average DMG per turn : " + avgDMGPerTurn);
+            //Debug.Log("TOUP This Turn DMG : " + thisTurnDMG);
+            //Debug.Log("TOUP Last Turn DMG : " + lastTurnDMG);
+            //Debug.Log("TOUP Total Damage : " + totalDMG);
 
             //UpdateDisplay
         }
