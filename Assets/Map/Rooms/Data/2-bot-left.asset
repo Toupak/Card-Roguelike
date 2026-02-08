@@ -15,7 +15,7 @@ MonoBehaviour:
   roomName: 2-bot-left
   description: 
   scenePath: Assets/Scenes/Rooms/2-bot-left.unity
-  screenShot: {fileID: 0}
+  screenShot: {fileID: 21300000, guid: ae13d04988cf3b24494309983ce08896, type: 3}
   hasTopDoor: 0
   hasRightDoor: 0
   hasBotDoor: 1
