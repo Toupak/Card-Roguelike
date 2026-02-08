@@ -919,6 +919,14 @@ MonoBehaviour:
     m_Key: bojackswordsman_bojacksingleattack
     m_Metadata:
       m_Items: []
+  - m_Id: 27535752711340032
+    m_Key: spotterximitri_ximitrispotting_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27535752711340033
+    m_Key: spotterximitri_ximitrispotting
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

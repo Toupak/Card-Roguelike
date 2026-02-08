@@ -729,6 +729,14 @@ MonoBehaviour:
       stacks and refresh his first spell
     m_Metadata:
       m_Items: []
+  - m_Id: 27536973706788864
+    m_Localized: Focus Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27536973744537600
+    m_Localized: Xander will always prioritize targets Marked with $Marker$
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

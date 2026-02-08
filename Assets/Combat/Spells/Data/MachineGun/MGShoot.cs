@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Combat.Spells.Data.MachineGun
@@ -21,6 +23,10 @@ namespace Combat.Spells.Data.MachineGun
 
             int damage = spellData.damage;
             int bullets = cardController.cardStatus.currentStacks[StatusType.BulletAmmo];
+            
+            List<CardMovement> markedTargets = targets.Where((c) => c.cardController.cardStatus.IsStatusApplied(StatusType.Marker)).ToList();
+            if (markedTargets.Count > 0)
+                targets = markedTargets;
             
             for (int i = 0; i < bullets; i++)
             {

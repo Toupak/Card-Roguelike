@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: SpotterXimitri_0
   m_EditorClassIdentifier: 
-  cardName: SpotterXimitri_0
-  tribe: 0
-  rarity: 0
-  hpMax: 0
+  cardName: Spotter Ximitri
+  tribe: 6
+  rarity: 1
+  hpMax: 16
   isInvincible: 0
   artwork: {fileID: 6989536355952228559, guid: ad0e65288398d374587a6f3004acfde1, type: 3}
   description: 
-  isSpecialSummon: 1
+  isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
-  spellList: []
+  spellList:
+  - {fileID: 11400000, guid: 4148868cf99dd6c4da18f920309983f9, type: 2}
   passiveList: []
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
@@ -29,4 +30,4 @@ MonoBehaviour:
   isWaitingOnSpawn: 0
   preferredPosition: 0
   isEnemySummon: 0
-  localizationKey: spotterximitri_0
+  localizationKey: spotterximitri

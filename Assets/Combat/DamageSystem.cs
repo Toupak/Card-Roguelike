@@ -41,6 +41,9 @@ namespace Combat
             {
                 bool isArmored = false;
                 
+                if (dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Marker))
+                    dealDamageGa.amount += 1;
+                
                 if (IsTargetDodging(dealDamageGa))
                 {
                     dealDamageGa.NegateDamage();

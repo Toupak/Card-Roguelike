@@ -346,6 +346,14 @@ MonoBehaviour:
       and reset his first spell
     m_Metadata:
       m_Items: []
+  - m_Id: 27533886153785344
+    m_Localized: Laser Marker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27533886187339776
+    m_Localized: Targets Marked by laser take 1 more damage from all sources
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
