@@ -321,6 +321,14 @@ MonoBehaviour:
       damage back as their current $Spear$ count
     m_Metadata:
       m_Items: []
+  - m_Id: 27509263743811584
+    m_Localized: Sonar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27509392467001344
+    m_Localized: Cards affected will be targeted in priority by surfacing cards.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

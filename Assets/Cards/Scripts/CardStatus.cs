@@ -45,7 +45,8 @@ namespace Cards.Scripts
         Dive,
         Corpse,
         Spear,
-        Webbed
+        Webbed,
+        Sonar
     }
 
     public enum StatusBehaviour
@@ -163,18 +164,55 @@ namespace Cards.Scripts
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController)
+            if (dealDamageGa.target != null && dealDamageGa.target == cardController)
             {
-                if (IsStatusApplied(StatusType.Taunt))
+                foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
                 {
-                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Taunt, 1, dealDamageGa.attacker, cardController);
-                    ActionSystem.instance.AddReaction(consumeStacksGa);
+                    if (!IsStatusApplied(keyValuePair.Key))
+                        continue;
+                
+                    if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnDamageReceived)
+                        continue;
+                    
+                    switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
+                    {
+                        case StatusBehaviour.RemoveOne:
+                            RemoveOneStack(keyValuePair); 
+                            break;
+                        case StatusBehaviour.RemoveAll:
+                            RemoveAllStacks(keyValuePair);
+                            break;
+                        case StatusBehaviour.RemoveNone:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
-
-                if (IsStatusApplied(StatusType.Terror))
+            }
+            
+            if (dealDamageGa.attacker != null && dealDamageGa.attacker == cardController)
+            {
+                foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
                 {
-                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Terror, GetCurrentStackCount(StatusType.Terror), dealDamageGa.attacker, cardController);
-                    ActionSystem.instance.AddReaction(consumeStacksGa);
+                    if (!IsStatusApplied(keyValuePair.Key))
+                        continue;
+                
+                    if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnDamageDealt)
+                        continue;
+                    
+                    switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
+                    {
+                        case StatusBehaviour.RemoveOne:
+                            RemoveOneStack(keyValuePair); 
+                            break;
+                        case StatusBehaviour.RemoveAll:
+                            RemoveAllStacks(keyValuePair);
+                            break;
+                        case StatusBehaviour.RemoveNone:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
             }
         }

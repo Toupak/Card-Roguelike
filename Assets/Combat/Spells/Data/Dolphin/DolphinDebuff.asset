@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: DolphinDebuff
   m_EditorClassIdentifier: 
   spellName: Acoustic Blast
-  description: Deals $d$ damage and Applies 1 $Weak$ to target
+  description: Deals $d$ damage and Applies 1 $Sonar$ to target
   icon: {fileID: 0}
   targetType: 1
   targetingMode: 0
   targetCount: 1
+  targetTokens: 0
   energyCost: 1
   hasNoCooldown: 0
   damage: 1
-  inflictStatus: 10
+  inflictStatus: 32
   statusStacksApplied: 1
   spellController: {fileID: 0}
   localizationKey: dolphindebuff

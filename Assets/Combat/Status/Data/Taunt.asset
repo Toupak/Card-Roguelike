@@ -19,8 +19,8 @@ MonoBehaviour:
 
     Each
     stack of Taunt will attract one attack and be consumed'
-  behaviour: 2
-  behaviourTiming: 6
+  behaviour: 0
+  behaviourTiming: 2
   effectType: 1
   maxStackCount: -1
   neverRemoveTab: 0

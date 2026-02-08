@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
@@ -20,12 +21,26 @@ namespace Combat.Spells.Data.Dolphin
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             if (targets.Count < 1)
                 yield break;
+
+            List<CardMovement> sonarTargets = targets.Where((c) => c.cardController.cardStatus.IsStatusApplied(StatusType.Sonar)).ToList();
+            if (sonarTargets.Count > 0)
+                targets = sonarTargets;
+
+            CardController target = targets[Random.Range(0, targets.Count)].cardController;
             
-            DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, targets[Random.Range(0, targets.Count)].cardController);
+            DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(spellData.damage), cardController, target);
             ActionSystem.instance.Perform(dealDamageGa);
+
+            if (target.cardStatus.IsStatusApplied(StatusType.Sonar))
+            {
+                yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+                ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Sonar, 1, cardController, target);
+                ActionSystem.instance.Perform(consumeStacksGa);
+            }
             
             SetShinyState(false);
         }

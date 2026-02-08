@@ -729,7 +729,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406936737873920
-    m_Localized: Deals $d$ damage and Applies 1 $Weak$ to target
+    m_Localized: Deals $d$ damage and Applies 1 $Sonar$ to target
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068224
@@ -737,7 +737,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068225
-    m_Localized: $Dive$ for 1 turn
+    m_Localized: '$Dive$ for 1 turn, becoming untargetable
+
+      Can be recast next
+      turn to surface and attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 1406936742068226
@@ -764,7 +767,7 @@ MonoBehaviour:
     m_Localized: '$Dive$ for 1 turn, becoming untargetable
 
       Can be recast next
-      turn to attack a random target'
+      turn to surface and attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 1461834686889988
@@ -783,7 +786,7 @@ MonoBehaviour:
     m_Localized: '$Dive$ for 1 turn, becoming untargetable
 
       Can be recast next
-      turn to attack a random target'
+      turn to surface and attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 1479861167947777
@@ -918,7 +921,7 @@ MonoBehaviour:
     m_Localized: '$Dive$ for 1 turn, becoming untargetable
 
       Can be recast next
-      turn to attack a random target'
+      turn to surface and attack a random target'
     m_Metadata:
       m_Items: []
   - m_Id: 21144975051554816
