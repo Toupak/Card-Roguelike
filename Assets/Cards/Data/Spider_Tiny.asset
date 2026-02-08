@@ -31,4 +31,4 @@ MonoBehaviour:
   isWaitingOnSpawn: 1
   preferredPosition: 0
   isEnemySummon: 0
-  localizationKey: 
+  localizationKey: spider_tiny
