@@ -54,7 +54,7 @@ namespace Map.Rooms
         private void SetupSpecialRoom(bool hasRoomBeenCleared)
         {
             if (!hasRoomBeenCleared)
-                Instantiate(dialogInteractionPrefab, Vector3.zero, Quaternion.identity);
+                Instantiate(dialogInteractionPrefab, GetPosition(), Quaternion.identity);
         }
         
         private void SetupEliteRoom(bool hasRoomBeenCleared)
@@ -72,7 +72,15 @@ namespace Map.Rooms
         private void SpawnBattleInteraction(bool hasRoomBeenCleared)
         {
             if (!hasRoomBeenCleared)
-                Instantiate(battleInteractionPrefab, Vector3.zero, Quaternion.identity);
+                Instantiate(battleInteractionPrefab, GetPosition(), Quaternion.identity);
+        }
+
+        private Vector3 GetPosition()
+        {
+            if (RoomPointsOfInterest.instance != null)
+                return RoomPointsOfInterest.instance.GetPointOfInterestPosition();
+            else
+                return Vector3.zero;
         }
     }
 }
