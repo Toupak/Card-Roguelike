@@ -133,3 +133,5 @@ Key,Id,English(en)
 "spider_tiny_tinyfang",27048260213571584,"Deal $d$ DMG, Applies 1 $Poison$"
 "spider_tiny_feebleweb_title",27048260213571585,"Feeble Web"
 "spider_tiny_feebleweb",27048260213571586,"Applies 1 $Webbed$"
+"lilguy_torpedopassive_title",27467369693282304,"Explosive Friend"
+"lilguy_torpedopassive",27467466401349632,"On death, apply $Weak$ to all cards on the same board"

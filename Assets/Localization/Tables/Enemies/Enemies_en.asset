@@ -539,6 +539,14 @@ MonoBehaviour:
     m_Localized: Applies 1 $Webbed$
     m_Metadata:
       m_Items: []
+  - m_Id: 27467369693282304
+    m_Localized: Explosive Friend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27467466401349632
+    m_Localized: On death, apply $Weak$ to all cards on the same board
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

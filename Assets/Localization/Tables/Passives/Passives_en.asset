@@ -745,6 +745,14 @@ MonoBehaviour:
     m_Localized: Once per turn, when shooting a $Marker$ target, gain 1 $Ammo$
     m_Metadata:
       m_Items: []
+  - m_Id: 27826695003930624
+    m_Localized: Swimming Torpedo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27826695024902144
+    m_Localized: When surfacing, leaves a Torpedo fish on the enemy board
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

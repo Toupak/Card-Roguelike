@@ -951,6 +951,30 @@ MonoBehaviour:
     m_Key: marksmanxordan_xordanchargeshot
     m_Metadata:
       m_Items: []
+  - m_Id: 27827523450273792
+    m_Key: manta_mantareload_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27827527954956288
+    m_Key: manta_mantareload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27827527954956289
+    m_Key: manta_mantadive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27827527954956290
+    m_Key: manta_mantadive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27827527959150592
+    m_Key: manta_mantasurface_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27827527959150593
+    m_Key: manta_mantasurface
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

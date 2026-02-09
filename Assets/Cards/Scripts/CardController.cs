@@ -167,7 +167,7 @@ namespace Cards.Scripts
             rightButton.Setup(this, right);
             
             singleButton.gameObject.SetActive(false);
-            rightButton.gameObject.SetActive(true);
+            rightButton.gameObject.SetActive(right != null);
         }
         
         public void SetupSingleSpell(SpellData right)

@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 5813c8a39977410428dee71897469b15
+guid: f0211f4a7841ae84e951ef26091cd891
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1243875465296738913
-    second: Manta_Missiles_0
+      213: 6179328517169894790
+    second: Manta_0
+  - first:
+      213: 6356828379634239847
+    second: Manta_1
+  - first:
+      213: 7753890375463914087
+    second: Manta_2
+  - first:
+      213: 478690165883948301
+    second: Manta_3
+  - first:
+      213: -1653124102445577855
+    second: Manta_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Manta_Missiles_0
+      name: Manta_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,15 +133,103 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16af5d53522234110800000000000000
-      internalID: 1243875465296738913
+      spriteID: 6855a500c8261c550800000000000000
+      internalID: 6179328517169894790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manta_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769883a3bbdf73850800000000000000
+      internalID: 6356828379634239847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manta_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ac8d0f63a5b9b60800000000000000
+      internalID: 7753890375463914087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manta_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d4cfe6b26a4a600800000000000000
+      internalID: 478690165883948301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manta_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1894810336cee09e0800000000000000
+      internalID: -1653124102445577855
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2e643d1b565afd846b1ba5a29eee673a
+    spriteID: 68dec54bdf7585c42a810455459d8c59
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Manta_Missiles_0: 1243875465296738913
+      Manta_0: 6179328517169894790
+      Manta_1: 6356828379634239847
+      Manta_2: 7753890375463914087
+      Manta_3: 478690165883948301
+      Manta_4: -1653124102445577855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

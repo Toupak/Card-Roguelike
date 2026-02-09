@@ -135,6 +135,9 @@ namespace Combat.EnemyAttack
         
         private void SetupIntentionDisplay()
         {
+            if (cardData.enemyBehaviours.Count <= 0)
+                return;
+            
             cardController.enemyIntentionIcon.gameObject.SetActive(true);   
             cardController.enemyIntentionBackground.gameObject.SetActive(true);   
             cardController.enemyIntentionText.gameObject.SetActive(true);

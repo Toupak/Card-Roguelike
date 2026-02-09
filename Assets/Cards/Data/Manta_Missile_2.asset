@@ -10,21 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Manta_Missiles_0
+  m_Name: Manta_Missile_2
   m_EditorClassIdentifier: 
-  cardName: Manta_Missiles_0
-  tribe: 0
+  cardName: Lil Dude
+  tribe: 1
   rarity: 0
-  hpMax: 0
-  artwork: {fileID: 1243875465296738913, guid: 5813c8a39977410428dee71897469b15, type: 3}
+  hpMax: 4
+  isInvincible: 0
+  artwork: {fileID: 1538634062, guid: e0c9d3c36df874d4d91ea141edad4d2c, type: 3}
   description: 
   isSpecialSummon: 1
   alternativeCardPrefab: {fileID: 0}
   spellList: []
-  passiveList: []
+  passiveList:
+  - {fileID: 11400000, guid: f1993d540bf0357479433cbe8d4c7ae3, type: 2}
   enemyBehaviours: []
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
-  localizationKey: manta_missiles_0
+  isEnemySummon: 1
+  localizationKey: lilguy

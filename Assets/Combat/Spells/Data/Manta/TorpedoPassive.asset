@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
+  m_Name: TorpedoPassive
+  m_EditorClassIdentifier: 
+  passiveName: Explosive Friend
+  description: On death, apply $Weak$ to all cards on the same board
+  icon: {fileID: 0}
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 4290017342
+  passiveController: {fileID: 4150898077295378909, guid: 883ea255adb0b5e4fac1c20d7a7dcf8e, type: 3}
+  localizationKey: torpedopassive
