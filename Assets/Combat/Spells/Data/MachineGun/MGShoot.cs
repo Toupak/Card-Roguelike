@@ -25,14 +25,18 @@ namespace Combat.Spells.Data.MachineGun
             int bullets = cardController.cardStatus.currentStacks[StatusType.BulletAmmo];
             
             List<CardMovement> markedTargets = targets.Where((c) => c.cardController.cardStatus.IsStatusApplied(StatusType.Marker)).ToList();
-            if (markedTargets.Count > 0)
-                targets = markedTargets;
             
             for (int i = 0; i < bullets; i++)
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(damage), cardController, PickRandomTarget(targets));
+                CardController target;
+                if (markedTargets.Count > 0 && markedTargets.Where((c) => c != null && !c.cardController.cardHealth.IsDead).ToList().Count > 0)
+                    target = PickRandomTarget(markedTargets);
+                else
+                    target = PickRandomTarget(targets);
+                    
+                DealDamageGA dealDamageGa = new DealDamageGA(ComputeCurrentDamage(damage), cardController, target);
                 ActionSystem.instance.Perform(dealDamageGa);
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

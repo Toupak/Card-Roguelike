@@ -1070,6 +1070,30 @@ MonoBehaviour:
     m_Localized: Apply 1 $Marker$ to target
     m_Metadata:
       m_Items: []
+  - m_Id: 27740151756849152
+    m_Localized: Breath Out Slowly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27740151777820672
+    m_Localized: Consume 1 $Ammo$ to deal $d$ damage to single target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27740151782014976
+    m_Localized: Load One
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27740151782014977
+    m_Localized: Gain 1 $Ammo$
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27740151782014978
+    m_Localized: Xoverload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27740151782014979
+    m_Localized: Next attack this turn will consume and shoot all $Ammo$ at once
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
