@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 2
   hpMax: 10
+  isInvincible: 0
   artwork: {fileID: 21300000, guid: 0f2e99206f214964eb498bd651e0db0d, type: 3}
   description: 
   isSpecialSummon: 0
@@ -32,4 +33,5 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 2
+  isEnemySummon: 0
   localizationKey: hydraright

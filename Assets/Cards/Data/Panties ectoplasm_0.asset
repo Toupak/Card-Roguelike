@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 6
   rarity: 1
   hpMax: 6
+  isInvincible: 0
   artwork: {fileID: 354279647000644078, guid: 5150060763edaf04f8994de9abd95afc, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: grandpantsthief

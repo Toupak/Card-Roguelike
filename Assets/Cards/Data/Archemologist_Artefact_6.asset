@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: Archemologist_Artefact_6
+  m_EditorClassIdentifier: 
+  cardName: Holy Grenade
+  tribe: 0
+  rarity: 3
+  hpMax: -1
+  isInvincible: 1
+  artwork: {fileID: -6320575213419477570, guid: bc13e7a8f5c384148ae0ac0224245c67, type: 3}
+  description: 
+  isSpecialSummon: 1
+  alternativeCardPrefab: {fileID: 0}
+  spellList: []
+  passiveList:
+  - {fileID: 11400000, guid: bd876a7cfa03f3444964c60fad6cf649, type: 2}
+  enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
+  isEnemySummon: 0
+  localizationKey: holygrenade

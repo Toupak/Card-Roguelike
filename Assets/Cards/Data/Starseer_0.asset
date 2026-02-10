@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 1
   rarity: 2
   hpMax: 10
+  isInvincible: 0
   artwork: {fileID: -6040127883190505361, guid: c82d838f3cf2ba84f8390ba37cb839d7, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: starseer

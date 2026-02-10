@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 0
   hpMax: 7
+  isInvincible: 0
   artwork: {fileID: 3805251014732396877, guid: e7dc4d4f68d81444887bf125fe036d04, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: nachito

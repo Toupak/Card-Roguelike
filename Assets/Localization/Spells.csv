@@ -289,3 +289,8 @@ Pif also gains the $Armor$"
 Can be recast next turn to surface and attack a random target"
 "manta_mantasurface_title",27827527959150592,"Surface"
 "manta_mantasurface",27827527959150593,"Deal $d$ damage to a random enemy target"
+"archemologist_moledig_title",28137940517093376,"He A Gold Digger"
+"archemologist_moledig",28137941230125056,"Dig the ground to find a random artefact
+Can hold 3 artefacts max"
+"archemologist_moleuse_title",28137941230125057,"Putting It To Good Use"
+"archemologist_moleuse",28137941230125058,"Use selected artefact"

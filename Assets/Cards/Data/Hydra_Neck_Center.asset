@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 2
   hpMax: 100
+  isInvincible: 0
   artwork: {fileID: 21300000, guid: 10bfac4ea1a6f16479f999ee353d3959, type: 3}
   description: 
   isSpecialSummon: 1
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 3
+  isEnemySummon: 0
   localizationKey: hydra_neck_center

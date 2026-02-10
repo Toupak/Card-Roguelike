@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 3
   hpMax: 25
+  isInvincible: 0
   artwork: {fileID: 1061540532, guid: eac556524774deb45a072799c4e594e3, type: 3}
   description: 
   isSpecialSummon: 1
@@ -28,4 +29,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: shieldking

@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 2
   hpMax: 6
+  isInvincible: 0
   artwork: {fileID: 5113772399993538697, guid: 7e7061d9eefc8a54a83fdfcc3aeb9b49, type: 3}
   description: 
   isSpecialSummon: 0
@@ -28,4 +29,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: hmsgnome

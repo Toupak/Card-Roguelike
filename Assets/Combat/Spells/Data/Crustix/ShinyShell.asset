@@ -21,6 +21,7 @@ MonoBehaviour:
   targetType: 2
   targetingMode: 0
   targetCount: 0
+  targetTokens: 0
   energyCost: 1
   hasNoCooldown: 0
   damage: 1

@@ -40,7 +40,7 @@ namespace Combat.Spells.Targeting
             SpellController.OnCancelSpell.AddListener(StopTargeting);
         }
 
-        public IEnumerator SelectTargets(CardMovement castingCard, Transform startingPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1, bool targetToken = false)
+        public IEnumerator SelectTargets(CardMovement castingCard, Transform startingPosition, TargetType targetType, TargetingMode targetingMode, int targetCount = 1, bool targetToken = false, Func<CardMovement, bool> validator = null)
         {
             Debug.Log("Start Targeting");
 
@@ -52,6 +52,9 @@ namespace Combat.Spells.Targeting
                 targetingMode = TargetingMode.Multi;
             
             potentialTargets = ComputeTargetAllList(castingCard, targetType, targetToken);
+
+            if (validator != null)
+                potentialTargets = potentialTargets.Where(validator).ToList();
 
             if (targetingMode == TargetingMode.All)
             {

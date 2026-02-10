@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 0
   hpMax: 3
+  isInvincible: 0
   artwork: {fileID: 4520657779659885822, guid: 6a77fbbb13fd11c4a84716d8b9151d15, type: 3}
   description: 
   isSpecialSummon: 0
@@ -30,4 +31,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 1
   preferredPosition: 2
+  isEnemySummon: 0
   localizationKey: gobo-clown

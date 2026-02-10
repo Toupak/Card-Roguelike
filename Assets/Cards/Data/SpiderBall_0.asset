@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 0
   hpMax: 12
+  isInvincible: 0
   artwork: {fileID: -1841804726479415937, guid: ff79872db82fe80458c86ac5851cf680, type: 3}
   description: 
   isSpecialSummon: 0
@@ -30,4 +31,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: gutter-spider

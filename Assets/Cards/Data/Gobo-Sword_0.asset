@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 0
   hpMax: 7
+  isInvincible: 0
   artwork: {fileID: 5388931267197553056, guid: 5fefb013588c47f41852cbe4efe174a0, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 1
   preferredPosition: 2
+  isEnemySummon: 0
   localizationKey: gobo-knight

@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 1
   rarity: 0
   hpMax: 12
+  isInvincible: 0
   artwork: {fileID: 21300000, guid: 3fe78f413abb4e64386359261d80ed55, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: jaycoon

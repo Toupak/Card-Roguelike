@@ -123,8 +123,8 @@ namespace Cards.Scripts
         {
             if (IsCorrectTurn(startTurnGa.starting))
             {
-                UpdateStacksAtStartOfTurn();
                 CheckForPoisonStacks();
+                UpdateStacksAtStartOfTurn();
             }
         }
 

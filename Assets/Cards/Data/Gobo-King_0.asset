@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 6
   rarity: 3
   hpMax: 37
+  isInvincible: 0
   artwork: {fileID: 1351902681591436168, guid: 1b4d7734420514c4faaea86756b22aa8, type: 3}
   description: 
   isSpecialSummon: 0
@@ -36,4 +37,5 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 3
+  isEnemySummon: 0
   localizationKey: goboking

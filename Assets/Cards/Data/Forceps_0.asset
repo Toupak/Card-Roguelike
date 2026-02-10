@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 2
   hpMax: 12
+  isInvincible: 0
   artwork: {fileID: 6707764976502783438, guid: 627abbecfa89b6f4cb76de383a9e6e7f, type: 3}
   description: 
   isSpecialSummon: 0
@@ -30,4 +31,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: forceps

@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 6
   rarity: 2
   hpMax: 18
+  isInvincible: 0
   artwork: {fileID: 21300000, guid: e86736f85bc676840881a139f2502ffe, type: 3}
   description: 
   isSpecialSummon: 0
@@ -31,4 +32,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: barbarian

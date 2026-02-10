@@ -1121,6 +1121,25 @@ MonoBehaviour:
     m_Localized: Deal $d$ damage to a random enemy target
     m_Metadata:
       m_Items: []
+  - m_Id: 28137940517093376
+    m_Localized: He A Gold Digger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137941230125056
+    m_Localized: 'Dig the ground to find a random artefact
+
+      Can hold 3 artefacts
+      max'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137941230125057
+    m_Localized: Putting It To Good Use
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137941230125058
+    m_Localized: Use selected artefact
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

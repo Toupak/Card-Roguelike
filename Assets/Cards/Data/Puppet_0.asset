@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 1
   hpMax: 5
+  isInvincible: 0
   artwork: {fileID: 9115083180326498312, guid: 920c8f098ac0d1444a30c33b9db6d1ae, type: 3}
   description: 
   isSpecialSummon: 1
@@ -28,4 +29,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: puppet

@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 6
   rarity: 1
   hpMax: 18
+  isInvincible: 0
   artwork: {fileID: -1486607967399575653, guid: 2599bd1ca1e15db46b56aaee401f61f4, type: 3}
   description: 
   isSpecialSummon: 0
@@ -32,4 +33,5 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: crimsonmonk

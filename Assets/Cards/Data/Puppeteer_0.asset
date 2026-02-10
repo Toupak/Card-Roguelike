@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 1
   hpMax: 12
+  isInvincible: 0
   artwork: {fileID: 5681608402930609141, guid: 226aa3b1941baaf4a9aa0084d8ce7b1c, type: 3}
   description: 
   isSpecialSummon: 0
@@ -28,4 +29,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: puppeteer

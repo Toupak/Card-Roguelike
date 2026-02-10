@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 1
   rarity: 1
   hpMax: 12
+  isInvincible: 0
   artwork: {fileID: 21300000, guid: 0cd136934d0b8fc4d8541a27ffc0a53f, type: 3}
   description: 
   isSpecialSummon: 0
@@ -29,4 +30,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: bigfish

@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 1
   rarity: 0
   hpMax: 8
+  isInvincible: 0
   artwork: {fileID: -2663931023770825618, guid: 3b5c92acb92591e42bc9d5ffe49f9344, type: 3}
   description: 
   isSpecialSummon: 0
@@ -30,4 +31,5 @@ MonoBehaviour:
   isMainBoss: 0
   isWaitingOnSpawn: 0
   preferredPosition: 0
+  isEnemySummon: 0
   localizationKey: kraken

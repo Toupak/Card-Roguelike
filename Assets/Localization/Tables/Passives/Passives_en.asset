@@ -753,6 +753,81 @@ MonoBehaviour:
     m_Localized: When surfacing, leaves a Torpedo fish on the enemy board
     m_Metadata:
       m_Items: []
+  - m_Id: 28137108279099392
+    m_Localized: Cookie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070912
+    m_Localized: Heal an ally for 1 health point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070913
+    m_Localized: Ammunition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070914
+    m_Localized: Give 1 $Ammo$ to an ally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070915
+    m_Localized: Potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070916
+    m_Localized: Heal an ally for 3 health point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070917
+    m_Localized: Helm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070918
+    m_Localized: Apply 1 $Armor$ to an ally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265216
+    m_Localized: Grenade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265217
+    m_Localized: Deal 1 damages to all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265218
+    m_Localized: Holy Grenade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265219
+    m_Localized: 'Destroy your other artefacts
+
+      Deal 2 damages per artefact
+      destroyed to target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265220
+    m_Localized: Poisonous Cookie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265221
+    m_Localized: Apply 1 $Weak$ to target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265222
+    m_Localized: Fireball Scroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265223
+    m_Localized: Deal 3 damages to target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265224
+    m_Localized: Pepper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265225
+    m_Localized: Apply 1 $Stun$ to target
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

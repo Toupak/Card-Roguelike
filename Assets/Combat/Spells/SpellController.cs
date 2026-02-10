@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
@@ -75,6 +76,9 @@ namespace Combat.Spells
 
         public virtual void CastSpell(Transform startPosition)
         {
+            if (isLocking)
+                return;
+            
             if (castSpellRoutine != null)
                 CancelTargeting();
             else
@@ -248,7 +252,12 @@ namespace Combat.Spells
 
         protected CardController PickRandomTarget(List<CardMovement> targets)
         {
-            return targets[Random.Range(0, targets.Count)].cardController;
+            List<CardMovement> validTargets = targets.Where((c) => !c.cardController.cardHealth.IsDead).ToList();
+
+            if (validTargets.Count < 1)
+                return null;
+            
+            return validTargets[Random.Range(0, validTargets.Count)].cardController;
         }
     }
 }

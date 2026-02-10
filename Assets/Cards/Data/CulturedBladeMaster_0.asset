@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
+  m_Name: CulturedBladeMaster_0
+  m_EditorClassIdentifier: 
+  cardName: CulturedBladeMaster_0
+  tribe: 0
+  rarity: 0
+  hpMax: 0
+  isInvincible: 0
+  artwork: {fileID: -7650508551428849239, guid: 43c1d4af6742bdc408e4fc3c18be4630, type: 3}
+  description: 
+  isSpecialSummon: 0
+  alternativeCardPrefab: {fileID: 0}
+  spellList: []
+  passiveList: []
+  enemyBehaviours: []
+  areEnemyBehavioursLooping: 0
+  isMainBoss: 0
+  isWaitingOnSpawn: 0
+  preferredPosition: 0
+  isEnemySummon: 0
+  localizationKey: culturedblademaster_0

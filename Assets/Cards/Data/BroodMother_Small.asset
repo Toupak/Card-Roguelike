@@ -33,4 +33,5 @@ MonoBehaviour:
   isMainBoss: 1
   isWaitingOnSpawn: 0
   preferredPosition: 3
+  isEnemySummon: 0
   localizationKey: broodmother_small

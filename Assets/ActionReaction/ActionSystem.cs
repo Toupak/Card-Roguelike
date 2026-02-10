@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 // ReSharper disable CanSimplifyDictionaryLookupWithTryGetValue
 
 namespace ActionReaction
@@ -28,6 +30,16 @@ namespace ActionReaction
         private void Awake()
         {
             instance = this;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.kKey.wasPressedThisFrame)
+            {
+                StopAllCoroutines();
+                isLocked = false;
+                IsPerforming = false;
+            }
         }
 
         public void SetLock(bool lockState)
