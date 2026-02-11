@@ -193,7 +193,7 @@ Seeds and Plants lose 1 Health Point at the end of your turn"
 "grenade_archemologist_grenade",28137108304265217,"Deal 1 damages to all enemies"
 "holygrenade_archemologist_holygrenade_title",28137108304265218,"Holy Grenade"
 "holygrenade_archemologist_holygrenade",28137108304265219,"Destroy your other artefacts
-Deal 2 damages per artefact destroyed to target"
+Deal 3 damages per artefact destroyed to target"
 "poisonouscookie_archemologist_poisoncookie_title",28137108304265220,"Poisonous Cookie"
 "poisonouscookie_archemologist_poisoncookie",28137108304265221,"Apply 1 $Weak$ to target"
 "fireballscroll_archemologist_fireball_title",28137108304265222,"Fireball Scroll"

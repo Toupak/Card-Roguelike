@@ -687,6 +687,78 @@ MonoBehaviour:
     m_Key: manta_mantapassive
     m_Metadata:
       m_Items: []
+  - m_Id: 28137108279099392
+    m_Key: cookie_archemologist_cookie_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070912
+    m_Key: cookie_archemologist_cookie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070913
+    m_Key: ammunition_archemologist_bullet_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070914
+    m_Key: ammunition_archemologist_bullet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070915
+    m_Key: healthpotion_archemologist_potion_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070916
+    m_Key: healthpotion_archemologist_potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070917
+    m_Key: helm_archemologist_helm_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108300070918
+    m_Key: helm_archemologist_helm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265216
+    m_Key: grenade_archemologist_grenade_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265217
+    m_Key: grenade_archemologist_grenade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265218
+    m_Key: holygrenade_archemologist_holygrenade_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265219
+    m_Key: holygrenade_archemologist_holygrenade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265220
+    m_Key: poisonouscookie_archemologist_poisoncookie_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265221
+    m_Key: poisonouscookie_archemologist_poisoncookie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265222
+    m_Key: fireballscroll_archemologist_fireball_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265223
+    m_Key: fireballscroll_archemologist_fireball
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265224
+    m_Key: strongpepper_archemologist_pepper_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137108304265225
+    m_Key: strongpepper_archemologist_pepper
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

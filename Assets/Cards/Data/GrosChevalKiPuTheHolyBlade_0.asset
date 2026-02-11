@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Bojack Swordsman
   tribe: 1
-  rarity: 2
+  rarity: 3
   hpMax: 17
   isInvincible: 0
   artwork: {fileID: -1280168245947431769, guid: 8bb84d953776e964caf1bb4cfaf9e959, type: 3}

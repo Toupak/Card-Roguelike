@@ -28,7 +28,8 @@ namespace Combat.Spells.Data.Bojack
                     ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Moonlight, stackCount, cardController, applyStatusGa.target);
                     ActionSystem.instance.AddReaction(consumeStacksGa);
 
-                    cardController.leftButton.spellController.SetShinyState(true);
+                    DealDamageGA dealDamageGa = new DealDamageGA(3, cardController, applyStatusGa.target);
+                    ActionSystem.instance.AddReaction(dealDamageGa);
                 }
             }
         }

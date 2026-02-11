@@ -726,7 +726,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 27523455670517762
     m_Localized: When an enemy has 3 stacks of $Moonlight$, Bojack will consume the
-      stacks and refresh his first spell
+      stacks and deal 3 damage to the target
     m_Metadata:
       m_Items: []
   - m_Id: 27536973706788864
@@ -800,7 +800,7 @@ MonoBehaviour:
   - m_Id: 28137108304265219
     m_Localized: 'Destroy your other artefacts
 
-      Deal 2 damages per artefact
+      Deal 3 damages per artefact
       destroyed to target'
     m_Metadata:
       m_Items: []

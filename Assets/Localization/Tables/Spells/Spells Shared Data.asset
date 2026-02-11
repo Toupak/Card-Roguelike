@@ -975,6 +975,22 @@ MonoBehaviour:
     m_Key: manta_mantasurface
     m_Metadata:
       m_Items: []
+  - m_Id: 28137940517093376
+    m_Key: archemologist_moledig_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137941230125056
+    m_Key: archemologist_moledig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137941230125057
+    m_Key: archemologist_moleuse_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28137941230125058
+    m_Key: archemologist_moleuse
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

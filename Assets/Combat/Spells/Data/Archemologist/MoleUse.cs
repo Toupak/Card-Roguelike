@@ -150,7 +150,7 @@ namespace Combat.Spells.Data.Archemologist
                         break;
                     case Artefacts.HolyGrenade:
                         List<CardMovement> otherArtefacts = ComputeOtherArtefactsList();
-                        int damage = 2 + 2 * otherArtefacts.Count;
+                        int damage = 3 + 3 * otherArtefacts.Count;
 
                         for (int i = otherArtefacts.Count - 1; i >= 0; i--)
                         {

@@ -342,8 +342,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27517750926344194
-    m_Localized: Once 3 stacks are applied to a target, Bojack will consume all stacks
-      and reset his first spell
+    m_Localized: The faintest Moonligth is only a reflection of the Sun's glory...
     m_Metadata:
       m_Items: []
   - m_Id: 27533886153785344

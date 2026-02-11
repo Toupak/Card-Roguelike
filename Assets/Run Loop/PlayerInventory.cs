@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Inventory.Items.Frames;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Run_Loop
 {
@@ -19,8 +21,6 @@ namespace Run_Loop
     
     public class PlayerInventory : MonoBehaviour
     {
-        [SerializeField] private List<FrameData> debugFrames;
-
         public static UnityEvent<FrameItem> OnEquipFrame = new UnityEvent<FrameItem>();
         public static UnityEvent<FrameItem, Vector3> OnUnEquipFrame = new UnityEvent<FrameItem, Vector3>();
         
@@ -33,13 +33,19 @@ namespace Run_Loop
         private void Awake()
         {
             instance = this;
+        }
 
-           //LoadDebugInventory(); //TODO : comment this
+        private void Start()
+        {
+           LoadDebugInventory();
         }
 
         private void LoadDebugInventory()
         {
-            foreach (FrameData frame in debugFrames)
+            if (SceneManager.GetActiveScene().name != "CombatScene" || RunLoop.instance.isInRun)
+                return;
+            
+            foreach (FrameData frame in RunLoop.instance.framesData)
             {
                 frames.Add(new FrameItem(frame));
             }
