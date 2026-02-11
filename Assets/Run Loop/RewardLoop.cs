@@ -123,20 +123,19 @@ namespace Run_Loop
         
         private IEnumerator OpenBoosterAndDisplayFrames(int framesCount)
         {
-            List<FrameData> commonFrames = RunLoop.instance.framesData.Where((c) => c.isLowRarity).ToList();
-            if (commonFrames.Count < 1)
-                Debug.LogError($"[{nameof(RewardLoop)}] error : no Common and Rare frames found in dataBase");
-            commonFrames.Shuffle();
+            List<FrameItem> alreadyOwnedFrames = PlayerInventory.instance.frames;
             
-            List<FrameData> legendaryFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Legendary).ToList();
-            if (legendaryFrames.Count < 1)
-                Debug.LogError($"[{nameof(RewardLoop)}] error : no Legendary frames found in dataBase");
-            legendaryFrames.Shuffle();
+            List<FrameData> commonFrames = RunLoop.instance.framesData.Where((c) => c.isLowRarity && alreadyOwnedFrames.Count((d) => d.data == c) < 1).ToList();
+            if (commonFrames.Count > 0)
+                commonFrames.Shuffle();
             
-            List<FrameData> exoticFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Exotic).ToList();
-            if (exoticFrames.Count < 1)
-                Debug.LogError($"[{nameof(RewardLoop)}] error : no Exotic frames found in dataBase");
-            exoticFrames.Shuffle();
+            List<FrameData> legendaryFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Legendary && alreadyOwnedFrames.Count((d) => d.data == c) < 1).ToList();
+            if (legendaryFrames.Count > 0)
+                legendaryFrames.Shuffle();
+            
+            List<FrameData> exoticFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Exotic && alreadyOwnedFrames.Count((d) => d.data == c) < 1).ToList();
+            if (exoticFrames.Count > 0)
+                exoticFrames.Shuffle();
 
             int commonIndex = 0;
             int legendaryIndex = 0;
@@ -146,9 +145,9 @@ namespace Run_Loop
                 if (exoticIndex < exoticFrames.Count && DropRateManager.instance.CheckForExoticFrameReward())
                     DrawItemToContainer(mainContainer).SetupAsFrameItem(exoticFrames[exoticIndex++]);
                 else if (legendaryIndex < legendaryFrames.Count && DropRateManager.instance.CheckForLegendaryFrameReward())
-                    DrawItemToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[exoticIndex++]);
+                    DrawItemToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[legendaryIndex++]);
                 else if (commonIndex < commonFrames.Count)
-                    DrawItemToContainer(mainContainer).SetupAsFrameItem(commonFrames[exoticIndex++]);
+                    DrawItemToContainer(mainContainer).SetupAsFrameItem(commonFrames[commonIndex++]);
                 yield return new WaitForSeconds(0.1f);
             }
         }
