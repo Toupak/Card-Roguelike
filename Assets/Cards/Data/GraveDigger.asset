@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GraveDigger
   m_EditorClassIdentifier: 
   cardName: GraveDigger
-  tribe: 0
+  tribe: 5
   rarity: 1
   hpMax: 15
   isInvincible: 0

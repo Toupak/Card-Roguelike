@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Archemologist
   m_EditorClassIdentifier: 
   cardName: Archemologist
-  tribe: 0
+  tribe: 5
   rarity: 2
   hpMax: 9
   isInvincible: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: GrosChevalKiPuTheHolyBlade_0
   m_EditorClassIdentifier: 
-  cardName: Bojack Swordsman
-  tribe: 1
+  cardName: The Holy Blade
+  tribe: 4
   rarity: 3
   hpMax: 17
   isInvincible: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ClumsyCultist
   m_EditorClassIdentifier: 
   cardName: Clumsy Cultist
-  tribe: 0
+  tribe: 4
   rarity: 0
   hpMax: 15
   isInvincible: 0

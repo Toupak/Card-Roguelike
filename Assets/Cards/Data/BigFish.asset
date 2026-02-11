@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BigFish
   m_EditorClassIdentifier: 
   cardName: Big Fish
-  tribe: 1
+  tribe: 3
   rarity: 1
   hpMax: 12
   isInvincible: 0

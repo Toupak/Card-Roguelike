@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Barbarian
   m_EditorClassIdentifier: 
   cardName: Barbarian
-  tribe: 6
+  tribe: 3
   rarity: 2
   hpMax: 18
   isInvincible: 0

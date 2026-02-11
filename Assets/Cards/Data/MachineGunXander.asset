@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MachineGunXander
   m_EditorClassIdentifier: 
   cardName: Machine Gun Xander
-  tribe: 6
+  tribe: 2
   rarity: 2
   hpMax: 8
   isInvincible: 0

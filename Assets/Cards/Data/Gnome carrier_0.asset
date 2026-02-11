@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gnome carrier_0
   m_EditorClassIdentifier: 
   cardName: HMS Gnome
-  tribe: 0
+  tribe: 4
   rarity: 2
   hpMax: 6
   isInvincible: 0

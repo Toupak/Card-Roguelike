@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Trongle_0
   m_EditorClassIdentifier: 
   cardName: Trongle
-  tribe: 3
+  tribe: 5
   rarity: 0
   hpMax: 8
   isInvincible: 0

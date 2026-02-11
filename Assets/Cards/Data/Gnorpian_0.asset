@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gnorpian_0
   m_EditorClassIdentifier: 
   cardName: Gnorp's Accountant
-  tribe: 6
+  tribe: 3
   rarity: 0
   hpMax: 21
   isInvincible: 0

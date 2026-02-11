@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
   m_Name: AmmoCarrierXachary
   m_EditorClassIdentifier: 
-  cardName: AmmoCarrierXachary
-  tribe: 6
+  cardName: Ammo Carrier Xachary
+  tribe: 2
   rarity: 3
   hpMax: 12
   isInvincible: 0

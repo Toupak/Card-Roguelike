@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Xordan_0
   m_EditorClassIdentifier: 
   cardName: Marksman Xordan
-  tribe: 6
+  tribe: 2
   rarity: 2
   hpMax: 12
   isInvincible: 0

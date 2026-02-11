@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HogNade_0
   m_EditorClassIdentifier: 
   cardName: HogNade
-  tribe: 1
+  tribe: 3
   rarity: 0
   hpMax: 12
   isInvincible: 0

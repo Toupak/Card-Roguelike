@@ -12,13 +12,12 @@ namespace Cards.Scripts
     {
         public enum Tribe
         {
-            InanimateObjects,
-            WeaponizedAnimals,
-            Fungi,
-            SentientGeometricalFigures,
-            MedievalFantasyRobot,
-            Food,
-            Alien
+            None,
+            AquaForce,
+            SealTeamX,
+            Tank,
+            DPS,
+            Support
         }
 
         public enum Rarity

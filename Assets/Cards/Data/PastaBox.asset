@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PastaBox
   m_EditorClassIdentifier: 
   cardName: PastaBox
-  tribe: 0
+  tribe: 1
   rarity: 1
   hpMax: 15
   isInvincible: 0

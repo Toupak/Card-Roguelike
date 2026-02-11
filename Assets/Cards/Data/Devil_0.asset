@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Devil_0
   m_EditorClassIdentifier: 
   cardName: Smoking Devil
-  tribe: 6
+  tribe: 4
   rarity: 1
   hpMax: 7
   isInvincible: 0

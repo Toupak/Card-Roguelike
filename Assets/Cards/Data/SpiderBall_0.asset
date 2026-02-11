@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpiderBall_0
   m_EditorClassIdentifier: 
   cardName: Gutter-Spider
-  tribe: 0
+  tribe: 4
   rarity: 0
   hpMax: 12
   isInvincible: 0

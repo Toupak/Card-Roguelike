@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpotterXimitri_0
   m_EditorClassIdentifier: 
   cardName: Spotter Ximitri
-  tribe: 6
+  tribe: 2
   rarity: 1
   hpMax: 16
   isInvincible: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nachito_brown_0
   m_EditorClassIdentifier: 
   cardName: Nachito
-  tribe: 0
+  tribe: 4
   rarity: 0
   hpMax: 7
   isInvincible: 0

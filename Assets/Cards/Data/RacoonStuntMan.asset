@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RacoonStuntMan
   m_EditorClassIdentifier: 
   cardName: Jaycoon
-  tribe: 1
+  tribe: 4
   rarity: 0
   hpMax: 12
   isInvincible: 0

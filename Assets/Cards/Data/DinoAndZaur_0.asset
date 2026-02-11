@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DinoAndZaur_0
   m_EditorClassIdentifier: 
   cardName: Dino And Zaur
-  tribe: 0
+  tribe: 3
   rarity: 1
   hpMax: 12
   isInvincible: 0

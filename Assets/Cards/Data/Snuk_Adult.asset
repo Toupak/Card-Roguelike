@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snuk_Adult
   m_EditorClassIdentifier: 
   cardName: Snuk
-  tribe: 1
+  tribe: 4
   rarity: 3
   hpMax: 15
   isInvincible: 0

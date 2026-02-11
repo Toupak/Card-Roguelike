@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QueenGuard
   m_EditorClassIdentifier: 
   cardName: Guard
-  tribe: 1
+  tribe: 3
   rarity: 0
   hpMax: 15
   isInvincible: 0

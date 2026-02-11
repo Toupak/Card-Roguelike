@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Necromancer
   m_EditorClassIdentifier: 
   cardName: Necromancer
-  tribe: 0
+  tribe: 4
   rarity: 2
   hpMax: 15
   isInvincible: 0

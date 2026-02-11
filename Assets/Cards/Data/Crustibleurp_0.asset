@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crustibleurp_0
   m_EditorClassIdentifier: 
   cardName: Crustix
-  tribe: 0
+  tribe: 3
   rarity: 0
   hpMax: 17
   isInvincible: 0
