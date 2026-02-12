@@ -30,7 +30,7 @@ namespace Combat.EnemyAttack.Goboking_Fight.Bomber
         public override int ComputeWeight()
         {
             bool hasNoStacks = !enemyCardController.cardController.cardStatus.IsStatusApplied(StatusType.GobombCharging);
-            bool hadStacksEarlier = enemyCardController.cardController.cardStatus.currentStacks.ContainsKey(StatusType.GobombCharging);
+            bool hadStacksEarlier = enemyCardController.cardController.cardStatus.WasStatusEverApplied(StatusType.GobombCharging);
             
             if (hasNoStacks && hadStacksEarlier)
                 return 0;

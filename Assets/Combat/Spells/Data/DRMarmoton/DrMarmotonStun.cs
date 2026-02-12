@@ -16,7 +16,7 @@ namespace Combat.Spells.Data.DRMarmoton
 
             foreach (CardMovement target in targets)
             {
-                int stunCount = target.cardController.cardStatus.currentStacks.TryGetValue(StatusType.Stun, out var stack) ? stack : 0;
+                int stunCount = target.cardController.cardStatus.GetCurrentStackCount(StatusType.Stun);
 
                 if (stunCount < 1)
                     continue;

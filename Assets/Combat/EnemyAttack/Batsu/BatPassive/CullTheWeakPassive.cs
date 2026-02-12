@@ -23,7 +23,7 @@ namespace Combat.EnemyAttack.Batsu.BatPassive
 
         private void ExecutePassiveBehaviour(DealDamageGA gA)
         {
-            DealDamageGA.DamagePackage package = gA.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = gA.GetDamagePackageForTarget(cardController);
             
             if (package != null && package.amount > 0)
             {

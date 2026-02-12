@@ -19,7 +19,7 @@ namespace Combat.Spells.Data.SpiderBall
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (package != null && Tools.RandomBool())
                 dealDamageGa.NegateDamage(package);

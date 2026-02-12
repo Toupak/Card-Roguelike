@@ -19,7 +19,7 @@ namespace Combat.Spells.Data.Guard
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.GetPackageFromTarget(cardController) != null)
+            if (dealDamageGa.IsCardTargeted(cardController))
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Vengeance, 1, cardController, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(applyStatusGa);

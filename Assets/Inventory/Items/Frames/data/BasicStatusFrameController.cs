@@ -101,7 +101,7 @@ namespace Inventory.Items.Frames.data
 
         private void ReceiveDamageReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (package != null && !package.isDamageNegated)
                 CheckBehaviour(ComputeTarget(dealDamageGa, false));

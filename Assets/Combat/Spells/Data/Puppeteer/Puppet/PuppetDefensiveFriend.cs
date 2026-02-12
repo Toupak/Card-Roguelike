@@ -19,7 +19,7 @@ namespace Combat.Spells.Data.Puppeteer.Puppet
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController.tokenParentController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController.tokenParentController);
             if (package != null)
                 dealDamageGa.SwitchTarget(package, cardController);
         }

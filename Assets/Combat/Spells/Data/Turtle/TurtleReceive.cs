@@ -29,9 +29,7 @@ namespace Combat.Spells.Data.Turtle
         {
             yield return base.CastSpellOnTarget(targets);
 
-            int stacks = cardController.cardStatus.IsStatusApplied(StatusType.Stun)
-                ? cardController.cardStatus.currentStacks[StatusType.Stun]
-                : 0;
+            int stacks = cardController.cardStatus.GetCurrentStackCount(StatusType.Stun);
             
             ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Stun, stacks, cardController, cardController);
             ActionSystem.instance.Perform(consumeStacksGa);

@@ -11,10 +11,7 @@ namespace Combat.Spells.Data.PantsEctoplasm
     {
         private int ComputePantStackAmount()
         {
-            if (!cardController.cardStatus.IsStatusApplied(StatusType.Pants))
-                return 0;
-
-            return cardController.cardStatus.currentStacks[StatusType.Pants];
+            return cardController.cardStatus.GetCurrentStackCount(StatusType.Pants);
         }
         
         private int ComputeCost(int pantStacks)

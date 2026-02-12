@@ -19,7 +19,7 @@ namespace Combat.Spells.Data.Pillar_Man
         
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.GetPackageFromTarget(cardController) != null)
+            if (dealDamageGa.IsCardTargeted(cardController))
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Weak, 1, dealDamageGa.attacker, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(applyStatusGa);

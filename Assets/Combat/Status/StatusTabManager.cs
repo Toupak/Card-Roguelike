@@ -22,7 +22,7 @@ namespace Combat.Status
 
         private void UpdateStatusTabs(StatusType statusType, StatusTabModification statusTabModification)
         {
-            int stackCount = cardController.cardStatus.currentStacks.TryGetValue(statusType, out int stack) ? stack : 0;
+            int stackCount = cardController.cardStatus.GetCurrentStackCount(statusType);
 
             switch (statusTabModification)
             {

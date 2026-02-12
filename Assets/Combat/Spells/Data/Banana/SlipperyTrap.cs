@@ -20,7 +20,7 @@ namespace Combat.Spells.Data.Banana
 
         private void SlipperyTrapReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (damagePackage != null)
             {

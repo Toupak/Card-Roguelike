@@ -34,7 +34,7 @@ namespace Combat.Spells.Data.Hog
         {
             if (deathGa.target == cardController)
             {
-                int damage = cardController.cardStatus.currentStacks.TryGetValue(StatusType.HogGroink, out var stack) ? stack : 0;
+                int damage = cardController.cardStatus.GetCurrentStackCount(StatusType.HogGroink);
                 
                 List<CardMovement> enemies = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
 

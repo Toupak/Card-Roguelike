@@ -33,7 +33,7 @@ namespace Combat.Spells.Data.Guard
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.GetPackageFromTarget(cardController) != null && cardController.cardStatus.IsStatusApplied(StatusType.Taunt) && dealDamageGa.attacker != null && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.Vengeance))
+            if (dealDamageGa.IsCardTargeted(cardController) && cardController.cardStatus.IsStatusApplied(StatusType.Taunt) && dealDamageGa.attacker != null && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.Vengeance))
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Taunt, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

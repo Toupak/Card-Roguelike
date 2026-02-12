@@ -5,6 +5,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
 using Combat.Status;
+using Combat.Status.Data;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -84,6 +85,50 @@ namespace Cards.Scripts
         Edit,
         Remove
     }
+
+    public class StatusHolder
+    {
+        public StatusType statusType;
+        public int stackCount { get; private set; }
+        private StatusController controller;
+
+        public StatusHolder(StatusType statusType, int stackCount, StatusController controller)
+        {
+            this.statusType = statusType;
+            this.stackCount = stackCount;
+
+            if (controller != null)
+            {
+                this.controller = controller;
+                this.controller.AddStack(stackCount);
+            }
+        }
+        
+        public void AddStack(int amount)
+        {
+            stackCount += amount;
+            if (controller != null)
+                controller.AddStack(amount);
+        }
+        
+        public  void RemoveStack(int amount)
+        {
+            stackCount -= amount;
+            if (controller != null)
+                controller.RemoveStack(amount);
+        }
+
+        public void AddController(StatusController newController)
+        {
+            controller = newController;
+        }
+
+        public void RemoveController()
+        {
+            if (controller != null)
+                controller.Remove();
+        }
+    }
     
     public class CardStatus : MonoBehaviour
     {
@@ -93,7 +138,8 @@ namespace Cards.Scripts
         
         private CardController cardController;
 
-        public Dictionary<StatusType, int> currentStacks = new Dictionary<StatusType, int>();
+        private List<StatusHolder> currentStacks = new List<StatusHolder>();
+        public List<StatusHolder> CurrentStacks => currentStacks;
 
         private void Start()
         {
@@ -138,7 +184,7 @@ namespace Cards.Scripts
 
         private void EnemyPerformsActionReaction(EnemyPerformsActionGa enemyPerformsActionGa)
         {
-            if (enemyPerformsActionGa.cardController == cardController && currentStacks.ContainsKey(StatusType.DoritoCaltrop) && currentStacks[StatusType.DoritoCaltrop] > 0)
+            if (enemyPerformsActionGa.cardController == cardController && IsStatusApplied(StatusType.DoritoCaltrop))
             {
                 DealDamageGA doritoCaltrop = new DealDamageGA(1, cardController, cardController);
                 ActionSystem.instance.AddReaction(doritoCaltrop);
@@ -166,23 +212,25 @@ namespace Cards.Scripts
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.GetPackageFromTarget(cardController) != null)
+            if (dealDamageGa.IsCardTargeted(cardController))
             {
-                foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
+                foreach (StatusHolder statusHolder in currentStacks.ToList())
                 {
-                    if (!IsStatusApplied(keyValuePair.Key))
-                        continue;
-                
-                    if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnDamageReceived)
+                    if (!IsStatusApplied(statusHolder.statusType))
                         continue;
                     
-                    switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
+                    StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
+                
+                    if (statusData.behaviourTiming != StatusBehaviourTimings.OnDamageReceived)
+                        continue;
+                    
+                    switch (statusData.behaviour)
                     {
                         case StatusBehaviour.RemoveOne:
-                            RemoveOneStack(keyValuePair); 
+                            RemoveOneStack(statusHolder.statusType); 
                             break;
                         case StatusBehaviour.RemoveAll:
-                            RemoveAllStacks(keyValuePair);
+                            RemoveAllStacks(statusHolder.statusType);
                             break;
                         case StatusBehaviour.RemoveNone:
                             break;
@@ -194,21 +242,23 @@ namespace Cards.Scripts
             
             if (dealDamageGa.attacker != null && dealDamageGa.attacker == cardController)
             {
-                foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
+                foreach (StatusHolder statusHolder in currentStacks.ToList())
                 {
-                    if (!IsStatusApplied(keyValuePair.Key))
+                    if (!IsStatusApplied(statusHolder.statusType))
                         continue;
                 
-                    if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnDamageDealt)
+                    StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
+                    
+                    if (statusData.behaviourTiming != StatusBehaviourTimings.OnDamageDealt)
                         continue;
                     
-                    switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
+                    switch (statusData.behaviour)
                     {
                         case StatusBehaviour.RemoveOne:
-                            RemoveOneStack(keyValuePair); 
+                            RemoveOneStack(statusHolder.statusType); 
                             break;
                         case StatusBehaviour.RemoveAll:
-                            RemoveAllStacks(keyValuePair);
+                            RemoveAllStacks(statusHolder.statusType);
                             break;
                         case StatusBehaviour.RemoveNone:
                             break;
@@ -221,21 +271,23 @@ namespace Cards.Scripts
         
         private void UpdateStacksAtStartOfTurn()
         {
-            foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
+            foreach (StatusHolder statusHolder in currentStacks.ToList())
             {
-                if (!IsStatusApplied(keyValuePair.Key))
+                if (!IsStatusApplied(statusHolder.statusType))
                     continue;
                 
-                if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnTurnStart)
+                StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
+                
+                if (statusData.behaviourTiming != StatusBehaviourTimings.OnTurnStart)
                     continue;
                     
-                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
+                switch (statusData.behaviour)
                 {
                     case StatusBehaviour.RemoveOne:
-                        RemoveOneStack(keyValuePair); 
+                        RemoveOneStack(statusHolder.statusType); 
                         break;
                     case StatusBehaviour.RemoveAll:
-                        RemoveAllStacks(keyValuePair);
+                        RemoveAllStacks(statusHolder.statusType);
                         break;
                     case StatusBehaviour.RemoveNone:
                         break;
@@ -247,21 +299,23 @@ namespace Cards.Scripts
 
         private void UpdateStacksAtEndOfTurn()
         {
-            foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
+            foreach (StatusHolder statusHolder in currentStacks.ToList())
             {
-                if (!IsStatusApplied(keyValuePair.Key))
+                if (!IsStatusApplied(statusHolder.statusType))
+                    continue;
+
+                StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
+                
+                if (statusData.behaviourTiming != StatusBehaviourTimings.OnTurnEnd)
                     continue;
                 
-                if (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviourTiming != StatusBehaviourTimings.OnTurnEnd)
-                    continue;
-                
-                switch (StatusSystem.instance.GetStatusData(keyValuePair.Key).behaviour)
+                switch (statusData.behaviour)
                 {
                     case StatusBehaviour.RemoveOne:
-                        RemoveOneStack(keyValuePair); 
+                        RemoveOneStack(statusHolder.statusType); 
                         break;
                     case StatusBehaviour.RemoveAll:
-                        RemoveAllStacks(keyValuePair);
+                        RemoveAllStacks(statusHolder.statusType);
                         break;
                     case StatusBehaviour.RemoveNone:
                         break;
@@ -271,9 +325,9 @@ namespace Cards.Scripts
             }
         }
         
-        private void RemoveOneStack(KeyValuePair<StatusType,int> keyValuePair)
+        private void RemoveOneStack(StatusType statusType)
         {
-            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(keyValuePair.Key, 1, cardController, cardController);
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(statusType, 1, cardController, cardController);
             
             if (ActionSystem.instance.IsPerforming)
                 ActionSystem.instance.AddReaction(consumeStacksGa);
@@ -281,9 +335,9 @@ namespace Cards.Scripts
                 ActionSystem.instance.Perform(consumeStacksGa);
         }
 
-        private void RemoveAllStacks(KeyValuePair<StatusType,int> keyValuePair)
+        private void RemoveAllStacks(StatusType statusType)
         {
-            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(keyValuePair.Key, currentStacks[keyValuePair.Key], cardController, cardController);
+            ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(statusType, GetCurrentStackCount(statusType), cardController, cardController);
             
             if (ActionSystem.instance.IsPerforming)
                 ActionSystem.instance.AddReaction(consumeStacksGa);
@@ -296,37 +350,60 @@ namespace Cards.Scripts
             if (stacksCount == 0)
                 return;
             
-            if (currentStacks.ContainsKey(statusType))
+            StatusHolder statusHolder = GetStatusHolder(statusType);
+            
+            if (statusHolder != null)
             {
-                currentStacks[statusType] += stacksCount;
-                OnUpdateStatus?.Invoke(statusType, currentStacks[statusType] == stacksCount ? StatusTabModification.Create : StatusTabModification.Edit);
+                StatusTabModification statusTabModification = statusHolder.stackCount == 0 ? StatusTabModification.Create : StatusTabModification.Edit;
+                
+                if (statusTabModification == StatusTabModification.Create)
+                    statusHolder.AddController(CreateNewController(statusType));
+                
+                statusHolder.AddStack(stacksCount);
+                
+                OnUpdateStatus?.Invoke(statusType, statusTabModification);
             }
             else
             {
-                currentStacks.Add(statusType, stacksCount);
+                StatusHolder newHolder = new StatusHolder(statusType, stacksCount, CreateNewController(statusType));
+                currentStacks.Add(newHolder);
                 OnUpdateStatus?.Invoke(statusType, StatusTabModification.Create);
-            }
-
-            if (statusType == StatusType.Webbed && currentStacks[statusType] >= 2)
-            {
-                RemoveAllStacks(currentStacks.GetEntry(StatusType.Webbed));
-                ApplyStatusStacks(StatusType.Stun, 1);
             }
         }
 
         public bool ConsumeStacks(StatusType type, int amount)
         {
-            bool isStackApplied = currentStacks.ContainsKey(type);
-            bool wasConsumed = false;
-
-            if (isStackApplied)
+            StatusHolder statusHolder = GetStatusHolder(type);
+            
+            if (statusHolder.stackCount > 0)
             {
-                wasConsumed = currentStacks[type] > 0;
-                currentStacks[type] = Mathf.Max(currentStacks[type] - amount, 0);
-                OnUpdateStatus?.Invoke(type, currentStacks[type] > 0 ? StatusTabModification.Edit : StatusTabModification.Remove);
+                int toBeRemoved = Mathf.Min(statusHolder.stackCount, amount);
+                statusHolder.RemoveStack(toBeRemoved);
+                
+                StatusTabModification statusTabModification = statusHolder.stackCount > 0 ? StatusTabModification.Edit : StatusTabModification.Remove;
+                
+                if (statusTabModification == StatusTabModification.Remove)
+                    statusHolder.RemoveController();
+                
+                OnUpdateStatus?.Invoke(type, statusTabModification);
+                return true;
             }
 
-            return wasConsumed;
+            return false;
+        }
+        
+        private StatusController CreateNewController(StatusType statusType)
+        {
+            StatusData data = StatusSystem.instance.GetStatusData(statusType);
+
+            if (data.statusController != null)
+            {
+                StatusController controller = Instantiate(data.statusController, cardController.statusControllersHolder);
+                controller.Setup(cardController, data);
+                return controller;
+            }
+
+            return null;
         }
         
         private bool IsCorrectTurn(TurnType startingTurn)
@@ -347,17 +424,28 @@ namespace Cards.Scripts
             stunEffect.gameObject.SetActive(IsStatusApplied(StatusType.Stun));
         }
 
+        public StatusHolder GetStatusHolder(StatusType type)
+        {
+            return currentStacks.FirstOrDefault(x => x.statusType == type);
+        }
+
         public bool IsStatusApplied(StatusType type)
         {
-            return currentStacks.ContainsKey(type) && currentStacks[type] > 0;
+            StatusHolder statusHolder = GetStatusHolder(type);
+            
+            return statusHolder != null && statusHolder.stackCount > 0;
+        }
+
+        public bool WasStatusEverApplied(StatusType type)
+        {
+            return GetStatusHolder(type) != null;
         }
 
         public int GetCurrentStackCount(StatusType type)
         {
-            if (IsStatusApplied(type))
-                return currentStacks[type];
-
-            return 0;
+            StatusHolder statusHolder = GetStatusHolder(type);
+            
+            return statusHolder != null ? statusHolder.stackCount : 0;
         }
     }
 }

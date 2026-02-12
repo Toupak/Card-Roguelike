@@ -24,12 +24,12 @@ namespace Combat.Spells.Data.Gumball
         {
             if (applyStatusGa.target == cardController && applyStatusGa.type == StatusType.GumBoom && cardController.cardStatus.IsStatusApplied(StatusType.GumBoom))
             {
-                int currentStacks = cardController.cardStatus.currentStacks[StatusType.GumBoom];
+                int currentStacks = cardController.cardStatus.GetCurrentStackCount(StatusType.GumBoom);
                 int maxStacks = StatusSystem.instance.GetStatusData(StatusType.GumBoom).maxStackCount;
 
                 if (currentStacks >= maxStacks)
                 {
-                    int damages = cardController.cardStatus.currentStacks.TryGetValue(StatusType.Stun, out var stack) ? stack : 0;
+                    int damages = cardController.cardStatus.GetCurrentStackCount(StatusType.Stun);
 
                     if (damages > 0)
                     {

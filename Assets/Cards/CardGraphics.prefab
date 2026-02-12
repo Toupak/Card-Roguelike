@@ -444,6 +444,41 @@ RectTransform:
   m_AnchoredPosition: {x: 265, y: 75}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2098713624115220036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4996839450714450816}
+  m_Layer: 5
+  m_Name: Status Controller holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4996839450714450816
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098713624115220036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6962972880766045709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2899466202179661850
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,11 +805,12 @@ GameObject:
   - component: {fileID: 8905655888149072275}
   - component: {fileID: 562143386095724611}
   - component: {fileID: -4129232798781121940}
-  - component: {fileID: 8295655282853786504}
   - component: {fileID: 6472005057933680085}
-  - component: {fileID: 548480995114548304}
+  - component: {fileID: -7006180059453020889}
   - component: {fileID: 6557015351701204799}
   - component: {fileID: 6970137505809147812}
+  - component: {fileID: 8295655282853786504}
+  - component: {fileID: 548480995114548304}
   - component: {fileID: 387351114068576617}
   - component: {fileID: 7934747295322210270}
   m_Layer: 5
@@ -796,6 +832,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4996839450714450816}
   - {fileID: 4177954642535158387}
   - {fileID: 3694240076155934811}
   - {fileID: 3125272246496311840}
@@ -824,7 +861,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
@@ -870,36 +907,10 @@ MonoBehaviour:
   waitingBehaviourPrefab: {fileID: -1062880116794604768, guid: 902d0d661563cd74c9a12eccc177f3ab, type: 3}
   regularTooltipPivot: {fileID: 4177954642535158387}
   inspectionTooltipPivot: {fileID: 3694240076155934811}
+  statusControllersHolder: {fileID: 4996839450714450816}
   OnKillCard:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8295655282853786504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3317175333349962056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b4f56e90421dba49ac4da96baa50e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  slowSpeed: 10
-  rotationAmount: 1.5
-  rotationSpeed: 20
-  maxAngle: 60
-  scaleMultiplierOnSelect: 2
-  scaleMultiplierOnDrag: 1.15
-  scaleSpeed: 0.15
-  stickyMoveFactorNormalized: 0.2
-  stickyMaxDistance: 200
-  manualTiltAmount: 0.3
-  autoTiltAmount: 10
-  tiltSpeed: 10
-  curve: {fileID: 11400000, guid: 115254c45569cca488b5b6c803b05001, type: 2}
-  tiltParent: {fileID: 3125272246496311840}
 --- !u!114 &6472005057933680085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +930,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &548480995114548304
+--- !u!114 &-7006180059453020889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -928,11 +939,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3317175333349962056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e2488d47fdfd44a9195d20f4de09e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a3195355800d54f94cddbbdda0869d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetEffect: {fileID: 4551594766913392315}
-  targetableEffect: {fileID: 4445517416942036937}
 --- !u!114 &6557015351701204799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,6 +972,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusTabDisplayPrefab: {fileID: 1682361987783622097, guid: afedba0fe75c38c4b945691f17d26c87, type: 3}
   statusTabHolder: {fileID: 9056944542933817794}
+--- !u!114 &8295655282853786504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317175333349962056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4f56e90421dba49ac4da96baa50e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  slowSpeed: 10
+  rotationAmount: 1.5
+  rotationSpeed: 20
+  maxAngle: 60
+  scaleMultiplierOnSelect: 2
+  scaleMultiplierOnDrag: 1.15
+  scaleSpeed: 0.15
+  stickyMoveFactorNormalized: 0.2
+  stickyMaxDistance: 200
+  manualTiltAmount: 0.3
+  autoTiltAmount: 10
+  tiltSpeed: 10
+  curve: {fileID: 11400000, guid: 115254c45569cca488b5b6c803b05001, type: 2}
+  tiltParent: {fileID: 3125272246496311840}
+--- !u!114 &548480995114548304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317175333349962056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2488d47fdfd44a9195d20f4de09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEffect: {fileID: 4551594766913392315}
+  targetableEffect: {fileID: 4445517416942036937}
 --- !u!114 &387351114068576617
 MonoBehaviour:
   m_ObjectHideFlags: 0

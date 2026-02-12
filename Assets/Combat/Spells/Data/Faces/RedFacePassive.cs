@@ -18,7 +18,7 @@ namespace Combat.Spells.Data.Faces
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (package != null && cardController.cardMovement.tokenContainer.slotCount > 0)
                 dealDamageGa.SwitchTarget(package, cardController.cardMovement.tokenContainer.Slots[0].CurrentCard.cardController);

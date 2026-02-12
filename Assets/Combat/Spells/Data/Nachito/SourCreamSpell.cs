@@ -30,10 +30,10 @@ namespace Combat.Spells.Data.Nachito
                 
                 Debug.Log($"Target : {target.cardController.cardData.cardName} / {spellData.targetType}");
                 
-                if (!target.cardController.cardStatus.currentStacks.ContainsKey(StatusType.DoritoCaltrop))
+                if (!target.cardController.cardStatus.IsStatusApplied(StatusType.DoritoCaltrop))
                     continue;
 
-                int stackCount = target.cardController.cardStatus.currentStacks[StatusType.DoritoCaltrop];
+                int stackCount = target.cardController.cardStatus.GetCurrentStackCount(StatusType.DoritoCaltrop);
                 
                 if (stackCount < 1)
                     continue;

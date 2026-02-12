@@ -44,7 +44,7 @@ Its spells will target 1 more target"
 "berserk",347651979313183,"Deal double damage, receive double damage"
 "rage_title",347651979313184,"Rage"
 "rage",347651979313185,"Gain 1 stack of Rage for every damage dealt or received
-At 10 Rage stacks, consume stacks and go Berserk for 2 turns"
+At 10 Rage stacks, consume stacks and deal 1 damage to all enemies"
 "permanentprotected_title",347651979313186,"Protected"
 "permanentprotected",347651979313187,"This card is Protected, every damage or status targeted at it will be redirected to its Protector"
 "armor_title",347651979313188,"Armor"

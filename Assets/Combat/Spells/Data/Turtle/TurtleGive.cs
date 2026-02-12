@@ -16,14 +16,9 @@ namespace Combat.Spells.Data.Turtle
             if (targets.Count < 2)
                 yield break;
 
-            int firstTargetStacks = targets[0].cardController.cardStatus.IsStatusApplied(spellData.inflictStatus)
-                ? targets[0].cardController.cardStatus.currentStacks[spellData.inflictStatus]
-                : 0;
+            int firstTargetStacks = targets[0].cardController.cardStatus.GetCurrentStackCount(spellData.inflictStatus);
+            int secondTargetStacks = targets[1].cardController.cardStatus.GetCurrentStackCount(spellData.inflictStatus);
             
-            int secondTargetStacks = targets[1].cardController.cardStatus.IsStatusApplied(spellData.inflictStatus)
-                ? targets[1].cardController.cardStatus.currentStacks[spellData.inflictStatus]
-                : 0;
-
             if (firstTargetStacks > 0)
             {
                 ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(spellData.inflictStatus, firstTargetStacks, cardController, targets[0].cardController);

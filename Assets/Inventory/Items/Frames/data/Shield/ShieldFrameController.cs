@@ -17,7 +17,7 @@ namespace Inventory.Items.Frames.data.Shield
     
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (package != null)
                 package.amount -= 1;

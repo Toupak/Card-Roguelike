@@ -22,6 +22,9 @@ namespace Combat.Status.Data
         public EffectType effectType;
         public int maxStackCount = -1;
         public bool neverRemoveTab;
+
+        [Space] 
+        public StatusController statusController;
         
         [Space]
         [Header("Status Bar Display")]

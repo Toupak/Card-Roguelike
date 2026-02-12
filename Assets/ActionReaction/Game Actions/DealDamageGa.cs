@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cards.Scripts;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace ActionReaction.Game_Actions
@@ -58,7 +59,7 @@ namespace ActionReaction.Game_Actions
 
         public void NegateDamage(CardController target)
         {
-            NegateDamage(GetPackageFromTarget(target));
+            NegateDamage(GetDamagePackageForTarget(target));
         }
         
         public void SwitchTarget(DamagePackage package, CardController newTarget)
@@ -73,10 +74,11 @@ namespace ActionReaction.Game_Actions
 
         public void SwitchTarget(CardController oldTarget, CardController newTarget)
         {
-            SwitchTarget(GetPackageFromTarget(oldTarget), newTarget);
+            SwitchTarget(GetDamagePackageForTarget(oldTarget), newTarget);
         }
         
-        public DamagePackage GetPackageFromTarget(CardController target)
+        [CanBeNull]
+        public DamagePackage GetDamagePackageForTarget(CardController target)
         {
             foreach (DamagePackage package in packages)
             {
@@ -85,6 +87,11 @@ namespace ActionReaction.Game_Actions
             }
             
             return null;
+        }
+
+        public bool IsCardTargeted(CardController target)
+        {
+            return GetDamagePackageForTarget(target) != null;
         }
     }
 }

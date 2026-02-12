@@ -26,7 +26,7 @@ namespace Combat.Spells.Data.Barbarian
 
         private void DamageReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (dealDamageGa.attacker == cardController || damagePackage != null)
             {

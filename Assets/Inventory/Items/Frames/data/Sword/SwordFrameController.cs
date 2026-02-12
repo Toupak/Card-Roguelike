@@ -1,26 +1,19 @@
-using ActionReaction;
-using ActionReaction.Game_Actions;
+using Cards.Scripts;
 
 namespace Inventory.Items.Frames.data.Sword
 {
     public class SwordFrameController : FrameController
     {
-        private void OnEnable()
+        public override void Setup(CardController controller, FrameData data)
         {
-            ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE);
+            base.Setup(controller, data);
+            controller.cardStats.IncreaseStat(CardStats.Stats.Strength, 1);
         }
-
-        private void OnDisable()
+        
+        public override void Remove()
         {
-            ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.PRE);
-        }
-    
-        private void DealDamageReaction(DealDamageGA dealDamageGa)
-        {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
-            
-            if (package != null)
-                package.amount += 1;
+            cardController.cardStats.DecreaseStat(CardStats.Stats.Strength, 1);
+            base.Remove();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Combat.Spells.Data.DRMarmoton
 
             foreach (CardMovement target in targets)
             {
-                int weakCount = target.cardController.cardStatus.currentStacks.TryGetValue(StatusType.Weak, out var stack) ? stack : 0;
+                int weakCount = target.cardController.cardStatus.GetCurrentStackCount(StatusType.Weak);
 
                 if (weakCount < 1)
                     continue;

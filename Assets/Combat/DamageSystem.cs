@@ -155,7 +155,7 @@ namespace Combat
             if (!target.cardStatus.IsStatusApplied(StatusType.Dodge))
                 return false;
 
-            int dodgeStacks = target.cardStatus.currentStacks[StatusType.Dodge];
+            int dodgeStacks = target.cardStatus.GetCurrentStackCount(StatusType.Dodge);
 
             return Random.Range(0.0f, 100.0f) < dodgeStacks * 30.0f;
         }

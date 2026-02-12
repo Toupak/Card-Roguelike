@@ -62,8 +62,7 @@ namespace Combat.Status
 
         public bool IsCardAfflictedByStatus(CardController cardController, StatusType statusType)
         {
-            return cardController.cardStatus.currentStacks.ContainsKey(statusType) &&
-                   cardController.cardStatus.currentStacks[statusType] > 0;
+            return cardController.cardStatus.IsStatusApplied(statusType);
         }
 
         public StatusData GetStatusData(StatusType type)

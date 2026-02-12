@@ -16,20 +16,20 @@ namespace Combat.Spells.Data.Starseer
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             CardController target = targets[0].cardController;
-            Dictionary<StatusType, int> stacks = cardController.cardStatus.currentStacks;
+            List<StatusHolder> stacks = cardController.cardStatus.CurrentStacks;
 
-            foreach (KeyValuePair<StatusType,int> status in stacks.ToList())
+            foreach (StatusHolder status in stacks.ToList())
             {
-                int stackCount = cardController.cardStatus.GetCurrentStackCount(status.Key);
+                int stackCount = cardController.cardStatus.GetCurrentStackCount(status.statusType);
                 if (stackCount < 1)
                     continue;
                 
-                ConsumeStacksGa consume = new ConsumeStacksGa(status.Key, status.Value, status.Key == StatusType.BonusDamage ? target : cardController, cardController);
+                ConsumeStacksGa consume = new ConsumeStacksGa(status.statusType, status.stackCount, status.statusType == StatusType.BonusDamage ? target : cardController, cardController);
                 ActionSystem.instance.Perform(consume);
 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                ApplyStatusGa apply = new ApplyStatusGa(status.Key, status.Value, cardController, target);
+                ApplyStatusGa apply = new ApplyStatusGa(status.statusType, status.stackCount, cardController, target);
                 ActionSystem.instance.Perform(apply);
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

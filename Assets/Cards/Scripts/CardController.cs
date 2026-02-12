@@ -25,6 +25,7 @@ namespace Cards.Scripts
         [SerializeField] public BaseEnemyBehaviour waitingBehaviourPrefab;
         [SerializeField] public RectTransform regularTooltipPivot;
         [SerializeField] public RectTransform inspectionTooltipPivot;
+        [SerializeField] public Transform statusControllersHolder;
         
         public RectTransform tooltipPivot => cardMovement.isInspected ? inspectionTooltipPivot : regularTooltipPivot;
 
@@ -40,6 +41,7 @@ namespace Cards.Scripts
 
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
+        public CardStats cardStats { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
         public FrameDisplay frameDisplay { get; private set; }
         public CardRarityDisplay cardRarityDisplay { get; private set; }
@@ -67,6 +69,7 @@ namespace Cards.Scripts
             rectTransform = GetComponent<RectTransform>();
             followTarget = GetComponent<FollowTarget>();
             cardStatus = GetComponent<CardStatus>();
+            cardStats = GetComponent<CardStats>();
             frameDisplay = GetComponent<FrameDisplay>();
             cardRarityDisplay = GetComponent<CardRarityDisplay>();
             followTarget.SetTarget(movement);
@@ -229,13 +232,7 @@ namespace Cards.Scripts
 
         public int ComputeCurrentDamage(int damage)
         {
-            int bonus = 0;
-
-            bonus += cardStatus.GetCurrentStackCount(StatusType.BonusDamage);
-            bonus += cardStatus.GetCurrentStackCount(StatusType.PermanentBonusDamage);
-            bonus -= cardStatus.GetCurrentStackCount(StatusType.Weak);
-            bonus -= cardStatus.IsStatusApplied(StatusType.Terror) ? 1 : 0;
-
+            int bonus = cardStats.GetStatValue(CardStats.Stats.Strength);
             int total = damage + bonus;
 
             if (cardStatus.IsStatusApplied(StatusType.BerserkMode))
@@ -247,7 +244,7 @@ namespace Cards.Scripts
         public virtual int ComputeCurrentTargetCount(int count)
         {
             if (cardStatus.IsStatusApplied(StatusType.Fury))
-                return count + cardStatus.currentStacks[StatusType.Fury];
+                return count + cardStatus.GetCurrentStackCount(StatusType.Fury);
 
             return count;
         }

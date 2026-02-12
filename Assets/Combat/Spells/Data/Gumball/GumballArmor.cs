@@ -29,7 +29,7 @@ namespace Combat.Spells.Data.Gumball
 
         private void ArmorReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (package != null && cardController.cardStatus.IsStatusApplied(StatusType.Stun))
             {

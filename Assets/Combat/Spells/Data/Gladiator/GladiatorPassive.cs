@@ -30,6 +30,16 @@ namespace Combat.Spells.Data.Gladiator
                     }
                 }
             }
+            else if (dealDamageGa.attacker != null && dealDamageGa.IsCardTargeted(cardController))
+            {
+                int spearCount = dealDamageGa.attacker.cardStatus.GetCurrentStackCount(StatusType.Spear);
+
+                if (spearCount > 0)
+                {
+                    DealDamageGA returnDamage = new DealDamageGA(spearCount, cardController, dealDamageGa.attacker);
+                    ActionSystem.instance.AddReaction(returnDamage);
+                }
+            }
         }
     }
 }

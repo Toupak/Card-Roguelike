@@ -31,9 +31,9 @@ namespace Combat.EnemyAttack.Goboking_Fight.Bomber
         {
             bool hasMoreThanOneStack =
                 enemyCardController.cardController.cardStatus.IsStatusApplied(StatusType.GobombCharging) &&
-                enemyCardController.cardController.cardStatus.currentStacks[StatusType.GobombCharging] >= 1;
+                enemyCardController.cardController.cardStatus.GetCurrentStackCount(StatusType.GobombCharging) >= 1;
 
-            bool hasNeverHadStacks = !enemyCardController.cardController.cardStatus.currentStacks.ContainsKey(StatusType.GobombCharging);
+            bool hasNeverHadStacks = !enemyCardController.cardController.cardStatus.WasStatusEverApplied(StatusType.GobombCharging);
             
             if (hasMoreThanOneStack || hasNeverHadStacks)
                 return 0;

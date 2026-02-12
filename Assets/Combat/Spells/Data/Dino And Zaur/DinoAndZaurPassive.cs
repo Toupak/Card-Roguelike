@@ -37,7 +37,7 @@ namespace Combat.Spells.Data.Dino_And_Zaur
 
         private void PreReaction(DealDamageGA dealDamageGa)
         {
-            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (isMounted && package != null)
                 dealDamageGa.NegateDamage(package);
@@ -45,7 +45,7 @@ namespace Combat.Spells.Data.Dino_And_Zaur
 
         private void PostReaction(DealDamageGA dealDamageGa)
         {
-            if (isMounted && dealDamageGa.GetPackageFromTarget(cardController) != null)
+            if (isMounted && dealDamageGa.IsCardTargeted(cardController))
                 Dismount();
         }
 

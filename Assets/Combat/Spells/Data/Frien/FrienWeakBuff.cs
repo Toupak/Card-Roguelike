@@ -21,7 +21,7 @@ namespace Combat.Spells.Data.Frien
         {
             if (dealDamageGa.attacker == cardController && cardController.cardStatus.IsStatusApplied(StatusType.Weak))
             {
-                int damageBonus = cardController.cardStatus.currentStacks[StatusType.Weak] * 3;
+                int damageBonus = cardController.cardStatus.GetCurrentStackCount(StatusType.Weak) * 3;
                 foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
                 {
                     package.amount += damageBonus;

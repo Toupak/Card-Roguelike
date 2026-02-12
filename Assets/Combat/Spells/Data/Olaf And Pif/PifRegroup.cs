@@ -13,7 +13,7 @@ namespace Combat.Spells.Data.Olaf_And_Pif
         [SerializeField] private CardData olafAndPifData;
         [SerializeField] private CardData olafData;
 
-        private Dictionary<StatusType, int> totalStacks = new Dictionary<StatusType, int>();
+        private List<StatusHolder> totalStacks = new List<StatusHolder>();
         private CardController olaf;
         private CardController Olaf => olaf == null ? FindOlaf() : olaf;
         
@@ -61,9 +61,9 @@ namespace Combat.Spells.Data.Olaf_And_Pif
 
         private void ApplyTotalStacks(CardStatus spawnedCardStatus)
         {
-            foreach (KeyValuePair<StatusType,int> pair in totalStacks)
+            foreach (StatusHolder statusHolder in totalStacks)
             {
-                spawnedCardStatus.ApplyStatusStacks(pair.Key, pair.Value);
+                spawnedCardStatus.ApplyStatusStacks(statusHolder.statusType, statusHolder.stackCount);
             }
         }
 
@@ -75,19 +75,28 @@ namespace Combat.Spells.Data.Olaf_And_Pif
             return pifHealth + olafHealth;
         }
 
-        private Dictionary<StatusType,int> ComputeTotalStacks()
+        private List<StatusHolder> ComputeTotalStacks()
         {
-            Dictionary<StatusType, int> stacks = new Dictionary<StatusType, int>(cardController.cardStatus.currentStacks);
+            List<StatusHolder> pifStacks = new List<StatusHolder>(cardController.cardStatus.CurrentStacks);
 
-            foreach (KeyValuePair<StatusType,int> pair in Olaf.cardStatus.currentStacks)
+            foreach (StatusHolder olafStack in Olaf.cardStatus.CurrentStacks)
             {
-                if (stacks.ContainsKey(pair.Key))
-                    stacks[pair.Key] += pair.Value;
-                else
-                    stacks[pair.Key] = pair.Value;
+                bool wasAdded = false;
+                foreach (StatusHolder pifStack in pifStacks)
+                {
+                    if (pifStack.statusType == olafStack.statusType)
+                    {
+                        pifStack.AddStack(olafStack.stackCount);
+                        wasAdded = true;
+                        break;
+                    }
+                }
+                
+                if (!wasAdded)
+                    pifStacks.Add(new StatusHolder(olafStack.statusType, olafStack.stackCount, null));
             }
 
-            return stacks;
+            return pifStacks;
         }
         
         private CardController FindOlaf()

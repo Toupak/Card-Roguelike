@@ -193,7 +193,7 @@ MonoBehaviour:
     m_Localized: 'Gain 1 stack of Rage for every damage dealt or received
 
       At
-      10 Rage stacks, consume stacks and go Berserk for 2 turns'
+      10 Rage stacks, consume stacks and deal 1 damage to all enemies'
     m_Metadata:
       m_Items: []
   - m_Id: 347651979313186
