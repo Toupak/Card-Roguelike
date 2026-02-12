@@ -25,9 +25,11 @@ namespace Combat.Spells.Data.ChildSoldier.Child
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController)
+            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (damagePackage != null)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Blood, dealDamageGa.amount, cardController, cardController);
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Blood, damagePackage.amount, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }
         }

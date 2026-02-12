@@ -19,12 +19,9 @@ namespace Combat.Spells.Data.Puppeteer.Puppet
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            Debug.Log("Protection check");
-            if (dealDamageGa.target != null && dealDamageGa.target == cardController.tokenParentController)
-            {
-                Debug.Log("Switch Target");
-                dealDamageGa.SwitchTarget(cardController);
-            }
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController.tokenParentController);
+            if (package != null)
+                dealDamageGa.SwitchTarget(package, cardController);
         }
     }
 }

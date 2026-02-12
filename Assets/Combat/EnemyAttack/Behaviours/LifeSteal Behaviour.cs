@@ -23,8 +23,11 @@ namespace Combat.EnemyAttack.Behaviours
 
         private void OnPerformFinished(DealDamageGA damageGA)
         {
-            HealGa healGa = new HealGa(damageGA.amount, enemyCardController.cardController, enemyCardController.cardController);
-            ActionSystem.instance.Perform(healGa);
+            foreach (DealDamageGA.DamagePackage damageGaPackage in damageGA.packages)
+            {
+                HealGa healGa = new HealGa(damageGaPackage.amount, enemyCardController.cardController, enemyCardController.cardController);
+                ActionSystem.instance.Perform(healGa);
+            }
         }
     }
 }

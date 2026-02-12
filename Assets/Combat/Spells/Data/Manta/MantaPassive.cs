@@ -27,11 +27,18 @@ namespace Combat.Spells.Data.Manta
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (torpedoCount > 0 && dealDamageGa.target != null && dealDamageGa.attacker != null && dealDamageGa.attacker == cardController && !dealDamageGa.isDamageNegated && dealDamageGa.amount > 0)
+            if (torpedoCount > 0 && dealDamageGa.attacker != null && dealDamageGa.attacker == cardController)
             {
-                torpedoCount -= 1;
-                SpawnTorpedo();
-                UpdateArtwork();
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                {
+                    if (!package.isDamageNegated && package.amount > 0)
+                    {
+                        torpedoCount -= 1;
+                        SpawnTorpedo();
+                        UpdateArtwork();
+                        break;
+                    }
+                }
             }
         }
 

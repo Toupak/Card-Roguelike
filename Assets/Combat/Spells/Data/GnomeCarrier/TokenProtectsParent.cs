@@ -33,8 +33,11 @@ namespace Combat.Spells.Data.GnomeCarrier
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target != null && IsCardProtected(dealDamageGa.target))
-                dealDamageGa.SwitchTarget(cardController);
+            foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+            {
+                if (IsCardProtected(package.target))
+                    dealDamageGa.SwitchTarget(package, cardController);
+            }
         }
         
         private bool IsCardProtected(CardController card)

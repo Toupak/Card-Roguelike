@@ -43,18 +43,21 @@ namespace Combat.Spells.Data.TheCount
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker == cardController && friends.ContainsKey(dealDamageGa.target))
+            foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
             {
-                friends[dealDamageGa.target] = dealDamageGa.amount;
-
-                if (dealDamageGa.amount > 0)
+                if (dealDamageGa.attacker == cardController && friends.ContainsKey(package.target))
                 {
-                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Blood, dealDamageGa.amount, dealDamageGa.target, cardController);
-                    ActionSystem.instance.AddReaction(applyStatusGa);
+                    friends[package.target] = package.amount;
+
+                    if (package.amount > 0)
+                    {
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Blood, package.amount, package.target, cardController);
+                        ActionSystem.instance.AddReaction(applyStatusGa);
                     
-                    List<CardMovement> enemies = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
-                    DealDamageGA attackRandomEnemy = new DealDamageGA(dealDamageGa.amount, cardController, enemies[Random.Range(0, enemies.Count)].cardController);
-                    ActionSystem.instance.AddReaction(attackRandomEnemy);
+                        List<CardMovement> enemies = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+                        DealDamageGA attackRandomEnemy = new DealDamageGA(package.amount, cardController, enemies[Random.Range(0, enemies.Count)].cardController);
+                        ActionSystem.instance.AddReaction(attackRandomEnemy);
+                    }
                 }
             }
         }

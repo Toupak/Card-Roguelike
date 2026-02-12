@@ -20,13 +20,15 @@ namespace Combat.Spells.Data.Banana
 
         private void SlipperyTrapReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController)
+            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (damagePackage != null)
             {
                 bool random = Tools.RandomBool();
 
                 if (random)
                 {
-                    dealDamageGa.NegateDamage();
+                    dealDamageGa.NegateDamage(damagePackage);
                     ApplyStatusGa stun = new ApplyStatusGa(StatusType.Stun, 2, cardController, dealDamageGa.attacker);
                     ActionSystem.instance.AddReaction(stun);
                 }

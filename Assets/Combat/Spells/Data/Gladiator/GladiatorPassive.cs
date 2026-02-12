@@ -19,15 +19,16 @@ namespace Combat.Spells.Data.Gladiator
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker != null && dealDamageGa.target != null && dealDamageGa.attacker == cardController && !dealDamageGa.isDamageNegated && dealDamageGa.amount > 0)
+            if (dealDamageGa.attacker != null && dealDamageGa.attacker == cardController)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Spear, 1, cardController, dealDamageGa.target);
-                ActionSystem.instance.AddReaction(applyStatusGa);
-            }
-            else if (dealDamageGa.attacker != null && dealDamageGa.target != null && dealDamageGa.target == cardController && dealDamageGa.attacker.cardStatus.IsStatusApplied(StatusType.Spear))
-            {
-                DealDamageGA spearDamage = new DealDamageGA(dealDamageGa.attacker.cardStatus.GetCurrentStackCount(StatusType.Spear), cardController, dealDamageGa.attacker);
-                ActionSystem.instance.AddReaction(spearDamage);
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                {
+                    if (!package.isDamageNegated && package.amount > 0)
+                    {
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Spear, 1, cardController, package.target);
+                        ActionSystem.instance.AddReaction(applyStatusGa);
+                    }
+                }
             }
         }
     }

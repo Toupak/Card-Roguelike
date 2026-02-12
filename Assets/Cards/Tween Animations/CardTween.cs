@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using ActionReaction.Game_Actions;
 using BoomLib.Tools;
@@ -11,18 +12,6 @@ namespace Cards.Tween_Animations
 {
     public static class CardTween
     {
-        public static IEnumerator PlayCardAttack(DealDamageGA dealDamageGa)
-        {
-            if (dealDamageGa.isTargetSwitched && dealDamageGa.isDamageNegated)
-                yield return PlayCardMissAttackProtected(dealDamageGa.attacker, dealDamageGa.originalTarget, dealDamageGa.target);
-            else if (dealDamageGa.isDamageNegated)
-                yield return PlayCardMissAttack(dealDamageGa.attacker, dealDamageGa.target);
-            else if (dealDamageGa.isTargetSwitched)
-                yield return PlayPhysicalAttackProtected(dealDamageGa.attacker, dealDamageGa.originalTarget, dealDamageGa.target);
-            else
-                yield return PlayPhysicalAttack(dealDamageGa.attacker, dealDamageGa.target);
-        }
-        
         public static IEnumerator PlayCardStatusApply(ApplyStatusGa applyStatusGa)
         {
             if (applyStatusGa.isTargetSwitched && applyStatusGa.isEffectNegated)
@@ -33,6 +22,122 @@ namespace Cards.Tween_Animations
                 yield return PlayPhysicalAttackProtected(applyStatusGa.attacker, applyStatusGa.originalTarget, applyStatusGa.target);
             else
                 yield return PlayPhysicalAttack(applyStatusGa.attacker, applyStatusGa.target);
+        }
+
+        public static Sequence NewPlayAttackAnimation(CardController attacker, Vector2 targetPosition, Sequence damageSequence)
+        {
+            if (attacker == null)
+                return Sequence.Create();
+            
+            attacker.SetFollowState(false);
+            attacker.SetSpriteAsAbove();
+            
+            Vector2 startingPosition = attacker.rectTransform.anchoredPosition;
+            float distance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            targetPosition += Vector2.up * distance;
+            
+            Sequence sequence = Sequence.Create()
+                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
+                .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
+                .Group(damageSequence)
+                .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
+                .ChainCallback(() =>
+                {
+                    attacker.SetFollowState(true);
+                    attacker.ResetSpriteOrder();
+                });
+
+            return sequence;
+        }
+        
+        public static Sequence NewPlayCleaveAttackAnimation(CardController attacker, Vector2 targetPosition, Sequence damageSequence)
+        {
+            if (attacker == null)
+                return Sequence.Create();
+            
+            attacker.SetFollowState(false);
+            attacker.SetSpriteAsAbove();
+            
+            Vector2 startingPosition = attacker.rectTransform.anchoredPosition;
+            float distance = 50.0f * (attacker.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            targetPosition += Vector2.up * distance;
+            
+            Sequence sequence = Sequence.Create()
+                .Chain(Tween.UIAnchoredPositionY(attacker.rectTransform, attacker.rectTransform.anchoredPosition.y + distance, 0.4f, Ease.OutElastic))
+                .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, targetPosition, 0.1f, Ease.OutBounce))
+                .Group(damageSequence)
+                .Chain(Tween.UIAnchoredPosition(attacker.rectTransform, startingPosition, 0.2f, Ease.OutElastic))
+                .ChainCallback(() =>
+                {
+                    attacker.SetFollowState(true);
+                    attacker.ResetSpriteOrder();
+                });
+
+            return sequence;
+        }
+
+        public static Sequence NewPlayDamageAnimation(CardController target, Action callback)
+        {
+            if (target == null)
+                return Sequence.Create();
+            
+            target.SetFollowState(false);
+
+            Sequence sequence = Sequence.Create()
+                .ChainCallback(callback)
+                .Group(Tween.Scale(target.transform, Vector3.one * 0.7f, 0.1f, Ease.InOutBounce, 2, CycleMode.Yoyo))
+                .ChainCallback(() =>
+                {
+                    target.SetFollowState(true);
+                });
+
+            return sequence;
+        }
+        
+        public static Sequence NewPlayMissedDamageAnimation(CardController target, Action callback)
+        {
+            if (target == null)
+                return Sequence.Create();
+            
+            target.SetFollowState(false);
+            
+            float targetDistance = 50.0f * (target.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            Vector2 targetStartingPosition = target.rectTransform.anchoredPosition;
+            Sequence sequence = Sequence.Create()
+                .ChainCallback(() => DamageNumberFactory.instance.DisplayQuickMessage(targetStartingPosition, "Miss"))
+                .ChainCallback(callback)
+                .Chain(Tween.UIAnchoredPositionY(target.rectTransform, targetStartingPosition.y + targetDistance * 2.0f, 0.1f, Ease.OutBounce))
+                .Chain(Tween.UIAnchoredPosition(target.rectTransform, targetStartingPosition, 0.1f, Ease.OutElastic))
+                .ChainCallback(() =>
+                {
+                    target.SetFollowState(true);
+                });
+
+            return sequence;
+        }
+
+        public static Sequence NewPlayDamageProtectedAnimation(CardController protector, Vector2 targetPosition, bool isAttackerAnEnemy, Sequence damageSequence)
+        {
+            if (protector == null)
+                return Sequence.Create();
+            
+            protector.SetFollowState(false);
+            protector.SetSpriteAsAbove();
+            
+            Vector2 protectorStartingPosition = protector.rectTransform.anchoredPosition;
+            float distance = 50.0f * (isAttackerAnEnemy ? 1.0f : -1.0f);
+            targetPosition += Vector2.up * distance;
+            Sequence sequence = Sequence.Create()
+                .Chain(Tween.UIAnchoredPosition(protector.rectTransform, targetPosition, 0.1f))
+                .Chain(damageSequence)
+                .Chain(Tween.UIAnchoredPosition(protector.rectTransform, protectorStartingPosition, 0.2f, Ease.OutElastic))
+                .ChainCallback(() =>
+                {
+                    protector.SetFollowState(true);
+                    protector.ResetSpriteOrder();
+                });
+
+            return sequence;
         }
 
         public static IEnumerator PlayPhysicalAttack(CardController attacker, CardController target)
@@ -112,6 +217,17 @@ namespace Cards.Tween_Animations
             yield return new WaitUntil(() => isComplete);
             
             card.SetFollowState(true);
+        }
+
+        public static Sequence NewPlaySelfAction(CardController card)
+        {
+            card.SetFollowState(false);
+
+            Sequence sequence = Sequence.Create()
+                .Chain(Tween.Scale(card.transform, Vector3.one * 0.8f, 0.1f, Ease.InOutBounce, 2, CycleMode.Yoyo))
+                .ChainCallback(() => card.SetFollowState(true));
+
+            return sequence;
         }
 
         public static IEnumerator PlayCardMissAttack(CardController attacker, CardController target)

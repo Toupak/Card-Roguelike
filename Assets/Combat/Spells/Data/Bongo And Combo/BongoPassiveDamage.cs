@@ -1,5 +1,7 @@
+using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
 using Combat.Passives;
 
 namespace Combat.Spells.Data.Bongo_And_Combo
@@ -20,13 +22,18 @@ namespace Combat.Spells.Data.Bongo_And_Combo
         {
             bool attackerIsNotMe = dealDamageGa.attacker != cardController;
             bool attackerIsBrother = dealDamageGa.attacker != null && dealDamageGa.attacker.passiveHolder != null && dealDamageGa.attacker.passiveHolder.GetPassive(passiveData) != null;
-            bool enemyIsStillAlive = dealDamageGa.target != null && !dealDamageGa.target.cardHealth.IsDead;
             
-            if (attackerIsNotMe && attackerIsBrother && enemyIsStillAlive && !dealDamageGa.isBongoAttack)
+            if (attackerIsNotMe && attackerIsBrother && !dealDamageGa.isBongoAttack)
             {
-                DealDamageGA attack = new DealDamageGA(dealDamageGa.amount, cardController, dealDamageGa.target);
-                attack.isBongoAttack = true;
-                ActionSystem.instance.AddReaction(attack);
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                {
+                    if (!package.target.cardHealth.IsDead)
+                    {
+                        DealDamageGA attack = new DealDamageGA(package.amount, cardController, package.target);
+                        attack.isBongoAttack = true;
+                        ActionSystem.instance.AddReaction(attack);
+                    }
+                }
             }
         }
     }

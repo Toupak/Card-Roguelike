@@ -17,8 +17,17 @@ namespace Inventory.Items.Frames.data.Bersek
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController || dealDamageGa.attacker == cardController)
-                dealDamageGa.amount += 1;
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (package != null)
+                package.amount += 1;
+            else if (dealDamageGa.attacker == cardController)
+            {
+                foreach (DealDamageGA.DamagePackage damagePackage in dealDamageGa.packages)
+                {
+                    damagePackage.amount += 1;
+                }
+            }
         }
     }
 }

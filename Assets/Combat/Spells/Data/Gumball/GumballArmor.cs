@@ -29,9 +29,11 @@ namespace Combat.Spells.Data.Gumball
 
         private void ArmorReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController && cardController.cardStatus.IsStatusApplied(StatusType.Stun))
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (package != null && cardController.cardStatus.IsStatusApplied(StatusType.Stun))
             {
-                dealDamageGa.NegateDamage();
+                dealDamageGa.NegateDamage(package);
                 
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.GumBoom, 1, dealDamageGa.attacker, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

@@ -26,7 +26,7 @@ public class AlluringAroma : PassiveController
 
     private void TryTriggerPhase2(DealDamageGA damage)
     {
-        if (damage.target != null && damage.target == cardController)
+        if (damage.GetPackageFromTarget(cardController) != null)
         {
             if (cardController.cardHealth.currentHealth <= hpBeforePhase2)
                 SpawnPhase2();

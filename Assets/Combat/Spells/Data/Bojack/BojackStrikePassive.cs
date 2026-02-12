@@ -25,10 +25,10 @@ namespace Combat.Spells.Data.Bojack
 
                 if (stackCount >= 3)
                 {
-                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Moonlight, stackCount, cardController, applyStatusGa.target);
+                    ConsumeStacksGa consumeStacksGa = new ConsumeStacksGa(StatusType.Moonlight, stackCount, null, applyStatusGa.target);
                     ActionSystem.instance.AddReaction(consumeStacksGa);
 
-                    DealDamageGA dealDamageGa = new DealDamageGA(3, cardController, applyStatusGa.target);
+                    DealDamageGA dealDamageGa = new DealDamageGA(3, null, applyStatusGa.target);
                     ActionSystem.instance.AddReaction(dealDamageGa);
                 }
             }

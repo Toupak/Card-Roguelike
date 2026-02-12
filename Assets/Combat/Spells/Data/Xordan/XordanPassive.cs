@@ -1,3 +1,4 @@
+using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
@@ -29,7 +30,7 @@ namespace Combat.Spells.Data.Xordan
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (!isBulletGainedThisTurn && dealDamageGa.attacker != null && dealDamageGa.attacker == cardController && dealDamageGa.target != null && dealDamageGa.target.cardStatus.IsStatusApplied(StatusType.Marker))
+            if (!isBulletGainedThisTurn && dealDamageGa.attacker != null && dealDamageGa.attacker == cardController && dealDamageGa.packages.Where((p) => p.target.cardStatus.IsStatusApplied(StatusType.Marker)).ToList().Count > 0)
             {
                 ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.BulletAmmo, 1, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);

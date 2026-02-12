@@ -84,13 +84,26 @@ namespace Inventory.Items.Frames.data
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker == cardController && !dealDamageGa.isDamageNegated)
-                CheckBehaviour(ComputeTarget(dealDamageGa, true));
+            if (dealDamageGa.attacker == cardController)
+            {
+                if (target == StatusBehaviourTarget.OnTarget)
+                {
+                    foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                    {
+                        if (!package.isDamageNegated)
+                            CheckBehaviour(package.target);
+                    }
+                }
+                else
+                    CheckBehaviour(ComputeTarget(dealDamageGa, true));
+            }
         }
 
         private void ReceiveDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController && !dealDamageGa.isDamageNegated)
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (package != null && !package.isDamageNegated)
                 CheckBehaviour(ComputeTarget(dealDamageGa, false));
         }
         
@@ -124,7 +137,7 @@ namespace Inventory.Items.Frames.data
                 case StatusBehaviourTarget.OnMe:
                     return cardController;
                 case StatusBehaviourTarget.OnTarget:
-                    return isAttacker ? dealDamageGa.target : dealDamageGa.attacker;
+                    return isAttacker ? dealDamageGa.packages[0].target : dealDamageGa.attacker;
                 case StatusBehaviourTarget.OnRandomAlly:
                     return GetRandomTarget(TargetType.Ally);
                 case StatusBehaviourTarget.OnRandomEnemy:

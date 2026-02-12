@@ -27,8 +27,11 @@ namespace Combat.Spells.Data.ChildSoldier.Child
         {
             if (dealDamageGa.attacker == cardController)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Vengeance, dealDamageGa.amount, cardController, cardController);
-                ActionSystem.instance.AddReaction(applyStatusGa);
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                {
+                    ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Vengeance, package.amount, cardController, cardController);
+                    ActionSystem.instance.AddReaction(applyStatusGa);
+                }
             }
         }
         

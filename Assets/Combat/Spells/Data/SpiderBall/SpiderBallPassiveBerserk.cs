@@ -19,10 +19,17 @@ namespace Combat.Spells.Data.SpiderBall
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController && Tools.RandomBool())
-                dealDamageGa.amount *= 2;
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (package != null && Tools.RandomBool())
+                package.amount *= 2;
             else if (dealDamageGa.attacker == cardController && Tools.RandomBool())
-                dealDamageGa.amount *= 2;
+            {
+                foreach (DealDamageGA.DamagePackage damagePackage in dealDamageGa.packages)
+                {
+                    damagePackage.amount *= 2;
+                }
+            }
         }
     }
 }

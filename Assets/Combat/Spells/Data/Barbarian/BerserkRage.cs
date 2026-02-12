@@ -26,9 +26,11 @@ namespace Combat.Spells.Data.Barbarian
 
         private void DamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker == cardController || dealDamageGa.target == cardController)
+            DealDamageGA.DamagePackage damagePackage = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (dealDamageGa.attacker == cardController || damagePackage != null)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Rage, dealDamageGa.amount, cardController, cardController);
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Rage, damagePackage.amount, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }
         }

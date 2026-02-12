@@ -166,7 +166,7 @@ namespace Cards.Scripts
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target != null && dealDamageGa.target == cardController)
+            if (dealDamageGa.GetPackageFromTarget(cardController) != null)
             {
                 foreach (KeyValuePair<StatusType,int> keyValuePair in currentStacks.ToList())
                 {

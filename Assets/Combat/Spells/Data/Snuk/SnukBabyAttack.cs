@@ -1,5 +1,6 @@
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using Cards.Scripts;
 using Combat.Passives;
 
 namespace Combat.Spells.Data.Snuk
@@ -18,13 +19,21 @@ namespace Combat.Spells.Data.Snuk
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker == cardController.tokenParentController && dealDamageGa.target != null && !dealDamageGa.target.cardHealth.IsDead)
+            if (dealDamageGa.attacker == cardController.tokenParentController)
             {
-                DealDamageGA followAttack = new DealDamageGA(1, cardController, dealDamageGa.target);
-                ActionSystem.instance.AddReaction(followAttack);
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                {
+                    if (!package.target.cardHealth.IsDead)
+                    {
+                        DealDamageGA followAttack = new DealDamageGA(1, cardController, package.target);
+                        ActionSystem.instance.AddReaction(followAttack);
 
-                DeathGA deathGa = new DeathGA(cardController, cardController);
-                ActionSystem.instance.AddReaction(deathGa);
+                        DeathGA deathGa = new DeathGA(cardController, cardController);
+                        ActionSystem.instance.AddReaction(deathGa);
+                        
+                        break;
+                    }
+                }
             }
         }
     }

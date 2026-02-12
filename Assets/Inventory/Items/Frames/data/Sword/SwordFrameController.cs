@@ -17,8 +17,10 @@ namespace Inventory.Items.Frames.data.Sword
     
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker == cardController)
-                dealDamageGa.amount += 1;
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (package != null)
+                package.amount += 1;
         }
     }
 }

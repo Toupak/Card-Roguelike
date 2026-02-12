@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cards.Scripts;
 using Combat;
 using Map.Rooms;
 using UnityEngine;
@@ -256,6 +257,18 @@ namespace BoomLib.Tools
         public static KeyValuePair<TKey, TValue> GetEntry<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
         {
             return new KeyValuePair<TKey, TValue>(key, dictionary[key]);
+        }
+
+        public static List<CardController> GetControllers(this List<CardMovement> cards)
+        {
+            List<CardController> controllers = new List<CardController>();
+
+            foreach (CardMovement card in cards)
+            {
+                controllers.Add(card.cardController);
+            }
+
+            return controllers;
         }
     }
 }

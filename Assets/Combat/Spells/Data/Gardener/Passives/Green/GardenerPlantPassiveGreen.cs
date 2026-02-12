@@ -29,7 +29,7 @@ namespace Combat.Spells.Data.Gardener.Passives.Green
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker != null && dealDamageGa.target != null && dealDamageGa.target == cardController.tokenParentController)
+            if (dealDamageGa.attacker != null && dealDamageGa.GetPackageFromTarget(cardController.tokenParentController) != null)
             {
                 DealDamageGA returnDamage = new DealDamageGA(damageReturned, cardController, dealDamageGa.attacker);
                 ActionSystem.instance.AddReaction(returnDamage);

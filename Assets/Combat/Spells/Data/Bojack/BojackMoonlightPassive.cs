@@ -19,10 +19,16 @@ namespace Combat.Spells.Data.Bojack
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target != null && dealDamageGa.attacker != null && dealDamageGa.attacker == cardController && !dealDamageGa.isDamageNegated && dealDamageGa.amount > 0)
+            if (dealDamageGa.attacker != null && dealDamageGa.attacker == cardController)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Moonlight, 1, null, dealDamageGa.target);
-                ActionSystem.instance.AddReaction(applyStatusGa);
+                foreach (DealDamageGA.DamagePackage damagePackage in dealDamageGa.packages)
+                {
+                    if (!damagePackage.isDamageNegated && damagePackage.amount > 0)
+                    {
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Moonlight, 1, null, damagePackage.target);
+                        ActionSystem.instance.AddReaction(applyStatusGa);
+                    }
+                }
             }
         }
     }

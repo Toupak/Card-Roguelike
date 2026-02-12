@@ -18,8 +18,10 @@ namespace Combat.Spells.Data.Faces
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.target == cardController && cardController.cardMovement.tokenContainer.slotCount > 0)
-                dealDamageGa.SwitchTarget(cardController.cardMovement.tokenContainer.Slots[0].CurrentCard.cardController);
+            DealDamageGA.DamagePackage package = dealDamageGa.GetPackageFromTarget(cardController);
+            
+            if (package != null && cardController.cardMovement.tokenContainer.slotCount > 0)
+                dealDamageGa.SwitchTarget(package, cardController.cardMovement.tokenContainer.Slots[0].CurrentCard.cardController);
         }
     }
 }

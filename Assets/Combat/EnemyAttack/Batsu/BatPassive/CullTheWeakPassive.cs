@@ -23,7 +23,9 @@ namespace Combat.EnemyAttack.Batsu.BatPassive
 
         private void ExecutePassiveBehaviour(DealDamageGA gA)
         {
-            if (gA.amount <= 0 && gA.target == cardController)
+            DealDamageGA.DamagePackage package = gA.GetPackageFromTarget(cardController);
+            
+            if (package != null && package.amount > 0)
             {
                 DealDamageGA damageGa = new DealDamageGA(cardController.ComputeCurrentDamage(damage), cardController, gA.attacker);
                 ActionSystem.instance.AddReaction(damageGa);
@@ -33,8 +35,11 @@ namespace Combat.EnemyAttack.Batsu.BatPassive
 
             if (gA.attacker == cardController && isThisReaction)
             {
-                HealGa healGa = new HealGa(gA.amount, cardController, cardController);
-                ActionSystem.instance.AddReaction(healGa);
+                foreach (DealDamageGA.DamagePackage damagePackage in gA.packages)
+                {
+                    HealGa healGa = new HealGa(damagePackage.amount, cardController, cardController);
+                    ActionSystem.instance.AddReaction(healGa);
+                }
 
                 isThisReaction = false;
             }

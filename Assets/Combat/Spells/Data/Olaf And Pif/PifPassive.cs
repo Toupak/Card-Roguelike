@@ -22,10 +22,16 @@ namespace Combat.Spells.Data.Olaf_And_Pif
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker.cardData.name == olafData.name && dealDamageGa.amount > 0)
+            if (dealDamageGa.attacker.cardData.name == olafData.name)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Vengeance, 1, cardController, dealDamageGa.target);
-                ActionSystem.instance.AddReaction(applyStatusGa);
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
+                {
+                    if (package.amount > 0)
+                    {
+                        ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Vengeance, 1, cardController, package.target);
+                        ActionSystem.instance.AddReaction(applyStatusGa);
+                    }
+                }
             }
         }
     }

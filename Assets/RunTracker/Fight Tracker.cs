@@ -35,9 +35,15 @@ namespace RunTracker
         if (ShouldNotBeCounted(gA))
             return;
         */
-            avgDMGPerTurn = (avgDMGPerTurn + gA.amount) / playerTurns;
-            thisTurnDMG += gA.amount;
-            totalDMG += gA.amount;
+            int totalDamage = 0;
+            foreach (DealDamageGA.DamagePackage damagePackage in gA.packages)
+            {
+                totalDamage += damagePackage.amount;
+            }
+            
+            avgDMGPerTurn = (avgDMGPerTurn + totalDamage) / playerTurns;
+            thisTurnDMG += totalDamage;
+            totalDMG += totalDamage;
 
             //Debug.Log("TOUP Average DMG per turn : " + avgDMGPerTurn);
             //Debug.Log("TOUP This Turn DMG : " + thisTurnDMG);

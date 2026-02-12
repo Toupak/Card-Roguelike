@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
+using Cards.Tween_Animations;
 using Combat.Passives;
+using PrimeTween;
 using UnityEngine;
 
 namespace Combat.Spells.Data.Manta
@@ -37,6 +39,9 @@ namespace Combat.Spells.Data.Manta
             
             if (mantaPassive != null)
             {
+                Sequence anim = CardTween.NewPlaySelfAction(cardController);
+                yield return new WaitWhile(() => anim.isAlive);
+                
                 mantaPassive.ReloadTorpedoes();
                 cardController.SetArtwork(mantaWithBothTorpedoesSprite);
             }

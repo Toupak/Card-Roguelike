@@ -121,6 +121,7 @@ namespace Combat
         
         private IEnumerator DrawNewHand()
         {
+            bool isGoingInReverse = Keyboard.current.leftShiftKey.isPressed;
             int currentCardCount = handContainer.Slots.Count;
 
             for (int i = 0; i < currentCardCount; i++)
@@ -129,6 +130,13 @@ namespace Combat
                 yield return new WaitForSeconds(0.05f);
             }
 
+            if (isGoingInReverse)
+            {
+                currentDebugDeckIndex -= 24;
+                if (currentDebugDeckIndex < 0)
+                    currentDebugDeckIndex += cardData.Count;
+            }
+            
             for (int i = 0; i < 12; i++)
             {
                 SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
