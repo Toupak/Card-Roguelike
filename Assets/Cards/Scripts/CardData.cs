@@ -45,14 +45,26 @@ namespace Cards.Scripts
         public List<PassiveData> passiveList;
 
         [Space]
+        [Header("Enemy Stuff")]
         public List<BaseEnemyBehaviour> enemyBehaviours;
         public bool areEnemyBehavioursLooping;
         public bool isMainBoss;
         public bool isWaitingOnSpawn;
         public CardContainer.PreferredPosition preferredPosition;
         public bool isEnemySummon;
+        
+        [Space]
+        [Header("SFX")]
+        public AudioClip pickupAudioClip;
+        public AudioClip dropAudioClip;
+        public AudioClip inspectAudioClip;
+        public AudioClip stopInspectAudioClip;
+        public AudioClip spawnAudioClip;
+        public AudioClip takeDamageAudioClip;
+        public AudioClip deathAudioClip;
 
         [Space] 
+        [Header("Localization")]
         public string localizationKey;
         
         public bool isIncomplete => (passiveList == null || passiveList.Count < 1) && (spellList == null || spellList.Count < 1) && !isEnemy;

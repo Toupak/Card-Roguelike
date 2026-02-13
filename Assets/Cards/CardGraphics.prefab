@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 548480995114548304}
   - component: {fileID: 387351114068576617}
   - component: {fileID: 7934747295322210270}
+  - component: {fileID: -996994539936522969}
   m_Layer: 5
   m_Name: CardGraphics
   m_TagString: Untagged
@@ -925,6 +926,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardHealthDisplay: {fileID: 8041540687545209302}
   OnUpdateHP:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
@@ -1047,6 +1051,25 @@ MonoBehaviour:
   rareSprite: {fileID: 2719945902803323281, guid: 4f74fc8419bdf334d82ca5a49ee5eb39, type: 3}
   legendarySprite: {fileID: -7412792879071055221, guid: 4f74fc8419bdf334d82ca5a49ee5eb39, type: 3}
   exoticSprite: {fileID: -6955479408109619418, guid: 4f74fc8419bdf334d82ca5a49ee5eb39, type: 3}
+--- !u!114 &-996994539936522969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317175333349962056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d731420370f1947882f1368d68c6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUp: {fileID: 8300000, guid: 680ed21c6eb853448b128d549184676d, type: 3}
+  drop: {fileID: 8300000, guid: 72b4a4e39e305de45a0ae2415e58207c, type: 3}
+  inspect: {fileID: 8300000, guid: e2356eba0b9052c4a8f32ff9520e0157, type: 3}
+  stopInspect: {fileID: 8300000, guid: bbbf296a510739a4eb83c917443d5c09, type: 3}
+  spawn: {fileID: 0}
+  takeDamage: {fileID: 0}
+  death: {fileID: 0}
 --- !u!1 &3531206112174478996
 GameObject:
   m_ObjectHideFlags: 0

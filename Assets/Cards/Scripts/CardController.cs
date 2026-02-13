@@ -42,6 +42,7 @@ namespace Cards.Scripts
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
         public CardStats cardStats { get; private set; }
+        public CardSFX cardSfx { get; private set; }
         public DisplayCardEffects displayCardEffect { get; private set; }
         public FrameDisplay frameDisplay { get; private set; }
         public CardRarityDisplay cardRarityDisplay { get; private set; }
@@ -77,6 +78,9 @@ namespace Cards.Scripts
             cardHealth = GetComponent<CardHealth>();
             cardHealth.Setup(health, data.isInvincible);
             cardHealth.OnDeath.AddListener(() => KillCard());
+            
+            cardSfx = GetComponent<CardSFX>();
+            cardSfx.Setup(this, movement, data, cardHealth);
             
             displayCardEffect = GetComponent<DisplayCardEffects>();
             
@@ -241,7 +245,7 @@ namespace Cards.Scripts
             return Mathf.Max(0, total);
         }
         
-        public virtual int ComputeCurrentTargetCount(int count)
+        public int ComputeCurrentTargetCount(int count)
         {
             if (cardStatus.IsStatusApplied(StatusType.Fury))
                 return count + cardStatus.GetCurrentStackCount(StatusType.Fury);

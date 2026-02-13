@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 6970137505809147812}
   - component: {fileID: 3353712994309403996}
   - component: {fileID: 9039926198863199735}
+  - component: {fileID: 9015453637330157964}
   m_Layer: 5
   m_Name: TokenGraphics
   m_TagString: Untagged
@@ -836,6 +837,9 @@ MonoBehaviour:
   OnUpdateHP:
     m_PersistentCalls:
       m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -912,6 +916,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3195355800d54f94cddbbdda0869d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9015453637330157964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317175333349962056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d731420370f1947882f1368d68c6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUp: {fileID: 8300000, guid: 680ed21c6eb853448b128d549184676d, type: 3}
+  drop: {fileID: 8300000, guid: 72b4a4e39e305de45a0ae2415e58207c, type: 3}
+  inspect: {fileID: 8300000, guid: e2356eba0b9052c4a8f32ff9520e0157, type: 3}
+  stopInspect: {fileID: 8300000, guid: bbbf296a510739a4eb83c917443d5c09, type: 3}
+  spawn: {fileID: 0}
+  takeDamage: {fileID: 0}
+  death: {fileID: 0}
 --- !u!1 &3531206112174478996
 GameObject:
   m_ObjectHideFlags: 0

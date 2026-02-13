@@ -11,6 +11,7 @@ namespace Cards.Scripts
         [SerializeField] private CardHealthDisplay cardHealthDisplay;
         
         [HideInInspector] public UnityEvent<int> OnUpdateHP = new UnityEvent<int>();
+        [HideInInspector] public UnityEvent OnTakeDamage = new UnityEvent();
         [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
         
         public CardController cardController { get; private set; }
@@ -62,6 +63,8 @@ namespace Cards.Scripts
                 DeathGA death = new DeathGA(attacker, cardController);
                 ActionSystem.instance.AddReaction(death);
             }
+            else
+                OnTakeDamage?.Invoke();
         }
 
         public void Heal(int heal)
