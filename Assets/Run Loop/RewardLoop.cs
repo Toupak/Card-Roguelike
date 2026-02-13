@@ -10,6 +10,7 @@ using Inventory.Drop_Rates;
 using Inventory.Items;
 using Inventory.Items.Frames;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Run_Loop
 {
@@ -56,6 +57,23 @@ namespace Run_Loop
 
             yield return DisplayFinalSelection();
             yield return WaitUntilFinalValidation();
+        }
+
+        private void Update()
+        {
+            if (RunLoop.instance == null || RunLoop.instance.isInRun)
+                return;
+
+            if (Keyboard.current.fKey.wasPressedThisFrame)
+            {
+                StartCoroutine(RerollFrames());
+            }
+        }
+
+        private IEnumerator RerollFrames()
+        {
+            yield return RemoveRemainingCards();
+            yield return OpenBoosterAndDisplayFrames(5);
         }
 
         private IEnumerator OpenFrameBooster()
@@ -124,16 +142,17 @@ namespace Run_Loop
         private IEnumerator OpenBoosterAndDisplayFrames(int framesCount)
         {
             List<FrameItem> alreadyOwnedFrames = PlayerInventory.instance.frames;
+            List<FrameData> frames = RunLoop.instance.FrameDatabase.frames;
             
-            List<FrameData> commonFrames = RunLoop.instance.framesData.Where((c) => c.isLowRarity && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
+            List<FrameData> commonFrames = frames.Where((c) => c.isLowRarity && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
             if (commonFrames.Count > 0)
                 commonFrames.Shuffle();
             
-            List<FrameData> legendaryFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Legendary && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
+            List<FrameData> legendaryFrames = frames.Where((c) => c.rarity == CardData.Rarity.Legendary && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
             if (legendaryFrames.Count > 0)
                 legendaryFrames.Shuffle();
             
-            List<FrameData> exoticFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Exotic && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
+            List<FrameData> exoticFrames = frames.Where((c) => c.rarity == CardData.Rarity.Exotic && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
             if (exoticFrames.Count > 0)
                 exoticFrames.Shuffle();
 
@@ -154,17 +173,17 @@ namespace Run_Loop
         
         private IEnumerator OpenBoosterAndDisplayCards(int cardCount)
         {
-            List<CardData> commonCards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn && c.isLowRarity);
+            List<CardData> commonCards = RunLoop.instance.CardDatabase.GetAllCards((c) => c.canBeDrawn && c.isLowRarity);
             if (commonCards == null || commonCards.Count < 1)
                 Debug.LogError($"[{nameof(RewardLoop)}] error : no Common and Rare cards found in dataBase");
             commonCards.Shuffle();
             
-            List<CardData> legendaryCards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn && c.rarity == CardData.Rarity.Legendary);
+            List<CardData> legendaryCards = RunLoop.instance.CardDatabase.GetAllCards((c) => c.canBeDrawn && c.rarity == CardData.Rarity.Legendary);
             if (legendaryCards == null || legendaryCards.Count < 1)
                 Debug.LogError($"[{nameof(RewardLoop)}] error : no Legendary cards found in dataBase");
             legendaryCards.Shuffle();
             
-            List<CardData> exoticCards = RunLoop.instance.dataBase.GetAllCards((c) => c.canBeDrawn && c.rarity == CardData.Rarity.Exotic);
+            List<CardData> exoticCards = RunLoop.instance.CardDatabase.GetAllCards((c) => c.canBeDrawn && c.rarity == CardData.Rarity.Exotic);
             if (exoticCards == null || exoticCards.Count < 1)
                 Debug.LogError($"[{nameof(RewardLoop)}] error : no Exotic cards found in dataBase");
             exoticCards.Shuffle();

@@ -38,6 +38,9 @@ namespace Run_Loop
         [SerializeField] private CardDatabase cardDatabase;
         
         [Space] 
+        [SerializeField] private FrameDatabase frameDatabase;
+        
+        [Space] 
         [SerializeField] private OverWorldCharacterData defaultCharacter;
 
         [Space] 
@@ -51,8 +54,8 @@ namespace Run_Loop
 
         private OverWorldCharacterData characterData;
         public OverWorldCharacterData CharacterData => isInRun && characterData != null ? characterData : defaultCharacter;
-        public CardDatabase dataBase => cardDatabase;
-        public List<FrameData> framesData;
+        public CardDatabase CardDatabase => cardDatabase;
+        public FrameDatabase FrameDatabase => frameDatabase;
 
         public int currentBattleIndex { get; private set; }
         public bool isInRun { get; private set; }

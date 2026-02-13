@@ -26,7 +26,7 @@ namespace Combat.Spells.Data.GnomeCarrier
             CardController target = PickRandomTarget(TargetingSystem.instance.RetrieveBoard(TargetType.Enemy));
             if (target != null)
             {
-                DealDamageGA dealDamageGa = new DealDamageGA(1, cardController, target);
+                DealDamageGA dealDamageGa = new DealDamageGA(cardController.ComputeCurrentDamage(1), cardController, target);
                 ActionSystem.instance.AddReaction(dealDamageGa);
             }
 

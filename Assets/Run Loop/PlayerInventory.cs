@@ -45,7 +45,7 @@ namespace Run_Loop
             if (SceneManager.GetActiveScene().name != "CombatScene" || RunLoop.instance.isInRun)
                 return;
             
-            foreach (FrameData frame in RunLoop.instance.framesData)
+            foreach (FrameData frame in RunLoop.instance.FrameDatabase.frames)
             {
                 frames.Add(new FrameItem(frame));
             }
