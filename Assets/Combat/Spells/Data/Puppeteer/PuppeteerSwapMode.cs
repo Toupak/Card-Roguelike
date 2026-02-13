@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using Cards.Scripts;
+using Cards.Tween_Animations;
 using Combat.Passives;
 using UnityEngine;
 
@@ -27,6 +28,10 @@ namespace Combat.Spells.Data.Puppeteer
 
             isPuppetInOffensiveMode = !isPuppetInOffensiveMode;
             CardController puppet = cardController.leftButton.spellController.GetComponent<PuppeteerMove>().puppetCard;
+            
+            yield return CardTween.NewPlaySelfAction(cardController);
+            yield return CardTween.NewPlaySelfAction(puppet);
+            
             UpdatePuppetMode(puppet);
         }
 

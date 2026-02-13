@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using Cards.Tween_Animations;
 using UnityEngine;
 
 namespace Combat.Spells.Data.Puppeteer
@@ -19,11 +20,14 @@ namespace Combat.Spells.Data.Puppeteer
         {
             yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-            
+
+            yield return CardTween.NewPlaySelfAction(cardController);
+                
             SpawnCardGA spawnCardGa = new SpawnCardGA(puppetData, cardController, true);
             ActionSystem.instance.Perform(spawnCardGa);
             
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+            
 
             cardController.SetupLeftSpell(leftSpell);
             cardController.SetupRightSpell(rightSpell);

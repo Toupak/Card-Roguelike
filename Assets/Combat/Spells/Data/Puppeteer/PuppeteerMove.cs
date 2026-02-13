@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
+using Cards.Tween_Animations;
 using UnityEngine;
 
 namespace Combat.Spells.Data.Puppeteer
@@ -18,6 +19,8 @@ namespace Combat.Spells.Data.Puppeteer
             yield return base.CastSpellOnTarget(targets);
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
+            yield return CardTween.NewPlaySelfAction(cardController);
+            
             CardMovement target = targets[0];
             puppetCard.cardMovement.CurrentSlot.board.SendCardToOtherBoard(puppetCard.cardMovement.SlotIndex, target.tokenContainer);
             puppetCard.SetTokenParentController(target.cardController);
