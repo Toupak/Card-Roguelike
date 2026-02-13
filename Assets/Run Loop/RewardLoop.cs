@@ -61,7 +61,7 @@ namespace Run_Loop
         private IEnumerator OpenFrameBooster()
         {
             yield return WaitUntilOpenButtonIsClicked();
-            yield return OpenBoosterAndDisplayFrames(3);
+            yield return OpenBoosterAndDisplayFrames(5);
             yield return WaitUntilCardHasBeenSelected();
             yield return StoreSelectedCard();
             yield return RemoveRemainingCards();
@@ -125,15 +125,15 @@ namespace Run_Loop
         {
             List<FrameItem> alreadyOwnedFrames = PlayerInventory.instance.frames;
             
-            List<FrameData> commonFrames = RunLoop.instance.framesData.Where((c) => c.isLowRarity && alreadyOwnedFrames.Count((d) => d.data == c) < 1).ToList();
+            List<FrameData> commonFrames = RunLoop.instance.framesData.Where((c) => c.isLowRarity && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
             if (commonFrames.Count > 0)
                 commonFrames.Shuffle();
             
-            List<FrameData> legendaryFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Legendary && alreadyOwnedFrames.Count((d) => d.data == c) < 1).ToList();
+            List<FrameData> legendaryFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Legendary && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
             if (legendaryFrames.Count > 0)
                 legendaryFrames.Shuffle();
             
-            List<FrameData> exoticFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Exotic && alreadyOwnedFrames.Count((d) => d.data == c) < 1).ToList();
+            List<FrameData> exoticFrames = RunLoop.instance.framesData.Where((c) => c.rarity == CardData.Rarity.Exotic && alreadyOwnedFrames.Count((d) => d.data.frameName == c.frameName) < 1).ToList();
             if (exoticFrames.Count > 0)
                 exoticFrames.Shuffle();
 
