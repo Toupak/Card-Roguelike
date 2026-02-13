@@ -23,7 +23,9 @@ namespace Cards.Scripts
 
         public void DecreaseStat(Stats stat, int amount)
         {
-            if (statDictionary.ContainsKey(stat))
+            if (!statDictionary.ContainsKey(stat))
+                statDictionary.Add(stat, -amount);
+            else
                 statDictionary[stat] -= amount;
         }
 
