@@ -77,7 +77,6 @@ namespace Cards.Scripts
             
             cardHealth = GetComponent<CardHealth>();
             cardHealth.Setup(health, data.isInvincible);
-            cardHealth.OnDeath.AddListener(() => KillCard());
             
             cardSfx = GetComponent<CardSFX>();
             cardSfx.Setup(this, movement, data, cardHealth);

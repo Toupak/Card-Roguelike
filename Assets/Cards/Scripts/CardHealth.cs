@@ -12,7 +12,6 @@ namespace Cards.Scripts
         
         [HideInInspector] public UnityEvent<int> OnUpdateHP = new UnityEvent<int>();
         [HideInInspector] public UnityEvent OnTakeDamage = new UnityEvent();
-        [HideInInspector] public UnityEvent OnDeath = new UnityEvent();
         
         public CardController cardController { get; private set; }
         public int currentHealth { get; private set; }
@@ -79,11 +78,6 @@ namespace Cards.Scripts
 
             DamageNumberFactory.instance.DisplayHealNumber(cardController.screenPosition, heal);
             OnUpdateHP.Invoke(currentHealth);
-        }
-
-        public void Dies()
-        {
-            OnDeath.Invoke();
         }
 
         public void SetHealth(int health)

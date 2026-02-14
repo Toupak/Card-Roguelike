@@ -13,6 +13,7 @@ namespace Combat.Spells
         protected override IEnumerator CastSpellOnTarget(List<CardMovement> targets)
         {
             yield return base.CastSpellOnTarget(targets);
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             
             if (spellData.inflictStatus != StatusType.None && spellData.statusStacksApplied > 0)
             {

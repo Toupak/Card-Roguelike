@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // ReSharper disable CanSimplifyDictionaryLookupWithTryGetValue
-
 namespace ActionReaction
 {
     public enum ReactionTiming

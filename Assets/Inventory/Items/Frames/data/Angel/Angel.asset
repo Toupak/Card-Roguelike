@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
+  m_Name: Angel
+  m_EditorClassIdentifier: 
+  frameName: Angel Frame
+  frameDescription: Once per combat, on death, come back to life with 1 Health Point
+  icon: {fileID: -646910554, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
+  rarity: 2
+  barColor: {r: 0.5188679, g: 0.51152545, b: 0.51152545, a: 1}
+  circleColor: {r: 0.7264151, g: 0.72353685, b: 0.6955767, a: 1}
+  material: {fileID: 2100000, guid: 8eb3dff6afa3241489a3d9e71f84e20f, type: 2}
+  frameController: {fileID: -4444984796711045003, guid: 042ed0268e5b71943ab9aa8cd6d0c5f5, type: 3}
+  localizationKey: 

@@ -37,7 +37,7 @@ namespace Cards.Scripts
             });
             
             cardHealth.OnTakeDamage.AddListener(() => PlaySFXOrDefault(cardData.takeDamageAudioClip, takeDamage));
-            cardHealth.OnDeath.AddListener(() => PlaySFXOrDefault(cardData.deathAudioClip, death));
+            cardController.OnKillCard.AddListener(() => PlaySFXOrDefault(cardData.deathAudioClip, death));
         }
 
         private void PlaySFXOrDefault(AudioClip clip, AudioClip defaultClip)

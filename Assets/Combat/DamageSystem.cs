@@ -171,7 +171,13 @@ namespace Combat
 
         private IEnumerator DeathPerformer(DeathGA deathGa)
         {
-            deathGa.target.cardHealth.Dies();
+            if (!deathGa.isDeathPrevented)
+                deathGa.target.KillCard();
+            else
+            {
+                Sequence fakeDeathAnimation = CardTween.NewPlayFakeDeathAnimation(deathGa.target);
+                yield return new WaitWhile(() => fakeDeathAnimation.isAlive);
+            }
             yield break;
         }
         

@@ -140,6 +140,32 @@ namespace Cards.Tween_Animations
             return sequence;
         }
 
+        public static Sequence NewPlayFakeDeathAnimation(CardController target)
+        {
+            if (target == null)
+                return Sequence.Create();
+            
+            target.SetFollowState(false);
+            target.SetSpriteAsAbove();
+            
+            Vector2 startingPosition = target.rectTransform.anchoredPosition;
+            float distance = 2000.0f * (target.cardMovement.IsEnemyCard ? 1.0f : -1.0f);
+            Vector2 targetPosition = target.rectTransform.anchoredPosition + Vector2.up * distance;
+
+            Sequence sequence = Sequence.Create()
+                .Chain(Tween.UIAnchoredPosition(target.rectTransform, targetPosition, 0.1f))
+                .ChainDelay(0.1f)
+                .Chain(Tween.UIAnchoredPosition(target.rectTransform, startingPosition, 0.1f))
+                .Chain(NewPlaySelfAction(target))
+                .ChainCallback(() =>
+                {
+                    target.SetFollowState(true);
+                    target.ResetSpriteOrder();
+                });
+
+            return sequence;
+        }
+
         public static IEnumerator PlayPhysicalAttack(CardController attacker, CardController target)
         {
             if (attacker == null || target == null)
