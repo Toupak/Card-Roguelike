@@ -187,8 +187,11 @@ namespace Combat
 
             foreach (DamagePackage package in targets)
             {
-                DealDamageGA damageGa = new DealDamageGA(1, package.target, dealDamageGa.attacker);
-                ActionSystem.instance.AddReaction(damageGa);
+                if (dealDamageGa.attacker != null)
+                {
+                    DealDamageGA damageGa = new DealDamageGA(1, package.target, dealDamageGa.attacker);
+                    ActionSystem.instance.AddReaction(damageGa);
+                }
             }
         }
     }
