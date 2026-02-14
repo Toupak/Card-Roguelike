@@ -25,7 +25,7 @@ namespace Combat.EnemyAttack.Batsu.BatPassive
         {
             DealDamageGA.DamagePackage package = gA.GetDamagePackageForTarget(cardController);
             
-            if (package != null && package.amount > 0)
+            if (package != null && package.amount == 0)
             {
                 DealDamageGA damageGa = new DealDamageGA(cardController.ComputeCurrentDamage(damage), cardController, gA.attacker);
                 ActionSystem.instance.AddReaction(damageGa);

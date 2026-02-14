@@ -119,6 +119,7 @@ namespace Combat
             ActionSystem.AttachPerformer<StartTurnGa>(StartTurnPerformer);
             ActionSystem.AttachPerformer<EndTurnGA>(EndTurnPerformer);
             ActionSystem.AttachPerformer<SpawnCardGA>(SpawnCardPerformer);
+            ActionSystem.AttachPerformer<EndBattleGa>(EndBattlePerformer);
         }
 
         private void OnDisable()
@@ -126,6 +127,7 @@ namespace Combat
             ActionSystem.DetachPerformer<StartTurnGa>();
             ActionSystem.DetachPerformer<EndTurnGA>();
             ActionSystem.DetachPerformer<SpawnCardGA>();
+            ActionSystem.DetachPerformer<EndBattleGa>();
         }
         
         private IEnumerator SpawnCardPerformer(SpawnCardGA spawnCardGa)
@@ -144,6 +146,11 @@ namespace Combat
                 spawnCardGa.spawnedCard.AddFrame(spawnCardGa.frameData);
 
             yield return new WaitForSeconds(0.2f);
+        }
+        
+        private IEnumerator EndBattlePerformer(EndBattleGa endBattleGa)
+        {
+            yield break;   
         }
 
         private IEnumerator SetupButtons()
@@ -337,6 +344,16 @@ namespace Combat
             }
 
             PlayerDeck.instance.SaveLastHandPlayed(cardsToSave);
+        }
+
+        public IEnumerator PerformEndBattleAnimation(bool isPlayerAlive)
+        {
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+            
+            EndBattleGa endBattleGa = new EndBattleGa(isPlayerAlive);
+            ActionSystem.instance.Perform(endBattleGa);
+            
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
         }
     }
 }

@@ -166,6 +166,7 @@ namespace Run_Loop
             OnStartBattle?.Invoke();
             yield return new WaitUntil(IsCombatOver);
             bool isPlayerAlive = CheckCombatResult();
+            yield return PerformEndBattleAnimation(isPlayerAlive);
             StoreCardsHealth();
 
             if (!IsRunOver() && isPlayerAlive)
@@ -224,6 +225,11 @@ namespace Run_Loop
         private bool CheckCombatResult()
         {
             return CombatLoop.instance.HasPlayerWon();
+        }
+        
+        private IEnumerator PerformEndBattleAnimation(bool isPlayerAlive)
+        {
+            yield return CombatLoop.instance.PerformEndBattleAnimation(isPlayerAlive);
         }
         
         private void StoreCardsHealth()
