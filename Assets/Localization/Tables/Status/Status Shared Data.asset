@@ -311,6 +311,14 @@ MonoBehaviour:
     m_Key: marker
     m_Metadata:
       m_Items: []
+  - m_Id: 29581390634516480
+    m_Key: stagger_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29581392308043776
+    m_Key: stagger
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

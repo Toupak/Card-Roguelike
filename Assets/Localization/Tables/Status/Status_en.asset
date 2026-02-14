@@ -193,7 +193,7 @@ MonoBehaviour:
     m_Localized: 'Gain 1 stack of Rage for every damage dealt or received
 
       At
-      10 Rage stacks, consume stacks and deal 1 damage to all enemies'
+      10 Rage stacks, consume stacks and go Berserk for 2 turns'
     m_Metadata:
       m_Items: []
   - m_Id: 347651979313186
@@ -342,7 +342,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27517750926344194
-    m_Localized: The faintest Moonligth is only a reflection of the Sun's glory...
+    m_Localized: Once 3 stacks are applied to a target, Bojack will consume all stacks
+      and reset his first spell
     m_Metadata:
       m_Items: []
   - m_Id: 27533886153785344
@@ -351,6 +352,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 27533886187339776
     m_Localized: Targets Marked by laser take 1 more damage from all sources
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29581390634516480
+    m_Localized: Stagger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29581392308043776
+    m_Localized: When receiving 3 stacks of $Stagger$, get $Stun$
     m_Metadata:
       m_Items: []
   references:

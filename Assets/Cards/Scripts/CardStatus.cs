@@ -49,7 +49,8 @@ namespace Cards.Scripts
         Webbed,
         Sonar,
         Moonlight,
-        Marker
+        Marker,
+        Stagger
     }
 
     public enum StatusBehaviour

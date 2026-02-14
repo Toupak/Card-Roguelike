@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4304882197491791093}
-  - component: {fileID: 5418681843384700358}
+  - component: {fileID: 9135657289182802685}
   m_Layer: 5
-  m_Name: Pressure
+  m_Name: Stagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5418681843384700358
+--- !u!114 &9135657289182802685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,6 +45,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 84359681995233075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304be84120faabf45aabab38e669171a, type: 3}
+  m_Script: {fileID: 11500000, guid: d690a701113b9664ea7d2056c1ad2874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

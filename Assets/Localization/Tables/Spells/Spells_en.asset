@@ -401,7 +401,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 281293862174720
-    m_Localized: Applies 1 $Stun$ stack to an enemy target
+    m_Localized: Applies 2 $Stagger$ stacks to enemy target
     m_Metadata:
       m_Items: []
   - m_Id: 336383608324096

@@ -21,6 +21,7 @@ MonoBehaviour:
   effectType: 0
   maxStackCount: -1
   neverRemoveTab: 0
+  statusController: {fileID: 0}
   barColor:
     serializedVersion: 2
     rgba: 4279729899

@@ -107,7 +107,7 @@ Next turn, if ally is still alive, give health back"
 "zaur_zaurremount",261674803888128,"Zaur climbs back on Dino"
 "squirtysquire_suddensquirt",280928123060224,"Deal $d$ Damages to a single target
 Double Damage if target is $Stun$"
-"squirtysquire_highpressure",281293862174720,"Applies 1 $Stun$ stack to an enemy target"
+"squirtysquire_highpressure",281293862174720,"Applies 2 $Stagger$ stacks to enemy target"
 "banana_potassiumgood_title",336383608324096,"Potassium Good"
 "barbarian_barbarianattack_title",336383650267136,"RAAAAAAAAAAA"
 "barbarian_barbariandefense_title",336383650267137,"Berserker's Boots"
