@@ -94,7 +94,7 @@ namespace Run_Loop
             
             LoadCharacterDeck(CharacterData);
             
-            yield return LoadRoom(RoomBuilder.instance.GetStartingRoom(), () =>
+            yield return SceneLoader.instance.LoadRoom(RoomBuilder.instance.ComputeStartingRoom(), () =>
             {
                 SpawnCharacter();
                 callback?.Invoke();
@@ -187,7 +187,7 @@ namespace Run_Loop
                 currentBattleIndex += 1;
 
                 RoomBuilder.instance.MarkCurrentRoomAsCleared();
-                yield return LoadRoom(RoomBuilder.instance.GetCurrentRoomName(), () =>
+                yield return SceneLoader.instance.LoadRoom(RoomBuilder.instance.CurrentRoom, () =>
                 {
                     MinimapBuilder.instance.SetMinimapState(true);
                     UnlockPlayer();
@@ -210,7 +210,7 @@ namespace Run_Loop
             MinimapBuilder.instance.SetMinimapState(false);
             yield return PerformRewardScene();
             RoomBuilder.instance.MarkCurrentRoomAsCleared();
-            yield return LoadRoom(RoomBuilder.instance.GetCurrentRoomName(), () =>
+            yield return SceneLoader.instance.LoadRoom(RoomBuilder.instance.CurrentRoom, () =>
             {
                 MinimapBuilder.instance.SetMinimapState(true);
                 UnlockPlayer();
@@ -281,7 +281,7 @@ namespace Run_Loop
 
         private IEnumerator GoToNextRoom(RoomData.DoorDirection doorDirection)
         {
-            yield return LoadRoom(RoomBuilder.instance.GetNextRoom(doorDirection),() =>
+            yield return SceneLoader.instance.LoadRoom(RoomBuilder.instance.ComputeNextRoom(doorDirection),() =>
             {
                 MinimapBuilder.instance.UpdateMap();
                 MovePlayerToRoomDoor(doorDirection);
@@ -289,11 +289,6 @@ namespace Run_Loop
 
             if (RoomBuilder.instance.GetCurrentRoomType() == RoomData.RoomType.Battle && !RoomBuilder.instance.HasRoomBeenCleared())
                 LockRoom();
-        }
-
-        private IEnumerator LoadRoom(string roomName, Action callback = null)
-        {
-            yield return SceneLoader.instance.LoadRoom(roomName, RoomBuilder.instance.GetCurrentRoomType(), RoomBuilder.instance.HasRoomBeenCleared(), callback);
         }
 
         private void LockRoom()

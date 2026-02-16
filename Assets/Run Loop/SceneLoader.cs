@@ -43,16 +43,17 @@ namespace Run_Loop
             isLoading = false;
         }
 
-        public IEnumerator LoadRoom(string roomName, RoomData.RoomType roomType, bool hasRoomBeenCleared, Action callback = null)
+        public IEnumerator LoadRoom(RoomPackage roomPackage, Action callback = null)
         {
             isLoading = true;
-            Debug.Log($"Load Room : {roomName}");
+            string roomName = roomPackage.room.roomName;
+            Debug.Log($"Load Room : {roomPackage.room.roomName}");
             yield return FadeScreen(true);
 
             AsyncOperation operation = SceneManager.LoadSceneAsync(roomName);
-            yield return new WaitUntil(() => operation.isDone);
+            yield return new WaitUntil(() => operation == null || operation.isDone);
 
-            RoomFiller.instance.FillRoom(roomType, hasRoomBeenCleared);
+            RoomFiller.instance.FillRoom(roomPackage);
             
             if (callback != null)
                 callback.Invoke();

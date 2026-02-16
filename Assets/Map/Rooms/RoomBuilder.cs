@@ -1,15 +1,24 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using BoomLib.Tools;
-using Map.Floors;
-using Run_Loop;
 using UnityEngine;
 using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
 namespace Map.Rooms
 {
+    public class PointOfInterest
+    {
+        public GameObject prefab;
+        public Vector3 position;
+        public bool removeOnCleared;
+
+        public PointOfInterest(GameObject prefab, Vector3 position, bool removeOnCleared)
+        {
+            this.prefab = prefab;
+            this.position = position;
+            this.removeOnCleared = removeOnCleared;
+        }
+    }
+    
     public class RoomPackage
     {
         public RoomData room;
@@ -19,6 +28,8 @@ namespace Map.Rooms
         public bool isVisible;
         public bool hasBeenVisited;
         public bool hasBeenCleared;
+        
+        public List<PointOfInterest> pointOfInterests = new List<PointOfInterest>();
 
         public bool IsHostile => roomType == RoomData.RoomType.Battle || roomType == RoomData.RoomType.Elite || roomType == RoomData.RoomType.Boss;
         
@@ -31,6 +42,11 @@ namespace Map.Rooms
             this.isVisible = roomType == RoomData.RoomType.Starting;
             this.hasBeenVisited = roomType == RoomData.RoomType.Starting;
             this.hasBeenCleared = roomType == RoomData.RoomType.Starting;
+        }
+
+        public void AddPointOfInterest(GameObject prefab, Vector3 position, bool removeOnCleared)
+        {
+            pointOfInterests.Add(new PointOfInterest(prefab, position, removeOnCleared));
         }
     }
     
@@ -74,51 +90,25 @@ namespace Map.Rooms
                     if (map[x][y] != 0)
                         rooms.Add(new RoomPackage(GetRoomFromDataBase(map, x, y), x, y, MapBuilder.instance.ComputeRoomType(map[x][y])));
             
-            GetStartingRoom();
+            ComputeStartingRoom();
             
             OnBuildRooms?.Invoke();
         }
 
-        public string GetStartingRoom()
+        public RoomPackage ComputeStartingRoom()
         {
             currentRoom = GetRoom(RoomData.RoomType.Starting);
             UpdateRoomsVisibility();
-            return GetCurrentRoomName();
+            return currentRoom;
         }
 
-        private void UpdateRoomsVisibility()
-        {
-            currentRoom.hasBeenVisited = true;
-            currentRoom.isVisible = true;
-            
-            (int x, int y) = ComputeNextRoomCoords(RoomData.DoorDirection.Left);
-            RoomPackage room = GetRoom(x, y);
-            if (room != null)
-                room.isVisible = true;
-            
-            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Top);
-            room = GetRoom(x, y);
-            if (room != null)
-                room.isVisible = true;
-            
-            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Right);
-            room = GetRoom(x, y);
-            if (room != null)
-                room.isVisible = true;
-            
-            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Bot);
-            room = GetRoom(x, y);
-            if (room != null)
-                room.isVisible = true;
-        }
-
-        public string GetNextRoom(RoomData.DoorDirection doorDirection)
+        public RoomPackage ComputeNextRoom(RoomData.DoorDirection doorDirection)
         {
             (int x, int y) = ComputeNextRoomCoords(doorDirection);
             currentRoom = GetRoom(x, y);
             currentRoom.hasBeenVisited = true;
             UpdateRoomsVisibility();
-            return GetCurrentRoomName();
+            return currentRoom;
         }
         
         public string GetCurrentRoomName()
@@ -143,6 +133,32 @@ namespace Map.Rooms
         {
             if (currentRoom != null)
                 currentRoom.hasBeenCleared = true;
+        }
+        
+        private void UpdateRoomsVisibility()
+        {
+            currentRoom.hasBeenVisited = true;
+            currentRoom.isVisible = true;
+            
+            (int x, int y) = ComputeNextRoomCoords(RoomData.DoorDirection.Left);
+            RoomPackage room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
+            
+            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Top);
+            room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
+            
+            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Right);
+            room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
+            
+            (x, y) = ComputeNextRoomCoords(RoomData.DoorDirection.Bot);
+            room = GetRoom(x, y);
+            if (room != null)
+                room.isVisible = true;
         }
 
         private (int, int) ComputeNextRoomCoords(RoomData.DoorDirection doorDirection)

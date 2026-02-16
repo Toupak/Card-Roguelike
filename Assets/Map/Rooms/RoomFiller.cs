@@ -17,24 +17,24 @@ namespace Map.Rooms
             instance = this;
         }
 
-        public void FillRoom(RoomData.RoomType roomType, bool hasRoomBeenCleared)
+        public void FillRoom(RoomPackage roomPackage)
         {
-            switch (roomType)
+            switch (roomPackage.roomType)
             {
                 case RoomData.RoomType.Starting:
                     SetupStartingRoom();
                     break;
                 case RoomData.RoomType.Battle:
-                    SetupBattleRoom(hasRoomBeenCleared);
+                    SetupBattleRoom(roomPackage);
                     break;
                 case RoomData.RoomType.Encounter:
-                    SetupSpecialRoom(hasRoomBeenCleared);
+                    SetupSpecialRoom(roomPackage);
                     break;
                 case RoomData.RoomType.Elite:
-                    SetupEliteRoom(hasRoomBeenCleared);
+                    SetupEliteRoom(roomPackage);
                     break;
                 case RoomData.RoomType.Boss:
-                    SetupBossRoom(hasRoomBeenCleared);
+                    SetupBossRoom(roomPackage);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -46,36 +46,58 @@ namespace Map.Rooms
             
         }
         
-        private void SetupBattleRoom(bool hasRoomBeenCleared)
+        private void SetupBattleRoom(RoomPackage roomPackage)
         {
-            SpawnBattleInteraction(hasRoomBeenCleared);
-        }
-        
-        private void SetupSpecialRoom(bool hasRoomBeenCleared)
-        {
-            if (!hasRoomBeenCleared)
-                Instantiate(dialogInteractionPrefab, GetPosition(), Quaternion.identity);
-        }
-        
-        private void SetupEliteRoom(bool hasRoomBeenCleared)
-        {
-            SpawnBattleInteraction(hasRoomBeenCleared);
-            Instantiate(eliteBattleGroundMark, Vector3.zero, Quaternion.identity);
-        }
-        
-        private void SetupBossRoom(bool hasRoomBeenCleared)
-        {
-            SpawnBattleInteraction(hasRoomBeenCleared);
-            Instantiate(bossBattleGroundMark, Vector3.zero, Quaternion.identity);
+            if (roomPackage.pointOfInterests.Count < 1)
+                roomPackage.AddPointOfInterest(battleInteractionPrefab, ComputeNewPosition(), true);
+            
+            SpawnRoomContent(roomPackage);
         }
 
-        private void SpawnBattleInteraction(bool hasRoomBeenCleared)
+        private void SetupSpecialRoom(RoomPackage roomPackage)
         {
-            if (!hasRoomBeenCleared)
-                Instantiate(battleInteractionPrefab, GetPosition(), Quaternion.identity);
+            if (roomPackage.pointOfInterests.Count < 1)
+            {
+                roomPackage.AddPointOfInterest(dialogInteractionPrefab, ComputeNewPosition(), true);
+            }
+            
+            SpawnRoomContent(roomPackage);
+        }
+        
+        private void SetupEliteRoom(RoomPackage roomPackage)
+        {
+            if (roomPackage.pointOfInterests.Count < 1)
+            {
+                roomPackage.AddPointOfInterest(eliteBattleGroundMark, Vector3.zero, false);
+                roomPackage.AddPointOfInterest(battleInteractionPrefab, ComputeNewPosition(), true);
+            }
+            
+            SpawnRoomContent(roomPackage);
+        }
+        
+        private void SetupBossRoom(RoomPackage roomPackage)
+        {
+            if (roomPackage.pointOfInterests.Count < 1)
+            {
+                roomPackage.AddPointOfInterest(bossBattleGroundMark, Vector3.zero, false);
+                roomPackage.AddPointOfInterest(battleInteractionPrefab, ComputeNewPosition(), true);
+            }
+            
+            SpawnRoomContent(roomPackage);
         }
 
-        private Vector3 GetPosition()
+        private void SpawnRoomContent(RoomPackage roomPackage)
+        {
+            foreach (PointOfInterest item in roomPackage.pointOfInterests)
+            {
+                if (roomPackage.hasBeenCleared && item.removeOnCleared)
+                    continue;
+                
+                Instantiate(item.prefab, item.position, Quaternion.identity);
+            }
+        }
+
+        private Vector3 ComputeNewPosition()
         {
             if (RoomPointsOfInterest.instance != null)
                 return RoomPointsOfInterest.instance.GetPointOfInterestPosition();
