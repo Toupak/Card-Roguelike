@@ -759,6 +759,10 @@ MonoBehaviour:
     m_Key: strongpepper_archemologist_pepper
     m_Metadata:
       m_Items: []
+  - m_Id: 30346024069070848
+    m_Key: thelastgnomefighter_gnomefighterprotection_title
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

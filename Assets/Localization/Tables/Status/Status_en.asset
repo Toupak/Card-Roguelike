@@ -277,11 +277,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1800943976546304
-    m_Localized: Corpse
+    m_Localized: Bones
     m_Metadata:
       m_Items: []
   - m_Id: 1800944131735552
-    m_Localized: 
+    m_Localized: Never let a strong bone go to waste
     m_Metadata:
       m_Items: []
   - m_Id: 2259158371631109

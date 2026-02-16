@@ -112,7 +112,7 @@ Key,Id,English(en)
 "spider_poisonousspit_title",1003194477674496,"Poisonous Spit"
 "spider_poisonousspit",1003194477674497,"Deals $d$ DMG, Applies 2 $Poison$"
 "spider_web_title",1003194477674498,"Web"
-"spider_web",1003194477674499,"Applies 1 $stun$"
+"spider_web",1003194477674499,"Applies 1 $Stun$"
 "shrong_selfheal_title",1037173588656128,"Protein Shake"
 "shrong_selfheal",1037173622210560,"Heal Self for 2HP"
 "shrong_punch_title",1037173622210561,"80LB Punch"

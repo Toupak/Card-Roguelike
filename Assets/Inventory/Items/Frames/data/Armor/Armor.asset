@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608ad9c37aa49d5468a5e754cbe22285, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  frameName: Shield Frame
+  frameName: Armor Frame
   frameDescription: Gain 1 $Armor$ on turn end
   icon: {fileID: 66554566, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   rarity: 1
