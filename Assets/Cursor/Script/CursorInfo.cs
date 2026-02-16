@@ -79,7 +79,14 @@ namespace Cursor.Script
         {
             if (isInspecting)
             {
-                StopInspecting();
+                if (currentCardMovement != null && currentCardMovement != currentInteractionCard && currentCardMovement.canBeInspected)
+                {
+                    StopInspecting();
+                    StartInspecting();
+                }
+                else 
+                    StopInspecting();
+                
                 return;
             }
             
