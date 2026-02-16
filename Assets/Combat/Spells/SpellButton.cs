@@ -53,6 +53,9 @@ namespace Combat.Spells
         
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left)
+                return;
+            
             bool isSpellValid = spellController != null && spellController.CanCastSpell() && spellData != null;
             
             if (!isSpellValid)
