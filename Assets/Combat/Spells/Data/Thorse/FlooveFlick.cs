@@ -18,7 +18,7 @@ namespace Combat.Spells.Data.Thorse
             if (cardController.cardStatus.IsStatusApplied(StatusType.Captured))
                 return false;
             
-            return !HasCastedThisTurn && EnergyController.instance.CheckForEnergy(1);
+            return !HasCastedThisTurn;
         }
         
         public override int ComputeEnergyCost()
