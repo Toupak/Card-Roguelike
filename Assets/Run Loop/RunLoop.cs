@@ -93,9 +93,12 @@ namespace Run_Loop
                 yield return SelectCharacter();
             
             LoadCharacterDeck(CharacterData);
-            SpawnCharacter();
             
-            yield return LoadRoom(RoomBuilder.instance.GetStartingRoom(), callback);
+            yield return LoadRoom(RoomBuilder.instance.GetStartingRoom(), () =>
+            {
+                SpawnCharacter();
+                callback?.Invoke();
+            });
             
             MinimapBuilder.instance.SetMinimapState(true);
             OnStartRun?.Invoke();
@@ -110,7 +113,7 @@ namespace Run_Loop
 
         private void SpawnCharacter()
         {
-            DontDestroyOnLoad(Instantiate(characterPrefab, Vector3.zero, Quaternion.identity));
+            DontDestroyOnLoad(Instantiate(characterPrefab, ComputePlayerStartingPosition(), Quaternion.identity));
         }
         
         private void MovePlayerToRoomDoor(RoomData.DoorDirection doorDirection)
@@ -118,9 +121,17 @@ namespace Run_Loop
             CharacterSingleton.instance.transform.position = DoorHolder.instance.GetDoorExitPosition(doorDirection, 1.5f);
         }
 
-        private void MovePlayerToCenterOfRoom()
+        private void MovePlayerToStartingPosition()
         {
-            CharacterSingleton.instance.transform.position = Vector3.zero;
+            CharacterSingleton.instance.transform.position = ComputePlayerStartingPosition();
+        }
+
+        private Vector3 ComputePlayerStartingPosition()
+        {
+            if (RoomPointsOfInterest.instance != null)
+                return RoomPointsOfInterest.instance.GetPlayerStartingPosition();
+            else
+                return Vector3.zero;
         }
 
         private void LockPlayer()
@@ -263,7 +274,7 @@ namespace Run_Loop
             yield return SceneLoader.instance.LoadScene(hubScene, () =>
             {
                 isInRun = false;
-                MovePlayerToCenterOfRoom();
+                MovePlayerToStartingPosition();
                 UnlockPlayer();
             });
         }
