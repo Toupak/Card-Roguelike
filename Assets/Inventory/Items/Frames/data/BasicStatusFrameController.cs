@@ -86,16 +86,11 @@ namespace Inventory.Items.Frames.data
         {
             if (dealDamageGa.attacker == cardController)
             {
-                if (target == StatusBehaviourTarget.OnTarget)
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
                 {
-                    foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
-                    {
-                        if (!package.isDamageNegated)
-                            CheckBehaviour(package.target);
-                    }
+                    if (!package.isDamageNegated)
+                        CheckBehaviour(package.target);
                 }
-                else
-                    CheckBehaviour(ComputeTarget(dealDamageGa, true));
             }
         }
 
