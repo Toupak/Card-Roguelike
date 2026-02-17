@@ -27,24 +27,25 @@ namespace ActionReaction.Game_Actions
         public readonly CardController attacker;
         public List<DamagePackage> packages = new List<DamagePackage>();
         
-
+        public int baseDamage = 0;
         public bool bypassArmor = false;
         public bool isBongoAttack = false;
 
         public DealDamageGA(int damageAmount, CardController attackerController, CardController targetController)
         {
             attacker = attackerController;
-            packages.Add(new DamagePackage(Mathf.Max(0, damageAmount), targetController));
+            baseDamage = Mathf.Max(0, damageAmount);
+            packages.Add(new DamagePackage(baseDamage, targetController));
         }
         
         public DealDamageGA(int damageAmount, CardController attackerController, List<CardController> targetControllers)
         {
             attacker = attackerController;
+            baseDamage = Mathf.Max(0, damageAmount);
 
-            int damage = Mathf.Max(0, damageAmount);
             foreach (CardController targetController in targetControllers)
             {
-                packages.Add(new DamagePackage(damage, targetController));
+                packages.Add(new DamagePackage(baseDamage, targetController));
             }
         }
         

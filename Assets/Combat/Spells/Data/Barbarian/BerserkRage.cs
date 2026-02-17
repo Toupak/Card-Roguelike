@@ -30,7 +30,9 @@ namespace Combat.Spells.Data.Barbarian
             
             if (dealDamageGa.attacker == cardController || damagePackage != null)
             {
-                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Rage, damagePackage.amount, cardController, cardController);
+                int damage = damagePackage != null ? damagePackage.amount : dealDamageGa.baseDamage;
+                
+                ApplyStatusGa applyStatusGa = new ApplyStatusGa(StatusType.Rage, damage, cardController, cardController);
                 ActionSystem.instance.AddReaction(applyStatusGa);
             }
         }
