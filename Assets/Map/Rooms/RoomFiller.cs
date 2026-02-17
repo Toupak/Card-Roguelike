@@ -6,9 +6,19 @@ namespace Map.Rooms
     public class RoomFiller : MonoBehaviour
     {
         [SerializeField] private GameObject battleInteractionPrefab;
+        [SerializeField] private Sprite battleInteractionIcon;
+        
+        [Space]
         [SerializeField] private GameObject eliteBattleGroundMark;
+        [SerializeField] private Sprite eliteBattleIcon;
+        
+        [Space]
         [SerializeField] private GameObject bossBattleGroundMark;
+        [SerializeField] private Sprite bossBattleIcon;
+        
+        [Space]
         [SerializeField] private GameObject dialogInteractionPrefab;
+        [SerializeField] private Sprite dialogInteractionIcon;
         
         public static RoomFiller instance;
         
@@ -49,7 +59,7 @@ namespace Map.Rooms
         private void SetupBattleRoom(RoomPackage roomPackage)
         {
             if (roomPackage.pointOfInterests.Count < 1)
-                roomPackage.AddPointOfInterest(battleInteractionPrefab, ComputeNewPosition(), true);
+                roomPackage.AddPointOfInterest(battleInteractionPrefab, battleInteractionIcon, ComputeNewPosition(), true);
             
             SpawnRoomContent(roomPackage);
         }
@@ -58,7 +68,7 @@ namespace Map.Rooms
         {
             if (roomPackage.pointOfInterests.Count < 1)
             {
-                roomPackage.AddPointOfInterest(dialogInteractionPrefab, ComputeNewPosition(), true);
+                roomPackage.AddPointOfInterest(dialogInteractionPrefab, dialogInteractionIcon, ComputeNewPosition(), true);
             }
             
             SpawnRoomContent(roomPackage);
@@ -68,8 +78,8 @@ namespace Map.Rooms
         {
             if (roomPackage.pointOfInterests.Count < 1)
             {
-                roomPackage.AddPointOfInterest(eliteBattleGroundMark, Vector3.zero, false);
-                roomPackage.AddPointOfInterest(battleInteractionPrefab, ComputeNewPosition(), true);
+                roomPackage.AddPointOfInterest(eliteBattleGroundMark, null, Vector3.zero, false);
+                roomPackage.AddPointOfInterest(battleInteractionPrefab, eliteBattleIcon, ComputeNewPosition(), true);
             }
             
             SpawnRoomContent(roomPackage);
@@ -79,8 +89,8 @@ namespace Map.Rooms
         {
             if (roomPackage.pointOfInterests.Count < 1)
             {
-                roomPackage.AddPointOfInterest(bossBattleGroundMark, Vector3.zero, false);
-                roomPackage.AddPointOfInterest(battleInteractionPrefab, ComputeNewPosition(), true);
+                roomPackage.AddPointOfInterest(bossBattleGroundMark, null, Vector3.zero, false);
+                roomPackage.AddPointOfInterest(battleInteractionPrefab, bossBattleIcon, ComputeNewPosition(), true);
             }
             
             SpawnRoomContent(roomPackage);

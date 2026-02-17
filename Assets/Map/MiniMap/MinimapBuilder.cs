@@ -11,19 +11,14 @@ namespace Map.MiniMap
         [SerializeField] private Transform cameraTransform;
 
         [Space] 
-        [SerializeField] private GameObject RoomPrefab;
+        [SerializeField] private MinimapRoomIcon roomPrefab;
         
-        [Space] 
-        [SerializeField] private Color currentRoomColor;
-        [SerializeField] private Color visitedRoomColor;
-        [SerializeField] private Color fogOfWarRoomColor;
-
         [Space]
         [SerializeField] private Vector2 cellSize;
 
         public static MinimapBuilder instance;
 
-        private Dictionary<RoomPackage, SpriteRenderer> roomSprites = new Dictionary<RoomPackage, SpriteRenderer>();
+        private List<MinimapRoomIcon> roomIcons = new List<MinimapRoomIcon>();
 
         private void Awake()
         {
@@ -39,15 +34,21 @@ namespace Map.MiniMap
         public void UpdateMap()
         {
             List<RoomPackage> rooms = RoomBuilder.instance.Rooms;
-            
-            foreach (RoomPackage room in rooms)
+            RoomPackage currentRoom = RoomBuilder.instance.CurrentRoom;
+
+            foreach (MinimapRoomIcon roomIcon in roomIcons)
             {
-                roomSprites[room].color = ComputeRoomColor(room.hasBeenVisited);
-                roomSprites[room].gameObject.SetActive(room.isVisible);
+                if (roomIcon.roomPackage.isVisible)
+                {
+                    roomIcon.gameObject.SetActive(true);
+                    
+                    bool isCurrentRoom = currentRoom == roomIcon.roomPackage;
+                    if (isCurrentRoom)
+                        SetCameraPositionOnCurrentRoom(roomIcon);
+                    
+                    roomIcon.UpdateIcon(isCurrentRoom);
+                }
             }
-            
-            SetCurrentRoomColor();
-            SetCameraPositionOnCurrentRoom();
         }
 
         public void SetMinimapState(bool state)
@@ -58,45 +59,37 @@ namespace Map.MiniMap
         private void BuildMinimap()
         {
             List<RoomPackage> rooms = RoomBuilder.instance.Rooms;
+            RoomPackage currentRoom = RoomBuilder.instance.CurrentRoom;
             Vector2 offset = Vector2.one * (MapBuilder.instance.mapCenter * -1.0f);
             
             foreach (RoomPackage room in rooms)
             {
-                SpriteRenderer roomSprite = SpawnRoom(room.x, room.y, offset, room.hasBeenVisited);
-                roomSprites.Add(room, roomSprite);
+                bool isCurrentRoom = currentRoom == room;
                 
-                roomSprite.gameObject.SetActive(room.isVisible);
+                MinimapRoomIcon roomIcon = SpawnRoom(room.x, room.y, offset, room, isCurrentRoom);
+                roomIcons.Add(roomIcon);
+                
+                roomIcon.gameObject.SetActive(room.isVisible);
+                
+                if (isCurrentRoom)
+                    SetCameraPositionOnCurrentRoom(roomIcon);
             }
-
-            SetCurrentRoomColor();
-            SetCameraPositionOnCurrentRoom();
         }
 
-        private SpriteRenderer SpawnRoom(int x, int y, Vector2 offset, bool roomHasBeenVisited)
+        private MinimapRoomIcon SpawnRoom(int x, int y, Vector2 offset, RoomPackage roomPackage, bool isCurrentRoom)
         {
             Vector2 position = transform.position.ToVector2() + new Vector2(x * cellSize.x, y * cellSize.y) + new Vector2(offset.x * cellSize.x, offset.y * cellSize.y);
 
-            GameObject room = Instantiate(RoomPrefab, position, Quaternion.identity, transform);
+            MinimapRoomIcon roomIcon = Instantiate(roomPrefab, position, Quaternion.identity, transform);
+            roomIcon.Setup(roomPackage, isCurrentRoom);
 
-            SpriteRenderer roomSprite = room.GetComponent<SpriteRenderer>();
-            roomSprite.color = ComputeRoomColor(roomHasBeenVisited);
-
-            return roomSprite;
+            return roomIcon;
         }
         
-        private void SetCurrentRoomColor()
-        {
-            roomSprites[RoomBuilder.instance.CurrentRoom].color = currentRoomColor;
-        }
-
-        private Color ComputeRoomColor(bool roomHasBeenVisited)
-        {
-            return roomHasBeenVisited ? visitedRoomColor : fogOfWarRoomColor;
-        }
         
-        private void SetCameraPositionOnCurrentRoom()
+        private void SetCameraPositionOnCurrentRoom(MinimapRoomIcon roomIcon)
         {
-            Vector3 position = roomSprites[RoomBuilder.instance.CurrentRoom].transform.position;
+            Vector3 position = roomIcon.transform.position;
             position.z = -10.0f;
 
             cameraTransform.transform.position = position;

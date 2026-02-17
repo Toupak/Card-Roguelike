@@ -8,14 +8,19 @@ namespace Map.Rooms
     public class PointOfInterest
     {
         public GameObject prefab;
+        public Sprite icon;
         public Vector3 position;
         public bool removeOnCleared;
 
-        public PointOfInterest(GameObject prefab, Vector3 position, bool removeOnCleared)
+        public PointOfInterest(GameObject prefab, Sprite icon, Vector3 position, bool removeOnCleared)
         {
             this.prefab = prefab;
+            this.icon = icon;
             this.position = position;
             this.removeOnCleared = removeOnCleared;
+            
+            if (icon != null)
+                Debug.Log("Zuzu : icon is not null : " + icon.name);
         }
     }
     
@@ -44,9 +49,9 @@ namespace Map.Rooms
             this.hasBeenCleared = roomType == RoomData.RoomType.Starting;
         }
 
-        public void AddPointOfInterest(GameObject prefab, Vector3 position, bool removeOnCleared)
+        public void AddPointOfInterest(GameObject prefab, Sprite icon, Vector3 position, bool removeOnCleared)
         {
-            pointOfInterests.Add(new PointOfInterest(prefab, position, removeOnCleared));
+            pointOfInterests.Add(new PointOfInterest(prefab, icon, position, removeOnCleared));
         }
     }
     

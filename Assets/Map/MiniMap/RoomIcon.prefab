@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6242788183959787070}
   - component: {fileID: 5029975968562563504}
+  - component: {fileID: -5468553582005485110}
   m_Layer: 0
   m_Name: RoomIcon
   m_TagString: Untagged
@@ -175,3 +176,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5468553582005485110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197839654992342147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e5ef919bd610442853f2808e36c23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRoomColor: {r: 0.98039216, g: 0.9372549, b: 0.9019608, a: 1}
+  visitedRoomColor: {r: 0.61960787, g: 0.54509807, b: 0.57254905, a: 1}
+  fogOfWarRoomColor: {r: 0.19607843, g: 0.19607843, b: 0.21960784, a: 1}
+  pointOfInterestIconPrefab: {fileID: 3379189075822857960, guid: cc3446b746591fc4ca4d3c678eeecdbb, type: 3}
+  pointOfInterestIconColor: {r: 1, g: 1, b: 1, a: 1}
+  pointOfInterestIconClearedColor: {r: 1, g: 1, b: 1, a: 0.5019608}

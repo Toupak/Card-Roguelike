@@ -378,10 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderTextureImage: {fileID: 4658241495945078641}
   cameraTransform: {fileID: 6633268735639245104}
-  RoomPrefab: {fileID: 9197839654992342147, guid: 0002524a9fac03e499e944ae4f39c7e9, type: 3}
-  currentRoomColor: {r: 0.9803922, g: 0.93725497, b: 0.90196085, a: 1}
-  visitedRoomColor: {r: 0.61960787, g: 0.54509807, b: 0.57254905, a: 1}
-  fogOfWarRoomColor: {r: 0.19607845, g: 0.19607845, b: 0.21960786, a: 1}
+  roomPrefab: {fileID: -5468553582005485110, guid: 0002524a9fac03e499e944ae4f39c7e9, type: 3}
   cellSize: {x: 2, y: -1.5}
 --- !u!114 &5538826489118881539
 MonoBehaviour:
@@ -530,9 +527,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleInteractionPrefab: {fileID: 685268710571563161, guid: 6b1d065330b855647807df0867722cf4, type: 3}
+  battleInteractionIcon: {fileID: 0}
   eliteBattleGroundMark: {fileID: 6834018171098575146, guid: 059405f489bfffd43af71c29f38d62e5, type: 3}
+  eliteBattleIcon: {fileID: 2322882396158862761, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
   bossBattleGroundMark: {fileID: 8984177703290394683, guid: 2a7664d9b3464494a8465a838926ac3b, type: 3}
+  bossBattleIcon: {fileID: -7621923064816401486, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
   dialogInteractionPrefab: {fileID: 8912084564866941252, guid: 2a7db75b5fe143545b535c4b76c7c655, type: 3}
+  dialogInteractionIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
 --- !u!1 &6435026947695677602
 GameObject:
   m_ObjectHideFlags: 0
