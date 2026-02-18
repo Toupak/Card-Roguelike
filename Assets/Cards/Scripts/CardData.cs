@@ -55,13 +55,13 @@ namespace Cards.Scripts
         
         [Space]
         [Header("SFX")]
-        public AudioClip pickupAudioClip;
-        public AudioClip dropAudioClip;
-        public AudioClip inspectAudioClip;
-        public AudioClip stopInspectAudioClip;
-        public AudioClip spawnAudioClip;
-        public AudioClip takeDamageAudioClip;
-        public AudioClip deathAudioClip;
+        public List<AudioClip> pickupAudioClip;
+        public List<AudioClip> dropAudioClip;
+        public List<AudioClip> inspectAudioClip;
+        public List<AudioClip> stopInspectAudioClip;
+        public List<AudioClip> spawnAudioClip;
+        public List<AudioClip> takeDamageAudioClip;
+        public List<AudioClip> deathAudioClip;
 
         [Space] 
         [Header("Localization")]

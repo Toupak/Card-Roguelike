@@ -396,7 +396,7 @@ MonoBehaviour:
   borderImage: {fileID: 577870073632753903}
   miniMapImage: {fileID: 3256290552098063085}
   targetPosition: {x: 500, y: 200}
-  targetSizeFactor: 3.2
+  targetSizeFactor: 3
   transitionDuration: 0.3
 --- !u!1 &5521289603462127047
 GameObject:
