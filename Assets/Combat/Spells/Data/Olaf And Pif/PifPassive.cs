@@ -22,7 +22,7 @@ namespace Combat.Spells.Data.Olaf_And_Pif
 
         private void DealDamageReaction(DealDamageGA dealDamageGa)
         {
-            if (dealDamageGa.attacker.cardData.name == olafData.name)
+            if (dealDamageGa.attacker != null && dealDamageGa.attacker.cardData.name == olafData.name)
             {
                 foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
                 {
