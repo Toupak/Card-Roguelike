@@ -1,16 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Character_Selection.Character
 {
     public class CharacterMovement : MonoBehaviour
     {
+        public static UnityEvent<Vector2, bool> OnRightClickSetTarget = new UnityEvent<Vector2, bool>();
+
         [SerializeField] private float speed;
         //[SerializeField] private float accelerationSpeed;
         //[SerializeField] private float decelerationSpeed;
 
         private bool hasTarget;
+        
         private Rigidbody2D rb;
         private Vector2 rightClickTargetMovement;
         public Vector2 lastMovement { get; private set; } = Vector2.right;
@@ -24,17 +28,21 @@ namespace Character_Selection.Character
 
         private void Update()
         {
+            if (isLocked)
+                return;
+
             if (PlayerInput.GetRightClickInput())
             {
-                hasTarget = true;
+                bool hasClicked = Mouse.current.rightButton.wasPressedThisFrame;
+
                 rightClickTargetMovement = GetRightClickTarget();
+                OnRightClickSetTarget.Invoke(rightClickTargetMovement, hasClicked);
+                
+                hasTarget = true;
             }
 
             if (HasReachedTarget())
                 hasTarget = false;
-
-            //if (IsStuck())
-            //    hasTarget = false;
         }
 
         private void FixedUpdate()

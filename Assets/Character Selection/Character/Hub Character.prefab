@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3612400047514459131}
   - component: {fileID: 6028751490475105539}
   - component: {fileID: 3676090908090286894}
+  - component: {fileID: 5113039556248839670}
   m_Layer: 0
   m_Name: Hub Character
   m_TagString: Character
@@ -128,6 +129,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.05}
   m_Size: {x: 0.35, y: 0.15}
   m_Direction: 1
+--- !u!114 &5113039556248839670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674430007725080803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c32c06860754f84194158a51f0ead10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX_rightClick: {fileID: 8300000, guid: d87b2d4e801a33a4eb9d733f46717cda, type: 3}
+  VFX_hasPressedRightClick: {fileID: 6778846319737763015, guid: c19eb459e53d9534ab33b5622494c149, type: 3}
+  VFX_isPressingRightClick: {fileID: 3191459522000296983, guid: 9c8733f660f356f49ab4142caeb9209a, type: 3}
+  antiSpamCD_RightClickVFX: 0.02
+  delayBeforeSpawnCD_RightClickVFX: 0.3
 --- !u!1 &2423214382447172688
 GameObject:
   m_ObjectHideFlags: 0
