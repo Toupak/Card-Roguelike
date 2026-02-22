@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,6 +34,11 @@ namespace Character_Selection.Character
                 return true;
             else
                 return Mouse.current.leftButton.wasPressedThisFrame;
+        }
+
+        public static bool GetRightClickInput()
+        {
+            return Mouse.current.rightButton.isPressed;
         }
     }
 }

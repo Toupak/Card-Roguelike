@@ -6,73 +6,73 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Scenes/MainMenu.unity
     guid: f488682a8e583e84abb56ac2436fae41
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/Scenes/Scenes/Intro.unity
     guid: d4dada849bf39e2489569f39c2075911
   - enabled: 1
-    path: Assets/Scenes/Hub.unity
+    path: Assets/Scenes/Scenes/Hub.unity
     guid: 26628ddef0740fe4f972a41cecd6f1a3
   - enabled: 1
-    path: Assets/Scenes/CombatScene.unity
+    path: Assets/Scenes/Scenes/CombatScene.unity
     guid: e7a16b253dd531541997db84c06be90c
   - enabled: 1
-    path: Assets/Scenes/RewardScene.unity
+    path: Assets/Scenes/Scenes/RewardScene.unity
     guid: 47261ba9e11a35748a77ca068533cf6c
   - enabled: 1
-    path: Assets/Scenes/ParameterScene.unity
+    path: Assets/Scenes/Scenes/ParameterScene.unity
     guid: cf202a97371c298488e208c5129ffaee
   - enabled: 1
-    path: Assets/Scenes/Overworld.unity
+    path: Assets/Scenes/Scenes/Overworld.unity
     guid: d85e8089edc98df4fae74d05e71f1e56
   - enabled: 1
-    path: Assets/Scenes/CharacterSelection.unity
+    path: Assets/Scenes/Scenes/CharacterSelection.unity
     guid: 26287eefed1b4e845993869663c77f0d
   - enabled: 1
-    path: Assets/Scenes/Rooms/1-bot.unity
+    path: Assets/Scenes/Scenes/Rooms/1-bot.unity
     guid: 1e3c18d03b999c241aea93b51d294500
   - enabled: 1
-    path: Assets/Scenes/Rooms/1-left.unity
+    path: Assets/Scenes/Scenes/Rooms/1-left.unity
     guid: ffb3b17ff651cc44cb196627c4c8a279
   - enabled: 1
-    path: Assets/Scenes/Rooms/1-right.unity
+    path: Assets/Scenes/Scenes/Rooms/1-right.unity
     guid: 1f25fd68e61cfbc44bd04e89bdc83bb7
   - enabled: 1
-    path: Assets/Scenes/Rooms/1-top.unity
+    path: Assets/Scenes/Scenes/Rooms/1-top.unity
     guid: cc831243a12fa664da1b7ed0d0ddc097
   - enabled: 1
-    path: Assets/Scenes/Rooms/2-bot-left.unity
+    path: Assets/Scenes/Scenes/Rooms/2-bot-left.unity
     guid: 4b59abc09023a864caa873ab2da033e7
   - enabled: 1
-    path: Assets/Scenes/Rooms/2-left-top.unity
+    path: Assets/Scenes/Scenes/Rooms/2-left-top.unity
     guid: 257517e575fa8054fa64dfba18d628d0
   - enabled: 1
-    path: Assets/Scenes/Rooms/2-right-bot.unity
+    path: Assets/Scenes/Scenes/Rooms/2-right-bot.unity
     guid: 17452b1a774acad4aac1f38b040e308b
   - enabled: 1
-    path: Assets/Scenes/Rooms/2-top-right.unity
+    path: Assets/Scenes/Scenes/Rooms/2-top-right.unity
     guid: 84d2db0028a349d4e8867d6d340b8058
   - enabled: 1
-    path: Assets/Scenes/Rooms/3-bot.unity
+    path: Assets/Scenes/Scenes/Rooms/3-bot.unity
     guid: 328b4354ada45b1418f6a393f680f525
   - enabled: 1
-    path: Assets/Scenes/Rooms/3-left.unity
+    path: Assets/Scenes/Scenes/Rooms/3-left.unity
     guid: aa8124d0c942b4e429c64617acd30ba3
   - enabled: 1
-    path: Assets/Scenes/Rooms/3-right.unity
+    path: Assets/Scenes/Scenes/Rooms/3-right.unity
     guid: ed18991d0c7a3bf43ad08677f94d7bc8
   - enabled: 1
-    path: Assets/Scenes/Rooms/3-top.unity
+    path: Assets/Scenes/Scenes/Rooms/3-top.unity
     guid: 7d0e4b607b0fc7949a882d0b0eb7db98
   - enabled: 1
-    path: Assets/Scenes/Rooms/4-all.unity
+    path: Assets/Scenes/Scenes/Rooms/4-all.unity
     guid: 96992d1c574345944938c651e1443796
   - enabled: 1
-    path: Assets/Scenes/Rooms/2-right-left.unity
+    path: Assets/Scenes/Scenes/Rooms/2-right-left.unity
     guid: 07cca0f99a9ac5f4dbd3a2e43dc56bc2
   - enabled: 1
-    path: Assets/Scenes/Rooms/2-top-bot.unity
+    path: Assets/Scenes/Scenes/Rooms/2-top-bot.unity
     guid: 3562d79dd0e2f884681736bcadecd715
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 35e00ff9f92473a4eb90bb8b13f3c68d, type: 2}
