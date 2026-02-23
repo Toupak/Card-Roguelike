@@ -12,7 +12,7 @@ namespace Character_Selection.Character.Dialog
         private float offsetY;
         protected Vector2 dialogPosition => transform.position.ToVector2() + Vector2.up * offsetY;
         
-        private void Start()
+        protected virtual void Start()
         {
             offsetY = GetComponent<Collider2D>().bounds.size.y / 2 + 0.5f;
         }
