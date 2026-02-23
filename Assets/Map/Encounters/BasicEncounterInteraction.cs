@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using BoomLib.BoomTween;
 using BoomLib.Dialog_System;
-using Cards.Scripts;
 using Character_Selection.Character;
 using Character_Selection.Character.Dialog;
 using Combat.Card_Container.Script;
+using Map.MiniMap;
 using PrimeTween;
 using Run_Loop;
 using UnityEngine;
@@ -21,8 +20,9 @@ namespace Map.Encounters
         [SerializeField] private Image blackScreen;
         
         [Space] 
-        [SerializeField] private CardContainer handContainer;
-        
+        [SerializeField] protected CardContainer handContainer;
+
+        private bool isScreenOpen;
         private Vector2 backgroundSize;
         private bool isSelectionValidated;
         
@@ -41,12 +41,15 @@ namespace Map.Encounters
 
         private void OpenScreen()
         {
-            StartCoroutine(OpenScreenCoroutine());
+            if (!isScreenOpen)
+                StartCoroutine(OpenScreenCoroutine());
         }
 
         private IEnumerator OpenScreenCoroutine()
         {
+            isScreenOpen = true;
             CharacterSingleton.instance.LockPlayer();
+            MinimapBuilder.instance.SetMinimapState(false);
             isSelectionValidated = false;
 
             yield return AnimateOpening();
@@ -59,7 +62,12 @@ namespace Map.Encounters
             yield return DoStuffPostValidation();
             
             yield return AnimateClosing();
+
+            DoStuffPostClosing();
+            
             CharacterSingleton.instance.UnlockPlayer();
+            MinimapBuilder.instance.SetMinimapState(true);
+            isScreenOpen = false;
         }
 
         protected virtual IEnumerator DoStuffPreValidation()
@@ -70,6 +78,11 @@ namespace Map.Encounters
         protected virtual IEnumerator DoStuffPostValidation()
         {
             yield break;
+        }
+        
+        protected virtual void DoStuffPostClosing()
+        {
+            
         }
 
         private IEnumerator AnimateOpening()
@@ -112,6 +125,14 @@ namespace Map.Encounters
         public void ValidateSelection()
         {
             isSelectionValidated = true;
+        }
+
+        protected void ClearHand()
+        {
+            for (int i = handContainer.Slots.Count - 1; i >= 0; i--)
+            {
+                handContainer.Slots[i].CurrentCard.cardController.KillCard(false);
+            }
         }
     }
 }

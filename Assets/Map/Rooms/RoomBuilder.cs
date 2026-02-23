@@ -18,9 +18,6 @@ namespace Map.Rooms
             this.icon = icon;
             this.position = position;
             this.removeOnCleared = removeOnCleared;
-            
-            if (icon != null)
-                Debug.Log("Zuzu : icon is not null : " + icon.name);
         }
     }
     

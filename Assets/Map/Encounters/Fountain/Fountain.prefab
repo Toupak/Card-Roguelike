@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8269818402322824845}
   - component: {fileID: 7654504520987688921}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,6 +338,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1567502853120960672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7503575425199041683}
+  - component: {fileID: 7392831551831524347}
+  m_Layer: 0
+  m_Name: __StatusSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7503575425199041683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567502853120960672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.856, y: 1.141, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3353464176290268006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7392831551831524347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567502853120960672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6430245b13e1eab41b491a54a83ef598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusData: {fileID: 11400000, guid: 796e4f13d4978bd489c3218a37c1d4f6, type: 2}
 --- !u!1 &1703873611961831465
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +521,7 @@ GameObject:
   - component: {fileID: 8179688062680548859}
   - component: {fileID: 7229586346801026341}
   - component: {fileID: 8211729786662723677}
-  - component: {fileID: 3235568499852580064}
+  - component: {fileID: -4531296164624785750}
   m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
@@ -499,6 +544,7 @@ Transform:
   m_Children:
   - {fileID: 5002762490893935938}
   - {fileID: 5793483556558800737}
+  - {fileID: 7503575425199041683}
   - {fileID: 710701245093928352}
   - {fileID: 1737998506208268230}
   - {fileID: 7967575501196567903}
@@ -618,7 +664,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3235568499852580064
+--- !u!114 &-4531296164624785750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,7 +673,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2728840368502289921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c1c898ae0505e43a3f206512611f5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 958f8338538fc5841b2c55f3305e0aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnCharacterInteract:
@@ -639,11 +685,10 @@ MonoBehaviour:
   background: {fileID: 7654504520987688921}
   blackScreen: {fileID: 5534986560348617485}
   handContainer: {fileID: 7222520027666465550}
-  testData:
-  - {fileID: 11400000, guid: 75cab164d3531044ba2a60508b2d0124, type: 2}
-  - {fileID: 11400000, guid: 8f119cd0b4518c6478f6c5830e95310d, type: 2}
-  - {fileID: 11400000, guid: 0607dcf282c6fdc40846146da44c73d6, type: 2}
-  - {fileID: 11400000, guid: d50d6c0362c0a5a4692f4586de07ab54, type: 2}
+  container:
+  - {fileID: 9010311247526908258}
+  - {fileID: 3419289789081776990}
+  - {fileID: 2271577125920992550}
 --- !u!1 &2892307272693704766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,8 +1302,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3235568499852580064}
-        m_TargetAssemblyTypeName: Map.Encounters.BasicEncounterInteraction, Assembly-CSharp
+      - m_Target: {fileID: -4531296164624785750}
+        m_TargetAssemblyTypeName: Map.Encounters.Fountain.FountainEncounter, Assembly-CSharp
         m_MethodName: ValidateSelection
         m_Mode: 1
         m_Arguments:
