@@ -20,3 +20,17 @@ MonoBehaviour:
   eliteRoomMinDistanceFromStart: 3
   minEncounterRooms: 3
   maxEncounterRooms: 3
+  mandatoryEncountersPrefabs:
+  - prefab: {fileID: 4544327451703390633, guid: 62b5f569d33224248a62fbdf4dd0c70c, type: 3}
+    minimapIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
+    minAmountPerFloor: 1
+    maxAmountPerFloor: 1
+  - prefab: {fileID: 2728840368502289921, guid: 5e8610eaa0b01844ab844f1977ac6eb1, type: 3}
+    minimapIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
+    minAmountPerFloor: 1
+    maxAmountPerFloor: 1
+  optionalEncountersPrefabs:
+  - prefab: {fileID: 2979582450361454153, guid: 64bb5e74b82166f40a71b7abceac971a, type: 3}
+    minimapIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
+    minAmountPerFloor: 10
+    maxAmountPerFloor: 15

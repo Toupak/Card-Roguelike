@@ -1,5 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using Map.Encounters;
+using Run_Loop;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Map.Rooms
 {
@@ -15,16 +20,32 @@ namespace Map.Rooms
         [Space]
         [SerializeField] private GameObject bossBattleGroundMark;
         [SerializeField] private Sprite bossBattleIcon;
-        
-        [Space]
-        [SerializeField] private GameObject dialogInteractionPrefab;
-        [SerializeField] private Sprite dialogInteractionIcon;
+
+        private Dictionary<EncounterPrefabData, int> mandatoryEncountersPrefabs = new Dictionary<EncounterPrefabData, int>();
+        private Dictionary<EncounterPrefabData, int> optionalEncountersPrefabs = new Dictionary<EncounterPrefabData, int>();
         
         public static RoomFiller instance;
         
         private void Awake()
         {
             instance = this;
+        }
+
+        private void Start()
+        {
+            MapBuilder.OnBuildMap.AddListener(StoreEncounterData);
+        }
+
+        private void StoreEncounterData()
+        {
+            List<EncounterPrefabData> mandatory = RunLoop.instance.GetCurrentFloorData().mandatoryEncountersPrefabs;
+            List<EncounterPrefabData> optional = RunLoop.instance.GetCurrentFloorData().optionalEncountersPrefabs;
+
+            foreach (EncounterPrefabData prefabData in mandatory)
+                mandatoryEncountersPrefabs.Add(prefabData, Random.Range(prefabData.minAmountPerFloor, prefabData.maxAmountPerFloor + 1));
+            
+            foreach (EncounterPrefabData prefabData in optional)
+                optionalEncountersPrefabs.Add(prefabData, Random.Range(prefabData.minAmountPerFloor, prefabData.maxAmountPerFloor + 1));
         }
 
         public void FillRoom(RoomPackage roomPackage)
@@ -68,12 +89,39 @@ namespace Map.Rooms
         {
             if (roomPackage.pointOfInterests.Count < 1)
             {
-                roomPackage.AddPointOfInterest(dialogInteractionPrefab, dialogInteractionIcon, ComputeNewPosition(), true);
+                EncounterPrefabData encounter = ComputeSpecialRoomEncounter();
+                roomPackage.AddPointOfInterest(encounter.prefab, encounter.minimapIcon, ComputeNewPosition(), true);
             }
             
             SpawnRoomContent(roomPackage);
         }
-        
+
+        private EncounterPrefabData ComputeSpecialRoomEncounter()
+        {
+            IEnumerable<KeyValuePair<EncounterPrefabData, int>> validMandatory = mandatoryEncountersPrefabs.Where((kp) => kp.Value > 0);
+
+            List<KeyValuePair<EncounterPrefabData, int>> mandatoryResults = validMandatory.ToList();
+            if (mandatoryResults.Any())
+            {
+                KeyValuePair<EncounterPrefabData, int> result = mandatoryResults[Random.Range(0, mandatoryResults.Count())];
+                mandatoryEncountersPrefabs[result.Key] -= 1;
+                return result.Key;
+            }
+            
+            IEnumerable<KeyValuePair<EncounterPrefabData, int>> optional = optionalEncountersPrefabs.Where((kp) => kp.Value > 0);
+
+            List<KeyValuePair<EncounterPrefabData, int>> optionalResults = optional.ToList();
+            if (optionalResults.Any())
+            {
+                KeyValuePair<EncounterPrefabData, int> result = optionalResults[Random.Range(0, optionalResults.Count())];
+                optionalEncountersPrefabs[result.Key] -= 1;
+                return result.Key;
+            }
+            
+            List<KeyValuePair<EncounterPrefabData, int>> randomResults = optionalEncountersPrefabs.ToList();
+            return randomResults[Random.Range(0, optionalResults.Count())].Key;
+        }
+
         private void SetupEliteRoom(RoomPackage roomPackage)
         {
             if (roomPackage.pointOfInterests.Count < 1)

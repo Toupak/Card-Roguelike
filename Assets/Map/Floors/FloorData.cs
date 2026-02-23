@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Map.Encounters;
 using UnityEngine;
 
 namespace Map.Floors
@@ -17,5 +19,9 @@ namespace Map.Floors
         [Space] 
         public int minEncounterRooms;
         public int maxEncounterRooms;
+        
+        [Space] 
+        public List<EncounterPrefabData> mandatoryEncountersPrefabs;
+        public List<EncounterPrefabData> optionalEncountersPrefabs;
     }
 }
