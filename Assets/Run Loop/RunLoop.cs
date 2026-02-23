@@ -8,6 +8,8 @@ using Character_Selection.Character;
 using Combat;
 using Combat.Battles;
 using Combat.Battles.Data;
+using Combat.Card_Container.Script;
+using Inventory.Items;
 using Inventory.Items.Frames;
 using Map;
 using Map.Floors;
@@ -30,6 +32,9 @@ namespace Run_Loop
 
         [Space] 
         [SerializeField] private GameObject characterPrefab;
+        
+        [Space]
+        [SerializeField] private CardMovement cardMovementPrefab;
         
         [Space] 
         [SerializeField] private FloorData floorData;
@@ -331,6 +336,26 @@ namespace Run_Loop
         public FloorData GetCurrentFloorData()
         {
             return floorData;
+        }
+        
+        public void DrawCardToContainer(DeckCard card, CardContainer container)
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            container.ReceiveCard(newCard);
+            
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, card);
+            newCard.SetCardController(controller);
+        }
+        
+        public ItemController DrawItemToContainer(CardContainer container)
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            container.ReceiveCard(newCard);
+            
+            ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
+            newCard.SetItemController(controller);
+
+            return controller;
         }
     }
 }

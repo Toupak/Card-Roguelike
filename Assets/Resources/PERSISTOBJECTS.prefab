@@ -532,8 +532,6 @@ MonoBehaviour:
   eliteBattleIcon: {fileID: 2322882396158862761, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
   bossBattleGroundMark: {fileID: 8984177703290394683, guid: 2a7664d9b3464494a8465a838926ac3b, type: 3}
   bossBattleIcon: {fileID: -7621923064816401486, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
-  dialogInteractionPrefab: {fileID: 8912084564866941252, guid: 2a7db75b5fe143545b535c4b76c7c655, type: 3}
-  dialogInteractionIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
 --- !u!1 &6435026947695677602
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +567,7 @@ Transform:
   - {fileID: 2565726826618425718}
   - {fileID: 3824273867171373355}
   - {fileID: 8820599815545447953}
+  - {fileID: 5237866012866281606}
   - {fileID: 3956133396773137230}
   - {fileID: 5127267356585436304}
   - {fileID: 8165258998309450470}
@@ -576,6 +575,51 @@ Transform:
   - {fileID: 1489870044992279651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6985254462216625486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5237866012866281606}
+  - component: {fileID: 4735341695291080059}
+  m_Layer: 0
+  m_Name: __StatusSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5237866012866281606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985254462216625486}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5168994591370224491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4735341695291080059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985254462216625486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6430245b13e1eab41b491a54a83ef598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusData: {fileID: 11400000, guid: 796e4f13d4978bd489c3218a37c1d4f6, type: 2}
 --- !u!1 &7379045636360097256
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +810,7 @@ MonoBehaviour:
     m_SceneAsset: {fileID: 102900000, guid: 26287eefed1b4e845993869663c77f0d, type: 3}
     m_SceneName: CharacterSelection
   characterPrefab: {fileID: 7162381865942633979, guid: cf09b311e7407f04182c3f5b2637c313, type: 3}
+  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   floorData: {fileID: 11400000, guid: 9a6113106f3d2b34a81bb4875e84ebe5, type: 2}
   cardDatabase: {fileID: 11400000, guid: 1e216595a323def43aa782e09498f03d, type: 2}
   frameDatabase: {fileID: 11400000, guid: ea91a2343ca2784489e7353fd3bc35d6, type: 2}

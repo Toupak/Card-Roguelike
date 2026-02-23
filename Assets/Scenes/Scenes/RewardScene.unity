@@ -180,6 +180,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   isLocked: 1
   type: 0
+  orientation: 0
 --- !u!114 &82025603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1157,6 @@ MonoBehaviour:
   openBoosterButton: {fileID: 272458689}
   selectCardButton: {fileID: 303265950}
   validateButton: {fileID: 1920195176}
-  cardMovementPrefab: {fileID: 5100195991538742215, guid: 393acfa2795a2ab4083b2841f12d8623, type: 3}
   testData:
   - {fileID: 11400000, guid: b761af65222c49f4ebc0b1fb3f3d09f6, type: 2}
   - {fileID: 11400000, guid: bd60871a2a139804482337ab1434c519, type: 2}
@@ -1297,6 +1297,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   isLocked: 0
   type: 3
+  orientation: 0
 --- !u!114 &1136315089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,51 +1518,6 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 5983911002456220135, guid: a7aa4998c00ced34e9e7f4420a4cba67, type: 3}
   leftSubTooltipHolder: {fileID: 585678051}
   rightSubTooltipHolder: {fileID: 1725283751}
---- !u!1 &1525668906
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1525668908}
-  - component: {fileID: 1525668907}
-  m_Layer: 0
-  m_Name: __StatusSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1525668907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525668906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6430245b13e1eab41b491a54a83ef598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusData: {fileID: 11400000, guid: 796e4f13d4978bd489c3218a37c1d4f6, type: 2}
---- !u!4 &1525668908
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525668906}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1725283750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1757,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   isLocked: 1
   type: 0
+  orientation: 0
 --- !u!114 &1997822939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,6 +1883,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 7600276757731982239, guid: 730be5ae3e9faf844ab15bbdb87ddd5b, type: 3}
   isLocked: 0
   type: 1
+  orientation: 0
 --- !u!114 &2017517045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,7 +2116,6 @@ SceneRoots:
   - {fileID: 808073045}
   - {fileID: 874818218}
   - {fileID: 786820947}
-  - {fileID: 1525668908}
   - {fileID: 2078160272}
   - {fileID: 602503449}
   - {fileID: 1138933501}

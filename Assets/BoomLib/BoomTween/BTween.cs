@@ -184,7 +184,7 @@ namespace BoomLib.BoomTween
 
         public static Image MakeTransparent(this Image image)
         {
-            Color transparent = Color.white;
+            Color transparent = image.color;
             transparent.a = 0.0f;
             image.color = transparent;
 

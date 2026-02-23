@@ -26,8 +26,7 @@ namespace Run_Loop
         [SerializeField] private GameObject selectCardButton;
         [SerializeField] private GameObject validateButton;
         
-        [Space]
-        [SerializeField] private CardMovement cardMovementPrefab;
+        
 
         [Space] 
         [SerializeField] private List<CardData> testData;
@@ -114,7 +113,7 @@ namespace Run_Loop
         {
             foreach (DeckCard card in PlayerDeck.instance.deck)
             {
-                DrawCardToContainer(card, handContainer);
+                RunLoop.instance.DrawCardToContainer(card, handContainer);
                 yield return new WaitForSeconds(0.05f);
             }
         }
@@ -162,11 +161,11 @@ namespace Run_Loop
             for (int i = 0; i < framesCount; i++)
             {
                 if (exoticIndex < exoticFrames.Count && DropRateManager.instance.CheckForExoticFrameReward())
-                    DrawItemToContainer(mainContainer).SetupAsFrameItem(exoticFrames[exoticIndex++]);
+                    RunLoop.instance.DrawItemToContainer(mainContainer).SetupAsFrameItem(exoticFrames[exoticIndex++]);
                 else if (legendaryIndex < legendaryFrames.Count && DropRateManager.instance.CheckForLegendaryFrameReward())
-                    DrawItemToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[legendaryIndex++]);
+                    RunLoop.instance.DrawItemToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[legendaryIndex++]);
                 else if (commonIndex < commonFrames.Count)
-                    DrawItemToContainer(mainContainer).SetupAsFrameItem(commonFrames[commonIndex++]);
+                    RunLoop.instance.DrawItemToContainer(mainContainer).SetupAsFrameItem(commonFrames[commonIndex++]);
                 yield return new WaitForSeconds(0.1f);
             }
         }
@@ -194,33 +193,13 @@ namespace Run_Loop
             for (int i = 0; i < cardCount; i++)
             {
                 if (exoticCards != null && exoticIndex < exoticCards.Count && DropRateManager.instance.CheckForExoticCardReward())
-                    DrawCardToContainer(new DeckCard(exoticCards[exoticIndex++]), mainContainer);
+                    RunLoop.instance.DrawCardToContainer(new DeckCard(exoticCards[exoticIndex++]), mainContainer);
                 else if (legendaryCards != null && legendaryIndex < legendaryCards.Count && DropRateManager.instance.CheckForLegendaryCardReward())
-                    DrawCardToContainer(new DeckCard(legendaryCards[legendaryIndex++]), mainContainer);
+                    RunLoop.instance.DrawCardToContainer(new DeckCard(legendaryCards[legendaryIndex++]), mainContainer);
                 else if (commonCards != null && commonIndex < commonCards.Count)
-                    DrawCardToContainer(new DeckCard(commonCards[commonIndex++]), mainContainer);
+                    RunLoop.instance.DrawCardToContainer(new DeckCard(commonCards[commonIndex++]), mainContainer);
                 yield return new WaitForSeconds(0.1f);
             }
-        }
-        
-        private void DrawCardToContainer(DeckCard card, CardContainer container)
-        {
-            CardMovement newCard = Instantiate(cardMovementPrefab);
-            container.ReceiveCard(newCard);
-            
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, card);
-            newCard.SetCardController(controller);
-        }
-        
-        private ItemController DrawItemToContainer(CardContainer container)
-        {
-            CardMovement newCard = Instantiate(cardMovementPrefab);
-            container.ReceiveCard(newCard);
-            
-            ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
-            newCard.SetItemController(controller);
-
-            return controller;
         }
 
         private IEnumerator WaitUntilCardHasBeenSelected()
