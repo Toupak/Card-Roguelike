@@ -22,15 +22,15 @@ MonoBehaviour:
   maxEncounterRooms: 3
   mandatoryEncountersPrefabs:
   - prefab: {fileID: 4544327451703390633, guid: 62b5f569d33224248a62fbdf4dd0c70c, type: 3}
-    minimapIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
+    minimapIcon: {fileID: -8365171212807332840, guid: 39a205ceffd1a694f9f7c2ced51bd3b1, type: 3}
     minAmountPerFloor: 1
     maxAmountPerFloor: 1
   - prefab: {fileID: 2728840368502289921, guid: 5e8610eaa0b01844ab844f1977ac6eb1, type: 3}
-    minimapIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
+    minimapIcon: {fileID: 989990818, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
     minAmountPerFloor: 1
     maxAmountPerFloor: 1
   optionalEncountersPrefabs:
   - prefab: {fileID: 2979582450361454153, guid: 64bb5e74b82166f40a71b7abceac971a, type: 3}
-    minimapIcon: {fileID: 2424377431972541856, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
+    minimapIcon: {fileID: 3276984941797063960, guid: a910956225fd8d54e85087e170a35863, type: 3}
     minAmountPerFloor: 10
     maxAmountPerFloor: 15

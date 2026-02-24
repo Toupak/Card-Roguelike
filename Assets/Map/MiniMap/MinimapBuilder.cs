@@ -33,7 +33,6 @@ namespace Map.MiniMap
         
         public void UpdateMap()
         {
-            List<RoomPackage> rooms = RoomBuilder.instance.Rooms;
             RoomPackage currentRoom = RoomBuilder.instance.CurrentRoom;
 
             foreach (MinimapRoomIcon roomIcon in roomIcons)

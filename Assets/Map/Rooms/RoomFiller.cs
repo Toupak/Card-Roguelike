@@ -90,7 +90,7 @@ namespace Map.Rooms
             if (roomPackage.pointOfInterests.Count < 1)
             {
                 EncounterPrefabData encounter = ComputeSpecialRoomEncounter();
-                roomPackage.AddPointOfInterest(encounter.prefab, encounter.minimapIcon, ComputeNewPosition(), true);
+                roomPackage.AddPointOfInterest(encounter.prefab, encounter.minimapIcon, ComputeNewPosition(), false);
             }
             
             SpawnRoomContent(roomPackage);

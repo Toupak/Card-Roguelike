@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Map.MiniMap;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -134,7 +135,10 @@ namespace Map.Rooms
         public void MarkCurrentRoomAsCleared()
         {
             if (currentRoom != null)
+            {
                 currentRoom.hasBeenCleared = true;
+                MinimapBuilder.instance.UpdateMap();
+            }
         }
         
         private void UpdateRoomsVisibility()

@@ -26,6 +26,10 @@ namespace Map.Encounters.Fountain
         {
             base.Setup();
             animator = GetComponent<Animator>();
+
+            isUsed = RoomBuilder.instance.HasRoomBeenCleared();
+            if (isUsed)
+                 animator.Play("Used");
         }
         
         protected override IEnumerator DoStuffPostValidation()
