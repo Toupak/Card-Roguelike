@@ -37,8 +37,8 @@ namespace Character_Selection.Character
 
         private void Interact()
         {
-            if (interactable != null)
-                interactable.ExecuteInteract();
+            if (interactable != null && interactable.CanInteract())
+                interactable.ExecuteInteract(this);
         }
 
         private void EnterInteractRange(Interactable colliderInteractable, Bounds bounds)
@@ -48,11 +48,12 @@ namespace Character_Selection.Character
                 interactable = colliderInteractable;
                 isWithinRange = true;
 
-                SpawnInteractButton(bounds);
+                if (interactable.CanInteract())
+                    SpawnInteractButton(bounds);
             }
         }
 
-        private void ExitInteractRange(Interactable colliderInteractable)
+        public void ExitInteractRange(Interactable colliderInteractable)
         {
             if (colliderInteractable != interactable)
                 return;
@@ -60,7 +61,6 @@ namespace Character_Selection.Character
             isWithinRange = false;
 
             DestroyInteractButton();
-
             interactable = null;
         }
 

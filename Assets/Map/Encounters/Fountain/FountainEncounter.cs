@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Cards.Scripts;
 using Cards.Tween_Animations;
-using Combat.Card_Container.CardSlot;
 using Combat.Card_Container.Script;
+using Map.Rooms;
 using Run_Loop;
 using UnityEngine;
 
@@ -13,7 +13,31 @@ namespace Map.Encounters.Fountain
     {
         [SerializeField] private List<CardContainer> container;
         
+        private Animator animator;
+
+        private bool isUsed;
+        
+        public override bool CanInteract()
+        {
+            return !isUsed;
+        }
+        
+        protected override void Setup()
+        {
+            base.Setup();
+            animator = GetComponent<Animator>();
+        }
+        
         protected override IEnumerator DoStuffPostValidation()
+        {
+            yield return HealCards();
+            currentCharacterInteract.ExitInteractRange(this);
+            RoomBuilder.instance.MarkCurrentRoomAsCleared();
+            isUsed = true;
+            animator.Play("Used");
+        }
+
+        private IEnumerator HealCards()
         {
             foreach (CardContainer stickyContainer in container)
             {
@@ -31,6 +55,12 @@ namespace Map.Encounters.Fountain
         
         protected override void DoStuffPostClosing()
         {
+            ClearContainers();
+            ClearHand();
+        }
+
+        private void ClearContainers()
+        {
             foreach (CardContainer stickyContainer in container)
             {
                 for (int i = stickyContainer.Slots.Count - 1; i >= 0; i--)
@@ -38,8 +68,6 @@ namespace Map.Encounters.Fountain
                     stickyContainer.Slots[i].CurrentCard.cardController.KillCard(false);
                 }
             }
-
-            ClearHand();
         }
     }
 }

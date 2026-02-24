@@ -17,9 +17,9 @@ namespace Character_Selection.Character.Dialog
             offsetY = GetComponent<Collider2D>().bounds.size.y / 2 + 0.5f;
         }
 
-        public override void ExecuteInteract()
+        public override void ExecuteInteract(CharacterInteract characterInteract)
         {
-            base.ExecuteInteract();
+            base.ExecuteInteract(characterInteract);
             StartDialog();
         }
 

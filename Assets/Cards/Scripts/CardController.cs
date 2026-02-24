@@ -172,6 +172,10 @@ namespace Cards.Scripts
         {
             rightButton.Setup(this, right);
             
+            passiveHolder.RemoveAllPassives();
+            passiveHolder.RemovePassive(passiveHolder.passives[0].passiveData);
+            passiveHolder.AddPassive(passiveHolder.passives[0].passiveData);
+            
             singleButton.gameObject.SetActive(false);
             rightButton.gameObject.SetActive(right != null);
         }

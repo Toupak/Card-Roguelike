@@ -29,6 +29,11 @@ namespace Map.Encounters
         protected override void Start()
         {
             base.Start();
+            Setup();
+        }
+
+        protected virtual void Setup()
+        {
             backgroundCanvas.gameObject.SetActive(false);
             cardsCanvas.gameObject.SetActive(false);
             backgroundSize = background.rectTransform.sizeDelta;
