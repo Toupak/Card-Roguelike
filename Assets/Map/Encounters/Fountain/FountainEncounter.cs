@@ -37,12 +37,13 @@ namespace Map.Encounters.Fountain
             yield return HealCards();
             currentCharacterInteract.ExitInteractRange(this);
             RoomBuilder.instance.MarkCurrentRoomAsCleared();
-            isUsed = true;
             animator.Play("Used");
         }
 
         private IEnumerator HealCards()
         {
+            bool hasHealedACard = false;
+            
             foreach (CardContainer stickyContainer in container)
             {
                 if (stickyContainer.slotCount > 0)
@@ -53,8 +54,12 @@ namespace Map.Encounters.Fountain
 
                     card.cardHealth.Heal(10);
                     PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
+
+                    hasHealedACard =  true;
                 }
             }
+            
+            isUsed = hasHealedACard;
         }
         
         protected override void DoStuffPostClosing()
