@@ -28,7 +28,6 @@ namespace Run_Loop
         public IEnumerator LoadScene(string sceneName, Action callback = null)
         {
             isLoading = true;
-            Debug.Log($"Load Scene : {sceneName}");
             yield return FadeScreen(true);
 
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);

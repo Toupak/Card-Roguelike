@@ -193,4 +193,4 @@ MonoBehaviour:
   fogOfWarRoomColor: {r: 0.19607843, g: 0.19607843, b: 0.21960784, a: 1}
   pointOfInterestIconPrefab: {fileID: 3379189075822857960, guid: cc3446b746591fc4ca4d3c678eeecdbb, type: 3}
   pointOfInterestIconColor: {r: 1, g: 1, b: 1, a: 1}
-  pointOfInterestIconClearedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  pointOfInterestIconClearedColor: {r: 1, g: 1, b: 1, a: 0.8}

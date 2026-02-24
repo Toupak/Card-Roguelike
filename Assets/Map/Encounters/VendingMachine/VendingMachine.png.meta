@@ -134,6 +134,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: VendingMachine_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 12
+        width: 28
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0686f99c5e50c8c4d863c02d65190c15
+      internalID: -357271926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -149,6 +171,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       VendingMachine_0: 8265045834036228682
+      VendingMachine_1: -357271926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
