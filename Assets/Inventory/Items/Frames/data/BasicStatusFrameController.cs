@@ -89,7 +89,7 @@ namespace Inventory.Items.Frames.data
                 foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
                 {
                     if (!package.isDamageNegated)
-                        CheckBehaviour(package.target);
+                        CheckBehaviour(ComputeTarget(package.target));
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace Inventory.Items.Frames.data
             DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
             
             if (package != null && !package.isDamageNegated)
-                CheckBehaviour(ComputeTarget(dealDamageGa, false));
+                CheckBehaviour(ComputeTarget(dealDamageGa.attacker));
         }
         
         private void StartCombatReaction(StartTurnGa startTurnGa)
@@ -108,31 +108,14 @@ namespace Inventory.Items.Frames.data
                 CheckBehaviour(ComputeTarget());
         }
         
-        private CardController ComputeTarget()
+        private CardController ComputeTarget(CardController targetCard = null)
         {
             switch (target)
             {
                 case StatusBehaviourTarget.OnMe:
                     return cardController;
                 case StatusBehaviourTarget.OnTarget:
-                    return cardController;
-                case StatusBehaviourTarget.OnRandomAlly:
-                    return GetRandomTarget(TargetType.Ally);
-                case StatusBehaviourTarget.OnRandomEnemy:
-                    return GetRandomTarget(TargetType.Enemy);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private CardController ComputeTarget(DealDamageGA dealDamageGa, bool isAttacker)
-        {
-            switch (target)
-            {
-                case StatusBehaviourTarget.OnMe:
-                    return cardController;
-                case StatusBehaviourTarget.OnTarget:
-                    return isAttacker ? dealDamageGa.packages[0].target : dealDamageGa.attacker;
+                    return targetCard;
                 case StatusBehaviourTarget.OnRandomAlly:
                     return GetRandomTarget(TargetType.Ally);
                 case StatusBehaviourTarget.OnRandomEnemy:
