@@ -24,7 +24,7 @@ namespace Map.Encounters
 
         private bool isScreenOpen;
         private Vector2 backgroundSize;
-        private bool isSelectionValidated;
+        protected bool isSelectionValidated;
         
         protected override void Start()
         {
