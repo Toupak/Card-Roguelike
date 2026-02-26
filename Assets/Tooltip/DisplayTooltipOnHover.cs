@@ -18,13 +18,18 @@ namespace Tooltip
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (tooltipDisplay != null || (cardController != null && cardController.cardMovement.isDragging) || (itemController != null && itemController.cardMovement.isDragging))
+            if (!CanTooltipBeDisplayed())
                 return;
 
             DisplayTooltip();
             
             if (targetToSqueezeOnHover != null && squeezePowerOnHover > 0.0f)
                 Tween.PunchScale(targetToSqueezeOnHover, Vector3.down * squeezePowerOnHover, 0.1f);
+        }
+
+        protected virtual bool CanTooltipBeDisplayed()
+        {
+            return (tooltipDisplay == null && (cardController == null || !cardController.cardMovement.isDragging) && (itemController == null || !itemController.cardMovement.isDragging));
         }
 
         protected virtual void DisplayTooltip()

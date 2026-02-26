@@ -51,6 +51,9 @@ namespace BoomLib.SFX_Player.Scripts
         /// </returns>
         public AudioSource PlaySFX(AudioClip clip, float volume = 0.1f, float delay = 0.0f, bool loop = false, float pitch = RANDOM_PITCH)
         {
+            if (clip == null)
+                return null;
+            
             return CreateSFX(clip, volume, delay, loop, pitch);
         }
         
