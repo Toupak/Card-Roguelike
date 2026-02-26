@@ -20,6 +20,7 @@ MonoBehaviour:
   eliteRoomMinDistanceFromStart: 3
   minEncounterRooms: 3
   maxEncounterRooms: 3
+  startingRoomEncounterPrefab: {fileID: 2728840368502289921, guid: e337921db11c8794a90265ef7b2a4483, type: 3}
   mandatoryEncountersPrefabs:
   - prefab: {fileID: 2728840368502289921, guid: 554cc0c025db7234da53f5d83f164078, type: 3}
     minimapIcon: {fileID: -1060239219, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}

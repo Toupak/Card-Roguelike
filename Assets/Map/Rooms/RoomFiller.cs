@@ -21,6 +21,7 @@ namespace Map.Rooms
         [SerializeField] private GameObject bossBattleGroundMark;
         [SerializeField] private Sprite bossBattleIcon;
 
+        private GameObject startingRoomEncounterPrefab;
         private Dictionary<EncounterPrefabData, int> mandatoryEncountersPrefabs = new Dictionary<EncounterPrefabData, int>();
         private Dictionary<EncounterPrefabData, int> optionalEncountersPrefabs = new Dictionary<EncounterPrefabData, int>();
         
@@ -38,6 +39,8 @@ namespace Map.Rooms
 
         private void StoreEncounterData()
         {
+            startingRoomEncounterPrefab = RunLoop.instance.GetCurrentFloorData().startingRoomEncounterPrefab;
+            
             List<EncounterPrefabData> mandatory = RunLoop.instance.GetCurrentFloorData().mandatoryEncountersPrefabs;
             List<EncounterPrefabData> optional = RunLoop.instance.GetCurrentFloorData().optionalEncountersPrefabs;
 
@@ -53,7 +56,7 @@ namespace Map.Rooms
             switch (roomPackage.roomType)
             {
                 case RoomData.RoomType.Starting:
-                    SetupStartingRoom();
+                    SetupStartingRoom(roomPackage);
                     break;
                 case RoomData.RoomType.Battle:
                     SetupBattleRoom(roomPackage);
@@ -72,9 +75,15 @@ namespace Map.Rooms
             }
         }
 
-        private void SetupStartingRoom()
+        private void SetupStartingRoom(RoomPackage roomPackage)
         {
+            if (startingRoomEncounterPrefab == null)
+                return;
             
+            if (roomPackage.pointOfInterests.Count < 1)
+                roomPackage.AddPointOfInterest(startingRoomEncounterPrefab, null, ComputeNewPosition(), false);
+            
+            SpawnRoomContent(roomPackage);
         }
         
         private void SetupBattleRoom(RoomPackage roomPackage)

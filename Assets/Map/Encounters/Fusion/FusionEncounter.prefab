@@ -1067,13 +1067,15 @@ MonoBehaviour:
   OnCharacterInteract:
     m_PersistentCalls:
       m_Calls: []
-  dialogData: {fileID: 0}
-  backgroundCanvas: {fileID: 0}
-  cardsCanvas: {fileID: 0}
-  background: {fileID: 0}
-  blackScreen: {fileID: 0}
-  handContainer: {fileID: 0}
-  fusionContainers: []
+  dialogData: {fileID: 11400000, guid: 3d93e876f8698db4588854847c41d56c, type: 2}
+  backgroundCanvas: {fileID: 5618258228563008395}
+  cardsCanvas: {fileID: 5236008649215875859}
+  background: {fileID: 7654504520987688921}
+  blackScreen: {fileID: 5534986560348617485}
+  handContainer: {fileID: 7222520027666465550}
+  fusionContainers:
+  - {fileID: 2271577125920992550}
+  - {fileID: 3419289789081776990}
   instructionsText: {fileID: 2307423716405034472}
   SelectCardsText: 
   SelectSpellsText: 

@@ -20,7 +20,8 @@ namespace Map.Floors
         public int minEncounterRooms;
         public int maxEncounterRooms;
         
-        [Space] 
+        [Space]
+        public GameObject startingRoomEncounterPrefab;
         public List<EncounterPrefabData> mandatoryEncountersPrefabs;
         public List<EncounterPrefabData> optionalEncountersPrefabs;
     }
