@@ -18,7 +18,7 @@ public class FusionEncounter : BasicEncounterInteraction
     [SerializeField] private TextMeshProUGUI instructionsText;
 
     //Spells
-    [SerializeField] private DisplaySpellToggleTooltipOnHover spellButtonPrefab;
+    [SerializeField] private DisplayToggleTooltipOnHover spellButtonPrefab;
     private List<FusionToggleButton> spellButtons = new();
     private SpellData leftSpellData = null;
     private SpellData rightSpellData;
@@ -81,18 +81,17 @@ public class FusionEncounter : BasicEncounterInteraction
         ChangeText(SelectSpellsText);
         TryDisplayValidationButton(false);
 
-        var card1 = cardContainers[0].GetComponent<RectTransform>();
-        var card2 = cardContainers[1].GetComponent<RectTransform>();
-        var rectHandContainer = handContainer.GetComponent<RectTransform>();
+        CardContainer card1 = cardContainers[0];
+        CardContainer card2 = cardContainers[1];
 
         Sequence sequence = Sequence.Create()
-            .Group(Tween.UIAnchoredPositionY(card1, card1.anchoredPosition.y - 350f, 0.3f))
-            .Group(Tween.UIAnchoredPositionX(card1, card1.anchoredPosition.x - 100f, 0.3f))
+            .Group(Tween.UIAnchoredPositionY(card1.rectTransform, card1.rectTransform.anchoredPosition.y - 350f, 0.3f))
+            .Group(Tween.UIAnchoredPositionX(card1.rectTransform, card1.rectTransform.anchoredPosition.x - 100f, 0.3f))
 
-            .Group(Tween.UIAnchoredPositionY(card2, card2.anchoredPosition.y - 350f, 0.3f))
-            .Group(Tween.UIAnchoredPositionX(card2, card2.anchoredPosition.x + 100f, 0.3f))
+            .Group(Tween.UIAnchoredPositionY(card2.rectTransform, card2.rectTransform.anchoredPosition.y - 350f, 0.3f))
+            .Group(Tween.UIAnchoredPositionX(card2.rectTransform, card2.rectTransform.anchoredPosition.x + 100f, 0.3f))
 
-            .Group(Tween.UIAnchoredPositionY(rectHandContainer, rectHandContainer.anchoredPosition.y - 250f, 0.3f));
+            .Group(Tween.UIAnchoredPositionY(handContainer.rectTransform, handContainer.rectTransform.anchoredPosition.y - 250f, 0.3f));
 
         yield return sequence;
 
@@ -104,7 +103,7 @@ public class FusionEncounter : BasicEncounterInteraction
 
                 if (card.singleButton.spellController != null)
                 {
-                    DisplaySpellToggleTooltipOnHover spell = Instantiate(spellButtonPrefab, buttonsContainer);
+                    DisplayToggleTooltipOnHover spell = Instantiate(spellButtonPrefab, buttonsContainer);
                     spell.Setup(card, card.singleButton.spellData);
                     
                     FusionToggleButton spellToggle = spell.GetComponent<FusionToggleButton>();
@@ -114,7 +113,7 @@ public class FusionEncounter : BasicEncounterInteraction
 
                 if (card.leftButton.spellController != null)
                 {
-                    DisplaySpellToggleTooltipOnHover spell2 = Instantiate(spellButtonPrefab, buttonsContainer);
+                    DisplayToggleTooltipOnHover spell2 = Instantiate(spellButtonPrefab, buttonsContainer);
                     spell2.Setup(card, card.leftButton.spellData);
 
                     FusionToggleButton spellToggle = spell2.GetComponent<FusionToggleButton>();
@@ -124,7 +123,7 @@ public class FusionEncounter : BasicEncounterInteraction
 
                 if (card.rightButton.spellController != null)
                 {
-                    DisplaySpellToggleTooltipOnHover spell3 = Instantiate(spellButtonPrefab, buttonsContainer);
+                    DisplayToggleTooltipOnHover spell3 = Instantiate(spellButtonPrefab, buttonsContainer);
                     spell3.Setup(card, card.rightButton.spellData);
                     
                     FusionToggleButton spellToggle = spell3.GetComponent<FusionToggleButton>();
@@ -141,9 +140,9 @@ public class FusionEncounter : BasicEncounterInteraction
             if (button.isOn)
             {
                 if (leftSpellData == null)
-                    leftSpellData = button.GetComponent<DisplaySpellToggleTooltipOnHover>().currentSpellData;
+                    leftSpellData = button.GetComponent<DisplayToggleTooltipOnHover>().currentSpellData;
                 else
-                    rightSpellData = button.GetComponent<DisplaySpellToggleTooltipOnHover>().currentSpellData;
+                    rightSpellData = button.GetComponent<DisplayToggleTooltipOnHover>().currentSpellData;
             }
 
             Destroy(button.gameObject);

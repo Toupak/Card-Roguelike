@@ -25,6 +25,8 @@ namespace Combat.Card_Container.Script
         [Space]
         [SerializeField] private Slot slotPrefab;
 
+        [HideInInspector] public RectTransform rectTransform;
+        
         public bool isLocked;
 
         private HorizontalLayoutGroup horizontalLayoutGroup;
@@ -77,6 +79,7 @@ namespace Combat.Card_Container.Script
 
         private void Start()
         {
+            rectTransform = GetComponent<RectTransform>();
             horizontalLayoutGroup = GetComponent<HorizontalLayoutGroup>();
         }
 
@@ -360,7 +363,7 @@ namespace Combat.Card_Container.Script
             for (int i = slots.Count - 1; i >= 0; i--)
             {
                 if (!slots[i].IsEmpty)
-                    slots[i].CurrentCard.cardController.KillCard(false);
+                    slots[i].CurrentCard.KillCard(false);
             }
         }
     }
