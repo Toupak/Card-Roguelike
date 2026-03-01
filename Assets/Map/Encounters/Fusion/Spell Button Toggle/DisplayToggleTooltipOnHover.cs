@@ -63,12 +63,12 @@ namespace Map.Encounters.Fusion.Spell_Button_Toggle
 
         private string ComputeTooltipTitle()
         {
-            return LocalizationSystem.instance.GetSpellTitle(ownerLocalizationKey, localizationKey);
+            return currentSpellData != null ? LocalizationSystem.instance.GetSpellTitle(ownerLocalizationKey, localizationKey) : LocalizationSystem.instance.GetPassiveTitle(ownerLocalizationKey, localizationKey);
         }
 
         private string ComputeTooltipDescription()
         {
-            string description = LocalizationSystem.instance.GetSpellDescription(ownerLocalizationKey, localizationKey);
+            string description = currentSpellData != null ? LocalizationSystem.instance.GetSpellDescription(ownerLocalizationKey, localizationKey) : LocalizationSystem.instance.GetPassiveDescription(ownerLocalizationKey, localizationKey);
             description = LocalizationSystem.instance.CheckForDamageInText(description, damage.ToString(), LocalizationSystem.TextDisplayStyle.None);
 
             return description;
