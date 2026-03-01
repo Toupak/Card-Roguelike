@@ -1,24 +1,23 @@
 using Cards.Scripts;
-using Cards.Tween_Animations;
 using Combat.Card_Container.Script;
+using PrimeTween;
 using Combat.Spells;
 using Map.Encounters;
 using Map.Encounters.Fusion.Spell_Button_Toggle;
-using Run_Loop;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class FusionEncounter : BasicEncounterInteraction
 {
-    [SerializeField] private List<CardContainer> fusionContainers;
+    [SerializeField] private List<CardContainer> cardContainers;
 
-    [SerializeField] private List<DisplaySpellToggleTooltipOnHover> spellContainers;
-    private int spellLimit = 4;
+    [SerializeField] private Transform spellContainer;
+    [SerializeField] private DisplaySpellToggleTooltipOnHover spellButtonPrefab;
 
+    [SerializeField] private GameObject validationButton;
     //[SerializeField] private List<PassiveIcons> passiveContainers;
 
     [SerializeField] private TextMeshProUGUI instructionsText;
@@ -28,6 +27,13 @@ public class FusionEncounter : BasicEncounterInteraction
     [SerializeField] private string SelectPassiveText;
     [SerializeField] private string SelectArtWorkText;
     [SerializeField] private string SelectNameText;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        CardContainer.OnAnyContainerUpdated.AddListener(() => TryDisplayValidateButton(CheckContainers()));
+    }
 
     protected override IEnumerator DoStuffPreValidation()
     {
@@ -55,24 +61,40 @@ public class FusionEncounter : BasicEncounterInteraction
 
     private IEnumerator SelectTwoSpells()
     {
-        //Checker combien il y a de spells au total dans les deux cartes et les ajoute dans une liste de spells data
-        //Créer le bon montant de prefabs
-        //recrache la liste des spells data en faisant un .Setup() sur les prefab avec chacun des spells
-
-        //Need vérifier que deux spells ou la max de la liste sont bien cliqués et qu'on puisse pas en cliquer plus
-        //Ok pour valider 
-
         instructionsText.text = SelectSpellsText;
-        int spellCount = 0;
-        foreach (CardContainer container in fusionContainers)
+        validationButton.SetActive(false);
+
+        var card1 = cardContainers[0].GetComponent<RectTransform>();
+        var card2 = cardContainers[1].GetComponent<RectTransform>();
+
+        Sequence sequence = Sequence.Create()
+            .Group(Tween.UIAnchoredPositionX(card1, card1.anchoredPosition.x - 250f, 0.3f))
+            .Group(Tween.UIAnchoredPositionX(card2, card2.anchoredPosition.x + 250f, 0.3f));
+
+        yield return sequence;
+
+        foreach (CardContainer container in cardContainers)
         {
-            for (int i = spellCount; spellCount < spellLimit; spellCount++)
+            if (container.slotCount > 0)
             {
-                if (container.slotCount > 0)
+                CardController card = container.Slots[0].CurrentCard.cardController;
+
+                if (card.singleButton.spellController != null)
                 {
-                    CardController card = container.Slots[0].CurrentCard.cardController;
-                    spellContainers[i].GetComponent<DisplaySpellToggleTooltipOnHover>().Setup(card, card.leftButton.spellData);
-                    spellContainers[i].GetComponent<DisplaySpellToggleTooltipOnHover>().Setup(card, card.rightButton.spellData);
+                    DisplaySpellToggleTooltipOnHover spell = Instantiate(spellButtonPrefab, spellContainer);
+                    spell.Setup(card, card.singleButton.spellData);
+                }
+
+                if (card.leftButton.spellController != null)
+                {
+                    DisplaySpellToggleTooltipOnHover spell2 = Instantiate(spellButtonPrefab, spellContainer);
+                    spell2.Setup(card, card.leftButton.spellData);
+                }
+
+                if (card.rightButton.spellController != null)
+                {
+                    DisplaySpellToggleTooltipOnHover spell3 = Instantiate(spellButtonPrefab, spellContainer);
+                    spell3.Setup(card, card.rightButton.spellData);
                 }
             }
         }
@@ -96,5 +118,23 @@ public class FusionEncounter : BasicEncounterInteraction
     {
         instructionsText.text = SelectNameText;
         yield return null;
+    }
+
+    private bool CheckContainers()
+    {
+        bool isAnyCardContainersEmpty = false;
+
+        foreach (CardContainer container in cardContainers)
+        {
+            if (container.slotCount == 0)
+                isAnyCardContainersEmpty = true;
+        }
+
+        return !isAnyCardContainersEmpty;
+    }
+
+    private void TryDisplayValidateButton(bool conditionToCheck)
+    {
+         validationButton.SetActive(conditionToCheck);
     }
 }
