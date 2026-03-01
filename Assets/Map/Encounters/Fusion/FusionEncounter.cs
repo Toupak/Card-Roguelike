@@ -20,14 +20,15 @@ public class FusionEncounter : BasicEncounterInteraction
 
     //Spells
     [SerializeField] private DisplayToggleTooltipOnHover spellButtonPrefab;
-    private List<FusionToggleButton> spellButtons = new();
+    private List<FusionToggleButton> ToggleButtons = new();
     private SpellData leftSpellData = null;
     private SpellData rightSpellData;
+    private const int maxSpellQuantity = 2;
 
-    //[SerializeField] private List<PassiveIcons> passiveContainers;
+    //Passive
     [SerializeField] private DisplayToggleTooltipOnHover passiveButtonPrefab;
-
-
+    private const int maxPassiveCount = 1;
+    private PassiveData passiveData;
 
     //Texts
     [Header ("Instruction")]
@@ -40,6 +41,10 @@ public class FusionEncounter : BasicEncounterInteraction
     [Header ("Interaction Text")]
     [SerializeField] private string TooManySpellsSelected;
     [SerializeField] private string TwoSpellsSelected;
+
+    [SerializeField] private string TooManyPassivesSelected;
+    [SerializeField] private string OnePassiveSelected;
+
 
     protected override void Start()
     {
@@ -60,14 +65,17 @@ public class FusionEncounter : BasicEncounterInteraction
         isSelectionValidated = false;
         yield return new WaitUntil(() => isSelectionValidated);
 
-        //DoTransition();
-        yield return StoreAndRemoveSpellButtons();
+        yield return StoreAndRemoveToggleButtons(true);
+        //DoSpellTransition();
 
         yield return SelectPassive();
         isSelectionValidated = false;
         yield return new WaitUntil(() => isSelectionValidated);
 
-        //DoTransition();
+
+        yield return StoreAndRemoveToggleButtons(false);
+        //DoPassiveTransition();
+
         yield return SelectArtWork();
         isSelectionValidated = false;
         yield return new WaitUntil(() => isSelectionValidated);
@@ -109,8 +117,8 @@ public class FusionEncounter : BasicEncounterInteraction
                     spell.Setup(card, card.singleButton.spellData);
                     
                     FusionToggleButton spellToggle = spell.GetComponent<FusionToggleButton>();
-                    spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckSpellContainers()));
-                    spellButtons.Add(spellToggle);
+                    spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckContainers(true)));
+                    ToggleButtons.Add(spellToggle);
                 }
 
                 if (card.leftButton.spellController != null)
@@ -119,8 +127,8 @@ public class FusionEncounter : BasicEncounterInteraction
                     spell2.Setup(card, card.leftButton.spellData);
 
                     FusionToggleButton spellToggle = spell2.GetComponent<FusionToggleButton>();
-                    spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckSpellContainers()));
-                    spellButtons.Add(spellToggle);
+                    spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckContainers(true)));
+                    ToggleButtons.Add(spellToggle);
                 }
 
                 if (card.rightButton.spellController != null)
@@ -129,28 +137,11 @@ public class FusionEncounter : BasicEncounterInteraction
                     spell3.Setup(card, card.rightButton.spellData);
                     
                     FusionToggleButton spellToggle = spell3.GetComponent<FusionToggleButton>();
-                    spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckSpellContainers()));
-                    spellButtons.Add(spellToggle);
+                    spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckContainers(true)));
+                    ToggleButtons.Add(spellToggle);
                 }
             }
         }
-    }
-    private IEnumerator StoreAndRemoveSpellButtons()
-    {
-        foreach (FusionToggleButton button in spellButtons)
-        {
-            if (button.isOn)
-            {
-                if (leftSpellData == null)
-                    leftSpellData = button.GetComponent<DisplayToggleTooltipOnHover>().currentSpellData;
-                else
-                    rightSpellData = button.GetComponent<DisplayToggleTooltipOnHover>().currentSpellData;
-            }
-
-            Destroy(button.gameObject);
-        }
-
-        yield return null;
     }
 
     private IEnumerator SelectPassive()
@@ -168,20 +159,58 @@ public class FusionEncounter : BasicEncounterInteraction
                     DisplayToggleTooltipOnHover passive = Instantiate(passiveButtonPrefab, buttonsContainer);
                     passive.Setup(card, passiveController.passiveData);
                     
-                    FusionToggleButton spellToggle = passive.GetComponent<FusionToggleButton>();
-                    //spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckSpellContainers()));
-                    //spellButtons.Add(spellToggle);
+                    FusionToggleButton passiveToggle = passive.GetComponent<FusionToggleButton>();
+                    passiveToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckContainers(false)));
+                    ToggleButtons.Add(passiveToggle);
                 }
             }
         }
 
-        yield return null;
+        yield break;
+    }
+
+    private IEnumerator StoreAndRemoveToggleButtons(bool isSpellSelected)
+    {
+        foreach (FusionToggleButton button in ToggleButtons)
+        {
+            if (button.isOn)
+            {
+                if (isSpellSelected)
+                {
+                    if (leftSpellData == null)
+                        leftSpellData = button.GetComponent<DisplayToggleTooltipOnHover>().currentSpellData;
+                    else
+                        rightSpellData = button.GetComponent<DisplayToggleTooltipOnHover>().currentSpellData;
+                }
+                else
+                {
+                    passiveData = button.GetComponent<DisplayToggleTooltipOnHover>().currentPassiveData;
+                }
+            }
+
+            Destroy(button.gameObject);
+            Debug.Log("Button is destroyed");
+        }
+
+        ToggleButtons.Clear();
+
+        yield break;
     }
 
     private IEnumerator SelectArtWork()
     {
         ChangeText(SelectArtWorkText);
-        yield return null;
+
+        foreach (CardContainer container in cardContainers)
+        {
+            if (container.slotCount > 0)
+            {
+                CardController card = container.Slots[0].CurrentCard.cardController;
+
+            }
+        }
+
+        yield break;
     }
 
     private IEnumerator SelectName()
@@ -203,25 +232,27 @@ public class FusionEncounter : BasicEncounterInteraction
         return !isAnyCardContainersEmpty;
     }
 
-    private bool CheckSpellContainers()
+    private bool CheckContainers(bool isSelectingSpells)
     {
+        int maxContainerQuantity = isSelectingSpells ? maxSpellQuantity : maxPassiveCount;
+
         int count = 0;
-        foreach (FusionToggleButton button in spellButtons)
+        foreach (FusionToggleButton button in ToggleButtons)
         {
             if (button.isOn)
                 count += 1;
         }
 
-        if (count >= 3)
-            ChangeText(TooManySpellsSelected);
+        if (count > maxContainerQuantity)
+            ChangeText(isSelectingSpells ? TooManySpellsSelected : TooManyPassivesSelected);
 
-        if (count < 2)
-            ChangeText(SelectSpellsText);
+        if (count < maxContainerQuantity)
+            ChangeText(isSelectingSpells ? SelectSpellsText : SelectPassiveText);
 
-        if (count == 2)
-            ChangeText(TwoSpellsSelected);
+        if (count == maxContainerQuantity)
+            ChangeText(isSelectingSpells ? TwoSpellsSelected : OnePassiveSelected);
 
-        return count == 2;
+        return count == maxContainerQuantity;
     }
 
     private void ChangeText(string text)

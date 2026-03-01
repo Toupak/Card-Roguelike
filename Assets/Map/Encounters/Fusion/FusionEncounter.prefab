@@ -929,10 +929,11 @@ MonoBehaviour:
   cardContainers:
   - {fileID: 2271577125920992550}
   - {fileID: 3419289789081776990}
-  buttonsContainer: {fileID: 0}
+  buttonsContainer: {fileID: 3701734644403047854}
   validationButton: {fileID: 5722712038047612558}
   instructionsText: {fileID: 2307423716405034472}
   spellButtonPrefab: {fileID: -5792819507295798947, guid: 9980d15369d8e6c4ab2d29eed8fa2138, type: 3}
+  passiveButtonPrefab: {fileID: -5792819507295798947, guid: 32f62760f7ee22547a6b6728b7c9d3c8, type: 3}
   SelectCardsText: Select 2 cards
   SelectSpellsText: Select 2 spells
   SelectPassiveText: Select 1 passive
@@ -940,6 +941,8 @@ MonoBehaviour:
   SelectNameText: Name your creation
   TooManySpellsSelected: Erm ... You can select only 2 spells
   TwoSpellsSelected: Great choice !
+  TooManyPassivesSelected: Wait ... Only 1 passive please
+  OnePassiveSelected: Let's do this
 --- !u!1 &2892307272693704766
 GameObject:
   m_ObjectHideFlags: 0
