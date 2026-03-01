@@ -7,6 +7,7 @@ using PrimeTween;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat.Passives;
 using TMPro;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ public class FusionEncounter : BasicEncounterInteraction
     private SpellData rightSpellData;
 
     //[SerializeField] private List<PassiveIcons> passiveContainers;
+    [SerializeField] private DisplayToggleTooltipOnHover passiveButtonPrefab;
 
 
 
@@ -154,6 +156,25 @@ public class FusionEncounter : BasicEncounterInteraction
     private IEnumerator SelectPassive()
     {
         ChangeText(SelectPassiveText);
+
+        foreach (CardContainer container in cardContainers)
+        {
+            if (container.slotCount > 0)
+            {
+                CardController card = container.Slots[0].CurrentCard.cardController;
+
+                foreach (PassiveController passiveController in card.passiveHolder.passives)
+                {
+                    DisplayToggleTooltipOnHover passive = Instantiate(passiveButtonPrefab, buttonsContainer);
+                    passive.Setup(card, passiveController.passiveData);
+                    
+                    FusionToggleButton spellToggle = passive.GetComponent<FusionToggleButton>();
+                    //spellToggle.OnClick.AddListener(() => TryDisplayValidationButton(CheckSpellContainers()));
+                    //spellButtons.Add(spellToggle);
+                }
+            }
+        }
+
         yield return null;
     }
 
