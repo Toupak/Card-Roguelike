@@ -11,10 +11,10 @@ namespace Map.Encounters.Fusion.Spell_Button_Toggle
         [SerializeField] private Transform tooltipPivot;
         
         private string ownerLocalizationKey;
-        private SpellData currentSpellData;
+        public SpellData currentSpellData { get; private set; }
 
         private bool isSetup;
-        
+
         public void Setup(CardController originalSpellOwner, SpellData spellData)
         {
             ownerLocalizationKey = originalSpellOwner.cardData.localizationKey;

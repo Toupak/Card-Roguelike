@@ -25,7 +25,8 @@ namespace Map.Encounters.Fusion.Spell_Button_Toggle
             SFXPlayer.instance.PlaySFX(clickSound);
             
             isOn = !isOn;
-            
+            OnClick.Invoke();
+
             animator.Play(isOn ? "Click_On" : "Click_Off");
         }
     }
