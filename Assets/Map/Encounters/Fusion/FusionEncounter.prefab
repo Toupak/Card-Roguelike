@@ -1084,6 +1084,7 @@ MonoBehaviour:
   background: {fileID: 7654504520987688921}
   blackScreen: {fileID: 5534986560348617485}
   handContainer: {fileID: 7222520027666465550}
+  animator: {fileID: 4655430879457697890}
   cardContainers:
   - {fileID: 2271577125920992550}
   - {fileID: 3419289789081776990}

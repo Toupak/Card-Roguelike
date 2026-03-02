@@ -30,6 +30,10 @@ MonoBehaviour:
     minimapIcon: {fileID: 989990818, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}
     minAmountPerFloor: 1
     maxAmountPerFloor: 1
+  - prefab: {fileID: 2728840368502289921, guid: e337921db11c8794a90265ef7b2a4483, type: 3}
+    minimapIcon: {fileID: -1932002448818386534, guid: 2f323fee622d88345b2631e5509a0113, type: 3}
+    minAmountPerFloor: 1
+    maxAmountPerFloor: 2
   optionalEncountersPrefabs:
   - prefab: {fileID: 2979582450361454153, guid: 64bb5e74b82166f40a71b7abceac971a, type: 3}
     minimapIcon: {fileID: -167613730, guid: 760e41fb3b27dd34396397f0b0109ee4, type: 3}

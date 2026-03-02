@@ -21,6 +21,9 @@ using UnityEngine.InputSystem;
 
 public class FusionEncounter : BasicEncounterInteraction
 {
+    private bool isUsed;
+    [SerializeField] private Animator animator;
+
     [SerializeField] private List<CardContainer> cardContainers;
     [SerializeField] private Transform buttonsContainer;
     [SerializeField] private GameObject validationButton;
@@ -83,6 +86,20 @@ public class FusionEncounter : BasicEncounterInteraction
     {
         if (isSelectingArtwork && Mouse.current.leftButton.wasPressedThisFrame)
             TryRegisterCardController();
+    }
+
+    public override bool CanInteract()
+    {
+        return !isUsed;
+    }
+
+    protected override void Setup()
+    {
+        base.Setup();
+
+        isUsed = RoomBuilder.instance.HasRoomBeenCleared();
+        if (isUsed)
+            animator.Play("Used");
     }
 
     protected override IEnumerator DoStuffPreValidation()
