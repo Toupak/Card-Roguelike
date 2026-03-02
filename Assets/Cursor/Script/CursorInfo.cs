@@ -175,8 +175,11 @@ namespace Cursor.Script
         private void SetLastContainer(List<RaycastResult> containers)
         {
             if (containers.Count < 1)
+            {
+                LastCardContainer = null;
                 return;
-            
+            }
+
             LastCardContainer = containers[0].gameObject.GetComponent<CardContainer>();
         }
 
