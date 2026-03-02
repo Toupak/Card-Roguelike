@@ -37,7 +37,6 @@ namespace Cards.Scripts
         private FollowTarget followTarget;
         public CardMovement cardMovement { get;  private set; }
         public CardData cardData { get;  private set; }
-        public DeckCard deckCard { get;  private set; }
 
         public CardHealth cardHealth { get; private set; }
         public CardStatus cardStatus { get; private set; }
@@ -58,11 +57,9 @@ namespace Cards.Scripts
             SetupCard(movement, data, data.hpMax);
         }
         
-        public void Setup(CardMovement movement, DeckCard cardFromDeck)
+        public void Setup(CardMovement movement, CardData cardFromDeck)
         {
-            deckCard = cardFromDeck;
-
-            SetupCard(movement, cardFromDeck.cardData, cardFromDeck.currentHealth);
+            SetupCard(movement, cardFromDeck, cardFromDeck.currentHp);
         }
 
         private void SetupCard(CardMovement movement, CardData data, int health)
@@ -207,7 +204,7 @@ namespace Cards.Scripts
         public void KillCard(bool removeFromDeck = true)
         {
             if (removeFromDeck && !cardData.isEnemy)
-                PlayerDeck.instance.RemoveCardFromDeck(deckCard);
+                PlayerDeck.instance.RemoveCardFromDeck(cardData);
             
             if (removeFromDeck && frameDisplay != null && frameDisplay.hasFrame)
                 frameDisplay.RemoveFrame();

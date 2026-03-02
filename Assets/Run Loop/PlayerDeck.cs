@@ -1,28 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
+using BoomLib.Tools;
 using Cards.Scripts;
 using UnityEngine;
 
 namespace Run_Loop
 {
-    public class DeckCard
-    {
-        public CardData cardData;
-        public int currentHealth;
-
-        public DeckCard(CardData data)
-        {
-            cardData = data;
-            currentHealth = data.hpMax;
-        }
-    }
-    
     public class PlayerDeck : MonoBehaviour
     {
         public static PlayerDeck instance;
 
-        public List<DeckCard> deck { get; private set; } = new List<DeckCard>();
-        public List<DeckCard> lastHandPlayed { get; private set; } = new List<DeckCard>();
+        public List<CardData> deck { get; private set; } = new List<CardData>();
+        public List<CardData> lastHandPlayed { get; private set; } = new List<CardData>();
 
         public bool IsEmpty => deck.Count < 1;
         
@@ -33,16 +22,19 @@ namespace Run_Loop
 
         public void AddCardToDeck(CardData cardData)
         {
-            deck.Add(new DeckCard(cardData));
+            CardData deckCard = cardData.Clone();
+            deckCard.currentHp = cardData.hpMax;
+            
+            deck.Add(deckCard);
         }
 
-        public void UpdateCardHealthPoints(DeckCard deckCard, int currentHealth)
+        public void UpdateCardHealthPoints(CardData card, int currentHealth)
         {
-            if (deck.Contains(deckCard))
-                deck.Find((d) => d == deckCard).currentHealth = currentHealth;
+            if (deck.Contains(card))
+                deck.Find((d) => d == card).currentHp = currentHealth;
         }
 
-        public void RemoveCardFromDeck(DeckCard deckCard)
+        public void RemoveCardFromDeck(CardData deckCard)
         {
             if (deck.Contains(deckCard))
                 deck.Remove(deckCard);
@@ -50,17 +42,17 @@ namespace Run_Loop
 
         public void ClearDeck()
         {
-            deck = new List<DeckCard>();
+            deck.Clear();
         }
         
         public bool ContainsCard(CardData cardData)
         {
-            return deck.Count((dc) => dc.cardData.name == cardData.name) > 0;
+            return deck.Count((dc) => dc.name == cardData.name) > 0;
         }
 
-        public void SaveLastHandPlayed(List<DeckCard> cardsToSave)
+        public void SaveLastHandPlayed(List<CardData> cardsToSave)
         {
-            lastHandPlayed = cardsToSave.Where((dc) => !dc.cardData.isEnemy && !dc.cardData.isSpecialSummon).ToList();
+            lastHandPlayed = cardsToSave.Where((dc) => !dc.isEnemy && !dc.isSpecialSummon).ToList();
         }
     }
 }

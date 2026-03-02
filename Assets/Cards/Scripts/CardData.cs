@@ -32,6 +32,7 @@ namespace Cards.Scripts
         public Tribe tribe;
         public Rarity rarity;
         public int hpMax;
+        [HideInInspector] public int currentHp;
         public bool isInvincible;
         public Sprite artwork;
         public string description;

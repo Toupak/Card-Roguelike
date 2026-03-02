@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cards.Scripts;
 using Inventory.Items.Frames;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,9 +11,9 @@ namespace Run_Loop
     public class FrameItem
     {
         public FrameData data { get; private set; }
-        public DeckCard target;
+        public CardData target;
 
-        public FrameItem(FrameData data, DeckCard target = null)
+        public FrameItem(FrameData data, CardData target = null)
         {
             this.data = data;
             this.target = target;
@@ -56,7 +57,7 @@ namespace Run_Loop
             frames.Add(new FrameItem(newFrame));
         }
 
-        public void EquipFrame(FrameData newFrame, DeckCard target)
+        public void EquipFrame(FrameData newFrame, CardData target)
         {
             foreach (FrameItem frameItem in frames)
             {

@@ -56,7 +56,7 @@ namespace Map.Encounters.Altar
                 
                 yield return CardTween.NewPlaySelfAction(healedCard);
                 healedCard.cardHealth.Heal(healValue);
-                PlayerDeck.instance.UpdateCardHealthPoints(healedCard.deckCard, healedCard.cardHealth.currentHealth);
+                PlayerDeck.instance.UpdateCardHealthPoints(healedCard.cardData, healedCard.cardHealth.currentHealth);
 
                 hasHealedACard =  true;
             }

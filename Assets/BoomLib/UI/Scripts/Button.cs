@@ -19,13 +19,16 @@ namespace BoomLib.UI.Scripts
 
         public UnityEvent OnClick = new UnityEvent(); 
         
+        [HideInInspector] public RectTransform rectTransform;
+        
         private bool isDisplayed = true;
         private bool isClicked;
 
         private Vector3 startingScale;
         
-        private void Start()
+        private void Awake()
         {
+            rectTransform = GetComponent<RectTransform>();
             startingScale = border.rectTransform.localScale;
         }
 

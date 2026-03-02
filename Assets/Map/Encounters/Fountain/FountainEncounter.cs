@@ -53,7 +53,7 @@ namespace Map.Encounters.Fountain
                     yield return CardTween.NewPlaySelfAction(card);
 
                     card.cardHealth.Heal(10);
-                    PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
+                    PlayerDeck.instance.UpdateCardHealthPoints(card.cardData, card.cardHealth.currentHealth);
 
                     hasHealedACard =  true;
                 }

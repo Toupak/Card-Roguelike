@@ -63,17 +63,8 @@ namespace Character_Selection
         {
             foreach (CardData card in startingCards)
             {
-                SpawnCard(new DeckCard(card));
+                RunLoop.instance.DrawCardToContainerForTheFirstTime(card, cardContainer);
             }
-        }
-
-        private void SpawnCard(DeckCard deckCard)
-        {
-            CardMovement newCard = Instantiate(cardMovementPrefab);
-            cardContainer.ReceiveCard(newCard);
-
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, deckCard);
-            newCard.SetCardController(controller);
         }
 
         public void ShowNextCharacter()

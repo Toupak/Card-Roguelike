@@ -50,8 +50,8 @@ namespace Combat.Spells.Data.ChildSoldier.Child
             spawnCardGa.startingHealth = cardController.cardHealth.currentHealth;
             spawnCardGa.frameData = cardController.frameDisplay.hasFrame ? cardController.frameDisplay.data : null;
             
-            cardController.deckCard.cardData = teenAttackData;
-            spawnCardGa.deckCard = cardController.deckCard;
+            //cardController.cardData = teenAttackData;
+            //spawnCardGa.deckCard = cardController.deckCard;
             ActionSystem.instance.AddReaction(spawnCardGa);
             
             cardController.KillCard(false);

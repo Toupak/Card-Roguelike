@@ -13,7 +13,6 @@ namespace ActionReaction.Game_Actions
         public bool isToken;
         public int startingHealth = -1;
         public FrameData frameData = null;
-        public DeckCard deckCard = null;
 
         public SpawnCardGA(CardData data, CardController spawnerController, bool isCardAToken = false)
         {

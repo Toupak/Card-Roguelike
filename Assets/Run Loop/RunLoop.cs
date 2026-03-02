@@ -338,13 +338,29 @@ namespace Run_Loop
             return floorData;
         }
         
-        public void DrawCardToContainer(DeckCard card, CardContainer container)
+        public CardController DrawCardToContainer(CardData card, CardContainer container, CardContainer.PreferredPosition preferredPosition = CardContainer.PreferredPosition.None)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
-            container.ReceiveCard(newCard);
+            container.ReceiveCard(newCard, preferredPosition);
             
             CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, card);
             newCard.SetCardController(controller);
+
+            return controller;
+        }
+        
+        public CardController DrawCardToContainerForTheFirstTime(CardData card, CardContainer container, CardContainer.PreferredPosition preferredPosition = CardContainer.PreferredPosition.None)
+        {
+            CardData data = card.Clone();
+            data.currentHp = data.hpMax;
+            
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            container.ReceiveCard(newCard, preferredPosition);
+            
+            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, data);
+            newCard.SetCardController(controller);
+
+            return controller;
         }
         
         public ItemController DrawItemToContainer(CardContainer container)

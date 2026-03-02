@@ -40,20 +40,20 @@ namespace Combat
         private IEnumerator DrawLastFightHand()
         {
             List<FrameItem> frames = PlayerInventory.instance.frames;
-            List<DeckCard> lastHandCards = PlayerDeck.instance.lastHandPlayed;
+            List<CardData> lastHandCards = PlayerDeck.instance.lastHandPlayed;
             for (int i = 0; i < lastHandCards.Count; i++)
             {
                 CardContainer targetContainer = i < 4 ? playerBoard : handContainer;
                 CardController card = SpawnCard(lastHandCards[i], targetContainer);
                 
-                List<FrameItem> equippedFrame = frames.Where((f) => f.target == card.deckCard).ToList();
+                List<FrameItem> equippedFrame = frames.Where((f) => f.target == card.cardData).ToList();
                 if (equippedFrame.Count > 0)
                     card.AddFrame(equippedFrame[0].data);
                 
                 yield return new WaitForSeconds(0.1f);
             }
 
-            List<DeckCard> deck = PlayerDeck.instance.deck;
+            List<CardData> deck = PlayerDeck.instance.deck;
             for (int i = 0; i < deck.Count; i++)
             {
                 if (lastHandCards.Contains(deck[i]))
@@ -66,7 +66,7 @@ namespace Combat
 
         private IEnumerator DrawFirstFightHand()
         {
-            List<DeckCard> cards = PlayerDeck.instance.deck;
+            List<CardData> cards = PlayerDeck.instance.deck;
 
             for (int i = 0; i < cards.Count; i++)
             {
@@ -81,22 +81,21 @@ namespace Combat
         {
             for (int i = 0; i < 12; i++)
             {
-                SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
+                SpawnCardDebug(cardData[currentDebugDeckIndex], handContainer);
                 currentDebugDeckIndex = currentDebugDeckIndex + 1 >= cardData.Count ? 0 : currentDebugDeckIndex + 1;
 
                 yield return new WaitForSeconds(0.1f);
             } 
         }
 
-        public CardController SpawnCard(DeckCard deckCard, CardContainer targetContainer)
+        public CardController SpawnCard(CardData deckCard, CardContainer targetContainer)
         {
-            CardMovement newCard = Instantiate(cardMovementPrefab);
-            targetContainer.ReceiveCard(newCard);
-
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, deckCard);
-            newCard.SetCardController(controller);
-
-            return controller;
+            return RunLoop.instance.DrawCardToContainer(deckCard, targetContainer);
+        }
+        
+        public CardController SpawnCardDebug(CardData deckCard, CardContainer targetContainer)
+        {
+            return RunLoop.instance.DrawCardToContainerForTheFirstTime(deckCard, targetContainer);
         }
         
         public CardController SpawnToken(SpawnCardGA spawnCardGa)
@@ -139,7 +138,7 @@ namespace Combat
             
             for (int i = 0; i < 12; i++)
             {
-                SpawnCard(new DeckCard(cardData[currentDebugDeckIndex]), handContainer);
+                SpawnCardDebug(cardData[currentDebugDeckIndex], handContainer);
                 currentDebugDeckIndex = currentDebugDeckIndex + 1 >= cardData.Count ? 0 : currentDebugDeckIndex + 1;
                 yield return new WaitForSeconds(0.1f);
             }

@@ -137,7 +137,7 @@ namespace Combat
             else if (spawnCardGa.isToken)
                 spawnCardGa.spawnedCard = playerHandController.SpawnToken(spawnCardGa);
             else    
-                spawnCardGa.spawnedCard = playerHandController.SpawnCard(spawnCardGa.deckCard ?? new DeckCard(spawnCardGa.cardData), playerHandController.board);
+                spawnCardGa.spawnedCard = RunLoop.instance.DrawCardToContainer(spawnCardGa.cardData, playerHandController.board);
             
             if (spawnCardGa.startingHealth > 0)
                 spawnCardGa.spawnedCard.cardHealth.SetHealth(spawnCardGa.startingHealth);
@@ -321,25 +321,25 @@ namespace Combat
 
         public void StoreCardsHealth()
         {
-            List<DeckCard> cardsToSave = new List<DeckCard>();
+            List<CardData> cardsToSave = new List<CardData>();
             foreach (Slot slot in playerHandController.board.Slots)
             {
                 CardController card = slot.CurrentCard.cardController;
 
-                if (card.deckCard != null && !card.cardHealth.IsDead)
+                if (card.cardData != null && !card.cardHealth.IsDead)
                 {
-                    cardsToSave.Add(card.deckCard);
-                    PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
+                    cardsToSave.Add(card.cardData);
+                    PlayerDeck.instance.UpdateCardHealthPoints(card.cardData, card.cardHealth.currentHealth);
                 }
             }
             foreach (Slot slot in enemyHandController.board.Slots)
             {
                 CardController card = slot.CurrentCard.cardController;
 
-                if (!card.cardData.isEnemy && card.deckCard != null && !card.cardHealth.IsDead)
+                if (!card.cardData.isEnemy && card.cardData != null && !card.cardHealth.IsDead)
                 {
-                    PlayerDeck.instance.UpdateCardHealthPoints(card.deckCard, card.cardHealth.currentHealth);
-                    cardsToSave.Add(card.deckCard);
+                    PlayerDeck.instance.UpdateCardHealthPoints(card.cardData, card.cardHealth.currentHealth);
+                    cardsToSave.Add(card.cardData);
                 }
             }
 

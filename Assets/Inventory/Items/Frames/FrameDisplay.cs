@@ -46,7 +46,7 @@ namespace Inventory.Items.Frames
 
             data = frameData;
             SetMaterial(frameData.material);
-            PlayerInventory.instance.EquipFrame(data, controller.deckCard);
+            PlayerInventory.instance.EquipFrame(data, controller.cardData);
             CreateTab(data, controller);
             return SetupFrameController(controller);
         }

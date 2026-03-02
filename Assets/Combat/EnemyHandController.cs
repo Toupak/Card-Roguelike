@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using BoomLib.Tools;
 using Cards.Scripts;
 using Cards.Tween_Animations;
 using Combat.Battles.Data;
@@ -102,13 +103,7 @@ namespace Combat
 
         public CardController SpawnEnemy(CardData enemyData)
         {
-            CardMovement newCard = Instantiate(cardMovementPrefab);
-            enemyBoardContainer.ReceiveCard(newCard, enemyData.preferredPosition);
-
-            CardController controller = CardsVisualManager.instance.SpawnNewCardVisuals(newCard, new DeckCard(enemyData));
-            newCard.SetCardController(controller);
-
-            return controller;
+            return RunLoop.instance.DrawCardToContainerForTheFirstTime(enemyData, enemyBoardContainer, enemyData.preferredPosition);
         }
         
         public void OnEnable()

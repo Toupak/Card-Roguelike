@@ -111,7 +111,7 @@ namespace Run_Loop
         
         private IEnumerator LoadCurrentDeckInHand()
         {
-            foreach (DeckCard card in PlayerDeck.instance.deck)
+            foreach (CardData card in PlayerDeck.instance.deck)
             {
                 RunLoop.instance.DrawCardToContainer(card, handContainer);
                 yield return new WaitForSeconds(0.05f);
@@ -193,11 +193,11 @@ namespace Run_Loop
             for (int i = 0; i < cardCount; i++)
             {
                 if (exoticCards != null && exoticIndex < exoticCards.Count && DropRateManager.instance.CheckForExoticCardReward())
-                    RunLoop.instance.DrawCardToContainer(new DeckCard(exoticCards[exoticIndex++]), mainContainer);
+                    RunLoop.instance.DrawCardToContainerForTheFirstTime(exoticCards[exoticIndex++], mainContainer);
                 else if (legendaryCards != null && legendaryIndex < legendaryCards.Count && DropRateManager.instance.CheckForLegendaryCardReward())
-                    RunLoop.instance.DrawCardToContainer(new DeckCard(legendaryCards[legendaryIndex++]), mainContainer);
+                    RunLoop.instance.DrawCardToContainerForTheFirstTime(legendaryCards[legendaryIndex++], mainContainer);
                 else if (commonCards != null && commonIndex < commonCards.Count)
-                    RunLoop.instance.DrawCardToContainer(new DeckCard(commonCards[commonIndex++]), mainContainer);
+                    RunLoop.instance.DrawCardToContainerForTheFirstTime(commonCards[commonIndex++], mainContainer);
                 yield return new WaitForSeconds(0.1f);
             }
         }
@@ -253,7 +253,7 @@ namespace Run_Loop
             healer.KillCard(false);
 
             target.cardHealth.Heal(target.cardData.hpMax);
-            PlayerDeck.instance.UpdateCardHealthPoints(target.deckCard, target.cardHealth.currentHealth);
+            PlayerDeck.instance.UpdateCardHealthPoints(target.cardData, target.cardHealth.currentHealth);
         }
 
         private CardController FindCardToHeal(CardData data)

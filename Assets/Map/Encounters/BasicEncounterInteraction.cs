@@ -1,6 +1,7 @@
 using System.Collections;
 using BoomLib.BoomTween;
 using BoomLib.Dialog_System;
+using Cards.Scripts;
 using Character_Selection.Character;
 using Character_Selection.Character.Dialog;
 using Combat.Card_Container.Script;
@@ -108,7 +109,7 @@ namespace Map.Encounters
         
         private IEnumerator DrawCards()
         {
-            foreach (DeckCard card in PlayerDeck.instance.deck)
+            foreach (CardData card in PlayerDeck.instance.deck)
             {
                 RunLoop.instance.DrawCardToContainer(card, handContainer);
                 yield return new WaitForSeconds(0.05f);
