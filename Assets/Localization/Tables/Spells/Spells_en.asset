@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674745167872
-    m_Localized: Deals $d$ damage and Applies 1 $Stun$
+    m_Localized: Deals $d$ damage and Applies 2 $Stagger$
     m_Metadata:
       m_Items: []
   - m_Id: 261674745167873
@@ -105,7 +105,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 261674753556482
-    m_Localized: Apply 2 $Dodge$ stacks to self
+    m_Localized: Apply 1 $Dodge$ stacks to self
     m_Metadata:
       m_Items: []
   - m_Id: 261674753556483

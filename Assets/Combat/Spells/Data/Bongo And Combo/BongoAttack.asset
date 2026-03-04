@@ -22,7 +22,7 @@ MonoBehaviour:
   energyCost: 1
   hasNoCooldown: 0
   damage: 1
-  inflictStatus: 1
-  statusStacksApplied: 1
+  inflictStatus: 35
+  statusStacksApplied: 2
   spellController: {fileID: 0}
   localizationKey: bongoattack
