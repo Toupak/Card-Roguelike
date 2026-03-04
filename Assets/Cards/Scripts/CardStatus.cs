@@ -69,7 +69,9 @@ namespace Cards.Scripts
         OnDamageReceived,
         OnCombatStart,
         OnCombatEnd,
-        None
+        None,
+        OnNegatedDamageReceived,
+        OnNegatedDamageDealt
     }
 
     public enum StatusBehaviourTarget
@@ -215,14 +217,19 @@ namespace Cards.Scripts
         {
             if (dealDamageGa.IsCardTargeted(cardController))
             {
+                int damageReceived = dealDamageGa.GetDamagePackageForTarget(cardController)!.amount;
+                
                 foreach (StatusHolder statusHolder in currentStacks.ToList())
                 {
                     if (!IsStatusApplied(statusHolder.statusType))
                         continue;
                     
                     StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
-                
-                    if (statusData.behaviourTiming != StatusBehaviourTimings.OnDamageReceived)
+
+                    bool isDamageAppliedValid = statusData.behaviourTiming == StatusBehaviourTimings.OnDamageReceived && damageReceived > 0;
+                    bool isDamageNegatedValid = statusData.behaviourTiming == StatusBehaviourTimings.OnNegatedDamageReceived && damageReceived == 0;
+                    
+                    if (!isDamageAppliedValid && !isDamageNegatedValid)
                         continue;
                     
                     switch (statusData.behaviour)
@@ -243,28 +250,36 @@ namespace Cards.Scripts
             
             if (dealDamageGa.attacker != null && dealDamageGa.attacker == cardController)
             {
-                foreach (StatusHolder statusHolder in currentStacks.ToList())
+                foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
                 {
-                    if (!IsStatusApplied(statusHolder.statusType))
-                        continue;
-                
-                    StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
+                    int damageDealt = package.amount;
                     
-                    if (statusData.behaviourTiming != StatusBehaviourTimings.OnDamageDealt)
-                        continue;
-                    
-                    switch (statusData.behaviour)
+                    foreach (StatusHolder statusHolder in currentStacks.ToList())
                     {
-                        case StatusBehaviour.RemoveOne:
-                            RemoveOneStack(statusHolder.statusType); 
-                            break;
-                        case StatusBehaviour.RemoveAll:
-                            RemoveAllStacks(statusHolder.statusType);
-                            break;
-                        case StatusBehaviour.RemoveNone:
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
+                        if (!IsStatusApplied(statusHolder.statusType))
+                            continue;
+            
+                        StatusData statusData = StatusSystem.instance.GetStatusData(statusHolder.statusType);
+                
+                        bool isDamageAppliedValid = statusData.behaviourTiming == StatusBehaviourTimings.OnDamageDealt && damageDealt > 0;
+                        bool isDamageNegatedValid = statusData.behaviourTiming == StatusBehaviourTimings.OnNegatedDamageDealt && damageDealt == 0;
+                
+                        if (!isDamageAppliedValid && !isDamageNegatedValid)
+                            continue;
+                        
+                        switch (statusData.behaviour)
+                        {
+                            case StatusBehaviour.RemoveOne:
+                                RemoveOneStack(statusHolder.statusType); 
+                                break;
+                            case StatusBehaviour.RemoveAll:
+                                RemoveAllStacks(statusHolder.statusType);
+                                break;
+                            case StatusBehaviour.RemoveNone:
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
                     }
                 }
             }

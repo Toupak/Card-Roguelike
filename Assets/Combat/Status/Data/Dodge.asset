@@ -18,7 +18,7 @@ MonoBehaviour:
   statusDescription: Each stack of Dodge provides an additional 30% chances to evades
     enemy attacks
   behaviour: 1
-  behaviourTiming: 0
+  behaviourTiming: 7
   effectType: 1
   maxStackCount: -1
   neverRemoveTab: 0
