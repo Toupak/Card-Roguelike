@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
+using BoomLib.Tools;
 using Cards.Scripts;
 using Combat.Card_Container.CardSlot;
 using Combat.Spells.Targeting;
@@ -122,6 +123,40 @@ namespace Combat.Spells.Data.Archemologist
 
             Debug.Log($"Casting Mole Use : {targets[0].cardController.cardData.cardName}");
 
+            yield return PerformArtefactOnAllTargets(targets);
+            yield return PerformArtefactPerTarget(targets);
+            
+            DeathGA selfDestroy = new DeathGA(cardController, currentArtefactController);
+            ActionSystem.instance.Perform(selfDestroy);
+        }
+
+        private IEnumerator PerformArtefactOnAllTargets(List<CardMovement> targets)
+        {
+            switch (currentArtefact)
+            {
+                case Artefacts.None:
+                case Artefacts.Cookie:
+                case Artefacts.Bullet:
+                case Artefacts.Potion:
+                case Artefacts.Helm:
+                case Artefacts.HolyGrenade:
+                case Artefacts.PoisonCookie:
+                case Artefacts.Fireball:
+                case Artefacts.Pepper:
+                    break;
+                case Artefacts.Grenade:
+                    DealDamageGA grenade = new DealDamageGA(1, currentArtefactController, targets.GetControllers());
+                    ActionSystem.instance.Perform(grenade);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            
+            yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
+        }
+        
+        private IEnumerator PerformArtefactPerTarget(List<CardMovement> targets)
+        {
             foreach (CardMovement target in targets)
             {
                 switch (currentArtefact)
@@ -145,8 +180,6 @@ namespace Combat.Spells.Data.Archemologist
                         ActionSystem.instance.Perform(armor);
                         break;
                     case Artefacts.Grenade:
-                        DealDamageGA grenade = new DealDamageGA(1, currentArtefactController, target.cardController);
-                        ActionSystem.instance.Perform(grenade);
                         break;
                     case Artefacts.HolyGrenade:
                         List<CardMovement> otherArtefacts = ComputeOtherArtefactsList();
@@ -158,7 +191,7 @@ namespace Combat.Spells.Data.Archemologist
                             ActionSystem.instance.Perform(deathGa);
                             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                         }
-
+                        
                         DealDamageGA holyGrenade = new DealDamageGA(damage, currentArtefactController, target.cardController);
                         ActionSystem.instance.Perform(holyGrenade);
                         break;
@@ -180,9 +213,6 @@ namespace Combat.Spells.Data.Archemologist
                 
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
             }
-            
-            DeathGA selfDestroy = new DeathGA(cardController, currentArtefactController);
-            ActionSystem.instance.Perform(selfDestroy);
         }
 
         private List<CardMovement> ComputeOtherArtefactsList()
