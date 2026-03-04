@@ -47,30 +47,30 @@ namespace Localization
             //UpdateGlyphs();
         }
         
-        public string GetSpellTitle(string cardKey, string spellKey)
+        public string GetSpellTitle(string spellKey)
         {
-            StringTableEntry entry = spellTable.GetEntry($"{cardKey}_{spellKey}_title");
+            StringTableEntry entry = spellTable.GetEntry($"{spellKey}_title");
             
             return entry != null ? entry.Value : "";
         }
         
-        public string GetSpellDescription(string cardKey, string spellKey)
+        public string GetSpellDescription(string spellKey)
         {
-            StringTableEntry entry = spellTable.GetEntry($"{cardKey}_{spellKey}");
+            StringTableEntry entry = spellTable.GetEntry($"{spellKey}");
             
             return entry != null ? entry.Value : "";
         }
         
-        public string GetPassiveTitle(string cardKey, string passiveKey)
+        public string GetPassiveTitle(string passiveKey)
         {
-            StringTableEntry entry = passiveTable.GetEntry($"{cardKey}_{passiveKey}_title");
+            StringTableEntry entry = passiveTable.GetEntry($"{passiveKey}_title");
             
             return entry != null ? entry.Value : "";
         }
         
-        public string GetPassiveDescription(string cardKey, string passiveKey)
+        public string GetPassiveDescription(string passiveKey)
         {
-            StringTableEntry entry = passiveTable.GetEntry($"{cardKey}_{passiveKey}");
+            StringTableEntry entry = passiveTable.GetEntry($"{passiveKey}");
             
             return entry != null ? entry.Value : "";
         }

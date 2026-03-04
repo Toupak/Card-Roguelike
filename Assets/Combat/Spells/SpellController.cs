@@ -227,12 +227,12 @@ namespace Combat.Spells
 
         public virtual string ComputeTooltipTitle()
         {
-            return LocalizationSystem.instance.GetSpellTitle(cardController.cardData.localizationKey, spellData.localizationKey);
+            return LocalizationSystem.instance.GetSpellTitle(spellData.localizationKey);
         }
         
         public virtual string ComputeTooltipDescription()
         {
-            string description = LocalizationSystem.instance.GetSpellDescription(cardController.cardData.localizationKey, spellData.localizationKey);
+            string description = LocalizationSystem.instance.GetSpellDescription(spellData.localizationKey);
 
             int damage = ComputeCurrentDamage(spellData.damage);
             LocalizationSystem.TextDisplayStyle style = LocalizationSystem.instance.ComputeTextDisplayStyle(spellData.damage, damage);

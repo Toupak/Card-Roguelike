@@ -16,751 +16,751 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 4d36101ea1343254d8bb7895496bcdd7
   m_Entries:
   - m_Id: 260841760587776
-    m_Key: banana_slipperytrap
+    m_Key: slipperytrap
     m_Metadata:
       m_Items: []
   - m_Id: 260841781559296
-    m_Key: barbarian_berserkrage
+    m_Key: berserkrage
     m_Metadata:
       m_Items: []
   - m_Id: 260841781559297
-    m_Key: barbarian_berserkbuff
+    m_Key: berserkbuff
     m_Metadata:
       m_Items: []
   - m_Id: 260841785753600
-    m_Key: batmerchant_batpassive
+    m_Key: batpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841789947904
-    m_Key: bongo_bongopassivedamage
+    m_Key: bongopassivedamage
     m_Metadata:
       m_Items: []
   - m_Id: 260841789947905
-    m_Key: bongo_bongopassivestatus
+    m_Key: bongopassivestatus
     m_Metadata:
       m_Items: []
   - m_Id: 260841794142208
-    m_Key: childsoldier_childsoldierpassiveattack
+    m_Key: childsoldierpassiveattack
     m_Metadata:
       m_Items: []
   - m_Id: 260841794142209
-    m_Key: childsoldier_childsoldierpassivedefense
+    m_Key: childsoldierpassivedefense
     m_Metadata:
       m_Items: []
   - m_Id: 260841794142210
-    m_Key: teenshieldmaster_teensoldierpassivedefense
+    m_Key: teensoldierpassivedefense
     m_Metadata:
       m_Items: []
   - m_Id: 260841798336512
-    m_Key: teenswordmaster_teensoldierpassiveattack
+    m_Key: teensoldierpassiveattack
     m_Metadata:
       m_Items: []
   - m_Id: 260841798336513
-    m_Key: combo_bongopassivedamage
+    m_Key: bongopassivedamage
     m_Metadata:
       m_Items: []
   - m_Id: 260841798336514
-    m_Key: combo_bongopassivestatus
+    m_Key: bongopassivestatus
     m_Metadata:
       m_Items: []
   - m_Id: 260841802530816
-    m_Key: cube_cubepassive
+    m_Key: cubepassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841802530817
-    m_Key: cube_stunimmune
+    m_Key: stunimmune
     m_Metadata:
       m_Items: []
   - m_Id: 260841802530818
-    m_Key: smokingdevil_hellfuel
+    m_Key: hellfuel
     m_Metadata:
       m_Items: []
   - m_Id: 260841802530819
-    m_Key: dinoandzaur_dinoandzaurpassive
+    m_Key: dinoandzaurpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841810919424
-    m_Key: frien_friendweakbuff
+    m_Key: friendweakbuff
     m_Metadata:
       m_Items: []
   - m_Id: 260841815113728
-    m_Key: gumball_gumballarmor
+    m_Key: gumballarmor
     m_Metadata:
       m_Items: []
   - m_Id: 260841815113729
-    m_Key: gumball_gumballboom
+    m_Key: gumballboom
     m_Metadata:
       m_Items: []
   - m_Id: 260841815113730
-    m_Key: hognade_hogpassive
+    m_Key: hogpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841819308032
-    m_Key: biggestofmonkey_oneape
+    m_Key: oneape
     m_Metadata:
       m_Items: []
   - m_Id: 260841823502336
-    m_Key: pif_pifpassive
+    m_Key: pifpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841827696640
-    m_Key: pillarman_pillardefense
+    m_Key: pillardefense
     m_Metadata:
       m_Items: []
   - m_Id: 260841827696641
-    m_Key: pillarman_pillartaunt
+    m_Key: pillartaunt
     m_Metadata:
       m_Items: []
   - m_Id: 260841831890944
-    m_Key: guard_guardpassive
+    m_Key: guardpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841831890945
-    m_Key: jaycoon_racoonpassive
+    m_Key: racoonpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841831890946
-    m_Key: rooster_roosterpassive
+    m_Key: roosterpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085248
-    m_Key: snuk_snukeggpassive
+    m_Key: snukeggpassive
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085249
-    m_Key: baby_snukbabyprotect
+    m_Key: snukbabyprotect
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085250
-    m_Key: baby_snukbabyattack
+    m_Key: snukbabyattack
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085251
-    m_Key: snuk_egg_snukeggwait
+    m_Key: egg_snukeggwait
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085252
-    m_Key: thelastgnomefighter_gnomefighterprotection
+    m_Key: gnomefighterprotection
     m_Metadata:
       m_Items: []
   - m_Id: 260841836085253
-    m_Key: thelastgnomefighter_gnomefighterattack
+    m_Key: gnomefighterattack
     m_Metadata:
       m_Items: []
   - m_Id: 260841840279552
-    m_Key: thorse_stunimmune
+    m_Key: stunimmune
     m_Metadata:
       m_Items: []
   - m_Id: 260841840279553
-    m_Key: thorse_allneighty
+    m_Key: allneighty
     m_Metadata:
       m_Items: []
   - m_Id: 260841840279554
-    m_Key: tinkerer_tinkererpassive_1
+    m_Key: tinkererpassive_1
     m_Metadata:
       m_Items: []
   - m_Id: 260841840279555
-    m_Key: tinkerer_tinkererpassive_2
+    m_Key: tinkererpassive_2
     m_Metadata:
       m_Items: []
   - m_Id: 260841844473856
-    m_Key: tinkerer_tinkererpassive_3
+    m_Key: tinkererpassive_3
     m_Metadata:
       m_Items: []
   - m_Id: 260841844473857
-    m_Key: tinkerer_tinkererpassive_4
+    m_Key: tinkererpassive_4
     m_Metadata:
       m_Items: []
   - m_Id: 280870652706816
-    m_Key: squirtysquire_squirtedpassive
+    m_Key: squirtedpassive
     m_Metadata:
       m_Items: []
   - m_Id: 287185978490880
-    m_Key: banana_slipperytrap_title
+    m_Key: slipperytrap_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433920
-    m_Key: barbarian_berserkrage_title
+    m_Key: berserkrage_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433921
-    m_Key: barbarian_berserkbuff_title
+    m_Key: berserkbuff_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433922
-    m_Key: batmerchant_batpassive_title
+    m_Key: batpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433923
-    m_Key: bongo_bongopassivedamage_title
+    m_Key: bongopassivedamage_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433924
-    m_Key: bongo_bongopassivestatus_title
+    m_Key: bongopassivestatus_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433925
-    m_Key: childsoldier_childsoldierpassiveattack_title
+    m_Key: childsoldierpassiveattack_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433926
-    m_Key: childsoldier_childsoldierpassivedefense_title
+    m_Key: childsoldierpassivedefense_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433927
-    m_Key: teenshieldmaster_teensoldierpassivedefense_title
+    m_Key: teensoldierpassivedefense_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433928
-    m_Key: teenswordmaster_teensoldierpassiveattack_title
+    m_Key: teensoldierpassiveattack_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433929
-    m_Key: combo_bongopassivedamage_title
+    m_Key: bongopassivedamage_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433930
-    m_Key: combo_bongopassivestatus_title
+    m_Key: bongopassivestatus_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433931
-    m_Key: cube_cubepassive_title
+    m_Key: cubepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433932
-    m_Key: cube_stunimmune_title
+    m_Key: stunimmune_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433933
-    m_Key: smokingdevil_hellfuel_title
+    m_Key: hellfuel_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433934
-    m_Key: dinoandzaur_dinoandzaurpassive_title
+    m_Key: dinoandzaurpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433935
-    m_Key: frien_friendweakbuff_title
+    m_Key: friendweakbuff_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433936
-    m_Key: gumball_gumballarmor_title
+    m_Key: gumballarmor_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433937
-    m_Key: gumball_gumballboom_title
+    m_Key: gumballboom_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433938
-    m_Key: hognade_hogpassive_title
+    m_Key: hogpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433939
-    m_Key: biggestofmonkey_oneape_title
+    m_Key: oneape_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433940
-    m_Key: pif_pifpassive_title
+    m_Key: pifpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433941
-    m_Key: pillarman_pillardefense_title
+    m_Key: pillardefense_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433942
-    m_Key: pillarman_pillartaunt_title
+    m_Key: pillartaunt_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433943
-    m_Key: guard_guardpassive_title
+    m_Key: guardpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433944
-    m_Key: jaycoon_racoonpassive_title
+    m_Key: racoonpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433945
-    m_Key: rooster_roosterpassive_title
+    m_Key: roosterpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433946
-    m_Key: snuk_snukeggpassive_title
+    m_Key: snukeggpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433947
-    m_Key: baby_snukbabyprotect_title
+    m_Key: snukbabyprotect_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433948
-    m_Key: baby_snukbabyattack_title
+    m_Key: snukbabyattack_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433949
-    m_Key: snuk_egg_snukeggwait_title
+    m_Key: egg_snukeggwait_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433950
-    m_Key: squirtysquire_squirtedpassive_title
+    m_Key: squirtedpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433951
-    m_Key: Babies will $Protected$ their mom from damage
+    m_Key: 
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433952
-    m_Key: thelastgnomefighter_gnomefighterattack_title
+    m_Key: gnomefighterattack_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433953
-    m_Key: thorse_stunimmune_title
+    m_Key: stunimmune_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433954
-    m_Key: thorse_allneighty_title
+    m_Key: allneighty_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433955
-    m_Key: tinkerer_tinkererpassive_1_title
+    m_Key: tinkererpassive_1_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433956
-    m_Key: tinkerer_tinkererpassive_2_title
+    m_Key: tinkererpassive_2_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433957
-    m_Key: tinkerer_tinkererpassive_3_title
+    m_Key: tinkererpassive_3_title
     m_Metadata:
       m_Items: []
   - m_Id: 287186020433958
-    m_Key: tinkerer_tinkererpassive_4_title
+    m_Key: tinkererpassive_4_title
     m_Metadata:
       m_Items: []
   - m_Id: 396017798971392
-    m_Key: manyfaces_whitefacepassive_title
+    m_Key: whitefacepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 396017819942912
-    m_Key: manyfaces_whitefacepassive
+    m_Key: whitefacepassive
     m_Metadata:
       m_Items: []
   - m_Id: 396017819942913
-    m_Key: manyfaces_bluefacepassive_title
+    m_Key: bluefacepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 396017819942914
-    m_Key: manyfaces_bluefacepassive
+    m_Key: bluefacepassive
     m_Metadata:
       m_Items: []
   - m_Id: 396017819942915
-    m_Key: manyfaces_redfacepassive_title
+    m_Key: redfacepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 396017819942916
-    m_Key: manyfaces_redfacepassive
+    m_Key: redfacepassive
     m_Metadata:
       m_Items: []
   - m_Id: 409810969001984
-    m_Key: child'sface_facetokenattackpassive_title
+    m_Key: facetokenattackpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 409811010945024
-    m_Key: child'sface_facetokenattackpassive
+    m_Key: facetokenattackpassive
     m_Metadata:
       m_Items: []
   - m_Id: 409811010945025
-    m_Key: child'sface_facetokendiepassive_title
+    m_Key: facetokendiepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 409811010945026
-    m_Key: child'sface_facetokendiepassive
+    m_Key: facetokendiepassive
     m_Metadata:
       m_Items: []
   - m_Id: 1114501516328960
-    m_Key: ammocarrierxachary_xacharypassive_title
+    m_Key: xacharypassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 1114501533106176
-    m_Key: ammocarrierxachary_xacharypassive
+    m_Key: xacharypassive
     m_Metadata:
       m_Items: []
   - m_Id: 1406103786848256
-    m_Key: flopper_dolphinpassive_title
+    m_Key: dolphinpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 1406103803625472
-    m_Key: flopper_dolphinpassive
+    m_Key: dolphinpassive
     m_Metadata:
       m_Items: []
   - m_Id: 1461001735864320
-    m_Key: nado_sharkpassive_title
+    m_Key: sharkpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 1461001735864321
-    m_Key: nado_sharkpassive
+    m_Key: sharkpassive
     m_Metadata:
       m_Items: []
   - m_Id: 1461001735864322
-    m_Key: nado_sharkbonusdamagepassive_title
+    m_Key: sharkbonusdamagepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 1461001735864323
-    m_Key: nado_sharkbonusdamagepassive
+    m_Key: sharkbonusdamagepassive
     m_Metadata:
       m_Items: []
   - m_Id: 1479028212727808
-    m_Key: pastabox_whaledamage_title
+    m_Key: whaledamage_title
     m_Metadata:
       m_Items: []
   - m_Id: 1479028233699328
-    m_Key: pastabox_whaledamage
+    m_Key: whaledamage
     m_Metadata:
       m_Items: []
   - m_Id: 1479028233699329
-    m_Key: pastabox_whalearmor_title
+    m_Key: whalearmor_title
     m_Metadata:
       m_Items: []
   - m_Id: 1479028233699330
-    m_Key: pastabox_whalearmor
+    m_Key: whalearmor
     m_Metadata:
       m_Items: []
   - m_Id: 1844832506707968
-    m_Key: necromancer_necromancerpassive_title
+    m_Key: necromancerpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 1844832523485184
-    m_Key: necromancer_necromancerpassive
+    m_Key: necromancerpassive
     m_Metadata:
       m_Items: []
   - m_Id: 2338466909880320
-    m_Key: gutter-spider_spiderballpassivedodge_title
+    m_Key: spiderballpassivedodge_title
     m_Metadata:
       m_Items: []
   - m_Id: 2338466926657536
-    m_Key: gutter-spider_spiderballpassivedodge
+    m_Key: spiderballpassivedodge
     m_Metadata:
       m_Items: []
   - m_Id: 2338818082177024
-    m_Key: gutter-spider_spiderballpassiveberserk_title
+    m_Key: spiderballpassiveberserk_title
     m_Metadata:
       m_Items: []
   - m_Id: 2338818082177025
-    m_Key: gutter-spider_spiderballpassiveberserk
+    m_Key: spiderballpassiveberserk
     m_Metadata:
       m_Items: []
   - m_Id: 21143546815545344
-    m_Key: kraken_krakendamagepassive_title
+    m_Key: krakendamagepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 21143546836516864
-    m_Key: kraken_krakendamagepassive
+    m_Key: krakendamagepassive
     m_Metadata:
       m_Items: []
   - m_Id: 21143546836516865
-    m_Key: kraken_krakenarmorpassive_title
+    m_Key: krakenarmorpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 21143546836516866
-    m_Key: kraken_krakenarmorpassive
+    m_Key: krakenarmorpassive
     m_Metadata:
       m_Items: []
   - m_Id: 21158694607355904
-    m_Key: starseer_starseerpassive_title
+    m_Key: starseerpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 21158694624133120
-    m_Key: starseer_starseerpassive
+    m_Key: starseerpassive
     m_Metadata:
       m_Items: []
   - m_Id: 21352221375168512
-    m_Key: martinigladiatorini_gladiatorpassive_title
+    m_Key: gladiatorpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 21352221391945728
-    m_Key: martinigladiatorini_gladiatorpassive
+    m_Key: gladiatorpassive
     m_Metadata:
       m_Items: []
   - m_Id: 21757641348579328
-    m_Key: forceps_forcepspassive_title
+    m_Key: forcepspassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 21757641365356544
-    m_Key: forceps_forcepspassive
+    m_Key: forcepspassive
     m_Metadata:
       m_Items: []
   - m_Id: 22283358427643904
-    m_Key: puppet_puppetoffensivefriend_title
+    m_Key: puppetoffensivefriend_title
     m_Metadata:
       m_Items: []
   - m_Id: 22283358654136320
-    m_Key: puppet_puppetoffensivefriend
+    m_Key: puppetoffensivefriend
     m_Metadata:
       m_Items: []
   - m_Id: 22283358654136321
-    m_Key: puppet_puppetoffensiveenemy_title
+    m_Key: puppetoffensiveenemy_title
     m_Metadata:
       m_Items: []
   - m_Id: 22283358654136322
-    m_Key: puppet_puppetoffensiveenemy
+    m_Key: puppetoffensiveenemy
     m_Metadata:
       m_Items: []
   - m_Id: 22283358658330624
-    m_Key: puppet_puppetdefensivefriend_title
+    m_Key: puppetdefensivefriend_title
     m_Metadata:
       m_Items: []
   - m_Id: 22283358658330625
-    m_Key: puppet_puppetdefensivefriend
+    m_Key: puppetdefensivefriend
     m_Metadata:
       m_Items: []
   - m_Id: 22283358658330626
-    m_Key: puppet_puppetdefensiveenemy_title
+    m_Key: puppetdefensiveenemy_title
     m_Metadata:
       m_Items: []
   - m_Id: 22283358658330627
-    m_Key: puppet_puppetdefensiveenemy
+    m_Key: puppetdefensiveenemy
     m_Metadata:
       m_Items: []
   - m_Id: 22859783195033600
-    m_Key: gardener_gardenerpotspassive_title
+    m_Key: gardenerpotspassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005120
-    m_Key: gardener_gardenerpotspassive
+    m_Key: gardenerpotspassive
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005121
-    m_Key: bluepot_gardenerpotpassiveblue_title
+    m_Key: gardenerpotpassiveblue_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005122
-    m_Key: bluepot_gardenerpotpassiveblue
+    m_Key: gardenerpotpassiveblue
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005123
-    m_Key: bluepot_gardenerseedpassive_title
+    m_Key: gardenerseedpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005124
-    m_Key: bluepot_gardenerseedpassive
+    m_Key: gardenerseedpassive
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005125
-    m_Key: bluepot_gardenerplantpassiveblue_1_title
+    m_Key: gardenerplantpassiveblue_1_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005126
-    m_Key: bluepot_gardenerplantpassiveblue_1
+    m_Key: gardenerplantpassiveblue_1
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005127
-    m_Key: bluepot_gardenerplantpassiveblue_2_title
+    m_Key: gardenerplantpassiveblue_2_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783216005128
-    m_Key: bluepot_gardenerplantpassiveblue_2
+    m_Key: gardenerplantpassiveblue_2
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199424
-    m_Key: bluepot_gardenerplantpassiveblue_3_title
+    m_Key: gardenerplantpassiveblue_3_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199425
-    m_Key: bluepot_gardenerplantpassiveblue_3
+    m_Key: gardenerplantpassiveblue_3
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199426
-    m_Key: greenpot_gardenerpotpassivegreen_title
+    m_Key: gardenerpotpassivegreen_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199427
-    m_Key: greenpot_gardenerpotpassivegreen
+    m_Key: gardenerpotpassivegreen
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199428
-    m_Key: greenpot_gardenerplantpassivegreen_1_title
+    m_Key: gardenerplantpassivegreen_1_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199429
-    m_Key: greenpot_gardenerplantpassivegreen_1
+    m_Key: gardenerplantpassivegreen_1
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199430
-    m_Key: greenpot_gardenerplantpassivegreen_2_title
+    m_Key: gardenerplantpassivegreen_2_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199431
-    m_Key: greenpot_gardenerplantpassivegreen_2
+    m_Key: gardenerplantpassivegreen_2
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199432
-    m_Key: greenpot_gardenerplantpassivegreen_3_title
+    m_Key: gardenerplantpassivegreen_3_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199433
-    m_Key: greenpot_gardenerplantpassivegreen_3
+    m_Key: gardenerplantpassivegreen_3
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199434
-    m_Key: redpot_gardenerpotpassivered_title
+    m_Key: gardenerpotpassivered_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199435
-    m_Key: redpot_gardenerpotpassivered
+    m_Key: gardenerpotpassivered
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199436
-    m_Key: redpot_gardenerplantpassivered_1_title
+    m_Key: gardenerplantpassivered_1_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783220199437
-    m_Key: redpot_gardenerplantpassivered_1
+    m_Key: gardenerplantpassivered_1
     m_Metadata:
       m_Items: []
   - m_Id: 22859783224393728
-    m_Key: redpot_gardenerplantpassivered_2_title
+    m_Key: gardenerplantpassivered_2_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783224393729
-    m_Key: redpot_gardenerplantpassivered_2
+    m_Key: gardenerplantpassivered_2
     m_Metadata:
       m_Items: []
   - m_Id: 22859783224393730
-    m_Key: redpot_gardenerplantpassivered_3_title
+    m_Key: gardenerplantpassivered_3_title
     m_Metadata:
       m_Items: []
   - m_Id: 22859783224393731
-    m_Key: redpot_gardenerplantpassivered_3
+    m_Key: gardenerplantpassivered_3
     m_Metadata:
       m_Items: []
   - m_Id: 22860997924192256
-    m_Key: greenpot_gardenerseedpassive_title
+    m_Key: gardenerseedpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 22861031440875520
-    m_Key: greenpot_gardenerseedpassive
+    m_Key: gardenerseedpassive
     m_Metadata:
       m_Items: []
   - m_Id: 22861355769626624
-    m_Key: redpot_gardenerseedpassive_title
+    m_Key: gardenerseedpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 22861473818312704
-    m_Key: redpot_gardenerseedpassive
+    m_Key: gardenerseedpassive
     m_Metadata:
       m_Items: []
   - m_Id: 27523455653740544
-    m_Key: bojackswordsman_bojackmoonlightpassive_title
+    m_Key: bojackmoonlightpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 27523455670517760
-    m_Key: bojackswordsman_bojackmoonlightpassive
+    m_Key: bojackmoonlightpassive
     m_Metadata:
       m_Items: []
   - m_Id: 27523455670517761
-    m_Key: bojackswordsman_bojackstrikepassive_title
+    m_Key: bojackstrikepassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 27523455670517762
-    m_Key: bojackswordsman_bojackstrikepassive
+    m_Key: bojackstrikepassive
     m_Metadata:
       m_Items: []
   - m_Id: 27536973706788864
-    m_Key: machinegunxander_mgfocus_title
+    m_Key: mgfocus_title
     m_Metadata:
       m_Items: []
   - m_Id: 27536973744537600
-    m_Key: machinegunxander_mgfocus
+    m_Key: mgfocus
     m_Metadata:
       m_Items: []
   - m_Id: 27739318826795008
-    m_Key: marksmanxordan_xordanpassive_title
+    m_Key: xordanpassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 27739318826795009
-    m_Key: marksmanxordan_xordanpassive
+    m_Key: xordanpassive
     m_Metadata:
       m_Items: []
   - m_Id: 27826695003930624
-    m_Key: manta_mantapassive_title
+    m_Key: mantapassive_title
     m_Metadata:
       m_Items: []
   - m_Id: 27826695024902144
-    m_Key: manta_mantapassive
+    m_Key: mantapassive
     m_Metadata:
       m_Items: []
   - m_Id: 28137108279099392
-    m_Key: cookie_archemologist_cookie_title
+    m_Key: archemologist_cookie_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070912
-    m_Key: cookie_archemologist_cookie
+    m_Key: archemologist_cookie
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070913
-    m_Key: ammunition_archemologist_bullet_title
+    m_Key: archemologist_bullet_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070914
-    m_Key: ammunition_archemologist_bullet
+    m_Key: archemologist_bullet
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070915
-    m_Key: healthpotion_archemologist_potion_title
+    m_Key: archemologist_potion_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070916
-    m_Key: healthpotion_archemologist_potion
+    m_Key: archemologist_potion
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070917
-    m_Key: helm_archemologist_helm_title
+    m_Key: archemologist_helm_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108300070918
-    m_Key: helm_archemologist_helm
+    m_Key: archemologist_helm
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265216
-    m_Key: grenade_archemologist_grenade_title
+    m_Key: archemologist_grenade_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265217
-    m_Key: grenade_archemologist_grenade
+    m_Key: archemologist_grenade
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265218
-    m_Key: holygrenade_archemologist_holygrenade_title
+    m_Key: archemologist_holygrenade_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265219
-    m_Key: holygrenade_archemologist_holygrenade
+    m_Key: archemologist_holygrenade
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265220
-    m_Key: poisonouscookie_archemologist_poisoncookie_title
+    m_Key: archemologist_poisoncookie_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265221
-    m_Key: poisonouscookie_archemologist_poisoncookie
+    m_Key: archemologist_poisoncookie
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265222
-    m_Key: fireballscroll_archemologist_fireball_title
+    m_Key: archemologist_fireball_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265223
-    m_Key: fireballscroll_archemologist_fireball
+    m_Key: archemologist_fireball
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265224
-    m_Key: strongpepper_archemologist_pepper_title
+    m_Key: archemologist_pepper_title
     m_Metadata:
       m_Items: []
   - m_Id: 28137108304265225
-    m_Key: strongpepper_archemologist_pepper
+    m_Key: archemologist_pepper
     m_Metadata:
       m_Items: []
   - m_Id: 30346024069070848
-    m_Key: thelastgnomefighter_gnomefighterprotection_title
+    m_Key: gnomefighterprotection_title
     m_Metadata:
       m_Items: []
   m_Metadata:

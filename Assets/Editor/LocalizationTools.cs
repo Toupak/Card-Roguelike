@@ -1,3 +1,4 @@
+using System.Linq;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Combat.EnemyAttack;
@@ -22,6 +23,39 @@ namespace Editor
         private const string enemiesTablePath = "Assets/Localization/Tables/Enemies/Enemies_en.asset";
         
         private const string statusHolderPath = "Assets/Combat/Status/StatusDataHolder.asset";
+
+        [MenuItem("Tools/Localization/Remove Card Loc Key")]
+        private static void RemoveCardLocKey()
+        {
+            CardDatabase db = AssetDatabase.LoadAssetAtPath<CardDatabase>(cardDBPath);
+            StringTable spell = AssetDatabase.LoadAssetAtPath<StringTable>(spellTablePath);
+            StringTable passive = AssetDatabase.LoadAssetAtPath<StringTable>(passiveTablePath);
+
+            /*
+            foreach (StringTableEntry tableEntry in spell.Values)
+            {
+                string[] splitKey = tableEntry.Key.Split("_");
+                string finalKey = string.Join("_", splitKey, 1, splitKey.Length - 1);
+
+                tableEntry.Key = finalKey;
+            }
+            */
+            
+            /*
+            foreach (StringTableEntry tableEntry in passive.Values)
+            {
+                string[] splitKey = tableEntry.Key.Split("_");
+                string finalKey = string.Join("_", splitKey, 1, splitKey.Length - 1);
+
+                tableEntry.Key = finalKey;
+            }
+            */
+            
+            EditorUtility.SetDirty(spell);
+            EditorUtility.SetDirty(spell.SharedData);
+            EditorUtility.SetDirty(passive);
+            EditorUtility.SetDirty(passive.SharedData);
+        }
         
 
         [MenuItem("Tools/Localization/Add New Card To Trad File")]
@@ -43,8 +77,8 @@ namespace Editor
                         data.localizationKey = ComputeLocalizationKey(data.name);
                         EditorUtility.SetDirty(data);
 
-                        spell.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.spellName);
-                        spell.AddEntry($"{cardData.localizationKey}_{data.localizationKey}", data.description);
+                        spell.AddEntry($"{data.localizationKey}_title", data.spellName);
+                        spell.AddEntry($"_{data.localizationKey}", data.description);
                         Debug.Log($"Added Spell : {data.localizationKey}");
                     }
                     
@@ -53,8 +87,8 @@ namespace Editor
                         data.localizationKey = ComputeLocalizationKey(data.name);
                         EditorUtility.SetDirty(data);
                         
-                        passive.AddEntry($"{cardData.localizationKey}_{data.localizationKey}_title", data.passiveName);
-                        passive.AddEntry($"{cardData.localizationKey}_{data.localizationKey}", data.description);
+                        passive.AddEntry($"{data.localizationKey}_title", data.passiveName);
+                        passive.AddEntry($"{data.localizationKey}", data.description);
                         Debug.Log($"Added Passive : {data.localizationKey}");
                     }
                     
@@ -63,7 +97,9 @@ namespace Editor
             }
             
             EditorUtility.SetDirty(spell);
+            EditorUtility.SetDirty(spell.SharedData);
             EditorUtility.SetDirty(passive);
+            EditorUtility.SetDirty(passive.SharedData);
         }
         
         [MenuItem("Tools/Localization/Add Enemies To Trad File")]
@@ -104,6 +140,7 @@ namespace Editor
             }
             
             EditorUtility.SetDirty(enemies);
+            EditorUtility.SetDirty(enemies.SharedData);
         }
         
 
@@ -145,6 +182,9 @@ namespace Editor
                 
                 Debug.Log($"Create new Status : {key} => {data.statusName} / {data.statusDescription}");
             }
+            
+            EditorUtility.SetDirty(statusTable);
+            EditorUtility.SetDirty(statusTable.SharedData);
         }
         
         private static string ComputeLocalizationKey(string cardDataCardName)

@@ -34,14 +34,14 @@ namespace Combat.Passives
             if (cardController.cardData.isEnemy)
                 return LocalizationSystem.instance.GetEnemyPassiveTitle(cardController.cardData.localizationKey, passiveData.localizationKey);
             else
-                return LocalizationSystem.instance.GetPassiveTitle(cardController.cardData.localizationKey, passiveData.localizationKey);
+                return LocalizationSystem.instance.GetPassiveTitle(passiveData.localizationKey);
         }
         
         public virtual string ComputeTooltipDescription(int damage = int.MinValue)
         {
             string description = cardController.cardData.isEnemy ? 
                 LocalizationSystem.instance.GetEnemyPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey) : 
-                LocalizationSystem.instance.GetPassiveDescription(cardController.cardData.localizationKey, passiveData.localizationKey);
+                LocalizationSystem.instance.GetPassiveDescription(passiveData.localizationKey);
 
             if (damage > int.MinValue)
             {
