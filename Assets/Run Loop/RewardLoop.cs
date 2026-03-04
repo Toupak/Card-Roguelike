@@ -161,11 +161,11 @@ namespace Run_Loop
             for (int i = 0; i < framesCount; i++)
             {
                 if (exoticIndex < exoticFrames.Count && DropRateManager.instance.CheckForExoticFrameReward())
-                    RunLoop.instance.DrawItemToContainer(mainContainer).SetupAsFrameItem(exoticFrames[exoticIndex++]);
+                    RunLoop.instance.DrawFrameToContainer(mainContainer).SetupAsFrameItem(exoticFrames[exoticIndex++]);
                 else if (legendaryIndex < legendaryFrames.Count && DropRateManager.instance.CheckForLegendaryFrameReward())
-                    RunLoop.instance.DrawItemToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[legendaryIndex++]);
+                    RunLoop.instance.DrawFrameToContainer(mainContainer).SetupAsFrameItem(legendaryFrames[legendaryIndex++]);
                 else if (commonIndex < commonFrames.Count)
-                    RunLoop.instance.DrawItemToContainer(mainContainer).SetupAsFrameItem(commonFrames[commonIndex++]);
+                    RunLoop.instance.DrawFrameToContainer(mainContainer).SetupAsFrameItem(commonFrames[commonIndex++]);
                 yield return new WaitForSeconds(0.1f);
             }
         }

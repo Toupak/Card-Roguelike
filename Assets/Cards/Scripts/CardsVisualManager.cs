@@ -1,5 +1,4 @@
 using Inventory.Items;
-using Run_Loop;
 using UnityEngine;
 
 namespace Cards.Scripts
@@ -8,7 +7,8 @@ namespace Cards.Scripts
     {
         [SerializeField] private CardController cardGraphicsPrefab;
         [SerializeField] private CardController tokenGraphicsPrefab;
-        [SerializeField] private ItemController itemGraphicsPrefab;
+        [SerializeField] private ItemController frameGraphicsPrefab;
+        [SerializeField] private ItemController consumableGraphicsPrefab;
         
         public static CardsVisualManager instance;
 
@@ -35,9 +35,17 @@ namespace Cards.Scripts
             return newCard;
         }
         
-        public ItemController SpawnNewItemVisuals(CardMovement movement)
+        public ItemController SpawnNewFrameVisuals(CardMovement movement)
         {
-            ItemController newItem = Instantiate(itemGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
+            ItemController newItem = Instantiate(frameGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
+            newItem.SetupItem(movement);
+
+            return newItem;
+        }
+        
+        public ItemController SpawnNewConsumableVisuals(CardMovement movement)
+        {
+            ItemController newItem = Instantiate(consumableGraphicsPrefab, movement.transform.position, Quaternion.identity, transform);
             newItem.SetupItem(movement);
 
             return newItem;

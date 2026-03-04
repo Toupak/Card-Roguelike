@@ -190,7 +190,7 @@ namespace Combat.Spells.Targeting
                     }
                     else
                     {
-                        if (cardMovement.cardController.IsTargetable() || includeUnTargetable)
+                        if (cardMovement.cardController != null && (cardMovement.cardController.IsTargetable() || includeUnTargetable))
                             list.Add(cardMovement);
                     }
                 }

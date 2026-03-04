@@ -1,4 +1,5 @@
 using Cards.Scripts;
+using Inventory.Items.Consumables;
 using Inventory.Items.Frames;
 using TMPro;
 using UnityEngine;
@@ -25,6 +26,12 @@ namespace Inventory.Items
         private CardRarityDisplay cardRarityDisplay;
         public CardMovement cardMovement { get;  private set; }
 
+        private bool isFrame;
+        private FrameCardItem frameCardItem;
+        
+        private bool isConsumable;
+        private ConsumableController consumableController;
+        
         public void SetupItem(CardMovement movement)
         {
             rectTransform = GetComponent<RectTransform>();
@@ -37,11 +44,24 @@ namespace Inventory.Items
 
         public void SetupAsFrameItem(FrameData frameData)
         {
+            isFrame = true;
             gameObject.name = frameData.frameName;
             SetItemName(frameData.frameName);
             SetIcon(frameData.icon);
             SetRarity(frameData.rarity);
-            GetComponent<FrameCardItem>().Setup(frameData);
+            frameCardItem = GetComponent<FrameCardItem>();
+            frameCardItem.Setup(frameData);
+        }
+
+        public void SetupAsConsumableItem(ConsumableData consumableData)
+        {
+            isConsumable = true;
+            gameObject.name = consumableData.itemName;
+            SetItemName(consumableData.itemName);
+            SetIcon(consumableData.icon);
+            SetRarity(consumableData.rarity);
+            consumableController = Instantiate(consumableData.controller, transform);
+            consumableController.Setup(this, consumableData);
         }
 
         private void SetRarity(CardData.Rarity rarity)
@@ -68,13 +88,32 @@ namespace Inventory.Items
 
         public bool CanEquipItem(CardMovement target)
         {
-            return GetComponent<FrameCardItem>().CanEquipItem(target);
+            Debug.Log("CanEquipItem");
+            
+            if (isFrame)
+                return frameCardItem.CanEquipFrame(target);
+
+            if (isConsumable)
+            {
+                Debug.Log($"CanEquipItem stuff : {consumableController.CanUseConsumable(target)}");
+                return consumableController.CanUseConsumable(target);
+            }
+            
+            return false;
         }
 
         public void EquipItem(CardMovement target)
         {
-            GetComponent<FrameCardItem>().EquipItem(target);
-            KillItem(false);
+            Debug.Log("EquipItem");
+            
+            if (isFrame)
+                frameCardItem.EquipFrame(target, () => KillItem(false));
+
+            if (isConsumable)
+            {
+                Debug.Log("EquipItem use consu");
+                consumableController.UseConsumable(target, () => KillItem(true));
+            }
         }
     }
 }

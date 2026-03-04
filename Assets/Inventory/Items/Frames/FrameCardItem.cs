@@ -28,14 +28,17 @@ namespace Inventory.Items
             background.material = newMaterial;
         }
 
-        public bool CanEquipItem(CardMovement target)
+        public bool CanEquipFrame(CardMovement target)
         {
             return true;
         }
 
-        public void EquipItem(CardMovement target)
+        public void EquipFrame(CardMovement target, Action callback = null)
         {
-            target.cardController.AddFrame(data);    
+            target.cardController.AddFrame(data);
+            
+            if (callback != null)
+                callback?.Invoke();
         }
     }
 }

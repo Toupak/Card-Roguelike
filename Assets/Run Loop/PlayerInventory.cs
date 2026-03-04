@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cards.Scripts;
+using Inventory.Items.Consumables;
 using Inventory.Items.Frames;
 using UnityEngine;
 using UnityEngine.Events;
@@ -28,8 +29,13 @@ namespace Run_Loop
         public static PlayerInventory instance;
 
         public List<FrameItem> frames { get; private set; } = new List<FrameItem>();
+        public Dictionary<ConsumableData, int> consumables { get; private set; } = new Dictionary<ConsumableData, int>();
 
-        public bool isEmpty => frames.Count < 1;
+        public bool isEmpty => frames.Count < 1 && consumables.Count < 1;
+        
+        
+        [SerializeField] private List<ConsumableData> debugConsumables = new List<ConsumableData>();
+        
         
         private void Awake()
         {
@@ -49,6 +55,11 @@ namespace Run_Loop
             foreach (FrameData frame in RunLoop.instance.FrameDatabase.frames)
             {
                 frames.Add(new FrameItem(frame));
+            }
+
+            foreach (ConsumableData data in debugConsumables)
+            {
+                LootConsumable(data, 1);
             }
         }
 
@@ -81,6 +92,14 @@ namespace Run_Loop
                     return;
                 }
             }
+        }
+
+        public void LootConsumable(ConsumableData consumableData, int amount)
+        {
+            if (consumables.ContainsKey(consumableData))
+                consumables[consumableData] += amount;
+            else
+                consumables.Add(consumableData, amount);
         }
     }
 }

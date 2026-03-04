@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1183cd8747ef5f45a3252f64e9ed9f9, type: 3}
+  m_Name: PotionData
+  m_EditorClassIdentifier: 
+  itemName: Potion
+  itemDescription: Heal a card for 3 HP
+  icon: {fileID: -437273970386892745, guid: bc13e7a8f5c384148ae0ac0224245c67, type: 3}
+  rarity: 0
+  maxAmount: -1
+  isStackable: 1
+  maxStackCount: -1
+  controller: {fileID: 6821953392552509392, guid: 2e857c10cea0f9e4196144563506aa40, type: 3}

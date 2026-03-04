@@ -363,14 +363,25 @@ namespace Run_Loop
             return controller;
         }
         
-        public ItemController DrawItemToContainer(CardContainer container)
+        public ItemController DrawFrameToContainer(CardContainer container)
         {
             CardMovement newCard = Instantiate(cardMovementPrefab);
             container.ReceiveCard(newCard);
             
-            ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
+            ItemController controller = CardsVisualManager.instance.SpawnNewFrameVisuals(newCard);
             newCard.SetItemController(controller);
-
+            
+            return controller;
+        }
+        
+        public ItemController DrawConsumableToContainer(CardContainer container)
+        {
+            CardMovement newCard = Instantiate(cardMovementPrefab);
+            container.ReceiveCard(newCard);
+            
+            ItemController controller = CardsVisualManager.instance.SpawnNewConsumableVisuals(newCard);
+            newCard.SetItemController(controller);
+            
             return controller;
         }
     }

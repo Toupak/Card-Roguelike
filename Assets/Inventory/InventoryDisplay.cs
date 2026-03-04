@@ -1,46 +1,84 @@
+using System;
 using System.Collections.Generic;
-using BoomLib.UI.Scripts;
 using Cards.Scripts;
 using Combat;
 using Combat.Card_Container.Script;
 using Inventory.Items;
+using Inventory.Items.Consumables;
 using PrimeTween;
 using Run_Loop;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using Button = BoomLib.UI.Scripts.Button;
 using FrameItem = Run_Loop.FrameItem;
 
 namespace Inventory
 {
     public class InventoryDisplay : MonoBehaviour
     {
+        private enum InventoryDisplayTab
+        {
+            Frames,
+            Consumables
+        }
+        
         [SerializeField] private CardContainer inventoryContainer;
+        [SerializeField] private HorizontalLayoutGroup horizontalLayoutGroup;
         [SerializeField] private Button inventoryButton;
+        [SerializeField] private Button framesButton;
+        [SerializeField] private Button consumablesButton;
+        [SerializeField] private RectTransform inventorySubButtons;
+        [SerializeField] private RectTransform energyBar;
 
         [SerializeField] private CardMovement cardMovementPrefab;
 
         [Space]
         [SerializeField] private float animationDuration;
+        [SerializeField] private float scrollSpeed;
 
-        private RectTransform inventoryRect;
-        private RectTransform buttonRect;
-
+        private RectTransform inventoryContainerRect;
+        
         private bool isDisplayed;
+        private InventoryDisplayTab currentTab = InventoryDisplayTab.Frames;
         
         private void Start()
         {
-            PlayerInventory.OnUnEquipFrame.AddListener((frameItem, position) => CreateItem(frameItem, position, false));
-            CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(HideInventoryDuringFight);
+            inventoryContainerRect = horizontalLayoutGroup.GetComponent<RectTransform>();
             
-            inventoryRect = inventoryContainer.GetComponent<RectTransform>();
-            buttonRect = inventoryButton.GetComponent<RectTransform>();
-
-            LoadInventoryContent();
+            PlayerInventory.OnUnEquipFrame.AddListener((frameItem, position) => CreateFrameItem(frameItem, position, false));
+            CombatLoop.OnPlayerPlayStartFirstTurn.AddListener(() =>
+            {
+                framesButton.gameObject.SetActive(false);
+                HideInventory(GoToConsumableTab);
+            });
             
-            if (PlayerInventory.instance.isEmpty)
-                HideInventoryCompletely();
+            LoadInventoryFrames();
+            SetDisplayInitialState();
         }
 
-        private void LoadInventoryContent()
+        private void Update()
+        {
+            float mouseScroll = Mouse.current.scroll.value.y;
+
+            if (Mathf.Abs(mouseScroll) > 0.01f)
+            {
+                horizontalLayoutGroup.padding.left += (int)(mouseScroll * scrollSpeed * Time.deltaTime);
+                LayoutRebuilder.MarkLayoutForRebuild(inventoryContainerRect);
+            }
+        }
+
+        private void SetDisplayInitialState()
+        {
+            if (PlayerInventory.instance.isEmpty)
+                HideInventoryCompletely();
+            if (PlayerInventory.instance.frames.Count == 0)
+                framesButton.gameObject.SetActive(false);
+            if (PlayerInventory.instance.consumables.Count == 0)
+                consumablesButton.gameObject.SetActive(false);
+        }
+
+        private void LoadInventoryFrames()
         {
             List<FrameItem> frames = PlayerInventory.instance.frames;
 
@@ -49,20 +87,14 @@ namespace Inventory
             {
                 if (frameItem.target == null)
                 {
-                    CreateItem(frameItem, position);
+                    CreateFrameItem(frameItem, position);
                 }
             }
         }
 
-        public void CreateItem(FrameItem frameItem, Vector3 position, bool resetPosition = true)
+        private void CreateFrameItem(FrameItem frameItem, Vector3 position, bool resetPosition = true)
         {
-            CardMovement newCard = Instantiate(cardMovementPrefab, position, Quaternion.identity);
-
-            inventoryContainer.ReceiveCard(newCard);
-            
-            ItemController controller = CardsVisualManager.instance.SpawnNewItemVisuals(newCard);
-            newCard.SetItemController(controller);
-
+            ItemController controller = RunLoop.instance.DrawFrameToContainer(inventoryContainer);
             controller.SetupAsFrameItem(frameItem.data);
 
             if (!resetPosition)
@@ -71,63 +103,117 @@ namespace Inventory
                 controller.transform.position = position;
             }
         }
+        
+        private void LoadInventoryConsumables()
+        {
+            Dictionary<ConsumableData, int> consumables = PlayerInventory.instance.consumables;
+
+            Vector3 position = inventoryContainer.transform.position;
+            foreach (KeyValuePair<ConsumableData, int> keyValuePair in consumables)
+            {
+                if (keyValuePair.Key.isStackable)
+                    CreateConsumableItem(keyValuePair.Key, keyValuePair.Value);
+                else
+                {
+                    for (int i = 0; i < keyValuePair.Value; i++)
+                    {
+                        CreateConsumableItem(keyValuePair.Key, 1);
+                    }
+                }
+            }
+        }
+
+        private void CreateConsumableItem(ConsumableData data, int amount)
+        {
+            ItemController controller = RunLoop.instance.DrawConsumableToContainer(inventoryContainer);
+            controller.SetupAsConsumableItem(data);
+        }
 
         private void HideInventoryCompletely()
         {
             inventoryContainer.gameObject.SetActive(false);
             inventoryButton.gameObject.SetActive(false);
+            framesButton.gameObject.SetActive(false);
+            consumablesButton.gameObject.SetActive(false);
         }
 
-        public void DisplayInventory()
+        public void ClickDisplayInventory()
+        {
+            DisplayInventory();
+        }
+
+        public void DisplayInventory(Action callback = null)
         {
             if (isDisplayed)
                 return;
 
             isDisplayed = true;
             Sequence.Create()
-                .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x + 200.0f, animationDuration))
-                .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x + 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(inventoryContainer.rectTransform, inventoryContainer.rectTransform.anchoredPosition.x + 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(inventoryButton.rectTransform, inventoryButton.rectTransform.anchoredPosition.x + 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(inventorySubButtons, inventorySubButtons.anchoredPosition.x + 500.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(energyBar, energyBar.anchoredPosition.x + 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionY(energyBar, energyBar.anchoredPosition.y + 400.0f, animationDuration))
                 .ChainCallback(() =>
                 {
                     inventoryButton.OnClick.RemoveAllListeners();
-                    inventoryButton.OnClick.AddListener(HideInventory);
+                    inventoryButton.OnClick.AddListener(() => HideInventory());
                     inventoryButton.SetText("<");
+                    
+                    if (callback != null)
+                        callback?.Invoke();
                 });
         }
 
-        public void HideInventory()
+        public void HideInventory(Action callback = null)
         {
             if (!isDisplayed)
+            {
+                if (callback != null)
+                    callback?.Invoke();
                 return;
+            }
             
             isDisplayed = false;
             Sequence.Create()
-                .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 200.0f, animationDuration))
-                .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(inventoryContainer.rectTransform, inventoryContainer.rectTransform.anchoredPosition.x - 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(inventoryButton.rectTransform, inventoryButton.rectTransform.anchoredPosition.x - 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(inventorySubButtons, inventorySubButtons.anchoredPosition.x - 500.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionX(energyBar, energyBar.anchoredPosition.x - 200.0f, animationDuration))
+                .Group(Tween.UIAnchoredPositionY(energyBar, energyBar.anchoredPosition.y - 400.0f, animationDuration))
                 .ChainCallback(() =>
                 {
                     inventoryButton.OnClick.RemoveAllListeners();
-                    inventoryButton.OnClick.AddListener(DisplayInventory);
+                    inventoryButton.OnClick.AddListener(() => DisplayInventory());
                     inventoryButton.SetText(">");
+                   
+                    if (callback != null)
+                        callback?.Invoke();
                 });
         }
 
-        private void HideInventoryDuringFight()
+        public void GoToFrameTab()
         {
-            if (isDisplayed)
-            {
-                Sequence.Create()
-                    .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 200.0f, animationDuration))
-                    .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 200.0f, animationDuration))
-                    .Chain(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 500.0f, animationDuration))
-                    .Chain(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 500.0f, animationDuration));
-            }
-            else
-            {
-                Sequence.Create()
-                    .Group(Tween.UIAnchoredPositionX(inventoryRect, inventoryRect.anchoredPosition.x - 500.0f, animationDuration))
-                    .Group(Tween.UIAnchoredPositionX(buttonRect, buttonRect.anchoredPosition.x - 500.0f, animationDuration));
-            }
+            if (currentTab == InventoryDisplayTab.Frames)
+                return;
+            
+            Debug.Log("Go To Frame Tab");
+            inventoryContainer.ResetContainer();
+            LoadInventoryFrames();
+            
+            currentTab = InventoryDisplayTab.Frames;
+        }
+
+        public void GoToConsumableTab()
+        {
+            if (currentTab == InventoryDisplayTab.Consumables)
+                return;
+            
+            Debug.Log("Go To Consumable Tab");
+            inventoryContainer.ResetContainer();
+            LoadInventoryConsumables();
+            
+            currentTab = InventoryDisplayTab.Consumables;
         }
     }
 }
