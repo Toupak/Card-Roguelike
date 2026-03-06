@@ -11,10 +11,12 @@ namespace Combat.Spells
         {
             Enabled,
             Disabled,
-            Shiny
+            Shiny,
+            Silenced
         }
         
         [SerializeField] private Image buttonImage;
+        [SerializeField] private Image silencedIcon;
         
         [Space]
         [SerializeField] private Sprite enabledSprite;
@@ -61,6 +63,9 @@ namespace Combat.Spells
         
         private ButtonState ComputeButtonState()
         {
+            if (spellButton.spellController.isSilenced)
+                return ButtonState.Silenced;
+
             if (spellButton.spellController.IsShiny)
                 return ButtonState.Shiny;
 
@@ -76,12 +81,19 @@ namespace Combat.Spells
             {
                 case ButtonState.Enabled:
                     buttonImage.sprite = displayAsClicked ? enabledSpriteClicked : enabledSprite;
+                    silencedIcon.gameObject.SetActive(false);
                     break;
                 case ButtonState.Disabled:
                     buttonImage.sprite = displayAsClicked ? disabledSpriteClicked : disabledSprite;
+                    silencedIcon.gameObject.SetActive(false);
                     break;
                 case ButtonState.Shiny:
                     buttonImage.sprite = displayAsClicked ? shinySpriteClicked : shinySprite;
+                    silencedIcon.gameObject.SetActive(false);
+                    break;
+                case ButtonState.Silenced:
+                    buttonImage.sprite = disabledSprite;
+                    silencedIcon.gameObject.SetActive(true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

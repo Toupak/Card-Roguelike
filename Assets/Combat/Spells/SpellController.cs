@@ -30,6 +30,8 @@ namespace Combat.Spells
         
         public bool IsShiny { get; protected set; }
         public bool HasCastedThisTurn { get; protected set; }
+        public bool isSilenced { get; private set; }
+        
 
         protected bool isLocking;
         public int spellIndex => thisSpellButton.spellIndex;
@@ -50,6 +52,9 @@ namespace Combat.Spells
 
         public virtual bool CanCastSpell()
         {
+            if (isSilenced)
+                return false;
+            
             if (CombatLoop.instance == null || CombatLoop.instance.currentTurn != CombatLoop.TurnType.Player)
                 return false;
             
@@ -258,6 +263,11 @@ namespace Combat.Spells
                 return null;
             
             return validTargets[Random.Range(0, validTargets.Count)].cardController;
+        }
+        
+        public void SetSilenceState(bool state)
+        {
+            isSilenced = state;
         }
     }
 }
