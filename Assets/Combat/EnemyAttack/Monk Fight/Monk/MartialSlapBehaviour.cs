@@ -19,14 +19,14 @@ namespace Combat.EnemyAttack.Monk_Fight.Monk
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                 CardController target = ComputeTarget();
-                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
+                DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
                 ActionSystem.instance.Perform(damageGa);
             }
         }
         
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage, null)}X{hitCount}";
+            return $"{ComputeCurrentDamage(damage)}X{hitCount}";
         }
     }
 }

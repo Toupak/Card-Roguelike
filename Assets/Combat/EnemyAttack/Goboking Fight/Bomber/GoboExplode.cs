@@ -18,7 +18,7 @@ namespace Combat.EnemyAttack.Goboking_Fight.Bomber
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
             CardController target = ComputeTarget();
-            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
+            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
             ActionSystem.instance.Perform(damageGa);
 
             yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
@@ -43,7 +43,7 @@ namespace Combat.EnemyAttack.Goboking_Fight.Bomber
         
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage, null)}";
+            return $"{ComputeCurrentDamage(damage)}";
         }
 
         public override DamageSystem.DamageType GetDamageType()

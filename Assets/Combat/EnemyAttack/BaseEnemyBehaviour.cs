@@ -27,14 +27,9 @@ namespace Combat.EnemyAttack
             enemyCardController = controller;
         }
 
-        protected virtual int ComputeCurrentDamage(int spellDamage, CardController target)
+        protected virtual int ComputeCurrentDamage(int spellDamage)
         {
-            int damage = enemyCardController.cardController.ComputeCurrentDamage(spellDamage);
-
-            if (target != null && target.cardStatus.IsStatusApplied(StatusType.BerserkMode))
-                damage *= 2;
-
-            return damage;
+            return enemyCardController.cardController.ComputeCurrentDamage(spellDamage);
         }
 
         protected virtual CardController ComputeTarget()

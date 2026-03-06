@@ -22,7 +22,7 @@ namespace Combat.EnemyAttack.Behaviours
                 for (int i = 0; i < hitCount; i++)
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
-                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
+                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
                     ActionSystem.instance.Perform(damageGa);
                 }
             }
@@ -32,7 +32,7 @@ namespace Combat.EnemyAttack.Behaviours
                 {
                     yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
                     CardController target = ComputeTarget();
-                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
+                    DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
                     ActionSystem.instance.Perform(damageGa);
                 }
             }
@@ -40,7 +40,7 @@ namespace Combat.EnemyAttack.Behaviours
         
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage, null)}X{hitCount}";
+            return $"{ComputeCurrentDamage(damage)}X{hitCount}";
         }
     }
 }

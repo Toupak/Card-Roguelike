@@ -24,7 +24,7 @@ namespace Combat.EnemyAttack.Goboking_Fight.Goboking
             {
                 yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
-                DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage, target.cardController), enemyCardController.cardController, target.cardController);
+                DealDamageGA dealDamage = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target.cardController);
                 ActionSystem.instance.Perform(dealDamage);
             }
 
@@ -36,7 +36,7 @@ namespace Combat.EnemyAttack.Goboking_Fight.Goboking
     
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage, null)}";
+            return $"{ComputeCurrentDamage(damage)}";
         }
     }
 }

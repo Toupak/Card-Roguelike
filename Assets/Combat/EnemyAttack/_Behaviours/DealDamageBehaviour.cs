@@ -19,13 +19,13 @@ namespace Combat.EnemyAttack.Behaviours
             if (target == null)
                 yield break;
             
-            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage, target), enemyCardController.cardController, target);
+            DealDamageGA damageGa = new DealDamageGA(ComputeCurrentDamage(damage), enemyCardController.cardController, target);
             ActionSystem.instance.Perform(damageGa);
         }
         
         public override string GetDamageText()
         {
-            return $"{ComputeCurrentDamage(damage, null)}";
+            return $"{ComputeCurrentDamage(damage)}";
         }
     }
 }
