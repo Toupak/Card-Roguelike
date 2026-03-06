@@ -27,9 +27,11 @@ namespace Inventory.Items.Frames.data
                     ActionSystem.SubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.POST);
                     break;
                 case StatusBehaviourTimings.OnDamageDealt:
+                case StatusBehaviourTimings.OnNegatedDamageDealt:
                     ActionSystem.SubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
                     break;
                 case StatusBehaviourTimings.OnDamageReceived:
+                case StatusBehaviourTimings.OnNegatedDamageReceived:
                     ActionSystem.SubscribeReaction<DealDamageGA>(ReceiveDamageReaction, ReactionTiming.POST);
                     break;
                 case StatusBehaviourTimings.OnCombatStart:
@@ -54,9 +56,11 @@ namespace Inventory.Items.Frames.data
                     ActionSystem.UnsubscribeReaction<EndTurnGA>(EndTurnReaction, ReactionTiming.POST);
                     break;
                 case StatusBehaviourTimings.OnDamageDealt:
+                case StatusBehaviourTimings.OnNegatedDamageDealt:
                     ActionSystem.UnsubscribeReaction<DealDamageGA>(DealDamageReaction, ReactionTiming.POST);
                     break;
                 case StatusBehaviourTimings.OnDamageReceived:
+                case StatusBehaviourTimings.OnNegatedDamageReceived:
                     ActionSystem.UnsubscribeReaction<DealDamageGA>(ReceiveDamageReaction, ReactionTiming.POST);
                     break;
                 case StatusBehaviourTimings.OnCombatStart:
@@ -88,7 +92,9 @@ namespace Inventory.Items.Frames.data
             {
                 foreach (DealDamageGA.DamagePackage package in dealDamageGa.packages)
                 {
-                    if (!package.isDamageNegated)
+                    if (timing == StatusBehaviourTimings.OnNegatedDamageDealt && package.isDamageNegated)
+                        CheckBehaviour(ComputeTarget(package.target));
+                    else if (timing == StatusBehaviourTimings.OnDamageDealt && !package.isDamageNegated)
                         CheckBehaviour(ComputeTarget(package.target));
                 }
             }
@@ -97,9 +103,14 @@ namespace Inventory.Items.Frames.data
         private void ReceiveDamageReaction(DealDamageGA dealDamageGa)
         {
             DealDamageGA.DamagePackage package = dealDamageGa.GetDamagePackageForTarget(cardController);
-            
-            if (package != null && !package.isDamageNegated)
-                CheckBehaviour(ComputeTarget(dealDamageGa.attacker));
+
+            if (package != null)
+            {
+                if (timing == StatusBehaviourTimings.OnNegatedDamageReceived && package.isDamageNegated)
+                    CheckBehaviour(ComputeTarget(dealDamageGa.attacker));
+                else if (timing == StatusBehaviourTimings.OnDamageReceived && !package.isDamageNegated)
+                    CheckBehaviour(ComputeTarget(dealDamageGa.attacker));
+            }
         }
         
         private void StartCombatReaction(StartTurnGa startTurnGa)
