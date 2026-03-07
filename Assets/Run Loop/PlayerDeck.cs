@@ -38,6 +38,8 @@ namespace Run_Loop
         {
             if (deck.Contains(deckCard))
                 deck.Remove(deckCard);
+            if (lastHandPlayed.Contains(deckCard))
+                lastHandPlayed.Remove(deckCard);
         }
 
         public void ClearDeck()
@@ -47,7 +49,7 @@ namespace Run_Loop
         
         public bool ContainsCard(CardData cardData)
         {
-            return deck.Count((dc) => dc.name == cardData.name) > 0;
+            return deck.Contains(cardData);
         }
 
         public void SaveLastHandPlayed(List<CardData> cardsToSave)
