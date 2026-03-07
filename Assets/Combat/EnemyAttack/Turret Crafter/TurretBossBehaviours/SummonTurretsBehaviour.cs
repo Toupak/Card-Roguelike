@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonTurrets : BaseEnemyBehaviour
+public class SummonTurretsBehaviour : BaseEnemyBehaviour
 {
     [SerializeField] protected List<CardData> cardsToSpawn;
 
