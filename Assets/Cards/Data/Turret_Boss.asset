@@ -24,11 +24,15 @@ MonoBehaviour:
   alternativeCardPrefab: {fileID: 0}
   spellList: []
   passiveList: []
-  enemyBehaviours: []
+  enemyBehaviours:
+  - {fileID: -6212364544952068324, guid: ed024980692f511459197b188c917f0d, type: 3}
+  - {fileID: 1554789664651400460, guid: e9aa40ca3419854469563015fc8a3732, type: 3}
+  - {fileID: -8106157857340987088, guid: 4539fe6d7729561458e123fb02b85042, type: 3}
+  - {fileID: -6405765794665779235, guid: 3257c817737c735418be1857057f963b, type: 3}
   areEnemyBehavioursLooping: 0
   isMainBoss: 1
   isWaitingOnSpawn: 0
-  preferredPosition: 0
+  preferredPosition: 3
   isEnemySummon: 0
   pickupAudioClip: []
   dropAudioClip: []
