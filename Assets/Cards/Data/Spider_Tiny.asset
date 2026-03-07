@@ -16,6 +16,7 @@ MonoBehaviour:
   tribe: 0
   rarity: 0
   hpMax: 3
+  currentHp: 0
   isInvincible: 0
   artwork: {fileID: 21300000, guid: ec955e21f4cb5b941a2095755d059c9e, type: 3}
   description: 
@@ -31,4 +32,11 @@ MonoBehaviour:
   isWaitingOnSpawn: 1
   preferredPosition: 0
   isEnemySummon: 0
+  pickupAudioClip: []
+  dropAudioClip: []
+  inspectAudioClip: []
+  stopInspectAudioClip: []
+  spawnAudioClip: []
+  takeDamageAudioClip: []
+  deathAudioClip: []
   localizationKey: spider_tiny

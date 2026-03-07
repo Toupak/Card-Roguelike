@@ -2,6 +2,7 @@ using ActionReaction;
 using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Combat.Passives;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,11 +30,11 @@ public class AlluringAroma : PassiveController
         if (damage.IsCardTargeted(cardController))
         {
             if (cardController.cardHealth.currentHealth <= hpBeforePhase2)
-                SpawnPhase2();
+                StartCoroutine(SpawnPhase2());
         }
     }
 
-    private void SpawnPhase2()
+    private IEnumerator SpawnPhase2()
     {
         //Spawn 1 spiderling / 1 spider twice
         for (int i = 0; i < 2; i++)
@@ -47,6 +48,8 @@ public class AlluringAroma : PassiveController
 
         SpawnCardGA spawnCocon = new SpawnCardGA(cocon, cardController);
         ActionSystem.instance.AddReaction(spawnCocon);
+
+        yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);
 
         cardController.KillCard();
     }
