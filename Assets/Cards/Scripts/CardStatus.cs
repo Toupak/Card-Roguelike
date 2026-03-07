@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ActionReaction;
 using ActionReaction.Game_Actions;
-using BoomLib.Tools;
 using Combat.Status;
 using Combat.Status.Data;
 using UnityEngine;
@@ -50,7 +49,8 @@ namespace Cards.Scripts
         Sonar,
         Moonlight,
         Marker,
-        Stagger
+        Stagger,
+        Silence
     }
 
     public enum StatusBehaviour
@@ -135,8 +135,6 @@ namespace Cards.Scripts
     
     public class CardStatus : MonoBehaviour
     {
-        [SerializeField] private Image stunEffect;
-
         [HideInInspector] public UnityEvent<StatusType, StatusTabModification> OnUpdateStatus = new UnityEvent<StatusType, StatusTabModification>();
         
         private CardController cardController;
@@ -147,9 +145,6 @@ namespace Cards.Scripts
         private void Start()
         {
             cardController = GetComponent<CardController>();
-            
-            stunEffect.gameObject.SetActive(false);       //
-            OnUpdateStatus.AddListener(UpdateStunEffect); // Move this to DisplayCardStatusVFX
         }
         
         private void OnEnable()
@@ -433,11 +428,6 @@ namespace Cards.Scripts
                 return true;
 
             return false;
-        }
-        
-        private void UpdateStunEffect(StatusType type, StatusTabModification statusTabModification) // Move this to DisplayCardStatusVFX
-        {
-            stunEffect.gameObject.SetActive(IsStatusApplied(StatusType.Stun));
         }
 
         public StatusHolder GetStatusHolder(StatusType type)
