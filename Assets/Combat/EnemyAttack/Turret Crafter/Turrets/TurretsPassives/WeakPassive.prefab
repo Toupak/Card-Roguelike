@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8104387316704703432}
   - component: {fileID: -2764415885193592588}
   m_Layer: 5
-  m_Name: DebuffPassive
+  m_Name: WeakPassive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
