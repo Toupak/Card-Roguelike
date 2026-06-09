@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8b40c713c9044c9ac33511109ec8b, type: 3}
-  m_Name: Turret_Shoot
+  m_Name: Turret_Weak
   m_EditorClassIdentifier: 
-  cardName: Turret_Shoot
+  cardName: Turret_Weak
   tribe: 0
   rarity: 0
-  hpMax: 6
+  hpMax: 4
   currentHp: 0
   isInvincible: 0
-  artwork: {fileID: 21300000, guid: 03645ae7e4505f54c83cde6213e4d97f, type: 3}
+  artwork: {fileID: 21300000, guid: 6ee9cbbeabd7cb44da29be9484c41846, type: 3}
   description: 
   isSpecialSummon: 0
   alternativeCardPrefab: {fileID: 0}
   spellList: []
   passiveList:
-  - {fileID: 11400000, guid: 80e6fec64ada56148b570556a994619a, type: 2}
-  - {fileID: 11400000, guid: 4130d32e5f787f74392890b733be50f0, type: 2}
+  - {fileID: 11400000, guid: 768820cc8017fb84c8b3164ac1aad1f0, type: 2}
+  - {fileID: 11400000, guid: 59064eff3aa46e847bde079be651dc7e, type: 2}
   enemyBehaviours:
-  - {fileID: 2761655539834217552, guid: 0fffd9d0861728d4ea91b136b7af066d, type: 3}
   - {fileID: -4245130099457279694, guid: 2639addbfec05534787ba57910f32e05, type: 3}
+  - {fileID: 2761655539834217552, guid: 0fffd9d0861728d4ea91b136b7af066d, type: 3}
   areEnemyBehavioursLooping: 0
   isMainBoss: 0
   isWaitingOnSpawn: 0

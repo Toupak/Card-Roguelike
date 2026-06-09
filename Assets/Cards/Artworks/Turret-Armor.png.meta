@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 413064e98ede8ed4b992c7867efebded
+guid: 9fed4c8b6ad5b96439635ea7252c46ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7427926933438804036
-    second: Thorn_Turret_0
+      213: 6172673346798936771
+    second: Turret-Armor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Turret_Thorn
+      name: Turret-Armor_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
-        width: 64
-        height: 64
+        width: 54
+        height: 53
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4403d2de03c451760800000000000000
-      internalID: 7427926933438804036
+      spriteID: 3c2e87664bdb9a550800000000000000
+      internalID: 6172673346798936771
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: af754f4f9f193044d91e285b1b46c294
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Turret_Thorn: 7427926933438804036
+      Turret-Armor_0: 6172673346798936771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

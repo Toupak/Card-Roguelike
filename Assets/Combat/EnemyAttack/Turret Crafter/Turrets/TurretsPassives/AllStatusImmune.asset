@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f3c62729f99e04dbe15ccc04adfd0d, type: 3}
-  m_Name: StaggerPassive
+  m_Name: AllStatusImmune
   m_EditorClassIdentifier: 
-  passiveName: Stagger
-  description: Apply Stagger - Turn Start
-  icon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
+  passiveName: Status Immune
+  description: Immune To Status Effects
+  icon: {fileID: 0}
   backgroundColor:
     serializedVersion: 2
-    rgba: 4292024300
-  passiveController: {fileID: -2764415885193592588, guid: 14ca3f86068209042aa8085e59414873, type: 3}
+    rgba: 4286070298
+  passiveController: {fileID: -6251271598717184638, guid: d3657b3349d3bd34bb06cbfa5b920077, type: 3}
   localizationKey: 

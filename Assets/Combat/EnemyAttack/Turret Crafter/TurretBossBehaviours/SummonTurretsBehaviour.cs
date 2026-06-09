@@ -7,6 +7,7 @@ using Combat.Spells;
 using Combat.Spells.Targeting;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SummonTurretsBehaviour : BaseEnemyBehaviour
@@ -25,7 +26,13 @@ public class SummonTurretsBehaviour : BaseEnemyBehaviour
 
     protected virtual IEnumerator SpawnRandomEnemy()
     {
-        SpawnCardGA spawnCardGa = new SpawnCardGA(cardsToSpawn[Random.Range(0, cardsToSpawn.Count)], enemyCardController.cardController);
+        List<CardMovement> targets = TargetingSystem.instance.RetrieveBoard(TargetType.Enemy);
+
+        List<CardData> validTargets = cardsToSpawn
+            .Where(a => !targets.Any(b => b.cardController.cardData == a))
+            .ToList();
+
+        SpawnCardGA spawnCardGa = new SpawnCardGA(validTargets[Random.Range(0, validTargets.Count)], enemyCardController.cardController);
         ActionSystem.instance.Perform(spawnCardGa);
 
         yield return new WaitWhile(() => ActionSystem.instance.IsPerforming);

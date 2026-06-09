@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakPassive
   m_EditorClassIdentifier: 
   passiveName: Weak Passive
-  description: Reflects Damage
+  description: Apply Weak - Start Of Turn
   icon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   backgroundColor:
     serializedVersion: 2

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 413064e98ede8ed4b992c7867efebded
+guid: f3bbaddce0f2b764a9e4ed7977ebb80a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7427926933438804036
-    second: Thorn_Turret_0
+      213: -5501395113100599328
+    second: Turret_Immune_0
+  - first:
+      213: 8948127428510226486
+    second: Turret_Immune_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Turret_Thorn
+      name: Turret_Immune_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 64
-        height: 64
+        y: 16
+        width: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4403d2de03c451760800000000000000
-      internalID: 7427926933438804036
+      spriteID: 0ef9192da4e17a3b0800000000000000
+      internalID: -5501395113100599328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Turret_Immune_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 11
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638184dac722e2c70800000000000000
+      internalID: 8948127428510226486
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: af754f4f9f193044d91e285b1b46c294
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Turret_Thorn: 7427926933438804036
+      Turret_Immune_0: -5501395113100599328
+      Turret_Immune_1: 8948127428510226486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

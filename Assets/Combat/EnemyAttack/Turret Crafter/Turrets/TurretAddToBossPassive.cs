@@ -1,16 +1,43 @@
+using ActionReaction;
+using ActionReaction.Game_Actions;
+using Cards.Scripts;
+using Combat.Passives;
+using Combat.Spells.Targeting;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
-public class TurretAddToBossPassive : MonoBehaviour
+public class TurretAddToBossPassive : PassiveController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private CardData bossCardData;
+    [SerializeField] private PassiveData turretPassiveData;
+
+    private void OnEnable()
     {
-        
+        CreateAdditionalPassiveForBoss();
+        ActionSystem.SubscribeReaction<DeathGA>(RemoveAdditionalPassiveFromBoss, ReactionTiming.PRE);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        ActionSystem.UnsubscribeReaction<DeathGA>(RemoveAdditionalPassiveFromBoss, ReactionTiming.PRE);
+    }
+
+    private void RemoveAdditionalPassiveFromBoss(DeathGA deathGa)
+    {
+        if (deathGa.target != cardController)
+            return;
+
+        CardMovement bossCard = TargetingSystem.instance.RetrieveCard(bossCardData, Combat.Spells.TargetType.Enemy);
+
+        RemovePassiveGa passiveGa = new RemovePassiveGa(cardController, bossCard.cardController, turretPassiveData);
+        ActionSystem.instance.AddReaction(passiveGa);
+    }
+
+    private void CreateAdditionalPassiveForBoss()
+    {
+        CardMovement bossCard = TargetingSystem.instance.RetrieveCard(bossCardData, Combat.Spells.TargetType.Enemy);
+
+        ApplyPassiveGa passiveGa = new ApplyPassiveGa(cardController, bossCard.cardController, turretPassiveData);
+        ActionSystem.instance.Perform(passiveGa);
     }
 }

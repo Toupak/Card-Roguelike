@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8104387316704703432}
-  - component: {fileID: 1554789664651400460}
+  - component: {fileID: -7872400028717887909}
   m_Layer: 5
-  m_Name: SummonTurrets
+  m_Name: AttackAddPassiveToBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1554789664651400460
+--- !u!114 &-7872400028717887909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,21 +45,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8996121797547756110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea37428691db85546923d1ec2ed590c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 75bdc99d77cf72f4e8709c4c6a1c0023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourName: Crafting Defenses
-  description: Builds awesome Mechs
-  weight: 1
-  intentionIcon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
-  isWaiting: 0
-  localizationKey: 
-  cardsToSpawn:
-  - {fileID: 11400000, guid: 4bef792b9062bca418a1742c705a3b51, type: 2}
-  - {fileID: 11400000, guid: d76c076881293f549870f34f333d0478, type: 2}
-  - {fileID: 11400000, guid: 1a1c68111a16dc445830566789fb26e9, type: 2}
-  - {fileID: 11400000, guid: 8ac27b3fd3a297d4e8e8b3df617aa99a, type: 2}
-  - {fileID: 11400000, guid: ba0a5cf05c30be9478a0e20f3971bfd7, type: 2}
-  - {fileID: 11400000, guid: 4be79c3fb22d50248b2ce674e9ba8734, type: 2}
-  - {fileID: 11400000, guid: 8ec25437de6f0c4439aa7b2c95912443, type: 2}
-  spawnCount: 2
+  bossCardData: {fileID: 11400000, guid: 316a9cf83dc7b844490105ddf6fc5b41, type: 2}
+  turretPassiveData: {fileID: 11400000, guid: 4130d32e5f787f74392890b733be50f0, type: 2}
