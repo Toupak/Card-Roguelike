@@ -19,4 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4292024300
   passiveController: {fileID: -7872400028717887909, guid: 4913df7d0e2088c4ea8a315c360eeee1, type: 3}
-  localizationKey: 
+  localizationKey: armoraddpassivetoboss1

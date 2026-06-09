@@ -53,7 +53,7 @@ MonoBehaviour:
   weight: 1
   intentionIcon: {fileID: -476932370, guid: 684bf8a3c007c3c4687f7d04199cf47f, type: 3}
   isWaiting: 0
-  localizationKey: 
+  localizationKey: turretbuff
   statusType: 6
   stacks: 1
   turrets: []

@@ -547,6 +547,262 @@ MonoBehaviour:
     m_Localized: On death, apply $Weak$ to all cards on the same board
     m_Metadata:
       m_Items: []
+  - m_Id: 70864751912189952
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550080
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550081
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550082
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550083
+    m_Localized: Armor Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550084
+    m_Localized: Gives Armor Passive to the Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550085
+    m_Localized: Armor Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550086
+    m_Localized: Gains Armor - End Of Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550087
+    m_Localized: Crafting Additional Canons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550088
+    m_Localized: Gives 1 permanent Dmg to the turrets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550089
+    m_Localized: Crafting Defenses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550090
+    m_Localized: Builds awesome Mechs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550091
+    m_Localized: Guns Blazing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550092
+    m_Localized: Deals $d$ AoE damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550093
+    m_Localized: Heat up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550094
+    m_Localized: Gains 1 permanent damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550095
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550096
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550097
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550098
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744384
+    m_Localized: Status Immune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744385
+    m_Localized: Immune To Status Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744386
+    m_Localized: Immune Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744387
+    m_Localized: Gives Immune Passive to the Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744388
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744389
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744390
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744391
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744392
+    m_Localized: Attack Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744393
+    m_Localized: Gives Attack Passive to the Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744394
+    m_Localized: Attack Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744395
+    m_Localized: Gains Temporary Atck - Turn Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744396
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744397
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744398
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744399
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744400
+    m_Localized: Silence Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744401
+    m_Localized: Gives Silence Passive to the Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744402
+    m_Localized: Silence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744403
+    m_Localized: Silence - Turn Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744404
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744405
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744406
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744407
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744408
+    m_Localized: Stagger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744409
+    m_Localized: Apply Stagger - Turn Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744410
+    m_Localized: Stagger Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744411
+    m_Localized: Gives Stagger Passive to the Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744412
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744413
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744414
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744415
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744416
+    m_Localized: Thorns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744417
+    m_Localized: Reflects Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132992
+    m_Localized: Thorn Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132993
+    m_Localized: Gives Thorn Passive to the Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132994
+    m_Localized: Armored Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132995
+    m_Localized: Deals $d$ DMG, Gains 1 armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132996
+    m_Localized: Laser Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132997
+    m_Localized: Deals $d$ damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132998
+    m_Localized: Weak Passive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132999
+    m_Localized: Apply Weak - Start Of Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954133000
+    m_Localized: Weak Gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954133001
+    m_Localized: Gives Weak Passive to the Boss
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

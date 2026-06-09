@@ -559,6 +559,262 @@ MonoBehaviour:
     m_Key: lilguy_torpedopassive
     m_Metadata:
       m_Items: []
+  - m_Id: 70864751912189952
+    m_Key: turret-armor_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550080
+    m_Key: turret-armor_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550081
+    m_Key: turret-armor_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550082
+    m_Key: turret-armor_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550083
+    m_Key: turret-armor_armoraddpassivetoboss1_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550084
+    m_Key: turret-armor_armoraddpassivetoboss1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550085
+    m_Key: turret-armor_armorpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550086
+    m_Key: turret-armor_armorpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550087
+    m_Key: turret_boss_turretbuff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550088
+    m_Key: turret_boss_turretbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550089
+    m_Key: turret_boss_summonturrets_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550090
+    m_Key: turret_boss_summonturrets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550091
+    m_Key: turret_boss_gunsblazingturretboss_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550092
+    m_Key: turret_boss_gunsblazingturretboss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550093
+    m_Key: turret_boss_bossturretselfbuff_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550094
+    m_Key: turret_boss_bossturretselfbuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550095
+    m_Key: turret_immune_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550096
+    m_Key: turret_immune_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550097
+    m_Key: turret_immune_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751941550098
+    m_Key: turret_immune_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744384
+    m_Key: turret_immune_allstatusimmune_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744385
+    m_Key: turret_immune_allstatusimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744386
+    m_Key: turret_immune_immuneaddpassivetoboss6_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744387
+    m_Key: turret_immune_immuneaddpassivetoboss6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744388
+    m_Key: turret_shoot_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744389
+    m_Key: turret_shoot_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744390
+    m_Key: turret_shoot_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744391
+    m_Key: turret_shoot_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744392
+    m_Key: turret_shoot_attackaddpassivetoboss_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744393
+    m_Key: turret_shoot_attackaddpassivetoboss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744394
+    m_Key: turret_shoot_attackbuffpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744395
+    m_Key: turret_shoot_attackbuffpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744396
+    m_Key: turret_silence_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744397
+    m_Key: turret_silence_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744398
+    m_Key: turret_silence_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744399
+    m_Key: turret_silence_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744400
+    m_Key: turret_silence_silenceaddpassivetoboss2_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744401
+    m_Key: turret_silence_silenceaddpassivetoboss2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744402
+    m_Key: turret_silence_silencepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744403
+    m_Key: turret_silence_silencepassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744404
+    m_Key: turret_stagger_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744405
+    m_Key: turret_stagger_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744406
+    m_Key: turret_stagger_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744407
+    m_Key: turret_stagger_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744408
+    m_Key: turret_stagger_staggerpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744409
+    m_Key: turret_stagger_staggerpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744410
+    m_Key: turret_stagger_staggeraddpassivetoboss3_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744411
+    m_Key: turret_stagger_staggeraddpassivetoboss3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744412
+    m_Key: turret_thorn_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744413
+    m_Key: turret_thorn_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744414
+    m_Key: turret_thorn_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744415
+    m_Key: turret_thorn_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744416
+    m_Key: turret_thorn_thornpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751945744417
+    m_Key: turret_thorn_thornpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132992
+    m_Key: turret_thorn_thornaddpassivetoboss4_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132993
+    m_Key: turret_thorn_thornaddpassivetoboss4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132994
+    m_Key: turret_weak_turretdealdamagegainsarmor_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132995
+    m_Key: turret_weak_turretdealdamagegainsarmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132996
+    m_Key: turret_weak_turretdealdamage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132997
+    m_Key: turret_weak_turretdealdamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132998
+    m_Key: turret_weak_weakpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954132999
+    m_Key: turret_weak_weakpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954133000
+    m_Key: turret_weak_weakaddpassivetoboss5_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70864751954133001
+    m_Key: turret_weak_weakaddpassivetoboss5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

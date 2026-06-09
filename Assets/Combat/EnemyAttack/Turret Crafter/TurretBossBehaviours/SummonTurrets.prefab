@@ -53,7 +53,7 @@ MonoBehaviour:
   weight: 1
   intentionIcon: {fileID: -1250132664, guid: 0a6720becd6621d4c9368a5d02455aa6, type: 3}
   isWaiting: 0
-  localizationKey: 
+  localizationKey: summonturrets
   cardsToSpawn:
   - {fileID: 11400000, guid: 4bef792b9062bca418a1742c705a3b51, type: 2}
   - {fileID: 11400000, guid: d76c076881293f549870f34f333d0478, type: 2}

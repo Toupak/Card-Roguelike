@@ -41,4 +41,4 @@ MonoBehaviour:
   spawnAudioClip: []
   takeDamageAudioClip: []
   deathAudioClip: []
-  localizationKey: 
+  localizationKey: turret_immune

@@ -19,4 +19,4 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4292024300
   passiveController: {fileID: -7872400028717887909, guid: ab7c4068d05ac9744b0fd8a32485ad13, type: 3}
-  localizationKey: 
+  localizationKey: silenceaddpassivetoboss2
