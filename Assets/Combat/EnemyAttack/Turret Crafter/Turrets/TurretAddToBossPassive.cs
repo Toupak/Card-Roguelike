@@ -45,8 +45,6 @@ public class TurretAddToBossPassive : PassiveController
 
         CardMovement bossCard = TargetingSystem.instance.RetrieveCard(bossCardData, Combat.Spells.TargetType.Enemy);
 
-        Debug.Log($"Give passive : {bossCard != null}");
-
         ApplyPassiveGa passiveGa = new ApplyPassiveGa(cardController, bossCard.cardController, turretPassiveData);
         ActionSystem.instance.AddReaction(passiveGa);
     }
