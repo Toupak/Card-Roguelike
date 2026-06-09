@@ -3,7 +3,6 @@ using ActionReaction.Game_Actions;
 using Cards.Scripts;
 using Combat.Passives;
 using Combat.Spells.Targeting;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class TurretAddToBossPassive : PassiveController
@@ -35,6 +34,8 @@ public class TurretAddToBossPassive : PassiveController
 
     private void CreateAdditionalPassiveForBoss()
     {
+        Debug.Log("Give passive");
+
         CardMovement bossCard = TargetingSystem.instance.RetrieveCard(bossCardData, Combat.Spells.TargetType.Enemy);
 
         ApplyPassiveGa passiveGa = new ApplyPassiveGa(cardController, bossCard.cardController, turretPassiveData);
