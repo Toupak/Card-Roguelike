@@ -61,16 +61,13 @@ public class DebuffPassive : PassiveController
             CardController target = PickRandomTarget(cards);
 
             ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, cardController, target);
-            ActionSystem.instance.AddReaction(applyStatusGa);            
+            ActionSystem.instance.AddReaction(applyStatusGa);
         }
 
         if (targetsSelf)
         {
-            List<CardMovement> cards = TargetingSystem.instance.RetrieveBoard(TargetType.Self);
-            CardController target = PickRandomTarget(cards);
-
-            ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, cardController, target);
-            ActionSystem.instance.AddReaction(applyStatusGa);    
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, cardController, cardController);
+            ActionSystem.instance.AddReaction(applyStatusGa);
         }
     }
 

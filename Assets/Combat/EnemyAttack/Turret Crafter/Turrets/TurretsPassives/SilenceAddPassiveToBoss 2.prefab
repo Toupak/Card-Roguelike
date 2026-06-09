@@ -49,4 +49,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossCardData: {fileID: 11400000, guid: 316a9cf83dc7b844490105ddf6fc5b41, type: 2}
-  turretPassiveData: {fileID: 11400000, guid: 8710a988e7955de42a860fc2c8214ecd, type: 2}
+  turretPassiveData: {fileID: 11400000, guid: 317a55bc707ae504b85e54500b35baaa, type: 2}
