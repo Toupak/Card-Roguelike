@@ -7,6 +7,7 @@ using Combat.Spells;
 using Combat.Spells.Targeting;
 using Combat.Status;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DebuffPassive : PassiveController
@@ -17,6 +18,10 @@ public class DebuffPassive : PassiveController
     [Space]
     [SerializeField] private bool startOfTurn;
     [SerializeField] private bool endOfTurn;
+
+    [Space]
+    [SerializeField] private bool targetsRandomEnemy = true;
+    [SerializeField] private bool targetsSelf;
 
     private void OnEnable()
     {
@@ -50,16 +55,30 @@ public class DebuffPassive : PassiveController
 
     private void ApplyDebuff()
     {
-        List<CardMovement> cards = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
-        CardController target = PickRandomTarget(cards);
+        if (targetsRandomEnemy)
+        {
+            List<CardMovement> cards = TargetingSystem.instance.RetrieveBoard(TargetType.Ally);
+            CardController target = PickRandomTarget(cards);
 
-        ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, cardController, target);
-        ActionSystem.instance.AddReaction(applyStatusGa);
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, cardController, target);
+            ActionSystem.instance.AddReaction(applyStatusGa);            
+        }
+
+        if (targetsSelf)
+        {
+            List<CardMovement> cards = TargetingSystem.instance.RetrieveBoard(TargetType.Self);
+            CardController target = PickRandomTarget(cards);
+
+            ApplyStatusGa applyStatusGa = new ApplyStatusGa(statusType, stacks, cardController, target);
+            ActionSystem.instance.AddReaction(applyStatusGa);    
+        }
     }
 
     //Unity Editor - so both bools EoT / SoT can't be checked at the same time
     private bool previousStartOfTurn;
     private bool previousEndOfTurn;
+    private bool previousTargetsRandomEnemy;
+    private bool previousTargetsSelf;
     private void OnValidate()
     {
         if (startOfTurn != previousStartOfTurn)
@@ -75,5 +94,19 @@ public class DebuffPassive : PassiveController
 
         previousStartOfTurn = startOfTurn;
         previousEndOfTurn = endOfTurn;
+
+        if (targetsRandomEnemy != previousTargetsRandomEnemy)
+        {
+            if (targetsRandomEnemy)
+                targetsSelf = false;
+        }
+        else if (targetsSelf != previousTargetsSelf)
+        {
+            if (targetsSelf)
+                targetsRandomEnemy = false;
+        }
+
+        previousTargetsRandomEnemy = targetsRandomEnemy;
+        previousTargetsSelf = targetsSelf;
     }
 }

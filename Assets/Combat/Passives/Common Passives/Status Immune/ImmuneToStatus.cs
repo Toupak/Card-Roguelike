@@ -9,6 +9,7 @@ namespace Combat.Passives.Common_Passives.Status_Immune
     public class ImmuneToStatus : PassiveController
     {
         [SerializeField] private StatusType statusType;
+        [SerializeField] private bool immuneToAllStatuses;
         
         private void OnEnable()
         {
@@ -22,6 +23,13 @@ namespace Combat.Passives.Common_Passives.Status_Immune
         
         private void ImmuneToStatusReaction(ApplyStatusGa applyStatusGa)
         {
+            if (applyStatusGa.target == cardController && immuneToAllStatuses == true)
+            {
+                applyStatusGa.NegateEffect();
+                DamageNumberFactory.instance.DisplayQuickMessage(cardController.rectTransform.anchoredPosition, "Immune");
+                return;
+            }
+
             if (applyStatusGa.target == cardController && applyStatusGa.type == statusType)
             {
                 applyStatusGa.NegateEffect();

@@ -49,6 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusType: 10
-  stacks: 0
+  stacks: 1
   startOfTurn: 1
   endOfTurn: 0
