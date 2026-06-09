@@ -10,15 +10,21 @@ public class TurretAddToBossPassive : PassiveController
     [SerializeField] private CardData bossCardData;
     [SerializeField] private PassiveData turretPassiveData;
 
+    public override void Setup(CardController controller, PassiveData data)
+    {
+        base.Setup(controller, data);
+    }
+
     private void OnEnable()
     {
-        CreateAdditionalPassiveForBoss();
         ActionSystem.SubscribeReaction<DeathGA>(RemoveAdditionalPassiveFromBoss, ReactionTiming.PRE);
+        ActionSystem.SubscribeReaction<SpawnCardGA>(CreateAdditionalPassiveForBoss, ReactionTiming.POST);
     }
 
     private void OnDisable()
     {
         ActionSystem.UnsubscribeReaction<DeathGA>(RemoveAdditionalPassiveFromBoss, ReactionTiming.PRE);
+        ActionSystem.UnsubscribeReaction<SpawnCardGA>(CreateAdditionalPassiveForBoss, ReactionTiming.POST);
     }
 
     private void RemoveAdditionalPassiveFromBoss(DeathGA deathGa)
@@ -32,13 +38,16 @@ public class TurretAddToBossPassive : PassiveController
         ActionSystem.instance.AddReaction(passiveGa);
     }
 
-    private void CreateAdditionalPassiveForBoss()
+    private void CreateAdditionalPassiveForBoss(SpawnCardGA spawnCardGA)
     {
-        Debug.Log("Give passive");
+        if (spawnCardGA.spawnedCard != cardController)
+            return;
 
         CardMovement bossCard = TargetingSystem.instance.RetrieveCard(bossCardData, Combat.Spells.TargetType.Enemy);
 
+        Debug.Log($"Give passive : {bossCard != null}");
+
         ApplyPassiveGa passiveGa = new ApplyPassiveGa(cardController, bossCard.cardController, turretPassiveData);
-        ActionSystem.instance.Perform(passiveGa);
+        ActionSystem.instance.AddReaction(passiveGa);
     }
 }

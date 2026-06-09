@@ -815,6 +815,62 @@ MonoBehaviour:
     m_Key: turret_weak_weakaddpassivetoboss5
     m_Metadata:
       m_Items: []
+  - m_Id: 70871772500295680
+    m_Key: turret_boss_allstatusimmune_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772634513408
+    m_Key: turret_boss_allstatusimmune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707712
+    m_Key: turret_boss_armorpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707713
+    m_Key: turret_boss_armorpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707714
+    m_Key: turret_boss_attackbuffpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707715
+    m_Key: turret_boss_attackbuffpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707716
+    m_Key: turret_boss_silencepassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707717
+    m_Key: turret_boss_silencepassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707718
+    m_Key: turret_boss_staggerpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707719
+    m_Key: turret_boss_staggerpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707720
+    m_Key: turret_boss_thornpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707721
+    m_Key: turret_boss_thornpassive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707722
+    m_Key: turret_boss_weakpassive_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707723
+    m_Key: turret_boss_weakpassive
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

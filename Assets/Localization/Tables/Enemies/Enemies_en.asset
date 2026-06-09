@@ -803,6 +803,62 @@ MonoBehaviour:
     m_Localized: Gives Weak Passive to the Boss
     m_Metadata:
       m_Items: []
+  - m_Id: 70871772500295680
+    m_Localized: Status Immune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772634513408
+    m_Localized: Immune To Status Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707712
+    m_Localized: Armor Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707713
+    m_Localized: Gains Armor - End Of Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707714
+    m_Localized: Attack Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707715
+    m_Localized: Gains Temporary Atck - Turn Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707716
+    m_Localized: Silence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707717
+    m_Localized: Silence - Turn Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707718
+    m_Localized: Stagger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707719
+    m_Localized: Apply Stagger - Turn Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707720
+    m_Localized: Thorns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707721
+    m_Localized: Reflects Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707722
+    m_Localized: Weak Passive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70871772638707723
+    m_Localized: Apply Weak - Start Of Turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
