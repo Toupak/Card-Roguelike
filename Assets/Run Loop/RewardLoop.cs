@@ -10,8 +10,10 @@ using Inventory.Drop_Rates;
 using Inventory.Items;
 using Inventory.Items.Frames;
 using Map.Rooms;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Run_Loop
 {
@@ -26,13 +28,17 @@ namespace Run_Loop
         [SerializeField] private GameObject openBoosterButton;
         [SerializeField] private GameObject selectCardButton;
         [SerializeField] private GameObject validateButton;
+
+        [Space]
+        [SerializeField] private TextMeshProUGUI rewardText;
+        [SerializeField] private Image rewardBackground;
+        private int rewardGold;
         
         [Space] 
         [SerializeField] private List<CardData> testData;
 
-        public static RewardLoop instance;
 
-        private RoomData.RoomType currentRoomType;
+        public static RewardLoop instance;
 
         public bool isRewardScreenOver { get; private set; }
         
@@ -50,6 +56,7 @@ namespace Run_Loop
             if (!isFirstRun)
                 yield return LoadCurrentDeckInHand();
 
+            yield return ComputeMoneyFromFight();
             yield return OpenBooster(3);
             
             if (DropRateManager.instance.CheckForFrameReward())
@@ -354,30 +361,42 @@ namespace Run_Loop
 
         private IEnumerator AddMoneyFromFight()
         {
-            int reward = ComputeMoneyFromFight();
-            PlayerInventory.instance.AddMoney(reward);
+            PlayerInventory.instance.AddMoney(rewardGold);
 
             Debug.Log("Toup test money : " + PlayerInventory.instance.money);
             yield return null;
         }
 
-        private int ComputeMoneyFromFight()
+        private IEnumerator ComputeMoneyFromFight()
         {
-            if (RoomBuilder.instance.CurrentRoom == null)
-                return 0;
+//Resets Reward
+            rewardBackground.gameObject.SetActive(false);
+            rewardGold = 0;
+            rewardText.text = "";
+            
 
-            currentRoomType = RoomBuilder.instance.CurrentRoom.roomType;
+//Which room are we in and gold amount depending on it
+            RoomData.RoomType currentRoomType = new();
+            if (RoomBuilder.instance.CurrentRoom != null)
+                currentRoomType = RoomBuilder.instance.CurrentRoom.roomType;
 
             if (currentRoomType == RoomData.RoomType.Battle)
-                return Random.Range(8, 12);
+                rewardGold = Random.Range(8, 12);
 
             if (currentRoomType == RoomData.RoomType.Elite)
-                return Random.Range(16, 24);
+                rewardGold = Random.Range(16, 24);
 
             if (currentRoomType == RoomData.RoomType.Boss)
-                return Random.Range(50, 75);
+                rewardGold = Random.Range(50, 75);
 
-            return 0;
+//Display Text
+            if (rewardGold != 0)
+            {
+                rewardText.text = $"{rewardGold} golds";
+                rewardBackground.gameObject.SetActive(true);
+            }
+
+            yield return null;
         }
     }
 }
