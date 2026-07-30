@@ -9,6 +9,7 @@ using Combat.Card_Container.Script;
 using Inventory.Drop_Rates;
 using Inventory.Items;
 using Inventory.Items.Frames;
+using Map.Rooms;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,12 +27,12 @@ namespace Run_Loop
         [SerializeField] private GameObject selectCardButton;
         [SerializeField] private GameObject validateButton;
         
-        
-
         [Space] 
         [SerializeField] private List<CardData> testData;
 
         public static RewardLoop instance;
+
+        private RoomData.RoomType currentRoomType;
 
         public bool isRewardScreenOver { get; private set; }
         
@@ -56,6 +57,7 @@ namespace Run_Loop
 
             yield return DisplayFinalSelection();
             yield return WaitUntilFinalValidation();
+            yield return AddMoneyFromFight();
         }
 
         private void Update()
@@ -348,6 +350,34 @@ namespace Run_Loop
             }
 
             isRewardScreenOver = true;
+        }
+
+        private IEnumerator AddMoneyFromFight()
+        {
+            int reward = ComputeMoneyFromFight();
+            PlayerInventory.instance.AddMoney(reward);
+
+            Debug.Log("Toup test money : " + PlayerInventory.instance.money);
+            yield return null;
+        }
+
+        private int ComputeMoneyFromFight()
+        {
+            if (RoomBuilder.instance.CurrentRoom == null)
+                return 0;
+
+            currentRoomType = RoomBuilder.instance.CurrentRoom.roomType;
+
+            if (currentRoomType == RoomData.RoomType.Battle)
+                return Random.Range(8, 12);
+
+            if (currentRoomType == RoomData.RoomType.Elite)
+                return Random.Range(16, 24);
+
+            if (currentRoomType == RoomData.RoomType.Boss)
+                return Random.Range(50, 75);
+
+            return 0;
         }
     }
 }

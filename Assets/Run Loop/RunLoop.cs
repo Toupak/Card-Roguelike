@@ -93,6 +93,7 @@ namespace Run_Loop
             currentBattleIndex = 0;
             PlayerDeck.instance.ClearDeck();
             MapBuilder.instance.SetupMap(floorData);
+            PlayerInventory.instance.ResetMoney();
 
             if (isSelectingCharacter)
                 yield return SelectCharacter();
@@ -188,7 +189,7 @@ namespace Run_Loop
             if (!IsRunOver() && isPlayerAlive)
             {
                 yield return PerformRewardScene();
-                
+
                 currentBattleIndex += 1;
 
                 RoomBuilder.instance.MarkCurrentRoomAsCleared();

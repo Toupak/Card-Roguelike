@@ -35,7 +35,8 @@ namespace Run_Loop
         
         
         [SerializeField] private List<ConsumableData> debugConsumables = new List<ConsumableData>();
-        
+
+        public int money { get; private set; }
         
         private void Awake()
         {
@@ -100,6 +101,16 @@ namespace Run_Loop
                 consumables[consumableData] += amount;
             else
                 consumables.Add(consumableData, amount);
+        }
+
+        public void AddMoney(int amount)
+        {
+            money += amount;
+        }
+
+        public void ResetMoney()
+        {
+            money = 0;
         }
     }
 }
