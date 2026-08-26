@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 728.2, y: 11.76}
-  m_SizeDelta: {x: -1604.8, y: -959.5811}
+  m_AnchoredPosition: {x: -708.9, y: -286}
+  m_SizeDelta: {x: -1654.281, y: -981.2291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33197185
 MonoBehaviour:
@@ -785,6 +785,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544826496}
   m_CullTransparentMesh: 1
+--- !u!1 &555908090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555908091}
+  m_Layer: 5
+  m_Name: MoneyRewardSpot2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &555908091
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555908090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2078160272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 71}
+  m_SizeDelta: {x: -1654.281, y: -981.2291}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &562964518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1376,12 @@ MonoBehaviour:
   selectCardButton: {fileID: 303265950}
   validateButton: {fileID: 1920195176}
   rewardText: {fileID: 33197185}
+  moneyAnimationDuration: 0.5
   rewardBackground: {fileID: 1195506152}
+  moneyGrabSound: {fileID: 8300000, guid: e457b55b6930e3c45b041617136aa537, type: 3}
+  moneyRewardContainer: {fileID: 33197184}
+  moneyRewardSpot1: {fileID: 1530374648}
+  moneyRewardSpot2: {fileID: 555908091}
   testData:
   - {fileID: 11400000, guid: b761af65222c49f4ebc0b1fb3f3d09f6, type: 2}
   - {fileID: 11400000, guid: bd60871a2a139804482337ab1434c519, type: 2}
@@ -1685,7 +1725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0.0012664795}
+  m_AnchoredPosition: {x: 0, y: 0.0012512207}
   m_SizeDelta: {x: 0.95999146, y: -0.9299927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195506152
@@ -1779,6 +1819,41 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 5983911002456220135, guid: a7aa4998c00ced34e9e7f4420a4cba67, type: 3}
   leftSubTooltipHolder: {fileID: 585678051}
   rightSubTooltipHolder: {fileID: 1725283751}
+--- !u!1 &1530374647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530374648}
+  m_Layer: 5
+  m_Name: MoneyRewardSpot1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1530374648
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530374647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2078160272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -708.9, y: -286}
+  m_SizeDelta: {x: -1654.281, y: -981.2291}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1725283750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,6 +2442,8 @@ RectTransform:
   - {fileID: 303265951}
   - {fileID: 1920195177}
   - {fileID: 33197184}
+  - {fileID: 1530374648}
+  - {fileID: 555908091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

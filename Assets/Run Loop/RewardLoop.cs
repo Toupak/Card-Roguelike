@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BoomLib.SFX_Player.Scripts;
 using BoomLib.Tools;
 using Cards.Scripts;
 using Cards.Tween_Animations;
@@ -31,7 +32,13 @@ namespace Run_Loop
 
         [Space]
         [SerializeField] private TextMeshProUGUI rewardText;
+        [SerializeField] private float moneyAnimationDuration;
         [SerializeField] private Image rewardBackground;
+        [SerializeField] private AudioClip moneyGrabSound;
+        [SerializeField] private RectTransform moneyRewardContainer;
+        [SerializeField] private RectTransform moneyRewardSpot1;
+        [SerializeField] private RectTransform moneyRewardSpot2;
+
         private int rewardGold;
         
         [Space] 
@@ -64,7 +71,6 @@ namespace Run_Loop
 
             yield return DisplayFinalSelection();
             yield return WaitUntilFinalValidation();
-            yield return AddMoneyFromFight();
         }
 
         private void Update()
@@ -298,6 +304,8 @@ namespace Run_Loop
                 selectedCardsContainer.SendCardToOtherBoard(0, mainContainer);
                 yield return new WaitForSeconds(0.1f);
             }
+
+            moneyRewardContainer.anchoredPosition = moneyRewardSpot2.anchoredPosition;
         }
 
         private IEnumerator WaitUntilFinalValidation()
@@ -306,7 +314,9 @@ namespace Run_Loop
             yield return SetValidateButtonState(true);
             yield return new WaitUntil(() => hasClickedOnValidate);
             yield return SendSelectedCardsToHand();
+            yield return AddMoneyFromFight();
             yield return SetValidateButtonState(false);
+            isRewardScreenOver = true;
         }
 
         private IEnumerator SetValidateButtonState(bool state)
@@ -320,7 +330,7 @@ namespace Run_Loop
         {
             hasClickedOnValidate = true;
         }
-        
+
         private IEnumerator SendSelectedCardsToHand()
         {
             while (mainContainer.Slots.Count > 0)
@@ -355,16 +365,33 @@ namespace Run_Loop
                 
                 yield return new WaitForSeconds(0.25f);
             }
-
-            isRewardScreenOver = true;
         }
 
         private IEnumerator AddMoneyFromFight()
         {
             PlayerInventory.instance.AddMoney(rewardGold);
 
+            int start = rewardGold;
+            int rewardGoldCopy = rewardGold;
+
+            SFXPlayer.instance.PlaySFX(moneyGrabSound);
+
+            float elapsed = 0f;
+            rewardText.text = $"{rewardGold} golds";
+            while (elapsed < moneyAnimationDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / moneyAnimationDuration);
+                rewardGoldCopy = Mathf.RoundToInt(Mathf.Lerp(start, 0, t));
+                rewardText.text = $"{rewardGoldCopy} golds";
+                yield return null;
+            }
+            
+            rewardGoldCopy = 0;
+            rewardText.text = $"{rewardGoldCopy} golds";
+
             Debug.Log("Toup test money : " + PlayerInventory.instance.money);
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
         }
 
         private IEnumerator ComputeMoneyFromFight()
@@ -373,6 +400,7 @@ namespace Run_Loop
             rewardBackground.gameObject.SetActive(false);
             rewardGold = 0;
             rewardText.text = "";
+            moneyRewardContainer.position = moneyRewardSpot1.position;
             
 
 //Which room are we in and gold amount depending on it
@@ -387,7 +415,7 @@ namespace Run_Loop
                 rewardGold = Random.Range(16, 24);
 
             if (currentRoomType == RoomData.RoomType.Boss)
-                rewardGold = Random.Range(50, 75);
+                rewardGold = Random.Range(60, 75);
 
 //Display Text
             if (rewardGold != 0)
