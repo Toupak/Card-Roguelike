@@ -314,7 +314,7 @@ namespace Run_Loop
             yield return SetValidateButtonState(true);
             yield return new WaitUntil(() => hasClickedOnValidate);
             yield return SendSelectedCardsToHand();
-            yield return AddMoneyFromFight();
+            yield return ProcessRewardMoney();
             yield return SetValidateButtonState(false);
             isRewardScreenOver = true;
         }
@@ -367,7 +367,7 @@ namespace Run_Loop
             }
         }
 
-        private IEnumerator AddMoneyFromFight()
+        private IEnumerator ProcessRewardMoney()
         {
             PlayerInventory.instance.AddMoney(rewardGold);
 

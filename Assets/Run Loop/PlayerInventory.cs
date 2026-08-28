@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Cards.Scripts;
 using Inventory.Items.Consumables;
 using Inventory.Items.Frames;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -35,6 +35,10 @@ namespace Run_Loop
         
         
         [SerializeField] private List<ConsumableData> debugConsumables = new List<ConsumableData>();
+        
+        [Space]
+        [SerializeField] private GameObject moneyParentGameObject;
+        [SerializeField] private TextMeshProUGUI moneyAmountDisplayBox;
 
         public int money { get; private set; }
         
@@ -45,7 +49,13 @@ namespace Run_Loop
 
         private void Start()
         {
-           LoadDebugInventory();
+            LoadDebugInventory();
+            moneyParentGameObject.SetActive(false);
+            SceneLoader.OnLoadScene.AddListener(ToggleMoneyDisplay);
+        }
+        private void OnDestroy()
+        {
+            SceneLoader.OnLoadScene.RemoveListener(ToggleMoneyDisplay);
         }
 
         private void LoadDebugInventory()
@@ -106,11 +116,26 @@ namespace Run_Loop
         public void AddMoney(int amount)
         {
             money += amount;
+            UpdateMoneyDisplay();
         }
 
         public void ResetMoney()
         {
             money = 0;
+            UpdateMoneyDisplay();
+        }
+
+        private void UpdateMoneyDisplay()
+        {
+            moneyAmountDisplayBox.text = money.ToString();
+        }
+
+        private void ToggleMoneyDisplay(string sceneName)
+        {
+//Only works with the current naming convention : exploration rooms start with a digit and other scenes don't
+            bool isExplorationScene = !string.IsNullOrEmpty(sceneName) && char.IsDigit(sceneName[0]);
+
+            moneyParentGameObject.SetActive(isExplorationScene);
         }
     }
 }
